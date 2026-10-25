@@ -44,13 +44,13 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js"><\/script><scri
     <button class="savedbtn" id="savedBtn" type="button">Mi viaje <span class="n" id="savedN">0</span></button>
   </div>
     <nav class="main" aria-label="Sección"><div class="wrap">
+      <a href="/Nihon-Trip/es/map/" data-view="map"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6.5v13.5l6-2.5 6 2.5 6-2.5V4l-6 2.5L9 4z"></path><path d="M9 4v13.5M15 6.5V20"></path></svg><span>Mapa</span></a>
       <a href="/Nihon-Trip/es/" data-view="home"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"></path></svg><span>Ideas de viaje</span></a>
       <a href="/Nihon-Trip/es/okinawa/hokubu/spots/" data-view="spots" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z"></path><circle cx="12" cy="10" r="2.3"></circle></svg><span>Lugares</span></a>
       <a href="/Nihon-Trip/es/okinawa/hokubu/festivals/" data-view="festivals"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5v2"></path><rect x="6.5" y="4.5" width="11" height="14" rx="5.5"></rect><path d="M6.8 9.5h10.4M6.8 13.5h10.4M12 18.5v3"></path></svg><span>Festivales</span></a>
       <a href="/Nihon-Trip/es/okinawa/hokubu/food/" data-view="food"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M4.5 3v5a2.5 2.5 0 005 0V3M7 11v10"></path><path d="M17 21V3c-2.2 1.2-3.5 3.6-3.5 6.5V13H17"></path></svg><span>Comida</span></a>
       <a href="/Nihon-Trip/es/okinawa/hokubu/transport/" data-view="transport"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="3"></rect><path d="M5 10h14M9 13.5h.01M15 13.5h.01M8 20l1.5-3M16 20l-1.5-3"></path></svg><span>Transporte</span></a>
       <a href="/Nihon-Trip/es/okinawa/hokubu/shopping/" data-view="shopping"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 8V6.5a3 3 0 016 0V8"></path></svg><span>Compras</span></a>
-      <a href="/Nihon-Trip/es/map/" data-view="map"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6.5v13.5l6-2.5 6 2.5 6-2.5V4l-6 2.5L9 4z"></path><path d="M9 4v13.5M15 6.5V20"></path></svg><span>Mapa</span></a>
     </div></nav>
 </header>
 
@@ -60,7 +60,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js"><\/script><scri
   <div class="cities" id="cities" role="group" aria-label="Seleccionar zona"><button class="city" type="button" data-city="all" aria-pressed="false">Todo<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">Tokyo<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">Osaka<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">Fukuoka<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">Hokkaido<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="true">Okinawa<span class="jp">沖縄</span></button></div>
   <div class="areas" id="areas" role="group" aria-label="Seleccionar subzona"><button class="area" type="button" data-area="kokusai" aria-pressed="false">Kokusai-dori·Makishi</button><button class="area" type="button" data-area="naha" aria-pressed="false">Central Naha</button><button class="area" type="button" data-area="chubu" aria-pressed="false">Central Okinawa (Chatan·Urasoe)</button><button class="area" type="button" data-area="hokubu" aria-pressed="true">Northern Okinawa (Motobu·Nago)</button><button class="area" type="button" data-area="ishigaki" aria-pressed="false">Ishigaki Island</button><button class="area" type="button" data-area="miyako" aria-pressed="false">Miyako Island</button></div>
   <dl class="brief" id="brief"><div class="bw"><dt>El tiempo hoy en Northern Okinawa (Motobu·Nago)</dt>
-        <dd class="wxtime"><span class="jstclock">dom 25 oct, 21:22</span> <small>Japón ahora</small></dd>
+        <dd class="wxtime"><span class="jstclock">dom 25 oct, 22:38</span> <small>Japón ahora</small></dd>
         <dd class="wxnow"><span class="big">27°</span> <b>Temperatura media</b><span class="wxicon" aria-hidden="true">🌤️</span></dd>
         <dd class="sub wxline">Máxima media de octubre</dd>
         <dd class="sub">Cargando el tiempo en directo…</dd></div><div class="bspot"><dt>Top 3: Lugares en Northern Okinawa (Motobu·Nago)</dt><ol class="picks"><li><button type="button" class="pick" data-open="churaumi"><b>Churaumi Aquarium</b><em class="pm">Paisaje·Naturaleza</em><span class="pd">Motobu (norte)</span></button></li><li><button type="button" class="pick" data-open="kouri"><b>Kouri Bridge</b><em class="pm">Paisaje·Naturaleza</em><span class="pd">Nakijin (norte)</span></button></li><li><button type="button" class="pick" data-open="s_nakijin"><b>Nakijin Castle Ruins</b><em class="pm">Historia·Templos</em><span class="pd">Nakijin</span></button></li></ol>
@@ -98,13 +98,13 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js"><\/script><scri
 <footer><div class="wrap">Nihon Trip · Tiempo <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · Foto <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> (El autor y la licencia de cada foto aparecen en su ficha) · Los tiempos de viaje y horarios pueden cambiar; compruébalos en las webs oficiales.</div></footer>
 
 <nav class="tabs" aria-label="Sección">
+  <a href="/Nihon-Trip/es/map/" data-view="map"><i>地</i>Mapa</a>
   <a href="/Nihon-Trip/es/" data-view="home"><i>薦</i>Recomendados</a>
   <a href="/Nihon-Trip/es/okinawa/hokubu/spots/" data-view="spots" aria-current="page"><i>景</i>Lugares</a>
   <a href="/Nihon-Trip/es/okinawa/hokubu/festivals/" data-view="festivals"><i>祭</i>Festivales</a>
   <a href="/Nihon-Trip/es/okinawa/hokubu/food/" data-view="food"><i>食</i>Comida</a>
   <a href="/Nihon-Trip/es/okinawa/hokubu/transport/" data-view="transport"><i>駅</i>Transporte</a>
   <a href="/Nihon-Trip/es/okinawa/hokubu/shopping/" data-view="shopping"><i>買</i>Compras</a>
-  <a href="/Nihon-Trip/es/map/" data-view="map"><i>地</i>Mapa</a>
 </nav>
 
 <div class="scrim" id="scrim" hidden=""></div>

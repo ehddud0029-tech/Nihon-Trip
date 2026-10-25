@@ -44,13 +44,13 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js"><\/script><scri
     <button class="savedbtn" id="savedBtn" type="button">My Trip <span class="n" id="savedN">0</span></button>
   </div>
     <nav class="main" aria-label="Section"><div class="wrap">
+      <a href="/Nihon-Trip/en/map/" data-view="map"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6.5v13.5l6-2.5 6 2.5 6-2.5V4l-6 2.5L9 4z"></path><path d="M9 4v13.5M15 6.5V20"></path></svg><span>Map</span></a>
       <a href="/Nihon-Trip/en/" data-view="home"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"></path></svg><span>Trip ideas</span></a>
       <a href="/Nihon-Trip/en/okinawa/miyako/spots/" data-view="spots"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z"></path><circle cx="12" cy="10" r="2.3"></circle></svg><span>Sights</span></a>
       <a href="/Nihon-Trip/en/okinawa/miyako/festivals/" data-view="festivals"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5v2"></path><rect x="6.5" y="4.5" width="11" height="14" rx="5.5"></rect><path d="M6.8 9.5h10.4M6.8 13.5h10.4M12 18.5v3"></path></svg><span>Festivals</span></a>
       <a href="/Nihon-Trip/en/okinawa/miyako/food/" data-view="food"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M4.5 3v5a2.5 2.5 0 005 0V3M7 11v10"></path><path d="M17 21V3c-2.2 1.2-3.5 3.6-3.5 6.5V13H17"></path></svg><span>Food</span></a>
       <a href="/Nihon-Trip/en/okinawa/miyako/transport/" data-view="transport" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="3"></rect><path d="M5 10h14M9 13.5h.01M15 13.5h.01M8 20l1.5-3M16 20l-1.5-3"></path></svg><span>Transport</span></a>
       <a href="/Nihon-Trip/en/okinawa/miyako/shopping/" data-view="shopping"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 8V6.5a3 3 0 016 0V8"></path></svg><span>Shopping</span></a>
-      <a href="/Nihon-Trip/en/map/" data-view="map"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6.5v13.5l6-2.5 6 2.5 6-2.5V4l-6 2.5L9 4z"></path><path d="M9 4v13.5M15 6.5V20"></path></svg><span>Map</span></a>
     </div></nav>
 </header>
 
@@ -60,7 +60,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js"><\/script><scri
   <div class="cities" id="cities" role="group" aria-label="Select area"><button class="city" type="button" data-city="all" aria-pressed="false">All<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">Tokyo<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">Osaka<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">Fukuoka<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">Hokkaido<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="true">Okinawa<span class="jp">沖縄</span></button></div>
   <div class="areas" id="areas" role="group" aria-label="Select sub-area"><button class="area" type="button" data-area="kokusai" aria-pressed="false">Kokusai-dori·Makishi</button><button class="area" type="button" data-area="naha" aria-pressed="false">Central Naha</button><button class="area" type="button" data-area="chubu" aria-pressed="false">Central Okinawa (Chatan·Urasoe)</button><button class="area" type="button" data-area="hokubu" aria-pressed="false">Northern Okinawa (Motobu·Nago)</button><button class="area" type="button" data-area="ishigaki" aria-pressed="false">Ishigaki Island</button><button class="area" type="button" data-area="miyako" aria-pressed="true">Miyako Island</button></div>
   <dl class="brief" id="brief"><div class="bw"><dt>Today's weather in Miyako Island</dt>
-        <dd class="wxtime"><span class="jstclock">Sun Oct 25, 21:22</span> <small>Japan now</small></dd>
+        <dd class="wxtime"><span class="jstclock">Sun Oct 25, 22:37</span> <small>Japan now</small></dd>
         <dd class="wxnow"><span class="big">27°</span> <b>Average temperature</b><span class="wxicon" aria-hidden="true">🌤️</span></dd>
         <dd class="sub wxline">Average October high</dd>
         <dd class="sub">Loading live weather…</dd></div><div class="broute"><dt>From the airport to Miyako Island</dt><dd class=""><span class="rt"><span class="mode m-차">Car</span> Miyako Airport → Central Hirara <b class="min">About 15 min</b></span><br><small>Taxi·Rental car</small></dd><dd class="sub"><span class="rt"><span class="mode m-비행기">Plane</span> Naha Airport → Miyako Airport <b class="min">About 50 min</b></span><br><small>Domestic Terminal</small></dd><dd class="sub rnote">Direct, no transfers</dd></div><div class="bic"><dt>Transit cards</dt><dd class="icrow"><span><b>OKICA</b><small>Okinawa</small></span></dd><dd class="sub">Yui Rail station ticket machines and offices of Okinawa's main bus companies</dd><dd class="sub links"><a href="#icguide">More on transit cards ↓</a></dd></div><div class="bmove"><dt>Getting around Miyako Island</dt><dd class="mv"><p class="mv-car"><span>Rental car</span>There are almost no buses, so a rental car is a must; Irabu and Kurima islands are linked by bridges</p><p class="mv-bus"><span>Bus</span>Only a few buses a day — taxis and tours are the alternative</p></dd>
@@ -100,13 +100,13 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js"><\/script><scri
 <footer><div class="wrap">Nihon Trip · Weather <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · Photo <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> (Each photo's author and license are shown on its detail screen) · Travel times and opening info can change, so double-check on official sites.</div></footer>
 
 <nav class="tabs" aria-label="Section">
+  <a href="/Nihon-Trip/en/map/" data-view="map"><i>地</i>Map</a>
   <a href="/Nihon-Trip/en/" data-view="home"><i>薦</i>Picks</a>
   <a href="/Nihon-Trip/en/okinawa/miyako/spots/" data-view="spots"><i>景</i>Sights</a>
   <a href="/Nihon-Trip/en/okinawa/miyako/festivals/" data-view="festivals"><i>祭</i>Festivals</a>
   <a href="/Nihon-Trip/en/okinawa/miyako/food/" data-view="food"><i>食</i>Food</a>
   <a href="/Nihon-Trip/en/okinawa/miyako/transport/" data-view="transport" aria-current="page"><i>駅</i>Transport</a>
   <a href="/Nihon-Trip/en/okinawa/miyako/shopping/" data-view="shopping"><i>買</i>Shopping</a>
-  <a href="/Nihon-Trip/en/map/" data-view="map"><i>地</i>Map</a>
 </nav>
 
 <div class="scrim" id="scrim" hidden=""></div>
