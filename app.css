@@ -536,13 +536,16 @@ body.is-map #main{max-width:none;padding:0;margin:0}
 .mphead .eyebrow{margin-bottom:6px}
 .mphead h1{font-family:var(--f-display);font-size:26px;line-height:1.25;margin:0 0 6px}
 .mphead p{font-size:13px;color:var(--ink-2);margin:0 0 14px;line-height:1.55}
-.mcats{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
-.mcat{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:6px;padding:6px 11px;border:1px solid var(--line);border-radius:999px;font-size:13px;cursor:pointer;background:var(--surface);color:var(--ink-2)}
-.mcat i{width:9px;height:9px;border-radius:50%;background:var(--c);font-style:normal}
-.mcat b{font-weight:600;color:var(--ink-2);font-size:11.5px}
+.mcats{display:flex;gap:5px;margin-bottom:10px}
+.mcats .mcat{flex:1 1 auto}
+html:lang(en) .mcats,html:lang(es) .mcats,html:lang(fr) .mcats,html:lang(ja) .mcats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:340px){.mcats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}}
+.mcat{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:6px 6px;white-space:nowrap;min-width:0;border:1px solid var(--line);border-radius:999px;font-size:13px;cursor:pointer;background:var(--surface);color:var(--ink-2)}
+.mcat i{flex:0 0 9px;width:9px;height:9px;border-radius:50%;background:var(--c);font-style:normal}
+.mcat b{font-weight:600;color:var(--ink-2);font-size:11px}
 .mcat[aria-pressed="true"]{border-color:var(--c);color:var(--ink);background:color-mix(in srgb,var(--c) 9%,#fff)}
 .mcat[aria-pressed="false"] i{background:transparent;border:1.5px solid var(--c)}
-.mmonths{display:flex;gap:4px;overflow-x:auto;padding-bottom:4px;margin-bottom:10px;scrollbar-width:none}
+.mmonths{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px}
 .mmonths::-webkit-scrollbar{display:none}
 .mmonths button{all:unset;flex:0 0 auto;font-size:12px;padding:4px 8px;border-radius:6px;border:1px solid var(--line);cursor:pointer;color:var(--ink-2);background:var(--surface)}
 .mmonths button[aria-pressed="true"]{background:var(--yamabuki);border-color:var(--yamabuki);color:#fff;font-weight:600}
