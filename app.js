@@ -994,7 +994,7 @@ function renderCities(){
         <dd class="sub links"><a href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener">${esc(where)} 주변 역 지도 ↗</a><a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(A?A.jp.split("・")[0]:c.jp)}&travelmode=transit" target="_blank" rel="noopener">${esc(where)}까지 대중교통 길찾기 ↗</a></dd></div>`;
     }else if(st.view==="saved"){
       const items = saved.map(byId).filter(Boolean).slice(0,3);
-      topicCell = `<div class="bsave"><dt>내 시오리</dt>${items.length?pickList(items, x=>tagOf(x).split("·")[0], x=>CITIES[x.city]?.ko||""):`<dd class="sub">마음에 드는 곳을 '시오리에 저장'하면 여기에 모여요</dd>`}</div>`;
+      topicCell = `<div class="bsave"><dt>나의 여행</dt>${items.length?pickList(items, x=>tagOf(x).split("·")[0], x=>CITIES[x.city]?.ko||""):`<dd class="sub">마음에 드는 곳을 '나의 여행에 저장'하면 여기에 모여요</dd>`}</div>`;
     }
     // 추천 여행 경로 · 시내 이동 · 교통카드 요약
     const gd = AREA_GUIDE[pa] || {};
@@ -1026,7 +1026,7 @@ function renderCities(){
       const its = saved.map(byId).filter(Boolean);
       const by = {}; its.forEach(x=>{ const t=tagOf(x).split("·")[0]; by[t]=(by[t]||0)+1; });
       const byC = {}; its.forEach(x=>{ const k=CITIES[x.city]?.ko||"기타"; byC[k]=(byC[k]||0)+1; });
-      extraCell = `<div class="bsum"><dt>시오리 요약</dt>${its.length?`<dd class="trows2">${Object.entries(by).map(([k,n])=>`<span><b>${n}</b>${esc(k)}</span>`).join("")}</dd><dd class="sub">${Object.entries(byC).map(([k,n])=>`${esc(k)} ${n}곳`).join(" · ")}</dd>`:`<dd class="sub">아직 저장한 곳이 없어요</dd>`}</div>`;
+      extraCell = `<div class="bsum"><dt>나의 여행 요약</dt>${its.length?`<dd class="trows2">${Object.entries(by).map(([k,n])=>`<span><b>${n}</b>${esc(k)}</span>`).join("")}</dd><dd class="sub">${Object.entries(byC).map(([k,n])=>`${esc(k)} ${n}곳`).join(" · ")}</dd>`:`<dd class="sub">아직 저장한 곳이 없어요</dd>`}</div>`;
     }
     const cells = st.view==="spots" ? [wxCell, topicCell, courseCell, moveCell]
       : st.view==="transport" ? [wxCell, apCell, icBrief, moveCell]
@@ -1251,9 +1251,9 @@ const V = {
  saved(){
   const items = saved.map(byId).filter(Boolean);
   const groups = [["spot","관광지"],["fest","축제"],["rest","맛집"],["food","향토음식"],["shop","쇼핑"]];
-  return `<div class="sechead"><div><h2>내 시오리</h2><p>저장한 곳을 모아 여행 일정의 뼈대를 만들어보세요. 이 브라우저에만 저장돼요.</p></div></div>
+  return `<div class="sechead"><div><h2>나의 여행</h2><p>저장한 곳을 모아 여행 일정의 뼈대를 만들어보세요. 이 브라우저에만 저장돼요.</p></div></div>
    ${items.length? groups.map(([t,l])=>{const g=items.filter(x=>x.type===t);return g.length?`<h3 style="font-family:var(--f-display);margin:20px 0 10px">${l} <span style="color:var(--ink-2);font-size:14px">${g.length}</span></h3><div class="grid">${g.map(card).join("")}</div>`:""}).join("")
-    : `<div class="empty">아직 저장한 곳이 없어요.<br>관광지·맛집·축제 카드를 열고 <b>시오리에 저장</b>을 눌러보세요.</div>`}`;
+    : `<div class="empty">아직 저장한 곳이 없어요.<br>관광지·맛집·축제 카드를 열고 <b>나의 여행에 저장</b>을 눌러보세요.</div>`}`;
  }
 };
 
@@ -1281,27 +1281,27 @@ function readPath(){
 }
 const PMETA = {
  ko:{t:{spots:"{a} 관광지 추천 · {c} 여행",festivals:"{a} 축제·행사 · {c} 여행",food:"{a} 맛집 추천 · {c} 여행",transport:"{a} 교통·공항에서 가는 법 · {c} 여행",shopping:"{a} 쇼핑·기념품 · {c} 여행",
-     all_spots:"일본 관광지 추천 – 도쿄·오사카·교토·후쿠오카·홋카이도·오키나와 명소",all_festivals:"일본 {m}월 축제·행사 – 지역별 축제 달력",all_food:"일본 맛집 추천 – 지역별·메뉴별 TOP 5",all_transport:"일본 교통 안내 – 공항에서 시내까지, 교통카드",all_shopping:"일본 쇼핑·기념품 – 쇼핑 거리, 면세, 특산물",saved:"내 시오리"},
+     all_spots:"일본 관광지 추천 – 도쿄·오사카·교토·후쿠오카·홋카이도·오키나와 명소",all_festivals:"일본 {m}월 축제·행사 – 지역별 축제 달력",all_food:"일본 맛집 추천 – 지역별·메뉴별 TOP 5",all_transport:"일본 교통 안내 – 공항에서 시내까지, 교통카드",all_shopping:"일본 쇼핑·기념품 – 쇼핑 거리, 면세, 특산물",saved:"나의 여행"},
    d:{spots:"{a} 가볼 만한 곳{L}. 오늘 날씨, 추천 여행 경로, 시내 교통까지 한눈에 보세요.",festivals:"{a}에서 열리는 축제와 계절 행사{L}. 날짜와 장소, 즐기는 법을 확인하세요.",food:"{a} 맛집 추천{L}. 라멘·스시·야키니쿠 등 메뉴별 TOP 5와 꼭 먹어볼 향토음식.",transport:"{a} 교통 안내. 공항에서 가는 법, 시내 이동, 교통카드 사는 곳까지 정리했어요.",shopping:"{a} 쇼핑{L}. 쇼핑 거리와 시장, 면세 안내, 사 갈 만한 특산물·선물.",
      all_spots:"도쿄·오사카·교토·후쿠오카·홋카이도·오키나와의 관광지를 지역별로 골라 보세요{L}.",all_festivals:"일본 {m}월에 열리는 축제와 계절 행사{L}. 날짜와 장소, 즐기는 법.",all_food:"일본 지역별 맛집 추천과 꼭 먹어볼 향토음식{L}.",all_transport:"일본 공항에서 시내까지 가는 법, 도시 간 이동, Suica·ICOCA 등 교통카드 안내.",all_shopping:"일본 쇼핑 거리와 시장, 바뀐 면세 제도, 지역 특산물과 선물 추천{L}."},
    L:" – {n} 등"},
  en:{t:{spots:"Things to Do in {a}, {c}",festivals:"Festivals & Events in {a}, {c}",food:"Where to Eat in {a}, {c} – Top Restaurants",transport:"Getting Around {a}, {c} – From the Airport & Local Transport",shopping:"Shopping & Souvenirs in {a}, {c}",
-     all_spots:"Things to Do in Japan – Tokyo, Osaka, Kyoto, Fukuoka, Hokkaido, Okinawa",all_festivals:"Japan Festivals in {m} – Festival Calendar by Region",all_food:"Where to Eat in Japan – Top 5 by Area and Dish",all_transport:"Getting Around Japan – Airports, Trains & IC Cards",all_shopping:"Shopping in Japan – Streets, Tax-Free & Souvenirs",saved:"My List"},
+     all_spots:"Things to Do in Japan – Tokyo, Osaka, Kyoto, Fukuoka, Hokkaido, Okinawa",all_festivals:"Japan Festivals in {m} – Festival Calendar by Region",all_food:"Where to Eat in Japan – Top 5 by Area and Dish",all_transport:"Getting Around Japan – Airports, Trains & IC Cards",all_shopping:"Shopping in Japan – Streets, Tax-Free & Souvenirs",saved:"My Trip"},
    d:{spots:"Top sights in {a}, {c}{L}. Today's weather, a suggested route and local transport at a glance.",festivals:"Festivals and seasonal events in {a}, {c}{L}. Dates, places and how to enjoy them.",food:"Where to eat in {a}, {c}{L}. Top 5 picks for ramen, sushi, yakiniku and more, plus local dishes to try.",transport:"Getting around {a}, {c}: from the airport, local lines and where to buy an IC card.",shopping:"Shopping in {a}, {c}{L}. Shopping streets and markets, tax-free tips and local gifts.",
      all_spots:"Pick sights by region across Tokyo, Osaka, Kyoto, Fukuoka, Hokkaido and Okinawa{L}.",all_festivals:"Festivals and seasonal events in Japan in {m}{L}. Dates, places and tips.",all_food:"Restaurant picks by area across Japan and local dishes you must try{L}.",all_transport:"How to get from Japan's airports into town, travel between cities and use IC cards like Suica and ICOCA.",all_shopping:"Shopping streets and markets in Japan, the new tax-free system, and local gifts{L}."},
    L:" – {n} and more"},
  ja:{t:{spots:"{a}の観光スポット",festivals:"{a}の祭り・イベント",food:"{a}のグルメ・おすすめ店",transport:"{a}の交通・空港からの行き方",shopping:"{a}のショッピング・お土産",
-     all_spots:"日本の観光スポット – 東京・大阪・京都・福岡・北海道・沖縄",all_festivals:"日本の{m}の祭り・イベント – 地域別カレンダー",all_food:"日本のグルメ – 地域別・メニュー別TOP5",all_transport:"日本の交通案内 – 空港から市内へ、ICカード",all_shopping:"日本のショッピング – 商店街・免税・お土産",saved:"マイしおり"},
+     all_spots:"日本の観光スポット – 東京・大阪・京都・福岡・北海道・沖縄",all_festivals:"日本の{m}の祭り・イベント – 地域別カレンダー",all_food:"日本のグルメ – 地域別・メニュー別TOP5",all_transport:"日本の交通案内 – 空港から市内へ、ICカード",all_shopping:"日本のショッピング – 商店街・免税・お土産",saved:"わたしの旅"},
    d:{spots:"{a}の見どころ{L}。今日の天気、おすすめルート、市内の移動まで一目でわかります。",festivals:"{a}で開かれる祭りと季節の行事{L}。日程・場所・楽しみ方。",food:"{a}のおすすめグルメ{L}。ラーメン・寿司・焼肉などメニュー別TOP5と郷土料理。",transport:"{a}の交通案内。空港からの行き方、市内の移動、ICカードの購入場所。",shopping:"{a}のショッピング{L}。商店街と市場、免税、お土産。",
      all_spots:"東京・大阪・京都・福岡・北海道・沖縄の観光地を地域別に{L}。",all_festivals:"日本で{m}に開かれる祭りと季節の行事{L}。",all_food:"日本の地域別おすすめグルメと郷土料理{L}。",all_transport:"空港から市内への行き方、都市間の移動、Suica・ICOCAなどICカードの案内。",all_shopping:"日本の商店街と市場、新しい免税制度、ご当地のお土産{L}。"},
    L:"（{n}など）"},
  es:{t:{spots:"Qué ver en {a} ({c})",festivals:"Festivales y eventos en {a} ({c})",food:"Dónde comer en {a} ({c}) – Mejores restaurantes",transport:"Cómo moverse por {a} ({c}) – Del aeropuerto y transporte local",shopping:"Compras y recuerdos en {a} ({c})",
-     all_spots:"Qué ver en Japón – Tokio, Osaka, Kioto, Fukuoka, Hokkaido, Okinawa",all_festivals:"Festivales de Japón en {m} – Calendario por región",all_food:"Dónde comer en Japón – Top 5 por zona y plato",all_transport:"Cómo moverse por Japón – Aeropuertos, trenes y tarjetas IC",all_shopping:"Compras en Japón – Calles comerciales, tax-free y recuerdos",saved:"Mi lista"},
+     all_spots:"Qué ver en Japón – Tokio, Osaka, Kioto, Fukuoka, Hokkaido, Okinawa",all_festivals:"Festivales de Japón en {m} – Calendario por región",all_food:"Dónde comer en Japón – Top 5 por zona y plato",all_transport:"Cómo moverse por Japón – Aeropuertos, trenes y tarjetas IC",all_shopping:"Compras en Japón – Calles comerciales, tax-free y recuerdos",saved:"Mi viaje"},
    d:{spots:"Los mejores lugares de {a} ({c}){L}. El tiempo de hoy, una ruta recomendada y el transporte local de un vistazo.",festivals:"Festivales y eventos de temporada en {a} ({c}){L}. Fechas, lugares y cómo disfrutarlos.",food:"Dónde comer en {a} ({c}){L}. Top 5 de ramen, sushi, yakiniku y más, y platos locales imprescindibles.",transport:"Cómo moverse por {a} ({c}): desde el aeropuerto, líneas locales y dónde comprar la tarjeta IC.",shopping:"Compras en {a} ({c}){L}. Calles comerciales y mercados, tax-free y regalos locales.",
      all_spots:"Elige lugares por región en Tokio, Osaka, Kioto, Fukuoka, Hokkaido y Okinawa{L}.",all_festivals:"Festivales y eventos de temporada en Japón en {m}{L}.",all_food:"Restaurantes recomendados por zona en Japón y platos locales imprescindibles{L}.",all_transport:"Cómo ir de los aeropuertos de Japón al centro, viajar entre ciudades y usar tarjetas como Suica e ICOCA.",all_shopping:"Calles comerciales y mercados de Japón, el nuevo sistema tax-free y regalos locales{L}."},
    L:" – {n} y más"},
  fr:{t:{spots:"Que voir à {a} ({c})",festivals:"Fêtes et événements à {a} ({c})",food:"Où manger à {a} ({c}) – Meilleurs restaurants",transport:"Se déplacer à {a} ({c}) – Depuis l'aéroport et transports locaux",shopping:"Shopping et souvenirs à {a} ({c})",
-     all_spots:"Que voir au Japon – Tokyo, Osaka, Kyoto, Fukuoka, Hokkaido, Okinawa",all_festivals:"Fêtes au Japon en {m} – Calendrier par région",all_food:"Où manger au Japon – Top 5 par zone et par plat",all_transport:"Se déplacer au Japon – Aéroports, trains et cartes IC",all_shopping:"Shopping au Japon – Rues commerçantes, détaxe et souvenirs",saved:"Ma liste"},
+     all_spots:"Que voir au Japon – Tokyo, Osaka, Kyoto, Fukuoka, Hokkaido, Okinawa",all_festivals:"Fêtes au Japon en {m} – Calendrier par région",all_food:"Où manger au Japon – Top 5 par zone et par plat",all_transport:"Se déplacer au Japon – Aéroports, trains et cartes IC",all_shopping:"Shopping au Japon – Rues commerçantes, détaxe et souvenirs",saved:"Mon voyage"},
    d:{spots:"Les incontournables de {a} ({c}){L}. Météo du jour, itinéraire conseillé et transports locaux en un coup d'œil.",festivals:"Fêtes et événements de saison à {a} ({c}){L}. Dates, lieux et conseils.",food:"Où manger à {a} ({c}){L}. Top 5 ramen, sushi, yakiniku et plus, et spécialités locales à goûter.",transport:"Se déplacer à {a} ({c}) : depuis l'aéroport, lignes locales et où acheter une carte IC.",shopping:"Shopping à {a} ({c}){L}. Rues commerçantes et marchés, détaxe et cadeaux locaux.",
      all_spots:"Choisissez des sites par région à Tokyo, Osaka, Kyoto, Fukuoka, Hokkaido et Okinawa{L}.",all_festivals:"Fêtes et événements de saison au Japon en {m}{L}.",all_food:"Restaurants conseillés par zone au Japon et spécialités locales à goûter{L}.",all_transport:"Aller des aéroports japonais en ville, voyager entre les villes et utiliser les cartes IC comme Suica et ICOCA.",all_shopping:"Rues commerçantes et marchés du Japon, nouvelle détaxe et cadeaux locaux{L}."},
    L:" – {n} et plus"}
@@ -1368,7 +1368,7 @@ function openItem(id){
    <dl class="facts">${facts.map(([a,b])=>`<dt>${a}</dt><dd>${esc(b)}</dd>`).join("")}</dl>
    ${it.tip?`<div class="tip"><b>여행 팁</b> · ${esc(it.tip)}</div>`:""}
    ${it.type==="rest"?`<p class="credit">별점과 리뷰는 아래 링크에서 확인하세요. 영업시간·휴무일도 방문 전에 확인하는 게 좋아요.</p>`:""}
-   <div class="actions"><button class="btn${isSaved?"":" primary"}" type="button" id="toggleSave">${isSaved?"시오리에서 빼기":"시오리에 저장"}</button>
+   <div class="actions"><button class="btn${isSaved?"":" primary"}" type="button" id="toggleSave">${isSaved?"나의 여행에서 빼기":"나의 여행에 저장"}</button>
    <a class="btn" href="https://www.google.com/maps/search/?api=1&query=${mq}" target="_blank" rel="noopener">${it.type==="rest"?"Google 지도 평점 ↗":"지도에서 보기 ↗"}</a>
 </div>
    ${it.type!=="rest"&&PHOTO[it.id]?`<div class="credit">사진:${esc(PHOTO[it.id].artist||"저작자 정보는 원본 참고")}${PHOTO[it.id].license?" · "+esc(PHOTO[it.id].license):""} · <a href="${PHOTO[it.id].lang==="ja"&&!PHOTO[it.id].commons?"https://ja.wikipedia.org/wiki/File:":"https://commons.wikimedia.org/wiki/File:"}${encodeURIComponent(PHOTO[it.id].file.replace(/ /g,"_"))}" target="_blank" rel="noopener">사진 원본 ↗</a></div>`:""}</div>`;
