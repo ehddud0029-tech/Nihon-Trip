@@ -545,9 +545,10 @@ html:lang(en) .mcats,html:lang(es) .mcats,html:lang(fr) .mcats,html:lang(ja) .mc
 .mcat b{font-weight:600;color:var(--ink-2);font-size:11px}
 .mcat[aria-pressed="true"]{border-color:var(--c);color:var(--ink);background:color-mix(in srgb,var(--c) 9%,#fff)}
 .mcat[aria-pressed="false"] i{background:transparent;border:1.5px solid var(--c)}
-.mmonths{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px}
+.mmonths{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;margin-bottom:10px}
+.mmonths button:first-child{grid-column:1 / -1}
 .mmonths::-webkit-scrollbar{display:none}
-.mmonths button{all:unset;flex:0 0 auto;font-size:12px;padding:4px 8px;border-radius:6px;border:1px solid var(--line);cursor:pointer;color:var(--ink-2);background:var(--surface)}
+.mmonths button{all:unset;box-sizing:border-box;text-align:center;white-space:nowrap;font-size:12px;padding:4px 8px;border-radius:6px;border:1px solid var(--line);cursor:pointer;color:var(--ink-2);background:var(--surface)}
 .mmonths button[aria-pressed="true"]{background:var(--yamabuki);border-color:var(--yamabuki);color:#fff;font-weight:600}
 .mtools{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .mtools select,.mtools input{font:inherit;font-size:14px;border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--paper);color:var(--ink);min-width:0}
