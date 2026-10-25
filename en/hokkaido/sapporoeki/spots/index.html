@@ -50,6 +50,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js"><\/script><scri
       <a href="/Nihon-Trip/en/hokkaido/sapporoeki/food/" data-view="food"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M4.5 3v5a2.5 2.5 0 005 0V3M7 11v10"></path><path d="M17 21V3c-2.2 1.2-3.5 3.6-3.5 6.5V13H17"></path></svg><span>Food</span></a>
       <a href="/Nihon-Trip/en/hokkaido/sapporoeki/transport/" data-view="transport"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="3"></rect><path d="M5 10h14M9 13.5h.01M15 13.5h.01M8 20l1.5-3M16 20l-1.5-3"></path></svg><span>Transport</span></a>
       <a href="/Nihon-Trip/en/hokkaido/sapporoeki/shopping/" data-view="shopping"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 8V6.5a3 3 0 016 0V8"></path></svg><span>Shopping</span></a>
+      <a href="/Nihon-Trip/en/map/" data-view="map"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6.5v13.5l6-2.5 6 2.5 6-2.5V4l-6 2.5L9 4z"></path><path d="M9 4v13.5M15 6.5V20"></path></svg><span>Map</span></a>
     </div></nav>
 </header>
 
@@ -59,7 +60,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js"><\/script><scri
   <div class="cities" id="cities" role="group" aria-label="Select area"><button class="city" type="button" data-city="all" aria-pressed="false">All<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">Tokyo<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">Osaka<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">Fukuoka<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="true">Hokkaido<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">Okinawa<span class="jp">沖縄</span></button></div>
   <div class="areas" id="areas" role="group" aria-label="Select sub-area"><button class="area" type="button" data-area="susukino" aria-pressed="false">Sapporo Susukino·Odori</button><button class="area" type="button" data-area="sapporoeki" aria-pressed="true">Sapporo Station</button><button class="area" type="button" data-area="otaru" aria-pressed="false">Otaru</button><button class="area" type="button" data-area="hakodate" aria-pressed="false">Hakodate</button><button class="area" type="button" data-area="asahikawa" aria-pressed="false">Asahikawa</button><button class="area" type="button" data-area="furano" aria-pressed="false">Furano·Biei</button></div>
   <dl class="brief" id="brief"><div class="bw"><dt>Today's weather in Sapporo Station</dt>
-        <dd class="wxtime"><span class="jstclock">Sun Oct 25, 19:14</span> <small>Japan now</small></dd>
+        <dd class="wxtime"><span class="jstclock">Sun Oct 25, 21:22</span> <small>Japan now</small></dd>
         <dd class="wxnow"><span class="big">16°</span> <b>Average temperature</b><span class="wxicon" aria-hidden="true">🌤️</span></dd>
         <dd class="sub wxline">Average October high</dd>
         <dd class="sub">Loading live weather…</dd></div><div class="bspot"><dt>Top 3 Sights in Sapporo Station</dt><ol class="picks"><li><button type="button" class="pick" data-open="clock"><b>Sapporo Clock Tower</b><em class="pm">Historic·Temples</em><span class="pd">Chuo Ward</span></button></li><li><button type="button" class="pick" data-open="s_akarenga_sp"><b>Former Hokkaido Government Office (Red Brick)</b><em class="pm">Historic·Temples</em><span class="pd">Sapporo Station</span></button></li><li><button type="button" class="pick" data-open="s_jrtower"><b>JR Tower Observatory T38</b><em class="pm">Scenery·Nature</em><span class="pd">Sapporo Station</span></button></li></ol>
@@ -103,6 +104,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js"><\/script><scri
   <a href="/Nihon-Trip/en/hokkaido/sapporoeki/food/" data-view="food"><i>食</i>Food</a>
   <a href="/Nihon-Trip/en/hokkaido/sapporoeki/transport/" data-view="transport"><i>駅</i>Transport</a>
   <a href="/Nihon-Trip/en/hokkaido/sapporoeki/shopping/" data-view="shopping"><i>買</i>Shopping</a>
+  <a href="/Nihon-Trip/en/map/" data-view="map"><i>地</i>Map</a>
 </nav>
 
 <div class="scrim" id="scrim" hidden=""></div>
@@ -110,6 +112,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js"><\/script><scri
 <script src="/Nihon-Trip/areas.js"></script>
 <script src="/Nihon-Trip/autoreserve.js"></script>
 <script src="/Nihon-Trip/google_picks.js"></script>
+<script src="/Nihon-Trip/geo.js"></script>
 <script src="/Nihon-Trip/app.js"></script>
 </body>
 </html>

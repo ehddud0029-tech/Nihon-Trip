@@ -68,7 +68,7 @@
     fr:"Sites, fêtes, restaurants, transports et shopping à Tokyo, Osaka, Fukuoka, Hokkaido, Okinawa et dans les villes voisines, avec la météo en direct."};
   [["meta[name=description]",DESC[I.lang]],["meta[property='og:description']",DESC[I.lang]],["meta[property='og:title']",I.D["Nihon Trip · 일본 여행 가이드"]],["meta[property='og:locale']",{en:"en_US",ja:"ja_JP",es:"es_ES",fr:"fr_FR"}[I.lang]]].forEach(function(x){ var m=document.querySelector(x[0]); if(m&&x[1]) m.setAttribute("content",x[1]); });
   window.__tr=function(s){ var r=tr(String(s==null?"":s)); return r==null?s:r; };
-  var ATTR=["placeholder","aria-label","title","alt"];
+  var ATTR=["placeholder","aria-label","title","alt","label"];
   function tnode(n){ var v=n.nodeValue; if(!v||!H.test(v)) return; var r=tr(v); if(r!=null&&r!==v) n.nodeValue=r; }
   function tel(el){ for(var i=0;i<ATTR.length;i++){ var v=el.getAttribute(ATTR[i]); if(v&&H.test(v)){ var r=tr(v); if(r!=null&&r!==v) el.setAttribute(ATTR[i],r); } } }
   function skip(el){ return el.nodeName==="SCRIPT"||el.nodeName==="STYLE"||(el.classList&&el.classList.contains("notranslate")); }

@@ -857,7 +857,7 @@ function arBlock(area, menu, n){
 const restLinks = r => `<a href="${gmapLink(r)}" target="_blank" rel="noopener">Google 지도 ↗</a>`;
 
 /* state */
-const VIEWS = ["home","spots","festivals","food","transport","shopping","saved"];
+const VIEWS = ["home","spots","festivals","food","transport","shopping","map","saved"];
 const NOW_M = new Date().getMonth()+1;
 const st = {view:"home",homeTo:"spots",city:"all",area:"all",more:false,spotCat:"all",menu:"ramen",q:"",month:NOW_M};
 let saved = [];
@@ -1258,6 +1258,140 @@ const V = {
 };
 
 
+/* 지도 페이지: 관광지·축제·맛집(AutoReserve 지역별 TOP 10)·쇼핑을 일본 지도에 표시
+   좌표는 geo.js (GEO: 항목 id → [위도, 경도], AR_GEO: AutoReserve 가게 번호 → [위도, 경도, 가게 ID])
+   지도: MapLibre GL + OpenFreeMap(무료, API 키 없음). 지도 글자는 고른 언어로 보여요 */
+const MCAT = {spot:["관광지","--ai"],fest:["축제","--yamabuki"],rest:["맛집","--shu"],shop:["쇼핑","--matsu"]};
+const mst = {cats:{spot:true,fest:true,rest:true,shop:true}, m:0, q:"", area:"all", sel:null};
+let MAP=null, MAPREADY=false, MITEMS=null, mlistTimer=0, MPOP=null;
+function mapItems(){
+  if(MITEMS) return MITEMS;
+  const G = window.GEO||{}, AG = window.AR_GEO||{}, out=[];
+  ALL.forEach(x=>{ if(!MCAT[x.type]||!G[x.id]) return; out.push({id:x.id,cat:x.type,name:x.name,jp:x.jp,city:x.city,sub:x.sub||null,
+    sub2: x.type==="fest" ? `${x.when} · ${placeOf(x)}` : (x.area||x.station||""), month:x.month||0, ll:G[x.id]}); });
+  const slugArea = {}; Object.entries(window.AR_SLUG||{}).forEach(([a,sl])=>{ if(!slugArea[sl]) slugArea[sl]=a; });
+  const seen = new Set();
+  Object.entries(window.AR_LISTS||{}).forEach(([sl,l])=>(l.all||[]).forEach(i=>{
+    const g = AG[i], r = (window.AR_SHOPS||{})[i]; if(!g||!r||seen.has(i)) return; seen.add(i);
+    const ak = slugArea[sl], A = AREA[ak];
+    out.push({id:"ar:"+i,cat:"rest",name:r.n,jp:"",city:A?.region||"",sub:ak||null,sub2:[r.dish,r.feat].filter(Boolean).join(" · "),b:r.b||"",ar:g[2],ll:[g[0],g[1]]});
+  }));
+  return MITEMS=out;
+}
+function mapFiltered(){
+  const T = window.__tr||(x=>x), q = mst.q.trim().toLowerCase();
+  return mapItems().filter(x=>mst.cats[x.cat] && (x.cat!=="fest"||!mst.m||x.month===mst.m)
+    && (mst.area==="all" || (mst.area.startsWith("c:") ? x.city===mst.area.slice(2) : x.sub===mst.area))
+    && (!q || (x.name+" "+x.jp+" "+T(x.name)+" "+x.sub2+" "+T(x.sub2)).toLowerCase().includes(q)));
+}
+V.map = () => {
+  const n = mapItems(), cnt = c => n.filter(x=>x.cat===c).length;
+  const regions = Object.entries(CITIES).map(([k,c])=>`<optgroup label="${esc(c.ko)}"><option value="c:${k}">${esc(c.ko)}</option>${areasOf(k).map(a=>`<option value="${a.key}">${esc(a.ko)}</option>`).join("")}</optgroup>`).join("");
+  return `<div class="mapwrap" id="mapwrap">
+   <div class="mphead"><div class="eyebrow">日本旅行 · 지도</div><h1>지도에서 찾기</h1>
+    <p>관광지·축제·맛집·쇼핑 장소를 일본 지도에서 한눈에 보세요. 핀을 누르면 자세한 정보가 열려요.</p>
+    <div class="mcats">${Object.entries(MCAT).map(([k,[l,c]])=>`<button type="button" class="mcat" data-mcat="${k}" aria-pressed="${mst.cats[k]}" style="--c:var(${c})"><i></i>${l} <b>${cnt(k)}</b></button>`).join("")}</div>
+    <div class="mmonths" id="mmonths"${mst.cats.fest?"":" hidden"}><button type="button" data-mm="0" aria-pressed="${!mst.m}">축제 전체</button>${Array.from({length:12},(_,i)=>`<button type="button" data-mm="${i+1}" aria-pressed="${mst.m===i+1}">${i+1}월</button>`).join("")}</div>
+    <div class="mtools"><select id="marea" aria-label="지역 선택"><option value="all">일본 전체</option>${regions}</select><input id="mq" type="search" placeholder="이름으로 찾기" aria-label="검색" value="${esc(mst.q)}"></div>
+   </div>
+   <div class="mapbox"><div id="mapc"></div><div class="mapmsg" id="mapmsg">지도를 불러오는 중이에요</div>
+    <div class="mapnote">위치는 위키백과·국토지리원·AutoReserve 자료 기준이라 실제 입구와 조금 다를 수 있어요.</div></div>
+   <div class="mlistwrap"><div class="mlhead"><span>지도에 보이는 곳</span><b id="mln">0</b></div><div class="mlist" id="mlist"></div></div>
+  </div>`;
+};
+function mapListRender(){
+  const el = $("#mlist"); if(!el) return;
+  let items = mapFiltered();
+  if(MAP && MAPREADY){ const b = MAP.getBounds(); items = items.filter(x=>b.contains([x.ll[1],x.ll[0]])); }
+  $("#mln").textContent = items.length;
+  const shown = items.slice(0,150);
+  el.innerHTML = shown.length ? shown.map(x=>`<button type="button" class="mitem${mst.sel===x.id?" on":""}" data-mid="${x.id}" style="--c:var(${MCAT[x.cat][1]})"><i class="dot"></i><div><small>${MCAT[x.cat][0]}${x.sub&&AREA[x.sub]?" · "+esc(AREA[x.sub].ko):""}</small><b>${esc(x.name)}</b>${x.sub2?`<span>${esc(x.sub2)}</span>`:""}</div></button>`).join("")
+    : `<div class="empty">이 범위에는 표시할 곳이 없어요. 지도를 옮기거나 축소해 보세요.</div>`;
+}
+function mapGeoJSON(){
+  return {type:"FeatureCollection",features:mapFiltered().map(x=>({type:"Feature",properties:{id:x.id,cat:x.cat},geometry:{type:"Point",coordinates:[x.ll[1],x.ll[0]]}}))};
+}
+function mapRefresh(fit){
+  mapListRender();
+  if(!(MAP&&MAPREADY)) return;
+  MAP.getSource("pts")?.setData(mapGeoJSON());
+  if(fit) mapFit();
+}
+function mapFit(){
+  const items = mapFiltered(); if(!MAP||!items.length) return;
+  if(mst.area==="all" && !mst.q){ MAP.fitBounds([[122.5,24],[146,45.6]],{padding:30,duration:600}); return; }
+  let w=180,s=90,e=-180,n=-90; items.forEach(x=>{ w=Math.min(w,x.ll[1]); e=Math.max(e,x.ll[1]); s=Math.min(s,x.ll[0]); n=Math.max(n,x.ll[0]); });
+  if(e-w<0.02&&n-s<0.02){ MAP.flyTo({center:[(w+e)/2,(s+n)/2],zoom:15}); return; }
+  MAP.fitBounds([[w,s],[e,n]],{padding:60,maxZoom:15,duration:600});
+}
+function mapPopupHTML(x){
+  const c = MCAT[x.cat], L = (window.I18N&&window.I18N.ar)||"ko";
+  const gm = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(x.ll[0]+","+x.ll[1])}`;
+  const acts = x.cat==="rest"
+    ? `<a class="pri" href="https://autoreserve.com/${L}/restaurants/${esc(x.ar)}" target="_blank" rel="noopener">AutoReserve에서 보기 ↗</a><a href="${gm}" target="_blank" rel="noopener">구글 지도 ↗</a>`
+    : `<button type="button" class="pri" data-open="${x.id}">자세히 보기</button><a href="${gm}" target="_blank" rel="noopener">구글 지도 ↗</a>`;
+  return `<div class="mpop" style="--c:var(${c[1]})"><small>${c[0]}</small><b>${esc(x.name)}</b>${x.jp?`<div class="jp">${esc(x.jp)}</div>`:""}<p>${esc(x.sub2||"")}${x.b?` · ${esc(x.b)}`:""}</p><div class="acts">${acts}</div></div>`;
+}
+function mapOpen(id, fly){
+  const x = mapItems().find(y=>y.id===id); if(!x||!MAP||!MAPREADY) return;
+  mst.sel = id;
+  if(fly) MAP.flyTo({center:[x.ll[1],x.ll[0]],zoom:Math.max(MAP.getZoom(),14)});
+  MPOP?.remove();
+  MPOP = new maplibregl.Popup({offset:12,maxWidth:"280px"}).setLngLat([x.ll[1],x.ll[0]]).setHTML(mapPopupHTML(x)).addTo(MAP);
+  document.querySelectorAll(".mitem.on").forEach(e=>e.classList.remove("on"));
+  document.querySelector(`.mitem[data-mid="${CSS.escape(id)}"]`)?.classList.add("on");
+}
+function loadMapLib(){
+  if(window.maplibregl) return Promise.resolve();
+  return new Promise((ok,no)=>{
+    const l=document.createElement("link"); l.rel="stylesheet"; l.href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css"; document.head.appendChild(l);
+    const s=document.createElement("script"); s.src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"; s.onload=ok; s.onerror=no; document.head.appendChild(s);
+  });
+}
+function mapFail(){ const m=$("#mapmsg"); if(m){ m.hidden=false; m.textContent="지도를 불러오지 못했어요. 인터넷 연결을 확인해 주세요."; } }
+function mapMount(){
+  const wrap = $("#mapwrap"); if(!wrap) return;
+  if(innerWidth>820){ const top = document.querySelector("header.top").getBoundingClientRect().bottom + scrollY; wrap.style.height = Math.max(520, innerHeight - top)+"px"; }
+  $("#marea").value = mst.area;
+  mapListRender();
+  MAPREADY=false;
+  loadMapLib().then(()=>{
+    if(!document.getElementById("mapc")) return;
+    const lang = (window.I18N&&window.I18N.lang)||"ko";
+    MAP = new maplibregl.Map({container:"mapc",style:"https://tiles.openfreemap.org/styles/positron",bounds:[[122.5,24],[146,45.6]],fitBoundsOptions:{padding:30},attributionControl:{compact:true},cooperativeGestures:innerWidth<=820});
+    MAP.addControl(new maplibregl.NavigationControl({showCompass:false}),"bottom-right");
+    MAP.on("load",()=>{
+      $("#mapmsg").hidden = true;
+      // 지도 글자를 고른 언어로 (없으면 영어, 그다음 현지 이름). 일본어는 현지 이름 그대로
+      const nm = lang==="ja" ? ["get","name"] : ["coalesce",["get","name:"+lang],["get","name:en"],["get","name_en"],["get","name"]];
+      MAP.getStyle().layers.forEach(l=>{ if(l.type==="symbol" && l.layout && l.layout["text-field"]) try{ MAP.setLayoutProperty(l.id,"text-field",nm); }catch(_){} });
+      MAP.addSource("pts",{type:"geojson",data:mapGeoJSON(),cluster:true,clusterRadius:46,clusterMaxZoom:13});
+      MAP.addLayer({id:"cl",type:"circle",source:"pts",filter:["has","point_count"],paint:{"circle-color":"#C4452C","circle-opacity":.92,"circle-stroke-color":"#fff","circle-stroke-width":3,
+        "circle-radius":["step",["get","point_count"],16,10,20,50,25,150,30]}});
+      MAP.addLayer({id:"cln",type:"symbol",source:"pts",filter:["has","point_count"],layout:{"text-field":["get","point_count_abbreviated"],"text-font":["Noto Sans Bold"],"text-size":13,"text-allow-overlap":true},paint:{"text-color":"#fff"}});
+      MAP.addLayer({id:"pt",type:"circle",source:"pts",filter:["!",["has","point_count"]],paint:{"circle-radius":7,"circle-stroke-color":"#fff","circle-stroke-width":2,
+        "circle-color":["match",["get","cat"],"spot","#23395B","fest","#B8860B","rest","#C4452C","shop","#3E6B48","#555"]}});
+      MAP.on("click","cl",e=>{ const f=e.features[0]; MAP.getSource("pts").getClusterExpansionZoom(f.properties.cluster_id).then(z=>MAP.easeTo({center:f.geometry.coordinates,zoom:z})); });
+      MAP.on("click","pt",e=>mapOpen(e.features[0].properties.id,false));
+      ["cl","pt"].forEach(l=>{ MAP.on("mouseenter",l,()=>MAP.getCanvas().style.cursor="pointer"); MAP.on("mouseleave",l,()=>MAP.getCanvas().style.cursor=""); });
+      MAP.on("moveend",()=>{ clearTimeout(mlistTimer); mlistTimer=setTimeout(mapListRender,120); });
+      MAPREADY = true;
+      if(mst.area!=="all"||mst.q) mapFit(); else mapListRender();
+    });
+    const m0 = MAP; setTimeout(()=>{ if(MAP===m0 && !MAPREADY) mapFail(); }, 20000);
+  }).catch(mapFail);
+}
+document.addEventListener("click",e=>{
+  const c = e.target.closest("[data-mcat]");
+  if(c){ const k=c.dataset.mcat; mst.cats[k]=!mst.cats[k]; c.setAttribute("aria-pressed",String(mst.cats[k])); if(k==="fest") $("#mmonths").hidden=!mst.cats.fest; mapRefresh(false); return; }
+  const mm = e.target.closest("[data-mm]");
+  if(mm){ mst.m=+mm.dataset.mm; document.querySelectorAll("[data-mm]").forEach(b=>b.setAttribute("aria-pressed",String(+b.dataset.mm===mst.m))); mapRefresh(false); return; }
+  const it = e.target.closest("[data-mid]");
+  if(it){ mapOpen(it.dataset.mid,true); if(innerWidth<=820) $("#mapwrap .mapbox").scrollIntoView({behavior:"smooth",block:"start"}); }
+});
+document.addEventListener("change",e=>{ if(e.target.id==="marea"){ mst.area=e.target.value; mapRefresh(true); } });
+document.addEventListener("input",e=>{ if(e.target.id==="mq"){ mst.q=e.target.value; clearTimeout(mlistTimer); mlistTimer=setTimeout(()=>mapRefresh(true),250); } });
+
 /* 화면별 주소 (배포 사이트에서만): /도시/지역/주제/ 처럼 화면마다 주소와 제목이 생겨 검색엔진이 따로 찾을 수 있어요.
    아티팩트 미리보기처럼 NT_BASE가 없으면 지금처럼 #주소를 써요 */
 const ROUTED = !!window.NT_BASE;
@@ -1265,6 +1399,7 @@ const LPRE = (window.I18N && window.I18N.lang) ? window.I18N.lang+"/" : "";
 function pathOf(s){
   if(s.view==="home") return "";
   if(s.view==="saved") return "saved/";
+  if(s.view==="map") return "map/";
   if(s.city==="all") return s.view==="festivals" ? `festivals/${s.month}/` : s.view+"/";
   return `${s.city}/${s.area}/${s.view}/`;
 }
@@ -1276,40 +1411,41 @@ function readPath(){
   st.view="home"; st.city="all"; st.area="all";
   if(!seg.length) return;
   if(seg[0]==="saved"){ st.view="saved"; return; }
+  if(seg[0]==="map"){ st.view="map"; return; }
   if(VIEWS.includes(seg[0])){ st.view=seg[0]; if(seg[0]==="festivals"&&+seg[1]>=1&&+seg[1]<=12) st.month=+seg[1]; return; }
-  if(CITIES[seg[0]]){ st.city=seg[0]; st.area=seg[1]||"all"; st.view=VIEWS.includes(seg[2])&&seg[2]!=="home"&&seg[2]!=="saved"?seg[2]:"spots"; }
+  if(CITIES[seg[0]]){ st.city=seg[0]; st.area=seg[1]||"all"; st.view=VIEWS.includes(seg[2])&&!["home","saved","map"].includes(seg[2])?seg[2]:"spots"; }
 }
 const PMETA = {
- ko:{t:{spots:"{a} 관광지 추천 · {c} 여행",festivals:"{a} 축제·행사 · {c} 여행",food:"{a} 맛집 추천 · {c} 여행",transport:"{a} 교통·공항에서 가는 법 · {c} 여행",shopping:"{a} 쇼핑·기념품 · {c} 여행",
+ ko:{t:{map:"일본 여행 지도 – 관광지·축제·맛집·쇼핑 위치",spots:"{a} 관광지 추천 · {c} 여행",festivals:"{a} 축제·행사 · {c} 여행",food:"{a} 맛집 추천 · {c} 여행",transport:"{a} 교통·공항에서 가는 법 · {c} 여행",shopping:"{a} 쇼핑·기념품 · {c} 여행",
      all_spots:"일본 관광지 추천 – 도쿄·오사카·교토·후쿠오카·홋카이도·오키나와 명소",all_festivals:"일본 {m}월 축제·행사 – 지역별 축제 달력",all_food:"일본 맛집 추천 – 지역별·메뉴별 TOP 5",all_transport:"일본 교통 안내 – 공항에서 시내까지, 교통카드",all_shopping:"일본 쇼핑·기념품 – 쇼핑 거리, 면세, 특산물",saved:"나의 여행"},
-   d:{spots:"{a} 가볼 만한 곳{L}. 오늘 날씨, 추천 여행 경로, 시내 교통까지 한눈에 보세요.",festivals:"{a}에서 열리는 축제와 계절 행사{L}. 날짜와 장소, 즐기는 법을 확인하세요.",food:"{a} 맛집 추천{L}. 라멘·스시·야키니쿠 등 메뉴별 TOP 5와 꼭 먹어볼 향토음식.",transport:"{a} 교통 안내. 공항에서 가는 법, 시내 이동, 교통카드 사는 곳까지 정리했어요.",shopping:"{a} 쇼핑{L}. 쇼핑 거리와 시장, 면세 안내, 사 갈 만한 특산물·선물.",
+   d:{map:"관광지·축제·맛집·쇼핑 장소를 일본 지도에서 한눈에 보세요. 지역과 종류를 골라 위치와 정보를 확인할 수 있어요.",spots:"{a} 가볼 만한 곳{L}. 오늘 날씨, 추천 여행 경로, 시내 교통까지 한눈에 보세요.",festivals:"{a}에서 열리는 축제와 계절 행사{L}. 날짜와 장소, 즐기는 법을 확인하세요.",food:"{a} 맛집 추천{L}. 라멘·스시·야키니쿠 등 메뉴별 TOP 5와 꼭 먹어볼 향토음식.",transport:"{a} 교통 안내. 공항에서 가는 법, 시내 이동, 교통카드 사는 곳까지 정리했어요.",shopping:"{a} 쇼핑{L}. 쇼핑 거리와 시장, 면세 안내, 사 갈 만한 특산물·선물.",
      all_spots:"도쿄·오사카·교토·후쿠오카·홋카이도·오키나와의 관광지를 지역별로 골라 보세요{L}.",all_festivals:"일본 {m}월에 열리는 축제와 계절 행사{L}. 날짜와 장소, 즐기는 법.",all_food:"일본 지역별 맛집 추천과 꼭 먹어볼 향토음식{L}.",all_transport:"일본 공항에서 시내까지 가는 법, 도시 간 이동, Suica·ICOCA 등 교통카드 안내.",all_shopping:"일본 쇼핑 거리와 시장, 바뀐 면세 제도, 지역 특산물과 선물 추천{L}."},
    L:" – {n} 등"},
- en:{t:{spots:"Things to Do in {a}, {c}",festivals:"Festivals & Events in {a}, {c}",food:"Where to Eat in {a}, {c} – Top Restaurants",transport:"Getting Around {a}, {c} – From the Airport & Local Transport",shopping:"Shopping & Souvenirs in {a}, {c}",
+ en:{t:{map:"Japan Travel Map – Sights, Festivals, Restaurants & Shopping",spots:"Things to Do in {a}, {c}",festivals:"Festivals & Events in {a}, {c}",food:"Where to Eat in {a}, {c} – Top Restaurants",transport:"Getting Around {a}, {c} – From the Airport & Local Transport",shopping:"Shopping & Souvenirs in {a}, {c}",
      all_spots:"Things to Do in Japan – Tokyo, Osaka, Kyoto, Fukuoka, Hokkaido, Okinawa",all_festivals:"Japan Festivals in {m} – Festival Calendar by Region",all_food:"Where to Eat in Japan – Top 5 by Area and Dish",all_transport:"Getting Around Japan – Airports, Trains & IC Cards",all_shopping:"Shopping in Japan – Streets, Tax-Free & Souvenirs",saved:"My Trip"},
-   d:{spots:"Top sights in {a}, {c}{L}. Today's weather, a suggested route and local transport at a glance.",festivals:"Festivals and seasonal events in {a}, {c}{L}. Dates, places and how to enjoy them.",food:"Where to eat in {a}, {c}{L}. Top 5 picks for ramen, sushi, yakiniku and more, plus local dishes to try.",transport:"Getting around {a}, {c}: from the airport, local lines and where to buy an IC card.",shopping:"Shopping in {a}, {c}{L}. Shopping streets and markets, tax-free tips and local gifts.",
+   d:{map:"See sights, festivals, restaurants and shopping spots on a map of Japan. Filter by area and type to check locations and details.",spots:"Top sights in {a}, {c}{L}. Today's weather, a suggested route and local transport at a glance.",festivals:"Festivals and seasonal events in {a}, {c}{L}. Dates, places and how to enjoy them.",food:"Where to eat in {a}, {c}{L}. Top 5 picks for ramen, sushi, yakiniku and more, plus local dishes to try.",transport:"Getting around {a}, {c}: from the airport, local lines and where to buy an IC card.",shopping:"Shopping in {a}, {c}{L}. Shopping streets and markets, tax-free tips and local gifts.",
      all_spots:"Pick sights by region across Tokyo, Osaka, Kyoto, Fukuoka, Hokkaido and Okinawa{L}.",all_festivals:"Festivals and seasonal events in Japan in {m}{L}. Dates, places and tips.",all_food:"Restaurant picks by area across Japan and local dishes you must try{L}.",all_transport:"How to get from Japan's airports into town, travel between cities and use IC cards like Suica and ICOCA.",all_shopping:"Shopping streets and markets in Japan, the new tax-free system, and local gifts{L}."},
    L:" – {n} and more"},
- ja:{t:{spots:"{a}の観光スポット",festivals:"{a}の祭り・イベント",food:"{a}のグルメ・おすすめ店",transport:"{a}の交通・空港からの行き方",shopping:"{a}のショッピング・お土産",
+ ja:{t:{map:"日本旅行マップ – 観光地・祭り・グルメ・ショッピング",spots:"{a}の観光スポット",festivals:"{a}の祭り・イベント",food:"{a}のグルメ・おすすめ店",transport:"{a}の交通・空港からの行き方",shopping:"{a}のショッピング・お土産",
      all_spots:"日本の観光スポット – 東京・大阪・京都・福岡・北海道・沖縄",all_festivals:"日本の{m}の祭り・イベント – 地域別カレンダー",all_food:"日本のグルメ – 地域別・メニュー別TOP5",all_transport:"日本の交通案内 – 空港から市内へ、ICカード",all_shopping:"日本のショッピング – 商店街・免税・お土産",saved:"わたしの旅"},
-   d:{spots:"{a}の見どころ{L}。今日の天気、おすすめルート、市内の移動まで一目でわかります。",festivals:"{a}で開かれる祭りと季節の行事{L}。日程・場所・楽しみ方。",food:"{a}のおすすめグルメ{L}。ラーメン・寿司・焼肉などメニュー別TOP5と郷土料理。",transport:"{a}の交通案内。空港からの行き方、市内の移動、ICカードの購入場所。",shopping:"{a}のショッピング{L}。商店街と市場、免税、お土産。",
+   d:{map:"観光地・祭り・グルメ・ショッピングの場所を日本地図で一目で。地域と種類を選んで位置と情報を確認できます。",spots:"{a}の見どころ{L}。今日の天気、おすすめルート、市内の移動まで一目でわかります。",festivals:"{a}で開かれる祭りと季節の行事{L}。日程・場所・楽しみ方。",food:"{a}のおすすめグルメ{L}。ラーメン・寿司・焼肉などメニュー別TOP5と郷土料理。",transport:"{a}の交通案内。空港からの行き方、市内の移動、ICカードの購入場所。",shopping:"{a}のショッピング{L}。商店街と市場、免税、お土産。",
      all_spots:"東京・大阪・京都・福岡・北海道・沖縄の観光地を地域別に{L}。",all_festivals:"日本で{m}に開かれる祭りと季節の行事{L}。",all_food:"日本の地域別おすすめグルメと郷土料理{L}。",all_transport:"空港から市内への行き方、都市間の移動、Suica・ICOCAなどICカードの案内。",all_shopping:"日本の商店街と市場、新しい免税制度、ご当地のお土産{L}。"},
    L:"（{n}など）"},
- es:{t:{spots:"Qué ver en {a} ({c})",festivals:"Festivales y eventos en {a} ({c})",food:"Dónde comer en {a} ({c}) – Mejores restaurantes",transport:"Cómo moverse por {a} ({c}) – Del aeropuerto y transporte local",shopping:"Compras y recuerdos en {a} ({c})",
+ es:{t:{map:"Mapa de viaje de Japón – Lugares, festivales, restaurantes y compras",spots:"Qué ver en {a} ({c})",festivals:"Festivales y eventos en {a} ({c})",food:"Dónde comer en {a} ({c}) – Mejores restaurantes",transport:"Cómo moverse por {a} ({c}) – Del aeropuerto y transporte local",shopping:"Compras y recuerdos en {a} ({c})",
      all_spots:"Qué ver en Japón – Tokio, Osaka, Kioto, Fukuoka, Hokkaido, Okinawa",all_festivals:"Festivales de Japón en {m} – Calendario por región",all_food:"Dónde comer en Japón – Top 5 por zona y plato",all_transport:"Cómo moverse por Japón – Aeropuertos, trenes y tarjetas IC",all_shopping:"Compras en Japón – Calles comerciales, tax-free y recuerdos",saved:"Mi viaje"},
-   d:{spots:"Los mejores lugares de {a} ({c}){L}. El tiempo de hoy, una ruta recomendada y el transporte local de un vistazo.",festivals:"Festivales y eventos de temporada en {a} ({c}){L}. Fechas, lugares y cómo disfrutarlos.",food:"Dónde comer en {a} ({c}){L}. Top 5 de ramen, sushi, yakiniku y más, y platos locales imprescindibles.",transport:"Cómo moverse por {a} ({c}): desde el aeropuerto, líneas locales y dónde comprar la tarjeta IC.",shopping:"Compras en {a} ({c}){L}. Calles comerciales y mercados, tax-free y regalos locales.",
+   d:{map:"Ve lugares, festivales, restaurantes y tiendas en un mapa de Japón. Filtra por zona y tipo para ver ubicaciones y detalles.",spots:"Los mejores lugares de {a} ({c}){L}. El tiempo de hoy, una ruta recomendada y el transporte local de un vistazo.",festivals:"Festivales y eventos de temporada en {a} ({c}){L}. Fechas, lugares y cómo disfrutarlos.",food:"Dónde comer en {a} ({c}){L}. Top 5 de ramen, sushi, yakiniku y más, y platos locales imprescindibles.",transport:"Cómo moverse por {a} ({c}): desde el aeropuerto, líneas locales y dónde comprar la tarjeta IC.",shopping:"Compras en {a} ({c}){L}. Calles comerciales y mercados, tax-free y regalos locales.",
      all_spots:"Elige lugares por región en Tokio, Osaka, Kioto, Fukuoka, Hokkaido y Okinawa{L}.",all_festivals:"Festivales y eventos de temporada en Japón en {m}{L}.",all_food:"Restaurantes recomendados por zona en Japón y platos locales imprescindibles{L}.",all_transport:"Cómo ir de los aeropuertos de Japón al centro, viajar entre ciudades y usar tarjetas como Suica e ICOCA.",all_shopping:"Calles comerciales y mercados de Japón, el nuevo sistema tax-free y regalos locales{L}."},
    L:" – {n} y más"},
- fr:{t:{spots:"Que voir à {a} ({c})",festivals:"Fêtes et événements à {a} ({c})",food:"Où manger à {a} ({c}) – Meilleurs restaurants",transport:"Se déplacer à {a} ({c}) – Depuis l'aéroport et transports locaux",shopping:"Shopping et souvenirs à {a} ({c})",
+ fr:{t:{map:"Carte de voyage du Japon – Sites, fêtes, restaurants et shopping",spots:"Que voir à {a} ({c})",festivals:"Fêtes et événements à {a} ({c})",food:"Où manger à {a} ({c}) – Meilleurs restaurants",transport:"Se déplacer à {a} ({c}) – Depuis l'aéroport et transports locaux",shopping:"Shopping et souvenirs à {a} ({c})",
      all_spots:"Que voir au Japon – Tokyo, Osaka, Kyoto, Fukuoka, Hokkaido, Okinawa",all_festivals:"Fêtes au Japon en {m} – Calendrier par région",all_food:"Où manger au Japon – Top 5 par zone et par plat",all_transport:"Se déplacer au Japon – Aéroports, trains et cartes IC",all_shopping:"Shopping au Japon – Rues commerçantes, détaxe et souvenirs",saved:"Mon voyage"},
-   d:{spots:"Les incontournables de {a} ({c}){L}. Météo du jour, itinéraire conseillé et transports locaux en un coup d'œil.",festivals:"Fêtes et événements de saison à {a} ({c}){L}. Dates, lieux et conseils.",food:"Où manger à {a} ({c}){L}. Top 5 ramen, sushi, yakiniku et plus, et spécialités locales à goûter.",transport:"Se déplacer à {a} ({c}) : depuis l'aéroport, lignes locales et où acheter une carte IC.",shopping:"Shopping à {a} ({c}){L}. Rues commerçantes et marchés, détaxe et cadeaux locaux.",
+   d:{map:"Voyez sites, fêtes, restaurants et adresses shopping sur une carte du Japon. Filtrez par zone et par type pour voir emplacements et détails.",spots:"Les incontournables de {a} ({c}){L}. Météo du jour, itinéraire conseillé et transports locaux en un coup d'œil.",festivals:"Fêtes et événements de saison à {a} ({c}){L}. Dates, lieux et conseils.",food:"Où manger à {a} ({c}){L}. Top 5 ramen, sushi, yakiniku et plus, et spécialités locales à goûter.",transport:"Se déplacer à {a} ({c}) : depuis l'aéroport, lignes locales et où acheter une carte IC.",shopping:"Shopping à {a} ({c}){L}. Rues commerçantes et marchés, détaxe et cadeaux locaux.",
      all_spots:"Choisissez des sites par région à Tokyo, Osaka, Kyoto, Fukuoka, Hokkaido et Okinawa{L}.",all_festivals:"Fêtes et événements de saison au Japon en {m}{L}.",all_food:"Restaurants conseillés par zone au Japon et spécialités locales à goûter{L}.",all_transport:"Aller des aéroports japonais en ville, voyager entre les villes et utiliser les cartes IC comme Suica et ICOCA.",all_shopping:"Rues commerçantes et marchés du Japon, nouvelle détaxe et cadeaux locaux{L}."},
    L:" – {n} et plus"}
 };
 function pageMeta(){
   const L = (window.I18N&&window.I18N.lang)||"ko", M = PMETA[L]||PMETA.ko, T = window.__tr||(x=>x);
   if(st.view==="home") return {title:T("Nihon Trip · 일본 여행 가이드"), desc:null};
-  const key = st.view==="saved" ? "saved" : (st.city==="all" ? "all_"+st.view : st.view);
+  const key = st.view==="saved" ? "saved" : st.view==="map" ? "map" : (st.city==="all" ? "all_"+st.view : st.view);
   const a = st.city==="all" ? "" : T(curArea()?.ko || CITIES[st.city].ko), c = {ko:"일본",en:"Japan",ja:"日本",es:"Japón",fr:"Japon"}[L];
   const mon = L==="ko" ? st.month+"월" : L==="ja" ? st.month+"月" : (window.I18N.MON[st.month-1]||st.month);
   const names = [...new Set([...document.querySelectorAll("#main .card h3, #main .arlist .nm, #main .fest h3, #main .gname, #main .gift h3")].map(e=>T(e.textContent.trim())).filter(Boolean))].slice(0,4);
@@ -1329,6 +1465,9 @@ function syncUrl(){
 window.addEventListener("popstate",()=>{ if(ROUTED){ readPath(); st.q=""; st.focus=null; render(); } });
 
 function render(){
+  document.body.classList.toggle("is-map", st.view==="map");
+  if(st.view!=="map" && MAP){ try{ MAP.remove(); }catch(_){} MAP=null; MAPREADY=false; }
+  if(st.view==="map"){ setNav(); const mw=$("#mapwrap"); if(!mw || !mw.dataset.live){ $("#main").innerHTML = V.map(); $("#mapwrap").dataset.live="1"; mapMount(); } syncUrl(); return; }
   if(st.view==="home"){ st.city="all"; }
   if(st.city==="all") st.area="all";
   if(st.city!=="all" && (st.area==="all" || !areasOf(st.city).some(a=>a.key===st.area))) st.area = areasOf(st.city)[0]?.key || "all";
