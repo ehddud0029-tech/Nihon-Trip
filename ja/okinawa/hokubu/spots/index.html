@@ -24,14 +24,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/Nihon-Trip/app.css?v=08af8ee6">
+<link rel="stylesheet" href="/Nihon-Trip/app.css?v=d1f2d15e">
 <script>window.NT_BASE="/Nihon-Trip/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=08af8ee6"><\/script><script src="'+B+'engine.js?v=08af8ee6"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=d1f2d15e"><\/script><script src="'+B+'engine.js?v=d1f2d15e"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -60,7 +60,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=08af8ee6"><\/s
   <div class="cities" id="cities" role="group" aria-label="地域を選択"><button class="city" type="button" data-city="all" aria-pressed="false">すべて<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">東京<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">大阪<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">福岡<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">北海道<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="true">沖縄<span class="jp">沖縄</span></button></div>
   <div class="areas" id="areas" role="group" aria-label="エリアを選択"><button class="area" type="button" data-area="kokusai" aria-pressed="false">国際通り・牧志</button><button class="area" type="button" data-area="naha" aria-pressed="false">那覇</button><button class="area" type="button" data-area="chubu" aria-pressed="false">沖縄中部</button><button class="area" type="button" data-area="hokubu" aria-pressed="true">沖縄北部</button><button class="area" type="button" data-area="ishigaki" aria-pressed="false">石垣島</button><button class="area" type="button" data-area="miyako" aria-pressed="false">宮古島</button></div>
   <dl class="brief" id="brief"><div class="bw"><dt>沖縄北部の今日の天気</dt>
-        <dd class="wxtime"><span class="jstclock">10月26日(月) 09:18</span> <small>日本の現在</small></dd>
+        <dd class="wxtime"><span class="jstclock">10月26日(月) 09:28</span> <small>日本の現在</small></dd>
         <dd class="wxnow"><span class="big">27°</span> <b>平年気温</b><span class="wxicon" aria-hidden="true">🌤️</span></dd>
         <dd class="sub wxline">10月の平年最高気温</dd>
         <dd class="sub">リアルタイムの天気を読み込み中です</dd></div><div class="bspot"><dt>沖縄北部のおすすめ観光地 TOP3</dt><ol class="picks"><li><button type="button" class="pick" data-open="churaumi"><b>美ら海水族館</b><em class="pm">景色・自然</em><span class="pd">本部（北部）</span></button></li><li><button type="button" class="pick" data-open="kouri"><b>古宇利大橋</b><em class="pm">景色・自然</em><span class="pd">今帰仁（北部）</span></button></li><li><button type="button" class="pick" data-open="s_nakijin"><b>今帰仁城跡</b><em class="pm">史跡・寺社</em><span class="pd">今帰仁</span></button></li></ol>
@@ -109,10 +109,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=08af8ee6"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/Nihon-Trip/areas.js?v=08af8ee6"></script>
-<script src="/Nihon-Trip/autoreserve.js?v=08af8ee6"></script>
-<script src="/Nihon-Trip/google_picks.js?v=08af8ee6"></script>
-<script src="/Nihon-Trip/geo.js?v=08af8ee6"></script>
-<script src="/Nihon-Trip/app.js?v=08af8ee6"></script>
+<script src="/Nihon-Trip/areas.js?v=d1f2d15e"></script>
+<script src="/Nihon-Trip/autoreserve.js?v=d1f2d15e"></script>
+<script src="/Nihon-Trip/google_picks.js?v=d1f2d15e"></script>
+<script src="/Nihon-Trip/geo.js?v=d1f2d15e"></script>
+<script src="/Nihon-Trip/app.js?v=d1f2d15e"></script>
 </body>
 </html>
