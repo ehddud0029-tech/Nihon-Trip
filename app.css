@@ -17,7 +17,7 @@
 *{box-sizing:border-box}
 html,body{background:var(--paper)}
 body{color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6;padding-bottom:calc(72px + env(safe-area-inset-bottom,0px))}
-@media (min-width:860px){body{padding-bottom:0}}
+@media (min-width:600px){body{padding-bottom:0}}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--surface)}
 a{color:var(--ai)}
 button{font:inherit;color:inherit}
@@ -53,7 +53,8 @@ html:lang(ja){--f-body:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","
 .savedbtn{padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--ink-2);font-weight:500;font-size:14px}
 .savedbtn{display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);cursor:pointer;color:var(--ink)}
 .savedbtn .n{min-width:20px;height:20px;border-radius:10px;background:var(--shu);color:#fff;font-size:12px;display:grid;place-items:center;padding:0 6px;font-variant-numeric:tabular-nums}
-@media (min-width:860px){nav.main{display:block}}
+@media (min-width:600px){nav.main{display:block}}
+@media (max-width:999px){.top nav.main .wrap{overflow-x:auto;scrollbar-width:none;gap:0}.top nav.main .wrap::-webkit-scrollbar{display:none}nav.main a{min-width:62px;padding:8px 6px 7px;font-size:12.5px;flex:1 0 auto;white-space:nowrap}nav.main a svg{width:20px;height:20px}}
 @media (max-width:480px){.langbtn{padding:8px 9px}.langbtn .caret{display:none}.top .wrap{gap:10px}}
 
 /* hero */
@@ -192,7 +193,7 @@ html:not(:lang(ko)):not(:lang(ja)) nav.tabs a{font-size:9.5px;letter-spacing:-.0
 nav.tabs a i{font-style:normal;line-height:0;height:22px;display:grid;place-items:center}
 nav.tabs a i svg{width:21px;height:21px}
 nav.tabs a[aria-current="page"]{color:var(--shu);font-weight:600}
-@media (min-width:860px){nav.tabs{display:none}}
+@media (min-width:600px){nav.tabs{display:none}}
 
 /* drawer */
 .scrim{position:fixed;inset:0;background:rgba(10,14,20,.45);z-index:40}
