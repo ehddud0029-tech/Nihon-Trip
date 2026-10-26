@@ -164,6 +164,8 @@ main{padding-block:20px 48px}
 .gift{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:4px}
 .gift.here{border:1.5px solid var(--shu)}
 .gift .gphoto{margin:-14px -16px 0;width:calc(100% + 32px);height:160px;overflow:hidden;background:var(--ai-soft);border-radius:var(--r) var(--r) 0 0}
+.gift .gphoto.gnone{display:grid;place-items:center;height:120px;margin-bottom:6px;background:color-mix(in srgb,var(--c) 10%,var(--surface));color:var(--c)}
+.gift .gphoto.gnone svg{width:52px;height:52px;opacity:.85}
 .gift .gphoto img{width:100%!important;max-width:none!important;height:100%!important;object-fit:cover;display:block;position:static!important}
 .gift .gcredit{font-size:10.5px;color:var(--ink-2);margin:2px 0 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .gift .gh{display:flex;justify-content:space-between;align-items:center;font-size:12px}

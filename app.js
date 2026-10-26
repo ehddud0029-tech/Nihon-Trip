@@ -877,6 +877,13 @@ const MICON = {
   rest:'<path d="M3.5 12h17c0 4.4-3.6 8-8 8h-1c-4.4 0-8-3.6-8-8z"/><path d="M8 20.5h8M14 3 9.5 11M19 4l-6.5 7.5"/>'
 };
 const SVGI = (d,cls="ico") => `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+const GIFT_ICON = {
+  "과자":'<rect x="4" y="9" width="16" height="11" rx="1.5"/><path d="M4 13h16M12 9v11M12 9c-1.5-3.5-5.5-4-5.5-1.5S10 9 12 9zM12 9c1.5-3.5 5.5-4 5.5-1.5S14 9 12 9z"/>',
+  "먹거리":MICON.rest,
+  "공예":'<path d="M9 3h6M10 3v3.5C6.5 8 5 11 5 14a7 7 0 0 0 14 0c0-3-1.5-6-5-7.5V3"/><path d="M6 13.5c2 1 4 1 6 0s4-1 6 0"/>',
+  "차":'<path d="M4 10h13v4a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6z"/><path d="M17 11.5h1.5a2.5 2.5 0 0 1 0 5H16.5M8 3.5c-.8 1 .8 2 0 3.5M12 3.5c-.8 1 .8 2 0 3.5"/>'
+};
+const GIFT_C = {"과자":"--shu","먹거리":"--shu","공예":"--ai","차":"--matsu"};
 function iconKey(it){
   if(it.type==="spot") return MICON[it.cat] ? it.cat : "nature";
   if(it.type==="food"||it.type==="rest") return "rest";
@@ -1250,7 +1257,7 @@ const V = {
     if(!g.length) return "";
     const place = x => (AREA[x.sub]?.ko.split("·")[0])||CITIES[x.city].ko;
     return `<section class="gifts"><div class="sechead"><div><h2>특산물·선물 추천</h2><p>${st.city==="all"?"일본":esc(CITIES[st.city].ko)}에서 사 가기 좋은 선물과 파는 곳 ${g.length}가지${A?` · ${esc(A.ko)} 것을 먼저 보여드려요`:""}</p></div></div>
-      <div class="giftgrid">${g.map(x=>`<article class="gift${A&&x.sub===A.key?" here":""}">${PHOTO[x.id]?`<div class="gphoto">${imgTag(x.id)}</div><div class="gcredit">사진: ${esc(PHOTO[x.id].artist||"")}${PHOTO[x.id].license?" · "+esc(PHOTO[x.id].license):""} · <a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(PHOTO[x.id].file)}" target="_blank" rel="noopener">위키미디어 공용</a></div>`:""}<div class="gh"><span class="gcat">${esc(x.cat)}</span><span class="gplace">${esc(place(x))}</span></div>
+      <div class="giftgrid">${g.map(x=>`<article class="gift${A&&x.sub===A.key?" here":""}">${!PHOTO[x.id]?`<div class="gphoto gnone" style="--c:var(${GIFT_C[x.cat]||"--shu"})">${SVGI(GIFT_ICON[x.cat]||MICON.shop)}</div>`:""}${PHOTO[x.id]?`<div class="gphoto">${imgTag(x.id)}</div><div class="gcredit">사진: ${esc(PHOTO[x.id].artist||"")}${PHOTO[x.id].license?" · "+esc(PHOTO[x.id].license):""} · <a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(PHOTO[x.id].file)}" target="_blank" rel="noopener">위키미디어 공용</a></div>`:""}<div class="gh"><span class="gcat">${esc(x.cat)}</span><span class="gplace">${esc(place(x))}</span></div>
         <h3>${esc(x.name)}</h3><div class="gjp">${esc(x.jp)}</div><p>${esc(x.desc)}</p>
         <div class="gwhere"><b>파는 곳</b>${x.where.map(([ko,q])=>`<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}" target="_blank" rel="noopener">${esc(ko)} ↗</a>`).join("")}</div></article>`).join("")}</div>
       <p class="credit">공항·주요 역의 기념품 매장에서도 대부분 살 수 있어요. 영업시간과 재고는 구글 지도 링크에서 확인하세요.</p></section>`;
