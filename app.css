@@ -207,6 +207,10 @@ nav.tabs a[aria-current="page"]{color:var(--shu);font-weight:600}
 .facts dd{margin:0}
 .tip{background:var(--ai-soft);border-radius:8px;padding:10px 12px;font-size:14px}
 .tip b{color:var(--ai)}
+.picks2{border:1px solid color-mix(in srgb,var(--shu) 30%,var(--line));background:color-mix(in srgb,var(--shu) 6%,var(--surface));border-radius:8px;padding:10px 12px;margin-bottom:10px;font-size:14px}
+.picks2 b{color:var(--shu);display:block;margin-bottom:6px}
+.picks2 ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.picks2 li{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:13px}
 .actions{display:flex;gap:8px;flex-wrap:wrap}
 .btn{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:10px 14px;cursor:pointer;font-weight:600;font-size:14px;text-decoration:none;color:var(--ink);display:inline-flex;align-items:center;gap:6px}
 .btn.reserve{display:flex;justify-content:center;width:100%;padding:14px 16px;font-size:15px;border-radius:12px;background:var(--shu);border-color:var(--shu);color:#fff}
