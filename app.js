@@ -652,7 +652,7 @@ const WIKI = {
 };
 Object.assign(WIKI, SPOT_WIKI);
 let PHOTO = {};
-const PHOTO_KEY = "tabishiori-photos-v9";
+const PHOTO_KEY = "tabishiori-photos-v10";
 const stripTags = s => { const d=document.createElement("div"); d.innerHTML=s||""; return (d.textContent||"").trim(); };
 async function wikiBatch(base, titles, extra){
   const out = [];
