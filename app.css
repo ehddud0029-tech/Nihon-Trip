@@ -615,7 +615,7 @@ body.is-guide .hero{display:none}
 .guide{max-width:860px;margin:0 auto;padding-top:24px}
 .ghead h2{font-family:var(--f-display);font-size:30px;margin:0 0 6px}
 .ghead p{margin:0;color:var(--ink-2);font-size:15px;line-height:1.6}
-.gtabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:20px 0 22px}
+.gtabs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin:20px 0 22px}
 .gtab{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 6px;border:1px solid var(--line);border-radius:12px;background:var(--surface);text-decoration:none;color:var(--ink-2);font-size:14px;font-weight:600;text-align:center;min-width:0}
 .gtab svg{width:24px;height:24px}
 .gtab span{min-width:0;overflow-wrap:anywhere}
@@ -665,12 +665,20 @@ body.is-guide .hero{display:none}
 .go dd{margin:0;font-size:14px;line-height:1.55}
 @supports (grid-template-rows:subgrid){.go{display:grid;grid-row:span 8;grid-template-rows:subgrid;row-gap:0;align-content:start}.go dl{display:contents}.go dd{align-self:start}}
 .gbuy{margin-top:12px;align-self:flex-start;font-size:13px;font-weight:600;text-decoration:none;border-radius:8px;padding:6px 12px;background:var(--ink);color:#fff}
+.gtbl{overflow-x:auto;margin:0 -4px}
+.gtbl table{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}
+.gtbl th,.gtbl td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.45}
+.gtbl thead th{font-size:12.5px;color:var(--ink-2);font-weight:700;background:var(--ai-soft)}
+.gtbl tbody th{font-weight:700;white-space:nowrap}
+.gtbl .tl{display:none}
+@media (max-width:640px){.gtbl{overflow:visible;margin:0}.gtbl table{min-width:0}.gtbl thead{display:none}.gtbl tbody,.gtbl tr{display:block}.gtbl tr{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}.gtbl tbody th{display:block;padding:0 0 6px;border:0;font-size:15px;white-space:normal}.gtbl td{display:grid;grid-template-columns:86px minmax(0,1fr);gap:8px;padding:4px 0;border:0}.gtbl .tl{display:block;font-size:12.5px;color:var(--ink-2);font-weight:600}}
 .gupd{margin:0;font-size:12.5px;color:var(--ink-2);text-align:right}
 .gmore{margin-top:26px;border-top:1px solid var(--line);padding-top:16px}
 .gmore h4{margin:0 0 10px;font-size:15px;color:var(--ink-2)}
 .gmore div{display:flex;flex-wrap:wrap;gap:8px}
 .gmore a{display:flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:600;background:var(--surface)}
 .gmore a svg{width:18px;height:18px;color:var(--shu)}
+@media (max-width:640px){.gtabs{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:480px){.ghead h2{font-size:25px}.gtabs{gap:5px}.gtab{font-size:11.5px;padding:9px 2px;line-height:1.25}.gtab svg{width:21px;height:21px}.gblk{padding:14px}}
 body.is-itin .hero{display:none}
 .itin{max-width:900px;margin:0 auto;padding-top:24px}
