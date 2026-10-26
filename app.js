@@ -1305,8 +1305,14 @@ function mapListRender(){
   if(MAP && MAPREADY){ const b = MAP.getBounds(); items = items.filter(x=>b.contains([x.ll[1],x.ll[0]])); }
   $("#mln").textContent = items.length;
   const shown = items.slice(0,150);
-  el.innerHTML = shown.length ? shown.map(x=>`<button type="button" class="mitem${mst.sel===x.id?" on":""}" data-mid="${x.id}" style="--c:var(${MCAT[x.cat][1]})"><i class="dot"></i><div><small>${MCAT[x.cat][0]}${x.sub&&AREA[x.sub]?" · "+esc(AREA[x.sub].ko):""}</small><b>${esc(x.name)}</b>${x.sub2?`<span>${esc(x.sub2)}</span>`:""}</div></button>`).join("")
+  el.innerHTML = shown.length ? shown.map(x=>`<button type="button" class="mitem${mst.sel===x.id?" on":""}" data-mid="${x.id}" style="--c:var(${MCAT[x.cat][1]})"><i class="dot"></i><div><small>${MCAT[x.cat][0]}${x.sub&&AREA[x.sub]?" · "+esc(AREA[x.sub].ko):""}</small><b>${esc(x.name)}</b>${x.sub2?`<span>${esc(x.sub2)}</span>`:""}</div>${mapThumb(x)}</button>`).join("")
     : `<div class="empty">이 범위에는 표시할 곳이 없어요. 지도를 옮기거나 축소해 보세요.</div>`;
+}
+/* 목록 오른쪽 작은 사진: 위키미디어 썸네일을 작은 크기(120px)로 받아요. 사진이 없으면 한자 칸 */
+const smallImg = src => String(src).replace(/\/(\d+)px-([^/]+)$/, "/120px-$2");
+function mapThumb(x){
+  const ph = PHOTO[x.id], it = x.cat!=="rest" ? byId(x.id) : null;
+  return `<span class="mthumb" aria-hidden="true">${ph?`<img src="${esc(smallImg(ph.src))}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">`:`<em>${esc(it?.k || "食")}</em>`}</span>`;
 }
 function mapGeoJSON(){
   return {type:"FeatureCollection",features:mapFiltered().map(x=>({type:"Feature",properties:{id:x.id,cat:x.cat},geometry:{type:"Point",coordinates:[x.ll[1],x.ll[0]]}}))};
@@ -1467,7 +1473,7 @@ window.addEventListener("popstate",()=>{ if(ROUTED){ readPath(); st.q=""; st.foc
 function render(){
   document.body.classList.toggle("is-map", st.view==="map");
   if(st.view!=="map" && MAP){ try{ MAP.remove(); }catch(_){} MAP=null; MAPREADY=false; }
-  if(st.view==="map"){ setNav(); const mw=$("#mapwrap"); if(!mw || !mw.dataset.live){ $("#main").innerHTML = V.map(); $("#mapwrap").dataset.live="1"; mapMount(); } syncUrl(); return; }
+  if(st.view==="map"){ setNav(); const mw=$("#mapwrap"); if(!mw || !mw.dataset.live){ $("#main").innerHTML = V.map(); $("#mapwrap").dataset.live="1"; mapMount(); } else mapListRender(); syncUrl(); return; }
   if(st.view==="home"){ st.city="all"; }
   if(st.city==="all") st.area="all";
   if(st.city!=="all" && (st.area==="all" || !areasOf(st.city).some(a=>a.key===st.area))) st.area = areasOf(st.city)[0]?.key || "all";
