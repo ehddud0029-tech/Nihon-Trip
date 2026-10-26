@@ -1310,9 +1310,19 @@ function mapListRender(){
 }
 /* 목록 오른쪽 작은 사진: 위키미디어 썸네일을 작은 크기(120px)로 받아요. 사진이 없으면 한자 칸 */
 const smallImg = src => String(src).replace(/\/(\d+)px-([^/]+)$/, "/120px-$2");
+/* 사진이 없을 때 쓰는 그림 (종류별 선 그림) */
+const MICON = {
+  heritage:'<path d="M3 6.5c3 .8 15 .8 18 0M5 6.8 4.6 9M19 6.8l.4 2.2M3.5 9.5h17M7 9.5V21M17 9.5V21M11 9.5v3h2v-3"/>',
+  nature:'<path d="M2.5 20 9 9l4 6.5 2.5-3.5L21.5 20z"/><path d="M7.5 11.6 9 13l1.4-1.3"/><circle cx="17.5" cy="6" r="2"/>',
+  street:'<path d="M4 10v10h16V10M3 10l1.5-5h15L21 10z"/><path d="M3 10c0 1.4 1.3 2 2.25 2S7.5 11.4 7.5 10c0 1.4 1.3 2 2.25 2S12 11.4 12 10c0 1.4 1.3 2 2.25 2s2.25-.6 2.25-2c0 1.4 1.3 2 2.25 2S21 11.4 21 10"/><path d="M10 20v-4.5h4V20"/>',
+  fest:'<path d="M9 3h6M12 3v1.5M8.5 4.5h7M8.5 19.5h7M12 19.5V21"/><path d="M8.5 4.5C5.5 6.5 5 9 5 12s.5 5.5 3.5 7.5h7c3-2 3.5-4.5 3.5-7.5s-.5-5.5-3.5-7.5"/><path d="M5.3 9h13.4M5 12h14M5.3 15h13.4"/>',
+  shop:'<path d="M5 8h14l-1 12.5H6z"/><path d="M9 10V6.5a3 3 0 0 1 6 0V10"/>',
+  rest:'<path d="M3.5 12h17c0 4.4-3.6 8-8 8h-1c-4.4 0-8-3.6-8-8z"/><path d="M8 20.5h8M14 3 9.5 11M19 4l-6.5 7.5"/>'
+};
 function mapThumb(x){
-  const ph = PHOTO[x.id], it = x.cat!=="rest" ? byId(x.id) : null;
-  return `<span class="mthumb" aria-hidden="true">${ph?`<img src="${esc(smallImg(ph.src))}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">`:`<em>${esc(it?.k || "食")}</em>`}</span>`;
+  const ph = PHOTO[x.id], it = x.cat==="spot" ? byId(x.id) : null;
+  const key = x.cat==="spot" ? (MICON[it?.cat] ? it.cat : "nature") : x.cat;
+  return `<span class="mthumb" aria-hidden="true">${ph?`<img src="${esc(smallImg(ph.src))}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">`:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${MICON[key]}</svg>`}</span>`;
 }
 function mapGeoJSON(){
   return {type:"FeatureCollection",features:mapFiltered().map(x=>({type:"Feature",properties:{id:x.id,cat:x.cat},geometry:{type:"Point",coordinates:[x.ll[1],x.ll[0]]}}))};
