@@ -868,6 +868,22 @@ const byId = id => ALL.find(x=>x.id===id);
 const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const $ = s => document.querySelector(s);
 
+const MICON = {
+  heritage:'<path d="M3 6.5c3 .8 15 .8 18 0M5 6.8 4.6 9M19 6.8l.4 2.2M3.5 9.5h17M7 9.5V21M17 9.5V21M11 9.5v3h2v-3"/>',
+  nature:'<path d="M2.5 20 9 9l4 6.5 2.5-3.5L21.5 20z"/><path d="M7.5 11.6 9 13l1.4-1.3"/><circle cx="17.5" cy="6" r="2"/>',
+  street:'<path d="M4 10v10h16V10M3 10l1.5-5h15L21 10z"/><path d="M3 10c0 1.4 1.3 2 2.25 2S7.5 11.4 7.5 10c0 1.4 1.3 2 2.25 2S12 11.4 12 10c0 1.4 1.3 2 2.25 2s2.25-.6 2.25-2c0 1.4 1.3 2 2.25 2S21 11.4 21 10"/><path d="M10 20v-4.5h4V20"/>',
+  fest:'<path d="M9 3h6M12 3v1.5M8.5 4.5h7M8.5 19.5h7M12 19.5V21"/><path d="M8.5 4.5C5.5 6.5 5 9 5 12s.5 5.5 3.5 7.5h7c3-2 3.5-4.5 3.5-7.5s-.5-5.5-3.5-7.5"/><path d="M5.3 9h13.4M5 12h14M5.3 15h13.4"/>',
+  shop:'<path d="M5 8h14l-1 12.5H6z"/><path d="M9 10V6.5a3 3 0 0 1 6 0V10"/>',
+  rest:'<path d="M3.5 12h17c0 4.4-3.6 8-8 8h-1c-4.4 0-8-3.6-8-8z"/><path d="M8 20.5h8M14 3 9.5 11M19 4l-6.5 7.5"/>'
+};
+const SVGI = (d,cls="ico") => `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+function iconKey(it){
+  if(it.type==="spot") return MICON[it.cat] ? it.cat : "nature";
+  if(it.type==="food"||it.type==="rest") return "rest";
+  if(it.type==="shop") return "shop";
+  return "fest";
+}
+const itemIcon = it => SVGI(MICON[iconKey(it)]);
 function colorOf(it){
   if(it.type==="spot") return SPOT_CAT[it.cat].c;
   if(it.type==="food"||it.type==="rest") return "--shu";
@@ -1100,7 +1116,7 @@ function card(it){
   const city = CITIES[it.city];
   const extra = it.type==="rest" ? esc(it.dish) : it.type==="food" ? "¥".repeat(it.price)+"<span style='opacity:.3'>"+"¥".repeat(3-it.price)+"</span>" : esc(it.station||it.area||"");
   return `<button class="card" type="button" data-open="${it.id}" style="--c:var(${colorOf(it)})">
-    <div class="plate"><span class="tag">${esc(tagOf(it))}</span><span class="where">${esc((it.sub&&AREA[it.sub]?.ko)||city.ko)}</span><span class="k${it.k.length>1?" sm":""}">${it.k}</span>${imgTag(it.id)}</div>
+    <div class="plate"><span class="tag">${esc(tagOf(it))}</span><span class="where">${esc((it.sub&&AREA[it.sub]?.ko)||city.ko)}</span><span class="k">${itemIcon(it)}</span>${imgTag(it.id)}</div>
     <div class="body"><h3>${esc(it.name)}</h3><div class="jpn">${esc(it.jp)}</div><p>${esc(it.desc)}</p>
     <div class="meta"><span>${extra}</span>${isSaved?'<span class="saved-mark">저장됨</span>':''}</div></div></button>`;
 }
@@ -1121,7 +1137,7 @@ function focusBox(){
   const f = st.focus; if(!f || f.city!==st.city) return "";
   const items = f.ids.map(byId).filter(Boolean); if(!items.length) return "";
   const body = items[0].type==="fest"
-    ? `<div class="flist">${items.map(x=>`<button class="fest" type="button" data-open="${x.id}" style="--c:var(--yamabuki)"><span class="stamp">${x.k}${imgTag(x.id)}</span><span><span class="when">${esc(x.when)} · ${esc(placeOf(x))}</span><h3>${esc(x.name)}</h3><p>${esc(x.desc)}</p></span></button>`).join("")}</div>`
+    ? `<div class="flist">${items.map(x=>`<button class="fest" type="button" data-open="${x.id}" style="--c:var(--yamabuki)"><span class="stamp">${SVGI(MICON.fest)}${imgTag(x.id)}</span><span><span class="when">${esc(x.when)} · ${esc(placeOf(x))}</span><h3>${esc(x.name)}</h3><p>${esc(x.desc)}</p></span></button>`).join("")}</div>`
     : `<div class="grid">${items.map(card).join("")}</div>`;
   return `<section class="focusbox"><div class="fhead"><span class="arbadge">${f.m}월 추천</span><h3>${esc(CITIES[f.city].ko)} · ${esc(f.why)}</h3></div>${body}</section>`;
 }
@@ -1165,7 +1181,7 @@ const V = {
   return `${focusBox()}<div class="sechead"><div><h2>축제 · 계절 행사</h2><p>여행하는 달을 고르면 ${cityName()}에서 열리는 행사를 보여드려요.</p></div></div>
    <div class="months" role="group" aria-label="월 선택">${counts.map((n,i)=>`<button class="month${i+1===NOW_M?" now":""}" type="button" data-month="${i+1}" aria-pressed="${st.month===i+1}"><b>${i+1}월</b><span>${n?n+"개":"–"}</span></button>`).join("")}</div>
    <div class="season"><b>${st.month}월</b> · ${SEASON[st.month-1]}</div>
-   ${items.length?`<div class="flist">${items.map(f=>`<button class="fest" type="button" data-open="${f.id}" style="--c:var(--yamabuki)"><span class="stamp">${f.k}${imgTag(f.id)}</span><span><span class="when">${esc(f.when)} · ${esc(placeOf(f))}</span><h3>${esc(f.name)}</h3><p>${esc(f.desc)}</p>${saved.includes(f.id)?'<span class="saved-mark" style="font-size:12px">저장됨</span>':''}</span></button>`).join("")}</div>`
+   ${items.length?`<div class="flist">${items.map(f=>`<button class="fest" type="button" data-open="${f.id}" style="--c:var(--yamabuki)"><span class="stamp">${SVGI(MICON.fest)}${imgTag(f.id)}</span><span><span class="when">${esc(f.when)} · ${esc(placeOf(f))}</span><h3>${esc(f.name)}</h3><p>${esc(f.desc)}</p>${saved.includes(f.id)?'<span class="saved-mark" style="font-size:12px">저장됨</span>':''}</span></button>`).join("")}</div>`
      :`<div class="empty">${st.month}월에 등록된 ${cityName()} 행사가 없어요. 위에서 다른 달을 골라보세요.</div>`}`;
  },
  food(){
@@ -1311,14 +1327,7 @@ function mapListRender(){
 /* 목록 오른쪽 작은 사진: 위키미디어 썸네일을 작은 크기(120px)로 받아요. 사진이 없으면 한자 칸 */
 const smallImg = src => String(src).replace(/\/(\d+)px-([^/]+)$/, "/120px-$2");
 /* 사진이 없을 때 쓰는 그림 (종류별 선 그림) */
-const MICON = {
-  heritage:'<path d="M3 6.5c3 .8 15 .8 18 0M5 6.8 4.6 9M19 6.8l.4 2.2M3.5 9.5h17M7 9.5V21M17 9.5V21M11 9.5v3h2v-3"/>',
-  nature:'<path d="M2.5 20 9 9l4 6.5 2.5-3.5L21.5 20z"/><path d="M7.5 11.6 9 13l1.4-1.3"/><circle cx="17.5" cy="6" r="2"/>',
-  street:'<path d="M4 10v10h16V10M3 10l1.5-5h15L21 10z"/><path d="M3 10c0 1.4 1.3 2 2.25 2S7.5 11.4 7.5 10c0 1.4 1.3 2 2.25 2S12 11.4 12 10c0 1.4 1.3 2 2.25 2s2.25-.6 2.25-2c0 1.4 1.3 2 2.25 2S21 11.4 21 10"/><path d="M10 20v-4.5h4V20"/>',
-  fest:'<path d="M9 3h6M12 3v1.5M8.5 4.5h7M8.5 19.5h7M12 19.5V21"/><path d="M8.5 4.5C5.5 6.5 5 9 5 12s.5 5.5 3.5 7.5h7c3-2 3.5-4.5 3.5-7.5s-.5-5.5-3.5-7.5"/><path d="M5.3 9h13.4M5 12h14M5.3 15h13.4"/>',
-  shop:'<path d="M5 8h14l-1 12.5H6z"/><path d="M9 10V6.5a3 3 0 0 1 6 0V10"/>',
-  rest:'<path d="M3.5 12h17c0 4.4-3.6 8-8 8h-1c-4.4 0-8-3.6-8-8z"/><path d="M8 20.5h8M14 3 9.5 11M19 4l-6.5 7.5"/>'
-};
+
 function mapThumb(x){
   const ph = PHOTO[x.id], it = x.cat==="spot" ? byId(x.id) : null;
   const key = x.cat==="spot" ? (MICON[it?.cat] ? it.cat : "nature") : x.cat;
@@ -1518,7 +1527,7 @@ function openItem(id){
   if(it.price) facts.push(["가격대","¥".repeat(it.price)+" (3단계 중 "+it.price+")"]);
   const mq = encodeURIComponent(`${it.jp} ${it.sub?placeQ(it):c.jp}`);
   $("#drawer").innerHTML = `<button class="close" type="button" id="closeD" aria-label="닫기">×</button>
-   ${it.type==="rest" ? restGallery(it) : `<div class="plate" style="--c:var(${colorOf(it)})"><span class="tag">${esc(tagOf(it))}</span><span class="k${it.k.length>1?" sm":""}">${it.k}</span>${imgTag(it.id)}</div>`}
+   ${it.type==="rest" ? restGallery(it) : `<div class="plate" style="--c:var(${colorOf(it)})"><span class="tag">${esc(tagOf(it))}</span><span class="k">${itemIcon(it)}</span>${imgTag(it.id)}</div>`}
    <div class="in"><h2>${esc(it.name)}</h2><div class="jpn">${esc(it.jp)}</div><p>${esc(it.desc)}</p>
    <dl class="facts">${facts.map(([a,b])=>`<dt>${a}</dt><dd>${esc(b)}</dd>`).join("")}</dl>
    ${it.tip?`<div class="tip"><b>여행 팁</b> · ${esc(it.tip)}</div>`:""}
