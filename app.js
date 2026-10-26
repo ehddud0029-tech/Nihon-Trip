@@ -946,10 +946,36 @@ function hourlyChart(h, hi){
 }
 
 /* header pieces */
+/* 도시 칩 줄: 넘치면 양옆 화살표로 넘겨 보기 */
+function cityArrows(){
+  const el=$("#cities"); if(!el) return;
+  const max=el.scrollWidth-el.clientWidth;
+  $("#cityPrev").hidden = el.scrollLeft<=2;
+  $("#cityNext").hidden = el.scrollLeft>=max-2;
+}
+let cityScrollReady=false;
+function cityScrollInit(){
+  const el=$("#cities");
+  if(!cityScrollReady){
+    cityScrollReady=true;
+    el.addEventListener("scroll",cityArrows,{passive:true});
+    window.addEventListener("resize",cityArrows);
+    const go=d=>el.scrollBy({left:d*Math.max(160,el.clientWidth*0.7),behavior:"smooth"});
+    $("#cityPrev").addEventListener("click",()=>go(-1));
+    $("#cityNext").addEventListener("click",()=>go(1));
+  }
+  // 고른 도시가 가려져 있으면 보이게
+  const on=el.querySelector('[aria-pressed="true"]');
+  if(on && (on.offsetLeft<el.scrollLeft || on.offsetLeft+on.offsetWidth>el.scrollLeft+el.clientWidth)){
+    el.scrollLeft = Math.max(0, on.offsetLeft - (el.clientWidth-on.offsetWidth)/2);
+  }
+  requestAnimationFrame(cityArrows);
+}
 function renderCities(){
   const list = [["all","전체","日本"],...Object.entries(CITIES).map(([k,v])=>[k,v.ko,v.jp])];
-  $("#cities").hidden = st.view==="home";
+  $("#cityscroll").hidden = st.view==="home";
   $("#cities").innerHTML = list.map(([k,ko,jp])=>`<button class="city" type="button" data-city="${k}" aria-pressed="${st.city===k}">${ko}<span class="jp">${jp}</span></button>`).join("");
+  cityScrollInit();
   const c = CITIES[st.city], A = curArea();
   $("#areas").hidden = !c;
   if(c) $("#areas").innerHTML = areasOf(st.city).map(a=>`<button class="area" type="button" data-area="${a.key}" aria-pressed="${st.area===a.key}">${a.ko}</button>`).join("");

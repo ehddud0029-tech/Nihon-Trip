@@ -62,6 +62,15 @@ html:lang(ja){--f-body:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","
 .eyebrow{font-size:12px;letter-spacing:.14em;color:var(--shu);font-weight:600}
 .hero h1{font-family:var(--f-display);font-size:clamp(26px,4vw,38px);line-height:1.25;margin:6px 0 16px;text-wrap:balance;font-weight:700}
 .cities{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.cityscroll{position:relative}
+.cityscroll[hidden]{display:none}
+.cityscroll .cnav{position:absolute;top:0;bottom:4px;width:56px;display:flex;align-items:center;border:0;padding:0;cursor:pointer;z-index:2;background:none}
+.cityscroll .cnav[hidden]{display:none}
+.cityscroll .cnav.prev{left:0;justify-content:flex-start;background:linear-gradient(90deg,var(--paper) 45%,transparent)}
+.cityscroll .cnav.next{right:0;justify-content:flex-end;background:linear-gradient(270deg,var(--paper) 45%,transparent)}
+.cityscroll .cnav span{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.cityscroll .cnav:hover span{border-color:var(--ink-2)}
+.cityscroll .cnav:focus-visible span{outline:2px solid var(--ai);outline-offset:2px}
 .cities::-webkit-scrollbar{display:none}
 .city{flex-shrink:0;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px;cursor:pointer;font-size:14px;display:flex;align-items:baseline;gap:6px}
 .city .jp{font-family:var(--f-kanji);font-size:12px;color:var(--ink-2)}

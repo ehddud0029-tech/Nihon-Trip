@@ -24,14 +24,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/Nihon-Trip/app.css?v=581461d2">
+<link rel="stylesheet" href="/Nihon-Trip/app.css?v=f64d0db6">
 <script>window.NT_BASE="/Nihon-Trip/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=581461d2"><\/script><script src="'+B+'engine.js?v=581461d2"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=f64d0db6"><\/script><script src="'+B+'engine.js?v=f64d0db6"><\/script>');})();</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Nihon Trip", "url": "https://ehddud0029-tech.github.io/Nihon-Trip/fr/", "inLanguage": "fr", "description": "Sites, fêtes, restaurants, transports et shopping à Tokyo, Osaka, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido, Okinawa et dans les villes voisines, avec la météo en direct."}</script>
 </head>
 <body>
@@ -60,7 +60,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=581461d2"><\/s
 <section class="hero wrap">
   <div class="eyebrow">日本旅行 · Préparer le voyage</div>
   <h1 id="heroTitle">Où aller au Japon ?</h1>
-  <div class="cities" id="cities" role="group" aria-label="Sélectionner une zone" hidden=""><button class="city" type="button" data-city="all" aria-pressed="true">Tout<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">Tokyo<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">Osaka<span class="jp">大阪</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">Nagoya<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">Hiroshima<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">Shikoku<span class="jp">四国</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">Fukuoka<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">Hokkaido<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">Okinawa<span class="jp">沖縄</span></button></div>
+  <div class="cityscroll" id="cityscroll" hidden=""><button type="button" class="cnav prev" id="cityPrev" aria-label="Voir les régions précédentes" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="Sélectionner une zone"><button class="city" type="button" data-city="all" aria-pressed="true">Tout<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">Tokyo<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">Osaka<span class="jp">大阪</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">Nagoya<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">Hiroshima<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">Shikoku<span class="jp">四国</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">Fukuoka<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">Hokkaido<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">Okinawa<span class="jp">沖縄</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="Voir plus de régions" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="Sélectionner une sous-zone" hidden=""></div>
   <dl class="brief ball" id="brief">
       <nav class="hmsel" aria-label="Choisir le mois"><button type="button" data-hm="1">Janv.</button><button type="button" data-hm="2">Févr.</button><button type="button" data-hm="3">Mars</button><button type="button" data-hm="4">Avr.</button><button type="button" data-hm="5">Mai</button><button type="button" data-hm="6">Juin</button><button type="button" data-hm="7">Juil.</button><button type="button" data-hm="8">Août</button><button type="button" data-hm="9">Sept.</button><button type="button" data-hm="10" aria-pressed="true" class="now">Oct.</button><button type="button" data-hm="11">Nov.</button><button type="button" data-hm="12">Déc.</button></nav>
@@ -106,10 +106,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=581461d2"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/Nihon-Trip/areas.js?v=581461d2"></script>
-<script src="/Nihon-Trip/autoreserve.js?v=581461d2"></script>
-<script src="/Nihon-Trip/google_picks.js?v=581461d2"></script>
-<script src="/Nihon-Trip/geo.js?v=581461d2"></script>
-<script src="/Nihon-Trip/app.js?v=581461d2"></script>
+<script src="/Nihon-Trip/areas.js?v=f64d0db6"></script>
+<script src="/Nihon-Trip/autoreserve.js?v=f64d0db6"></script>
+<script src="/Nihon-Trip/google_picks.js?v=f64d0db6"></script>
+<script src="/Nihon-Trip/geo.js?v=f64d0db6"></script>
+<script src="/Nihon-Trip/app.js?v=f64d0db6"></script>
 </body>
 </html>
