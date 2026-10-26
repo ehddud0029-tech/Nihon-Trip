@@ -1365,7 +1365,7 @@ function mapPopupHTML(x){
   const acts = x.cat==="rest"
     ? `<a class="pri" href="https://autoreserve.com/${L}/restaurants/${esc(x.ar)}" target="_blank" rel="noopener">AutoReserve에서 보기 ↗</a><a href="${gm}" target="_blank" rel="noopener">구글 지도 ↗</a>`
     : `<button type="button" class="pri" data-open="${x.id}">자세히 보기</button><a href="${gm}" target="_blank" rel="noopener">구글 지도 ↗</a>`;
-  return `<div class="mpop" style="--c:var(${c[1]})"><small>${c[0]}</small><b>${esc(x.name)}</b>${x.jp?`<div class="jp">${esc(x.jp)}</div>`:""}<p>${esc(x.sub2||"")}${x.b?` · ${esc(x.b)}`:""}</p><div class="acts">${acts}</div></div>`;
+  return `<div class="mpop" style="--c:var(${c[1]})"><div class="mptop"><div class="mptxt"><small>${c[0]}</small><b>${esc(x.name)}</b>${x.jp?`<div class="jp">${esc(x.jp)}</div>`:""}<p>${esc(x.sub2||"")}${x.b?` · ${esc(x.b)}`:""}</p></div>${mapThumb(x)}</div><div class="acts">${acts}</div></div>`;
 }
 function mapOpen(id, fly){
   const x = mapItems().find(y=>y.id===id); if(!x||!MAP||!MAPREADY) return;
