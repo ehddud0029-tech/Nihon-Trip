@@ -651,12 +651,13 @@ body.is-guide .hero{display:none}
 .gtags{display:flex;flex-wrap:wrap;gap:5px}
 .gtags span{font-size:12px;font-weight:600;color:var(--ai);background:var(--ai-soft);border-radius:999px;padding:2px 8px}
 .gc p{margin:0;font-size:13.5px;color:var(--ink-2);line-height:1.55}
-.gopts{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
-.go{border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column}
+.gopts{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));column-gap:10px;row-gap:0}
+.go{border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;margin-bottom:10px}
 .go h5{margin:0 0 8px;font-size:16px}
 .go dl{margin:0;display:flex;flex-direction:column;gap:2px}
 .go dt{font-size:12px;font-weight:700;color:var(--ink-2);margin-top:6px}
 .go dd{margin:0;font-size:14px;line-height:1.55}
+@supports (grid-template-rows:subgrid){.go{display:grid;grid-row:span 8;grid-template-rows:subgrid;row-gap:0;align-content:start}.go dl{display:contents}.go dd{align-self:start}}
 .gbuy{margin-top:12px;align-self:flex-start;font-size:13px;font-weight:600;text-decoration:none;border-radius:8px;padding:6px 12px;background:var(--ink);color:#fff}
 .gupd{margin:0;font-size:12.5px;color:var(--ink-2);text-align:right}
 .gmore{margin-top:26px;border-top:1px solid var(--line);padding-top:16px}
