@@ -24,14 +24,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/Nihon-Trip/app.css?v=be589477">
+<link rel="stylesheet" href="/Nihon-Trip/app.css?v=d0e0b815">
 <script>window.NT_BASE="/Nihon-Trip/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=be589477"><\/script><script src="'+B+'engine.js?v=be589477"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=d0e0b815"><\/script><script src="'+B+'engine.js?v=d0e0b815"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -59,10 +59,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=be589477"><\/s
 <section class="hero wrap">
   <div class="eyebrow">日本旅行 · 여행 준비</div>
   <h1 id="heroTitle">오사카 · 나라, 무엇부터 볼까요?</h1>
-  <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="이전 지역 보기" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="지역 선택"><button class="city" type="button" data-city="all" aria-pressed="false">전체<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">도쿄<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="true">오사카<span class="jp">大阪</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">나고야<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">히로시마<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">시코쿠<span class="jp">四国</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">후쿠오카<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">홋카이도<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">오키나와<span class="jp">沖縄</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="다음 지역 보기" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
+  <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="이전 지역 보기" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="지역 선택"><button class="city" type="button" data-city="all" aria-pressed="false">전체<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">도쿄<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="true">오사카<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">후쿠오카<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">홋카이도<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">오키나와<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">나고야<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">히로시마<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">시코쿠<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="다음 지역 보기" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="하위 지역 선택"><button class="area" type="button" data-area="dotonbori" aria-pressed="false">도톤보리·난바</button><button class="area" type="button" data-area="umeda" aria-pressed="false">우메다</button><button class="area" type="button" data-area="shinsekai" aria-pressed="false">신세카이·덴노지·쓰루하시</button><button class="area" type="button" data-area="tenma" aria-pressed="false">덴마·덴진바시스지</button><button class="area" type="button" data-area="kyoto" aria-pressed="false">교토</button><button class="area" type="button" data-area="nara" aria-pressed="true">나라</button><button class="area" type="button" data-area="kobe" aria-pressed="false">고베</button></div>
   <dl class="brief" id="brief"><div class="bw"><dt>나라 오늘 날씨</dt>
-        <dd class="wxtime"><span class="jstclock">10월 26일(월) 16:07</span> <small>일본 현재</small></dd>
+        <dd class="wxtime"><span class="jstclock">10월 26일(월) 16:12</span> <small>일본 현재</small></dd>
         <dd class="wxnow"><span class="big">23°</span> <b>평년 기온</b><span class="wxicon" aria-hidden="true">🌤️</span></dd>
         <dd class="sub wxline">10월 평년 최고기온</dd>
         <dd class="sub">실시간 날씨를 불러오는 중이에요</dd></div><div class="bspot"><dt>나라 추천 관광지 TOP 3</dt><ol class="picks"><li><button type="button" class="pick" data-open="s_todaiji"><b>도다이지</b><em class="pm">유적·사찰</em><span class="pd">나라 공원</span></button></li><li><button type="button" class="pick" data-open="s_narapark"><b>나라 공원 · 사슴</b><em class="pm">풍경·자연</em><span class="pd">나라 공원</span></button></li><li><button type="button" class="pick" data-open="s_kasuga"><b>가스가 다이샤</b><em class="pm">유적·사찰</em><span class="pd">나라 공원</span></button></li></ol>
@@ -113,10 +113,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=be589477"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/Nihon-Trip/areas.js?v=be589477"></script>
-<script src="/Nihon-Trip/autoreserve.js?v=be589477"></script>
-<script src="/Nihon-Trip/google_picks.js?v=be589477"></script>
-<script src="/Nihon-Trip/geo.js?v=be589477"></script>
-<script src="/Nihon-Trip/app.js?v=be589477"></script>
+<script src="/Nihon-Trip/areas.js?v=d0e0b815"></script>
+<script src="/Nihon-Trip/autoreserve.js?v=d0e0b815"></script>
+<script src="/Nihon-Trip/google_picks.js?v=d0e0b815"></script>
+<script src="/Nihon-Trip/geo.js?v=d0e0b815"></script>
+<script src="/Nihon-Trip/app.js?v=d0e0b815"></script>
 </body>
 </html>
