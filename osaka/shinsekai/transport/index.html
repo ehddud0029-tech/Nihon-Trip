@@ -24,14 +24,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/Nihon-Trip/app.css?v=fd80a300">
+<link rel="stylesheet" href="/Nihon-Trip/app.css?v=613295f9">
 <script>window.NT_BASE="/Nihon-Trip/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=fd80a300"><\/script><script src="'+B+'engine.js?v=fd80a300"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=613295f9"><\/script><script src="'+B+'engine.js?v=613295f9"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -45,7 +45,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=fd80a300"><\/s
   </div>
     <nav class="main" aria-label="섹션"><div class="wrap">
       <a href="/Nihon-Trip/" data-view="home"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"></path></svg><span>여행 추천</span></a>
-      <a href="/Nihon-Trip/itinerary/miyako-2n3d/" data-view="itin"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2.2"></circle><circle cx="18" cy="6" r="2.2"></circle><path d="M8.2 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.8"></path></svg><span>추천 일정</span></a>
+      <a href="/Nihon-Trip/itinerary/takamatsu-naoshima-2n3d/" data-view="itin"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2.2"></circle><circle cx="18" cy="6" r="2.2"></circle><path d="M8.2 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.8"></path></svg><span>추천 일정</span></a>
       <a href="/Nihon-Trip/map/" data-view="map"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6.5v13.5l6-2.5 6 2.5 6-2.5V4l-6 2.5L9 4z"></path><path d="M9 4v13.5M15 6.5V20"></path></svg><span>지도</span></a>
       <a href="/Nihon-Trip/osaka/shinsekai/spots/" data-view="spots"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z"></path><circle cx="12" cy="10" r="2.3"></circle></svg><span>관광지</span></a>
       <a href="/Nihon-Trip/osaka/shinsekai/festivals/" data-view="festivals"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5v2"></path><rect x="6.5" y="4.5" width="11" height="14" rx="5.5"></rect><path d="M6.8 9.5h10.4M6.8 13.5h10.4M12 18.5v3"></path></svg><span>축제</span></a>
@@ -59,10 +59,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=fd80a300"><\/s
 <section class="hero wrap">
   <div class="eyebrow">日本旅行 · 여행 준비</div>
   <h1 id="heroTitle">오사카 · 신세카이·덴노지·쓰루하시, 무엇부터 볼까요?</h1>
-  <div class="cities" id="cities" role="group" aria-label="지역 선택"><button class="city" type="button" data-city="all" aria-pressed="false">전체<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">도쿄<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="true">오사카<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">후쿠오카<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">홋카이도<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">오키나와<span class="jp">沖縄</span></button></div>
+  <div class="cities" id="cities" role="group" aria-label="지역 선택"><button class="city" type="button" data-city="all" aria-pressed="false">전체<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">도쿄<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="true">오사카<span class="jp">大阪</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">나고야<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">히로시마<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">시코쿠<span class="jp">四国</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">후쿠오카<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">홋카이도<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">오키나와<span class="jp">沖縄</span></button></div>
   <div class="areas" id="areas" role="group" aria-label="하위 지역 선택"><button class="area" type="button" data-area="dotonbori" aria-pressed="false">도톤보리·난바</button><button class="area" type="button" data-area="umeda" aria-pressed="false">우메다</button><button class="area" type="button" data-area="shinsekai" aria-pressed="true">신세카이·덴노지·쓰루하시</button><button class="area" type="button" data-area="tenma" aria-pressed="false">덴마·덴진바시스지</button><button class="area" type="button" data-area="kyoto" aria-pressed="false">교토</button><button class="area" type="button" data-area="nara" aria-pressed="false">나라</button><button class="area" type="button" data-area="kobe" aria-pressed="false">고베</button></div>
   <dl class="brief" id="brief"><div class="bw"><dt>신세카이·덴노지·쓰루하시 오늘 날씨</dt>
-        <dd class="wxtime"><span class="jstclock">10월 26일(월) 13:58</span> <small>일본 현재</small></dd>
+        <dd class="wxtime"><span class="jstclock">10월 26일(월) 14:36</span> <small>일본 현재</small></dd>
         <dd class="wxnow"><span class="big">23°</span> <b>평년 기온</b><span class="wxicon" aria-hidden="true">🌤️</span></dd>
         <dd class="sub wxline">10월 평년 최고기온</dd>
         <dd class="sub">실시간 날씨를 불러오는 중이에요</dd></div><div class="broute"><dt>공항에서 신세카이·덴노지·쓰루하시 가는 법</dt><dd class=""><span class="rt"><span class="mode m-기차">기차</span> 간사이공항 → 덴노지역 <b class="min">약 35분</b></span><br><small>JR 특급 하루카</small></dd><dd class="sub rnote">갈아타지 않고 바로 가요</dd></div><div class="bic"><dt>교통카드</dt><dd class="icrow"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/ICOCA_logo.svg?width=360" alt="" loading="lazy" referrerpolicy="no-referrer"><span><b>ICOCA</b><small>오사카 · 교토 · 고베 · 나라 (JR 서일본)</small></span></dd><dd class="sub">간사이공항역 JR 발매기·매표소, JR 서일본 역 발매기 (보증금 500엔 포함)</dd><dd class="sub links"><a href="#icguide">교통카드 자세히 보기 ↓</a></dd></div><div class="bmove"><dt>신세카이·덴노지·쓰루하시 시내 이동</dt><dd class="mv"><p class="mv-rail"><span>주로 이용</span>지하철 미도스지선 — 도부쓰엔마에·덴노지, 사카이스지선 — 에비스초</p><p class="mv-rail"><span>주로 이용</span>JR 오사카 순환선 — 덴노지에서 쓰루하시(코리아타운) 2정거장</p><p class="mv-etc"><span>그 밖에</span>덴노지·에비스초에서 노면전차 '한카이선'이 남쪽 스미요시 타이샤까지 다녀요</p><p class="mv-walk"><span>걸어서</span>신세카이~쓰텐카쿠~덴노지 공원은 걸어서 10분</p></dd>
@@ -76,7 +76,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=fd80a300"><\/s
     <div class="rlist"><div class="route"><span class="od">간사이공항 → 난바</span><span class="t">약 40분</span><span class="ln">난카이 특급 라피트</span></div><div class="route"><span class="od">간사이공항 → 오사카역</span><span class="t">약 70분</span><span class="ln">JR 간쿠 쾌속</span></div><div class="route"><span class="od">간사이공항 → 신오사카</span><span class="t">약 50분</span><span class="ln">JR 특급 하루카</span></div>
     <div class="route"><span class="od"><b>교토</b> · 간사이공항 → 교토역</span><span class="t">약 1시간 15분</span><span class="ln">JR 특급 하루카</span></div><div class="route"><span class="od">오사카역 → 교토역</span><span class="t">약 30분</span><span class="ln">JR 신쾌속</span></div><div class="route"><span class="od"><b>나라</b> · 오사카난바역 → 긴테쓰나라역</span><span class="t">약 40분</span><span class="ln">긴테쓰 나라선 쾌속급행</span></div><div class="route"><span class="od"><b>고베</b> · 오사카역 → 산노미야역</span><span class="t">약 21분</span><span class="ln">JR 신쾌속</span></div><div class="route"><span class="od">간사이공항 → 산노미야</span><span class="t">약 1시간 5분</span><span class="ln">공항 리무진버스</span></div></div>
     <div class="ft"><span><b>교통카드</b> ICOCA</span><span>오사카 시내 관광지 입장과 교통을 묶은 패스가 있으니 일정과 비교해보세요.</span></div></article></div>
-   <section class="icguide" id="icguide"><div class="sechead"><div><h2>교통카드 안내</h2><p>지역마다 이름이 다르지만, 오키나와 OKICA를 빼면 서로 호환돼요. 카드 한 장이면 전국의 지하철·버스·편의점에서 쓸 수 있어요.</p></div></div>
+   <section class="icguide" id="icguide"><div class="sechead"><div><h2>교통카드 안내</h2><p>지역마다 이름이 다르지만, 오키나와 OKICA와 시코쿠 지역 카드를 빼면 서로 호환돼요. 카드 한 장이면 전국의 지하철·버스·편의점에서 쓸 수 있어요.</p></div></div>
    <div class="icgrid"><article class="iccard here"><div class="icimg"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/ICOCA_logo.svg?width=360" alt="ICOCA" loading="lazy" referrerpolicy="no-referrer"></div>
      <div class="icbody"><span class="ictag">오사카 · 교토 · 고베 · 나라 (JR 서일본)</span><h3>ICOCA</h3><ul><li>간사이공항역 JR 발매기·매표소, JR 서일본 역 발매기 (보증금 500엔 포함)</li><li>아이폰 지갑 앱에서도 만들 수 있어요</li></ul><p>오사카 지하철·한큐·한신·긴테쓰·난카이와 교토 시내버스에서도 써요.</p>
      <div class="credit">사진: ICOCA 로고 · 퍼블릭 도메인 · <a href="https://commons.wikimedia.org/wiki/File:ICOCA_logo.svg" target="_blank" rel="noopener">원본 ↗</a></div></div></article><article class="iccard"><div class="icimg"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Welcome_Suica.jpg?width=360" alt="Suica" loading="lazy" referrerpolicy="no-referrer"></div>
@@ -89,6 +89,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=fd80a300"><\/s
      <div class="icbody"><span class="ictag">홋카이도 (JR 홋카이도)</span><h3>Kitaca</h3><ul><li>신치토세공항역·삿포로역 등 JR 홋카이도 역 발매기 (보증금 500엔 포함)</li></ul><p>삿포로 지하철·노면전차에서도 전국 교통계 IC 카드를 쓸 수 있어요. 하코다테·아사히카와 시내버스는 카드 사용 여부를 확인하세요.</p>
      <div class="credit">사진: Kitaca 로고 · 퍼블릭 도메인 · <a href="https://commons.wikimedia.org/wiki/File:Kitaca_logo.svg" target="_blank" rel="noopener">원본 ↗</a></div></div></article><article class="iccard"><div class="icimg"><span>OKICA</span></div>
      <div class="icbody"><span class="ictag">오키나와</span><h3>OKICA</h3><ul><li>유이레일 역 발매기, 오키나와 주요 버스 회사 영업소</li></ul><p>유이레일에서는 Suica 등 전국 교통계 IC 카드도 써요. 노선버스는 OKICA 중심이라 전국 카드가 되는지 미리 확인하세요.</p>
+     </div></article><article class="iccard"><div class="icimg"><span>manaca · TOICA</span></div>
+     <div class="icbody"><span class="ictag">나고야 (지하철·메이테쓰 / JR 도카이)</span><h3>manaca · TOICA</h3><ul><li>주부국제공항역·나고야역 발매기 (manaca는 지하철·메이테쓰, TOICA는 JR)</li></ul><p>Suica·ICOCA 같은 다른 지역 카드도 그대로 쓸 수 있어요.</p>
+     </div></article><article class="iccard"><div class="icimg"><span>IruCa · ICい～カード</span></div>
+     <div class="icbody"><span class="ictag">시코쿠 (다카마쓰 고토덴 / 마쓰야마 이요테쓰)</span><h3>IruCa · ICい～カード</h3><ul><li>고토덴·이요테쓰 역 창구</li></ul><p>그 지역 전용 카드라 다른 지역에서는 못 쓰고, Suica 같은 카드도 이 노선에서는 대부분 못 써요. 여행자는 현금이나 1일 승차권이 편해요.</p>
      </div></article></div>
    <div class="notes"><div class="note"><h4>충전·잔액 확인</h4><p>역 발매기와 편의점 계산대에서 현금으로 충전할 수 있어요. 대부분 1회 최대 2만 엔까지 충전돼요.</p></div>
     <div class="note"><h4>남은 돈 돌려받기</h4><p>보증금과 잔액은 카드를 발행한 회사 창구에서 환불받을 수 있고 수수료가 붙을 수 있어요. 아이폰 지갑 카드는 남은 금액을 다음 여행에 그대로 써도 돼요.</p></div>
@@ -103,7 +107,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=fd80a300"><\/s
 
 <nav class="tabs" aria-label="섹션">
   <a href="/Nihon-Trip/" data-view="home"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"></path></svg></i>추천</a>
-  <a href="/Nihon-Trip/itinerary/miyako-2n3d/" data-view="itin"><i><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2.2"></circle><circle cx="18" cy="6" r="2.2"></circle><path d="M8.2 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.8"></path></svg></i>일정</a>
+  <a href="/Nihon-Trip/itinerary/takamatsu-naoshima-2n3d/" data-view="itin"><i><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2.2"></circle><circle cx="18" cy="6" r="2.2"></circle><path d="M8.2 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.8"></path></svg></i>일정</a>
   <a href="/Nihon-Trip/map/" data-view="map"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3.5 6v14L9 18l6 2 5.5-2V4L15 6z"></path><path d="M9 4v14M15 6v14"></path></svg></i>지도</a>
   <a href="/Nihon-Trip/osaka/shinsekai/spots/" data-view="spots"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg></i>관광지</a>
   <a href="/Nihon-Trip/osaka/shinsekai/festivals/" data-view="festivals"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M12 3v1.5M8.5 4.5h7M8.5 19.5h7M12 19.5V21"></path><path d="M8.5 4.5C5.5 6.5 5 9 5 12s.5 5.5 3.5 7.5h7c3-2 3.5-4.5 3.5-7.5s-.5-5.5-3.5-7.5"></path><path d="M5.3 9h13.4M5 12h14M5.3 15h13.4"></path></svg></i>축제</a>
@@ -115,10 +119,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=fd80a300"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/Nihon-Trip/areas.js?v=fd80a300"></script>
-<script src="/Nihon-Trip/autoreserve.js?v=fd80a300"></script>
-<script src="/Nihon-Trip/google_picks.js?v=fd80a300"></script>
-<script src="/Nihon-Trip/geo.js?v=fd80a300"></script>
-<script src="/Nihon-Trip/app.js?v=fd80a300"></script>
+<script src="/Nihon-Trip/areas.js?v=613295f9"></script>
+<script src="/Nihon-Trip/autoreserve.js?v=613295f9"></script>
+<script src="/Nihon-Trip/google_picks.js?v=613295f9"></script>
+<script src="/Nihon-Trip/geo.js?v=613295f9"></script>
+<script src="/Nihon-Trip/app.js?v=613295f9"></script>
 </body>
 </html>
