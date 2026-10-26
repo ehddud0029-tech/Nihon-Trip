@@ -24,14 +24,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/Nihon-Trip/app.css?v=1766f91a">
+<link rel="stylesheet" href="/Nihon-Trip/app.css?v=8c663f09">
 <script>window.NT_BASE="/Nihon-Trip/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1766f91a"><\/script><script src="'+B+'engine.js?v=1766f91a"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=8c663f09"><\/script><script src="'+B+'engine.js?v=8c663f09"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -45,6 +45,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1766f91a"><\/s
   </div>
     <nav class="main" aria-label="Section"><div class="wrap">
       <a href="/Nihon-Trip/en/" data-view="home"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"></path></svg><span>Trip ideas</span></a>
+      <a href="/Nihon-Trip/en/itinerary/miyako-2n3d/" data-view="itin"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2.2"></circle><circle cx="18" cy="6" r="2.2"></circle><path d="M8.2 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.8"></path></svg><span>Itineraries</span></a>
       <a href="/Nihon-Trip/en/map/" data-view="map"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6.5v13.5l6-2.5 6 2.5 6-2.5V4l-6 2.5L9 4z"></path><path d="M9 4v13.5M15 6.5V20"></path></svg><span>Map</span></a>
       <a href="/Nihon-Trip/en/osaka/shinsekai/spots/" data-view="spots"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z"></path><circle cx="12" cy="10" r="2.3"></circle></svg><span>Sights</span></a>
       <a href="/Nihon-Trip/en/osaka/shinsekai/festivals/" data-view="festivals"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5v2"></path><rect x="6.5" y="4.5" width="11" height="14" rx="5.5"></rect><path d="M6.8 9.5h10.4M6.8 13.5h10.4M12 18.5v3"></path></svg><span>Festivals</span></a>
@@ -61,7 +62,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1766f91a"><\/s
   <div class="cities" id="cities" role="group" aria-label="Select area"><button class="city" type="button" data-city="all" aria-pressed="false">All<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">Tokyo<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="true">Osaka<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">Fukuoka<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">Hokkaido<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">Okinawa<span class="jp">沖縄</span></button></div>
   <div class="areas" id="areas" role="group" aria-label="Select sub-area"><button class="area" type="button" data-area="dotonbori" aria-pressed="false">Dotonbori·Namba</button><button class="area" type="button" data-area="umeda" aria-pressed="false">Umeda</button><button class="area" type="button" data-area="shinsekai" aria-pressed="true">Shinsekai·Tennoji·Tsuruhashi</button><button class="area" type="button" data-area="tenma" aria-pressed="false">Tenma·Tenjinbashisuji</button><button class="area" type="button" data-area="kyoto" aria-pressed="false">Kyoto</button><button class="area" type="button" data-area="nara" aria-pressed="false">Nara</button><button class="area" type="button" data-area="kobe" aria-pressed="false">Kobe</button></div>
   <dl class="brief" id="brief"><div class="bw"><dt>Today's weather in Shinsekai·Tennoji·Tsuruhashi</dt>
-        <dd class="wxtime"><span class="jstclock">Mon Oct 26, 13:23</span> <small>Japan now</small></dd>
+        <dd class="wxtime"><span class="jstclock">Mon Oct 26, 13:40</span> <small>Japan now</small></dd>
         <dd class="wxnow"><span class="big">23°</span> <b>Average temperature</b><span class="wxicon" aria-hidden="true">🌤️</span></dd>
         <dd class="sub wxline">Average October high</dd>
         <dd class="sub">Loading live weather…</dd></div><div class="btax"><dt>Tax-free &amp; shopping guide</dt><dd class="mv">
@@ -106,6 +107,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1766f91a"><\/s
 
 <nav class="tabs" aria-label="Section">
   <a href="/Nihon-Trip/en/" data-view="home"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"></path></svg></i>Picks</a>
+  <a href="/Nihon-Trip/en/itinerary/miyako-2n3d/" data-view="itin"><i><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2.2"></circle><circle cx="18" cy="6" r="2.2"></circle><path d="M8.2 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.8"></path></svg></i>Plans</a>
   <a href="/Nihon-Trip/en/map/" data-view="map"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3.5 6v14L9 18l6 2 5.5-2V4L15 6z"></path><path d="M9 4v14M15 6v14"></path></svg></i>Map</a>
   <a href="/Nihon-Trip/en/osaka/shinsekai/spots/" data-view="spots"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg></i>Sights</a>
   <a href="/Nihon-Trip/en/osaka/shinsekai/festivals/" data-view="festivals"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M12 3v1.5M8.5 4.5h7M8.5 19.5h7M12 19.5V21"></path><path d="M8.5 4.5C5.5 6.5 5 9 5 12s.5 5.5 3.5 7.5h7c3-2 3.5-4.5 3.5-7.5s-.5-5.5-3.5-7.5"></path><path d="M5.3 9h13.4M5 12h14M5.3 15h13.4"></path></svg></i>Festivals</a>
@@ -117,10 +119,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1766f91a"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/Nihon-Trip/areas.js?v=1766f91a"></script>
-<script src="/Nihon-Trip/autoreserve.js?v=1766f91a"></script>
-<script src="/Nihon-Trip/google_picks.js?v=1766f91a"></script>
-<script src="/Nihon-Trip/geo.js?v=1766f91a"></script>
-<script src="/Nihon-Trip/app.js?v=1766f91a"></script>
+<script src="/Nihon-Trip/areas.js?v=8c663f09"></script>
+<script src="/Nihon-Trip/autoreserve.js?v=8c663f09"></script>
+<script src="/Nihon-Trip/google_picks.js?v=8c663f09"></script>
+<script src="/Nihon-Trip/geo.js?v=8c663f09"></script>
+<script src="/Nihon-Trip/app.js?v=8c663f09"></script>
 </body>
 </html>

@@ -99,3 +99,7 @@ site/
 ## 관광지 입장료·운영 시간
 - `SPOT_INFO` (tabishiori.html 안, 원본: `sitegen/spot_info.js`)에 217곳의 입장료·운영 시간·휴무가 구조화돼 있어요. 2026년 10월 확인.
 - 표시 문구는 `SIV`(sitegen/spot_info_view.js)가 언어별로 직접 만들어요. 새 라벨을 쓰면 `LB`에 5개 언어를 추가하세요.
+
+## 추천 일정 (/itinerary/) · 숙소 (/guide/stay/)
+- 일정 15개: 원본 `i18n_work/itin_data.py` → `itin_emit.py`로 `sitegen/itin_data.js`와 번역(tr_27.tsv) 생성. 장소는 관광지 id로 연결돼요.
+- 숙소: `i18n_work/stay_data.py` (여행 준비의 '숙소' 주제). 각 동네의 `link`를 채우면 예약 버튼이 생겨요.

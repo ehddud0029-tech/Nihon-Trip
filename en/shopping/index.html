@@ -24,14 +24,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/Nihon-Trip/app.css?v=1766f91a">
+<link rel="stylesheet" href="/Nihon-Trip/app.css?v=8c663f09">
 <script>window.NT_BASE="/Nihon-Trip/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1766f91a"><\/script><script src="'+B+'engine.js?v=1766f91a"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=8c663f09"><\/script><script src="'+B+'engine.js?v=8c663f09"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -45,6 +45,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1766f91a"><\/s
   </div>
     <nav class="main" aria-label="Section"><div class="wrap">
       <a href="/Nihon-Trip/en/" data-view="home"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"></path></svg><span>Trip ideas</span></a>
+      <a href="/Nihon-Trip/en/itinerary/miyako-2n3d/" data-view="itin"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2.2"></circle><circle cx="18" cy="6" r="2.2"></circle><path d="M8.2 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.8"></path></svg><span>Itineraries</span></a>
       <a href="/Nihon-Trip/en/map/" data-view="map"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6.5v13.5l6-2.5 6 2.5 6-2.5V4l-6 2.5L9 4z"></path><path d="M9 4v13.5M15 6.5V20"></path></svg><span>Map</span></a>
       <a href="/Nihon-Trip/en/spots/" data-view="spots"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z"></path><circle cx="12" cy="10" r="2.3"></circle></svg><span>Sights</span></a>
       <a href="/Nihon-Trip/en/festivals/10/" data-view="festivals"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5v2"></path><rect x="6.5" y="4.5" width="11" height="14" rx="5.5"></rect><path d="M6.8 9.5h10.4M6.8 13.5h10.4M12 18.5v3"></path></svg><span>Festivals</span></a>
@@ -106,17 +107,17 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1766f91a"><\/s
     <div class="meta"><span>Ginza Sta.</span></div></div></button><button class="card" type="button" data-open="itoya" style="--c:var(--ai)">
     <div class="plate"><span class="tag">Stationery</span><span class="where">Ginza·Tsukiji</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span></div>
     <div class="body"><h3>Ginza Itoya</h3><div class="jpn">銀座 伊東屋</div><p>A stationery store over 100 years old, full of pens, letter paper and paper goods.</p>
-    <div class="meta"><span>Ginza Sta.</span></div></div></button></div><h4 class="sgsub">Asakusa·Ueno <span>4</span></h4><div class="grid"><button class="card" type="button" data-open="nakamise" style="--c:var(--ai)">
-    <div class="plate"><span class="tag">Souvenirs</span><span class="where">Asakusa·Ueno</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span></div>
+    <div class="meta"><span>Ginza Sta.</span></div></div></button></div><h4 class="sgsub">Asakusa &amp; Ueno <span>4</span></h4><div class="grid"><button class="card" type="button" data-open="nakamise" style="--c:var(--ai)">
+    <div class="plate"><span class="tag">Souvenirs</span><span class="where">Asakusa &amp; Ueno</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span></div>
     <div class="body"><h3>Nakamise Street</h3><div class="jpn">仲見世通り</div><p>A 250 m street of souvenirs and snacks on the approach to Senso-ji.</p>
     <div class="meta"><span>Asakusa Sta.</span></div></div></button><button class="card" type="button" data-open="ameyoko" style="--c:var(--ai)">
-    <div class="plate"><span class="tag">Market</span><span class="where">Asakusa·Ueno</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span></div>
+    <div class="plate"><span class="tag">Market</span><span class="where">Asakusa &amp; Ueno</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span></div>
     <div class="body"><h3>Ameyoko Shopping Street</h3><div class="jpn">アメ横商店街</div><p>A market under the tracks between Ueno and Okachimachi, selling dried seafood, snacks and goods cheaply.</p>
     <div class="meta"><span>Ueno Sta. · Okachimachi Sta.</span></div></div></button><button class="card" type="button" data-open="kappabashi" style="--c:var(--ai)">
-    <div class="plate"><span class="tag">Kitchenware</span><span class="where">Asakusa·Ueno</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span></div>
+    <div class="plate"><span class="tag">Kitchenware</span><span class="where">Asakusa &amp; Ueno</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span></div>
     <div class="body"><h3>Kappabashi Kitchen Street</h3><div class="jpn">かっぱ橋道具街</div><p>A kitchenware street of tableware, knife and food-model shops.</p>
     <div class="meta"><span>Tawaramachi Sta.</span></div></div></button><button class="card" type="button" data-open="solamachi" style="--c:var(--ai)">
-    <div class="plate"><span class="tag">Shopping complex</span><span class="where">Asakusa·Ueno</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span></div>
+    <div class="plate"><span class="tag">Shopping complex</span><span class="where">Asakusa &amp; Ueno</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span></div>
     <div class="body"><h3>Tokyo Solamachi</h3><div class="jpn">東京ソラマチ</div><p>A mall at the foot of Skytree, with lots of character and souvenir shops.</p>
     <div class="meta"><span>Tokyo Skytree Sta.</span></div></div></button></div><h4 class="sgsub">Tokyo Station·Kanda <span>3</span></h4><div class="grid"><button class="card" type="button" data-open="akiba" style="--c:var(--ai)">
     <div class="plate"><span class="tag">Electronics·Subculture</span><span class="where">Tokyo Station·Kanda</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span></div>
@@ -133,11 +134,11 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1766f91a"><\/s
     <div class="meta"><span>Minatomirai Sta.</span></div></div></button><button class="card" type="button" data-open="motomachi" style="--c:var(--ai)">
     <div class="plate"><span class="tag">Fashion·Goods</span><span class="where">Yokohama</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span></div>
     <div class="body"><h3>Motomachi Shopping Street</h3><div class="jpn">元町ショッピングストリート</div><p>A stylish shopping street dating from the port's opening, with leather goods and Western pastry shops.</p>
-    <div class="meta"><span>Motomachi-Chukagai Sta.</span></div></div></button></div><h4 class="sgsub">Kamakura·Enoshima <span>2</span></h4><div class="grid"><button class="card" type="button" data-open="komachi" style="--c:var(--ai)">
-    <div class="plate"><span class="tag">Souvenirs</span><span class="where">Kamakura·Enoshima</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span></div>
+    <div class="meta"><span>Motomachi-Chukagai Sta.</span></div></div></button></div><h4 class="sgsub">Kamakura &amp; Enoshima <span>2</span></h4><div class="grid"><button class="card" type="button" data-open="komachi" style="--c:var(--ai)">
+    <div class="plate"><span class="tag">Souvenirs</span><span class="where">Kamakura &amp; Enoshima</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span></div>
     <div class="body"><h3>Komachi-dori</h3><div class="jpn">小町通り</div><p>A souvenir and snack street running from Kamakura Station to Hachimangu.</p>
     <div class="meta"><span>Kamakura Sta.</span></div></div></button><button class="card" type="button" data-open="wakamiya" style="--c:var(--ai)">
-    <div class="plate"><span class="tag">Crafts</span><span class="where">Kamakura·Enoshima</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span></div>
+    <div class="plate"><span class="tag">Crafts</span><span class="where">Kamakura &amp; Enoshima</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span></div>
     <div class="body"><h3>Wakamiya-oji Craft Shops</h3><div class="jpn">若宮大路</div><p>A main avenue of craft shops selling items like Kamakura-bori lacquered carvings.</p>
     <div class="meta"><span>Kamakura Sta.</span></div></div></button></div><h4 class="sgsub">Hakone <span>2</span></h4><div class="grid"><button class="card" type="button" data-open="yumotoshop" style="--c:var(--ai)">
     <div class="plate"><span class="tag">Souvenirs</span><span class="where">Hakone</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span></div>
@@ -220,14 +221,14 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1766f91a"><\/s
     <div class="meta"><span>Tenjin Sta.</span></div></div></button><button class="card" type="button" data-open="daimyo" style="--c:var(--ai)">
     <div class="plate"><span class="tag">Fashion</span><span class="where">Tenjin·Daimyo</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span></div>
     <div class="body"><h3>Daimyo</h3><div class="jpn">大名</div><p>A neighborhood of lanes with select shops and cafés.</p>
-    <div class="meta"><span>Tenjin Sta. · Akasaka Sta.</span></div></div></button></div><h4 class="sgsub">Nakasu·Haruyoshi <span>3</span></h4><div class="grid"><button class="card" type="button" data-open="canal" style="--c:var(--ai)">
-    <div class="plate"><span class="tag">Shopping complex</span><span class="where">Nakasu·Haruyoshi</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span></div>
+    <div class="meta"><span>Tenjin Sta. · Akasaka Sta.</span></div></div></button></div><h4 class="sgsub">Nakasu &amp; Haruyoshi <span>3</span></h4><div class="grid"><button class="card" type="button" data-open="canal" style="--c:var(--ai)">
+    <div class="plate"><span class="tag">Shopping complex</span><span class="where">Nakasu &amp; Haruyoshi</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span></div>
     <div class="body"><h3>Canal City Hakata</h3><div class="jpn">キャナルシティ博多</div><p>A shopping complex built around a canal, with shops, a cinema and the Ramen Stadium under one roof.</p>
     <div class="meta"><span>Nakasu-Kawabata Sta.</span></div></div></button><button class="card" type="button" data-open="kawabata" style="--c:var(--ai)">
-    <div class="plate"><span class="tag">Shopping street</span><span class="where">Nakasu·Haruyoshi</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span></div>
+    <div class="plate"><span class="tag">Shopping street</span><span class="where">Nakasu &amp; Haruyoshi</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span></div>
     <div class="body"><h3>Kawabata Shopping Street</h3><div class="jpn">川端通商店街</div><p>Hakata's oldest covered shopping arcade.</p>
     <div class="meta"><span>Nakasu-Kawabata Sta.</span></div></div></button><button class="card" type="button" data-open="donki_nakasu" style="--c:var(--ai)">
-    <div class="plate"><span class="tag">Discount store</span><span class="where">Nakasu·Haruyoshi</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span></div>
+    <div class="plate"><span class="tag">Discount store</span><span class="where">Nakasu &amp; Haruyoshi</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span></div>
     <div class="body"><h3>Don Quijote Nakasu</h3><div class="jpn">ドン・キホーテ中洲店</div><p>A discount store open 24 hours.</p>
     <div class="meta"><span>Nakasu-Kawabata Sta.</span></div></div></button></div><h4 class="sgsub">Dazaifu <span>1</span></h4><div class="grid"><button class="card" type="button" data-open="sando" style="--c:var(--ai)">
     <div class="plate"><span class="tag">Souvenirs</span><span class="where">Dazaifu</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span></div>
@@ -380,6 +381,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1766f91a"><\/s
 
 <nav class="tabs" aria-label="Section">
   <a href="/Nihon-Trip/en/" data-view="home"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"></path></svg></i>Picks</a>
+  <a href="/Nihon-Trip/en/itinerary/miyako-2n3d/" data-view="itin"><i><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2.2"></circle><circle cx="18" cy="6" r="2.2"></circle><path d="M8.2 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.8"></path></svg></i>Plans</a>
   <a href="/Nihon-Trip/en/map/" data-view="map"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3.5 6v14L9 18l6 2 5.5-2V4L15 6z"></path><path d="M9 4v14M15 6v14"></path></svg></i>Map</a>
   <a href="/Nihon-Trip/en/spots/" data-view="spots"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg></i>Sights</a>
   <a href="/Nihon-Trip/en/festivals/10/" data-view="festivals"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M12 3v1.5M8.5 4.5h7M8.5 19.5h7M12 19.5V21"></path><path d="M8.5 4.5C5.5 6.5 5 9 5 12s.5 5.5 3.5 7.5h7c3-2 3.5-4.5 3.5-7.5s-.5-5.5-3.5-7.5"></path><path d="M5.3 9h13.4M5 12h14M5.3 15h13.4"></path></svg></i>Festivals</a>
@@ -391,10 +393,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1766f91a"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/Nihon-Trip/areas.js?v=1766f91a"></script>
-<script src="/Nihon-Trip/autoreserve.js?v=1766f91a"></script>
-<script src="/Nihon-Trip/google_picks.js?v=1766f91a"></script>
-<script src="/Nihon-Trip/geo.js?v=1766f91a"></script>
-<script src="/Nihon-Trip/app.js?v=1766f91a"></script>
+<script src="/Nihon-Trip/areas.js?v=8c663f09"></script>
+<script src="/Nihon-Trip/autoreserve.js?v=8c663f09"></script>
+<script src="/Nihon-Trip/google_picks.js?v=8c663f09"></script>
+<script src="/Nihon-Trip/geo.js?v=8c663f09"></script>
+<script src="/Nihon-Trip/app.js?v=8c663f09"></script>
 </body>
 </html>
