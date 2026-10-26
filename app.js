@@ -1533,7 +1533,7 @@ function openItem(id){
    ${it.type==="rest" ? restGallery(it) : `<div class="plate" style="--c:var(${colorOf(it)})"><span class="tag">${esc(tagOf(it))}</span><span class="k">${itemIcon(it)}</span>${imgTag(it.id)}</div>`}
    <div class="in"><h2>${esc(it.name)}</h2><div class="jpn">${esc(it.jp)}</div><p>${esc(it.desc)}</p>
    <dl class="facts">${facts.map(([a,b])=>`<dt>${a}</dt><dd>${esc(b)}</dd>`).join("")}</dl>
-   ${SHOP_PICKS[it.id]&&it.type==="shop"?`<div class="picks2"><b>추천템</b><ul>${SHOP_PICKS[it.id].map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
+   ${SHOP_PICKS[it.id]&&it.type==="shop"?`<div class="picks2"><b>추천 쇼핑 목록</b><ul>${SHOP_PICKS[it.id].map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
    ${it.tip?`<div class="tip"><b>여행 팁</b> · ${esc(it.tip)}</div>`:""}
    ${it.type==="rest"?`<p class="credit">별점과 리뷰는 아래 링크에서 확인하세요. 영업시간·휴무일도 방문 전에 확인하는 게 좋아요.</p>`:""}
    <div class="actions"><button class="btn${isSaved?"":" primary"}" type="button" id="toggleSave">${isSaved?"나의 여행에서 빼기":"나의 여행에 저장"}</button>
