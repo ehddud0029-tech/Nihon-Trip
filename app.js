@@ -1537,7 +1537,7 @@ function openItem(id){
   if(it.price) facts.push(["가격대","¥".repeat(it.price)+" (3단계 중 "+it.price+")"]);
   const mq = encodeURIComponent(`${it.jp} ${it.sub?placeQ(it):c.jp}`);
   $("#drawer").innerHTML = `<button class="close" type="button" id="closeD" aria-label="닫기">×</button>
-   ${it.type==="rest" ? restGallery(it) : `<div class="plate" style="--c:var(${colorOf(it)})"><span class="tag">${esc(tagOf(it))}</span><span class="k">${itemIcon(it)}</span>${imgTag(it.id)}</div>`}
+   ${it.type==="rest" ? restGallery(it) : `<div class="plate" style="--c:var(${colorOf(it)})"><span class="tag">${esc(tagOf(it))}</span><span class="k">${itemIcon(it)}</span>${PHOTO[it.id]?`<img class="bg" src="${esc(PHOTO[it.id].src)}" alt="" aria-hidden="true" decoding="async" referrerpolicy="no-referrer">`:""}${imgTag(it.id)}</div>`}
    <div class="in"><h2>${esc(it.name)}</h2><div class="jpn">${esc(it.jp)}</div><p>${esc(it.desc)}</p>
    <dl class="facts">${facts.map(([a,b])=>`<dt>${a}</dt><dd>${esc(b)}</dd>`).join("")}</dl>
    ${SHOP_PICKS[it.id]&&it.type==="shop"?`<div class="picks2"><b>추천 쇼핑 목록</b><ul>${SHOP_PICKS[it.id].map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}

@@ -198,7 +198,9 @@ nav.tabs a[aria-current="page"]{color:var(--shu);font-weight:600}
 .scrim{position:fixed;inset:0;background:rgba(10,14,20,.45);z-index:40}
 .drawer{position:fixed;z-index:41;background:var(--surface);overflow-y:auto;left:0;right:0;bottom:0;max-height:86vh;border-radius:16px 16px 0 0;padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (min-width:860px){.drawer{left:auto;top:0;bottom:0;width:440px;max-height:none;border-radius:0;padding-top:env(safe-area-inset-top,0px)}}
-.drawer .plate{aspect-ratio:16/7}
+.drawer .plate{aspect-ratio:3/2;max-height:46vh;width:100%}
+.drawer .plate img{object-fit:contain}
+.drawer .plate img.bg{object-fit:cover;filter:blur(20px) brightness(.8);transform:scale(1.2)}
 .drawer .plate .k{font-size:92px}
 .drawer .in{padding:18px 20px 24px;display:flex;flex-direction:column;gap:12px}
 .drawer h2{margin:0;font-family:var(--f-display);font-size:24px;line-height:1.3}
