@@ -211,6 +211,11 @@ nav.tabs a[aria-current="page"]{color:var(--shu);font-weight:600}
 .facts dd{margin:0}
 .tip{background:var(--ai-soft);border-radius:8px;padding:10px 12px;font-size:14px}
 .tip b{color:var(--ai)}
+.facts dd.si{display:flex;flex-direction:column;gap:2px}
+.facts dd.si span{display:block}
+.facts dd.si.warn{color:var(--shu);font-weight:700}
+.sinote{margin:0;background:color-mix(in srgb,var(--shu) 8%,var(--surface));border:1px solid color-mix(in srgb,var(--shu) 30%,var(--line));border-radius:8px;padding:9px 12px;font-size:13.5px;line-height:1.55}
+.sisrc{margin:0;font-size:12px;color:var(--ink-2)}
 .picks2{border:1px solid color-mix(in srgb,var(--shu) 30%,var(--line));background:color-mix(in srgb,var(--shu) 6%,var(--surface));border-radius:8px;padding:10px 12px;margin-bottom:10px;font-size:14px}
 .picks2 b{color:var(--shu);display:block;margin-bottom:6px}
 .picks2 ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}

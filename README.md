@@ -95,3 +95,7 @@ site/
 - `guide/entry/` 입국 준비, `guide/money/` 돈 쓰는 법, `guide/connect/` 통신, `guide/etiquette/` 에티켓 (5개 언어).
 - 카드 추천과 한국 간편결제 안내는 한국어 페이지에만 나와요. 비자 안내는 한국어(대한민국 여권 기준)와 다른 언어(국적별 확인 안내)가 달라요.
 - 통신 비교의 각 항목에 `link`를 채우면 '구매하기' 버튼(rel="sponsored")이 생겨요. 데이터: `i18n_work/guide_data.py`.
+
+## 관광지 입장료·운영 시간
+- `SPOT_INFO` (tabishiori.html 안, 원본: `sitegen/spot_info.js`)에 217곳의 입장료·운영 시간·휴무가 구조화돼 있어요. 2026년 10월 확인.
+- 표시 문구는 `SIV`(sitegen/spot_info_view.js)가 언어별로 직접 만들어요. 새 라벨을 쓰면 `LB`에 5개 언어를 추가하세요.

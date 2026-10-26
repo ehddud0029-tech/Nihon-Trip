@@ -1471,6 +1471,273 @@ V.guide = function(){
    <div class="gmore"><h4>다른 준비 정보</h4><div>${GUIDE.secs.filter(s=>s.key!==sec.key).map(s=>`<a href="${gsecHref(s.key)}" data-gsec="${s.key}">${gsvg(s.icon)}<span>${esc(s.name)}</span> →</a>`).join("")}</div></div>
   </div>`;
 };
+/* 관광지 입장료·운영 시간·휴무 (2026년 10월 확인)
+   f: [[라벨, 엔(숫자|"2,700~"), 기간?], ...]  "F"=무료
+   h: [[열림, 닫힘, 마지막입장, 기간, 라벨], ...]  열림 대신 "24h"|"sun"|"shops"|"date"
+   기간: [월,월] | [[월,일],[월,일]] | "wd" | "we"
+   c: 휴무 코드 | {d:[[월,일],[월,일]]} | {n:3,w:"wed"} | {t:{ko,en,ja,es,fr}}
+   fx/hx: 메모 코드, x: 특별 안내 {ko,en,ja,es,fr} */
+const F24 = {f:"F",h:[["24h"]]}, FS = {f:"F",h:[["shops"]]}, FO = {f:"F"};
+const SPOT_INFO = {
+ sensoji:{f:[["grounds_free"]],h:[["24h",0,0,0,"grounds"],["6:00","17:00",0,[4,9],"mainhall"],["6:30","17:00",0,[10,3],"mainhall"]],c:["none"]},
+ meiji:{f:"F",h:[["sun"]],hx:["month"],c:["none"]},
+ skytree:{f:[["deck",2400]],fx:["wkday"],h:[["10:00","22:00","21:00","wd"],["9:00","22:00","21:00","we"]],c:["none"]},
+ shibuya:F24, gyoen:{f:[["adult",500]],h:[["9:00","16:30","16:00"]],hx:["seas"],c:["mon+","ny"]},
+ osakajo:{f:[["keep",1200]],h:[["9:00","18:00","17:30"]],c:[{d:[[12,28],[1,1]]}]},
+ dotonbori:FS, umeda:{f:[["deck",2000]],h:[["9:30","22:30","22:00"]],c:["none"]},
+ shinsekai:{f:[["deck",1200]],h:[["9:00","22:00","21:30"]],c:["none"]},
+ fushimi:{f:"F",h:[["24h"]],c:["none"]},
+ kiyomizu:{f:[["adult",500]],h:[["6:00","18:00",0,[9,6]],["6:00","18:30",0,[7,8]]],hx:["night"],c:["none"]},
+ arashiyama:F24, gion:F24,
+ dazaifu:{f:"F",h:[["6:30","19:00"]],hx:["seas"],c:["none"]},
+ ohori:F24,
+ momochi:{f:[["beach_free"],["tower",1000]],h:[["9:30","22:00","21:30",0,"tower"]],c:[{t:{ko:"6월 마지막 월·화요일 (타워)",en:"Last Monday and Tuesday of June (tower)",ja:"6月最終月・火曜（タワー）",es:"Último lunes y martes de junio (torre)",fr:"Dernier lundi et mardi de juin (tour)"}}]},
+ kushida:{f:"F",h:[["4:00","22:00"]],c:["none"]},
+ odori:F24, clock:{f:[["adult",350]],h:[["8:45","17:10","17:00"]],c:[{d:[[1,1],[1,3]]}]},
+ moiwa:{f:[["rt_both",1800]],h:[["10:30","22:00","21:30",[4,11]],["11:00","22:00","21:30",[12,3]]],c:["maint"]},
+ otaru:F24,
+ shuri:{f:[["park_free"],["paid_area",400]],h:[["8:00","18:30",0,[12,3]],["8:00","19:30",0,[4,6]],["8:00","20:30",0,[7,9]],["8:00","19:30",0,[10,11]]],hx:["paid30"],c:[{t:{ko:"7월 첫째 수요일과 다음 날",en:"First Wednesday of July and the next day",ja:"7月第1水曜とその翌日",es:"Primer miércoles de julio y el día siguiente",fr:"Premier mercredi de juillet et le lendemain"}}]},
+ kokusai:FS, churaumi:{f:[["adult",2180]],h:[["8:30","18:30","18:00"]],c:["none"]}, kouri:F24,
+ s_tocho:{f:"F",h:[["9:30","21:30",0,0,"south"]],c:["irr"]},
+ s_omoide:FS, s_kabuki:F24,
+ s_shibuyasky:{f:[["adult","2,600~"]],fx:["online","vary"],h:[["10:00","22:30","21:20"]],c:[{d:[[1,1],[1,1]]}]},
+ s_yoyogi:F24,
+ s_roppongi:{f:[["deck",2000]],fx:["vary"],h:[["10:00","22:00","21:30"]],c:["none"]},
+ s_kabukiza:{fx:["show"]},
+ s_hamarikyu:{f:[["adult",300]],h:[["9:00","17:00","16:30"]],c:[{d:[[12,29],[1,1]]}]},
+ s_hongwanji:{f:"F",h:[["6:00","16:00"]],c:["none"]},
+ s_uenopark:{f:"F",h:[["5:00","23:00"]],c:["none"]},
+ s_ameyoko:FS,
+ s_tnm:{f:[["adult",1000]],h:[["9:30","17:00"]],c:["mon+","ny"]},
+ s_tokyostation:F24,
+ s_kokyo:{f:"F",h:[["9:00","17:00",0,[[3,1],[4,14]]],["9:00","18:00",0,[[4,15],[8,31]]],["9:00","17:00",0,[9,9]],["9:00","16:30",0,[10,10]],["9:00","16:00",0,[11,2]]],hx:["l30"],c:["mon","fri",{d:[[12,28],[1,3]]}]},
+ s_kanda:F24, s_minatomirai:F24, s_chinatown:FS, s_akarenga:FS, s_yamashita:F24,
+ s_daibutsu:{f:[["adult",300]],h:[["8:00","17:30",0,[4,9]],["8:00","17:00",0,[10,3]]],c:["none"]},
+ s_tsurugaoka:{f:"F",h:[["5:00","20:30",0,[4,9]],["6:00","20:30",0,[10,3]]],c:["none"]},
+ s_hasedera:{f:[["adult",400]],h:[["8:00","17:00",0,[3,9]],["8:00","16:30",0,[10,2]]],c:["none"]},
+ s_enoshima:{f:[["island_free"],["candle",500]],c:["none"]},
+ s_owakudani:{f:"F",hx:["volc"]},
+ s_ashinoko:{fx:["fare","hfp"],c:["maint"]},
+ s_hakonejinja:F24,
+ s_openair:{f:[["adult",2000]],h:[["9:00","17:00","16:30"]],c:["none"]},
+ s_hozenji:F24, s_yasaka:FO, s_amemura:FS,
+ s_hepfive:{f:[["ride",1000]],h:[["11:00","23:00","22:45"]],c:["irr"]},
+ s_ohatsu:FO, s_grandgreen:FO,
+ s_harukas:{f:[["deck",2200]],h:[["9:00","22:00","21:30"]],c:["none"]},
+ s_shitennoji:{f:[["central",500],["garden",300]],h:[["8:30","16:30",0,[4,9]],["8:30","16:00",0,[10,3]]],c:["none"]},
+ s_tennojizoo:{f:[["park_free"],["zoo",800]],h:[["9:30","17:00","16:00",0,"zoo"]],c:[{t:{ko:"동물원: 월요일 (공휴일이면 다음 날), 연말연시",en:"Zoo: Mondays (next day if a holiday), New Year holidays",ja:"動物園：月曜（祝日の場合は翌日）、年末年始",es:"Zoo: lunes (si es festivo, el día siguiente), fin de año",fr:"Zoo : lundi (le lendemain si férié), fêtes de fin d'année"}}]},
+ s_tenmangu:FO, s_tenjinbashi:FS,
+ s_mint:{f:"F",x:{ko:"매년 4월 초·중순 벚꽃 시기에 약 1주일만 열려요. 날짜와 예약 방법은 해마다 발표돼요.",en:"Open for only about a week in early to mid-April during cherry blossom season. Dates and booking rules are announced each year.",ja:"毎年4月上旬〜中旬の桜の時期に約1週間だけ公開。日程と予約方法は毎年発表されます。",es:"Abre solo una semana aprox. a principios o mediados de abril, con los cerezos en flor. Las fechas y las reservas se anuncian cada año.",fr:"Ouvert seulement une semaine environ début ou mi-avril, pendant les cerisiers en fleurs. Dates et réservation annoncées chaque année."}},
+ s_todaiji:{f:[["daibutsuden",800]],h:[["7:30","17:30",0,[4,10]],["8:00","17:00",0,[11,3]]],c:["none"]},
+ s_narapark:F24,
+ s_kasuga:{f:[["grounds_free"],["museum",700]],h:[["6:30","17:30",0,[3,10]],["7:00","17:00",0,[11,2]]],c:["none"]},
+ s_naramachi:FS,
+ s_kitano:{f:[["street_free"],["houses","500~"]],h:[["shops"]]},
+ s_meriken:F24, s_nankin:FS,
+ s_maya:{f:[["rt",1560]],c:["maint"]},
+ s_tochoji:FO, s_sumiyoshi:FO, s_fukuokajo:F24,
+ s_acros:{f:"F",h:[["9:00","18:00",0,[3,10]],["9:00","17:00",0,[11,2]]],c:[{d:[[12,31],[1,2]]},"rain"]},
+ s_nakasu:FS, s_canal:FS,
+ s_machiya:{f:[["adult",200]],h:[["10:00","18:00","17:30"]],c:[{n:4,w:"mon",x:"wdnext"}]},
+ s_kyuhaku:{f:[["adult",700]],h:[["9:30","17:00","16:30"]],c:["mon+","ny"]},
+ s_komyozenji:{f:[["adult",200]],h:[["9:30","16:30"]],c:["irr"]},
+ s_kamado:FO, s_futamigaura:F24, s_keya:FO, s_itocafe:FS, s_kinrinko:F24, s_yunotsubo:FS, s_floral:FS,
+ s_jigoku:{f:[["combo7",2400]],h:[["8:00","17:00"]],c:["none"]},
+ s_takegawara:{f:[["bath",300],["sand",1500]],h:[["6:30","22:30",0,0,"bath"],["8:00","22:30","21:30",0,"sand"]],c:[{n:3,w:"wed",x:"next"}]},
+ s_kannawa:FO,
+ s_tvtower:{f:[["deck",1200]],h:[["9:00","22:00","21:50"]],c:["maint"]},
+ s_susukino:F24,
+ s_akarenga_sp:{f:[["exhibit",300]],h:[["8:45","21:00","20:30"]]},
+ s_jrtower:{f:[["deck",740]],h:[["10:00","22:00","21:30"]],c:["none"]},
+ s_hokudai:FO, s_sakaimachi:FS,
+ s_tenguyama:{f:[["rt",1600]],h:[["9:00","21:00"]],hx:["seas"],c:[{t:{ko:"3월 말~4월 중순, 11월 점검 운휴",en:"Closed for maintenance late Mar–mid-Apr and in Nov",ja:"3月下旬〜4月中旬・11月は点検運休",es:"Cerrado por mantenimiento de finales de marzo a mediados de abril y en noviembre",fr:"Fermé pour maintenance fin mars–mi-avril et en novembre"}}]},
+ s_hakodateyama:{f:[["rt",1800]],h:[["10:00","22:00"]],hx:["seas"],c:["maint"]},
+ s_goryokaku:{f:[["park_free"],["tower",1000]],h:[["9:00","18:00",0,0,"tower"]],c:["none"]},
+ s_kanemori:FS, s_asaichi:FS,
+ s_asahiyama:{f:[["adult",1000]],h:[["9:30","17:15","16:00",[[4,29],[10,15]]],["9:30","16:30","16:00",[[10,16],[11,3]]],["10:30","15:30","15:00",[[11,11],[4,7]]]],c:[{d:[[4,8],[4,28]]},{d:[[11,4],[11,10]]},{d:[[12,30],[1,1]]}]},
+ s_ramenmura:FS, s_kamuikotan:F24,
+ s_tomita:{f:"F",hx:["seas"]}, s_aoiike:FO, s_patchwork:F24, s_ningle:FS,
+ s_tsuboya:FS, s_makishi:FS, s_yataimura:FS, s_naminoue:FO,
+ s_fukushuen:{f:[["day",200],["night",300]],h:[["9:00","18:00",0,0,"day"],["18:00","21:00",0,0,"night"]],c:["wed+"]},
+ s_americanvillage:FS,
+ s_manzamo:{f:[["adult",100]],h:[["8:00","20:00",0,[3,10]],["8:00","19:00",0,[11,2]]],hx:["sunset"],c:["none"]},
+ s_nakagusuku:{f:[["adult",500]],h:[["8:30","18:00",0,[5,9]],["8:30","17:00",0,[10,4]]],c:["none"]},
+ s_nakijin:{f:[["adult",1000]],h:[["8:00","18:00","17:30",[9,4]],["8:00","19:00","18:30",[5,8]]],c:["none"]},
+ s_bise:F24, s_kabira:F24, s_taketomi:FO, s_tamatori:F24, s_irabu:F24, s_maehama:FO, s_hennazaki:F24,
+ s_goldengai:FS, s_hanazono:F24, s_hachiko:F24, s_omotesando:FS,
+ s_tokyotower:{f:[["maindeck",1500],["topdeck",3500]],h:[["9:00","23:00","22:30"]],c:["none"]},
+ s_zojoji:{f:"F",h:[["24h",0,0,0,"grounds"]]},
+ s_ebisu:FS, s_gaien:F24, s_odaiba:FS,
+ s_teamlab:{f:[["adult","4,200~"]],fx:["vary"],h:[["date"]],c:["irr"]},
+ s_toyosu:{f:"F",h:[["5:00","17:00"]],c:["mkt"]},
+ s_kappabashi:FS, s_yanaka:FS,
+ s_sumidariver:{fx:["fare"]},
+ s_asakusajinja:F24, s_akihabara:FS, s_marunouchi:F24,
+ s_kitte:{f:"F",h:[["11:00","23:00"]]},
+ s_cupnoodles:{f:[["adult",500]],h:[["10:00","18:00","17:00"]],c:["tue+","ny"]},
+ s_sankeien:{f:[["adult",900]],h:[["9:00","17:00","16:30"]],c:[{d:[[12,26],[12,31]]}]},
+ s_landmark:{x:{ko:"스카이가든 전망층은 2025년 12월 31일부터 리뉴얼 공사로 휴관 중이에요. 2028년 이후 다시 열 예정이에요.",en:"The Sky Garden observation floor has been closed for renovation since December 31, 2025, and is due to reopen in 2028 or later.",ja:"スカイガーデンは2025年12月31日をもって改修のため休館中。再開は2028年以降の予定です。",es:"El mirador Sky Garden está cerrado por reformas desde el 31 de diciembre de 2025; reabrirá en 2028 o más tarde.",fr:"L'observatoire Sky Garden est fermé pour rénovation depuis le 31 décembre 2025 ; réouverture prévue en 2028 ou plus tard."},closed:1},
+ s_komachi:FS, s_kamakurakoko:F24,
+ s_hokokuji:{f:[["adult",400]],h:[["9:00","16:00"]],c:[{d:[[12,29],[1,3]]}]},
+ s_hakoneyumoto:FS,
+ s_hakoneropeway:{fx:["fare","hfp"],c:["maint"]},
+ s_kinkakuji:{f:[["adult",500]],h:[["9:00","17:00"]],c:["none"]},
+ s_ginkakuji:{f:[["adult",1000]],h:[["8:30","17:00",0,[3,11]],["9:00","16:30",0,[12,2]]],c:["none"]},
+ s_tetsugaku:F24,
+ s_nijo:{f:[["nijo",1300]],h:[["8:45","17:00","16:00"]],c:[{d:[[12,29],[12,31]]}],x:{ko:"니노마루 어전은 1·7·8·12월 화요일(공휴일이면 다음 날)과 12/26~12/29, 1/1~1/3에 쉬어요.",en:"Ninomaru Palace is closed on Tuesdays in Jan, Jul, Aug and Dec (next day if a holiday), Dec 26–29 and Jan 1–3.",ja:"二の丸御殿は1・7・8・12月の火曜（祝日の場合は翌日）、12/26〜29、1/1〜3は休み。",es:"El Palacio Ninomaru cierra los martes de enero, julio, agosto y diciembre (si es festivo, el día siguiente), del 26 al 29 de dic. y del 1 al 3 de ene.",fr:"Le palais Ninomaru ferme le mardi en janvier, juillet, août et décembre (le lendemain si férié), du 26 au 29 déc. et du 1er au 3 janv."}},
+ s_sanjusangendo:{f:[["adult",600]],h:[["8:30","17:00","16:30",[[4,1],[11,15]]],["9:00","16:00","15:30",[[11,16],[3,31]]]],c:["none"]},
+ s_yasakajinja:F24, s_ninenzaka:FS,
+ s_heian:{f:[["grounds_free"],["shinen",600]],h:[["6:00","18:00",0,[[3,15],[9,30]]],["6:00","17:30",0,[10,10]],["6:00","17:00",0,[[11,1],[2,14]]]],c:["none"]},
+ s_nanzenji:{f:[["grounds_free"],["sanmon",600]],h:[["8:40","17:00",0,[3,11]],["8:40","16:30",0,[12,2]]],c:[{d:[[12,28],[12,31]]}]},
+ s_tofukuji:{f:[["tsutenkyo",600],["honbo",500]],h:[["9:00","16:00"]],hx:["seas"],c:["none"],x:{ko:"단풍철(11/15~12/7)에는 쓰텐쿄가 1,000엔이에요.",en:"During autumn foliage (Nov 15–Dec 7), Tsutenkyo costs ¥1,000.",ja:"紅葉期（11/15〜12/7）は通天橋1,000円。",es:"En temporada de arces (15 nov.–7 dic.), el Tsutenkyo cuesta 1.000 ¥.",fr:"Pendant les feuillages d'automne (15 nov.–7 déc.), le Tsutenkyo coûte 1 000 ¥."}},
+ s_ryoanji:{f:[["adult",600]],h:[["8:00","17:00",0,[3,11]],["8:30","16:30",0,[12,2]]],c:["none"]},
+ s_tenryuji:{f:[["garden",500],["halls_add",300]],h:[["8:30","17:00","16:50"]],c:["none"]},
+ s_togetsukyo:F24, s_ponto:FS,
+ s_kyototower:{f:[["deck",1000]],h:[["10:00","21:00","20:30"]],c:["none"]},
+ s_toji:{f:[["kondo",800]],fx:["vary"],h:[["5:00","17:00",0,0,"grounds"],["8:00","17:00","16:30",0,"kondo"]],c:["none"]},
+ s_byodoin:{f:[["gardenmuseum",700],["phoenix",300]],h:[["8:30","17:30"]],c:["none"]},
+ s_kibune:{f:"F",h:[["6:00","18:00",0,[12,4]],["6:00","20:00",0,[5,11]]],c:["none"]},
+ s_kurodani:{f:[["grounds_free"],["yuzen",300],["hojo",400]],h:[["6:00","16:00",0,0,"grounds"],["9:00","16:00",0,0,"gardens"]],c:["none"]},
+ s_umedasky_plaza:FS, s_kuromon:FS, s_shinsaibashi:FS, s_nipponbashi:FS,
+ s_osakajo_park:{f:[["park_free"],["nishinomaru",300]],h:[["9:00","17:00","16:30",0,"nishinomaru"]],c:["mon+"]},
+ s_kemasakuranomiya:F24,
+ s_universal:{f:[["oneday","8,400~"]],fx:["vary"],h:[["date"]],c:["none"]},
+ s_kaiyukan:{f:[["adult","2,700~"]],fx:["vary"],h:[["10:00","20:00","19:00"]],c:["irr"]},
+ s_isuien:{f:[["adult",1200]],h:[["9:30","16:30","16:00"]],c:["tue","ny"]},
+ s_kofukuji:{f:[["grounds_free"],["treasure",900],["chukondo",500]],h:[["9:00","17:00","16:45"]],c:["none"]},
+ s_horyuji:{f:[["adult",2000]],h:[["8:00","17:00",0,[[2,22],[11,3]]],["8:00","17:00","16:30",[[11,4],[2,21]]]],c:["none"]},
+ s_nunobiki:{f:[["rt_herb",2500]],h:[["9:30","16:45"]],hx:["extwe"],c:["maint"]},
+ s_arima:FS, s_kobeharbor:FS,
+ s_hakataport:{f:"F",h:[["10:00","20:00","19:40"]],c:["wed+"]},
+ s_jrhakata:FO, s_tenjinchika:FS, s_daimyo:FS, s_nanzoin:FO, s_yufudake:F24,
+ s_umijigoku:{f:[["adult",500]],h:[["8:00","17:00"]],c:["none"]},
+ s_ropeway_beppu:{f:[["rt",1800]],h:[["9:00","17:30",0,[[3,15],[11,14]]],["9:00","17:00",0,[[11,15],[3,14]]]],c:["maint"]},
+ s_nijo_market:FS, s_tanukikoji:FS,
+ s_sapporobeer:{f:"F"},
+ s_shiroikoibito:{f:[["park_free"],["factory",800]],h:[["10:00","18:00","16:30"]],c:["none"]},
+ s_moerenuma:FO, s_otarucanal_night:F24, s_kitaichi:FS, s_motomachi:F24, s_trappistine:FO, s_yunokawa:FS,
+ s_shirahige:F24, s_furanowine:FS, s_shurijo_stone:F24,
+ s_tamaudun:{f:[["adult",300]],h:[["9:00","18:00","17:30"]],c:["none"]},
+ s_umikaji:FS,
+ s_ryukyumura:{f:[["adult",2000]],h:[["9:30","17:00","16:00"]],c:["none"]},
+ s_okinawaworld:{f:[["adult",2000]],h:[["9:00","17:30","16:00"]],c:["none"]},
+ s_sefautaki:{f:[["adult",300]],h:[["9:00","18:00","17:15",[3,10]],["9:00","18:00","16:45",[11,2]]],c:["irr"]},
+ s_kourijima:FO,
+ s_nagohpine:{f:[["adult",1500]],h:[["10:00","18:00","17:30"]],c:["none"]},
+ s_kouriocean:FO, s_iriomote:FO, s_kurimajima:F24, s_jozankei:FS,
+ s_asahidake:{f:[["rt",3500,[6,10]],["rt",2800,[11,5]]],h:[["6:30","17:30"]],hx:["seas"],c:[{d:[[11,16],[12,10]]}]}
+};
+/* 입장료·운영 시간 표시 (언어별로 바로 만들어요) */
+const SIV = (()=>{
+ const W = (ko,en,ja,es,fr)=>({ko,en,ja,es,fr});
+ const LB = {
+  adult:W("어른","Adults","大人","Adultos","Adultes"), grounds_free:W("경내 무료","Grounds free","境内無料","Recinto gratis","Enceinte gratuite"),
+  park_free:W("공원 무료","Park free","公園無料","Parque gratis","Parc gratuit"), beach_free:W("해변 무료","Beach free","海浜無料","Playa gratis","Plage gratuite"),
+  island_free:W("섬 둘러보기 무료","Island free to explore","島内散策無料","Isla gratis","Île gratuite"), street_free:W("거리 무료","Street free","街歩き無料","Calle gratis","Rue gratuite"),
+  deck:W("전망대","Observation deck","展望台","Mirador","Observatoire"), tower:W("타워","Tower","タワー","Torre","Tour"),
+  keep:W("천수각","Main keep","天守閣","Torre del homenaje","Donjon"), paid_area:W("유료 구역","Paid area","有料区域","Zona de pago","Zone payante"),
+  rt:W("왕복","Round trip","往復","Ida y vuelta","Aller-retour"), rt_both:W("로프웨이+미니 케이블카 왕복","Ropeway + mini cable car, round trip","ロープウェイ＋ミニケーブルカー往復","Teleférico + minifunicular, ida y vuelta","Téléphérique + mini-funiculaire, aller-retour"),
+  rt_herb:W("로프웨이 왕복+허브원","Ropeway round trip + Herb Gardens","ロープウェイ往復＋ハーブ園","Teleférico i/v + jardín de hierbas","Téléphérique A/R + jardin d'herbes"),
+  combo7:W("지옥 7곳 공통권 (이틀 유효)","Combined ticket for 7 hells (valid 2 days)","7地獄共通券（2日間有効）","Entrada combinada a 7 infiernos (2 días)","Billet combiné 7 enfers (valable 2 jours)"),
+  bath:W("입욕","Bath","入浴","Baño","Bain"), sand:W("모래찜질","Sand bath","砂湯","Baño de arena","Bain de sable"),
+  halls_add:W("건물 내부 추가","Halls (extra)","諸堂参拝（追加）","Pabellones (extra)","Pavillons (supplément)"),
+  museum:W("국보전","Treasure hall","国宝殿","Sala del tesoro","Salle du trésor"), treasure:W("국보관","Treasure hall","国宝館","Sala del tesoro","Salle du trésor"),
+  chukondo:W("중금당","Central Golden Hall","中金堂","Pabellón Dorado Central","Pavillon d'or central"), daibutsuden:W("대불전","Great Buddha Hall","大仏殿","Pabellón del Gran Buda","Pavillon du Grand Bouddha"),
+  central:W("중심가람","Central precinct","中心伽藍","Recinto central","Enceinte centrale"), garden:W("정원","Garden","庭園","Jardín","Jardin"),
+  zoo:W("동물원","Zoo","動物園","Zoo","Zoo"), nishinomaru:W("니시노마루 정원","Nishinomaru Garden","西の丸庭園","Jardín Nishinomaru","Jardin Nishinomaru"),
+  ride:W("1회 탑승","Per ride","1回","Por viaje","Par tour"), houses:W("이진칸 내부 (집마다 다름)","Houses (priced separately)","異人館（館ごとに異なる）","Casas (precio por casa)","Maisons (prix par maison)"),
+  candle:W("씨캔들 전망등대","Sea Candle","シーキャンドル","Sea Candle","Sea Candle"), exhibit:W("전시실 (1층 상점은 무료)","Exhibition rooms (1F shop free)","展示室（1階ショップは無料）","Salas de exposición (tienda de la 1.ª planta gratis)","Salles d'exposition (boutique du RDC gratuite)"),
+  maindeck:W("메인 데크","Main Deck","メインデッキ","Main Deck","Main Deck"), topdeck:W("톱 데크 투어","Top Deck Tour","トップデッキツアー","Top Deck Tour","Top Deck Tour"),
+  oneday:W("1데이 스튜디오 패스","1-Day Studio Pass","1デイ・スタジオ・パス","Pase de 1 día","Pass 1 jour"), nijo:W("입성+니노마루 어전","Castle + Ninomaru Palace","入城＋二の丸御殿","Castillo + Palacio Ninomaru","Château + palais Ninomaru"),
+  shinen:W("신엔(정원)","Shin-en garden","神苑","Jardín Shin-en","Jardin Shin-en"), sanmon:W("산몬·호조 정원 각각","Sanmon Gate or Hojo Garden, each","三門・方丈庭園 各","Puerta Sanmon o jardín Hojo, cada uno","Porte Sanmon ou jardin Hojo, chacun"),
+  tsutenkyo:W("쓰텐쿄","Tsutenkyo Bridge","通天橋","Puente Tsutenkyo","Pont Tsutenkyo"), honbo:W("본방 정원","Honbo Garden","本坊庭園","Jardín Honbo","Jardin Honbo"),
+  kondo:W("금당·강당","Kondo & Kodo halls","金堂・講堂","Pabellones Kondo y Kodo","Pavillons Kondo et Kodo"), gardenmuseum:W("정원+박물관","Garden + museum","庭園＋鳳翔館","Jardín + museo","Jardin + musée"),
+  phoenix:W("봉황당 내부 추가","Phoenix Hall interior (extra)","鳳凰堂内部（追加）","Interior del Pabellón del Fénix (extra)","Intérieur du pavillon du Phénix (supplément)"),
+  yuzen:W("유젠엔","Yuzen-en Garden","友禅苑","Jardín Yuzen-en","Jardin Yuzen-en"), hojo:W("호조 정원","Hojo Garden","方丈庭園","Jardín Hojo","Jardin Hojo"),
+  day:W("낮","Day","昼","Día","Jour"), night:W("밤","Night","夜","Noche","Nuit"), factory:W("유료 구역 (공장 견학 등)","Paid area (factory tour, etc.)","有料エリア（工場見学など）","Zona de pago (visita a la fábrica, etc.)","Zone payante (visite de l'usine, etc.)"),
+  grounds:W("경내","Grounds","境内","Recinto","Enceinte"), mainhall:W("본당","Main hall","本堂","Pabellón principal","Pavillon principal"), south:W("남쪽 전망실","South observatory","南展望室","Mirador sur","Observatoire sud"),
+  gardens:W("정원","Gardens","庭園","Jardines","Jardins")
+ };
+ const TX = {
+  free:W("무료","Free","無料","Gratis","Gratuit"), h24:W("24시간","Open 24 hours","24時間","Abierto 24 h","Ouvert 24 h/24"),
+  sun:W("해 뜰 때부터 해 질 때까지","Sunrise to sunset","日の出から日没まで","Del amanecer al atardecer","Du lever au coucher du soleil"),
+  shops:W("가게마다 달라요","Varies by shop","店舗により異なる","Varía según la tienda","Selon les boutiques"), date:W("날짜마다 달라요","Varies by date","日により異なる","Varía según el día","Selon le jour"),
+  wd:W("평일","Weekdays","平日","Entre semana","En semaine"), we:W("주말·공휴일","Weekends & holidays","土日祝","Fines de semana y festivos","Week-ends et jours fériés"),
+  wkday:W("평일 당일권 기준이고 주말·공휴일은 더 비싸요","Weekday walk-up price; higher on weekends and holidays","平日当日券の料金。土日祝は高め","Precio de taquilla entre semana; más caro en fines de semana y festivos","Tarif guichet en semaine ; plus cher le week-end et les jours fériés"),
+  online:W("온라인 예매가 더 싸요","Cheaper online","オンライン購入がお得","Más barato en línea","Moins cher en ligne"), vary:W("시기·날짜에 따라 달라요","Varies by date","時期・日付により変動","Varía según la fecha","Varie selon la date"),
+  show:W("공연마다 요금이 달라요","Prices vary by performance","公演により異なる","Varía según la función","Selon la représentation"), fare:W("구간마다 요금이 달라요","Fares vary by section","区間により運賃が異なる","La tarifa depende del tramo","Tarif selon le trajet"),
+  hfp:W("하코네 프리패스로 탈 수 있어요","Covered by the Hakone Free Pass","箱根フリーパスで乗車可","Incluido en el Hakone Free Pass","Inclus dans le Hakone Free Pass"),
+  month:W("달마다 달라요","Varies by month","月により異なる","Varía según el mes","Varie selon le mois"), seas:W("계절에 따라 달라요","Varies by season","季節により変動","Varía según la estación","Varie selon la saison"),
+  night:W("야간 특별 관람 기간엔 밤까지 열어요","Open late during special night viewings","夜間特別拝観期間は夜まで","Abre de noche en las visitas nocturnas especiales","Ouvert le soir lors des visites nocturnes"),
+  paid30:W("유료 구역은 30분 늦게 열고 30분 일찍 닫아요","The paid area opens 30 min later and closes 30 min earlier","有料区域は30分遅く開き30分早く閉まる","La zona de pago abre 30 min más tarde y cierra 30 min antes","La zone payante ouvre 30 min plus tard et ferme 30 min plus tôt"),
+  l30:W("입장은 닫기 30분 전까지","Last entry 30 min before closing","入園は閉園30分前まで","Última entrada 30 min antes del cierre","Dernière entrée 30 min avant la fermeture"),
+  volc:W("화산 활동에 따라 출입이 제한될 수 있어요","Access may be restricted due to volcanic activity","火山活動により立入規制あり","El acceso puede restringirse por actividad volcánica","Accès parfois limité en raison de l'activité volcanique"),
+  extwe:W("주말·여름에는 밤까지 연장해요","Extended into the evening on weekends and in summer","週末・夏は夜まで延長","Ampliado por la noche en fines de semana y verano","Prolongé le soir le week-end et l'été"),
+  sunset:W("경치 관람은 해 질 때까지","Viewing until sunset","景観の観覧は日没まで","Vistas hasta el atardecer","Vue jusqu'au coucher du soleil"),
+  none:W("연중무휴","Open every day","年中無休","Abierto todos los días","Ouvert tous les jours"), irr:W("부정기 휴무","Irregular closures","不定休","Cierres irregulares","Fermetures irrégulières"),
+  maint:W("점검일·악천후 시 쉬어요","Closed for maintenance or bad weather","点検日・悪天候時は休止","Cerrado por mantenimiento o mal tiempo","Fermé pour maintenance ou mauvais temps"),
+  ny:W("연말연시","New Year holidays","年末年始","Fin de año","Fêtes de fin d'année"), rain:W("비 오는 날","Rainy days","雨天時","Días de lluvia","Jours de pluie"),
+  mkt:W("일요일·공휴일·휴시일 (주로 수요일)","Sundays, holidays and market holidays (mostly Wednesdays)","日曜・祝日・休市日（主に水曜）","Domingos, festivos y días sin mercado (sobre todo miércoles)","Dimanches, jours fériés et jours de fermeture du marché (surtout le mercredi)"),
+  closedNow:W("현재 휴관 중","Currently closed","現在休館中","Cerrado actualmente","Actuellement fermé")
+ };
+ const WD = {mon:W("월요일","Mondays","月曜","lunes","lundi"),tue:W("화요일","Tuesdays","火曜","martes","mardi"),wed:W("수요일","Wednesdays","水曜","miércoles","mercredi"),thu:W("목요일","Thursdays","木曜","jueves","jeudi"),fri:W("금요일","Fridays","金曜","viernes","vendredi")};
+ const WD1 = {mon:W("월요일","Monday","月曜","lunes","lundi"),wed:W("수요일","Wednesday","水曜","miércoles","mercredi")};
+ const NEXT = W(" (공휴일이면 다음 날)"," (next day if a holiday)","（祝日の場合は翌日）"," (si es festivo, el día siguiente)"," (le lendemain si férié)");
+ const NEXTWD = W(" (공휴일이면 다음 평일)"," (next weekday if a holiday)","（祝日の場合は翌平日）"," (si es festivo, el siguiente día laborable)"," (le jour ouvré suivant si férié)");
+ const MON = {en:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],es:["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"],fr:["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc."]};
+ const L = () => (window.I18N&&window.I18N.lang)||"ko";
+ const t = o => o ? (o[L()]||o.ko) : "";
+ const num = n => { const l=L(), s=String(n).replace(/[^\d]/g,""), f=Number(s).toLocaleString(l==="ko"?"ko-KR":l==="ja"?"ja-JP":l==="es"?"es-ES":l==="fr"?"fr-FR":"en-US").replace(/ | /g," "); return f; };
+ const yen = v => { const l=L(), from=String(v).includes("~"), n=num(v);
+   if(l==="ko") return n+"엔"+(from?"~":""); if(l==="ja") return n+"円"+(from?"〜":"");
+   if(l==="en") return (from?"from ":"")+"¥"+n; if(l==="es") return (from?"desde ":"")+n+" ¥"; return (from?"à partir de ":"")+n+" ¥"; };
+ const md = ([m,d]) => { const l=L(); if(l==="ko"||l==="ja") return `${m}/${d}`; if(l==="en") return `${MON.en[m-1]} ${d}`; return `${d} ${MON[l][m-1]}`; };
+ const mrange = ([a,b]) => { const l=L(); if(a===b){ return l==="ko"?`${a}월`:l==="ja"?`${a}月`:MON[l][a-1]; }
+   if(l==="ko") return `${a}~${b}월`; if(l==="ja") return `${a}〜${b}月`; return `${MON[l][a-1]}–${MON[l][b-1]}`; };
+ const per = p => !p ? "" : p==="wd"||p==="we" ? t(TX[p]) : Array.isArray(p[0]) ? (p[0][0]===p[1][0]&&p[0][1]===p[1][1] ? md(p[0]) : `${md(p[0])}${L()==="ja"?"〜":L()==="ko"?"~":"–"}${md(p[1])}`) : mrange(p);
+ const last = x => { const l=L(); return l==="ko"?` (입장 ${x}까지)`:l==="ja"?`（最終入場${x}）`:l==="en"?` (last entry ${x})`:l==="es"?` (última entrada ${x})`:` (dernière entrée ${x})`; };
+ const lbl = k => k ? t(LB[k]) : "";
+ const colon = L2 => (L2==="ja"?"：":L2==="fr"?" : ":": ");
+ function fee(si){
+   const out = [];
+   if(si.f==="F") out.push(t(TX.free));
+   else (si.f||[]).forEach(([k,v,p])=>{ const nm = k==="adult" && (si.f.length===1) ? "" : lbl(k);
+     if(v==null){ out.push(nm); return; }
+     out.push((nm?nm+(p?` (${per(p)})`:"")+colon(L()):(p?`${per(p)}${colon(L())}`:"")) + yen(v)); });
+   (si.fx||[]).forEach(k=>out.push(t(TX[k])));
+   return out;
+ }
+ function hours(si){
+   const out = [];
+   (si.h||[]).forEach(([o,c,la,p,lb])=>{
+     let s = o==="24h"?t(TX.h24):o==="sun"?t(TX.sun):o==="shops"?t(TX.shops):o==="date"?t(TX.date):`${o}–${c}${la?last(la):""}`;
+     const pre = [lbl(lb), per(p)].filter(Boolean).join(" · ");
+     out.push(pre ? pre+colon(L())+s : s);
+   });
+   (si.hx||[]).forEach(k=>out.push(t(TX[k])));
+   return out;
+ }
+ function closed(si){
+   return (si.c||[]).map(c=>{
+     if(typeof c==="string"){ const m=c.match(/^(mon|tue|wed|thu|fri)(\+)?$/); if(m) return t(WD[m[1]])+(m[2]?t(NEXT):""); return t(TX[c]); }
+     if(c.t) return t(c.t);
+     if(c.d) return per(c.d);
+     if(c.n){ const l=L(), w=t(WD1[c.w]); const s = l==="ko"?`매월 ${["","첫째","둘째","셋째","넷째"][c.n]} ${w}`:l==="ja"?`毎月第${c.n}${w}`:l==="en"?`${["","1st","2nd","3rd","4th"][c.n]} ${w} of each month`:l==="es"?`${c.n}.º ${w} de cada mes`:`${c.n}${c.n===1?"er":"e"} ${w} du mois`;
+       return s + (c.x==="wdnext"?t(NEXTWD):c.x==="next"?t(NEXT):""); }
+     return "";
+   }).filter(Boolean);
+ }
+ return { rows(id){
+   const si = SPOT_INFO[id]; if(!si) return null;
+   const r = [];
+   if(si.closed) r.push(["status",[t(TX.closedNow)]]);
+   const f=fee(si); if(f.length) r.push(["fee",f]);
+   const h=hours(si); if(h.length) r.push(["hours",h]);
+   const c=closed(si); if(c.length) r.push(["closed",c]);
+   return {rows:r, note: si.x ? t(si.x) : ""};
+ }};
+})();
+
 /* 화면별 주소 (배포 사이트에서만): /도시/지역/주제/ 처럼 화면마다 주소와 제목이 생겨 검색엔진이 따로 찾을 수 있어요.
    아티팩트 미리보기처럼 NT_BASE가 없으면 지금처럼 #주소를 써요 */
 const ROUTED = !!window.NT_BASE;
@@ -1572,6 +1839,7 @@ function restGallery(r){
     ${tile(ph.shop,"가게 입구·내부",ph.shop?.brand?"브랜드 사진 · 지점이 다를 수 있음":"",`직접 찍은 사진을 준비 중이에요.<br><a href="${gmapLink(r)}" target="_blank" rel="noopener">Google 지도에서 가게 사진 보기 ↗</a>`)}
   </div>`;
 }
+let SINFO=null;
 function openItem(id){
   const it = byId(id); if(!it) return;
   lastFocus=document.activeElement;
@@ -1586,7 +1854,8 @@ function openItem(id){
   $("#drawer").innerHTML = `<button class="close" type="button" id="closeD" aria-label="닫기">×</button>
    ${it.type==="rest" ? restGallery(it) : `<div class="plate" style="--c:var(${colorOf(it)})"><span class="tag">${esc(tagOf(it))}</span><span class="k">${itemIcon(it)}</span>${PHOTO[it.id]?`<img class="bg" src="${esc(PHOTO[it.id].src)}" alt="" aria-hidden="true" decoding="async" referrerpolicy="no-referrer">`:""}${imgTag(it.id)}</div>`}
    <div class="in"><h2>${esc(it.name)}</h2><div class="jpn">${esc(it.jp)}</div><p>${esc(it.desc)}</p>
-   <dl class="facts">${facts.map(([a,b])=>`<dt>${a}</dt><dd>${esc(b)}</dd>`).join("")}</dl>
+   <dl class="facts">${facts.map(([a,b])=>`<dt>${a}</dt><dd>${esc(b)}</dd>`).join("")}${(SINFO=it.type==="spot"?SIV.rows(it.id):null)?SINFO.rows.map(([k,v])=>`<dt>${{fee:"입장료",hours:"운영 시간",closed:"휴무",status:"현재 상태"}[k]}</dt><dd class="si${k==="status"?" warn":""}">${v.map(x=>`<span>${esc(x)}</span>`).join("")}</dd>`).join(""):""}</dl>
+   ${SINFO?`${SINFO.note?`<p class="sinote">${esc(SINFO.note)}</p>`:""}<p class="sisrc">2026년 10월 기준 · 요금과 시간은 바뀔 수 있으니 방문 전에 공식 사이트에서 확인하세요.</p>`:""}
    ${SHOP_PICKS[it.id]&&it.type==="shop"?`<div class="picks2"><b>추천 쇼핑 목록</b><ul>${SHOP_PICKS[it.id].map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
    ${it.tip?`<div class="tip"><b>여행 팁</b> · ${esc(it.tip)}</div>`:""}
    ${it.type==="rest"?`<p class="credit">별점과 리뷰는 아래 링크에서 확인하세요. 영업시간·휴무일도 방문 전에 확인하는 게 좋아요.</p>`:""}
