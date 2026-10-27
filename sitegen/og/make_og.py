@@ -6,6 +6,8 @@ T = {
  "ko": ("일본 여행, 지역별로 한눈에", "도쿄 · 오사카 · 후쿠오카 · 홋카이도 · 오키나와 · 나고야 · 히로시마 · 시코쿠", "볼거리 · 맛집 · 쇼핑 · 축제 · 추천 일정", "Noto Sans CJK KR"),
  "en": ("Japan travel, region by region", "Tokyo · Osaka · Fukuoka · Hokkaido · Okinawa · Nagoya · Hiroshima · Shikoku", "Sights · Food · Shopping · Festivals · Itineraries", "Noto Sans CJK JP"),
  "ja": ("日本旅行を、エリアごとに", "東京 · 大阪 · 福岡 · 北海道 · 沖縄 · 名古屋 · 広島 · 四国", "観光 · グルメ · ショッピング · 祭り · モデルコース", "Noto Sans CJK JP"),
+ "zh": ("日本旅行，按地区一目了然", "东京 · 大阪 · 福冈 · 北海道 · 冲绳 · 名古屋 · 广岛 · 四国", "景点 · 美食 · 购物 · 节庆 · 推荐行程", "Noto Sans CJK SC"),
+ "tw": ("日本旅行，依地區一目了然", "東京 · 大阪 · 福岡 · 北海道 · 沖繩 · 名古屋 · 廣島 · 四國", "景點 · 美食 · 購物 · 節慶 · 推薦行程", "Noto Sans CJK TC"),
  "es": ("Japón, región por región", "Tokio · Osaka · Fukuoka · Hokkaido · Okinawa · Nagoya · Hiroshima · Shikoku", "Lugares · Comida · Compras · Festivales · Itinerarios", "Noto Sans CJK JP"),
  "fr": ("Le Japon, région par région", "Tokyo · Osaka · Fukuoka · Hokkaido · Okinawa · Nagoya · Hiroshima · Shikoku", "Sites · Cuisine · Shopping · Fêtes · Itinéraires", "Noto Sans CJK JP"),
 }

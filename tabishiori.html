@@ -2,11 +2,11 @@
 <script>
 /* 언어: 저장된 언어(또는 ?lang=)의 사전 파일을 먼저 불러와요. 한국어는 사전 없이 그대로 */
 (function(){
-  var ok=["en","ja","es","fr"], l=null;
+  var ok=["en","ja","es","fr","zh","tw"], l=null;
   try{ l=localStorage.getItem("tabishiori-lang"); }catch(e){}
   var q=(location.search.match(/[?&]lang=([a-z]{2})/)||[])[1];
   if(q){ l=q; try{ localStorage.setItem("tabishiori-lang",q); }catch(e){} }
-  if(ok.indexOf(l)>=0){ document.documentElement.lang=l; document.write('<script src="i18n/'+l+'.js"><\/script>'); }
+  if(ok.indexOf(l)>=0){ document.documentElement.lang=l==="zh"?"zh-Hans":l==="tw"?"zh-Hant":l; document.write('<script src="i18n/'+l+'.js"><\/script>'); }
 })();
 </script>
 <script>
@@ -25,7 +25,7 @@
       var s=m.slice(1,-1), mm, k, n, v;
       if((mm=s.match(/^(\d+)\?([^|]*)\|(.*)$/))){ k=+mm[1]; return (g[k]==="1"?mm[2]:mm[3]).split("{"+k+"}").join(g[k]); }
       if((mm=s.match(/^(M|MC|MS|MSC)(\d+)$/))){ k=+mm[2]; n=+g[k]-1;
-        if(I.lang==="ja") return g[k]+"月";
+        if(I.lang==="ja"||I.lang==="zh"||I.lang==="tw") return g[k]+"月";
         if(!(n>=0&&n<12)) return g[k];
         if(mm[1]==="MS") return I.MS[n];
         if(mm[1]==="MSC") return I.MS[n].charAt(0).toUpperCase()+I.MS[n].slice(1);
@@ -77,8 +77,8 @@
   var DESC={en:"Sights, festivals, restaurants, transport and shopping in Tokyo, Osaka, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido, Okinawa and nearby cities, with live weather.",
     ja:"東京・大阪・名古屋・広島・四国・福岡・北海道・沖縄と近郊都市の観光地、祭り、グルメ、交通、ショッピング情報とリアルタイムの天気。",
     es:"Lugares, festivales, restaurantes, transporte y compras en Tokio, Osaka, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido, Okinawa y ciudades cercanas, con el tiempo en directo.",
-    fr:"Sites, fêtes, restaurants, transports et shopping à Tokyo, Osaka, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido, Okinawa et dans les villes voisines, avec la météo en direct."};
-  [["meta[name=description]",DESC[I.lang]],["meta[property='og:description']",DESC[I.lang]],["meta[property='og:title']",I.D["Go Nihon Trip · 일본 여행 가이드"]],["meta[property='og:locale']",{en:"en_US",ja:"ja_JP",es:"es_ES",fr:"fr_FR"}[I.lang]]].forEach(function(x){ var m=document.querySelector(x[0]); if(m&&x[1]) m.setAttribute("content",x[1]); });
+    fr:"Sites, fêtes, restaurants, transports et shopping à Tokyo, Osaka, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido, Okinawa et dans les villes voisines, avec la météo en direct.",zh:"东京、大阪、名古屋、广岛、四国、福冈、北海道、冲绳及周边城市的景点、节庆、美食、交通、购物信息与实时天气。",tw:"東京、大阪、名古屋、廣島、四國、福岡、北海道、沖繩及周邊城市的景點、節慶、美食、交通、購物資訊與即時天氣。"};
+  [["meta[name=description]",DESC[I.lang]],["meta[property='og:description']",DESC[I.lang]],["meta[property='og:title']",I.D["Go Nihon Trip · 일본 여행 가이드"]],["meta[property='og:locale']",{en:"en_US",ja:"ja_JP",es:"es_ES",fr:"fr_FR",zh:"zh_CN",tw:"zh_TW"}[I.lang]]].forEach(function(x){ var m=document.querySelector(x[0]); if(m&&x[1]) m.setAttribute("content",x[1]); });
   window.__tr=function(s){ var r=tr(String(s==null?"":s)); return r==null?s:r; };
   var ATTR=["placeholder","aria-label","title","alt","label"];
   function tnode(n){ var v=n.nodeValue; if(!v||!H.test(v)) return; var r=tr(v); if(r!=null&&r!==v) n.nodeValue=r; }
@@ -159,6 +159,8 @@ nav.main a[aria-current="page"] svg{color:var(--shu)}
 .langmenu button:hover{background:var(--ai-soft)}
 .langmenu button[aria-checked="true"]{font-weight:700;color:var(--shu)}
 .langmenu small{font-size:11.5px;color:var(--ink-2);font-weight:400}
+html:lang(zh-Hans){--f-body:"PingFang SC","Microsoft YaHei","Noto Sans SC","Source Han Sans SC",system-ui,sans-serif;--f-display:"Songti SC","Noto Serif SC","STSong","SimSun",serif}
+html:lang(zh-Hant){--f-body:"PingFang TC","Microsoft JhengHei","Noto Sans TC","Source Han Sans TC",system-ui,sans-serif;--f-display:"Songti TC","Noto Serif TC","PMingLiU",serif}
 html:lang(ja){--f-body:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP","Meiryo",system-ui,sans-serif;--f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif}
 .savedbtn{padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--ink-2);font-weight:500;font-size:14px}
 .savedbtn{display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);cursor:pointer;color:var(--ink)}
@@ -184,7 +186,7 @@ html:lang(ja){--f-body:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","
 .cities::-webkit-scrollbar{display:none}
 .city{flex-shrink:0;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px;cursor:pointer;font-size:14px;display:flex;align-items:baseline;gap:6px}
 .city .jp{font-family:var(--f-kanji);font-size:12px;color:var(--ink-2)}
-html:lang(ja) .city .jp{display:none}
+html:lang(ja) .city .jp,html:lang(zh-Hans) .city .jp,html:lang(zh-Hant) .city .jp{display:none}
 .city[aria-pressed="true"]{background:var(--ai);border-color:var(--ai);color:var(--paper)}
 .city[aria-pressed="true"] .jp{color:inherit;opacity:.75}
 
@@ -2374,7 +2376,7 @@ function mapMount(){
     MAP.on("load",()=>{
       $("#mapmsg").hidden = true;
       // 지도 글자를 고른 언어로 (없으면 영어, 그다음 현지 이름). 일본어는 현지 이름 그대로
-      const nm = lang==="ja" ? ["get","name"] : ["coalesce",["get","name:"+lang],["get","name:en"],["get","name_en"],["get","name"]];
+      const nm = lang==="ja" ? ["get","name"] : lang==="zh" ? ["coalesce",["get","name:zh-Hans"],["get","name:zh"],["get","name"]] : lang==="tw" ? ["coalesce",["get","name:zh-Hant"],["get","name:zh"],["get","name"]] : ["coalesce",["get","name:"+lang],["get","name:en"],["get","name_en"],["get","name"]];
       MAP.getStyle().layers.forEach(l=>{ if(l.type==="symbol" && l.layout && l.layout["text-field"]) try{ MAP.setLayoutProperty(l.id,"text-field",nm); }catch(_){} });
       MAP.addSource("pts",{type:"geojson",data:mapGeoJSON(),cluster:true,clusterRadius:46,clusterMaxZoom:13});
       MAP.addLayer({id:"cl",type:"circle",source:"pts",filter:["has","point_count"],paint:{"circle-color":"#C4452C","circle-opacity":.92,"circle-stroke-color":"#fff","circle-stroke-width":3,
@@ -2666,18 +2668,18 @@ const SIV = (()=>{
  const NEXTWD = W(" (공휴일이면 다음 평일)"," (next weekday if a holiday)","（祝日の場合は翌平日）"," (si es festivo, el siguiente día laborable)"," (le jour ouvré suivant si férié)");
  const MON = {en:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],es:["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"],fr:["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc."]};
  const L = () => (window.I18N&&window.I18N.lang)||"ko";
- const t = o => o ? (o[L()]||o.ko) : "";
- const num = n => { const l=L(), s=String(n).replace(/[^\d]/g,""), f=Number(s).toLocaleString(l==="ko"?"ko-KR":l==="ja"?"ja-JP":l==="es"?"es-ES":l==="fr"?"fr-FR":"en-US").replace(/ | /g," "); return f; };
+ const t = o => o ? (o[L()]||(window.I18N&&window.I18N.D&&window.I18N.D[o.ko])||o.ko) : "";
+ const num = n => { const l=L(), s=String(n).replace(/[^\d]/g,""), f=Number(s).toLocaleString(l==="ko"?"ko-KR":l==="ja"?"ja-JP":l==="es"?"es-ES":l==="fr"?"fr-FR":l==="zh"?"zh-CN":l==="tw"?"zh-TW":"en-US").replace(/ | /g," "); return f; };
  const yen = v => { const l=L(), from=String(v).includes("~"), n=num(v);
-   if(l==="ko") return n+"엔"+(from?"~":""); if(l==="ja") return n+"円"+(from?"〜":"");
+   if(l==="ko") return n+"엔"+(from?"~":""); if(l==="ja") return n+"円"+(from?"〜":""); if(l==="zh") return n+"日元"+(from?"起":""); if(l==="tw") return n+"日圓"+(from?"起":"");
    if(l==="en") return (from?"from ":"")+"¥"+n; if(l==="es") return (from?"desde ":"")+n+" ¥"; return (from?"à partir de ":"")+n+" ¥"; };
- const md = ([m,d]) => { const l=L(); if(l==="ko"||l==="ja") return `${m}/${d}`; if(l==="en") return `${MON.en[m-1]} ${d}`; return `${d} ${MON[l][m-1]}`; };
- const mrange = ([a,b]) => { const l=L(); if(a===b){ return l==="ko"?`${a}월`:l==="ja"?`${a}月`:MON[l][a-1]; }
-   if(l==="ko") return `${a}~${b}월`; if(l==="ja") return `${a}〜${b}月`; return `${MON[l][a-1]}–${MON[l][b-1]}`; };
- const per = p => !p ? "" : p==="wd"||p==="we" ? t(TX[p]) : Array.isArray(p[0]) ? (p[0][0]===p[1][0]&&p[0][1]===p[1][1] ? md(p[0]) : `${md(p[0])}${L()==="ja"?"〜":L()==="ko"?"~":"–"}${md(p[1])}`) : mrange(p);
- const last = x => { const l=L(); return l==="ko"?` (입장 ${x}까지)`:l==="ja"?`（最終入場${x}）`:l==="en"?` (last entry ${x})`:l==="es"?` (última entrada ${x})`:` (dernière entrée ${x})`; };
+ const md = ([m,d]) => { const l=L(); if(l==="ko"||l==="ja"||l==="zh"||l==="tw") return `${m}/${d}`; if(l==="en") return `${MON.en[m-1]} ${d}`; return `${d} ${MON[l][m-1]}`; };
+ const mrange = ([a,b]) => { const l=L(); if(a===b){ return l==="ko"?`${a}월`:(l==="ja"||l==="zh"||l==="tw")?`${a}月`:MON[l][a-1]; }
+   if(l==="ko") return `${a}~${b}월`; if(l==="ja") return `${a}〜${b}月`; if(l==="zh"||l==="tw") return `${a}～${b}月`; return `${MON[l][a-1]}–${MON[l][b-1]}`; };
+ const per = p => !p ? "" : p==="wd"||p==="we" ? t(TX[p]) : Array.isArray(p[0]) ? (p[0][0]===p[1][0]&&p[0][1]===p[1][1] ? md(p[0]) : `${md(p[0])}${L()==="ja"?"〜":(L()==="zh"||L()==="tw")?"～":L()==="ko"?"~":"–"}${md(p[1])}`) : mrange(p);
+ const last = x => { const l=L(); return l==="ko"?` (입장 ${x}까지)`:l==="ja"?`（最終入場${x}）`:l==="zh"?`（最后入场${x}）`:l==="tw"?`（最後入場${x}）`:l==="en"?` (last entry ${x})`:l==="es"?` (última entrada ${x})`:` (dernière entrée ${x})`; };
  const lbl = k => k ? (typeof k==="object" ? t(k) : t(LB[k])) : "";
- const colon = L2 => (L2==="ja"?"：":L2==="fr"?" : ":": ");
+ const colon = L2 => (L2==="ja"||L2==="zh"||L2==="tw"?"：":L2==="fr"?" : ":": ");
  function fee(si){
    const out = [];
    if(si.f==="F") out.push(t(TX.free));
@@ -2702,7 +2704,7 @@ const SIV = (()=>{
      if(typeof c==="string"){ const m=c.match(/^(mon|tue|wed|thu|fri)(\+)?$/); if(m) return t(WD[m[1]])+(m[2]?t(NEXT):""); return t(TX[c]); }
      if(c.t) return t(c.t);
      if(c.d) return per(c.d);
-     if(c.n){ const l=L(), w=t(WD1[c.w]); const s = l==="ko"?`매월 ${["","첫째","둘째","셋째","넷째"][c.n]} ${w}`:l==="ja"?`毎月第${c.n}${w}`:l==="en"?`${["","1st","2nd","3rd","4th"][c.n]} ${w} of each month`:l==="es"?`${c.n}.º ${w} de cada mes`:`${c.n}${c.n===1?"er":"e"} ${w} du mois`;
+     if(c.n){ const l=L(), w=t(WD1[c.w]); const s = l==="ko"?`매월 ${["","첫째","둘째","셋째","넷째"][c.n]} ${w}`:l==="ja"?`毎月第${c.n}${w}`:l==="zh"?`每月第${c.n}个${w}`:l==="tw"?`每月第${c.n}個${w}`:l==="en"?`${["","1st","2nd","3rd","4th"][c.n]} ${w} of each month`:l==="es"?`${c.n}.º ${w} de cada mes`:`${c.n}${c.n===1?"er":"e"} ${w} du mois`;
        return s + (c.x==="wdnext"?t(NEXTWD):c.x==="next"?t(NEXT):""); }
      return "";
    }).filter(Boolean);
@@ -2725,10 +2727,10 @@ const ilang = () => (window.I18N&&window.I18N.lang)||"ko";
 function nightsLabel(n){
   const l=ilang();
   if(n===0) return "당일치기";
-  return l==="ko"?`${n}박 ${n+1}일`:l==="ja"?`${n}泊${n+1}日`:l==="en"?`${n} night${n>1?"s":""} · ${n+1} days`:l==="es"?`${n} noche${n>1?"s":""} · ${n+1} días`:`${n} nuit${n>1?"s":""} · ${n+1} jours`;
+  return l==="ko"?`${n}박 ${n+1}일`:(l==="zh"||l==="tw")?`${n}晚${n+1}天`:l==="ja"?`${n}泊${n+1}日`:l==="en"?`${n} night${n>1?"s":""} · ${n+1} days`:l==="es"?`${n} noche${n>1?"s":""} · ${n+1} días`:`${n} nuit${n>1?"s":""} · ${n+1} jours`;
 }
-function dayLabel(i){ const l=ilang(); return l==="ko"?`${i}일차`:l==="ja"?`${i}日目`:l==="en"?`Day ${i}`:l==="es"?`Día ${i}`:`Jour ${i}`; }
-function stopsLabel(n){ const l=ilang(); return l==="ko"?`${n}곳`:l==="ja"?`${n}か所`:l==="en"?`${n} stops`:l==="es"?`${n} paradas`:`${n} étapes`; }
+function dayLabel(i){ const l=ilang(); return l==="ko"?`${i}일차`:(l==="zh"||l==="tw")?`第${i}天`:l==="ja"?`${i}日目`:l==="en"?`Day ${i}`:l==="es"?`Día ${i}`:`Jour ${i}`; }
+function stopsLabel(n){ const l=ilang(); return l==="ko"?`${n}곳`:l==="zh"?`${n}个地点`:l==="tw"?`${n}個地點`:l==="ja"?`${n}か所`:l==="en"?`${n} stops`:l==="es"?`${n} paradas`:`${n} étapes`; }
 const itinHref = k => ROUTED ? window.NT_BASE + LPRE + (k?`itinerary/${k}/`:"itinerary/") : "#itin";
 const ICITY_ORDER = ["tokyo","osaka","fukuoka","hokkaido","okinawa","nagoya","hiroshima","shikoku"];
 function itinCard(c){
@@ -2780,7 +2782,7 @@ function pathOf(s){
 function readPath(){
   const b = window.NT_BASE, lp = location.pathname;
   let p = lp.toLowerCase().startsWith(b.toLowerCase()) ? lp.slice(b.length) : lp.replace(/^\//,"");
-  p = p.replace(/^(en|ja|es|fr)(\/|$)/,"");
+  p = p.replace(/^(en|ja|es|fr|zh|tw)(\/|$)/,"");
   const seg = p.split("/").filter(Boolean).map(decodeURIComponent);
   st.view="home"; st.city="all"; st.area="all";
   if(!seg.length) return;
@@ -2817,7 +2819,8 @@ const PMETA = {
      all_spots:"Que voir au Japon – Tokyo, Osaka, Kyoto, Fukuoka, Hokkaido, Okinawa",all_festivals:"Fêtes au Japon en {m} – Calendrier par région",all_food:"Où manger au Japon – Top 5 par zone et par plat",all_transport:"Se déplacer au Japon – Aéroports, trains et cartes IC",all_shopping:"Shopping au Japon – Rues commerçantes, détaxe et souvenirs",saved:"Mon voyage"},
    d:{guide_season:"Dates normales des cerisiers, de la saison des pluies et des érables par région, tenues selon la saison, typhons et périodes chargées.",guide_stay:"Comparez les meilleurs quartiers où loger dans chaque région, avec avantages, inconvénients et profils conseillés.",guide_entry:"À vérifier avant d'entrer au Japon : visa, inscription à Visit Japan Web, objets interdits comme viande, fruits et certains médicaments, et franchises.",guide_money:"Combien d'espèces prévoir au Japon, comment changer de l'argent et utiliser les distributeurs, et payer par carte.",guide_connect:"Comparez les façons de se connecter au Japon : eSIM, Wi-Fi de poche, carte SIM et itinérance, avec avantages et inconvénients.",guide_etiquette:"Comment utiliser un onsen, visiter sanctuaires et temples, trier ses déchets et se comporter dans les trains et au restaurant.",map:"Voyez sites, fêtes, restaurants et adresses shopping sur une carte du Japon. Filtrez par zone et par type pour voir emplacements et détails.",spots:"Les incontournables de {a} ({c}){L}. Météo du jour, itinéraire conseillé et transports locaux en un coup d'œil.",festivals:"Fêtes et événements de saison à {a} ({c}){L}. Dates, lieux et conseils.",food:"Où manger à {a} ({c}){L}. Top 5 ramen, sushi, yakiniku et plus, et spécialités locales à goûter.",transport:"Se déplacer à {a} ({c}) : depuis l'aéroport, lignes locales et où acheter une carte IC.",shopping:"Shopping à {a} ({c}){L}. Rues commerçantes et marchés, détaxe et cadeaux locaux.",
      all_spots:"Choisissez des sites par région à Tokyo, Osaka, Kyoto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido et Okinawa{L}.",all_festivals:"Fêtes et événements de saison au Japon en {m}{L}.",all_food:"Restaurants conseillés par zone au Japon et spécialités locales à goûter{L}.",all_transport:"Aller des aéroports japonais en ville, voyager entre les villes et utiliser les cartes IC comme Suica et ICOCA.",all_shopping:"Rues commerçantes et marchés du Japon, nouvelle détaxe et cadeaux locaux{L}."},
-   L:" – {n} et plus"}
+   L:" – {n} et plus"},
+ zh:{"t":{"guide_season":"日本旅游最佳季节 – 各地樱花·梅雨·红叶时间与四季穿衣","guide_stay":"日本住哪里 – 东京·大阪·京都·名古屋·广岛·四国·福冈·北海道·冲绳住宿区域推荐","guide_entry":"入境准备 – 日本签证、Visit Japan Web登记、禁止携带物品","guide_money":"日本旅游花钱指南 – 换汇、现金与刷卡、ATM","guide_connect":"日本旅游上网 – eSIM·随身Wi-Fi·SIM卡·漫游比较","guide_etiquette":"日本旅游礼仪 – 温泉、神社参拜、垃圾分类、公共交通、餐厅","map":"日本旅游地图 – 景点·节庆·美食·购物位置","spots":"{a}景点推荐 · {c}旅游","festivals":"{a}节庆·活动 · {c}旅游","food":"{a}美食推荐 · {c}旅游","transport":"{a}交通·机场出发攻略 · {c}旅游","shopping":"{a}购物·伴手礼 · {c}旅游","all_spots":"日本景点推荐 – 东京·大阪·京都·福冈·北海道·冲绳名胜","all_festivals":"日本{m}节庆·活动 – 各地祭典日历","all_food":"日本美食推荐 – 各地区·各类别TOP 5","all_transport":"日本交通指南 – 机场到市区、交通卡","all_shopping":"日本购物·伴手礼 – 购物街、免税、特产","saved":"我的旅行"},"d":{"guide_season":"各地樱花开花、梅雨、红叶最佳期（平年值）与四季穿衣，以及避开台风和长假的方法。","guide_stay":"比较各地适合住宿的区域，包括优缺点和适合人群。","guide_entry":"入境日本前需确认的签证、Visit Japan Web登记步骤、肉类·水果·药品等禁止携带物品及免税额度。","guide_money":"在日本准备多少现金和卡、如何换汇和使用ATM、刷卡小贴士。","guide_connect":"比较在日本上网的方法：eSIM、随身Wi-Fi、SIM卡、漫游的优缺点和选择方法。","guide_etiquette":"温泉使用方法、神社寺院参拜、垃圾分类、电车和餐厅礼仪一览。","map":"在日本地图上一览景点、节庆、美食和购物地点。选择地区和类别即可查看位置和信息。","spots":"{a}值得去的地方{L}。今日天气、推荐路线和市内交通一目了然。","festivals":"{a}举办的节庆和季节活动{L}。日期、地点和玩法。","food":"{a}美食推荐{L}。拉面、寿司、烤肉等各类别TOP 5和必吃乡土料理。","transport":"{a}交通指南：从机场出发的方法、市内交通、交通卡购买地点。","shopping":"{a}购物{L}。购物街和市场、免税指南、值得买的特产和伴手礼。","all_spots":"按地区挑选东京、大阪、京都、名古屋、广岛、四国、福冈、北海道、冲绳的景点{L}。","all_festivals":"日本{m}举办的节庆和季节活动{L}。日期、地点和玩法。","all_food":"日本各地区美食推荐和必吃乡土料理{L}。","all_transport":"从日本各机场到市区的方法、城市间交通、Suica·ICOCA等交通卡指南。","all_shopping":"日本的购物街和市场、新免税制度、各地特产和伴手礼推荐{L}。"},"L":"（{n}等）"},tw:{"t":{"guide_season":"日本旅遊最佳季節 – 各地櫻花·梅雨·紅葉時間與四季穿衣","guide_stay":"日本住哪裡 – 東京·大阪·京都·名古屋·廣島·四國·福岡·北海道·沖繩住宿區域推薦","guide_entry":"入境準備 – 日本簽證、Visit Japan Web登記、禁止攜帶物品","guide_money":"日本旅遊花錢指南 – 換匯、現金與刷卡、ATM","guide_connect":"日本旅遊上網 – eSIM·隨身Wi-Fi·SIM卡·漫遊比較","guide_etiquette":"日本旅遊禮儀 – 溫泉、神社參拜、垃圾分類、公共交通、餐廳","map":"日本旅遊地圖 – 景點·節慶·美食·購物位置","spots":"{a}景點推薦 · {c}旅遊","festivals":"{a}節慶·活動 · {c}旅遊","food":"{a}美食推薦 · {c}旅遊","transport":"{a}交通·機場出發攻略 · {c}旅遊","shopping":"{a}購物·伴手禮 · {c}旅遊","all_spots":"日本景點推薦 – 東京·大阪·京都·福岡·北海道·沖繩名勝","all_festivals":"日本{m}節慶·活動 – 各地祭典日曆","all_food":"日本美食推薦 – 各地區·各類別TOP 5","all_transport":"日本交通指南 – 機場到市區、交通卡","all_shopping":"日本購物·伴手禮 – 購物街、免稅、特產","saved":"我的旅行"},"d":{"guide_season":"各地櫻花開花、梅雨、紅葉最佳期（平年值）與四季穿衣，以及避開台風和長假的方法。","guide_stay":"比較各地適合住宿的區域，包括優缺點和適合人群。","guide_entry":"入境日本前需確認的簽證、Visit Japan Web登記步驟、肉類·水果·藥品等禁止攜帶物品及免稅額度。","guide_money":"在日本準備多少現金和卡、如何換匯和使用ATM、刷卡小貼士。","guide_connect":"比較在日本上網的方法：eSIM、隨身Wi-Fi、SIM卡、漫遊的優缺點和選擇方法。","guide_etiquette":"溫泉使用方法、神社寺院參拜、垃圾分類、電車和餐廳禮儀一覽。","map":"在日本地圖上一覽景點、節慶、美食和購物地點。選擇地區和類別即可檢視位置和資訊。","spots":"{a}值得去的地方{L}。今日天氣、推薦路線和市內交通一目瞭然。","festivals":"{a}舉辦的節慶和季節活動{L}。日期、地點和玩法。","food":"{a}美食推薦{L}。拉麵、壽司、烤肉等各類別TOP 5和必吃鄉土料理。","transport":"{a}交通指南：從機場出發的方法、市內交通、交通卡購買地點。","shopping":"{a}購物{L}。購物街和市場、免稅指南、值得買的特產和伴手禮。","all_spots":"按地區挑選東京、大阪、京都、名古屋、廣島、四國、福岡、北海道、沖繩的景點{L}。","all_festivals":"日本{m}舉辦的節慶和季節活動{L}。日期、地點和玩法。","all_food":"日本各地區美食推薦和必吃鄉土料理{L}。","all_transport":"從日本各機場到市區的方法、城市間交通、Suica·ICOCA等交通卡指南。","all_shopping":"日本的購物街和市場、新免稅制度、各地特產和伴手禮推薦{L}。"},"L":"（{n}等）"} /*PMETA_ZH_DONE*/
 };
 function pageMeta(){
   const L = (window.I18N&&window.I18N.lang)||"ko", M = PMETA[L]||PMETA.ko, T = window.__tr||(x=>x);
@@ -2827,7 +2830,7 @@ function pageMeta(){
       en:{spot:"{n} – Admission, Hours & Access ({a})",fest:"{n} – Dates, Venue & Tips ({a})",shop:"{n} – Shopping Guide & What to Buy ({a})",food:"{n} – Local Dish in {a} & Where to Try It"},
       ja:{spot:"{n} – 入場料・営業時間・アクセス（{a}）",fest:"{n} – 日程・会場・楽しみ方（{a}）",shop:"{n} – ショッピング情報・おすすめの買い物（{a}）",food:"{n} – {a}の郷土料理と食べられる場所"},
       es:{spot:"{n} – Precio, horario y cómo llegar ({a})",fest:"{n} – Fechas, lugar y consejos ({a})",shop:"{n} – Guía de compras y qué comprar ({a})",food:"{n} – Plato local de {a} y dónde probarlo"},
-      fr:{spot:"{n} – Tarifs, horaires et accès ({a})",fest:"{n} – Dates, lieu et conseils ({a})",shop:"{n} – Guide shopping et quoi acheter ({a})",food:"{n} – Spécialité de {a} et où la goûter"}};
+      fr:{spot:"{n} – Tarifs, horaires et accès ({a})",fest:"{n} – Dates, lieu et conseils ({a})",shop:"{n} – Guide shopping et quoi acheter ({a})",food:"{n} – Spécialité de {a} et où la goûter"},zh:{"spot":"{n} – 门票·营业时间·交通（{a}）","fest":"{n} – 日期·地点·游玩贴士（{a}）","shop":"{n} – 购物信息·推荐清单（{a}）","food":"{n} – {a}乡土料理和品尝地点"},tw:{"spot":"{n} – 門票·營業時間·交通（{a}）","fest":"{n} – 日期·地點·遊玩貼士（{a}）","shop":"{n} – 購物資訊·推薦清單（{a}）","food":"{n} – {a}鄉土料理和品嚐地點"}};
     const a=T((it.sub&&AREA[it.sub]?.ko.split("·")[0])||CITIES[it.city].ko), n=T(it.name);
     let desc=[T(it.desc),T(it.tip||"")].filter(Boolean).join(" "); if(desc.length>160) desc=desc.slice(0,157)+"…";
     const g=(window.GEO||{})[it.id];
@@ -2839,16 +2842,16 @@ function pageMeta(){
    en:{about:"About",contact:"Contact",privacy:"Privacy Policy",d:"About Go Nihon Trip, where our information comes from, how to contact us, and our privacy policy."},
    ja:{about:"サイトについて",contact:"お問い合わせ",privacy:"プライバシーポリシー",d:"Go Nihon Tripについて、情報の出典、お問い合わせ方法、プライバシーポリシー。"},
    es:{about:"Acerca de",contact:"Contacto",privacy:"Política de privacidad",d:"Acerca de Go Nihon Trip, de dónde viene la información, cómo contactarnos y nuestra política de privacidad."},
-   fr:{about:"À propos",contact:"Contact",privacy:"Politique de confidentialité",d:"À propos de Go Nihon Trip, sources des informations, comment nous contacter et politique de confidentialité."}}[(window.I18N&&window.I18N.lang)||"ko"];
+   fr:{about:"À propos",contact:"Contact",privacy:"Politique de confidentialité",d:"À propos de Go Nihon Trip, sources des informations, comment nous contacter et politique de confidentialité."},zh:{"about":"关于本站","contact":"联系我们","privacy":"隐私政策","d":"Go Nihon Trip网站介绍、信息来源、联系方式与隐私政策。"},tw:{"about":"關於本站","contact":"聯絡我們","privacy":"隱私政策","d":"Go Nihon Trip網站介紹、資訊來源、聯絡方式與隱私政策。"}}[(window.I18N&&window.I18N.lang)||"ko"];
   if(INFO_VIEWS.includes(st.view)) return {title:IT[st.view]+" | Go Nihon Trip", desc:IT.d};
   if(st.view==="home") return {title:T("Go Nihon Trip · 일본 여행 가이드"), desc:null};
-  if(st.view==="itin"){ const IM={ko:["일본 여행 추천 일정 – 도쿄·오사카·교토·후쿠오카·홋카이도·오키나와 코스","{t} – 추천 여행 일정","도쿄·오사카·교토·나고야·히로시마·시코쿠·후쿠오카·홋카이도·오키나와의 며칠짜리 추천 일정. 날짜별 동선과 장소별 입장료까지 한눈에."],en:["Japan Itineraries – Tokyo, Osaka, Kyoto, Fukuoka, Hokkaido & Okinawa","{t} – Suggested itinerary","Multi-day itineraries for Tokyo, Osaka, Kyoto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido and Okinawa, with day-by-day routes and admission fees."],ja:["日本旅行モデルコース – 東京・大阪・京都・福岡・北海道・沖縄","{t} – モデルコース","東京・大阪・京都・名古屋・広島・四国・福岡・北海道・沖縄の数日間のモデルコース。日ごとのルートと料金を一目で。"],es:["Itinerarios por Japón – Tokio, Osaka, Kioto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido y Okinawa","{t} – Itinerario recomendado","Itinerarios de varios días por Tokio, Osaka, Kioto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido y Okinawa, con rutas diarias y precios de entrada."],fr:["Itinéraires au Japon – Tokyo, Osaka, Kyoto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido et Okinawa","{t} – Itinéraire conseillé","Itinéraires de plusieurs jours à Tokyo, Osaka, Kyoto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido et Okinawa, avec trajets jour par jour et tarifs."]}[(window.I18N&&window.I18N.lang)||"ko"];
+  if(st.view==="itin"){ const IM={ko:["일본 여행 추천 일정 – 도쿄·오사카·교토·후쿠오카·홋카이도·오키나와 코스","{t} – 추천 여행 일정","도쿄·오사카·교토·나고야·히로시마·시코쿠·후쿠오카·홋카이도·오키나와의 며칠짜리 추천 일정. 날짜별 동선과 장소별 입장료까지 한눈에."],en:["Japan Itineraries – Tokyo, Osaka, Kyoto, Fukuoka, Hokkaido & Okinawa","{t} – Suggested itinerary","Multi-day itineraries for Tokyo, Osaka, Kyoto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido and Okinawa, with day-by-day routes and admission fees."],ja:["日本旅行モデルコース – 東京・大阪・京都・福岡・北海道・沖縄","{t} – モデルコース","東京・大阪・京都・名古屋・広島・四国・福岡・北海道・沖縄の数日間のモデルコース。日ごとのルートと料金を一目で。"],es:["Itinerarios por Japón – Tokio, Osaka, Kioto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido y Okinawa","{t} – Itinerario recomendado","Itinerarios de varios días por Tokio, Osaka, Kioto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido y Okinawa, con rutas diarias y precios de entrada."],fr:["Itinéraires au Japon – Tokyo, Osaka, Kyoto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido et Okinawa","{t} – Itinéraire conseillé","Itinéraires de plusieurs jours à Tokyo, Osaka, Kyoto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido et Okinawa, avec trajets jour par jour et tarifs."],zh:["日本旅行推荐行程 – 东京·大阪·京都·福冈·北海道·冲绳路线","{t} – 推荐行程","东京、大阪、京都、名古屋、广岛、四国、福冈、北海道、冲绳的多日推荐行程，每日路线和门票一目了然。"],tw:["日本旅行推薦行程 – 東京·大阪·京都·福岡·北海道·沖繩路線","{t} – 推薦行程","東京、大阪、京都、名古屋、廣島、四國、福岡、北海道、沖繩的多日推薦行程，每日路線和門票一目瞭然。"]}[(window.I18N&&window.I18N.lang)||"ko"];
     const c=ITIN.find(x=>x.key===st.itin); return c ? {title:IM[1].replace("{t}",T(c.title))+" | Go Nihon Trip", desc:T(c.sum)} : {title:IM[0]+" | Go Nihon Trip", desc:IM[2]}; }
   const key = st.view==="saved" ? "saved" : st.view==="map" ? "map" : st.view==="guide" ? "guide_"+(GKEYS.includes(st.gsec)?st.gsec:"entry") : (st.city==="all" ? "all_"+st.view : st.view);
-  const a = st.city==="all" ? "" : T(curArea()?.ko || CITIES[st.city].ko), c = {ko:"일본",en:"Japan",ja:"日本",es:"Japón",fr:"Japon"}[L];
-  const mon = L==="ko" ? st.month+"월" : L==="ja" ? st.month+"月" : (window.I18N.MON[st.month-1]||st.month);
+  const a = st.city==="all" ? "" : T(curArea()?.ko || CITIES[st.city].ko), c = {ko:"일본",en:"Japan",ja:"日本",es:"Japón",fr:"Japon",zh:"日本",tw:"日本"}[L];
+  const mon = L==="ko" ? st.month+"월" : (L==="ja"||L==="zh"||L==="tw") ? st.month+"月" : (window.I18N.MON[st.month-1]||st.month);
   const names = [...new Set([...document.querySelectorAll("#main .card h3, #main .arlist .nm, #main .fest h3, #main .gname, #main .gift h3")].map(e=>T(e.textContent.trim())).filter(Boolean))].slice(0,4);
-  const sep = L==="ja" ? "、" : L==="ko" ? ", " : ", ";
+  const sep = (L==="ja"||L==="zh"||L==="tw") ? "、" : L==="ko" ? ", " : ", ";
   const Ls = names.length ? M.L.replace("{n}", names.join(sep)) : "";
   const f = (x)=> (x||"").replace(/\{a\}/g,a).replace(/\{c\}/g,c).replace(/\{m\}/g,mon).replace("{L}",Ls);
   return {title: f(M.t[key]) + " | Go Nihon Trip", desc: M.d[key] ? f(M.d[key]) : null};
@@ -2927,7 +2930,7 @@ function detailHTML(it, htag, inDrawer){
 V.about = function(){ return `<article class="info">
   <h1>사이트 소개</h1>
   <p>Go Nihon Trip은 일본을 여행하는 사람이 지역별로 필요한 정보를 한곳에서 찾을 수 있도록 만든 여행 정보 사이트예요.</p>
-  <p>도쿄·오사카·후쿠오카·홋카이도·오키나와·나고야·히로시마·시코쿠의 관광지, 축제, 맛집, 쇼핑, 교통 정보와 추천 일정, 여행 준비 안내를 한국어·영어·일본어·스페인어·프랑스어로 제공해요.</p>
+  <p>도쿄·오사카·후쿠오카·홋카이도·오키나와·나고야·히로시마·시코쿠의 관광지, 축제, 맛집, 쇼핑, 교통 정보와 추천 일정, 여행 준비 안내를 한국어·영어·일본어·중국어·스페인어·프랑스어로 제공해요.</p>
   <h2>정보 출처</h2>
   <ul>
    <li>날씨: Open-Meteo 예보를 실시간으로 불러와요.</li>
@@ -3022,10 +3025,10 @@ document.addEventListener("click",e=>{
 });
 $("#savedBtn").onclick=()=>go("saved");
 /* 언어 선택 — 고르면 저장하고 새로고침해서 그 언어 사전으로 다시 그려요 */
-const LANGS=[["ko","KR","한국어"],["en","EN","English"],["ja","JP","日本語"],["es","ES","Español"],["fr","FR","Français"]];
+const LANGS=[["ko","KR","한국어"],["en","EN","English"],["ja","JP","日本語"],["zh","简","简体中文"],["tw","繁","繁體中文"],["es","ES","Español"],["fr","FR","Français"]];
 let LANG=(window.I18N&&window.I18N.lang)||"ko";
 function renderLang(){
-  const cur=LANGS.find(l=>l[0]===LANG)||LANGS[0]; $("#langCode").textContent=cur[1]; document.documentElement.lang=LANG;
+  const cur=LANGS.find(l=>l[0]===LANG)||LANGS[0]; $("#langCode").textContent=cur[1]; document.documentElement.lang=LANG==="zh"?"zh-Hans":LANG==="tw"?"zh-Hant":LANG;
   $("#langMenu").innerHTML=LANGS.map(([k,code,name])=>`<button type="button" role="menuitemradio" class="notranslate" lang="${k}" data-lang="${k}" aria-checked="${k===LANG}">${name}<small>${k===LANG?"✓":""}</small></button>`).join("");
 }
 renderLang();

@@ -15,13 +15,16 @@ OUT = '/home/claude/sitegen/dist'
 ORIGIN = 'https://gonihontrip.com'
 DOMAIN = 'gonihontrip.com'   # GitHub Pages 사용자 도메인 (CNAME 파일)
 BASE = '/'
-LANGS = ['ko', 'en', 'ja', 'es', 'fr']
-OG_LOCALE = {'ko': 'ko_KR', 'en': 'en_US', 'ja': 'ja_JP', 'es': 'es_ES', 'fr': 'fr_FR'}
+LANGS = ['ko', 'en', 'ja', 'zh', 'tw', 'es', 'fr']
+HREFLANG = {'zh': 'zh-Hans', 'tw': 'zh-Hant'}   # 주소는 /zh/·/tw/, 언어 코드는 표준 표기
+OG_LOCALE = {'ko': 'ko_KR', 'en': 'en_US', 'ja': 'ja_JP', 'es': 'es_ES', 'fr': 'fr_FR', 'zh': 'zh_CN', 'tw': 'zh_TW'}
 HOME_DESC = {
     'ko': '도쿄·오사카·나고야·히로시마·시코쿠·후쿠오카·홋카이도·오키나와와 근교 도시의 관광지, 축제, 맛집, 교통, 쇼핑 정보와 실시간 날씨',
     'en': 'Sights, festivals, restaurants, transport and shopping in Tokyo, Osaka, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido, Okinawa and nearby cities, with live weather.',
     'ja': '東京・大阪・名古屋・広島・四国・福岡・北海道・沖縄と近郊都市の観光地、祭り、グルメ、交通、ショッピング情報とリアルタイムの天気。',
     'es': 'Lugares, festivales, restaurantes, transporte y compras en Tokio, Osaka, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido, Okinawa y ciudades cercanas, con el tiempo en directo.',
+    'zh': '东京、大阪、名古屋、广岛、四国、福冈、北海道、冲绳及周边城市的景点、节庆、美食、交通、购物信息与实时天气。',
+    'tw': '東京、大阪、名古屋、廣島、四國、福岡、北海道、沖繩及周邊城市的景點、節慶、美食、交通、購物資訊與即時天氣。',
     'fr': 'Sites, fêtes, restaurants, transports et shopping à Tokyo, Osaka, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido, Okinawa et dans les villes voisines, avec la météo en direct.',
 }
 GA_ID = 'G-07B266GQNY'   # Google Analytics 4 측정 ID (공개 값, 비밀 키 아님)
@@ -47,18 +50,18 @@ def split_source():
 
 
 BOOT = r'''<script>window.NT_BASE=%s;(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
-var cur=(r.match(/^(en|ja|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|es|fr)\b/)||[])[1],s=null;
+var cur=(r.match(/^(en|ja|zh|tw|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
-var want=q||(cur==="ko"&&/^(en|ja|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
-if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
-window.NT_LANG=cur;document.documentElement.lang=cur;
+var want=q||(cur==="ko"&&/^(en|ja|zh|tw|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
+if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
+window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
 if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js"><\/script><script src="'+B+'engine.js"><\/script>');})();</script>''' % json.dumps(BASE)
 
 
 def page_html(lang, title, desc, path, body, fonts, icon, alternates=True, index=True, home=False, ld=None):
     esc = lambda x: html.escape(x, quote=True)
     url = ORIGIN + BASE + ('' if lang == 'ko' else lang + '/') + path
-    h = ['<!doctype html>', f'<html lang="{lang}">', '<head>', '<meta charset="utf-8">',
+    h = ['<!doctype html>', f'<html lang="{HREFLANG.get(lang, lang)}">', '<head>', '<meta charset="utf-8">',
          '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">',
          f'<title>{esc(title)}</title>', f'<meta name="description" content="{esc(desc)}">']
     if not index:
@@ -72,7 +75,7 @@ def page_html(lang, title, desc, path, body, fonts, icon, alternates=True, index
         h.append('<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False).replace('</', '<\\/') + '</script>')
     if alternates:
         for l in LANGS:
-            h.append(f'<link rel="alternate" hreflang="{l}" href="{ORIGIN}{BASE}{"" if l == "ko" else l + "/"}{path}">')
+            h.append(f'<link rel="alternate" hreflang="{HREFLANG.get(l, l)}" href="{ORIGIN}{BASE}{"" if l == "ko" else l + "/"}{path}">')
         h.append(f'<link rel="alternate" hreflang="x-default" href="{ORIGIN}{BASE}{path}">')
     h += ['<meta property="og:type" content="website">', '<meta property="og:site_name" content="Go Nihon Trip">',
           f'<meta property="og:title" content="{esc(title)}">', f'<meta property="og:description" content="{esc(desc)}">',
@@ -197,7 +200,7 @@ def main():
             sm.append(f'    <loc>{ORIGIN}{BASE}{"" if lang == "ko" else lang + "/"}{path}</loc>')
             sm.append(f'    <lastmod>{TODAY}</lastmod>')
             for l2 in LANGS:
-                sm.append(f'    <xhtml:link rel="alternate" hreflang="{l2}" href="{ORIGIN}{BASE}{"" if l2 == "ko" else l2 + "/"}{path}"/>')
+                sm.append(f'    <xhtml:link rel="alternate" hreflang="{HREFLANG.get(l2, l2)}" href="{ORIGIN}{BASE}{"" if l2 == "ko" else l2 + "/"}{path}"/>')
             sm.append(f'    <xhtml:link rel="alternate" hreflang="x-default" href="{ORIGIN}{BASE}{path}"/>')
             sm.append('  </url>')
     sm.append('</urlset>')

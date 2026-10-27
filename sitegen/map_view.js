@@ -103,7 +103,7 @@ function mapMount(){
     MAP.on("load",()=>{
       $("#mapmsg").hidden = true;
       // 지도 글자를 고른 언어로 (없으면 영어, 그다음 현지 이름). 일본어는 현지 이름 그대로
-      const nm = lang==="ja" ? ["get","name"] : ["coalesce",["get","name:"+lang],["get","name:en"],["get","name_en"],["get","name"]];
+      const nm = lang==="ja" ? ["get","name"] : lang==="zh" ? ["coalesce",["get","name:zh-Hans"],["get","name:zh"],["get","name"]] : lang==="tw" ? ["coalesce",["get","name:zh-Hant"],["get","name:zh"],["get","name"]] : ["coalesce",["get","name:"+lang],["get","name:en"],["get","name_en"],["get","name"]];
       MAP.getStyle().layers.forEach(l=>{ if(l.type==="symbol" && l.layout && l.layout["text-field"]) try{ MAP.setLayoutProperty(l.id,"text-field",nm); }catch(_){} });
       MAP.addSource("pts",{type:"geojson",data:mapGeoJSON(),cluster:true,clusterRadius:46,clusterMaxZoom:13});
       MAP.addLayer({id:"cl",type:"circle",source:"pts",filter:["has","point_count"],paint:{"circle-color":"#C4452C","circle-opacity":.92,"circle-stroke-color":"#fff","circle-stroke-width":3,

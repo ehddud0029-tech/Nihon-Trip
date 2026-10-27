@@ -2,7 +2,9 @@ import json, glob, re, sys, os
 from functools import lru_cache
 W = os.path.dirname(os.path.abspath(__file__))
 LANGS = ['en', 'ja', 'es', 'fr']
-IDX = {l: i for i, l in enumerate(LANGS)}
+ZH = ['zh', 'tw']          # 간체(zh)는 zh_*.tsv·zhtpl.tsv, 번체(tw)는 s2tw로 자동 변환
+ALL_LANGS = LANGS + ZH
+IDX = {l: i for i, l in enumerate(ALL_LANGS)}
 H = re.compile('[가-힣]')
 
 def rows(path, n):
@@ -38,12 +40,30 @@ def load():
         for p in rows(f, 5):
             for l in LANGS:
                 D[l][p[0]] = p[1 + IDX[l]]
-    for l in LANGS:
+    # 중국어: 가게 이름(arnames)은 일본어 원래 이름, 나머지는 zh_*.tsv
+    from s2tw import s2tw
+    D['zh'] = {}; D['tw'] = {}
+    keep = set()
+    for f in ['arnames_1.tsv', 'arnames_2.tsv', 'arnames_3.tsv', 'arnames_4.tsv']:
+        for ko, ja, en in rows(f'{W}/{f}', 3):
+            v = D['ja'].get(ko, ja); D['zh'][ko] = v; keep.add(ko)
+    for f in sorted(glob.glob(f'{W}/zh_*.tsv')):
+        for ko, zh in rows(f, 2):
+            D['zh'][ko] = zh
+            if zh == D['ja'].get(ko): keep.add(ko)
+            else: keep.discard(ko)
+    for ko, zh in D['zh'].items():
+        D['tw'][ko] = zh if ko in keep else s2tw(zh)
+    for f in sorted(glob.glob(f'{W}/tw_fix*.tsv')):   # 번체 수동 보정 (한국어 \t 번체)
+        for ko, tw in rows(f, 2): D['tw'][ko] = tw
+    for l in ALL_LANGS:
         for k in [k for k in D[l] if re.fullmatch(r'\d+월', k)]:
             del D[l][k]
     T = []
+    zt = dict(rows(f'{W}/zhtpl.tsv', 2))
     for p in rows(f'{W}/tpl.tsv', 5):
-        T.append([p[0]] + p[1:])
+        z = zt.get(p[0], p[3])
+        T.append([p[0]] + p[1:] + [z, s2tw(z)])
     return D, T
 
 MON = {
@@ -72,7 +92,7 @@ def fmt(out, g, lang):
         mm = re.fullmatch(r'(M|MC|MS|MSC)(\d+)', s)
         if mm:
             k = int(mm.group(2)); n = int(g[k]) - 1
-            if lang == 'ja':
+            if lang in ('ja', 'zh', 'tw'):
                 return g[k] + '月'
             if not 0 <= n < 12:
                 return g[k]
@@ -164,8 +184,8 @@ def make(D, T, lang):
 def emit(outdir):
     D, T = load()
     os.makedirs(outdir, exist_ok=True)
-    for l in LANGS:
-        o = {'lang': l, 'ar': {'en': 'en', 'ja': 'ja'}.get(l, 'en'), 'D': D[l],
+    for l in ALL_LANGS:
+        o = {'lang': l, 'ar': {'en': 'en', 'ja': 'ja', 'zh': 'zh-cn', 'tw': 'zh-tw'}.get(l, 'en'), 'D': D[l],
              'T': [[t[0], t[1 + IDX[l]]] for t in T],
              'MON': MON.get(l, []), 'MS': MS.get(l, [])}
         js = '/* Go Nihon Trip — ' + l + ' dictionary (generated) */\nwindow.I18N=' + json.dumps(o, ensure_ascii=False, separators=(',', ':')) + ';\n'

@@ -1,6 +1,6 @@
 # Go Nihon Trip 작업 안내
 
-일본 여행 정보 사이트 (한국어·영어·일본어·스페인어·프랑스어). 배포 주소: https://gonihontrip.com/ (GitHub Pages 사용자 도메인, `sitegen/gen.py`의 ORIGIN·DOMAIN·BASE와 CNAME 파일로 연결)
+일본 여행 정보 사이트 (한국어·영어·일본어·중국어 간체/번체·스페인어·프랑스어). 배포 주소: https://gonihontrip.com/ (GitHub Pages 사용자 도메인, `sitegen/gen.py`의 ORIGIN·DOMAIN·BASE와 CNAME 파일로 연결)
 
 ## 브랜치
 - `main`: GitHub Pages로 배포되는 완성된 사이트 (생성 결과물만 있음, 직접 고치지 않음)
@@ -16,8 +16,16 @@
 ## 주의
 - `region_inject.py`는 `i18n_work/backup/tabishiori.pre.html`(새 지역 넣기 전 원본)에서 tabishiori.html을 **다시 만들어요**. tabishiori.html을 직접 고친 뒤 이 스크립트를 돌리면 고친 내용이 사라지니, 같은 수정을 backup의 pre 파일에도 적용하세요 (예: `i18n_work/patch_cityarrows.py`처럼 두 파일에 같은 패치).
 - 화면 문구는 한국어로 쓰고, 번역은 DOM 텍스트 일치 방식이에요. 새 문구를 넣으면 `tr_*.tsv`에 5개 언어 줄을 추가하고 `python3 i18n_work/build.py emit /home/claude/site/i18n` → `cp site/i18n/*.js /home/claude/i18n/`.
-- 번역 누락 확인: `python3 i18n_work/verify2.py en` (ja/es/fr도) → `i18n_work/left_*.json` 이 비어 있어야 해요.
+- 번역 누락 확인: `python3 i18n_work/verify2.py en` (ja/es/fr/zh/tw도) → `i18n_work/left_*.json` 이 비어 있어야 해요.
 - 제3자 글을 그대로 옮기지 않고, 별점·리뷰 수는 저장하지 않아요. API 키는 넣지 않아요.
+
+## 중국어 (간체 zh · 번체 tw)
+- 주소는 `/zh/`(간체)·`/tw/`(번체), html lang과 hreflang은 `zh-Hans`·`zh-Hant`.
+- 간체 번역은 `i18n_work/zh_*.tsv`(한국어 \t 간체)와 `zhtpl.tsv`(문장 틀). 번체는 `build.py`가 `s2tw.py`(OpenCC 사전, `i18n_work/opencc/`)로 자동 변환해요. 번체만 고칠 땐 `tw_fix.tsv`(한국어 \t 번체)를 만들면 덮어써요.
+- 가게 이름(arnames)은 중국어에서도 일본어 원래 이름을 써요.
+- 새 문구를 넣을 땐 `tr_*.tsv` 5칸에 더해 `zh_*.tsv`에도 한 줄 추가하세요. 빠진 문구는 `python3 i18n_work/zh_inventory.py`로 `zh_src/`에 모아 볼 수 있어요.
+- 다국어 객체(입장료 안내 등)는 중국어일 때 사전에서 한국어 문장으로 찾아요(`t()` 함수).
+- 화면 코드의 중국어 처리는 `i18n_work/patch_zh.py` (html과 backup pre 파일에 같이 적용).
 
 ## 기타 설정
 - Google Analytics 4 측정 ID는 `sitegen/gen.py`의 `GA_ID` (모든 생성 페이지 head에 들어감).

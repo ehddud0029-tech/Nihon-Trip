@@ -1,0 +1,250 @@
+0	라멘	Ramen	ラーメン
+1	스시·일식	Sushi·Japanese	寿司・和食
+2	이자카야·꼬치	Izakaya·Skewers	居酒屋・串焼き
+3	고기·야키니쿠	Meat·Yakiniku	肉・焼肉
+4	오코노미야키·타코야키	Okonomiyaki·Takoyaki	お好み焼き・たこ焼き
+5	카페·디저트	Café·Dessert	カフェ・スイーツ
+6	향토요리	Local cuisine	郷土料理
+7	유적·사찰	Historic·Temples	史跡・寺社
+8	풍경·자연	Scenery·Nature	景色・自然
+9	거리·명소	Streets·Landmarks	街歩き・名所
+10	스시·해산물	Sushi·Seafood	寿司・海鮮
+11	길거리·간식	Street food·Snacks	屋台・おやつ
+12	관광지	Sights	観光地
+13	축제	Festivals	祭り
+14	맛집	Food	グルメ
+15	교통	Transport	交通
+16	쇼핑	Shopping	ショッピング
+17	주로 이용	Main lines	主に利用
+18	버스	Bus	バス
+19	걸어서	On foot	徒歩
+20	렌터카	Rental car	レンタカー
+21	그 밖에	Other	その他
+22	할인 승차권	Passes	お得な乗車券
+23	날씨	Weather	天気
+24	강수	Rain	降水
+25	바람	Wind	風
+26	습도	Humidity	湿度
+27	일	Sun	日
+28	월	Mon	月
+29	화	Tue	火
+30	수	Wed	水
+31	목	Thu	木
+32	금	Fri	金
+33	토	Sat	土
+34	아사쿠사	Asakusa	浅草
+35	아사쿠사역	Asakusa Sta.	浅草駅
+36	도쿄에서 가장 오래된 사찰. 가미나리몬에서 본당까지 이어지는 나카미세 거리가 볼거리예요.	Tokyo's oldest temple. Don't miss Nakamise Street, which runs from the Kaminarimon Gate to the main hall.	東京最古の寺。雷門から本堂まで続く仲見世通りが見どころです。
+37	이른 아침이나 저녁 라이트업 시간대가 한산해요.	It's quieter early in the morning or during the evening illumination.	早朝や夜のライトアップの時間帯が空いています。
+38	하라주쿠	Harajuku	原宿
+39	하라주쿠역 · 메이지진구마에역	Harajuku Sta. · Meiji-jingumae Sta.	原宿駅・明治神宮前駅
+40	하라주쿠역 바로 옆, 울창한 숲속에 자리한 신사. 도심 한가운데서 조용히 걷기 좋아요.	A shrine set in a lush forest right next to Harajuku Station — a peaceful walk in the middle of the city.	原宿駅のすぐ隣、うっそうとした森の中にある神社。都心で静かに散策できます。
+41	다케시타 거리와 오모테산도를 묶어 반나절 코스로 잡아보세요.	Combine it with Takeshita Street and Omotesando for a half-day trip.	竹下通りや表参道と組み合わせて半日コースにしましょう。
+42	오시아게	Oshiage	押上
+43	도쿄스카이트리역 · 오시아게역	Tokyo Skytree Sta. · Oshiage Sta.	とうきょうスカイツリー駅・押上駅
+44	높이 634m 전파탑. 맑은 날에는 전망대에서 후지산까지 보여요.	A 634 m broadcasting tower. On clear days you can see Mt. Fuji from the observation deck.	高さ634mの電波塔。晴れた日は展望台から富士山まで見えます。
+45	해 질 무렵 입장하면 낮 풍경과 야경을 모두 볼 수 있어요.	Go in around sunset to see both the daytime view and the night view.	夕暮れ時に入場すると昼の景色と夜景の両方を楽しめます。
+46	시부야	Shibuya	渋谷
+47	시부야역	Shibuya Sta.	渋谷駅
+48	신호 한 번에 사방에서 사람이 건너는 교차로. 주변 전망대에서 내려다보면 더 실감 나요.	A crossing where crowds surge from every direction at each light change. It's even more impressive from a nearby observation deck.	信号が変わるたびに四方から人が渡る交差点。周辺の展望スポットから見下ろすと迫力があります。
+49	하치코 동상 앞은 늘 붐비니 약속 장소로는 피하세요.	The Hachiko statue is always crowded, so avoid it as a meeting spot.	ハチ公像の前はいつも混むので待ち合わせ場所には避けましょう。
+50	신주쿠교엔마에역	Shinjuku-gyoemmae Sta.	新宿御苑前駅
+51	일본식·영국식·프랑스식 정원이 한곳에. 봄 벚꽃과 늦가을 단풍 명소예요.	Japanese, English and French gardens in one place. Famous for spring cherry blossoms and late-autumn leaves.	日本庭園・イギリス庭園・フランス庭園が一か所に。春の桜と晩秋の紅葉の名所です。
+52	입장료가 있고 월요일 휴원이 많으니 운영일을 확인하세요.	There's an entry fee and it's often closed on Mondays, so check opening days.	入園料があり月曜休園が多いので開園日を確認しましょう。
+53	오사카성 공원	Osaka Castle Park	大阪城公園
+54	다니마치욘초메역 · 모리노미야역	Tanimachi 4-chome Sta. · Morinomiya Sta.	谷町四丁目駅・森ノ宮駅
+55	도요토미 히데요시가 쌓은 성. 천수각 전망대와 넓은 성 공원을 함께 둘러봐요.	The castle built by Toyotomi Hideyoshi. Visit the main keep's observation deck and the large castle park.	豊臣秀吉が築いた城。天守閣の展望台と広い城公園を一緒に巡りましょう。
+56	천수각 내부는 박물관이라 엘리베이터 대기 줄이 길 수 있어요.	The keep houses a museum, and the elevator line can be long.	天守閣の内部は博物館で、エレベーターの待ち列が長いことがあります。
+57	난바	Namba	難波
+58	난바역 · 닛폰바시역	Namba Sta. · Nipponbashi Sta.	難波駅・日本橋駅
+59	운하를 따라 대형 간판과 먹거리 가게가 늘어선 오사카의 상징 거리.	Osaka's iconic street, lined with giant signs and food stalls along the canal.	運河沿いに巨大看板と食べ物の店が並ぶ大阪の象徴的な通り。
+60	에비스바시 위에서 글리코 간판과 사진 찍는 게 정석이에요.	A photo with the Glico sign from Ebisubashi Bridge is a must.	戎橋の上からグリコの看板と写真を撮るのが定番です。
+61	오사카역 · 우메다역	Osaka Sta. · Umeda Sta.	大阪駅・梅田駅
+62	두 빌딩을 잇는 옥상 원형 전망대. 오사카 야경을 360도로 볼 수 있어요.	A circular rooftop observatory linking two towers, with a 360° view of Osaka at night.	2つのビルをつなぐ屋上の円形展望台。大阪の夜景を360度見渡せます。
+63	역에서 지하도를 따라 10분 정도 걸어요.	About a 10-minute walk from the station through the underground passage.	駅から地下道を通って10分ほど歩きます。
+64	신세카이	Shinsekai	新世界
+65	에비스초역 · 도부쓰엔마에역	Ebisucho Sta. · Dobutsuen-mae Sta.	恵美須町駅・動物園前駅
+66	레트로한 간판 골목과 쓰텐카쿠 타워. 구시카쓰 가게가 모여 있어요.	Retro sign-lined alleys and Tsutenkaku Tower, packed with kushikatsu shops.	レトロな看板の路地と通天閣。串カツ店が集まっています。
+67	소스 두 번 찍기 금지는 구시카쓰 가게의 오랜 규칙이에요.	No double-dipping in the sauce is a long-standing kushikatsu rule.	ソースの二度漬け禁止は串カツ店の昔からのルールです。
+68	후시미	Fushimi	伏見
+69	JR 이나리역	JR Inari Sta.	JR稲荷駅
+70	산비탈을 따라 이어지는 수천 개의 주홍빛 도리이(센본도리이)로 유명한 신사.	A shrine famous for thousands of vermilion torii gates (Senbon Torii) winding up the mountainside.	山の斜面に続く数千基の朱色の鳥居（千本鳥居）で有名な神社。
+71	정상까지는 왕복 2~3시간. 중간 요쓰쓰지 전망 지점까지만 가도 충분해요.	The summit is a 2–3 hour round trip. Going as far as the Yotsutsuji viewpoint is plenty.	山頂までは往復2〜3時間。途中の四ツ辻の展望地点までで十分です。
+72	히가시야마	Higashiyama	東山
+73	기요미즈고조역 (도보 약 25분)	Kiyomizu-gojo Sta. (about 25 min walk)	清水五条駅（徒歩約25分）
+74	절벽 위 나무 무대에서 교토 시내를 내려다보는 사찰. 가을 단풍 야간 특별 공개가 인기예요.	A temple whose wooden stage on a cliff overlooks Kyoto. The autumn-leaf night openings are popular.	崖の上の木造舞台から京都市内を見下ろす寺。秋の紅葉の夜間特別拝観が人気です。
+75	산넨자카·니넨자카 골목을 따라 내려오면 기온까지 걸어갈 수 있어요.	Walk down the Sannenzaka and Ninenzaka lanes and you can reach Gion on foot.	産寧坂・二年坂の路地を下っていくと祇園まで歩いて行けます。
+76	아라시야마	Arashiyama	嵐山
+77	사가아라시야마역 · 아라시야마역	Saga-Arashiyama Sta. · Arashiyama Sta.	嵯峨嵐山駅・嵐山駅
+78	하늘을 덮은 대나무 사이 오솔길. 도게쓰교와 덴류지를 함께 둘러봐요.	A path under a canopy of bamboo. Combine it with Togetsukyo Bridge and Tenryu-ji.	空を覆う竹林の小径。渡月橋や天龍寺と一緒に巡りましょう。
+79	오전 8시 이전에 가면 사람 없는 대나무숲을 볼 수 있어요.	Go before 8 a.m. to see the bamboo grove without crowds.	午前8時前に行けば人のいない竹林が見られます。
+80	기온	Gion	祇園
+81	기온시조역	Gion-shijo Sta.	祇園四条駅
+82	전통 목조 찻집이 늘어선 교토의 옛 거리. 저녁 등불이 켜질 때 분위기가 좋아요.	Kyoto's old district lined with traditional wooden teahouses, most atmospheric when the lanterns light up in the evening.	伝統的な木造のお茶屋が並ぶ京都の古い町並み。夕方灯りがともる頃の雰囲気が格別です。
+83	사유지 골목 촬영 금지 구역이 있으니 안내판을 따라주세요.	Some private lanes ban photography, so follow the signs.	私道の撮影禁止区域があるので案内板に従ってください。
+84	니시테쓰 다자이후역	Nishitetsu Dazaifu Sta.	西鉄太宰府駅
+85	학문의 신을 모신 신사. 참배길의 우메가에모치(매화떡)도 꼭 맛보세요.	A shrine to the god of learning. Be sure to try umegae mochi (plum-blossom rice cakes) along the approach.	学問の神様を祀る神社。参道の梅ヶ枝餅もぜひ味わってください。
+86	하카타·텐진에서 니시테쓰 전철로 약 40분 걸려요.	About 40 minutes by Nishitetsu train from Hakata or Tenjin.	博多・天神から西鉄電車で約40分です。
+87	주오구	Chuo Ward	中央区
+88	오호리코엔역	Ohorikoen Sta.	大濠公園駅
+89	큰 호수를 한 바퀴 도는 산책로가 있는 공원. 옆에 후쿠오카성 터가 있어요.	A park with a walking path around a large lake, next to the Fukuoka Castle ruins.	大きな池を一周する遊歩道のある公園。隣に福岡城跡があります。
+90	호숫가 카페에서 쉬어가기 좋아요.	The lakeside cafés are nice for a break.	池のほとりのカフェでひと休みするのがおすすめです。
+91	사와라구	Sawara Ward	早良区
+92	니시진역 · 버스 하쿠타워 앞	Nishijin Sta. · Bus stop Fukuoka Tower	西新駅・バス 福岡タワー前
+93	바닷가 전망 타워와 인공 해변. 노을 무렵 산책 코스로 좋아요.	A seaside observation tower and man-made beach — a lovely walk at sunset.	海辺の展望タワーと人工ビーチ。夕暮れ時の散歩コースにぴったりです。
+94	해 지는 시간에 맞춰 타워 전망대에 오르면 좋아요.	Time your visit to the tower's observatory for sunset.	日没に合わせてタワーの展望台に上るのがおすすめです。
+95	하카타	Hakata	博多
+96	기온역 · 나카스카와바타역	Gion Sta. · Nakasu-Kawabata Sta.	祇園駅・中洲川端駅
+97	하카타의 수호 신사. 7월 야마카사 축제의 장식 가마를 일 년 내내 볼 수 있어요.	Hakata's guardian shrine. You can see a decorated Yamakasa float from the July festival all year round.	博多の総鎮守。7月の山笠祭りの飾り山を一年中見られます。
+98	캐널시티와 걸어서 5분 거리예요.	A 5-minute walk from Canal City.	キャナルシティから徒歩5分です。
+99	오도리역	Odori Sta.	大通駅
+100	도심을 가로지르는 1.5km 공원. 눈축제·맥주축제 등 사계절 행사의 무대예요.	A 1.5 km park running through downtown, host to events all year like the Snow Festival and Beer Festival.	都心を横切る1.5kmの公園。雪まつりやビアガーデンなど四季の行事の舞台です。
+101	서쪽 끝 삿포로 TV탑 전망대에서 공원 전체가 내려다보여요.	From the Sapporo TV Tower at the west end you can see the whole park.	東端のさっぽろテレビ塔の展望台から公園全体が見渡せます。
+102	1878년 지어진 목조 건물. 삿포로 개척 시대를 보여주는 상징이에요.	A wooden building from 1878 — a symbol of Sapporo's pioneer era.	1878年に建てられた木造建築。札幌開拓時代の象徴です。
+103	건물 맞은편 2층 테라스가 사진 찍기 좋은 자리예요.	The second-floor terrace across the street is a great photo spot.	建物向かいの2階テラスが撮影スポットです。
+104	노면전차 로프웨이이리구치	Streetcar: Ropeway-iriguchi	市電 ロープウェイ入口
+105	로프웨이와 미니 케이블카로 오르는 산 정상 전망대. 삿포로 야경 명소예요.	A summit observatory reached by ropeway and mini cable car — a top Sapporo night-view spot.	ロープウェイとミニケーブルカーで登る山頂展望台。札幌の夜景の名所です。
+106	겨울 저녁엔 정상이 매우 추우니 방한 준비를 하세요.	The summit gets very cold on winter evenings, so dress warmly.	冬の夜は山頂がとても寒いので防寒対策をしてください。
+107	오타루 (근교)	Otaru (day trip)	小樽（近郊）
+108	JR 오타루역	JR Otaru Sta.	JR小樽駅
+109	석조 창고가 늘어선 운하 마을. 삿포로에서 당일치기로 많이 가요.	A canal town lined with stone warehouses, a popular day trip from Sapporo.	石造りの倉庫が並ぶ運河の町。札幌から日帰りで訪れる人が多いです。
+110	JR 쾌속으로 삿포로역에서 약 35분 걸려요.	About 35 minutes from Sapporo Station by JR Rapid.	JR快速で札幌駅から約35分です。
+111	나하	Naha	那覇
+112	유이레일 슈리역	Yui Rail Shuri Sta.	ゆいレール首里駅
+113	류큐 왕국의 왕성. 2019년 화재 이후 정전 복원 사업이 진행되어 왔어요.	The royal castle of the Ryukyu Kingdom. The main hall has been under reconstruction since the 2019 fire.	琉球王国の王城。2019年の火災以降、正殿の復元事業が進められてきました。
+114	복원 상황에 따라 공개 범위가 바뀌니 방문 전 공식 사이트를 확인하세요.	Accessible areas change with the restoration work, so check the official site before visiting.	復元状況により公開範囲が変わるので、訪問前に公式サイトを確認してください。
+115	유이레일 겐초마에역 · 마키시역	Yui Rail Kencho-mae Sta. · Makishi Sta.	ゆいレール県庁前駅・牧志駅
+116	나하 중심의 약 1.6km 번화가. 기념품·음식점·시장이 모여 있어요.	Naha's 1.6 km main drag, packed with souvenir shops, restaurants and markets.	那覇中心部の約1.6kmの繁華街。お土産店・飲食店・市場が集まっています。
+117	일요일 낮 보행자 천국 시간엔 차 없이 걸을 수 있어요.	On Sunday afternoons it becomes car-free for pedestrians.	日曜日の昼の歩行者天国の時間は車なしで歩けます。
+118	모토부 (북부)	Motobu (north)	本部（北部）
+119	나하에서 차로 약 2시간	About 2 hours by car from Naha	那覇から車で約2時間
+120	거대한 수조 속 고래상어로 유명한 수족관. 해양박 공원 안에 있어요.	An aquarium famous for the whale sharks in its giant tank, inside Ocean Expo Park.	巨大水槽のジンベエザメで有名な水族館。海洋博公園の中にあります。
+121	고우리 대교와 함께 북부 일정으로 하루를 따로 잡으세요.	Set aside a full day for the north, together with Kouri Bridge.	古宇利大橋と合わせて北部で丸一日とりましょう。
+122	나키진 (북부)	Nakijin (north)	今帰仁（北部）
+123	렌터카 추천	Rental car recommended	レンタカー推奨
+124	에메랄드빛 바다 위를 가로지르는 약 2km 다리. 드라이브 코스로 인기예요.	A 2 km bridge across emerald waters — a favorite drive.	エメラルド色の海を渡る約2kmの橋。ドライブコースとして人気です。
+125	썰물 때 다리 아래 해변 물빛이 가장 예뻐요.	The water below the bridge looks its best at low tide.	干潮時に橋の下の浜の水の色が最もきれいです。
+126	니시신주쿠	Nishi-Shinjuku	西新宿
+127	도초마에역	Tochomae Sta.	都庁前駅
+128	지상 202m 높이의 무료 전망대. 신주쿠 고층 빌딩가와 도쿄 시내를 한눈에 볼 수 있어요.	A free observatory 202 m up, with views over Shinjuku's skyscrapers and all of Tokyo.	地上202mの無料展望台。新宿の高層ビル街と東京市内を一望できます。
+129	맑은 겨울 아침엔 서쪽으로 후지산이 보여요.	On clear winter mornings you can see Mt. Fuji to the west.	晴れた冬の朝は西に富士山が見えます。
+130	신주쿠역 서쪽 출구	Shinjuku Sta. West Exit	新宿駅西口
+131	신주쿠역 서쪽 출구 옆 좁은 골목에 작은 꼬치구이 집이 다닥다닥 붙어 있는 옛 거리.	An old-time alley by Shinjuku Station's west exit, crammed with tiny yakitori stalls.	新宿駅西口横の狭い路地に小さな焼き鳥屋がひしめく昔ながらの横丁。
+132	가게가 좁아 2~3명이 가기 좋아요. 자릿세가 있는 곳도 있어요.	Shops are tiny, best for groups of 2–3. Some charge a seating fee.	店が狭いので2〜3人で行くのがおすすめ。席料がある店もあります。
+133	가부키초	Kabukicho	歌舞伎町
+134	세이부신주쿠역 · 신주쿠역 동쪽 출구	Seibu-Shinjuku Sta. · Shinjuku Sta. East Exit	西武新宿駅・新宿駅東口
+135	네온사인이 가득한 번화가. 호텔 옥상에서 내려다보는 고질라 머리 조형물이 명물이에요.	A neon-filled nightlife district, famous for the Godzilla head peering down from a hotel rooftop.	ネオンが輝く繁華街。ホテルの屋上から見下ろすゴジラヘッドが名物です。
+136	밤늦게 호객 행위가 많으니 따라가지 마세요.	There are many touts late at night — don't follow them.	夜遅くは客引きが多いので、ついて行かないでください。
+137	시부야역 직결	Directly connected to Shibuya Sta.	渋谷駅直結
+138	시부야 스크램블 스퀘어 꼭대기의 야외 전망대. 스크램블 교차로를 바로 위에서 내려다봐요.	An open-air observatory atop Shibuya Scramble Square, looking straight down on the Scramble Crossing.	渋谷スクランブルスクエア最上部の屋外展望台。スクランブル交差点を真上から見下ろせます。
+139	해 질 무렵 시간대는 일찍 매진되니 온라인 예매가 좋아요.	Sunset slots sell out early, so book online.	夕暮れの時間帯は早く売り切れるのでオンライン予約がおすすめです。
+140	하라주쿠역 · 요요기코엔역	Harajuku Sta. · Yoyogi-koen Sta.	原宿駅・代々木公園駅
+141	메이지 신궁 옆 넓은 도심 공원. 주말엔 버스킹과 피크닉으로 북적여요.	A big city park next to Meiji Jingu, lively with buskers and picnics on weekends.	明治神宮の隣の広い都市公園。週末は路上ライブやピクニックでにぎわいます。
+142	가을엔 은행나무 길이 노랗게 물들어요.	In autumn the ginkgo trees turn bright yellow.	秋はイチョウ並木が黄色く色づきます。
+143	롯폰기	Roppongi	六本木
+144	롯폰기역 직결	Directly connected to Roppongi Sta.	六本木駅直結
+145	도쿄 타워가 정면으로 보이는 52층 실내 전망대와 모리 미술관이 함께 있어요.	A 52nd-floor indoor observatory facing Tokyo Tower, plus the Mori Art Museum.	東京タワーを正面に望む52階の屋内展望台と森美術館があります。
+146	날씨가 좋으면 옥상 스카이데크도 열려요.	In good weather the rooftop Sky Deck opens too.	天気が良ければ屋上のスカイデッキも開きます。
+147	히가시긴자역 직결	Directly connected to Higashi-ginza Sta.	東銀座駅直結
+148	일본 전통극 가부키 전용 극장. 한 막만 보는 '히토마쿠미' 당일 표로 가볍게 볼 수 있어요.	A theatre dedicated to kabuki. Single-act 'Hitomakumi' same-day tickets make it easy to drop in.	伝統芸能の歌舞伎専用劇場。一幕だけ観られる当日券「一幕見」で気軽に楽しめます。
+149	5층 옥상 정원은 공연을 보지 않아도 무료로 들어갈 수 있어요.	The 5th-floor rooftop garden is free, even without a ticket.	5階の屋上庭園は観劇しなくても無料で入れます。
+150	시오도메	Shiodome	汐留
+151	시오도메역 · 쓰키지시조역	Shiodome Sta. · Tsukijishijo Sta.	汐留駅・築地市場駅
+152	바닷물이 드나드는 연못이 있는 옛 쇼군가 정원. 고층 빌딩과 다실 풍경이 대비돼요.	A former shogun's garden with a tidal seawater pond, where teahouses contrast with skyscrapers.	海水が出入りする池のある旧将軍家の庭園。高層ビルと茶屋の対比が見事です。
+153	연못 위 찻집에서 말차와 화과자를 맛볼 수 있어요.	Enjoy matcha and Japanese sweets at the teahouse on the pond.	池の上の茶屋で抹茶と和菓子を味わえます。
+154	쓰키지	Tsukiji	築地
+155	쓰키지역	Tsukiji Sta.	築地駅
+156	고대 인도 양식으로 지어진 독특한 외관의 절. 쓰키지 장외시장과 바로 붙어 있어요.	A temple with a unique ancient-Indian-style exterior, right next to the Tsukiji Outer Market.	古代インド様式で建てられた独特な外観の寺。築地場外市場のすぐ隣です。
+157	경내 카페의 18품 아침 정식이 인기예요.	The temple café's 18-dish breakfast set is popular.	境内カフェの18品の朝ごはんが人気です。
+158	우에노	Ueno	上野
+159	우에노역 공원 출구	Ueno Sta. Park Exit	上野駅公園口
+160	박물관·미술관·동물원이 모인 큰 공원. 봄이면 벚꽃 명소로 손꼽혀요.	A big park with museums, galleries and a zoo — one of Tokyo's top cherry blossom spots in spring.	博物館・美術館・動物園が集まる大きな公園。春は桜の名所として知られます。
+161	벚꽃철 주말 저녁엔 자리 잡기 경쟁이 치열해요.	During cherry blossom season, competition for picnic spots is fierce on weekend evenings.	桜の季節の週末の夕方は場所取りが激しいです。
+162	우에노역 · 오카치마치역	Ueno Sta. · Okachimachi Sta.	上野駅・御徒町駅
+163	우에노~오카치마치 고가 아래로 이어지는 시장 골목. 건어물·과일·잡화를 싸게 팔아요.	A market street under the tracks between Ueno and Okachimachi, selling dried seafood, fruit and goods cheaply.	上野〜御徒町の高架下に続く市場通り。乾物・果物・雑貨が安く買えます。
+164	해산물 꼬치와 과일 꼬치를 먹으며 걷기 좋아요.	Great for strolling with seafood or fruit skewers in hand.	海鮮串やフルーツ串を食べ歩きするのに最適です。
+165	우에노역 · 우구이스다니역	Ueno Sta. · Uguisudani Sta.	上野駅・鶯谷駅
+166	일본에서 가장 오래된 박물관. 국보·중요문화재 등 일본 미술품을 폭넓게 전시해요.	Japan's oldest museum, with a wide collection of Japanese art including National Treasures.	日本最古の博物館。国宝・重要文化財など日本美術を幅広く展示しています。
+167	본관 일본 갤러리만 둘러봐도 2시간은 필요해요.	Allow at least 2 hours just for the Japanese Gallery in the main building.	本館の日本ギャラリーだけでも2時間は必要です。
+168	마루노우치	Marunouchi	丸の内
+169	도쿄역	Tokyo Sta.	東京駅
+170	1914년에 지어진 붉은 벽돌 역사. 복원된 돔 천장의 장식이 볼거리예요.	The red-brick station building from 1914. Look up at the restored dome ceilings.	1914年に建てられた赤レンガの駅舎。復原されたドーム天井の装飾が見どころです。
+171	맞은편 KITTE 옥상 정원에서 역 전체가 잘 보여요.	The KITTE rooftop garden opposite gives a great view of the whole station.	向かいのKITTE屋上庭園から駅舎全体がよく見えます。
+172	오테마치역 · 도쿄역	Otemachi Sta. · Tokyo Sta.	大手町駅・東京駅
+173	옛 에도성 혼마루 터를 정원으로 공개한 곳. 성벽 돌담과 천수대 터가 남아 있어요.	The former inner citadel of Edo Castle, now a public garden with stone walls and the keep's foundation.	旧江戸城本丸跡を庭園として公開。石垣や天守台跡が残っています。
+174	입장은 무료지만 월·금요일은 쉬는 날이 많아요.	Entry is free, but it's often closed on Mondays and Fridays.	入園無料ですが、月・金曜は休園日が多いです。
+175	간다	Kanda	神田
+176	오차노미즈역 · 스에히로초역	Ochanomizu Sta. · Suehirocho Sta.	御茶ノ水駅・末広町駅
+177	1300년 가까운 역사의 신사. 아키하바라와 가까워 IT·애니메이션 기념 부적도 있어요.	A shrine with nearly 1,300 years of history. Being near Akihabara, it even sells IT and anime charms.	1300年近い歴史を持つ神社。秋葉原に近く、IT・アニメのお守りもあります。
+178	5월 간다 마쓰리 때는 가마 행렬이 거리를 메워요.	During the Kanda Matsuri in May, portable shrine processions fill the streets.	5月の神田祭では神輿の行列が通りを埋め尽くします。
+179	미나토미라이	Minato Mirai	みなとみらい
+180	미나토미라이역 · 사쿠라기초역	Minatomirai Sta. · Sakuragicho Sta.	みなとみらい駅・桜木町駅
+181	대관람차와 랜드마크 타워가 있는 항구 신도시. 바닷가 산책과 야경이 좋아요.	A new harbor district with a Ferris wheel and Landmark Tower — great for seaside walks and night views.	観覧車とランドマークタワーがある港の新都心。海辺の散歩と夜景が魅力です。
+182	로프웨이 '요코하마 에어 캐빈'으로 아카렌가 쪽까지 건너갈 수 있어요.	You can ride the 'Yokohama Air Cabin' ropeway over toward the Red Brick Warehouse.	ロープウェイ「YOKOHAMA AIR CABIN」で赤レンガ方面まで渡れます。
+183	모토마치·주카가이	Motomachi·Chinatown	元町・中華街
+184	모토마치·주카가이역	Motomachi-Chukagai Sta.	元町・中華街駅
+185	일본 최대 차이나타운. 화려한 패루 문 안으로 중국 음식점과 간식 가게가 가득해요.	Japan's largest Chinatown. Past the ornate gates, it's packed with Chinese restaurants and snack shops.	日本最大の中華街。豪華な牌楼の門の中に中華料理店や食べ歩きの店がひしめきます。
+186	만두·고기찐빵은 가게마다 맛을 비교해 보세요.	Compare the dumplings and pork buns from shop to shop.	小籠包や肉まんは店ごとに食べ比べてみましょう。
+187	바샤미치역 · 미나토미라이역	Bashamichi Sta. · Minatomirai Sta.	馬車道駅・みなとみらい駅
+188	100년 넘은 붉은 벽돌 창고를 쇼핑·카페 공간으로 바꾼 곳. 계절마다 광장 행사가 열려요.	Century-old red brick warehouses turned into shops and cafés, with seasonal events in the plaza.	100年以上前の赤レンガ倉庫をショッピング・カフェ空間に。季節ごとに広場でイベントが開かれます。
+189	겨울 크리스마스 마켓이 특히 인기예요.	The winter Christmas market is especially popular.	冬のクリスマスマーケットが特に人気です。
+190	야마시타초	Yamashita-cho	山下町
+191	항구를 따라 이어지는 바닷가 공원. 옛 여객선 히카와마루가 정박해 있어요.	A waterfront park along the harbor, where the historic liner Hikawa Maru is moored.	港沿いに続く海辺の公園。かつての客船・氷川丸が係留されています。
+192	중화가에서 걸어서 5분이라 함께 돌기 좋아요.	It's a 5-minute walk from Chinatown, so visit both together.	中華街から徒歩5分なので一緒に回るのがおすすめです。
+193	하세	Hase	長谷
+194	에노덴 하세역	Enoden Hase Sta.	江ノ電長谷駅
+195	높이 약 11m의 청동 아미타불 좌상. 대불 내부에도 들어가 볼 수 있어요.	A seated bronze Amida Buddha about 11 m tall. You can even go inside.	高さ約11mの青銅の阿弥陀如来坐像。大仏の内部にも入れます。
+196	하세데라와 걸어서 10분 거리라 같이 둘러봐요.	Hase-dera is a 10-minute walk away, so see both.	長谷寺から徒歩10分なので一緒に巡りましょう。
+197	가마쿠라	Kamakura	鎌倉
+198	가마쿠라역	Kamakura Sta.	鎌倉駅
+199	가마쿠라 막부의 상징인 신사. 역에서 이어지는 참배길 단카즈라가 봄에 벚꽃길이 돼요.	The shrine symbolizing the Kamakura shogunate. The Dankazura approach from the station becomes a cherry blossom tunnel in spring.	鎌倉幕府の象徴の神社。駅から続く参道・段葛は春に桜並木になります。
+200	참배길 옆 고마치 거리는 먹거리 골목이에요.	Komachi Street, alongside the approach, is a food street.	参道横の小町通りは食べ歩きの通りです。
+201	바다가 내려다보이는 언덕의 절. 6월 수국 계단 길이 유명해요.	A hillside temple overlooking the sea, famous for its hydrangea-lined steps in June.	海を見下ろす丘の上の寺。6月のあじさいの小径が有名です。
+202	수국철엔 입장 정리권을 나눠줄 만큼 붐벼요.	It gets so crowded in hydrangea season that numbered entry tickets are handed out.	あじさいの季節は整理券が配られるほど混雑します。
+203	에노덴 에노시마역 · 가타세에노시마역	Enoden Enoshima Sta. · Katase-Enoshima Sta.	江ノ電江ノ島駅・片瀬江ノ島駅
+204	다리로 이어진 작은 섬. 신사와 전망 등대, 해안 동굴을 걸어서 돌아볼 수 있어요.	A small island linked by a bridge — walk around its shrines, lighthouse observatory and sea caves.	橋でつながる小さな島。神社や展望灯台、海岸の洞窟を歩いて巡れます。
+205	맑은 날 섬 서쪽 바다 너머로 후지산이 보여요.	On clear days you can see Mt. Fuji across the sea to the west.	晴れた日は島の西の海の向こうに富士山が見えます。
+206	하코네 로프웨이 오와쿠다니역	Hakone Ropeway Owakudani Sta.	箱根ロープウェイ大涌谷駅
+207	화산 연기가 피어오르는 분화구 계곡. 온천 증기로 삶은 검은 달걀이 명물이에요.	A volcanic valley with rising sulfur fumes, famous for black eggs boiled in hot spring steam.	火山の噴煙が立ちのぼる谷。温泉の蒸気でゆでた黒たまごが名物です。
+208	화산 활동에 따라 출입이 제한될 수 있으니 미리 확인하세요.	Access may be restricted due to volcanic activity, so check in advance.	火山活動により立ち入りが制限されることがあるので事前に確認してください。
+209	모토하코네 · 도겐다이	Motohakone · Togendai	元箱根・桃源台
+210	하코네 해적선 선착장	Hakone Pirate Ship piers	箱根海賊船の乗り場
+211	후지산이 비치는 호수. 해적선 모양 유람선을 타고 호수를 건너요.	A lake that reflects Mt. Fuji. Cross it aboard a pirate-ship-style cruise boat.	富士山を映す湖。海賊船型の遊覧船で湖を渡ります。
+212	하코네 프리패스가 있으면 유람선·로프웨이를 이어 탈 수 있어요.	With the Hakone Freepass you can hop between the cruise boat and ropeway.	箱根フリーパスがあれば遊覧船とロープウェイを乗り継げます。
+213	모토하코네	Motohakone	元箱根
+214	모토하코네 선착장 도보 10분	10 min walk from Motohakone pier	元箱根港から徒歩10分
+215	아시노코 호숫가에 선 '평화의 도리이'로 유명한 신사. 숲속 참배길이 고즈넉해요.	A shrine famous for its 'Torii of Peace' standing in Lake Ashi, with a serene forest approach.	芦ノ湖のほとりに立つ「平和の鳥居」で有名な神社。森の中の参道が静かです。
+216	도리이 앞 사진 줄이 길어서 이른 아침이 좋아요.	The line for photos at the torii gets long, so go early in the morning.	鳥居前の撮影待ちの列が長いので早朝がおすすめです。
+217	니노타이라	Ninotaira	二ノ平
+218	하코네 등산전철 조코쿠노모리역	Hakone Tozan Railway Chokoku-no-Mori Sta.	箱根登山電車 彫刻の森駅
+219	산을 배경으로 야외에 조각 작품이 놓인 미술관. 족욕 시설도 있어요.	An open-air museum with sculptures set against the mountains, plus a foot bath.	山を背景に屋外に彫刻作品が並ぶ美術館。足湯もあります。
+220	피카소관도 함께 둘러보세요.	Don't miss the Picasso Pavilion.	ピカソ館もあわせて見てみましょう。
+221	돌길 골목 안 작은 절. 이끼로 덮인 부동명왕상에 물을 뿌리며 소원을 빌어요.	A tiny temple in a stone-paved alley. Make a wish by splashing water on the moss-covered Fudo Myoo statue.	石畳の路地にある小さな寺。苔むした不動明王に水をかけて願いを込めます。
+222	도톤보리 바로 뒤라 밤에 등불 켜진 골목이 분위기 좋아요.	Right behind Dotonbori, its lantern-lit alley is lovely at night.	道頓堀のすぐ裏で、夜に提灯がともる路地は趣があります。
+223	난바역 · 다이코쿠초역	Namba Sta. · Daikokucho Sta.	難波駅・大国町駅
+224	거대한 사자 머리 모양 무대로 유명한 신사. 사자가 악운을 삼킨다고 해요.	A shrine famous for its giant lion-head stage, said to swallow bad luck.	巨大な獅子頭の舞台で有名な神社。獅子が悪運を飲み込むといわれます。
+225	도톤보리에서 걸어서 10분 정도예요.	About a 10-minute walk from Dotonbori.	道頓堀から徒歩10分ほどです。
+226	신사이바시	Shinsaibashi	心斎橋
+227	신사이바시역	Shinsaibashi Sta.	心斎橋駅
+228	구제 옷 가게와 카페가 모인 젊은이의 거리. 삼각공원이 만남의 장소예요.	A youth district of vintage clothing shops and cafés; Triangle Park is the meeting spot.	古着屋やカフェが集まる若者の街。三角公園が待ち合わせ場所です。
+229	도톤보리와 신사이바시스지 사이에 있어 쇼핑 동선에 넣기 좋아요.	Between Dotonbori and Shinsaibashisuji, it fits easily into a shopping route.	道頓堀と心斎橋筋の間にあり、ショッピングのルートに組み込みやすいです。
+230	우메다역 · 오사카역	Umeda Sta. · Osaka Sta.	梅田駅・大阪駅
+231	쇼핑몰 옥상의 빨간 대관람차. 우메다 빌딩 숲을 위에서 바라봐요.	A red Ferris wheel on a mall rooftop, looking out over Umeda's skyscrapers.	商業施設屋上の赤い観覧車。梅田のビル群を上から眺められます。
+232	밤에 타면 우메다 야경이 예뻐요.	At night you get a pretty view of Umeda lit up.	夜に乗ると梅田の夜景がきれいです。
+233	히가시우메다역	Higashi-Umeda Sta.	東梅田駅
+234	우메다 한복판의 작은 신사. 옛 연극 속 연인 이야기로 인연을 비는 곳이에요.	A small shrine in the heart of Umeda, linked to a classic tragic love story — people pray for good relationships here.	梅田の真ん中にある小さな神社。古い浄瑠璃の恋人の物語にちなみ縁結びを祈る場所です。
+235	주변 오하쓰텐진 상점가는 술집 골목이에요.	The surrounding Ohatsu Tenjin shopping street is full of bars.	周辺のお初天神商店街は飲み屋街です。
+236	오사카역 우메키타 지하 출구	Osaka Sta. Umekita Underground Exit	大阪駅うめきた地下口
+237	오사카역 바로 옆에 새로 생긴 넓은 도심 공원. 잔디 광장에서 쉬어가기 좋아요.	A large new park right beside Osaka Station — relax on its lawns.	大阪駅のすぐ隣に新しくできた広い都市公園。芝生広場でひと休みできます。
+238	역 바로 앞이라 기차 기다리는 시간에 들르기 좋아요.	Right by the station, it's perfect while waiting for a train.	駅のすぐ前なので電車の待ち時間に立ち寄りやすいです。
+239	덴노지	Tennoji	天王寺
+240	덴노지역 · 오사카아베노바시역	Tennoji Sta. · Osaka-Abenobashi Sta.	天王寺駅・大阪阿部野橋駅
+241	일본에서 손꼽히게 높은 빌딩의 꼭대기 전망대. 오사카 평야가 360도로 펼쳐져요.	The observatory atop one of Japan's tallest buildings, with a 360° view over the Osaka plain.	日本有数の高さを誇るビルの最上階展望台。大阪平野が360度広がります。
+242	해 질 무렵 들어가서 야경까지 보는 게 좋아요.	Go in at dusk and stay for the night view.	夕暮れ時に入って夜景まで楽しむのがおすすめです。
+243	시텐노지마에유히가오카역	Shitennoji-mae Yuhigaoka Sta.	四天王寺前夕陽ヶ丘駅
+244	쇼토쿠 태자가 세웠다고 전하는 일본 최초의 관사(官寺). 오층탑과 회랑이 남아 있어요.	Said to have been founded by Prince Shotoku as Japan's first state temple, with a five-story pagoda and cloisters.	聖徳太子が建立したと伝わる日本最初の官寺。五重塔と回廊が残っています。
+245	매달 21·22일엔 경내에 골동품 장이 열려요.	An antiques market is held on the grounds on the 21st and 22nd of each month.	毎月21・22日は境内で骨董市が開かれます。
+246	덴노지역 · 도부쓰엔마에역	Tennoji Sta. · Dobutsuen-mae Sta.	天王寺駅・動物園前駅
+247	잔디 광장 '덴시바'와 동물원, 미술관이 모인 공원. 신세카이와 바로 이어져요.	A park with the 'Tenshiba' lawn, a zoo and an art museum, connected directly to Shinsekai.	芝生広場「てんしば」と動物園、美術館が集まる公園。新世界とすぐつながっています。
+248	잔디 광장 주변 카페에서 쉬어가기 좋아요.	The cafés around the lawn are good for a break.	芝生広場まわりのカフェでひと休みできます。
+249	덴마	Tenma	天満

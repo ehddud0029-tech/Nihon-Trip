@@ -4,10 +4,10 @@ const ilang = () => (window.I18N&&window.I18N.lang)||"ko";
 function nightsLabel(n){
   const l=ilang();
   if(n===0) return "당일치기";
-  return l==="ko"?`${n}박 ${n+1}일`:l==="ja"?`${n}泊${n+1}日`:l==="en"?`${n} night${n>1?"s":""} · ${n+1} days`:l==="es"?`${n} noche${n>1?"s":""} · ${n+1} días`:`${n} nuit${n>1?"s":""} · ${n+1} jours`;
+  return l==="ko"?`${n}박 ${n+1}일`:(l==="zh"||l==="tw")?`${n}晚${n+1}天`:l==="ja"?`${n}泊${n+1}日`:l==="en"?`${n} night${n>1?"s":""} · ${n+1} days`:l==="es"?`${n} noche${n>1?"s":""} · ${n+1} días`:`${n} nuit${n>1?"s":""} · ${n+1} jours`;
 }
-function dayLabel(i){ const l=ilang(); return l==="ko"?`${i}일차`:l==="ja"?`${i}日目`:l==="en"?`Day ${i}`:l==="es"?`Día ${i}`:`Jour ${i}`; }
-function stopsLabel(n){ const l=ilang(); return l==="ko"?`${n}곳`:l==="ja"?`${n}か所`:l==="en"?`${n} stops`:l==="es"?`${n} paradas`:`${n} étapes`; }
+function dayLabel(i){ const l=ilang(); return l==="ko"?`${i}일차`:(l==="zh"||l==="tw")?`第${i}天`:l==="ja"?`${i}日目`:l==="en"?`Day ${i}`:l==="es"?`Día ${i}`:`Jour ${i}`; }
+function stopsLabel(n){ const l=ilang(); return l==="ko"?`${n}곳`:l==="zh"?`${n}个地点`:l==="tw"?`${n}個地點`:l==="ja"?`${n}か所`:l==="en"?`${n} stops`:l==="es"?`${n} paradas`:`${n} étapes`; }
 const itinHref = k => ROUTED ? window.NT_BASE + LPRE + (k?`itinerary/${k}/`:"itinerary/") : "#itin";
 const ICITY_ORDER = ["tokyo","osaka","fukuoka","hokkaido","okinawa","nagoya","hiroshima","shikoku"];
 function itinCard(c){
