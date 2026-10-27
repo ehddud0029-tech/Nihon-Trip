@@ -10,6 +10,8 @@
 <link rel="alternate" hreflang="ko" href="https://gonihontrip.com/place/n-scmaglev/">
 <link rel="alternate" hreflang="en" href="https://gonihontrip.com/en/place/n-scmaglev/">
 <link rel="alternate" hreflang="ja" href="https://gonihontrip.com/ja/place/n-scmaglev/">
+<link rel="alternate" hreflang="zh-Hans" href="https://gonihontrip.com/zh/place/n-scmaglev/">
+<link rel="alternate" hreflang="zh-Hant" href="https://gonihontrip.com/tw/place/n-scmaglev/">
 <link rel="alternate" hreflang="es" href="https://gonihontrip.com/es/place/n-scmaglev/">
 <link rel="alternate" hreflang="fr" href="https://gonihontrip.com/fr/place/n-scmaglev/">
 <link rel="alternate" hreflang="x-default" href="https://gonihontrip.com/place/n-scmaglev/">
@@ -31,14 +33,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=8a9c2b3d">
+<link rel="stylesheet" href="/app.css?v=813ba779">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
-var cur=(r.match(/^(en|ja|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|es|fr)\b/)||[])[1],s=null;
+var cur=(r.match(/^(en|ja|zh|tw|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
-var want=q||(cur==="ko"&&/^(en|ja|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
-if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
-window.NT_LANG=cur;document.documentElement.lang=cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=8a9c2b3d"><\/script><script src="'+B+'engine.js?v=8a9c2b3d"><\/script>');})();</script>
+var want=q||(cur==="ko"&&/^(en|ja|zh|tw|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
+if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
+window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=813ba779"><\/script><script src="'+B+'engine.js?v=813ba779"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -46,7 +48,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=8a9c2b3d"><\/s
     <a class="brand" href="/es/" data-view="home"><span class="seal seal-go" title="Go Nihon Trip" aria-hidden="true">GO</span><span><b>Nihon Trip</b><small>gonihontrip.com</small></span></a>
     <div class="lang" id="lang">
       <button class="langbtn" id="langBtn" type="button" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3z"></path></svg><b id="langCode">ES</b><span class="caret">▾</span></button>
-      <div class="langmenu" id="langMenu" role="menu" hidden=""><button type="button" role="menuitemradio" class="notranslate" lang="ko" data-lang="ko" aria-checked="false">한국어<small></small></button><button type="button" role="menuitemradio" class="notranslate" lang="en" data-lang="en" aria-checked="false">English<small></small></button><button type="button" role="menuitemradio" class="notranslate" lang="ja" data-lang="ja" aria-checked="false">日本語<small></small></button><button type="button" role="menuitemradio" class="notranslate" lang="es" data-lang="es" aria-checked="true">Español<small>✓</small></button><button type="button" role="menuitemradio" class="notranslate" lang="fr" data-lang="fr" aria-checked="false">Français<small></small></button></div>
+      <div class="langmenu" id="langMenu" role="menu" hidden=""><button type="button" role="menuitemradio" class="notranslate" lang="ko" data-lang="ko" aria-checked="false">한국어<small></small></button><button type="button" role="menuitemradio" class="notranslate" lang="en" data-lang="en" aria-checked="false">English<small></small></button><button type="button" role="menuitemradio" class="notranslate" lang="ja" data-lang="ja" aria-checked="false">日本語<small></small></button><button type="button" role="menuitemradio" class="notranslate" lang="zh" data-lang="zh" aria-checked="false">简体中文<small></small></button><button type="button" role="menuitemradio" class="notranslate" lang="tw" data-lang="tw" aria-checked="false">繁體中文<small></small></button><button type="button" role="menuitemradio" class="notranslate" lang="es" data-lang="es" aria-checked="true">Español<small>✓</small></button><button type="button" role="menuitemradio" class="notranslate" lang="fr" data-lang="fr" aria-checked="false">Français<small></small></button></div>
     </div>
     <button class="savedbtn" id="savedBtn" type="button">Mi viaje <span class="n" id="savedN">0</span></button>
   </div>
@@ -69,7 +71,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=8a9c2b3d"><\/s
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="Ver regiones anteriores" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="Seleccionar zona"><button class="city" type="button" data-city="all" aria-pressed="false">Todo<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">Tokio<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">Osaka<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">Fukuoka<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">Hokkaido<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">Okinawa<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="true">Nagoya<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">Hiroshima<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">Shikoku<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="Ver más regiones" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="Seleccionar subzona"><button class="area" type="button" data-area="meieki" aria-pressed="true">Centro de Nagoya</button><button class="area" type="button" data-area="inuyama" aria-pressed="false">Inuyama</button><button class="area" type="button" data-area="takayama" aria-pressed="false">Takayama</button><button class="area" type="button" data-area="shirakawago" aria-pressed="false">Shirakawa-go</button></div>
   <dl class="brief" id="brief"><div class="bw"><dt>El tiempo hoy en Centro de Nagoya</dt>
-        <dd class="wxtime"><span class="jstclock">mar 27 oct, 15:07</span> <small>Japón ahora</small></dd>
+        <dd class="wxtime"><span class="jstclock">mar 27 oct, 15:55</span> <small>Japón ahora</small></dd>
         <dd class="wxnow"><span class="big">24°</span> <b>Temperatura media</b><span class="wxicon" aria-hidden="true">🌤️</span></dd>
         <dd class="sub wxline">Máxima media de octubre</dd>
         <dd class="sub">Cargando el tiempo en directo…</dd></div><div class="broute"><dt>Del aeropuerto a Centro de Nagoya</dt><dd class=""><span class="rt"><span class="mode m-전철">Tren</span> Aeropuerto de Chubu → est. de Nagoya <b class="min">Unos 28 min</b></span><br><small>Expreso Meitetsu μSKY</small></dd><dd class="sub rnote">Directo, sin transbordos</dd></div><div class="beat"><dt>Comida recomendados en Centro de Nagoya</dt><ol class="picks"><li><span class="pick"><b>Jinmaru Nishiki</b><em class="pm">Ramen</em><span class="pd">Ramen de rabo de buey</span></span></li><li><span class="pick"><b>Shiori-an Sushi Yamashiro</b><em class="pm">Sushi</em><span class="pd">Sushi Edomae</span></span></li><li><span class="pick"><b>Kinboshi Shinsakae</b><em class="pm">Izakaya</em><span class="pd">Brochetas</span></span></li></ol>
@@ -136,10 +138,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=8a9c2b3d"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=8a9c2b3d"></script>
-<script src="/autoreserve.js?v=8a9c2b3d"></script>
-<script src="/google_picks.js?v=8a9c2b3d"></script>
-<script src="/geo.js?v=8a9c2b3d"></script>
-<script src="/app.js?v=8a9c2b3d"></script>
+<script src="/areas.js?v=813ba779"></script>
+<script src="/autoreserve.js?v=813ba779"></script>
+<script src="/google_picks.js?v=813ba779"></script>
+<script src="/geo.js?v=813ba779"></script>
+<script src="/app.js?v=813ba779"></script>
 </body>
 </html>

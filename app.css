@@ -50,6 +50,8 @@ nav.main a[aria-current="page"] svg{color:var(--shu)}
 .langmenu button:hover{background:var(--ai-soft)}
 .langmenu button[aria-checked="true"]{font-weight:700;color:var(--shu)}
 .langmenu small{font-size:11.5px;color:var(--ink-2);font-weight:400}
+html:lang(zh-Hans){--f-body:"PingFang SC","Microsoft YaHei","Noto Sans SC","Source Han Sans SC",system-ui,sans-serif;--f-display:"Songti SC","Noto Serif SC","STSong","SimSun",serif}
+html:lang(zh-Hant){--f-body:"PingFang TC","Microsoft JhengHei","Noto Sans TC","Source Han Sans TC",system-ui,sans-serif;--f-display:"Songti TC","Noto Serif TC","PMingLiU",serif}
 html:lang(ja){--f-body:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP","Meiryo",system-ui,sans-serif;--f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif}
 .savedbtn{padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--ink-2);font-weight:500;font-size:14px}
 .savedbtn{display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);cursor:pointer;color:var(--ink)}
@@ -75,7 +77,7 @@ html:lang(ja){--f-body:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","
 .cities::-webkit-scrollbar{display:none}
 .city{flex-shrink:0;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px;cursor:pointer;font-size:14px;display:flex;align-items:baseline;gap:6px}
 .city .jp{font-family:var(--f-kanji);font-size:12px;color:var(--ink-2)}
-html:lang(ja) .city .jp{display:none}
+html:lang(ja) .city .jp,html:lang(zh-Hans) .city .jp,html:lang(zh-Hant) .city .jp{display:none}
 .city[aria-pressed="true"]{background:var(--ai);border-color:var(--ai);color:var(--paper)}
 .city[aria-pressed="true"] .jp{color:inherit;opacity:.75}
 

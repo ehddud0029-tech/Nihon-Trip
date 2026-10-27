@@ -13,7 +13,7 @@
       var s=m.slice(1,-1), mm, k, n, v;
       if((mm=s.match(/^(\d+)\?([^|]*)\|(.*)$/))){ k=+mm[1]; return (g[k]==="1"?mm[2]:mm[3]).split("{"+k+"}").join(g[k]); }
       if((mm=s.match(/^(M|MC|MS|MSC)(\d+)$/))){ k=+mm[2]; n=+g[k]-1;
-        if(I.lang==="ja") return g[k]+"月";
+        if(I.lang==="ja"||I.lang==="zh"||I.lang==="tw") return g[k]+"月";
         if(!(n>=0&&n<12)) return g[k];
         if(mm[1]==="MS") return I.MS[n];
         if(mm[1]==="MSC") return I.MS[n].charAt(0).toUpperCase()+I.MS[n].slice(1);
@@ -65,8 +65,8 @@
   var DESC={en:"Sights, festivals, restaurants, transport and shopping in Tokyo, Osaka, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido, Okinawa and nearby cities, with live weather.",
     ja:"東京・大阪・名古屋・広島・四国・福岡・北海道・沖縄と近郊都市の観光地、祭り、グルメ、交通、ショッピング情報とリアルタイムの天気。",
     es:"Lugares, festivales, restaurantes, transporte y compras en Tokio, Osaka, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido, Okinawa y ciudades cercanas, con el tiempo en directo.",
-    fr:"Sites, fêtes, restaurants, transports et shopping à Tokyo, Osaka, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido, Okinawa et dans les villes voisines, avec la météo en direct."};
-  [["meta[name=description]",DESC[I.lang]],["meta[property='og:description']",DESC[I.lang]],["meta[property='og:title']",I.D["Go Nihon Trip · 일본 여행 가이드"]],["meta[property='og:locale']",{en:"en_US",ja:"ja_JP",es:"es_ES",fr:"fr_FR"}[I.lang]]].forEach(function(x){ var m=document.querySelector(x[0]); if(m&&x[1]) m.setAttribute("content",x[1]); });
+    fr:"Sites, fêtes, restaurants, transports et shopping à Tokyo, Osaka, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido, Okinawa et dans les villes voisines, avec la météo en direct.",zh:"东京、大阪、名古屋、广岛、四国、福冈、北海道、冲绳及周边城市的景点、节庆、美食、交通、购物信息与实时天气。",tw:"東京、大阪、名古屋、廣島、四國、福岡、北海道、沖繩及周邊城市的景點、節慶、美食、交通、購物資訊與即時天氣。"};
+  [["meta[name=description]",DESC[I.lang]],["meta[property='og:description']",DESC[I.lang]],["meta[property='og:title']",I.D["Go Nihon Trip · 일본 여행 가이드"]],["meta[property='og:locale']",{en:"en_US",ja:"ja_JP",es:"es_ES",fr:"fr_FR",zh:"zh_CN",tw:"zh_TW"}[I.lang]]].forEach(function(x){ var m=document.querySelector(x[0]); if(m&&x[1]) m.setAttribute("content",x[1]); });
   window.__tr=function(s){ var r=tr(String(s==null?"":s)); return r==null?s:r; };
   var ATTR=["placeholder","aria-label","title","alt","label"];
   function tnode(n){ var v=n.nodeValue; if(!v||!H.test(v)) return; var r=tr(v); if(r!=null&&r!==v) n.nodeValue=r; }
