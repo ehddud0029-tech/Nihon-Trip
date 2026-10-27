@@ -25,6 +25,7 @@ HOME_DESC = {
     'fr': 'Sites, fêtes, restaurants, transports et shopping à Tokyo, Osaka, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido, Okinawa et dans les villes voisines, avec la météo en direct.',
 }
 GOOGLE_VERIFY = '<meta name="google-site-verification" content="rCU1knHQWui1umzcyPHVHmVVEYmbO0SjnEF1169ygRs">'
+NAVER_VERIFY = '<meta name="naver-site-verification" content="a6df6739e6ce65fea96f38e4892385db40647698">'
 TODAY = datetime.date.today().isoformat()
 VER = '0'  # 파일 내용이 바뀌면 바뀌는 번호 → 브라우저가 옛 CSS·JS를 쓰지 않게 해요
 
@@ -61,6 +62,7 @@ def page_html(lang, title, desc, path, body, fonts, icon, alternates=True, index
         h.append('<meta name="robots" content="noindex">')
     if home and lang == 'ko':
         h.append(GOOGLE_VERIFY)
+        h.append(NAVER_VERIFY)
     h.append(f'<link rel="canonical" href="{url}">')
     if alternates:
         for l in LANGS:
