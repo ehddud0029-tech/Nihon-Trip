@@ -30,6 +30,9 @@ HOME_DESC = {
 GA_ID = 'G-07B266GQNY'   # Google Analytics 4 측정 ID (공개 값, 비밀 키 아님)
 GA = (f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>'
       f"<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA_ID}');</script>")
+ADSENSE_ID = 'ca-pub-7250361561234920'   # 애드센스 게시자 ID (공개 값)
+ADSENSE = (f'<meta name="google-adsense-account" content="{ADSENSE_ID}">'
+           f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_ID}" crossorigin="anonymous"></script>')
 GOOGLE_VERIFY = '<meta name="google-site-verification" content="rCU1knHQWui1umzcyPHVHmVVEYmbO0SjnEF1169ygRs">'
 NAVER_VERIFY = '<meta name="naver-site-verification" content="a6df6739e6ce65fea96f38e4892385db40647698">'
 TODAY = datetime.date.today().isoformat()
@@ -84,6 +87,7 @@ def page_html(lang, title, desc, path, body, fonts, icon, alternates=True, index
           '<meta property="og:image:height" content="630">', '<meta property="og:image:alt" content="Go Nihon Trip">',
           '<meta name="twitter:card" content="summary_large_image">', f'<meta name="twitter:image" content="{ORIGIN}{BASE}og-{lang}.png">', icon]
     h.append(GA)
+    h.append(ADSENSE)
     h += fonts
     h += ['<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>',
           f'<link rel="stylesheet" href="{BASE}app.css?v={VER}">', BOOT.replace('.js"><\\/script>', f'.js?v={VER}"><\\/script>')]
@@ -206,6 +210,7 @@ def main():
     sm.append('</urlset>')
     open(f'{OUT}/sitemap.xml', 'w', encoding='utf-8').write('\n'.join(sm) + '\n')
     open(f'{OUT}/CNAME', 'w').write(DOMAIN + '\n')
+    open(f'{OUT}/ads.txt', 'w').write(f"google.com, {ADSENSE_ID.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n")
     open(f'{OUT}/robots.txt', 'w').write(f'User-agent: *\nAllow: /\n\nSitemap: {ORIGIN}/sitemap.xml\n')
     print('total pages', len(pages), 'sitemap urls', len(paths) * len(LANGS))
 
