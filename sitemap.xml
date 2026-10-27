@@ -51,6 +51,106 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://gonihontrip.com/"/>
   </url>
   <url>
+    <loc>https://gonihontrip.com/about/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gonihontrip.com/about/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gonihontrip.com/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gonihontrip.com/ja/about/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gonihontrip.com/es/about/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gonihontrip.com/fr/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gonihontrip.com/about/"/>
+  </url>
+  <url>
+    <loc>https://gonihontrip.com/en/about/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gonihontrip.com/about/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gonihontrip.com/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gonihontrip.com/ja/about/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gonihontrip.com/es/about/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gonihontrip.com/fr/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gonihontrip.com/about/"/>
+  </url>
+  <url>
+    <loc>https://gonihontrip.com/ja/about/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gonihontrip.com/about/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gonihontrip.com/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gonihontrip.com/ja/about/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gonihontrip.com/es/about/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gonihontrip.com/fr/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gonihontrip.com/about/"/>
+  </url>
+  <url>
+    <loc>https://gonihontrip.com/es/about/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gonihontrip.com/about/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gonihontrip.com/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gonihontrip.com/ja/about/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gonihontrip.com/es/about/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gonihontrip.com/fr/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gonihontrip.com/about/"/>
+  </url>
+  <url>
+    <loc>https://gonihontrip.com/fr/about/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gonihontrip.com/about/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gonihontrip.com/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gonihontrip.com/ja/about/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gonihontrip.com/es/about/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gonihontrip.com/fr/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gonihontrip.com/about/"/>
+  </url>
+  <url>
+    <loc>https://gonihontrip.com/contact/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gonihontrip.com/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gonihontrip.com/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gonihontrip.com/ja/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gonihontrip.com/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gonihontrip.com/fr/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gonihontrip.com/contact/"/>
+  </url>
+  <url>
+    <loc>https://gonihontrip.com/en/contact/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gonihontrip.com/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gonihontrip.com/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gonihontrip.com/ja/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gonihontrip.com/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gonihontrip.com/fr/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gonihontrip.com/contact/"/>
+  </url>
+  <url>
+    <loc>https://gonihontrip.com/ja/contact/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gonihontrip.com/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gonihontrip.com/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gonihontrip.com/ja/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gonihontrip.com/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gonihontrip.com/fr/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gonihontrip.com/contact/"/>
+  </url>
+  <url>
+    <loc>https://gonihontrip.com/es/contact/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gonihontrip.com/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gonihontrip.com/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gonihontrip.com/ja/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gonihontrip.com/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gonihontrip.com/fr/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gonihontrip.com/contact/"/>
+  </url>
+  <url>
+    <loc>https://gonihontrip.com/fr/contact/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gonihontrip.com/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gonihontrip.com/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gonihontrip.com/ja/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gonihontrip.com/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gonihontrip.com/fr/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gonihontrip.com/contact/"/>
+  </url>
+  <url>
     <loc>https://gonihontrip.com/food/</loc>
     <lastmod>2026-10-27</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://gonihontrip.com/food/"/>
@@ -199,6 +299,56 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://gonihontrip.com/es/map/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://gonihontrip.com/fr/map/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://gonihontrip.com/map/"/>
+  </url>
+  <url>
+    <loc>https://gonihontrip.com/privacy/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gonihontrip.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gonihontrip.com/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gonihontrip.com/ja/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gonihontrip.com/es/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gonihontrip.com/fr/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gonihontrip.com/privacy/"/>
+  </url>
+  <url>
+    <loc>https://gonihontrip.com/en/privacy/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gonihontrip.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gonihontrip.com/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gonihontrip.com/ja/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gonihontrip.com/es/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gonihontrip.com/fr/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gonihontrip.com/privacy/"/>
+  </url>
+  <url>
+    <loc>https://gonihontrip.com/ja/privacy/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gonihontrip.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gonihontrip.com/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gonihontrip.com/ja/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gonihontrip.com/es/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gonihontrip.com/fr/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gonihontrip.com/privacy/"/>
+  </url>
+  <url>
+    <loc>https://gonihontrip.com/es/privacy/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gonihontrip.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gonihontrip.com/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gonihontrip.com/ja/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gonihontrip.com/es/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gonihontrip.com/fr/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gonihontrip.com/privacy/"/>
+  </url>
+  <url>
+    <loc>https://gonihontrip.com/fr/privacy/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gonihontrip.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gonihontrip.com/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gonihontrip.com/ja/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gonihontrip.com/es/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gonihontrip.com/fr/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gonihontrip.com/privacy/"/>
   </url>
   <url>
     <loc>https://gonihontrip.com/shopping/</loc>
