@@ -24,14 +24,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=d0e0b815">
+<link rel="stylesheet" href="/app.css?v=22cc0f84">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=d0e0b815"><\/script><script src="'+B+'engine.js?v=d0e0b815"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=22cc0f84"><\/script><script src="'+B+'engine.js?v=22cc0f84"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -62,7 +62,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=d0e0b815"><\/s
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="前の地域を見る" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="地域を選択"><button class="city" type="button" data-city="all" aria-pressed="false">すべて<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">東京<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="true">大阪<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">福岡<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">北海道<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">沖縄<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">名古屋<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">広島<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">四国<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="次の地域を見る" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="エリアを選択"><button class="area" type="button" data-area="dotonbori" aria-pressed="false">道頓堀・難波</button><button class="area" type="button" data-area="umeda" aria-pressed="false">梅田</button><button class="area" type="button" data-area="shinsekai" aria-pressed="true">新世界・天王寺・鶴橋</button><button class="area" type="button" data-area="tenma" aria-pressed="false">天満・天神橋筋</button><button class="area" type="button" data-area="kyoto" aria-pressed="false">京都</button><button class="area" type="button" data-area="nara" aria-pressed="false">奈良</button><button class="area" type="button" data-area="kobe" aria-pressed="false">神戸</button></div>
   <dl class="brief" id="brief"><div class="bw"><dt>新世界・天王寺・鶴橋の今日の天気</dt>
-        <dd class="wxtime"><span class="jstclock">10月27日(火) 11:01</span> <small>日本の現在</small></dd>
+        <dd class="wxtime"><span class="jstclock">10月27日(火) 11:14</span> <small>日本の現在</small></dd>
         <dd class="wxnow"><span class="big">23°</span> <b>平年気温</b><span class="wxicon" aria-hidden="true">🌤️</span></dd>
         <dd class="sub wxline">10月の平年最高気温</dd>
         <dd class="sub">リアルタイムの天気を読み込み中です</dd></div><div class="bdish"><dt>新世界・天王寺・鶴橋で必ず食べたいもの</dt>
@@ -98,10 +98,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=d0e0b815"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=d0e0b815"></script>
-<script src="/autoreserve.js?v=d0e0b815"></script>
-<script src="/google_picks.js?v=d0e0b815"></script>
-<script src="/geo.js?v=d0e0b815"></script>
-<script src="/app.js?v=d0e0b815"></script>
+<script src="/areas.js?v=22cc0f84"></script>
+<script src="/autoreserve.js?v=22cc0f84"></script>
+<script src="/google_picks.js?v=22cc0f84"></script>
+<script src="/geo.js?v=22cc0f84"></script>
+<script src="/app.js?v=22cc0f84"></script>
 </body>
 </html>
