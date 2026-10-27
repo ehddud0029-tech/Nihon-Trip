@@ -49,6 +49,9 @@ def main():
         i = args.index('--trailer'); trailer = args[i + 1]; del args[i:i + 2]
     if not args: sys.exit('커밋 메시지를 적어 주세요: python3 deploy.py "메시지"')
     msg = args[0] + (('\n\n' + trailer) if trailer else '')
+    # 0) GitHub 쪽 변경(예: Pages 설정이 만든 CNAME 커밋)을 먼저 받아요
+    run(['git', 'pull', '-q', '--rebase', 'origin', 'source'], SRC_REPO)
+    run(['git', 'pull', '-q', '--rebase', 'origin', 'main'], SITE_REPO)
     # 1) 원본 백업
     clean(SRC_REPO)
     for it in ITEMS:
