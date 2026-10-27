@@ -24,6 +24,9 @@ HOME_DESC = {
     'es': 'Lugares, festivales, restaurantes, transporte y compras en Tokio, Osaka, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido, Okinawa y ciudades cercanas, con el tiempo en directo.',
     'fr': 'Sites, fêtes, restaurants, transports et shopping à Tokyo, Osaka, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido, Okinawa et dans les villes voisines, avec la météo en direct.',
 }
+GA_ID = 'G-07B266GQNY'   # Google Analytics 4 측정 ID (공개 값, 비밀 키 아님)
+GA = (f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>'
+      f"<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA_ID}');</script>")
 GOOGLE_VERIFY = '<meta name="google-site-verification" content="rCU1knHQWui1umzcyPHVHmVVEYmbO0SjnEF1169ygRs">'
 NAVER_VERIFY = '<meta name="naver-site-verification" content="a6df6739e6ce65fea96f38e4892385db40647698">'
 TODAY = datetime.date.today().isoformat()
@@ -77,6 +80,7 @@ def page_html(lang, title, desc, path, body, fonts, icon, alternates=True, index
           f'<meta property="og:image" content="{ORIGIN}{BASE}og-{lang}.png">', '<meta property="og:image:width" content="1200">',
           '<meta property="og:image:height" content="630">', '<meta property="og:image:alt" content="Go Nihon Trip">',
           '<meta name="twitter:card" content="summary_large_image">', f'<meta name="twitter:image" content="{ORIGIN}{BASE}og-{lang}.png">', icon]
+    h.append(GA)
     h += fonts
     h += ['<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>',
           f'<link rel="stylesheet" href="{BASE}app.css?v={VER}">', BOOT.replace('.js"><\\/script>', f'.js?v={VER}"><\\/script>')]
