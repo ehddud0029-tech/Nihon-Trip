@@ -679,6 +679,16 @@ html:not(:lang(ko)) .brief .rt{white-space:normal}
 .wxl{flex:0 0 auto;align-self:center;font-size:12px;font-weight:600;color:var(--ink-2);writing-mode:vertical-rl;letter-spacing:.1em;padding:0 2px}
 .wxnote{font-size:12px;color:var(--ink-2);margin-top:6px}
 
+.info{max-width:760px;padding:26px 0 48px}
+.info h1{font-family:var(--f-display);font-size:28px;margin:0 0 14px}
+.info h2{font-size:17px;margin:28px 0 8px}
+.info p,.info li{line-height:1.75;color:var(--ink);margin:0 0 10px}
+.info ul{padding-left:20px;margin:0 0 10px}
+.info .muted{color:var(--ink-2);font-size:13.5px}
+.info .mail{display:inline-block;margin:6px 0 14px;padding:12px 18px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);font-weight:700;color:var(--ai)}
+footer .flinks{margin-top:8px}
+footer .flinks a{color:var(--ink-2)}
+body.is-info .hero{display:none}
 footer{border-top:1px solid var(--line);color:var(--ink-2);font-size:12.5px}
 footer .wrap{padding-block:20px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -893,7 +903,7 @@ body.is-itin .hero{display:none}
 
 <main class="wrap" id="main"></main>
 
-<footer><div class="wrap">Go Nihon Trip · 날씨 <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · 사진 <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> (각 사진의 저작자·라이선스는 상세 화면에 표시) · 이동 시간·운영 정보는 바뀔 수 있으니 공식 사이트에서 다시 확인하세요.</div></footer>
+<footer><div class="wrap">Go Nihon Trip · 날씨 <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · 사진 <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> (각 사진의 저작자·라이선스는 상세 화면에 표시) · 이동 시간·운영 정보는 바뀔 수 있으니 공식 사이트에서 다시 확인하세요.<div class="flinks"><a href="#about" data-view="about">사이트 소개</a> · <a href="#contact" data-view="contact">문의하기</a> · <a href="#privacy" data-view="privacy">개인정보처리방침</a></div></div></footer>
 
 <nav class="tabs" aria-label="섹션">
   <a href="#home" data-view="home"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg></i>추천</a>
@@ -1774,7 +1784,8 @@ function arBlock(area, menu, n){
 const restLinks = r => `<a href="${gmapLink(r)}" target="_blank" rel="noopener">Google 지도 ↗</a>`;
 
 /* state */
-const VIEWS = ["home","spots","festivals","food","transport","shopping","map","saved","guide","itin","place"];
+const VIEWS = ["home","spots","festivals","food","transport","shopping","map","saved","guide","itin","place","about","contact","privacy"];
+const INFO_VIEWS = ["about","contact","privacy"];
 const NOW_M = new Date().getMonth()+1;
 const st = {view:"home",homeTo:"spots",city:"all",area:"all",more:false,spotCat:"all",menu:"ramen",q:"",month:NOW_M};
 let saved = [];
@@ -2757,6 +2768,7 @@ const ROUTED = !!window.NT_BASE;
 const LPRE = (window.I18N && window.I18N.lang) ? window.I18N.lang+"/" : "";
 function pathOf(s){
   if(s.view==="home") return "";
+  if(INFO_VIEWS.includes(s.view)) return s.view+"/";
   if(s.view==="saved") return "saved/";
   if(s.view==="place") return `place/${placeSlug(s.place||"")}/`;
   if(s.view==="map") return "map/";
@@ -2778,7 +2790,7 @@ function readPath(){
   if(seg[0]==="itinerary"){ st.view="itin"; st.itin=IKEYS.includes(seg[1])?seg[1]:""; return; }
   if(seg[0]==="guide"){ st.view="guide"; st.gsec=GKEYS.includes(seg[1])?seg[1]:"entry"; return; }
   if(VIEWS.includes(seg[0])){ st.view=seg[0]; if(seg[0]==="festivals"&&+seg[1]>=1&&+seg[1]<=12) st.month=+seg[1]; return; }
-  if(CITIES[seg[0]]){ st.city=seg[0]; st.area=seg[1]||"all"; st.view=VIEWS.includes(seg[2])&&!["home","saved","map","guide","itin"].includes(seg[2])?seg[2]:"spots"; }
+  if(CITIES[seg[0]]){ st.city=seg[0]; st.area=seg[1]||"all"; st.view=VIEWS.includes(seg[2])&&!["home","saved","map","guide","itin","place","about","contact","privacy"].includes(seg[2])?seg[2]:"spots"; }
 }
 const PMETA = {
  ko:{t:{guide_season:"일본 여행 언제 갈까 – 지역별 벚꽃·장마·단풍 시기와 계절별 옷차림",guide_stay:"일본 숙소 어디가 좋을까 – 도쿄·오사카·교토·후쿠오카·홋카이도·오키나와 숙박 지역 추천",guide_entry:"입국 준비 – 일본 비자, Visit Japan Web 등록, 반입 금지 품목",guide_money:"일본 여행 돈 쓰는 법 – 환전, 현금과 카드 비율, 트래블카드 추천",guide_connect:"일본 여행 통신 – eSIM·포켓와이파이·유심·로밍 비교",guide_etiquette:"일본 여행 에티켓 – 온천, 신사 참배, 쓰레기, 대중교통, 식당 매너",map:"일본 여행 지도 – 관광지·축제·맛집·쇼핑 위치",spots:"{a} 관광지 추천 · {c} 여행",festivals:"{a} 축제·행사 · {c} 여행",food:"{a} 맛집 추천 · {c} 여행",transport:"{a} 교통·공항에서 가는 법 · {c} 여행",shopping:"{a} 쇼핑·기념품 · {c} 여행",
@@ -2823,6 +2835,12 @@ function pageMeta(){
       ...(g?{geo:{"@type":"GeoCoordinates",latitude:g[0],longitude:g[1]}}:{}),address:{"@type":"PostalAddress",addressCountry:"JP",addressRegion:T(CITIES[it.city].ko)}};
     return {title:(PT[L]||PT.ko)[it.type].replace("{n}",n).replace("{a}",a)+" | Go Nihon Trip", desc};
   } }
+ const IT={ko:{about:"사이트 소개",contact:"문의하기",privacy:"개인정보처리방침",d:"Go Nihon Trip 사이트 소개, 정보 출처, 문의 방법과 개인정보처리방침."},
+   en:{about:"About",contact:"Contact",privacy:"Privacy Policy",d:"About Go Nihon Trip, where our information comes from, how to contact us, and our privacy policy."},
+   ja:{about:"サイトについて",contact:"お問い合わせ",privacy:"プライバシーポリシー",d:"Go Nihon Tripについて、情報の出典、お問い合わせ方法、プライバシーポリシー。"},
+   es:{about:"Acerca de",contact:"Contacto",privacy:"Política de privacidad",d:"Acerca de Go Nihon Trip, de dónde viene la información, cómo contactarnos y nuestra política de privacidad."},
+   fr:{about:"À propos",contact:"Contact",privacy:"Politique de confidentialité",d:"À propos de Go Nihon Trip, sources des informations, comment nous contacter et politique de confidentialité."}}[(window.I18N&&window.I18N.lang)||"ko"];
+  if(INFO_VIEWS.includes(st.view)) return {title:IT[st.view]+" | Go Nihon Trip", desc:IT.d};
   if(st.view==="home") return {title:T("Go Nihon Trip · 일본 여행 가이드"), desc:null};
   if(st.view==="itin"){ const IM={ko:["일본 여행 추천 일정 – 도쿄·오사카·교토·후쿠오카·홋카이도·오키나와 코스","{t} – 추천 여행 일정","도쿄·오사카·교토·나고야·히로시마·시코쿠·후쿠오카·홋카이도·오키나와의 며칠짜리 추천 일정. 날짜별 동선과 장소별 입장료까지 한눈에."],en:["Japan Itineraries – Tokyo, Osaka, Kyoto, Fukuoka, Hokkaido & Okinawa","{t} – Suggested itinerary","Multi-day itineraries for Tokyo, Osaka, Kyoto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido and Okinawa, with day-by-day routes and admission fees."],ja:["日本旅行モデルコース – 東京・大阪・京都・福岡・北海道・沖縄","{t} – モデルコース","東京・大阪・京都・名古屋・広島・四国・福岡・北海道・沖縄の数日間のモデルコース。日ごとのルートと料金を一目で。"],es:["Itinerarios por Japón – Tokio, Osaka, Kioto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido y Okinawa","{t} – Itinerario recomendado","Itinerarios de varios días por Tokio, Osaka, Kioto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido y Okinawa, con rutas diarias y precios de entrada."],fr:["Itinéraires au Japon – Tokyo, Osaka, Kyoto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido et Okinawa","{t} – Itinéraire conseillé","Itinéraires de plusieurs jours à Tokyo, Osaka, Kyoto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido et Okinawa, avec trajets jour par jour et tarifs."]}[(window.I18N&&window.I18N.lang)||"ko"];
     const c=ITIN.find(x=>x.key===st.itin); return c ? {title:IM[1].replace("{t}",T(c.title))+" | Go Nihon Trip", desc:T(c.sum)} : {title:IM[0]+" | Go Nihon Trip", desc:IM[2]}; }
@@ -2850,10 +2868,11 @@ function render(){
   document.body.classList.toggle("is-guide", st.view==="guide");
   document.body.classList.toggle("is-itin", st.view==="itin");
   document.body.classList.toggle("is-place", st.view==="place");
+  document.body.classList.toggle("is-info", INFO_VIEWS.includes(st.view));
   if(st.view==="place"){ const it=byId(st.place); if(!it || !PLACE_TYPES.includes(it.type)) st.view="home"; else { st.city=it.city; st.area=it.sub&&AREA[it.sub]?it.sub:"all"; } }
   if(st.view!=="map" && MAP){ try{ MAP.remove(); }catch(_){} MAP=null; MAPREADY=false; }
   if(st.view==="map"){ setNav(); const mw=$("#mapwrap"); if(!mw || !mw.dataset.live){ $("#main").innerHTML = V.map(); $("#mapwrap").dataset.live="1"; mapMount(); } else mapListRender(); syncUrl(); return; }
-  if(st.view==="home"){ st.city="all"; }
+  if(st.view==="home" || INFO_VIEWS.includes(st.view)){ st.city="all"; }
   if(st.city==="all") st.area="all";
   if(st.city!=="all" && (st.area==="all" || !areasOf(st.city).some(a=>a.key===st.area))) st.area = areasOf(st.city)[0]?.key || "all";
   renderCities(); setNav();
@@ -2905,6 +2924,50 @@ function detailHTML(it, htag, inDrawer){
 </div>
    ${it.type!=="rest"&&PHOTO[it.id]?`<div class="credit">사진:${esc(PHOTO[it.id].artist||"저작자 정보는 원본 참고")}${PHOTO[it.id].license?" · "+esc(PHOTO[it.id].license):""} · <a href="${PHOTO[it.id].lang==="ja"&&!PHOTO[it.id].commons?"https://ja.wikipedia.org/wiki/File:":"https://commons.wikimedia.org/wiki/File:"}${encodeURIComponent(PHOTO[it.id].file.replace(/ /g,"_"))}" target="_blank" rel="noopener">사진 원본 ↗</a></div>`:""}`;
 }
+V.about = function(){ return `<article class="info">
+  <h1>사이트 소개</h1>
+  <p>Go Nihon Trip은 일본을 여행하는 사람이 지역별로 필요한 정보를 한곳에서 찾을 수 있도록 만든 여행 정보 사이트예요.</p>
+  <p>도쿄·오사카·후쿠오카·홋카이도·오키나와·나고야·히로시마·시코쿠의 관광지, 축제, 맛집, 쇼핑, 교통 정보와 추천 일정, 여행 준비 안내를 한국어·영어·일본어·스페인어·프랑스어로 제공해요.</p>
+  <h2>정보 출처</h2>
+  <ul>
+   <li>날씨: Open-Meteo 예보를 실시간으로 불러와요.</li>
+   <li>사진: Wikimedia Commons와 위키백과의 자유 라이선스 사진을 써요. 각 사진의 저작자와 라이선스는 상세 화면에 표시해요.</li>
+   <li>지도: OpenFreeMap과 OpenStreetMap 기여자의 지도 데이터를 써요.</li>
+   <li>맛집 추천: AutoReserve에 공개된 지역별 순위를 참고했어요. 가게 이름을 누르면 AutoReserve 페이지로 연결돼요.</li>
+   <li>입장료·운영 시간: 각 시설의 공식 안내를 바탕으로 직접 정리했어요.</li>
+  </ul>
+  <p class="muted">입장료, 운영 시간, 교통 정보는 바뀔 수 있어요. 여행 전에 공식 사이트에서 다시 확인하세요.</p>
+  <h2>문의</h2>
+  <p>잘못된 정보를 발견하셨거나 추가했으면 하는 장소가 있다면 알려 주세요.</p>
+  <p><a class="btn"${infoHref("contact")} data-view="contact">문의하기<i> →</i></a></p>
+ </article>`; };
+V.contact = function(){ return `<article class="info">
+  <h1>문의하기</h1>
+  <p>잘못된 정보, 추가했으면 하는 장소, 제휴 문의는 아래 메일로 보내 주세요.</p>
+  <a class="mail" href="mailto:sdyoung0029@gmail.com">sdyoung0029@gmail.com</a>
+  <p>장소 정보 수정을 요청하실 때는 해당 페이지 주소를 함께 적어 주시면 빨리 확인할 수 있어요.</p>
+  <p>메일을 확인하는 대로 답장드릴게요.</p>
+ </article>`; };
+V.privacy = function(){ return `<article class="info">
+  <h1>개인정보처리방침</h1>
+  <p class="muted">시행일: 2026년 10월 27일</p>
+  <h2>수집하는 정보</h2>
+  <p>Go Nihon Trip은 회원 가입이 없고, 이름이나 연락처 같은 개인정보를 직접 수집하지 않아요.</p>
+  <h2>방문 통계 (Google Analytics)</h2>
+  <p>사이트를 개선하기 위해 Google Analytics 4를 사용해요. Google Analytics는 쿠키를 이용해 방문한 페이지, 머문 시간, 대략적인 지역, 기기와 브라우저 종류 같은 정보를 개인을 알아볼 수 없는 형태로 수집해요.</p>
+  <p>브라우저 설정에서 쿠키를 차단하거나 Google 애널리틱스 차단 부가기능을 설치하면 수집을 거부할 수 있어요.</p>
+  <p><a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google 애널리틱스 차단 부가기능 ↗</a> · <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 개인정보처리방침 ↗</a></p>
+  <h2>브라우저에 저장되는 정보</h2>
+  <p>저장한 장소 목록, 언어 설정, 사진 정보 캐시는 사용하는 브라우저에만 저장되고 서버로 전송되지 않아요. 브라우저의 사이트 데이터를 지우면 함께 삭제돼요.</p>
+  <h2>외부 서비스</h2>
+  <p>날씨(Open-Meteo), 지도(OpenFreeMap), 사진(위키미디어), 글꼴(Google Fonts)을 불러올 때 브라우저가 각 서비스에 직접 접속해요. AutoReserve, Google 지도, 시설 공식 사이트 등 외부 링크로 이동하면 해당 사이트의 개인정보처리방침이 적용돼요.</p>
+  <h2>문의 메일</h2>
+  <p>문의 메일로 받은 이메일 주소와 내용은 답장하는 데만 사용하고, 다른 목적으로 쓰거나 다른 곳에 제공하지 않아요.</p>
+  <h2>방침의 변경</h2>
+  <p>이 방침이 바뀌면 이 페이지에 시행일과 함께 알려 드려요.</p>
+  <p>개인정보 관련 문의: <a href="mailto:sdyoung0029@gmail.com">sdyoung0029@gmail.com</a></p>
+ </article>`; };
+function infoHref(v){ return ROUTED ? ` href="${window.NT_BASE + LPRE + v + "/"}"` : ` href="#${v}"`; }
 V.place = function(){
   const it = byId(st.place); if(!it) return "";
   const c = CITIES[it.city], A = it.sub&&AREA[it.sub], view = TYPE_VIEW[it.type];
@@ -2972,7 +3035,7 @@ document.addEventListener("click",()=>{ if(!$("#langMenu").hidden){ $("#langMenu
 function go(view){
   if(!VIEWS.includes(view)) view="spots";
   st.view=view; st.q="";
-  if(view==="home"){ st.city="all"; st.area="all"; st.focus=null; }
+  if(view==="home" || INFO_VIEWS.includes(view)){ st.city="all"; st.area="all"; st.focus=null; }
   if(!ROUTED){ try{history.replaceState(null,"","#"+view)}catch(e){} }
   render(); window.scrollTo({top:0});
 }
