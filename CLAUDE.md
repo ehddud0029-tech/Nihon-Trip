@@ -1,4 +1,4 @@
-# Nihon Trip 작업 안내
+# Go Nihon Trip 작업 안내
 
 일본 여행 정보 사이트 (한국어·영어·일본어·스페인어·프랑스어). 배포 주소: https://gonihontrip.com/ (GitHub Pages 사용자 도메인, `sitegen/gen.py`의 ORIGIN·DOMAIN·BASE와 CNAME 파일로 연결)
 

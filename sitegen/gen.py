@@ -1,4 +1,4 @@
-"""Nihon Trip 정적 페이지 생성기
+"""Go Nihon Trip 정적 페이지 생성기
 
 tabishiori.html(원본 한 파일)에서 CSS·JS를 공용 파일로 빼고, 모든 화면(지역×주제, 월별 축제, 5개 언어)을
 브라우저로 미리 그려 각자 주소의 index.html로 저장해요. 검색엔진은 이 HTML을 바로 읽고,
@@ -71,7 +71,7 @@ def page_html(lang, title, desc, path, body, fonts, icon, alternates=True, index
         for l in LANGS:
             h.append(f'<link rel="alternate" hreflang="{l}" href="{ORIGIN}{BASE}{"" if l == "ko" else l + "/"}{path}">')
         h.append(f'<link rel="alternate" hreflang="x-default" href="{ORIGIN}{BASE}{path}">')
-    h += ['<meta property="og:type" content="website">', '<meta property="og:site_name" content="Nihon Trip">',
+    h += ['<meta property="og:type" content="website">', '<meta property="og:site_name" content="Go Nihon Trip">',
           f'<meta property="og:title" content="{esc(title)}">', f'<meta property="og:description" content="{esc(desc)}">',
           f'<meta property="og:url" content="{url}">', f'<meta property="og:locale" content="{OG_LOCALE[lang]}">',
           '<meta name="twitter:card" content="summary">', icon]
@@ -79,7 +79,7 @@ def page_html(lang, title, desc, path, body, fonts, icon, alternates=True, index
     h += ['<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>',
           f'<link rel="stylesheet" href="{BASE}app.css?v={VER}">', BOOT.replace('.js"><\\/script>', f'.js?v={VER}"><\\/script>')]
     if home:
-        ld = {"@context": "https://schema.org", "@type": "WebSite", "name": "Nihon Trip", "url": url,
+        ld = {"@context": "https://schema.org", "@type": "WebSite", "name": "Go Nihon Trip", "url": url,
               "inLanguage": lang, "description": desc}
         h.append('<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False) + '</script>')
     h += ['</head>', '<body>', body.strip(),
@@ -137,7 +137,7 @@ def main():
     VER = h.hexdigest()[:8]
     # 앱 셸(없는 주소용): 언어는 주소 앞부분에서 정해요
     open(f'{OUT}/404.html', 'w', encoding='utf-8').write(
-        page_html('ko', 'Nihon Trip · 일본 여행 가이드', HOME_DESC['ko'], '', body, fonts, icon, alternates=False, index=False))
+        page_html('ko', 'Go Nihon Trip · 일본 여행 가이드', HOME_DESC['ko'], '', body, fonts, icon, alternates=False, index=False))
 
     httpd = socketserver.ThreadingTCPServer(('127.0.0.1', 0), Handler)
     port = httpd.server_address[1]

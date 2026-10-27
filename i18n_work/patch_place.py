@@ -59,7 +59,7 @@ R.append(('''  const L = (window.I18N&&window.I18N.lang)||"ko", M = PMETA[L]||PM
     const g=(window.GEO||{})[it.id];
     window.__ld={"@context":"https://schema.org","@type":it.type==="spot"?"TouristAttraction":"Place",name:n,alternateName:it.jp,description:T(it.desc),
       ...(g?{geo:{"@type":"GeoCoordinates",latitude:g[0],longitude:g[1]}}:{}),address:{"@type":"PostalAddress",addressCountry:"JP",addressRegion:T(CITIES[it.city].ko)}};
-    return {title:(PT[L]||PT.ko)[it.type].replace("{n}",n).replace("{a}",a)+" | Nihon Trip", desc};
+    return {title:(PT[L]||PT.ko)[it.type].replace("{n}",n).replace("{a}",a)+" | Go Nihon Trip", desc};
   } }
   if(st.view==="home")''', 1))
 # 그리기
@@ -105,7 +105,7 @@ V.place = function(){
   const hv = v => ROUTED ? ` href="${window.NT_BASE + LPRE + pathOf({...st, view:v, city:v==="home"?"all":st.city})}"` : ` href="#"`;
   const near = [...new Set([...pool.filter(x=>x.sub===it.sub && x.type===it.type), ...pool.filter(x=>x.sub===it.sub && x.type!==it.type), ...pool.filter(x=>x.type===it.type)])].slice(0,8);
   return `<article class="place">
-   <nav class="crumb" aria-label="breadcrumb"><a${hv("home")} data-view="home">Nihon Trip</a><i>›</i><a${hv(view)} data-view="${view}"><span>${esc(c.ko)}</span>${A?`<i>·</i><span>${esc(A.ko)}</span>`:""}</a><i>›</i><a${hv(view)} data-view="${view}">${esc(PAGE_LABEL[view])}</a></nav>
+   <nav class="crumb" aria-label="breadcrumb"><a${hv("home")} data-view="home">Go Nihon Trip</a><i>›</i><a${hv(view)} data-view="${view}"><span>${esc(c.ko)}</span>${A?`<i>·</i><span>${esc(A.ko)}</span>`:""}</a><i>›</i><a${hv(view)} data-view="${view}">${esc(PAGE_LABEL[view])}</a></nav>
    <div class="pl-grid">${plateHTML(it)}<div class="pl-main">${detailHTML(it,"h1")}</div></div>
    ${near.length?`<section class="pl-more"><h2>같은 지역의 다른 곳</h2><div class="grid">${near.map(card).join("")}</div></section>`:""}
    <div class="pl-all"><a class="btn"${hv(view)} data-view="${view}">목록 전체 보기<i> →</i></a></div>

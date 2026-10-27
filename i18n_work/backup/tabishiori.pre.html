@@ -1,4 +1,4 @@
-<title>Nihon Trip · 일본 여행 가이드</title>
+<title>Go Nihon Trip · 일본 여행 가이드</title>
 <script>
 /* 언어: 저장된 언어(또는 ?lang=)의 사전 파일을 먼저 불러와요. 한국어는 사전 없이 그대로 */
 (function(){
@@ -78,7 +78,7 @@
     ja:"東京・大阪・福岡・北海道・沖縄と近郊都市の観光地、祭り、グルメ、交通、ショッピング情報とリアルタイムの天気。",
     es:"Lugares, festivales, restaurantes, transporte y compras en Tokio, Osaka, Fukuoka, Hokkaido, Okinawa y ciudades cercanas, con el tiempo en directo.",
     fr:"Sites, fêtes, restaurants, transports et shopping à Tokyo, Osaka, Fukuoka, Hokkaido, Okinawa et dans les villes voisines, avec la météo en direct."};
-  [["meta[name=description]",DESC[I.lang]],["meta[property='og:description']",DESC[I.lang]],["meta[property='og:title']",I.D["Nihon Trip · 일본 여행 가이드"]],["meta[property='og:locale']",{en:"en_US",ja:"ja_JP",es:"es_ES",fr:"fr_FR"}[I.lang]]].forEach(function(x){ var m=document.querySelector(x[0]); if(m&&x[1]) m.setAttribute("content",x[1]); });
+  [["meta[name=description]",DESC[I.lang]],["meta[property='og:description']",DESC[I.lang]],["meta[property='og:title']",I.D["Go Nihon Trip · 일본 여행 가이드"]],["meta[property='og:locale']",{en:"en_US",ja:"ja_JP",es:"es_ES",fr:"fr_FR"}[I.lang]]].forEach(function(x){ var m=document.querySelector(x[0]); if(m&&x[1]) m.setAttribute("content",x[1]); });
   window.__tr=function(s){ var r=tr(String(s==null?"":s)); return r==null?s:r; };
   var ATTR=["placeholder","aria-label","title","alt","label"];
   function tnode(n){ var v=n.nodeValue; if(!v||!H.test(v)) return; var r=tr(v); if(r!=null&&r!==v) n.nodeValue=r; }
@@ -140,6 +140,7 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgroun
 .seal svg{width:30px;height:30px;display:block}
 .seal{width:36px;height:36px;border-radius:6px;background:var(--shu);color:#fff;display:grid;place-items:center;font-family:var(--f-kanji);font-size:21px;line-height:1}
 .brand b{font-family:var(--f-display);font-size:19px;letter-spacing:.01em}
+.seal.seal-go{font-family:var(--f-display);font-weight:700;font-size:16px;letter-spacing:.02em}
 .brand small{display:block;font-size:11px;color:var(--ink-2);letter-spacing:.08em;margin-top:-2px}
 nav.main{display:none;border-top:1px solid var(--line)}
 .top nav.main .wrap{display:flex;gap:4px;padding-block:0;align-items:stretch}
@@ -860,7 +861,7 @@ body.is-itin .hero{display:none}
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#home" data-view="home"><span class="seal" title="Nihon Trip"><svg aria-hidden="true" viewBox="0 0 100 100" fill="#fff" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"><path d="M64 20 L70 9 L76 13 L84 8 L95 16 L89 21 L83 20 L77 27 L71 24 L67 29 Z"/><path d="M63 32 L69 31 L72 38 L72 47 L68 54 L70 58 L64 60 L57 61 L51 65 L44 66 L38 66 L31 70 L25 70 L23 66 L30 62 L37 60 L44 56 L49 52 L52 46 L55 48 L58 44 L60 38 Z"/><path d="M33 72 L41 70 L46 72 L44 76 L36 77 Z"/><path d="M17 69 L23 70 L26 75 L24 82 L19 88 L15 85 L12 78 L13 72 Z"/><circle cx="8" cy="94" r="1.8"/><circle cx="3.5" cy="97" r="1"/></svg></span><span><b>Nihon Trip</b><small>일본 여행 가이드</small></span></a>
+    <a class="brand" href="#home" data-view="home"><span class="seal seal-go" title="Go Nihon Trip" aria-hidden="true">GO</span><span><b>Nihon Trip</b><small>gonihontrip.com</small></span></a>
     <div class="lang" id="lang">
       <button class="langbtn" id="langBtn" type="button" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3z"/></svg><b id="langCode">KR</b><span class="caret">▾</span></button>
       <div class="langmenu" id="langMenu" role="menu" hidden></div>
@@ -892,7 +893,7 @@ body.is-itin .hero{display:none}
 
 <main class="wrap" id="main"></main>
 
-<footer><div class="wrap">Nihon Trip · 날씨 <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · 사진 <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> (각 사진의 저작자·라이선스는 상세 화면에 표시) · 이동 시간·운영 정보는 바뀔 수 있으니 공식 사이트에서 다시 확인하세요.</div></footer>
+<footer><div class="wrap">Go Nihon Trip · 날씨 <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · 사진 <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> (각 사진의 저작자·라이선스는 상세 화면에 표시) · 이동 시간·운영 정보는 바뀔 수 있으니 공식 사이트에서 다시 확인하세요.</div></footer>
 
 <nav class="tabs" aria-label="섹션">
   <a href="#home" data-view="home"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"/></svg></i>추천</a>
@@ -1728,7 +1729,7 @@ const MENU = {
  meat:{ko:"고기·야키니쿠",g:"G008"}, konamon:{ko:"오코노미야키·타코야키",g:"G016"}, cafe:{ko:"카페·디저트",g:"G014"}, local:{ko:"향토요리",g:"G004"}
 };
 /* 에디터 추천 가게 (도시별 앞의 3곳이 상단 '추천 맛집'에 표시됨) */
-/* 맛집은 autoreserve.js (AutoReserve 추천 순서 + Nihon Trip이 정리한 대표 메뉴·특징) */
+/* 맛집은 autoreserve.js (AutoReserve 추천 순서 + Go Nihon Trip이 정리한 대표 메뉴·특징) */
 const RESTAURANTS = []; // 에디터 추천 목록은 AutoReserve 추천으로 대체됨
 /* 지도 검색어: 도시 안 지역은 도시 이름, 근교는 그 지역 이름을 붙임 */
 const IN_CITY = {tokyo:"東京",osaka:"大阪",fukuoka:"福岡",hokkaido:"札幌",okinawa:"那覇"};
@@ -1763,12 +1764,12 @@ function arBlock(area, menu, n){
   if(list[0].g) return `<section class="arbox"><div class="arhead"><span class="arbadge">구글 지도 인기</span><h3>${esc(A.ko)} ${esc(label)} TOP ${list.length}</h3></div>
     ${gpCols}
     ${arRows(list, area)}
-    <p class="credit">AutoReserve에 ${esc(label)} 가게가 없어서, 리뷰가 많은 유명 가게를 Nihon Trip이 골랐어요 (2026년 10월 기준). 예약 대신 가게마다 구글 지도 링크로 별점·영업시간을 확인하세요.</p></section>`;
+    <p class="credit">AutoReserve에 ${esc(label)} 가게가 없어서, 리뷰가 많은 유명 가게를 Go Nihon Trip이 골랐어요 (2026년 10월 기준). 예약 대신 가게마다 구글 지도 링크로 별점·영업시간을 확인하세요.</p></section>`;
   return `<section class="arbox"><div class="arhead"><span class="arbadge">AutoReserve 추천</span><h3>${esc(A.ko)} ${esc(label)} TOP ${list.length}</h3></div>
     ${arCols}
     ${arRows(list, area)}
     <a class="btn reserve" href="${esc(arUrl(area,menu))}" target="_blank" rel="noopener sponsored">추천 맛집 예약하러 가기 ↗</a>
-    <p class="credit">AutoReserve의 ${esc(A.ko)} 지역 추천 순서예요 (2026년 10월 기준). 대표 메뉴와 특징은 Nihon Trip이 정리했어요. 순위와 예약 가능 여부는 AutoReserve에서 확인돼요.</p></section>`;
+    <p class="credit">AutoReserve의 ${esc(A.ko)} 지역 추천 순서예요 (2026년 10월 기준). 대표 메뉴와 특징은 Go Nihon Trip이 정리했어요. 순위와 예약 가능 여부는 AutoReserve에서 확인돼요.</p></section>`;
 }
 const restLinks = r => `<a href="${gmapLink(r)}" target="_blank" rel="noopener">Google 지도 ↗</a>`;
 
@@ -2798,11 +2799,11 @@ function pageMeta(){
     const g=(window.GEO||{})[it.id];
     window.__ld={"@context":"https://schema.org","@type":it.type==="spot"?"TouristAttraction":"Place",name:n,alternateName:it.jp,description:T(it.desc),
       ...(g?{geo:{"@type":"GeoCoordinates",latitude:g[0],longitude:g[1]}}:{}),address:{"@type":"PostalAddress",addressCountry:"JP",addressRegion:T(CITIES[it.city].ko)}};
-    return {title:(PT[L]||PT.ko)[it.type].replace("{n}",n).replace("{a}",a)+" | Nihon Trip", desc};
+    return {title:(PT[L]||PT.ko)[it.type].replace("{n}",n).replace("{a}",a)+" | Go Nihon Trip", desc};
   } }
-  if(st.view==="home") return {title:T("Nihon Trip · 일본 여행 가이드"), desc:null};
+  if(st.view==="home") return {title:T("Go Nihon Trip · 일본 여행 가이드"), desc:null};
   if(st.view==="itin"){ const IM={ko:["일본 여행 추천 일정 – 도쿄·오사카·교토·후쿠오카·홋카이도·오키나와 코스","{t} – 추천 여행 일정","도쿄·오사카·교토·후쿠오카·홋카이도·오키나와의 며칠짜리 추천 일정. 날짜별 동선과 장소별 입장료까지 한눈에."],en:["Japan Itineraries – Tokyo, Osaka, Kyoto, Fukuoka, Hokkaido & Okinawa","{t} – Suggested itinerary","Multi-day itineraries for Tokyo, Osaka, Kyoto, Fukuoka, Hokkaido and Okinawa, with day-by-day routes and admission fees."],ja:["日本旅行モデルコース – 東京・大阪・京都・福岡・北海道・沖縄","{t} – モデルコース","東京・大阪・京都・福岡・北海道・沖縄の数日間のモデルコース。日ごとのルートと料金を一目で。"],es:["Itinerarios por Japón – Tokio, Osaka, Kioto, Fukuoka, Hokkaido y Okinawa","{t} – Itinerario recomendado","Itinerarios de varios días por Tokio, Osaka, Kioto, Fukuoka, Hokkaido y Okinawa, con rutas diarias y precios de entrada."],fr:["Itinéraires au Japon – Tokyo, Osaka, Kyoto, Fukuoka, Hokkaido et Okinawa","{t} – Itinéraire conseillé","Itinéraires de plusieurs jours à Tokyo, Osaka, Kyoto, Fukuoka, Hokkaido et Okinawa, avec trajets jour par jour et tarifs."]}[(window.I18N&&window.I18N.lang)||"ko"];
-    const c=ITIN.find(x=>x.key===st.itin); return c ? {title:IM[1].replace("{t}",T(c.title))+" | Nihon Trip", desc:T(c.sum)} : {title:IM[0]+" | Nihon Trip", desc:IM[2]}; }
+    const c=ITIN.find(x=>x.key===st.itin); return c ? {title:IM[1].replace("{t}",T(c.title))+" | Go Nihon Trip", desc:T(c.sum)} : {title:IM[0]+" | Go Nihon Trip", desc:IM[2]}; }
   const key = st.view==="saved" ? "saved" : st.view==="map" ? "map" : st.view==="guide" ? "guide_"+(GKEYS.includes(st.gsec)?st.gsec:"entry") : (st.city==="all" ? "all_"+st.view : st.view);
   const a = st.city==="all" ? "" : T(curArea()?.ko || CITIES[st.city].ko), c = {ko:"일본",en:"Japan",ja:"日本",es:"Japón",fr:"Japon"}[L];
   const mon = L==="ko" ? st.month+"월" : L==="ja" ? st.month+"月" : (window.I18N.MON[st.month-1]||st.month);
@@ -2810,7 +2811,7 @@ function pageMeta(){
   const sep = L==="ja" ? "、" : L==="ko" ? ", " : ", ";
   const Ls = names.length ? M.L.replace("{n}", names.join(sep)) : "";
   const f = (x)=> (x||"").replace(/\{a\}/g,a).replace(/\{c\}/g,c).replace(/\{m\}/g,mon).replace("{L}",Ls);
-  return {title: f(M.t[key]) + " | Nihon Trip", desc: M.d[key] ? f(M.d[key]) : null};
+  return {title: f(M.t[key]) + " | Go Nihon Trip", desc: M.d[key] ? f(M.d[key]) : null};
 }
 function setMeta(sel,val){ const m=document.querySelector(sel); if(m&&val) m.setAttribute("content",val); }
 function syncUrl(){
@@ -2889,7 +2890,7 @@ V.place = function(){
   const hv = v => ROUTED ? ` href="${window.NT_BASE + LPRE + pathOf({...st, view:v, city:v==="home"?"all":st.city})}"` : ` href="#"`;
   const near = [...new Set([...pool.filter(x=>x.sub===it.sub && x.type===it.type), ...pool.filter(x=>x.sub===it.sub && x.type!==it.type), ...pool.filter(x=>x.type===it.type)])].slice(0,8);
   return `<article class="place">
-   <nav class="crumb" aria-label="breadcrumb"><a${hv("home")} data-view="home">Nihon Trip</a><i>›</i><a${hv(view)} data-view="${view}"><span>${esc(c.ko)}</span>${A?`<i>·</i><span>${esc(A.ko)}</span>`:""}</a><i>›</i><a${hv(view)} data-view="${view}">${esc(PAGE_LABEL[view])}</a></nav>
+   <nav class="crumb" aria-label="breadcrumb"><a${hv("home")} data-view="home">Go Nihon Trip</a><i>›</i><a${hv(view)} data-view="${view}"><span>${esc(c.ko)}</span>${A?`<i>·</i><span>${esc(A.ko)}</span>`:""}</a><i>›</i><a${hv(view)} data-view="${view}">${esc(PAGE_LABEL[view])}</a></nav>
    <div class="pl-grid">${plateHTML(it)}<div class="pl-main">${detailHTML(it,"h1")}</div></div>
    ${near.length?`<section class="pl-more"><h2>같은 지역의 다른 곳</h2><div class="grid">${near.map(card).join("")}</div></section>`:""}
    <div class="pl-all"><a class="btn"${hv(view)} data-view="${view}">목록 전체 보기<i> →</i></a></div>

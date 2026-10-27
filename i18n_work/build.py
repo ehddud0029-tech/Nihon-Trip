@@ -168,7 +168,7 @@ def emit(outdir):
         o = {'lang': l, 'ar': {'en': 'en', 'ja': 'ja'}.get(l, 'en'), 'D': D[l],
              'T': [[t[0], t[1 + IDX[l]]] for t in T],
              'MON': MON.get(l, []), 'MS': MS.get(l, [])}
-        js = '/* Nihon Trip — ' + l + ' dictionary (generated) */\nwindow.I18N=' + json.dumps(o, ensure_ascii=False, separators=(',', ':')) + ';\n'
+        js = '/* Go Nihon Trip — ' + l + ' dictionary (generated) */\nwindow.I18N=' + json.dumps(o, ensure_ascii=False, separators=(',', ':')) + ';\n'
         open(f'{outdir}/{l}.js', 'w', encoding='utf-8').write(js)
         print(l, len(js.encode()))
 
