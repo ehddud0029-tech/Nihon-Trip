@@ -1,6 +1,6 @@
 # Nihon Trip 작업 안내
 
-일본 여행 정보 사이트 (한국어·영어·일본어·스페인어·프랑스어). 배포 주소: https://ehddud0029-tech.github.io/Nihon-Trip/
+일본 여행 정보 사이트 (한국어·영어·일본어·스페인어·프랑스어). 배포 주소: https://gonihontrip.com/ (GitHub Pages 사용자 도메인, `sitegen/gen.py`의 ORIGIN·DOMAIN·BASE와 CNAME 파일로 연결)
 
 ## 브랜치
 - `main`: GitHub Pages로 배포되는 완성된 사이트 (생성 결과물만 있음, 직접 고치지 않음)

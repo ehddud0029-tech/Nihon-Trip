@@ -12,8 +12,9 @@ from playwright.sync_api import sync_playwright
 SRC = '/home/claude/tabishiori.html'
 SITE = '/home/claude/site'          # areas.js · i18n 등 기존 파일
 OUT = '/home/claude/sitegen/dist'
-ORIGIN = 'https://ehddud0029-tech.github.io'
-BASE = '/Nihon-Trip/'
+ORIGIN = 'https://gonihontrip.com'
+DOMAIN = 'gonihontrip.com'   # GitHub Pages 사용자 도메인 (CNAME 파일)
+BASE = '/'
 LANGS = ['ko', 'en', 'ja', 'es', 'fr']
 OG_LOCALE = {'ko': 'ko_KR', 'en': 'en_US', 'ja': 'ja_JP', 'es': 'es_ES', 'fr': 'fr_FR'}
 HOME_DESC = {
@@ -83,7 +84,7 @@ def page_html(lang, title, desc, path, body, fonts, icon, alternates=True, index
 
 
 class Handler(http.server.SimpleHTTPRequestHandler):
-    """/Nihon-Trip/… 를 dist에서 찾고, 화면 주소는 모두 404.html(앱 셸)로 돌려줘요"""
+    """BASE(/)… 를 dist에서 찾고, 화면 주소는 모두 404.html(앱 셸)로 돌려줘요"""
     def translate_path(self, path):
         p = path.split('?')[0].split('#')[0]
         if p.startswith(BASE):
@@ -186,6 +187,8 @@ def main():
             sm.append('  </url>')
     sm.append('</urlset>')
     open(f'{OUT}/sitemap.xml', 'w', encoding='utf-8').write('\n'.join(sm) + '\n')
+    open(f'{OUT}/CNAME', 'w').write(DOMAIN + '\n')
+    open(f'{OUT}/robots.txt', 'w').write(f'User-agent: *\nAllow: /\n\nSitemap: {ORIGIN}/sitemap.xml\n')
     print('total pages', len(pages), 'sitemap urls', len(paths) * len(LANGS))
 
 
