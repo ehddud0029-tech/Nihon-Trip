@@ -1,0 +1,150 @@
+# 추천 일정 (관광지 id로 구성)
+from guide_data import T
+
+def D(t, stops): return {"t": t, "s": stops}
+
+COURSES = [
+# ---------------- 도쿄
+{"key": "tokyo-3n4d", "city": "tokyo", "n": 3,
+ "title": T("도쿄 핵심 3박 4일", "Tokyo highlights in 4 days", "東京ハイライト3泊4日", "Lo esencial de Tokio en 4 días", "L'essentiel de Tokyo en 4 jours"),
+ "sum": T("옛 도쿄와 최신 도쿄를 하루씩 나눠 보는 첫 여행 코스예요.", "A first-timer's route that splits old and new Tokyo across the days.", "昔ながらの東京と最新の東京を日ごとに分けて巡る、初めての旅向けコース。", "Ruta para primerizos que reparte el Tokio tradicional y el moderno por días.", "Un itinéraire pour une première fois, entre Tokyo d'hier et d'aujourd'hui."),
+ "plan": [
+  D(T("아사쿠사·스카이트리", "Asakusa & Skytree", "浅草・スカイツリー", "Asakusa y Skytree", "Asakusa et Skytree"), ["sensoji", "s_asakusajinja", "s_kappabashi", "skytree"]),
+  D(T("하라주쿠·시부야·신주쿠", "Harajuku, Shibuya & Shinjuku", "原宿・渋谷・新宿", "Harajuku, Shibuya y Shinjuku", "Harajuku, Shibuya et Shinjuku"), ["meiji", "s_omotesando", "shibuya", "s_shibuyasky", "s_omoide"]),
+  D(T("도요스·긴자·오다이바", "Toyosu, Ginza & Odaiba", "豊洲・銀座・お台場", "Toyosu, Ginza y Odaiba", "Toyosu, Ginza et Odaiba"), ["s_toyosu", "s_hamarikyu", "s_teamlab", "s_odaiba"]),
+  D(T("도쿄역·우에노", "Tokyo Station & Ueno", "東京駅・上野", "Estación de Tokio y Ueno", "Gare de Tokyo et Ueno"), ["s_kokyo", "s_tokyostation", "s_uenopark", "s_ameyoko"])],
+ "tips": [T("도요스 시장은 아침 일찍 가야 활기찬 모습을 볼 수 있고, 일요일·공휴일과 휴시일에는 쉬어요.", "Go to Toyosu Market early in the morning to see it at its liveliest; it's closed on Sundays, holidays and market holidays.", "豊洲市場は朝早く行くほど活気があり、日曜・祝日・休市日は休みです。", "Ve temprano al mercado de Toyosu para verlo en plena actividad; cierra domingos, festivos y días sin mercado.", "Allez tôt au marché de Toyosu pour le voir animé ; fermé dimanches, jours fériés et jours sans marché."),
+          T("시부야 스카이·팀랩은 날짜 지정 예약제라 미리 예매해 두세요.", "SHIBUYA SKY and teamLab use timed tickets, so book ahead.", "SHIBUYA SKYとチームラボは日時指定制なので事前予約を。", "SHIBUYA SKY y teamLab funcionan con entradas con hora: reserva con antelación.", "SHIBUYA SKY et teamLab fonctionnent sur créneaux : réservez à l'avance.")]},
+{"key": "tokyo-kamakura-4n5d", "city": "tokyo", "n": 4,
+ "title": T("도쿄·요코하마·가마쿠라 4박 5일", "Tokyo, Yokohama & Kamakura in 5 days", "東京・横浜・鎌倉4泊5日", "Tokio, Yokohama y Kamakura en 5 días", "Tokyo, Yokohama et Kamakura en 5 jours"),
+ "sum": T("도쿄에 묵으며 바다 마을 가마쿠라와 항구 도시 요코하마를 하루씩 다녀와요.", "Stay in Tokyo and spend a day each in seaside Kamakura and port city Yokohama.", "東京に泊まり、海辺の鎌倉と港町横浜へそれぞれ日帰りします。", "Alojamiento en Tokio y un día en la costera Kamakura y otro en el puerto de Yokohama.", "Base à Tokyo, une journée à Kamakura en bord de mer et une à Yokohama, ville portuaire."),
+ "plan": [
+  D(T("아사쿠사·우에노", "Asakusa & Ueno", "浅草・上野", "Asakusa y Ueno", "Asakusa et Ueno"), ["sensoji", "s_asakusajinja", "s_uenopark", "s_ameyoko"]),
+  D(T("시부야·신주쿠", "Shibuya & Shinjuku", "渋谷・新宿", "Shibuya y Shinjuku", "Shibuya et Shinjuku"), ["meiji", "shibuya", "s_shibuyasky", "s_tocho", "s_omoide"]),
+  D(T("가마쿠라·에노시마", "Kamakura & Enoshima", "鎌倉・江の島", "Kamakura y Enoshima", "Kamakura et Enoshima"), ["s_tsurugaoka", "s_komachi", "s_hasedera", "s_daibutsu", "s_kamakurakoko", "s_enoshima"]),
+  D(T("요코하마", "Yokohama", "横浜", "Yokohama", "Yokohama"), ["s_sankeien", "s_yamashita", "s_chinatown", "s_akarenga", "s_cupnoodles", "s_minatomirai"]),
+  D(T("도쿄역·긴자", "Tokyo Station & Ginza", "東京駅・銀座", "Estación de Tokio y Ginza", "Gare de Tokyo et Ginza"), ["s_kokyo", "s_tokyostation", "s_kitte", "s_marunouchi"])],
+ "tips": [T("가마쿠라는 에노덴 1일 승차권으로 돌면 편해요. 주말 오후 고마치도리는 매우 붐벼요.", "An Enoden one-day pass makes Kamakura easy. Komachi-dori is packed on weekend afternoons.", "鎌倉は江ノ電1日乗車券が便利。週末午後の小町通りはとても混みます。", "En Kamakura conviene el pase de un día del Enoden. Komachi-dori se llena las tardes de fin de semana.", "À Kamakura, le pass Enoden d'une journée est pratique. Komachi-dori est bondée le week-end après-midi.")]},
+{"key": "hakone-1n2d", "city": "tokyo", "n": 1,
+ "title": T("하코네 온천 1박 2일", "Hakone hot springs, 2 days", "箱根温泉1泊2日", "Termas de Hakone en 2 días", "Onsen de Hakone en 2 jours"),
+ "sum": T("료칸에서 하룻밤 묵으며 미술관, 화산 계곡, 호수 유람선을 한 바퀴 도는 코스예요.", "Spend a night at a ryokan and loop through an art museum, a volcanic valley and a lake cruise.", "旅館に1泊し、美術館・火山の谷・湖の遊覧船をぐるっと巡るコース。", "Una noche en un ryokan y una vuelta por un museo, un valle volcánico y un crucero por el lago.", "Une nuit en ryokan et une boucle musée, vallée volcanique et croisière sur le lac."),
+ "plan": [
+  D(T("하코네유모토·조각의 숲", "Hakone-Yumoto & Open-Air Museum", "箱根湯本・彫刻の森", "Hakone-Yumoto y museo al aire libre", "Hakone-Yumoto et musée en plein air"), ["s_hakoneyumoto", "s_openair"]),
+  D(T("오와쿠다니·아시노코", "Owakudani & Lake Ashi", "大涌谷・芦ノ湖", "Owakudani y lago Ashi", "Owakudani et lac Ashi"), ["s_hakoneropeway", "s_owakudani", "s_ashinoko", "s_hakonejinja"])],
+ "tips": [T("하코네 프리패스가 있으면 등산열차·로프웨이·해적선을 모두 탈 수 있어요.", "The Hakone Free Pass covers the mountain railway, ropeway and pirate ship.", "箱根フリーパスで登山電車・ロープウェイ・海賊船に乗れます。", "El Hakone Free Pass incluye el tren de montaña, el teleférico y el barco pirata.", "Le Hakone Free Pass couvre le train de montagne, le téléphérique et le bateau pirate."),
+          T("짐은 하코네유모토역에서 숙소로 보내는 서비스를 쓰면 편해요.", "Use the luggage delivery service at Hakone-Yumoto Station to send bags to your inn.", "荷物は箱根湯本駅から宿へ送るサービスを使うと楽です。", "Usa el servicio de envío de equipaje en la estación de Hakone-Yumoto para mandarlo al alojamiento.", "Utilisez le service d'envoi de bagages de la gare de Hakone-Yumoto vers votre auberge.")]},
+# ---------------- 오사카·교토
+{"key": "kansai-4n5d", "city": "osaka", "n": 4,
+ "title": T("오사카·교토·나라 4박 5일", "Osaka, Kyoto & Nara in 5 days", "大阪・京都・奈良4泊5日", "Osaka, Kioto y Nara en 5 días", "Osaka, Kyoto et Nara en 5 jours"),
+ "sum": T("오사카에 묵으며 교토 이틀, 나라 하루를 다녀오는 간사이 대표 코스예요.", "The classic Kansai route: stay in Osaka, two days in Kyoto and one in Nara.", "大阪に泊まり、京都2日・奈良1日を巡る関西の定番コース。", "La ruta clásica de Kansai: base en Osaka, dos días en Kioto y uno en Nara.", "Le grand classique du Kansai : base à Osaka, deux jours à Kyoto, un à Nara."),
+ "plan": [
+  D(T("오사카성·도톤보리", "Osaka Castle & Dotonbori", "大阪城・道頓堀", "Castillo de Osaka y Dotonbori", "Château d'Osaka et Dotonbori"), ["osakajo", "s_kuromon", "s_hozenji", "dotonbori"]),
+  D(T("교토 동쪽", "Eastern Kyoto", "京都・東山", "Kioto este", "Kyoto est"), ["fushimi", "kiyomizu", "s_ninenzaka", "s_yasakajinja", "gion"]),
+  D(T("교토 서쪽·아라시야마", "Western Kyoto & Arashiyama", "京都・洛西と嵐山", "Kioto oeste y Arashiyama", "Kyoto ouest et Arashiyama"), ["s_kinkakuji", "s_ryoanji", "s_tenryuji", "arashiyama", "s_togetsukyo"]),
+  D(T("나라", "Nara", "奈良", "Nara", "Nara"), ["s_kofukuji", "s_narapark", "s_todaiji", "s_kasuga", "s_naramachi"]),
+  D(T("우메다", "Umeda", "梅田", "Umeda", "Umeda"), ["s_tenjinbashi", "umeda", "s_umedasky_plaza"])],
+ "tips": [T("후시미 이나리는 아침 일찍 가면 사람이 적어 사진 찍기 좋아요.", "Go to Fushimi Inari early in the morning for fewer crowds and better photos.", "伏見稲荷は朝早く行くと人が少なく写真も撮りやすいです。", "Ve temprano a Fushimi Inari: menos gente y mejores fotos.", "Allez tôt à Fushimi Inari : moins de monde et de meilleures photos."),
+          T("교토 시내는 버스가 붐비니 지하철과 걸어 다니기를 섞으면 좋아요.", "Kyoto's buses get crowded, so mix in the subway and walking.", "京都市内のバスは混むので、地下鉄と徒歩を組み合わせましょう。", "Los autobuses de Kioto van llenos: combina metro y paseos a pie.", "Les bus de Kyoto sont bondés : alternez métro et marche.")]},
+{"key": "osaka-2n3d", "city": "osaka", "n": 2,
+ "title": T("오사카 2박 3일", "Osaka in 3 days", "大阪2泊3日", "Osaka en 3 días", "Osaka en 3 jours"),
+ "sum": T("유니버설 스튜디오 재팬 하루와 오사카 시내 맛집·전망대를 묶은 코스예요.", "One day at Universal Studios Japan, plus Osaka's food and city views.", "ユニバーサル・スタジオ・ジャパン1日と大阪市内のグルメ・展望台を組み合わせたコース。", "Un día en Universal Studios Japan y el resto entre comida y miradores de Osaka.", "Une journée à Universal Studios Japan, le reste entre cuisine et panoramas d'Osaka."),
+ "plan": [
+  D(T("오사카성·우메다", "Osaka Castle & Umeda", "大阪城・梅田", "Castillo de Osaka y Umeda", "Château d'Osaka et Umeda"), ["osakajo", "s_osakajo_park", "s_tenjinbashi", "umeda"]),
+  D(T("유니버설 스튜디오 재팬", "Universal Studios Japan", "ユニバーサル・スタジオ・ジャパン", "Universal Studios Japan", "Universal Studios Japan"), ["s_universal"]),
+  D(T("신세카이·난바", "Shinsekai & Namba", "新世界・難波", "Shinsekai y Namba", "Shinsekai et Namba"), ["s_shitennoji", "s_harukas", "shinsekai", "s_kuromon", "dotonbori"])],
+ "tips": [T("USJ 입장권은 날짜마다 가격이 달라서 일찍 살수록 싸요.", "USJ ticket prices vary by date and are cheaper the earlier you buy.", "USJのチケットは日によって価格が変わり、早く買うほど安くなります。", "Las entradas de USJ cambian de precio según el día y son más baratas cuanto antes las compres.", "Les billets USJ varient selon la date et sont moins chers achetés tôt.")]},
+{"key": "kobe-1n2d", "city": "osaka", "n": 1,
+ "title": T("고베·아리마 온천 1박 2일", "Kobe & Arima Onsen, 2 days", "神戸・有馬温泉1泊2日", "Kobe y Arima Onsen en 2 días", "Kobe et Arima Onsen en 2 jours"),
+ "sum": T("이국적인 고베 거리와 항구 야경을 보고, 다음 날 산속 온천 마을 아리마로 가요.", "Kobe's exotic streets and harbor night view, then the mountain onsen town of Arima.", "異国情緒ある神戸の街と港の夜景、翌日は山あいの温泉町・有馬へ。", "Las calles exóticas de Kobe y su puerto de noche; al día siguiente, el pueblo termal de Arima.", "Les rues cosmopolites de Kobe et le port de nuit, puis la ville thermale d'Arima."),
+ "plan": [
+  D(T("기타노·난킨마치·하버랜드", "Kitano, Nankinmachi & Harborland", "北野・南京町・ハーバーランド", "Kitano, Nankinmachi y Harborland", "Kitano, Nankinmachi et Harborland"), ["s_kitano", "s_nunobiki", "s_nankin", "s_meriken", "s_kobeharbor"]),
+  D(T("아리마 온천", "Arima Onsen", "有馬温泉", "Arima Onsen", "Arima Onsen"), ["s_arima"])],
+ "tips": [T("고베 야경은 마야산 기쿠세이다이에서 보는 것도 유명해요.", "Kikuseidai on Mt. Maya is another famous spot for Kobe's night view.", "神戸の夜景は摩耶山・掬星台から見るのも有名です。", "El mirador Kikuseidai del monte Maya es otro lugar famoso para ver Kobe de noche.", "Le belvédère Kikuseidai du mont Maya est aussi réputé pour la vue nocturne.")]},
+# ---------------- 후쿠오카
+{"key": "fukuoka-2n3d", "city": "fukuoka", "n": 2,
+ "title": T("후쿠오카 2박 3일", "Fukuoka in 3 days", "福岡2泊3日", "Fukuoka en 3 días", "Fukuoka en 3 jours"),
+ "sum": T("가까운 도시라 짧게 다녀오기 좋아요. 다자이후 반나절과 야타이를 꼭 넣었어요.", "A close, compact city that's great for short trips, with half a day in Dazaifu and an evening at the yatai.", "近くて短期旅行にぴったり。太宰府の半日と屋台は外せません。", "Una ciudad cercana ideal para viajes cortos, con media jornada en Dazaifu y una noche de yatai.", "Une ville proche, parfaite pour un court séjour, avec une demi-journée à Dazaifu et une soirée aux yatai."),
+ "plan": [
+  D(T("하카타·나카스", "Hakata & Nakasu", "博多・中洲", "Hakata y Nakasu", "Hakata et Nakasu"), ["kushida", "s_tochoji", "s_canal", "s_nakasu"]),
+  D(T("다자이후·텐진", "Dazaifu & Tenjin", "太宰府・天神", "Dazaifu y Tenjin", "Dazaifu et Tenjin"), ["dazaifu", "s_komyozenji", "s_kyuhaku", "s_tenjinchika"]),
+  D(T("오호리 공원·모모치", "Ohori Park & Momochi", "大濠公園・ももち", "Parque Ohori y Momochi", "Parc Ohori et Momochi"), ["ohori", "s_fukuokajo", "momochi", "s_daimyo"])],
+ "tips": [T("다자이후는 텐진에서 니시테쓰 전철로 30분 정도예요. 오전에 가면 덜 붐벼요.", "Dazaifu is about 30 minutes from Tenjin on the Nishitetsu line; mornings are less crowded.", "太宰府は天神から西鉄電車で約30分。午前中のほうが空いています。", "Dazaifu está a unos 30 minutos de Tenjin en la línea Nishitetsu; por la mañana hay menos gente.", "Dazaifu est à environ 30 min de Tenjin par la ligne Nishitetsu ; moins de monde le matin.")]},
+{"key": "kyushu-3n4d", "city": "fukuoka", "n": 3,
+ "title": T("후쿠오카·유후인·벳푸 3박 4일", "Fukuoka, Yufuin & Beppu in 4 days", "福岡・由布院・別府3泊4日", "Fukuoka, Yufuin y Beppu en 4 días", "Fukuoka, Yufuin et Beppu en 4 jours"),
+ "sum": T("도시 여행에 규슈의 대표 온천 두 곳을 더한 코스예요. 유후인이나 벳푸에서 하룻밤 묵어요.", "City sightseeing plus Kyushu's two most famous onsen towns, with a night in Yufuin or Beppu.", "街歩きに九州を代表する温泉地2か所を加えたコース。由布院か別府で1泊します。", "Ciudad más los dos pueblos termales más famosos de Kyushu, con una noche en Yufuin o Beppu.", "La ville plus les deux stations thermales phares de Kyushu, avec une nuit à Yufuin ou Beppu."),
+ "plan": [
+  D(T("하카타·텐진", "Hakata & Tenjin", "博多・天神", "Hakata y Tenjin", "Hakata et Tenjin"), ["kushida", "s_canal", "s_tenjinchika", "s_nakasu"]),
+  D(T("유후인", "Yufuin", "由布院", "Yufuin", "Yufuin"), ["s_yunotsubo", "s_floral", "s_kinrinko", "s_yufudake"]),
+  D(T("벳푸", "Beppu", "別府", "Beppu", "Beppu"), ["s_jigoku", "s_umijigoku", "s_kannawa", "s_takegawara"]),
+  D(T("다자이후", "Dazaifu", "太宰府", "Dazaifu", "Dazaifu"), ["dazaifu", "s_komyozenji", "s_kyuhaku"])],
+ "tips": [T("하카타에서 유후인까지는 특급 '유후인노모리'나 고속버스로 가요. 둘 다 예약하는 게 좋아요.", "Get from Hakata to Yufuin on the Yufuin no Mori limited express or a highway bus; booking ahead is wise for both.", "博多から由布院へは特急「ゆふいんの森」か高速バスで。どちらも予約がおすすめ。", "De Hakata a Yufuin, en el expreso Yufuin no Mori o en autobús; conviene reservar ambos.", "De Hakata à Yufuin, prenez l'express Yufuin no Mori ou un bus ; réservez à l'avance dans les deux cas.")]},
+{"key": "itoshima-day", "city": "fukuoka", "n": 0,
+ "title": T("이토시마 해안 드라이브 당일치기", "Itoshima coastal drive, day trip", "糸島海岸ドライブ日帰り", "Ruta en coche por la costa de Itoshima (1 día)", "Route côtière d'Itoshima à la journée"),
+ "sum": T("후쿠오카 시내에서 차로 40분, 바다 위 도리이와 해안 카페를 따라 달리는 하루예요.", "40 minutes by car from Fukuoka: a day along the coast past a torii in the sea and seaside cafés.", "福岡市内から車で40分。海に立つ鳥居と海辺のカフェを巡る1日。", "A 40 minutos en coche de Fukuoka: un día por la costa con un torii en el mar y cafés junto al agua.", "À 40 min de Fukuoka en voiture : une journée le long de la côte, entre torii dans la mer et cafés."),
+ "plan": [D(T("이토시마 해안", "Itoshima coast", "糸島の海岸", "Costa de Itoshima", "Côte d'Itoshima"), ["s_futamigaura", "s_itocafe", "s_keya"])],
+ "tips": [T("후타미가우라는 해 질 녘 부부바위 사이로 지는 노을이 가장 아름다워요.", "Futamigaura is at its best at sunset, when the sun drops between the wedded rocks.", "二見ヶ浦は夫婦岩の間に沈む夕日の時間がいちばん美しいです。", "Futamigaura luce mejor al atardecer, cuando el sol cae entre las rocas casadas.", "Futamigaura est plus beau au coucher du soleil, entre les rochers mariés.")]},
+# ---------------- 홋카이도
+{"key": "sapporo-3n4d", "city": "hokkaido", "n": 3,
+ "title": T("삿포로·오타루 3박 4일", "Sapporo & Otaru in 4 days", "札幌・小樽3泊4日", "Sapporo y Otaru en 4 días", "Sapporo et Otaru en 4 jours"),
+ "sum": T("삿포로 시내와 운하 도시 오타루를 묶은 홋카이도 첫 여행 코스예요.", "A first Hokkaido trip combining Sapporo with the canal town of Otaru.", "札幌市内と運河の街・小樽を組み合わせた初めての北海道コース。", "Primer viaje a Hokkaido: Sapporo y el pueblo de canales de Otaru.", "Premier voyage à Hokkaido : Sapporo et la ville-canal d'Otaru."),
+ "plan": [
+  D(T("오도리·스스키노", "Odori & Susukino", "大通・すすきの", "Odori y Susukino", "Odori et Susukino"), ["odori", "clock", "s_tvtower", "s_tanukikoji", "s_susukino"]),
+  D(T("오타루", "Otaru", "小樽", "Otaru", "Otaru"), ["otaru", "s_sakaimachi", "s_kitaichi", "s_tenguyama", "s_otarucanal_night"]),
+  D(T("과자 공장·맥주·야경", "Sweets factory, beer & night view", "お菓子工場・ビール・夜景", "Fábrica de dulces, cerveza y vistas nocturnas", "Usine de douceurs, bière et vue nocturne"), ["s_shiroikoibito", "s_sapporobeer", "moiwa"]),
+  D(T("삿포로역 주변", "Around Sapporo Station", "札幌駅周辺", "Alrededor de la estación de Sapporo", "Autour de la gare de Sapporo"), ["s_nijo_market", "s_akarenga_sp", "s_hokudai", "s_jrtower"])],
+ "tips": [T("겨울에는 미끄럼 방지 신발이 꼭 필요해요. 2월 눈축제 기간엔 숙소가 빨리 차요.", "In winter you'll need non-slip shoes. Rooms fill up fast during the February Snow Festival.", "冬は滑りにくい靴が必須。2月の雪まつり期間は宿がすぐ埋まります。", "En invierno necesitarás calzado antideslizante. En el Festival de la Nieve de febrero el alojamiento se agota rápido.", "L'hiver, des chaussures antidérapantes sont indispensables. Pendant la fête de la neige en février, tout est vite complet.")]},
+{"key": "hakodate-1n2d", "city": "hokkaido", "n": 1,
+ "title": T("하코다테 1박 2일", "Hakodate, 2 days", "函館1泊2日", "Hakodate en 2 días", "Hakodate en 2 jours"),
+ "sum": T("일본 3대 야경과 아침시장 해산물덮밥을 즐기는 항구 도시 여행이에요.", "A port-city trip for one of Japan's top three night views and a seafood breakfast at the Morning Market.", "日本三大夜景と朝市の海鮮丼を楽しむ港町の旅。", "Viaje a una ciudad portuaria con una de las tres mejores vistas nocturnas de Japón y desayuno de marisco en el Mercado Matinal.", "Une ville portuaire, l'une des trois plus belles vues nocturnes du Japon et un petit-déjeuner de fruits de mer au marché du matin."),
+ "plan": [
+  D(T("고료카쿠·모토마치·야경", "Goryokaku, Motomachi & night view", "五稜郭・元町・夜景", "Goryokaku, Motomachi y vistas nocturnas", "Goryokaku, Motomachi et vue nocturne"), ["s_goryokaku", "s_motomachi", "s_kanemori", "s_hakodateyama"]),
+  D(T("아침시장·수도원·온천", "Morning Market, convent & onsen", "朝市・修道院・温泉", "Mercado Matinal, convento y onsen", "Marché du matin, couvent et onsen"), ["s_asaichi", "s_trappistine", "s_yunokawa"])],
+ "tips": [T("하코다테산은 해 지기 30분 전에 올라가 자리를 잡으면 노을부터 야경까지 볼 수 있어요.", "Head up Mt. Hakodate 30 minutes before sunset to catch both the sunset and the night view.", "函館山は日没30分前に登って場所を確保すれば、夕焼けから夜景まで楽しめます。", "Sube al monte Hakodate 30 minutos antes del atardecer para ver la puesta de sol y la vista nocturna.", "Montez au mont Hakodate 30 min avant le coucher du soleil pour voir le crépuscule puis la ville illuminée.")]},
+{"key": "furano-2n3d", "city": "hokkaido", "n": 2,
+ "title": T("아사히카와·비에이·후라노 2박 3일", "Asahikawa, Biei & Furano in 3 days", "旭川・美瑛・富良野2泊3日", "Asahikawa, Biei y Furano en 3 días", "Asahikawa, Biei et Furano en 3 jours"),
+ "sum": T("동물원과 라멘의 도시에서 출발해 언덕과 꽃밭이 펼쳐지는 비에이·후라노를 달려요. 7월 라벤더철이 가장 인기예요.", "Start in the city of the zoo and ramen, then drive through the rolling hills and flower fields of Biei and Furano. July's lavender season is the most popular.", "動物園とラーメンの街から、丘と花畑が広がる美瑛・富良野へ。7月のラベンダーの季節が一番人気です。", "Empieza en la ciudad del zoo y el ramen y recorre las colinas y campos de flores de Biei y Furano. La lavanda de julio es lo más buscado.", "Départ de la ville du zoo et des ramen, puis collines et champs fleuris de Biei et Furano. La lavande de juillet est la plus prisée."),
+ "plan": [
+  D(T("아사히카와", "Asahikawa", "旭川", "Asahikawa", "Asahikawa"), ["s_asahiyama", "s_ramenmura"]),
+  D(T("비에이", "Biei", "美瑛", "Biei", "Biei"), ["s_aoiike", "s_shirahige", "s_patchwork"]),
+  D(T("후라노", "Furano", "富良野", "Furano", "Furano"), ["s_tomita", "s_furanowine", "s_ningle"])],
+ "tips": [T("비에이·후라노는 렌터카로 다니는 게 가장 편해요. 버스는 여름 관광 노선을 확인하세요.", "A rental car is the easiest way around Biei and Furano; otherwise check the summer sightseeing buses.", "美瑛・富良野はレンタカーが一番便利。バスなら夏の観光路線を確認しましょう。", "Lo más cómodo en Biei y Furano es el coche de alquiler; si no, mira los autobuses turísticos de verano.", "Une voiture de location est le plus simple à Biei et Furano ; sinon, regardez les bus touristiques d'été.")]},
+# ---------------- 오키나와
+{"key": "okinawa-3n4d", "city": "okinawa", "n": 3,
+ "title": T("오키나와 본섬 3박 4일 (렌터카)", "Okinawa main island in 4 days (by car)", "沖縄本島3泊4日（レンタカー）", "Isla principal de Okinawa en 4 días (en coche)", "Île principale d'Okinawa en 4 jours (en voiture)"),
+ "sum": T("나하의 역사와 시장, 북부 바다와 수족관, 남부 성지를 렌터카로 한 바퀴 도는 코스예요.", "Loop the island by car: Naha's history and markets, the northern sea and aquarium, and sacred sites in the south.", "那覇の歴史と市場、北部の海と水族館、南部の聖地をレンタカーで一周するコース。", "Vuelta a la isla en coche: historia y mercados de Naha, mar y acuario del norte y lugares sagrados del sur.", "Le tour de l'île en voiture : histoire et marchés de Naha, mer et aquarium du nord, sites sacrés du sud."),
+ "plan": [
+  D(T("나하", "Naha", "那覇", "Naha", "Naha"), ["shuri", "s_shurijo_stone", "s_tsuboya", "s_makishi", "kokusai"]),
+  D(T("북부", "The north", "北部", "El norte", "Le nord"), ["s_manzamo", "churaumi", "s_bise", "kouri", "s_kourijima"]),
+  D(T("남부", "The south", "南部", "El sur", "Le sud"), ["s_sefautaki", "s_okinawaworld", "s_umikaji"]),
+  D(T("중부", "Central Okinawa", "中部", "El centro", "Le centre"), ["s_nakagusuku", "s_americanvillage"])],
+ "tips": [T("나하 시내는 출퇴근 시간에 길이 많이 막혀요. 북부 날은 아침 일찍 출발하세요.", "Naha's roads jam at rush hour, so start early on your northern day.", "那覇市内は通勤時間に渋滞しやすいので、北部の日は朝早く出発しましょう。", "Naha se atasca en hora punta: el día del norte sal temprano.", "Naha est embouteillée aux heures de pointe : partez tôt le jour du nord."),
+          T("6~10월은 태풍이 올 수 있어요. 여행 전 예보를 확인하세요.", "Typhoons can hit from June to October; check the forecast before you go.", "6〜10月は台風が来ることがあります。出発前に予報を確認しましょう。", "Entre junio y octubre puede haber tifones: mira la previsión antes de ir.", "Des typhons peuvent survenir de juin à octobre : consultez la météo avant de partir.")]},
+{"key": "ishigaki-2n3d", "city": "okinawa", "n": 2,
+ "title": T("이시가키·다케토미 2박 3일", "Ishigaki & Taketomi in 3 days", "石垣・竹富2泊3日", "Ishigaki y Taketomi en 3 días", "Ishigaki et Taketomi en 3 jours"),
+ "sum": T("에메랄드빛 가비라만과 물소차가 다니는 다케토미섬, 정글의 이리오모테섬까지 이어지는 섬 여행이에요.", "An island-hopping trip from emerald Kabira Bay to Taketomi's water-buffalo carts and the jungle of Iriomote.", "エメラルドの川平湾、水牛車が行く竹富島、ジャングルの西表島まで巡る島旅。", "Salto entre islas: la esmeralda bahía de Kabira, los carros de búfalo de Taketomi y la jungla de Iriomote.", "Saut d'île en île : la baie émeraude de Kabira, les charrettes à buffles de Taketomi et la jungle d'Iriomote."),
+ "plan": [
+  D(T("이시가키섬 일주", "Around Ishigaki", "石垣島一周", "Vuelta a Ishigaki", "Tour d'Ishigaki"), ["s_tamatori", "s_kabira", "s_uminohoshi"]),
+  D(T("다케토미섬", "Taketomi Island", "竹富島", "Isla de Taketomi", "Île de Taketomi"), ["s_taketomi"]),
+  D(T("이리오모테섬", "Iriomote Island", "西表島", "Isla de Iriomote", "Île d'Iriomote"), ["s_iriomote"])],
+ "tips": [T("다케토미·이리오모테행 배는 이시가키 항 리토 터미널에서 출발해요. 바람이 세면 결항할 수 있어요.", "Ferries to Taketomi and Iriomote leave from Ishigaki's Remote Island Terminal and can be cancelled in strong winds.", "竹富・西表行きの船は石垣港離島ターミナルから。風が強いと欠航することがあります。", "Los ferris a Taketomi e Iriomote salen de la terminal de islas de Ishigaki y pueden cancelarse con viento fuerte.", "Les ferries pour Taketomi et Iriomote partent du terminal des îles d'Ishigaki et peuvent être annulés par vent fort.")]},
+{"key": "miyako-2n3d", "city": "okinawa", "n": 2,
+ "title": T("미야코섬 2박 3일", "Miyako Island in 3 days", "宮古島2泊3日", "Isla de Miyako en 3 días", "Île de Miyako en 3 jours"),
+ "sum": T("다리로 이어진 섬들을 드라이브하며 '미야코 블루' 바다를 즐기는 코스예요.", "Drive across bridges between islands and soak up the famous 'Miyako blue' sea.", "橋でつながる島々をドライブし、「宮古ブルー」の海を楽しむコース。", "Recorre en coche los puentes entre islas y disfruta del famoso 'azul de Miyako'.", "Traversez en voiture les ponts entre les îles et profitez du fameux « bleu de Miyako »."),
+ "plan": [
+  D(T("이라부섬·마에하마", "Irabu & Maehama", "伊良部島・前浜", "Irabu y Maehama", "Irabu et Maehama"), ["s_irabu", "s_maehama"]),
+  D(T("동쪽 끝·구리마섬", "East cape & Kurima", "東平安名崎・来間島", "Cabo este y Kurima", "Cap est et Kurima"), ["s_hennazaki", "s_kurimajima"]),
+  D(T("산호초 투어", "Coral reef tour", "サンゴ礁ツアー", "Excursión al arrecife", "Excursion au récif"), ["s_yabiji"])],
+ "tips": [T("야비지는 썰물이 큰 날에만 드러나니 투어 날짜를 먼저 확인하세요.", "Yabiji only appears at very low tides, so check tour dates first.", "八重干瀬は大潮の干潮時だけ現れるので、まずツアーの日程を確認しましょう。", "Yabiji solo aflora con mareas muy bajas: comprueba primero las fechas de las excursiones.", "Yabiji n'apparaît qu'à très marée basse : vérifiez d'abord les dates des excursions.")]},
+]
+
+UI = [
+ T("추천 일정", "Itineraries", "モデルコース", "Itinerarios", "Itinéraires"),
+ T("일정", "Plans", "コース", "Rutas", "Circuits"),
+ T("사이트에 소개된 장소들로 짠 일정이에요. 장소를 누르면 입장료와 가는 길을 볼 수 있어요.", "Routes built from places on this site. Tap a place to see fees and directions.", "サイトで紹介している場所で組んだコースです。場所をタップすると料金や行き方が見られます。", "Rutas hechas con lugares de esta web. Toca un lugar para ver precios y cómo llegar.", "Des circuits composés à partir des lieux du site. Touchez un lieu pour voir tarifs et accès."),
+ T("일정 팁", "Tips", "コースのコツ", "Consejos", "Conseils"),
+ T("다른 일정", "Other itineraries", "ほかのコース", "Otros itinerarios", "Autres itinéraires"),
+ T("전체 일정", "All itineraries", "すべてのコース", "Todos los itinerarios", "Tous les itinéraires"),
+ T("당일치기", "Day trip", "日帰り", "Excursión de un día", "À la journée"),
+ T("일정 보기", "View plan", "コースを見る", "Ver ruta", "Voir le circuit"),
+ T("곳", "stops", "か所", "paradas", "étapes"),
+]

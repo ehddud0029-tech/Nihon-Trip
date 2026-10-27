@@ -1,0 +1,84 @@
+{x} {x}의 {x}, 풍경, 거리 명소 {n}곳	{2}, scenery & street sights in {1}, {0} · {3} {3?spot|spots}	{0} {1}の{2}・風景・街並みの名所 {3}か所	{2}, paisajes y calles en {1} ({0}) · {3} {3?lugar|lugares}	{2}, paysages et rues à {1} ({0}) · {3} {3?lieu|lieux}
+{x} 관광지는 아직 준비 중이라 {x} 전체를 보여드려요 · {x}의 {x}, 풍경, 거리 명소 {n}곳	Sights for {0} are still being prepared, so all of {1} is shown · {3}, scenery & street sights in {2} · {4} {4?spot|spots}	{0}の観光地はまだ準備中のため{1}全体を表示しています · {2}の{3}・風景・街並みの名所 {4}か所	Los lugares de {0} aún se están preparando, así que se muestra todo {1} · {3}, paisajes y calles en {2} · {4} {4?lugar|lugares}	Les sites de {0} sont en préparation : tout {1} est affiché · {3}, paysages et rues à {2} · {4} {4?lieu|lieux}
+{n}월에 등록된 {x} {x} 행사가 없어요. 위에서 다른 달을 골라보세요.	No events are listed for {2}, {1} in {MC0}. Try another month above.	{0}月に登録された{1} {2}のイベントはありません。上で別の月を選んでください。	No hay eventos registrados en {2} ({1}) en {M0}. Elige otro mes arriba.	Aucun événement à {2} ({1}) en {M0}. Choisissez un autre mois ci-dessus.
+AutoReserve의 {x} 지역 추천 순서예요 ({n}년 {n}월 기준). 대표 메뉴와 특징은 Nihon Trip이 정리했어요. 순위와 예약 가능 여부는 AutoReserve에서 확인돼요.	AutoReserve's recommended order for {0} (as of {MC2} {1}). Signature dishes and highlights were compiled by Nihon Trip. Rankings and availability are confirmed on AutoReserve.	AutoReserveによる{0}エリアのおすすめ順です（{1}年{2}月時点）。代表メニューと特徴はNihon Tripがまとめました。順位と予約可否はAutoReserveで確認できます。	Orden recomendado por AutoReserve para {0} ({M2} de {1}). Nihon Trip ha resumido los platos estrella y las características. La clasificación y la disponibilidad se consultan en AutoReserve.	Classement recommandé par AutoReserve pour {0} ({M2} {1}). Plats phares et points forts résumés par Nihon Trip. Classement et disponibilités à vérifier sur AutoReserve.
+{x} 쇼핑 명소	Shopping spots in {0}	{0}のショッピングスポット	Lugares de compras en {0}	Adresses shopping à {0}
+{x} 시내 이동	Getting around {0}	{0}の市内移動	Moverse por {0}	Se déplacer à {0}
+{x} 오늘 날씨	Today's weather in {0}	{0}の今日の天気	El tiempo hoy en {0}	Météo du jour à {0}
+{x} 추천 {x} TOP {n}	Top {2} {1} in {0}	{0}のおすすめ{1} TOP{2}	Top {2}: {1} en {0}	Top {2} : {1} à {0}
+{x} 추천 {x}	Recommended {1} in {0}	{0}のおすすめ{1}	{1} recomendados en {0}	{1} conseillés à {0}
+{x}에서 꼭 먹어볼 음식	Must-eat food in {0}	{0}で必ず食べたいもの	Platos imprescindibles en {0}	À goûter absolument à {0}
+공항에서 {x} 가는 법	From the airport to {0}	空港から{0}への行き方	Del aeropuerto a {0}	De l'aéroport à {0}
+{x} · {x}, 무엇부터 볼까요?	{1}, {0} — where to start?	{0}・{1}、何から見ましょうか？	{1} ({0}): ¿por dónde empezar?	{1} ({0}) : par où commencer ?
+{x} {x} · {x} · AutoReserve 추천 순서	{1}, {0} · {2} · AutoReserve's recommended order	{0} {1} · {2} · AutoReserveのおすすめ順	{1} ({0}) · {2} · Orden recomendado por AutoReserve	{1} ({0}) · {2} · Classement AutoReserve
+{x} {x} · {x} · 구글 지도 인기 가게	{1}, {0} · {2} · Popular on Google Maps	{0} {1} · {2} · Googleマップの人気店	{1} ({0}) · {2} · Populares en Google Maps	{1} ({0}) · {2} · Populaires sur Google Maps
+{x} {x} 쇼핑 거리와 시장 {n}곳	Shopping streets & markets in {1}, {0} · {2}	{0} {1}のショッピング街と市場 {2}か所	Calles comerciales y mercados en {1} ({0}) · {2}	Rues commerçantes et marchés à {1} ({0}) · {2}
+일본 전국 쇼핑 거리와 시장 {n}곳	Shopping streets & markets across Japan · {0}	日本全国のショッピング街と市場 {0}か所	Calles comerciales y mercados de todo Japón · {0}	Rues commerçantes et marchés de tout le Japon · {0}
+{x}에서 사 가기 좋은 선물과 파는 곳 {n}가지 · {x} 것을 먼저 보여드려요	{1} gifts to bring home from {0} and where to buy them · {2} first	{0}で買いたいお土産と売っている店 {1}種 · {2}のものを先に表示	{1} regalos para llevar de {0} y dónde comprarlos · primero {2}	{1} cadeaux à rapporter de {0} et où les acheter · {2} en premier
+일본에서 사 가기 좋은 선물과 파는 곳 {n}가지	{0} gifts to bring home from Japan and where to buy them	日本で買いたいお土産と売っている店 {0}種	{0} regalos para llevar de Japón y dónde comprarlos	{0} cadeaux à rapporter du Japon et où les acheter
+여행하는 달을 고르면 {x} {x}에서 열리는 행사를 보여드려요.	Pick your travel month to see events in {1}, {0}.	旅行する月を選ぶと{0} {1}で開かれるイベントを表示します。	Elige el mes de tu viaje para ver los eventos en {1} ({0}).	Choisissez votre mois de voyage pour voir les événements à {1} ({0}).
+추천 여행 경로 · {x}	Recommended route · {0}	おすすめ旅行ルート · {0}	Ruta recomendada · {0}	Itinéraire conseillé · {0}
+{n}시	{0}:00	{0}時	{0} h	{0} h
+{x} 다가오는 {n}월 축제	Coming up in {0} · {MC1} festivals	{0} これからの{1}月の祭り	Próximamente en {0} · festivales de {M1}	Bientôt à {0} · fêtes de {M1}
+{x} {n}월 축제	{0} festivals · {MC1}	{0} {1}月の祭り	Festivales en {0} · {M1}	Fêtes à {0} · {M1}
+{n}월 축제	{MC0} festivals	{0}月の祭り	Festivales de {M0}	Fêtes · {M0}
+{x} 축제 달력	{0} festival calendar	{0}の祭りカレンダー	Calendario de festivales de {0}	Calendrier des fêtes · {0}
+약 {n}분	About {0} min	約{0}分	Unos {0} min	Env. {0} min
+약 {n}시간 {n}분	About {0} h {1} min	約{0}時間{1}分	Unas {0} h {1} min	Env. {0} h {1} min
+약 {n}시간	About {0} {0?hour|hours}	約{0}時間	{0?Una hora aprox.|Unas {0} horas}	Env. {0} h
+{x}에는 손꼽히는 {x} 가게가 많지 않아서 따로 추천하지 않았어요. 근처 가게는 구글 지도에서 찾아보세요.	{0} doesn't have many standout {1} spots, so we haven't listed any. Look for nearby places on Google Maps.	{0}には指折りの{1}の店が少ないため、特におすすめしていません。近くの店はGoogleマップで探してみてください。	En {0} no hay muchos locales destacados de {1}, así que no recomendamos ninguno. Busca locales cercanos en Google Maps.	{0} compte peu d'adresses marquantes de {1} : nous n'en recommandons pas. Cherchez à proximité sur Google Maps.
+{n}월	{MSC0}	{0}月	{MSC0}	{MSC0}
+{n}월 여행 메모	{MC0} travel notes	{0}月の旅行メモ	Notas de viaje de {M0}	Notes de voyage · {M0}
+{n}월 추천	Picks for {MC0}	{0}月のおすすめ	Recomendado en {M0}	À voir en {M0}
+{n}월 평년기온	{MC0} average temps	{0}月の平年気温	Temperaturas medias de {M0}	Normales de saison · {M0}
+{n}월 평년 최고기온	Average {MC0} high	{0}月の平年最高気温	Máxima media de {M0}	Maximale normale · {M0}
+{n}월에만 즐길 수 있는 것	Only in {MC0}	{0}月だけの楽しみ	Solo en {M0}	Seulement en {M0}
+{n}월 평년 최고기온(약) · 오늘 날씨는 {n}월을 누르면 보여요	Average {MC0} highs (approx.) · Tap {MC1} to see today's weather	{0}月の平年最高気温（約）· 今日の天気は{1}月を押すと表示されます	Máximas medias de {M0} (aprox.) · Toca {M1} para ver el tiempo de hoy	Maximales normales ({M0}, env.) · Touchez {M1} pour la météo du jour
+{n}개	{0}	{0}件	{0}	{0}
+{n}곳	{0} {0?spot|spots}	{0}か所	{0} {0?lugar|lugares}	{0} {0?lieu|lieux}
+{x} {x} TOP {n}	Top {2} {1} · {0}	{0}の{1} TOP{2}	Top {2} de {1} · {0}	Top {2} {1} · {0}
+{x} TOP {n}	Top {1} · {0}	{0} TOP{1}	Top {1} · {0}	Top {1} · {0}
+사진: {x} ·	Photo: {0} ·	写真：{0} ·	Foto: {0} ·	Photo : {0} ·
+아래에서 지역을 고르면 그 지역의 {x} 정보로 이동해요.	Choose an area below to go to its {0} info.	下で地域を選ぶとその地域の{0}情報に移動します。	Elige una zona abajo para ir a su información de {0}.	Choisissez une zone ci-dessous pour accéder à ses infos {0}.
+{x}에서 갈아타요 · 총 약 {n}분	Change at {0} · about {1} min total	{0}で乗り換え · 合計約{1}分	Transbordo en {0} · unos {1} min en total	Changement à {0} · env. {1} min au total
+{x}에서 갈아타요 · 총 {x}	Change at {0} · total {1}	{0}で乗り換え · 合計{1}	Transbordo en {0} · total {1}	Changement à {0} · total {1}
+{n}가지 · ¥ 표시는 가격대	{0} {0?pick|picks} · ¥ shows the price range	{0}件 · ¥は価格帯	{0} · ¥ indica el rango de precios	{0} · ¥ indique la gamme de prix
+{n}월 {n}일({x}) {n}:{n}	{2} {MS0} {1}, {3}:{4}	{0}月{1}日({2}) {3}:{4}	{2} {1} {MS0}, {3}:{4}	{2} {1} {MS0}, {3}:{4}
+{n}/{n} {x}	{2} {0}/{1}	{0}/{1} {2}	{2} {1}/{0}	{2} {1}/{0}
+강수확률 {n}%	Chance of rain {0}%	降水確率{0}%	Prob. de lluvia {0}%	Risque de pluie {0} %
+체감 {n}° · 최고	Feels like {0}° · High	体感{0}° · 最高	Sensación {0}° · Máx.	Ressenti {0}° · Max
+¥ ({n}단계 중 {n})	¥ ({1} of {0})	¥（{0}段階中{1}）	¥ ({1} de {0})	¥ ({1} sur {0})
+¥¥ ({n}단계 중 {n})	¥¥ ({1} of {0})	¥¥（{0}段階中{1}）	¥¥ ({1} de {0})	¥¥ ({1} sur {0})
+¥¥¥ ({n}단계 중 {n})	¥¥¥ ({1} of {0})	¥¥¥（{0}段階中{1}）	¥¥¥ ({1} de {0})	¥¥¥ ({1} sur {0})
+{n}년 {n}월 {n}일부터 면세 방식이 바뀌어요	Tax-free shopping changes from {MC1} {2}, {0}	{0}年{1}月{2}日から免税方式が変わります	El tax-free cambia a partir del {2} de {M1} de {0}	La détaxe change à partir du {2} {M1} {0}
+{n}월 {n}일부터 '환급 방식'으로 바뀌어요. 가게에선 세금 포함 가격으로 사고, 출국 때 공항 세관 확인 후 돌려받아요. 여권을 꼭 챙기세요.	From {MC0} {1}, it switches to a 'refund system.' You pay tax-inclusive prices in stores and get the tax back after a customs check at the airport when you leave. Be sure to bring your passport.	{0}月{1}日から「リファンド方式」に変わります。店では税込み価格で購入し、出国時に空港の税関で確認を受けた後に払い戻されます。パスポートを必ず持参しましょう。	Desde el {1} de {M0} pasa a ser un 'sistema de reembolso': pagas con impuestos en la tienda y te los devuelven tras un control de aduanas en el aeropuerto al salir. No olvides el pasaporte.	À partir du {1} {M0}, c'est un « système de remboursement » : on paie TTC en magasin et la taxe est remboursée après contrôle douanier à l'aéroport au départ. N'oubliez pas votre passeport.
+날씨: Open-Meteo 실시간 예보 · {n}분마다 갱신	Weather: Open-Meteo live forecast · updated every {0} min	天気：Open-Meteoのリアルタイム予報 · {0}分ごとに更新	Tiempo: previsión en directo de Open-Meteo · se actualiza cada {0} min	Météo : prévisions en direct Open-Meteo · mise à jour toutes les {0} min
+추천 {n}	Pick {0}	おすすめ{0}	Recomendación {0}	Choix {0}
+{n}월 {n}일	{MS0} {1}	{0}月{1}日	{1} {MS0}	{1} {MS0}
+{n}월 {n}~{n}일	{MS0} {1}–{2}	{0}月{1}〜{2}日	{1}–{2} {MS0}	{1}–{2} {MS0}
+{n}~{n}일	{0}–{1}	{0}〜{1}日	{0}–{1}	{0}–{1}
+{n}일	{0}	{0}日	{0}	{0}
+{n}월 초	Early {MS0}	{0}月上旬	Principios de {MS0}	Début {MS0}
+{n}월 중순	Mid-{MS0}	{0}月中旬	Mediados de {MS0}	Mi-{MS0}
+{n}월 하순	Late {MS0}	{0}月下旬	Finales de {MS0}	Fin {MS0}
+{n}월 말	End of {MS0}	{0}月末	Finales de {MS0}	Fin {MS0}
+{n}월 초중순	Early to mid-{MS0}	{0}月上旬〜中旬	Principios a mediados de {MS0}	Début à mi-{MS0}
+{n}월 초~중순	Early to mid-{MS0}	{0}月上旬〜中旬	Principios a mediados de {MS0}	Début à mi-{MS0}
+{n}월 중순 ~ 하순	Mid to late {MS0}	{0}月中旬〜下旬	Mediados a finales de {MS0}	Mi à fin {MS0}
+{n}월 한 달	All of {MC0}	{0}月の1か月間	Todo {M0}	Tout le mois de {M0}
+{n}월 넷째 토요일	4th Saturday of {MC0}	{0}月第4土曜日	4.º sábado de {M0}	4e samedi de {M0}
+{n}월 셋째 주말	3rd weekend of {MC0}	{0}月第3週末	3.er fin de semana de {M0}	3e week-end de {M0}
+{n}월 마지막 토요일	Last Saturday of {MC0}	{0}月最終土曜日	Último sábado de {M0}	Dernier samedi de {M0}
+{n}월 유일(酉の日)	{MC0} Tori no Ichi days (酉の日)	{0}月の酉の日	Días Tori no Ichi de {M0} (酉の日)	Jours Tori no Ichi de {M0} (酉の日)
+{n}월 하순 주말	Late-{MS0} weekend	{0}月下旬の週末	Fin de semana de finales de {MS0}	Week-end de fin {MS0}
+{n}일간	{0} days	{0}日間	{0} días	{0} jours
+약 {n}주	about {0} {0?week|weeks}	約{0}週間	unas {0} semanas	env. {0} semaines
+약 {n}주일	about {0} {0?week|weeks}	約{0}週間	unas {0} semanas	env. {0} semaines
+야마보코 순행 {n}/{n} · {n}/{n}	float processions {MS0} {1} & {MS2} {3}	山鉾巡行 {0}/{1}・{2}/{3}	desfiles de carrozas {1} {MS0} y {3} {MS2}	défilés des chars {1} {MS0} et {3} {MS2}
+{x} 무렵	Around {0}	{0}ごろ	Hacia {0}	Vers {0}
+{x} ~ {x}	{0} – {1}	{0}〜{1}	{0} – {1}	{0} – {1}
+{x}, {x}	{0}, {1}	{0}、{1}	{0}, {1}	{0}, {1}
+{x} ({x})	{0} ({1})	{0}（{1}）	{0} ({1})	{0} ({1})
+{x} ({x}	{0} ({1}	{0}（{1}	{0} ({1}	{0} ({1}
+{x}의 {x}	{1} · {0}	{0}の{1}	{1} · {0}	{1} · {0}
+{x} {x}	{0} {1}	{0} {1}	{0} {1}	{0} {1}

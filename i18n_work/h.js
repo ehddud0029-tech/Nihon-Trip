@@ -1,0 +1,10 @@
+const vm=require("vm"),fs=require("fs");
+const els={}; const mk=id=>els[id]||(els[id]={id,innerHTML:"",textContent:"",hidden:false,addEventListener(){},focus(){},setSelectionRange(){},value:"",classList:{add(){},remove(){},toggle(){}},setAttribute(){},toggleAttribute(){}});
+const document={querySelector:s=>s.startsWith("#")?mk(s.slice(1)):null,querySelectorAll:()=>[],addEventListener(){},documentElement:{},createElement:()=>({innerHTML:"",textContent:""})};
+const ctx={document,location:{hash:"",protocol:"https:"},history:{replaceState(){}},localStorage:{getItem:()=>null,setItem(){}},fetch:()=>Promise.reject(new Error("x")),setInterval(){},setTimeout,clearTimeout,console,Intl,Date,Math,JSON,encodeURIComponent,URLSearchParams,AbortController,Promise,Object,Array,String,Number,Error,scrollTo(){}};
+ctx.window=ctx; vm.createContext(ctx);
+for(const f of ["areas.js","autoreserve.js","google_picks.js"]) vm.runInContext(fs.readFileSync("/home/claude/site/"+f,"utf8"),ctx);
+const html=fs.readFileSync("/home/claude/tabishiori.html","utf8");
+const js=[...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m=>m[1]).join("\n");
+vm.runInContext(js+"\n"+fs.readFileSync(process.argv[2],"utf8"), ctx);
+fs.writeFileSync(process.argv[3],JSON.stringify(ctx.__out));
