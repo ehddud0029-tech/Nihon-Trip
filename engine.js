@@ -66,7 +66,7 @@
     ja:"東京・大阪・名古屋・広島・四国・福岡・北海道・沖縄と近郊都市の観光地、祭り、グルメ、交通、ショッピング情報とリアルタイムの天気。",
     es:"Lugares, festivales, restaurantes, transporte y compras en Tokio, Osaka, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido, Okinawa y ciudades cercanas, con el tiempo en directo.",
     fr:"Sites, fêtes, restaurants, transports et shopping à Tokyo, Osaka, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido, Okinawa et dans les villes voisines, avec la météo en direct."};
-  [["meta[name=description]",DESC[I.lang]],["meta[property='og:description']",DESC[I.lang]],["meta[property='og:title']",I.D["Nihon Trip · 일본 여행 가이드"]],["meta[property='og:locale']",{en:"en_US",ja:"ja_JP",es:"es_ES",fr:"fr_FR"}[I.lang]]].forEach(function(x){ var m=document.querySelector(x[0]); if(m&&x[1]) m.setAttribute("content",x[1]); });
+  [["meta[name=description]",DESC[I.lang]],["meta[property='og:description']",DESC[I.lang]],["meta[property='og:title']",I.D["Go Nihon Trip · 일본 여행 가이드"]],["meta[property='og:locale']",{en:"en_US",ja:"ja_JP",es:"es_ES",fr:"fr_FR"}[I.lang]]].forEach(function(x){ var m=document.querySelector(x[0]); if(m&&x[1]) m.setAttribute("content",x[1]); });
   window.__tr=function(s){ var r=tr(String(s==null?"":s)); return r==null?s:r; };
   var ATTR=["placeholder","aria-label","title","alt","label"];
   function tnode(n){ var v=n.nodeValue; if(!v||!H.test(v)) return; var r=tr(v); if(r!=null&&r!==v) n.nodeValue=r; }

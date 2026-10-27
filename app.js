@@ -812,7 +812,7 @@ const MENU = {
  meat:{ko:"고기·야키니쿠",g:"G008"}, konamon:{ko:"오코노미야키·타코야키",g:"G016"}, cafe:{ko:"카페·디저트",g:"G014"}, local:{ko:"향토요리",g:"G004"}
 };
 /* 에디터 추천 가게 (도시별 앞의 3곳이 상단 '추천 맛집'에 표시됨) */
-/* 맛집은 autoreserve.js (AutoReserve 추천 순서 + Nihon Trip이 정리한 대표 메뉴·특징) */
+/* 맛집은 autoreserve.js (AutoReserve 추천 순서 + Go Nihon Trip이 정리한 대표 메뉴·특징) */
 const RESTAURANTS = []; // 에디터 추천 목록은 AutoReserve 추천으로 대체됨
 /* 지도 검색어: 도시 안 지역은 도시 이름, 근교는 그 지역 이름을 붙임 */
 const IN_CITY = {tokyo:"東京",osaka:"大阪",fukuoka:"福岡",hokkaido:"札幌",okinawa:"那覇"};
@@ -847,12 +847,12 @@ function arBlock(area, menu, n){
   if(list[0].g) return `<section class="arbox"><div class="arhead"><span class="arbadge">구글 지도 인기</span><h3>${esc(A.ko)} ${esc(label)} TOP ${list.length}</h3></div>
     ${gpCols}
     ${arRows(list, area)}
-    <p class="credit">AutoReserve에 ${esc(label)} 가게가 없어서, 리뷰가 많은 유명 가게를 Nihon Trip이 골랐어요 (2026년 10월 기준). 예약 대신 가게마다 구글 지도 링크로 별점·영업시간을 확인하세요.</p></section>`;
+    <p class="credit">AutoReserve에 ${esc(label)} 가게가 없어서, 리뷰가 많은 유명 가게를 Go Nihon Trip이 골랐어요 (2026년 10월 기준). 예약 대신 가게마다 구글 지도 링크로 별점·영업시간을 확인하세요.</p></section>`;
   return `<section class="arbox"><div class="arhead"><span class="arbadge">AutoReserve 추천</span><h3>${esc(A.ko)} ${esc(label)} TOP ${list.length}</h3></div>
     ${arCols}
     ${arRows(list, area)}
     <a class="btn reserve" href="${esc(arUrl(area,menu))}" target="_blank" rel="noopener sponsored">추천 맛집 예약하러 가기 ↗</a>
-    <p class="credit">AutoReserve의 ${esc(A.ko)} 지역 추천 순서예요 (2026년 10월 기준). 대표 메뉴와 특징은 Nihon Trip이 정리했어요. 순위와 예약 가능 여부는 AutoReserve에서 확인돼요.</p></section>`;
+    <p class="credit">AutoReserve의 ${esc(A.ko)} 지역 추천 순서예요 (2026년 10월 기준). 대표 메뉴와 특징은 Go Nihon Trip이 정리했어요. 순위와 예약 가능 여부는 AutoReserve에서 확인돼요.</p></section>`;
 }
 const restLinks = r => `<a href="${gmapLink(r)}" target="_blank" rel="noopener">Google 지도 ↗</a>`;
 
@@ -1904,11 +1904,11 @@ function pageMeta(){
     const g=(window.GEO||{})[it.id];
     window.__ld={"@context":"https://schema.org","@type":it.type==="spot"?"TouristAttraction":"Place",name:n,alternateName:it.jp,description:T(it.desc),
       ...(g?{geo:{"@type":"GeoCoordinates",latitude:g[0],longitude:g[1]}}:{}),address:{"@type":"PostalAddress",addressCountry:"JP",addressRegion:T(CITIES[it.city].ko)}};
-    return {title:(PT[L]||PT.ko)[it.type].replace("{n}",n).replace("{a}",a)+" | Nihon Trip", desc};
+    return {title:(PT[L]||PT.ko)[it.type].replace("{n}",n).replace("{a}",a)+" | Go Nihon Trip", desc};
   } }
-  if(st.view==="home") return {title:T("Nihon Trip · 일본 여행 가이드"), desc:null};
+  if(st.view==="home") return {title:T("Go Nihon Trip · 일본 여행 가이드"), desc:null};
   if(st.view==="itin"){ const IM={ko:["일본 여행 추천 일정 – 도쿄·오사카·교토·후쿠오카·홋카이도·오키나와 코스","{t} – 추천 여행 일정","도쿄·오사카·교토·나고야·히로시마·시코쿠·후쿠오카·홋카이도·오키나와의 며칠짜리 추천 일정. 날짜별 동선과 장소별 입장료까지 한눈에."],en:["Japan Itineraries – Tokyo, Osaka, Kyoto, Fukuoka, Hokkaido & Okinawa","{t} – Suggested itinerary","Multi-day itineraries for Tokyo, Osaka, Kyoto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido and Okinawa, with day-by-day routes and admission fees."],ja:["日本旅行モデルコース – 東京・大阪・京都・福岡・北海道・沖縄","{t} – モデルコース","東京・大阪・京都・名古屋・広島・四国・福岡・北海道・沖縄の数日間のモデルコース。日ごとのルートと料金を一目で。"],es:["Itinerarios por Japón – Tokio, Osaka, Kioto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido y Okinawa","{t} – Itinerario recomendado","Itinerarios de varios días por Tokio, Osaka, Kioto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido y Okinawa, con rutas diarias y precios de entrada."],fr:["Itinéraires au Japon – Tokyo, Osaka, Kyoto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido et Okinawa","{t} – Itinéraire conseillé","Itinéraires de plusieurs jours à Tokyo, Osaka, Kyoto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido et Okinawa, avec trajets jour par jour et tarifs."]}[(window.I18N&&window.I18N.lang)||"ko"];
-    const c=ITIN.find(x=>x.key===st.itin); return c ? {title:IM[1].replace("{t}",T(c.title))+" | Nihon Trip", desc:T(c.sum)} : {title:IM[0]+" | Nihon Trip", desc:IM[2]}; }
+    const c=ITIN.find(x=>x.key===st.itin); return c ? {title:IM[1].replace("{t}",T(c.title))+" | Go Nihon Trip", desc:T(c.sum)} : {title:IM[0]+" | Go Nihon Trip", desc:IM[2]}; }
   const key = st.view==="saved" ? "saved" : st.view==="map" ? "map" : st.view==="guide" ? "guide_"+(GKEYS.includes(st.gsec)?st.gsec:"entry") : (st.city==="all" ? "all_"+st.view : st.view);
   const a = st.city==="all" ? "" : T(curArea()?.ko || CITIES[st.city].ko), c = {ko:"일본",en:"Japan",ja:"日本",es:"Japón",fr:"Japon"}[L];
   const mon = L==="ko" ? st.month+"월" : L==="ja" ? st.month+"月" : (window.I18N.MON[st.month-1]||st.month);
@@ -1916,7 +1916,7 @@ function pageMeta(){
   const sep = L==="ja" ? "、" : L==="ko" ? ", " : ", ";
   const Ls = names.length ? M.L.replace("{n}", names.join(sep)) : "";
   const f = (x)=> (x||"").replace(/\{a\}/g,a).replace(/\{c\}/g,c).replace(/\{m\}/g,mon).replace("{L}",Ls);
-  return {title: f(M.t[key]) + " | Nihon Trip", desc: M.d[key] ? f(M.d[key]) : null};
+  return {title: f(M.t[key]) + " | Go Nihon Trip", desc: M.d[key] ? f(M.d[key]) : null};
 }
 function setMeta(sel,val){ const m=document.querySelector(sel); if(m&&val) m.setAttribute("content",val); }
 function syncUrl(){
@@ -1995,7 +1995,7 @@ V.place = function(){
   const hv = v => ROUTED ? ` href="${window.NT_BASE + LPRE + pathOf({...st, view:v, city:v==="home"?"all":st.city})}"` : ` href="#"`;
   const near = [...new Set([...pool.filter(x=>x.sub===it.sub && x.type===it.type), ...pool.filter(x=>x.sub===it.sub && x.type!==it.type), ...pool.filter(x=>x.type===it.type)])].slice(0,8);
   return `<article class="place">
-   <nav class="crumb" aria-label="breadcrumb"><a${hv("home")} data-view="home">Nihon Trip</a><i>›</i><a${hv(view)} data-view="${view}"><span>${esc(c.ko)}</span>${A?`<i>·</i><span>${esc(A.ko)}</span>`:""}</a><i>›</i><a${hv(view)} data-view="${view}">${esc(PAGE_LABEL[view])}</a></nav>
+   <nav class="crumb" aria-label="breadcrumb"><a${hv("home")} data-view="home">Go Nihon Trip</a><i>›</i><a${hv(view)} data-view="${view}"><span>${esc(c.ko)}</span>${A?`<i>·</i><span>${esc(A.ko)}</span>`:""}</a><i>›</i><a${hv(view)} data-view="${view}">${esc(PAGE_LABEL[view])}</a></nav>
    <div class="pl-grid">${plateHTML(it)}<div class="pl-main">${detailHTML(it,"h1")}</div></div>
    ${near.length?`<section class="pl-more"><h2>같은 지역의 다른 곳</h2><div class="grid">${near.map(card).join("")}</div></section>`:""}
    <div class="pl-all"><a class="btn"${hv(view)} data-view="${view}">목록 전체 보기<i> →</i></a></div>
