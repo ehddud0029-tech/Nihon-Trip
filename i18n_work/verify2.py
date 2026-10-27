@@ -36,6 +36,7 @@ for(const pass of [0,1]){
  closeItem();
  st.view="itin"; st.itin=null; await R(); for(const k of IKEYS){ st.itin=k; await R(); } st.itin=null;
  for(const g of GKEYS){ st.view="guide"; st.gsec=g; await R(); }
+ for(const x of ALL.filter(x=>PLACE_TYPES.includes(x.type))){ st.view="place"; st.place=x.id; await R(); }
  st.view="map"; st.city="all"; await R(); for(const c of Object.keys(CITIES)){ st.city=c; await R(); }
  // language menu
  document.querySelector('#langBtn').click(); await tick(); grab(); document.body.click();

@@ -52,7 +52,7 @@ window.NT_LANG=cur;document.documentElement.lang=cur;
 if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js"><\/script><script src="'+B+'engine.js"><\/script>');})();</script>''' % json.dumps(BASE)
 
 
-def page_html(lang, title, desc, path, body, fonts, icon, alternates=True, index=True, home=False):
+def page_html(lang, title, desc, path, body, fonts, icon, alternates=True, index=True, home=False, ld=None):
     esc = lambda x: html.escape(x, quote=True)
     url = ORIGIN + BASE + ('' if lang == 'ko' else lang + '/') + path
     h = ['<!doctype html>', f'<html lang="{lang}">', '<head>', '<meta charset="utf-8">',
@@ -64,6 +64,9 @@ def page_html(lang, title, desc, path, body, fonts, icon, alternates=True, index
         h.append(GOOGLE_VERIFY)
         h.append(NAVER_VERIFY)
     h.append(f'<link rel="canonical" href="{url}">')
+    if ld:
+        ld = dict(ld, url=url)
+        h.append('<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False).replace('</', '<\\/') + '</script>')
     if alternates:
         for l in LANGS:
             h.append(f'<link rel="alternate" hreflang="{l}" href="{ORIGIN}{BASE}{"" if l == "ko" else l + "/"}{path}">')
@@ -109,7 +112,7 @@ GRAB = r'''async (url)=>{
   b.querySelector("#langMenu")?.setAttribute("hidden","");
   const mm=b.querySelector("#mapmsg"); if(mm){ mm.removeAttribute("hidden"); mm.textContent=(window.__tr||(x=>x))("지도를 불러오는 중이에요"); }
   b.querySelector("#mapc")?.replaceChildren(); b.querySelector("#mapwrap")?.removeAttribute("data-live"); b.querySelector("#mapwrap")?.removeAttribute("style");
-  return {title:document.title, desc:document.querySelector('meta[name="description"]').getAttribute("content"), body:b.innerHTML, path:location.pathname};
+  return {title:document.title, desc:document.querySelector('meta[name="description"]').getAttribute("content"), body:b.innerHTML, path:location.pathname, ld:window.__ld||null};
 }'''
 
 
@@ -155,6 +158,7 @@ def main():
             routes = pg.evaluate('''()=>{ const r=["","saved/","map/"]; for(const g of GKEYS) r.push(`guide/${g}/`); r.push("itinerary/"); for(const k of IKEYS) r.push(`itinerary/${k}/`); for(const v of ["spots","food","transport","shopping"]) r.push(v+"/");
               for(let m=1;m<=12;m++) r.push(`festivals/${m}/`);
               for(const c of Object.keys(CITIES)) for(const a of areasOf(c)) for(const v of ["spots","festivals","food","transport","shopping"]) r.push(`${c}/${a.key}/${v}/`);
+              for(const x of ALL) if(PLACE_TYPES.includes(x.type)) r.push(`place/${placeSlug(x.id)}/`);
               return r; }''')
             for path in routes:
                 d = pg.evaluate(GRAB, BASE + lp + path)
@@ -165,7 +169,7 @@ def main():
                 desc = HOME_DESC[lang] if home else d['desc']
                 pages.append((lang, path))
                 out = page_html(lang, d['title'], desc, path, d['body'], fonts, icon,
-                                index=path != 'saved/', home=home)
+                                index=path != 'saved/', home=home, ld=d.get('ld'))
                 fp = os.path.join(OUT, lp + path, 'index.html')
                 os.makedirs(os.path.dirname(fp), exist_ok=True)
                 open(fp, 'w', encoding='utf-8').write(out)
