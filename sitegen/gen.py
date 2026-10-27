@@ -74,7 +74,9 @@ def page_html(lang, title, desc, path, body, fonts, icon, alternates=True, index
     h += ['<meta property="og:type" content="website">', '<meta property="og:site_name" content="Go Nihon Trip">',
           f'<meta property="og:title" content="{esc(title)}">', f'<meta property="og:description" content="{esc(desc)}">',
           f'<meta property="og:url" content="{url}">', f'<meta property="og:locale" content="{OG_LOCALE[lang]}">',
-          '<meta name="twitter:card" content="summary">', icon]
+          f'<meta property="og:image" content="{ORIGIN}{BASE}og-{lang}.png">', '<meta property="og:image:width" content="1200">',
+          '<meta property="og:image:height" content="630">', '<meta property="og:image:alt" content="Go Nihon Trip">',
+          '<meta name="twitter:card" content="summary_large_image">', f'<meta name="twitter:image" content="{ORIGIN}{BASE}og-{lang}.png">', icon]
     h += fonts
     h += ['<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>',
           f'<link rel="stylesheet" href="{BASE}app.css?v={VER}">', BOOT.replace('.js"><\\/script>', f'.js?v={VER}"><\\/script>')]
@@ -126,6 +128,9 @@ def main():
     shutil.copytree(f'{SITE}/i18n', f'{OUT}/i18n')
     shutil.copytree(f'{SITE}/photos', f'{OUT}/photos')
     shutil.copy(f'{SITE}/README.md', OUT)
+    for f in os.listdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'og')):
+        if f.endswith('.png'):
+            shutil.copy(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'og', f), OUT)
     open(f'{OUT}/app.css', 'w', encoding='utf-8').write(css.strip() + '\n')
     open(f'{OUT}/engine.js', 'w', encoding='utf-8').write(engine.strip() + '\n')
     open(f'{OUT}/app.js', 'w', encoding='utf-8').write(app.strip() + '\n')
