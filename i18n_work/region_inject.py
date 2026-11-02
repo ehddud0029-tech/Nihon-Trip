@@ -81,6 +81,8 @@ for P in PACKS:
 
 # 기존 지역 아래 새 하위 지역 (후지산·가와구치코, 교토 나누기)
 import region_fuji_kyoto as FK
+import gp_add as GA
+GA_CREDIT = GA.CREDIT
 area_add = []
 for P in [FK.FUJI, FK.KYOTO] + FK.POPULAR:
     c = P["city"]
@@ -234,6 +236,16 @@ for name in ['GUIDE', 'ITIN']:
 IMZ = ',zh:["日本旅行推荐行程 – 东京·大阪·京都·福冈·北海道·冲绳路线","{t} – 推荐行程","东京、大阪、京都、名古屋、广岛、四国、福冈、北海道、冲绳的多日推荐行程，每日路线和门票一目了然。"],tw:["日本旅行推薦行程 – 東京·大阪·京都·福岡·北海道·沖繩路線","{t} – 推薦行程","東京、大阪、京都、名古屋、廣島、四國、福岡、北海道、沖繩的多日推薦行程，每日路線和門票一目瞭然。"]'
 if '日本旅行推荐行程' not in s:
     s = rep(s, 'avec trajets jour par jour et tarifs."]}[(window.I18N', 'avec trajets jour par jour et tarifs."]' + IMZ + '}[(window.I18N')
+s = rep(s, '    const picks = pa ? ["ramen","washoku","izakaya"].map(m=>{const x=arShops(pa,m,1)[0]; return x?{...x,m}:null;}).filter(Boolean) : [];',
+  '    const gpP = pa && ((window.AR_SLUG||{})[pa]||"").startsWith("gp/");\n    const picks = !pa ? [] : gpP ? Object.keys(MENU).flatMap(m=>arShops(pa,m,3).map(x=>({...x,m}))).slice(0,3) : ["ramen","washoku","izakaya"].map(m=>{const x=arShops(pa,m,1)[0]; return x?{...x,m}:null;}).filter(Boolean);')
+s = rep(s, '${pa?`<dd class="sub"><a href="${esc(arUrl(pa,"all"))}" target="_blank" rel="noopener sponsored">AutoReserve에서 예약하기 ↗</a></dd>`:""}',
+  '${pa?(gpP?`<dd class="sub"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(AREA[pa].jp.split("・")[0]+" グルメ")}" target="_blank" rel="noopener">구글 지도에서 맛집 찾기 ↗</a></dd>`:`<dd class="sub"><a href="${esc(arUrl(pa,"all"))}" target="_blank" rel="noopener sponsored">AutoReserve에서 예약하기 ↗</a></dd>`):""}')
+s = rep(s, '<p class="credit">AutoReserve에 ${esc(label)} 가게가 없어서, 리뷰가 많은 유명 가게를 Go Nihon Trip이 골랐어요 (2026년 10월 기준). 예약 대신 가게마다 구글 지도 링크로 별점·영업시간을 확인하세요.</p>',
+  '<p class="credit">${(window.AR_SLUG[area]||"").startsWith("gp/")?"' + GA_CREDIT + '":`AutoReserve에 ${esc(label)} 가게가 없어서, 리뷰가 많은 유명 가게를 Go Nihon Trip이 골랐어요 (2026년 10월 기준). 예약 대신 가게마다 구글 지도 링크로 별점·영업시간을 확인하세요.`}</p>')
+# 구글 지도 기준 추천만 있는 지역(gp/): 가게가 있는 메뉴만 보여주고, 없는 메뉴면 첫 메뉴로
+s = rep(s, ' food(){\n  const menuName = ', ' food(){\n  const gpA = curArea() && ((window.AR_SLUG||{})[st.area]||"").startsWith("gp/");\n  if(gpA && !arShops(st.area, st.menu).length){ const m=Object.keys(MENU).filter(k=>arShops(st.area,k).length).sort((x,y)=>arShops(st.area,y).length-arShops(st.area,x).length)[0]; if(m) st.menu=m; }\n  const menuName = ')
+s = rep(s, 'chips(Object.fromEntries(Object.entries(MENU).map(([k,v])=>[k,v.ko])),"menu")', 'chips(Object.fromEntries(Object.entries(MENU).filter(([k])=>!gpA||arShops(st.area,k).length).map(([k,v])=>[k,v.ko])),"menu")')
+s = rep(s, '${st.menu==="konamon"?"구글 지도 인기 가게":"AutoReserve 추천 순서"}', '${(st.menu==="konamon"||gpA)?"구글 지도 인기 가게":"AutoReserve 추천 순서"}')
 open(H, 'w', encoding='utf-8').write(s)
 
 # areas.js · geo.js
@@ -312,6 +324,15 @@ gp = open(f'{BK}/google_picks.js', encoding='utf-8').read().rstrip() + '\n/* 히
   ["덴코세카 에키에점", "電光石火 ekie", "폭신한 오코노미야키", "히로시마역 안, 달걀로 감싼 스타일", "¥1,000~¥2,000"],
   ["레이짱 에키에점", "麗ちゃん ekie", "히로시마 오코노미야키", "히로시마역 안의 오래된 인기점", "¥1,000~¥2,000"]]}}) + ');\n'
 open(f'{SITE}/google_picks.js', 'w', encoding='utf-8').write(gp)
+# AutoReserve 목록이 없는 지역: 구글 지도 기준 추천 가게 (gp_add.py)
+import gp_add as GA
+with open(f'{SITE}/autoreserve.js', 'a', encoding='utf-8') as fh:
+    fh.write('/* 구글 지도 기준 추천만 있는 지역 (google_picks.js) */\nObject.assign(window.AR_SLUG,' + J(GA.SLUG) + ');\n')
+with open(f'{SITE}/google_picks.js', 'a', encoding='utf-8') as fh:
+    fh.write('/* 후지산·교토 새 지역 (2026년 11월 2일 정리) */\nObject.assign(window.GOOGLE_PICKS,' + J({GA.SLUG[k]: v for k, v in GA.AREAS.items()}) + ');\n')
+open('/home/claude/i18n_work/tr_35.tsv', 'w', encoding='utf-8').write(''.join('\t'.join(r) + '\n' for r in GA.TR.values()))
+open('/home/claude/i18n_work/zh_35.tsv', 'w', encoding='utf-8').write(''.join(f"{k}\t{v}\n" for k, v in GA.ZH.items()))
+open('/home/claude/i18n_work/arnames_5.tsv', 'w', encoding='utf-8').write(''.join('\t'.join(r) + '\n' for r in dict((n[0], n) for n in GA.NAMES).values()))
 for f in ['autoreserve.js', 'geo.js', 'google_picks.js']:
     shutil.copy(f'{SITE}/{f}', f'/home/claude/{f}')
 print('AR shops', len(shops_js), 'from', start, 'lists', sum(len(v) for v in lists_js.values()))

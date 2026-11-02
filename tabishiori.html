@@ -1776,7 +1776,7 @@ function arBlock(area, menu, n){
   if(list[0].g) return `<section class="arbox"><div class="arhead"><span class="arbadge">구글 지도 인기</span><h3>${esc(A.ko)} ${esc(label)} TOP ${list.length}</h3></div>
     ${gpCols}
     ${arRows(list, area)}
-    <p class="credit">AutoReserve에 ${esc(label)} 가게가 없어서, 리뷰가 많은 유명 가게를 Go Nihon Trip이 골랐어요 (2026년 10월 기준). 예약 대신 가게마다 구글 지도 링크로 별점·영업시간을 확인하세요.</p></section>`;
+    <p class="credit">${(window.AR_SLUG[area]||"").startsWith("gp/")?"리뷰가 많은 유명 가게를 Go Nihon Trip이 여러 맛집 소개 글로 확인해 골랐어요 (2026년 11월 기준). 별점과 영업시간은 가게마다 구글 지도 링크에서 확인하세요.":`AutoReserve에 ${esc(label)} 가게가 없어서, 리뷰가 많은 유명 가게를 Go Nihon Trip이 골랐어요 (2026년 10월 기준). 예약 대신 가게마다 구글 지도 링크로 별점·영업시간을 확인하세요.`}</p></section>`;
   return `<section class="arbox"><div class="arhead"><span class="arbadge">AutoReserve 추천</span><h3>${esc(A.ko)} ${esc(label)} TOP ${list.length}</h3></div>
     ${arCols}
     ${arRows(list, area)}
@@ -1956,10 +1956,11 @@ function renderCities(){
       <dd class="sub links">${(ICMAP[st.city]||[]).map(([ko,q])=>`<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}" target="_blank" rel="noopener">${esc(ko)} 위치 ↗</a>`).join("")}</dd></div>`;
     // 추천 맛집: 라멘·스시·이자카야 1위 한 곳씩
     const pa = A ? A.key : areasOf(st.city)[0]?.key;
-    const picks = pa ? ["ramen","washoku","izakaya"].map(m=>{const x=arShops(pa,m,1)[0]; return x?{...x,m}:null;}).filter(Boolean) : [];
+    const gpP = pa && ((window.AR_SLUG||{})[pa]||"").startsWith("gp/");
+    const picks = !pa ? [] : gpP ? Object.keys(MENU).flatMap(m=>arShops(pa,m,3).map(x=>({...x,m}))).slice(0,3) : ["ramen","washoku","izakaya"].map(m=>{const x=arShops(pa,m,1)[0]; return x?{...x,m}:null;}).filter(Boolean);
     const eatCell = (pa && !picks.length) ? `<div class="beat"><dt>${esc(AREA[pa]?.ko||"")} 추천 맛집</dt><dd class="sub">맛집 추천은 준비 중이에요</dd>
       <dd class="sub"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(AREA[pa].jp.split("・")[0]+" グルメ")}" target="_blank" rel="noopener">구글 지도에서 맛집 찾기 ↗</a></dd></div>` : `<div class="beat"><dt>${esc(AREA[pa]?.ko||"")} 추천 맛집</dt><ol class="picks">${picks.map(x=>`<li><span class="pick"><b>${esc(x.n)}</b><em class="pm">${esc(MENU[x.m].ko.split("·")[0])}</em><span class="pd">${esc(x.dish||"")}</span></span></li>`).join("")}</ol>
-      ${pa?`<dd class="sub"><a href="${esc(arUrl(pa,"all"))}" target="_blank" rel="noopener sponsored">AutoReserve에서 예약하기 ↗</a></dd>`:""}</div>`;
+      ${pa?(gpP?`<dd class="sub"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(AREA[pa].jp.split("・")[0]+" グルメ")}" target="_blank" rel="noopener">구글 지도에서 맛집 찾기 ↗</a></dd>`:`<dd class="sub"><a href="${esc(arUrl(pa,"all"))}" target="_blank" rel="noopener sponsored">AutoReserve에서 예약하기 ↗</a></dd>`):""}</div>`;
     // 4번째 칸: 지금 보고 있는 페이지 주제에 맞춰 바꿈
     const where = A ? A.ko : c.ko;
     const pickList = (items, badge, desc) => `<ol class="picks">${items.map(x=>`<li><button type="button" class="pick" data-open="${x.id}"><b>${esc(x.name)}</b><em class="pm">${esc(badge(x))}</em><span class="pd">${esc(desc(x))}</span></button></li>`).join("")}</ol>`;
@@ -2169,8 +2170,10 @@ const V = {
      :`<div class="empty">${st.month}월에 등록된 ${cityName()} 행사가 없어요. 위에서 다른 달을 골라보세요.</div>`}`;
  },
  food(){
+  const gpA = curArea() && ((window.AR_SLUG||{})[st.area]||"").startsWith("gp/");
+  if(gpA && !arShops(st.area, st.menu).length){ const m=Object.keys(MENU).filter(k=>arShops(st.area,k).length).sort((x,y)=>arShops(st.area,y).length-arShops(st.area,x).length)[0]; if(m) st.menu=m; }
   const menuName = st.menu==="all" ? "전체 메뉴" : MENU[st.menu].ko;
-  const menuChips = `<div class="tools">${chips(Object.fromEntries(Object.entries(MENU).map(([k,v])=>[k,v.ko])),"menu")}</div>`;  // 전체 메뉴 칩 없음: 메뉴별 TOP 5만
+  const menuChips = `<div class="tools">${chips(Object.fromEntries(Object.entries(MENU).filter(([k])=>!gpA||arShops(st.area,k).length).map(([k,v])=>[k,v.ko])),"menu")}</div>`;  // 전체 메뉴 칩 없음: 메뉴별 TOP 5만
   if(st.city==="all"){
     const body = regionChooser();
     return `<div class="sechead"><div><h2>맛집</h2><p>지역과 하위 지역을 고르면 메뉴별 추천 맛집 TOP 5를 보여드려요.</p></div></div>${body}`;
@@ -2194,7 +2197,7 @@ const V = {
         ${total>list.length?`<button class="btn morebtn" type="button" data-area="${A.key}">${esc(A.ko)} TOP ${total} 보기 →</button>`:""}</section>`;
     }).join("") || '<div class="empty">이 메뉴의 추천 가게가 없어요. 다른 메뉴를 골라보세요.</div>';
   }
-  return `<div class="sechead"><div><h2>맛집</h2><p>${noAR?`<span>${esc(cityName())}</span> · <span>꼭 먹어볼 향토음식</span>`:`${cityName()} · ${menuName} · ${st.menu==="konamon"?"구글 지도 인기 가게":"AutoReserve 추천 순서"}`}</p></div></div>
+  return `<div class="sechead"><div><h2>맛집</h2><p>${noAR?`<span>${esc(cityName())}</span> · <span>꼭 먹어볼 향토음식</span>`:`${cityName()} · ${menuName} · ${(st.menu==="konamon"||gpA)?"구글 지도 인기 가게":"AutoReserve 추천 순서"}`}</p></div></div>
    ${noAR?"":menuChips}${body}
    ${dishes.length?`<h3 class="subh">꼭 먹어볼 향토음식 <span>${dishes.length}가지 · ¥ 표시는 가격대</span></h3>${gridOr(dishes,"")}`:""}`;
  },

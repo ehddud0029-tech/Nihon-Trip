@@ -30,7 +30,7 @@ def load():
     for ko, en in rows(f'{W}/names_en.tsv', 2):
         D['en'][ko] = en; D['es'][ko] = en; D['fr'][ko] = en
         D['ja'][ko] = jp.get(ko, en)
-    for f in ['arnames_1.tsv', 'arnames_2.tsv', 'arnames_3.tsv', 'arnames_4.tsv']:
+    for f in ['arnames_1.tsv', 'arnames_2.tsv', 'arnames_3.tsv', 'arnames_4.tsv', 'arnames_5.tsv']:
         R = rows(f'{W}/{f}', 3)
         for i, (ko, ja, en) in enumerate(R):
             guess = f == 'arnames_3.tsv' and i >= 325
@@ -44,7 +44,7 @@ def load():
     from s2tw import s2tw
     D['zh'] = {}; D['tw'] = {}
     keep = set()
-    for f in ['arnames_1.tsv', 'arnames_2.tsv', 'arnames_3.tsv', 'arnames_4.tsv']:
+    for f in ['arnames_1.tsv', 'arnames_2.tsv', 'arnames_3.tsv', 'arnames_4.tsv', 'arnames_5.tsv']:
         for ko, ja, en in rows(f'{W}/{f}', 3):
             v = D['ja'].get(ko, ja); D['zh'][ko] = v; keep.add(ko)
     for f in sorted(glob.glob(f'{W}/zh_*.tsv')):
