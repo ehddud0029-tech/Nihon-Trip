@@ -22,6 +22,7 @@ REPL = [
   '    if((it.type==="spot"||it.type==="shop")&&it.station) facts.push(DL[2]+col+T(it.station));\n'
   '    const picks=(it.type==="shop"&&SHOP_PICKS[it.id])?DL[3]+col+SHOP_PICKS[it.id].map(x=>T(x)).join(sp):"";\n'
   '    let desc=[facts.join(" | "),[T(it.desc),picks||T(it.tip||"")].filter(Boolean).join(" ")].filter(Boolean).join((L==="ja"||L==="zh"||L==="tw")?"。":" – "); if(desc.length>160) desc=desc.slice(0,157)+"…";'),
+ ('const a=(it.type==="spot"&&it.area) ? T(it.area).split(" · ")[0] : ', 'const a=(it.type==="spot"&&it.area) ? T(it.area).split(" · ")[0].replace(/\\s*[（(].*$/,"") : '),
 ]
 
 for f in FILES:
