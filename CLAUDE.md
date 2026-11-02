@@ -32,6 +32,8 @@
 - 공유 미리보기 이미지: `sitegen/og/og-<언어>.png` (`python3 sitegen/og/make_og.py`로 다시 생성), gen.py가 dist로 복사하고 og:image를 넣어요.
 - 사이트 소개·문의·개인정보처리방침 페이지(about/contact/privacy)는 `i18n_work/patch_info.py`로 추가했어요. 문의 메일: sdyoung0029@gmail.com. 방침 내용을 바꾸면 시행일도 바꿔 주세요.
 
+- 장소 페이지 검색 제목·설명(`pageMeta()`): 관광지는 동네(it.area)와 입장료·운영 시간·가는 길, 쇼핑은 가는 길과 추천 쇼핑 목록을 넣어요. `i18n_work/patch_placemeta.py` (html과 backup pre 파일에 같이 적용).
+
 ## 배포
 ```
 python3 /home/claude/deploy.py "변경 내용" --trailer "Co-Authored-By: ..."

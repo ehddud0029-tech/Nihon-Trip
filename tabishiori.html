@@ -2826,13 +2826,18 @@ function pageMeta(){
   const L = (window.I18N&&window.I18N.lang)||"ko", M = PMETA[L]||PMETA.ko, T = window.__tr||(x=>x);
   window.__ld = null;
   if(st.view==="place"){ const it=byId(st.place); if(it){
-    const PT={ko:{spot:"{n} – 입장료·운영 시간·가는 길 ({a})",fest:"{n} – 일정·장소·즐기는 팁 ({a})",shop:"{n} – 쇼핑 정보·추천 쇼핑 목록 ({a})",food:"{n} – {a} 향토음식과 먹는 곳"},
-      en:{spot:"{n} – Admission, Hours & Access ({a})",fest:"{n} – Dates, Venue & Tips ({a})",shop:"{n} – Shopping Guide & What to Buy ({a})",food:"{n} – Local Dish in {a} & Where to Try It"},
-      ja:{spot:"{n} – 入場料・営業時間・アクセス（{a}）",fest:"{n} – 日程・会場・楽しみ方（{a}）",shop:"{n} – ショッピング情報・おすすめの買い物（{a}）",food:"{n} – {a}の郷土料理と食べられる場所"},
-      es:{spot:"{n} – Precio, horario y cómo llegar ({a})",fest:"{n} – Fechas, lugar y consejos ({a})",shop:"{n} – Guía de compras y qué comprar ({a})",food:"{n} – Plato local de {a} y dónde probarlo"},
-      fr:{spot:"{n} – Tarifs, horaires et accès ({a})",fest:"{n} – Dates, lieu et conseils ({a})",shop:"{n} – Guide shopping et quoi acheter ({a})",food:"{n} – Spécialité de {a} et où la goûter"},zh:{"spot":"{n} – 门票·营业时间·交通（{a}）","fest":"{n} – 日期·地点·游玩贴士（{a}）","shop":"{n} – 购物信息·推荐清单（{a}）","food":"{n} – {a}乡土料理和品尝地点"},tw:{"spot":"{n} – 門票·營業時間·交通（{a}）","fest":"{n} – 日期·地點·遊玩貼士（{a}）","shop":"{n} – 購物資訊·推薦清單（{a}）","food":"{n} – {a}鄉土料理和品嚐地點"}};
-    const a=T((it.sub&&AREA[it.sub]?.ko.split("·")[0])||CITIES[it.city].ko), n=T(it.name);
-    let desc=[T(it.desc),T(it.tip||"")].filter(Boolean).join(" "); if(desc.length>160) desc=desc.slice(0,157)+"…";
+    const PT={ko:{spot:"{n} – 입장료·운영 시간·가는 길 ({a})",fest:"{n} – 일정·장소·즐기는 팁 ({a})",shop:"{n} – 추천 쇼핑 목록·가는 길 ({a})",food:"{n} – {a} 향토음식과 먹는 곳"},
+      en:{spot:"{n} – Admission, Hours & Access ({a})",fest:"{n} – Dates, Venue & Tips ({a})",shop:"{n} – What to Buy & How to Get There ({a})",food:"{n} – Local Dish in {a} & Where to Try It"},
+      ja:{spot:"{n} – 入場料・営業時間・アクセス（{a}）",fest:"{n} – 日程・会場・楽しみ方（{a}）",shop:"{n} – おすすめの買い物・アクセス（{a}）",food:"{n} – {a}の郷土料理と食べられる場所"},
+      es:{spot:"{n} – Precio, horario y cómo llegar ({a})",fest:"{n} – Fechas, lugar y consejos ({a})",shop:"{n} – Qué comprar y cómo llegar ({a})",food:"{n} – Plato local de {a} y dónde probarlo"},
+      fr:{spot:"{n} – Tarifs, horaires et accès ({a})",fest:"{n} – Dates, lieu et conseils ({a})",shop:"{n} – Quoi acheter et comment y aller ({a})",food:"{n} – Spécialité de {a} et où la goûter"},zh:{"spot":"{n} – 门票·营业时间·交通（{a}）","fest":"{n} – 日期·地点·游玩贴士（{a}）","shop":"{n} – 推荐购物清单·交通（{a}）","food":"{n} – {a}乡土料理和品尝地点"},tw:{"spot":"{n} – 門票·營業時間·交通（{a}）","fest":"{n} – 日期·地點·遊玩貼士（{a}）","shop":"{n} – 推薦購物清單·交通（{a}）","food":"{n} – {a}鄉土料理和品嚐地點"}};
+    const a=(it.type==="spot"&&it.area) ? T(it.area).split(" · ")[0] : T((it.sub&&AREA[it.sub]?.ko.split("·")[0])||CITIES[it.city].ko), n=T(it.name);
+    const DL={ko:["입장료","운영","가는 길","추천 쇼핑"],en:["Admission","Open","Access","What to buy"],ja:["入場料","営業","アクセス","おすすめ"],es:["Entrada","Horario","Acceso","Qué comprar"],fr:["Entrée","Horaires","Accès","À acheter"],zh:["门票","开放","交通","推荐"],tw:["門票","開放","交通","推薦"]}[L]||["입장료","운영","가는 길","추천 쇼핑"];
+    const col=(L==="ja"||L==="zh"||L==="tw")?"：":L==="fr"?" : ":": ", sp=(L==="ja"||L==="zh"||L==="tw")?"、":", ";
+    const facts=[]; if(it.type==="spot"){ const si=SIV.rows(it.id); const fr=si&&si.rows.find(r=>r[0]==="fee"), hr=si&&si.rows.find(r=>r[0]==="hours"); if(fr) facts.push(DL[0]+col+fr[1][0]); if(hr) facts.push(DL[1]+col+hr[1][0]); }
+    if((it.type==="spot"||it.type==="shop")&&it.station) facts.push(DL[2]+col+T(it.station));
+    const picks=(it.type==="shop"&&SHOP_PICKS[it.id])?DL[3]+col+SHOP_PICKS[it.id].map(x=>T(x)).join(sp):"";
+    let desc=[facts.join(" | "),[T(it.desc),picks||T(it.tip||"")].filter(Boolean).join(" ")].filter(Boolean).join((L==="ja"||L==="zh"||L==="tw")?"。":" – "); if(desc.length>160) desc=desc.slice(0,157)+"…";
     const g=(window.GEO||{})[it.id];
     window.__ld={"@context":"https://schema.org","@type":it.type==="spot"?"TouristAttraction":"Place",name:n,alternateName:it.jp,description:T(it.desc),
       ...(g?{geo:{"@type":"GeoCoordinates",latitude:g[0],longitude:g[1]}}:{}),address:{"@type":"PostalAddress",addressCountry:"JP",addressRegion:T(CITIES[it.city].ko)}};
