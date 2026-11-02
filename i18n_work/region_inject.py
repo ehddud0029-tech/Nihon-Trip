@@ -82,9 +82,9 @@ for P in PACKS:
 # 기존 지역 아래 새 하위 지역 (후지산·가와구치코, 교토 나누기)
 import region_fuji_kyoto as FK
 area_add = []
-for P in [FK.FUJI, FK.KYOTO]:
+for P in [FK.FUJI, FK.KYOTO] + FK.POPULAR:
     c = P["city"]
-    area_add.append((c, P["after"], [[k, tr(ko), jp, lat, lng] for k, ko, jp, lat, lng in P["areas"]]))
+    if P["areas"]: area_add.append((c, P["after"], [[k, tr(ko), jp, lat, lng] for k, ko, jp, lat, lng in P["areas"]]))
     for k, v in P["to_area"].items():
         to_area[k] = {kk: [route(r) for r in vv] for kk, vv in v.items()}
     for k, v in P["area_route"].items():
