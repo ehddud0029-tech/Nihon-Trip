@@ -3,7 +3,8 @@ from functools import lru_cache
 W = os.path.dirname(os.path.abspath(__file__))
 LANGS = ['en', 'ja', 'es', 'fr']
 ZH = ['zh', 'tw']          # 간체(zh)는 zh_*.tsv·zhtpl.tsv, 번체(tw)는 s2tw로 자동 변환
-ALL_LANGS = LANGS + ZH
+TH = ['th']               # 태국어: th_*.tsv·thtpl.tsv (가게 이름은 영어)
+ALL_LANGS = LANGS + ZH + TH
 IDX = {l: i for i, l in enumerate(ALL_LANGS)}
 H = re.compile('[가-힣]')
 
@@ -56,24 +57,33 @@ def load():
         D['tw'][ko] = zh if ko in keep else s2tw(zh)
     for f in sorted(glob.glob(f'{W}/tw_fix*.tsv')):   # 번체 수동 보정 (한국어 \t 번체)
         for ko, tw in rows(f, 2): D['tw'][ko] = tw
+    # 태국어: 이름은 영어, 나머지는 th_*.tsv
+    D['th'] = {}
+    for ko, en in rows(f'{W}/names_en.tsv', 2): D['th'][ko] = en
+    for f in ['arnames_1.tsv', 'arnames_2.tsv', 'arnames_3.tsv', 'arnames_4.tsv', 'arnames_5.tsv']:
+        for ko, ja, en in rows(f'{W}/{f}', 3): D['th'][ko] = en
+    for f in sorted(glob.glob(f'{W}/th_*.tsv')):
+        for ko, th in rows(f, 2): D['th'][ko] = th
     for l in ALL_LANGS:
         for k in [k for k in D[l] if re.fullmatch(r'\d+월', k)]:
             del D[l][k]
     T = []
-    zt = dict(rows(f'{W}/zhtpl.tsv', 2))
+    zt = dict(rows(f'{W}/zhtpl.tsv', 2)); tt = dict(rows(f'{W}/thtpl.tsv', 2))
     for p in rows(f'{W}/tpl.tsv', 5):
         z = zt.get(p[0], p[3])
-        T.append([p[0]] + p[1:] + [z, s2tw(z)])
+        T.append([p[0]] + p[1:] + [z, s2tw(z), tt.get(p[0], p[1])])
     return D, T
 
 MON = {
  'en': ['January','February','March','April','May','June','July','August','September','October','November','December'],
  'es': ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'],
+ 'th': ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'],
  'fr': ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'],
 }
 MS = {
  'en': ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
  'es': ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'],
+ 'th': ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'],
  'fr': ['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'],
 }
 

@@ -236,6 +236,7 @@ for name in ['GUIDE', 'ITIN']:
 IMZ = ',zh:["日本旅行推荐行程 – 东京·大阪·京都·福冈·北海道·冲绳路线","{t} – 推荐行程","东京、大阪、京都、名古屋、广岛、四国、福冈、北海道、冲绳的多日推荐行程，每日路线和门票一目了然。"],tw:["日本旅行推薦行程 – 東京·大阪·京都·福岡·北海道·沖繩路線","{t} – 推薦行程","東京、大阪、京都、名古屋、廣島、四國、福岡、北海道、沖繩的多日推薦行程，每日路線和門票一目瞭然。"]'
 if '日本旅行推荐行程' not in s:
     s = rep(s, 'avec trajets jour par jour et tarifs."]}[(window.I18N', 'avec trajets jour par jour et tarifs."]' + IMZ + '}[(window.I18N')
+import patch_th; s = patch_th.patch_meta(s)   # 태국어 일정 제목 (zh 뒤에)
 s = rep(s, '    const picks = pa ? ["ramen","washoku","izakaya"].map(m=>{const x=arShops(pa,m,1)[0]; return x?{...x,m}:null;}).filter(Boolean) : [];',
   '    const gpP = pa && ((window.AR_SLUG||{})[pa]||"").startsWith("gp/");\n    const picks = !pa ? [] : gpP ? Object.keys(MENU).flatMap(m=>arShops(pa,m,3).map(x=>({...x,m}))).slice(0,3) : ["ramen","washoku","izakaya"].map(m=>{const x=arShops(pa,m,1)[0]; return x?{...x,m}:null;}).filter(Boolean);')
 s = rep(s, '${pa?`<dd class="sub"><a href="${esc(arUrl(pa,"all"))}" target="_blank" rel="noopener sponsored">AutoReserve에서 예약하기 ↗</a></dd>`:""}',

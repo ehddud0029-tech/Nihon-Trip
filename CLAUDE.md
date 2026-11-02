@@ -1,6 +1,6 @@
 # Go Nihon Trip 작업 안내
 
-일본 여행 정보 사이트 (한국어·영어·일본어·중국어 간체/번체·스페인어·프랑스어). 배포 주소: https://gonihontrip.com/ (GitHub Pages 사용자 도메인, `sitegen/gen.py`의 ORIGIN·DOMAIN·BASE와 CNAME 파일로 연결)
+일본 여행 정보 사이트 (한국어·영어·일본어·중국어 간체/번체·태국어·스페인어·프랑스어). 배포 주소: https://gonihontrip.com/ (GitHub Pages 사용자 도메인, `sitegen/gen.py`의 ORIGIN·DOMAIN·BASE와 CNAME 파일로 연결)
 
 ## 브랜치
 - `main`: GitHub Pages로 배포되는 완성된 사이트 (생성 결과물만 있음, 직접 고치지 않음)
@@ -27,13 +27,19 @@
 - 다국어 객체(입장료 안내 등)는 중국어일 때 사전에서 한국어 문장으로 찾아요(`t()` 함수).
 - 화면 코드의 중국어 처리는 `i18n_work/patch_zh.py` (html과 backup pre 파일에 같이 적용).
 
+## 태국어 (th)
+- 주소 `/th/`, html lang `th`, og:locale `th_TH`. 번역은 `i18n_work/th_*.tsv`(한국어 \t 태국어)와 `thtpl.tsv`(문장 틀). 가게·장소 이름 기본값은 영어(names_en·arnames), th_*.tsv가 덮어써요.
+- 새 문구를 넣을 땐 `tr_*.tsv`·`zh_*.tsv`에 더해 `th_*.tsv`에도 한 줄 추가. 빠진 문구는 `python3 i18n_work/th_inventory.py 300` → `th_src/`에 모아 번역 → `th_out/NN.txt`(번호 \t 태국어) → `python3 i18n_work/th_merge.py`.
+- 화면 코드의 태국어 처리(엔 표기·날짜·메타 제목 등)는 `i18n_work/patch_th.py` (html, backup pre, sitegen 화면 코드, gen.py에 같이 적용). region_inject.py가 일정 제목(IM) 태국어도 넣어요.
+- 번역은 원어민 검수 전이에요.
+
 ## 기타 설정
 - Google Analytics 4 측정 ID는 `sitegen/gen.py`의 `GA_ID` (모든 생성 페이지 head에 들어감).
 - 공유 미리보기 이미지: `sitegen/og/og-<언어>.png` (`python3 sitegen/og/make_og.py`로 다시 생성), gen.py가 dist로 복사하고 og:image를 넣어요.
 - 사이트 소개·문의·개인정보처리방침 페이지(about/contact/privacy)는 `i18n_work/patch_info.py`로 추가했어요. 문의 메일: sdyoung0029@gmail.com. 방침 내용을 바꾸면 시행일도 바꿔 주세요.
 
 - 장소 페이지 검색 제목·설명(`pageMeta()`): 관광지는 동네(it.area)와 입장료·운영 시간·가는 길, 쇼핑은 가는 길과 추천 쇼핑 목록을 넣어요. `i18n_work/patch_placemeta.py` (html과 backup pre 파일에 같이 적용).
-- 후지산·가와구치코(도쿄 아래)와 교토 5개 지역 나누기: `i18n_work/region_fuji_kyoto.py` (region_inject.py가 읽음). 새 교토 지역(kyotoeki·arashiyama·nanzenji·uji)과 fuji는 AutoReserve 목록이 아직 없어 '맛집 준비 중 + 구글 지도' 상자가 나와요.
+- 후지산·가와구치코(도쿄 아래)와 교토 5개 지역 나누기: `i18n_work/region_fuji_kyoto.py` (region_inject.py가 읽음). 새 교토 지역(kyotoeki·arashiyama·nanzenji·uji)과 fuji는 AutoReserve 목록 대신 구글 지도 기준 추천 가게(`i18n_work/gp_add.py`, AR_SLUG 값이 `gp/…`)를 보여줘요. 가게 이름은 arnames_5.tsv, 메뉴·특징 번역은 tr_35·zh_35 (region_inject.py가 만듦).
 
 ## 배포
 ```
