@@ -13,3 +13,9 @@ window.AREAS = {
 window.REGIONS.push(...[["nagoya", "나고야", "名古屋"], ["hiroshima", "히로시마", "広島"], ["shikoku", "시코쿠", "四国"]]);
 Object.assign(window.AREAS,{"nagoya": [["meieki", "나고야 시내", "名古屋市内", 35.17, 136.895], ["inuyama", "이누야마", "犬山", 35.388, 136.944], ["takayama", "다카야마", "高山", 36.141, 137.252], ["shirakawago", "시라카와고", "白川郷", 36.257, 136.906]], "hiroshima": [["hirocity", "히로시마 시내", "広島市内", 34.395, 132.457], ["miyajima", "미야지마", "宮島", 34.296, 132.32], ["onomichi", "오노미치", "尾道", 34.409, 133.205], ["kurashiki", "구라시키 (오카야마)", "倉敷", 34.596, 133.772]], "shikoku": [["matsuyama", "마쓰야마·도고온천", "松山・道後温泉", 33.845, 132.775], ["takamatsu", "다카마쓰", "高松", 34.343, 134.047], ["naoshima", "나오시마", "直島", 34.455, 133.985], ["kotohira", "고토히라", "琴平", 34.189, 133.818]]});
 window.REGIONS.sort((x,y)=>["tokyo", "osaka", "fukuoka", "hokkaido", "okinawa", "nagoya", "hiroshima", "shikoku"].indexOf(x[0])-["tokyo", "osaka", "fukuoka", "hokkaido", "okinawa", "nagoya", "hiroshima", "shikoku"].indexOf(y[0]));
+/* 후지산·가와구치코, 교토 나누기 */
+(function(){ const add=(reg,after,list)=>{ const L=window.AREAS[reg], i=L.findIndex(x=>x[0]===after); L.splice(i+1,0,...list); };
+ add("tokyo","hakone",[["fuji", "후지산·가와구치코", "富士山・河口湖", 35.4983, 138.769]]);
+ add("osaka","kyoto",[["kyotoeki", "교토역·니조성", "京都駅・二条城", 34.995, 135.756], ["arashiyama", "교토 아라시야마·금각사", "京都 嵐山・金閣寺", 35.0156, 135.678], ["nanzenji", "교토 난젠지·은각사", "京都 南禅寺・銀閣寺", 35.013, 135.792], ["uji", "교토 후시미·우지", "京都 伏見・宇治", 34.889, 135.807]]);
+ const k=window.AREAS.osaka.find(x=>x[0]==="kyoto"); k[1]="교토 기온·히가시야마"; k[2]="京都 祇園・東山";
+})();
