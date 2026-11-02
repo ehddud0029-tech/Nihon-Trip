@@ -79,12 +79,52 @@ for P in PACKS:
     for k, g in P["area_guide"].items():
         guide[k] = {"title": tr(g["title"]), "stops": [[i, tr(l)] for i, l in g["stops"]], "move": [[m, tr(t)] for m, t in g["move"]]}
 
+# 기존 지역 아래 새 하위 지역 (후지산·가와구치코, 교토 나누기)
+import region_fuji_kyoto as FK
+area_add = []
+for P in [FK.FUJI, FK.KYOTO]:
+    c = P["city"]
+    area_add.append((c, P["after"], [[k, tr(ko), jp, lat, lng] for k, ko, jp, lat, lng in P["areas"]]))
+    for k, v in P["to_area"].items():
+        to_area[k] = {kk: [route(r) for r in vv] for kk, vv in v.items()}
+    for k, v in P["area_route"].items():
+        area_route[k] = [route(r) for r in v]
+    sats += [a[0] for a in P["areas"]]
+    for (i, sub, cat, name, jp, desc, place, sta, tip, lat, lng, wk) in P["spots"]:
+        spots.append({"id": uid(i), "type": "spot", "city": c, "sub": sub, "cat": cat, "k": "", "name": tr(name), "jp": jp, "desc": tr(desc), "area": tr(place), "station": tr(sta), "tip": tr(tip)})
+        geo[i] = [lat, lng]
+        if wk: wiki[i] = [wk]
+    for (i, mon, name, jp, when, desc, place, tip, sub, lat, lng) in P["fests"]:
+        fests.append({"id": uid(i), "type": "fest", "city": c, "month": mon, "k": "", "name": tr(name), "jp": jp, "when": tr(when), "desc": tr(desc), "area": tr(place), "tip": tr(tip), "sub": sub})
+        geo[i] = [lat, lng]
+    for (i, cat, name, jp, desc, sta, tip, sub, lat, lng) in P["shops"]:
+        shops.append({"id": uid(i), "type": "shop", "city": c, "cat": tr(cat), "k": "", "name": tr(name), "jp": jp, "desc": tr(desc), "station": tr(sta), "tip": tr(tip), "sub": sub})
+        geo[i] = [lat, lng]
+    for (i, cat, name, jp, desc, place, price, tip, sub) in P["foods"]:
+        foods.append({"id": uid(i), "type": "food", "city": c, "cat": cat, "k": "", "name": tr(name), "jp": jp, "desc": tr(desc), "area": tr(place), "price": price, "tip": tr(tip), "sub": sub})
+    for (sub, cat, name, jp, desc, where) in P["gifts"]:
+        gifts.append([c, sub, GIFT_CAT.get(tr(cat), tr(cat)), tr(name), jp, tr(desc), [[tr(a), q] for a, q in where]])
+    for k, (a, b) in P["area_shop"].items(): ashop[k] = [tr(a), tr(b)]
+    for k, v in P["shop_picks"].items(): picks[k] = [tr(x) for x in v]
+    for k, v in P["local_eats"].items(): eats[k] = [[tr(a), tr(b)] for a, b in v]
+    for k, g in P["area_guide"].items():
+        guide[k] = {"title": tr(g["title"]), "stops": [[i, tr(l)] for i, l in g["stops"]], "move": [[m, tr(t)] for m, t in g["move"]]}
+    INFO.update(P["info"])
+    newkeys = [a[0] for a in P["areas"]]
+    for k in newkeys:
+        for d, nm in [(guide, 'area_guide'), (ashop, 'area_shop'), (eats, 'local_eats'), (to_area, 'to_area')]:
+            assert k in d, (k, nm)
+        assert any(x['sub'] == k for x in shops) or any(FK.RESUB.get(i) == k for i in FK.RESUB), ('shop for', k)
+KYOTO_RENAME = [FK.KYOTO_RENAME[0], tr(FK.KYOTO_RENAME[1]), FK.KYOTO_RENAME[2]]
+open('/home/claude/i18n_work/zh_33.tsv', 'w', encoding='utf-8').write(''.join(f"{k}\t{v}\n" for k, v in FK.ZH.items() if v))
+
 # 모든 하위 지역에 안내·쇼핑·음식 정보가 있는지
 allareas = [a[0] for v in areas.values() for a in v]
 for k in allareas:
     for d, nm in [(guide, 'area_guide'), (ashop, 'area_shop'), (eats, 'local_eats'), (to_area, 'to_area')]:
         assert k in d, (k, nm)
-for g in guide.values():
+for gk, g in guide.items():
+    if gk in FK.KYOTO["area_guide"] or gk in FK.FUJI["area_guide"]: continue
     for i, _ in g["stops"]: assert i in ids, i
 for k in picks: assert k in ids, k
 for x in shops: assert x['id'] in picks, ('picks', x['id'])
@@ -132,10 +172,12 @@ SHOPS.push(...{J(shops)});
 FESTS.push(...{J(fests)});
 Object.assign(WIKI,{J(wiki)});
 {{ const o={J(ORDER)}, t={{...CITIES}}; o.forEach(k=>{{ delete CITIES[k]; CITIES[k]=t[k]; }}); }}
+{{ const RS={J(FK.RESUB)}; [...SPOTS,...FOODS,...SHOPS,...FESTS].forEach(it=>{{ if(RS[it.id]) it.sub=RS[it.id]; }}); }}
 """
 BLOCK2 = f"""Object.assign(AREA_GUIDE,{J(guide)}); Object.assign(LOCAL_EATS,{J(eats)}); GIFTS.push(...{J(gifts)}.map(([city,sub,cat,name,jp,desc,where],i)=>({{id:"g"+(GIFTS.length+i),city,sub,cat,name,jp,desc,where}})));
 Object.assign(SOUVENIR,{J(souv)}); Object.assign(AREA_SHOP,{J(ashop)}); Object.assign(SHOP_PICKS,{J(picks)});
 IC_CARDS.find(x=>x.id==="icoca").cities.push("hiroshima"); IC_CARDS.push(...{J(ic_add)});
+{{ const GR={J(FK.GIFT_RESUB)}; GIFTS.forEach(g=>{{ if(GR[g.name]) g.sub=GR[g.name]; }}); }}
 """
 
 def rep(s, a, b, n=1):
@@ -156,7 +198,7 @@ s = rep(s, 'price:a[8],tip:a[9]}));', 'price:a[8],tip:a[9],...(a[10]?{sub:a[10]}
 s = rep(s, '''  let body;
   if(curArea()){
     body = arBlock(st.area, st.menu);''', '''  let body;
-  const noAR = !areasOf(st.city).some(A=>(window.AR_SLUG||{})[A.key]);
+  const noAR = curArea() ? !(window.AR_SLUG||{})[st.area] : !areasOf(st.city).some(A=>(window.AR_SLUG||{})[A.key]);
   if(noAR){
     const P = curArea()||CITIES[st.city];
     body = `<section class="arbox"><div class="arhead"><span class="arbadge">구글 지도</span><h3>${esc(P.ko)}</h3></div>
@@ -189,6 +231,9 @@ for name in ['GUIDE', 'ITIN']:
     new = open(f, encoding='utf-8').read().strip()
     i = s.index(f'\nconst {name} = ') + 1; j = s.index('\n', i)
     s = s[:i] + new + s[j:]
+IMZ = ',zh:["日本旅行推荐行程 – 东京·大阪·京都·福冈·北海道·冲绳路线","{t} – 推荐行程","东京、大阪、京都、名古屋、广岛、四国、福冈、北海道、冲绳的多日推荐行程，每日路线和门票一目了然。"],tw:["日本旅行推薦行程 – 東京·大阪·京都·福岡·北海道·沖繩路線","{t} – 推薦行程","東京、大阪、京都、名古屋、廣島、四國、福岡、北海道、沖繩的多日推薦行程，每日路線和門票一目瞭然。"]'
+if '日本旅行推荐行程' not in s:
+    s = rep(s, 'avec trajets jour par jour et tarifs."]}[(window.I18N', 'avec trajets jour par jour et tarifs."]' + IMZ + '}[(window.I18N')
 open(H, 'w', encoding='utf-8').write(s)
 
 # areas.js · geo.js
@@ -196,6 +241,7 @@ a = open(f'{BK}/areas.pre.js', encoding='utf-8').read()
 a = a.rstrip()
 assert a.endswith('};')
 a += '\n/* 새 지역 */\nwindow.REGIONS.push(...' + J(regions) + ');\nObject.assign(window.AREAS,' + J(areas) + ');\n' + 'window.REGIONS.sort((x,y)=>' + J(ORDER) + '.indexOf(x[0])-' + J(ORDER) + '.indexOf(y[0]));\n'
+a += '/* 후지산·가와구치코, 교토 나누기 */\n(function(){ const add=(reg,after,list)=>{ const L=window.AREAS[reg], i=L.findIndex(x=>x[0]===after); L.splice(i+1,0,...list); };\n' + ''.join(f' add({J(c)},{J(after)},{J(lst)});\n' for c, after, lst in area_add) + f' const k=window.AREAS.osaka.find(x=>x[0]==={J(KYOTO_RENAME[0])}); k[1]={J(KYOTO_RENAME[1])}; k[2]={J(KYOTO_RENAME[2])};\n}})();\n'
 open(f'{SITE}/areas.js', 'w', encoding='utf-8').write(a)
 g = open(f'{BK}/geo.pre.js', encoding='utf-8').read().rstrip() + '\nObject.assign(window.GEO,' + J(geo) + ');\n'
 open(f'{SITE}/geo.js', 'w', encoding='utf-8').write(g)

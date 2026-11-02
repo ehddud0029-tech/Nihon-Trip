@@ -33,6 +33,7 @@
 - 사이트 소개·문의·개인정보처리방침 페이지(about/contact/privacy)는 `i18n_work/patch_info.py`로 추가했어요. 문의 메일: sdyoung0029@gmail.com. 방침 내용을 바꾸면 시행일도 바꿔 주세요.
 
 - 장소 페이지 검색 제목·설명(`pageMeta()`): 관광지는 동네(it.area)와 입장료·운영 시간·가는 길, 쇼핑은 가는 길과 추천 쇼핑 목록을 넣어요. `i18n_work/patch_placemeta.py` (html과 backup pre 파일에 같이 적용).
+- 후지산·가와구치코(도쿄 아래)와 교토 5개 지역 나누기: `i18n_work/region_fuji_kyoto.py` (region_inject.py가 읽음). 새 교토 지역(kyotoeki·arashiyama·nanzenji·uji)과 fuji는 AutoReserve 목록이 아직 없어 '맛집 준비 중 + 구글 지도' 상자가 나와요.
 
 ## 배포
 ```
