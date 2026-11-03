@@ -7,11 +7,31 @@ const APS = {
  hiroshima:["히로시마공항"], okayama:["오카야마공항"], matsuyama:["마쓰야마공항"], takamatsu:["다카마쓰공항"]
 };
 const apName = a => APS[a][0];
+/* 사이트 TO_AREA에 없는 다른 방법 (걸리는 시간은 대략) */
+const R_ = (mode,line,from,to,min) => ({from,to,mode,line,min});
+const AP_EXTRA = {
+ kansai:{dotonbori:[[R_("전철","난카이 공항급행","간사이공항","난바역",50)],[R_("버스","공항 리무진버스","간사이공항","난바",50)]],
+   umeda:[[R_("기차","JR 간쿠 쾌속","간사이공항","오사카역(우메다)",70)]],
+   shinsekai:[[R_("전철","난카이 공항급행","간사이공항","신이마미야역",45)]],
+   kyoto:[[R_("버스","공항 리무진버스","간사이공항","교토역",90)]]},
+ narita:{tokyoeki:[[R_("버스","저가 공항버스 (도쿄역)","나리타공항","도쿄역",70)]],
+   asakusa:[[R_("기차","게이세이 스카이라이너","나리타공항","우에노",45)]],
+   shinjuku:[[R_("버스","공항 리무진버스","나리타공항","신주쿠",100)]]},
+ haneda:{tokyoeki:[[R_("모노레일","도쿄 모노레일","하네다공항","하마마쓰초역",18),R_("기차","JR 야마노테선","하마마쓰초역","도쿄역",6)]],
+   shinjuku:[[R_("전철","게이큐 공항선","하네다공항","시나가와",15),R_("기차","JR 야마노테선","시나가와","신주쿠역",20)]],
+   shibuya:[[R_("전철","게이큐 공항선","하네다공항","시나가와",15),R_("기차","JR 야마노테선","시나가와","시부야역",13)]]},
+ newchitose:{susukino:[[R_("기차","JR 쾌속 에어포트","신치토세공항","삿포로역",37),R_("지하철","지하철 난보쿠선","삿포로역","스스키노역",3)]]}
+};
+const APJ = {narita:"成田空港",haneda:"羽田空港",kansai:"関西国際空港",fukuoka:"福岡空港",oita:"大分空港",newchitose:"新千歳空港",hakodate:"函館空港",asahikawa:"旭川空港",
+ naha:"那覇空港",ishigaki:"南ぬ島 石垣空港",miyako:"宮古空港",chubu:"中部国際空港",hiroshima:"広島空港",okayama:"岡山桃太郎空港",matsuyama:"松山空港",takamatsu:"高松空港"};
+const apGmap = (a,k) => `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(APJ[a])}&destination=${encodeURIComponent(AREA[k].jp.split("・")[0])}&travelmode=transit`;
+
 const apSum = s => s.reduce((t,r)=>t+r.min,0) + (s.length>1?10:0);
 function apOpts(a,k){
   const v=TO_AREA[k]||{}, ks=APS[a], o=[];
   (v.direct||[]).filter(r=>ks.includes(r.from)).forEach(r=>o.push([r]));
   if(v.steps && ks.includes(v.steps[0].from)) o.push(v.steps);
+  ((AP_EXTRA[a]||{})[k]||[]).forEach(x=>o.push(x));
   return o.sort((x,y)=>apSum(x)-apSum(y));
 }
 function apDests(a){ return Object.keys(TO_AREA).filter(k=>AREA[k]&&apOpts(a,k).length).sort((x,y)=>apSum(apOpts(a,x)[0])-apSum(apOpts(a,y)[0])); }
@@ -60,6 +80,7 @@ V.airport = function(){
   return `<div class="wx">${crumb}
    <div class="ghead"><h2>${esc(apName(a))}에서 ${esc(A.ko)} 가는 법</h2><p>가장 빠른 방법은 ${apMin(apSum(opts[0]))} 걸려요.</p></div>
    <div class="apopts">${opts.map((o,i)=>`<div class="gblk apopt">${i===0&&opts.length>1?`<span class="apbest">가장 빨라요</span>`:""}${apSteps(o)}</div>`).join("")}</div>
+   <div class="wxlinks"><a class="btn ghost" href="${apGmap(a,k)}" target="_blank" rel="noopener">구글 지도에서 실시간 요금·시간표 보기 ↗</a></div>
    ${apIC(r)}
    ${sights.length?`<div class="gblk"><h4>도착해서 가 볼 곳</h4><div class="aplinks">${sights.map(x=>`<a href="${placeHref(x.id)}" data-open="${x.id}">${esc(x.name)}</a>`).join("")}</div></div>`:""}
    ${others.length?`<h3 class="sgh"><span>다른 공항에서 가기</span></h3><div class="wxmon">${others.map(x=>apA(x,k,esc(apName(x)))).join("")}</div>`:""}
