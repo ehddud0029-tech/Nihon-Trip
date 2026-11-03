@@ -34,14 +34,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=e2538e4c">
+<link rel="stylesheet" href="/app.css?v=59c9a5a9">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=e2538e4c"><\/script><script src="'+B+'engine.js?v=e2538e4c"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=59c9a5a9"><\/script><script src="'+B+'engine.js?v=59c9a5a9"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -55,7 +55,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=e2538e4c"><\/s
   </div>
     <nav class="main" aria-label="欄目"><div class="wrap">
       <a href="/tw/" data-view="home"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"></path></svg><span>旅行推薦</span></a>
-      <a href="/tw/itinerary/takamatsu-naoshima-2n3d/" data-view="itin"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2.2"></circle><circle cx="18" cy="6" r="2.2"></circle><path d="M8.2 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.8"></path></svg><span>推薦行程</span></a>
+      <a href="/tw/itinerary/okinawa-2n3d/" data-view="itin"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2.2"></circle><circle cx="18" cy="6" r="2.2"></circle><path d="M8.2 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.8"></path></svg><span>推薦行程</span></a>
       <a href="/tw/map/" data-view="map"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6.5v13.5l6-2.5 6 2.5 6-2.5V4l-6 2.5L9 4z"></path><path d="M9 4v13.5M15 6.5V20"></path></svg><span>地圖</span></a>
       <a href="/tw/okinawa/hokubu/spots/" data-view="spots"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z"></path><circle cx="12" cy="10" r="2.3"></circle></svg><span>景點</span></a>
       <a href="/tw/okinawa/hokubu/festivals/" data-view="festivals"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5v2"></path><rect x="6.5" y="4.5" width="11" height="14" rx="5.5"></rect><path d="M6.8 9.5h10.4M6.8 13.5h10.4M12 18.5v3"></path></svg><span>節慶</span></a>
@@ -73,10 +73,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=e2538e4c"><\/s
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="檢視上一組地區" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="選擇地區"><button class="city" type="button" data-city="all" aria-pressed="false">全部<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">東京<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">大阪<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">福岡<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">北海道<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="true">沖繩<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">名古屋<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">廣島<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">四国<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="檢視更多地區" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="選擇區域"><button class="area" type="button" data-area="kokusai" aria-pressed="false">國際通·牧志</button><button class="area" type="button" data-area="naha" aria-pressed="false">那霸市區</button><button class="area" type="button" data-area="chubu" aria-pressed="false">中部（北谷·浦添）</button><button class="area" type="button" data-area="hokubu" aria-pressed="true">北部（本部·名護）</button><button class="area" type="button" data-area="ishigaki" aria-pressed="false">石垣島</button><button class="area" type="button" data-area="miyako" aria-pressed="false">宮古島</button></div>
   <dl class="brief" id="brief"><div class="bw"><dt>北部（本部·名護）今日天氣</dt>
-        <dd class="wxtime"><span class="jstclock">11月3日（周二）10:56</span> <small>日本當前</small></dd>
+        <dd class="wxtime"><span class="jstclock">11月3日（周二）11:17</span> <small>日本當前</small></dd>
         <dd class="wxnow"><span class="big">24°</span> <b>往年平均氣溫</b><span class="wxicon" aria-hidden="true">🌤️</span></dd>
         <dd class="sub wxline">11月往年平均最高氣溫</dd>
-        <dd class="sub">正在載入即時天氣</dd></div><div class="broute"><dt>從機場到北部（本部·名護）的交通方式</dt><dd class=""><span class="rt"><span class="mode m-버스">巴士</span> 那霸機場 → 本部 <b class="min">約120分鐘</b></span><br><small>山原急行巴士（往美麗海水族館方向）</small></dd><dd class="sub rnote">無需換乘，直達</dd></div><div class="bic"><dt>交通卡</dt><dd class="icrow"><span><b>OKICA</b><small>沖繩</small></span></dd><dd class="sub">單軌電車車站售票機、沖繩主要巴士公司營業所</dd><dd class="sub links"><a href="#icguide">檢視交通卡詳情 ↓</a></dd></div><div class="bmove"><dt>北部（本部·名護）市內交通</dt><dd class="mv"><p class="mv-car"><span>租車</span>去美麗海水族館、古宇利島、山原租車最方便</p><p class="mv-bus"><span>巴士</span>山原急行巴士·高速巴士117路 — 機場·那霸～名護～美麗海</p><p class="mv-etc"><span>其他</span>走高速公路從那霸約1.5–2小時</p></dd>
+        <dd class="sub">正在載入即時天氣</dd></div><div class="broute"><dt>從機場到北部（本部·名護）的交通方式</dt><dd class=""><span class="rt"><span class="mode m-버스">巴士</span> 那霸機場 → 本部 <b class="min">約120分鐘</b></span><br><small>山原急行巴士（往美麗海水族館方向）</small></dd><dd class="sub rnote">直達，無需換乘</dd></div><div class="bic"><dt>交通卡</dt><dd class="icrow"><span><b>OKICA</b><small>沖繩</small></span></dd><dd class="sub">單軌電車車站售票機、沖繩主要巴士公司營業所</dd><dd class="sub links"><a href="#icguide">檢視交通卡詳情 ↓</a></dd></div><div class="bmove"><dt>北部（本部·名護）市內交通</dt><dd class="mv"><p class="mv-car"><span>租車</span>去美麗海水族館、古宇利島、山原租車最方便</p><p class="mv-bus"><span>巴士</span>山原急行巴士·高速巴士117路 — 機場·那霸～名護～美麗海</p><p class="mv-etc"><span>其他</span>走高速公路從那霸約1.5–2小時</p></dd>
       <dd class="sub links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%B2%96%E7%B8%84%E5%8C%97%E9%83%A8%20%E9%A7%85" target="_blank" rel="noopener">周邊車站地圖 ↗</a></dd></div></dl>
   <div class="wx" id="wx" hidden=""></div>
   <div class="wxnote" id="wxnote">無法載入即時天氣，顯示往年平均值。</div>
@@ -87,6 +87,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=e2538e4c"><\/s
     <div class="rlist"><div class="route"><span class="od">那霸機場 → 縣廳前（國際通）</span><span class="t">約12分鐘</span><span class="ln">單軌電車</span></div><div class="route"><span class="od">那霸機場 → 首裡</span><span class="t">約27分鐘</span><span class="ln">單軌電車</span></div><div class="route"><span class="od">那霸 → 美麗海水族館</span><span class="t">約2小時</span><span class="ln">租車 · 高速巴士</span></div>
     <div class="route"><span class="od"><b>中部（北谷·浦添）</b> · 那霸機場 → 北谷美國村</span><span class="t">約1小時 </span><span class="ln">線路巴士·機場利木津巴士</span></div><div class="route"><span class="od"><b>北部（本部·名護）</b> · 那霸機場 → 本部</span><span class="t">約2小時 </span><span class="ln">山原急行巴士</span></div><div class="route"><span class="od"><b>石垣島</b> · 石垣機場 → 石垣巴士總站</span><span class="t">約30分鐘</span><span class="ln">機場接駁巴士</span></div><div class="route"><span class="od"><b>宮古島</b> · 宮古機場 → 平良市區</span><span class="t">約15分鐘</span><span class="ln">計程車·租車</span></div></div>
     <div class="ft"><span><b>交通卡</b> OKICA</span><span>去北部景點租車更方便。請務必攜帶國際駕照和護照。</span></div></article></div>
+   <section class="apsec"><div class="sechead"><div><h2>機場到市區怎麼走</h2><p>點選機場即可檢視前往各地區的方式和所需時間。</p></div></div><div class="wxmon"><a href="/tw/airport/naha/" data-apa="naha" data-apk="">那霸機場</a><a href="/tw/airport/ishigaki/" data-apa="ishigaki" data-apk="">石垣機場</a><a href="/tw/airport/miyako/" data-apa="miyako" data-apk="">宮古機場</a></div></section>
    <section class="icguide" id="icguide"><div class="sechead"><div><h2>交通卡指南</h2><p>各地叫法不同，但除沖繩的OKICA和四國的地區卡外都可以互通使用。一張卡就能在全國的地鐵、巴士和便利店使用。</p></div></div>
    <div class="icgrid"><article class="iccard here"><div class="icimg"><span>OKICA</span></div>
      <div class="icbody"><span class="ictag">沖繩</span><h3>OKICA</h3><ul><li>單軌電車車站售票機、沖繩主要巴士公司營業所</li></ul><p>單軌電車也能使用Suica等全國交通IC卡。線路巴士以OKICA為主，請提前確認能否使用全國通用卡。</p>
@@ -118,7 +119,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=e2538e4c"><\/s
 
 <nav class="tabs" aria-label="欄目">
   <a href="/tw/" data-view="home"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9z"></path></svg></i>推薦</a>
-  <a href="/tw/itinerary/takamatsu-naoshima-2n3d/" data-view="itin"><i><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2.2"></circle><circle cx="18" cy="6" r="2.2"></circle><path d="M8.2 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.8"></path></svg></i>行程</a>
+  <a href="/tw/itinerary/okinawa-2n3d/" data-view="itin"><i><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2.2"></circle><circle cx="18" cy="6" r="2.2"></circle><path d="M8.2 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.8"></path></svg></i>行程</a>
   <a href="/tw/map/" data-view="map"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3.5 6v14L9 18l6 2 5.5-2V4L15 6z"></path><path d="M9 4v14M15 6v14"></path></svg></i>地圖</a>
   <a href="/tw/okinawa/hokubu/spots/" data-view="spots"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg></i>景點</a>
   <a href="/tw/okinawa/hokubu/festivals/" data-view="festivals"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M12 3v1.5M8.5 4.5h7M8.5 19.5h7M12 19.5V21"></path><path d="M8.5 4.5C5.5 6.5 5 9 5 12s.5 5.5 3.5 7.5h7c3-2 3.5-4.5 3.5-7.5s-.5-5.5-3.5-7.5"></path><path d="M5.3 9h13.4M5 12h14M5.3 15h13.4"></path></svg></i>節慶</a>
@@ -130,10 +131,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=e2538e4c"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=e2538e4c"></script>
-<script src="/autoreserve.js?v=e2538e4c"></script>
-<script src="/google_picks.js?v=e2538e4c"></script>
-<script src="/geo.js?v=e2538e4c"></script>
-<script src="/app.js?v=e2538e4c"></script>
+<script src="/areas.js?v=59c9a5a9"></script>
+<script src="/autoreserve.js?v=59c9a5a9"></script>
+<script src="/google_picks.js?v=59c9a5a9"></script>
+<script src="/geo.js?v=59c9a5a9"></script>
+<script src="/app.js?v=59c9a5a9"></script>
 </body>
 </html>

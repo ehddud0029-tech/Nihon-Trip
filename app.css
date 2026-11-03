@@ -619,6 +619,23 @@ body.is-wx .hero{display:none}
 .wxmemo{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px}.wxmemo dt{font-weight:700;color:var(--ink-2);font-size:13.5px}.wxmemo dd{margin:0;line-height:1.6}
 .wxlinks{display:flex;flex-wrap:wrap;gap:8px}.wxlinks i{font-style:normal}
 /*WXCSS_END*/
+/*APCSS_BEGIN*/
+body.is-wx .hero{display:none}
+.apgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-bottom:8px}
+.apcard{display:flex;flex-direction:column;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;text-decoration:none;color:var(--ink)}
+.apcard b{font-size:16px}.apcard span{font-size:13px;color:var(--ink-2);line-height:1.5}.apcard small{font-size:12px;color:var(--ai);font-weight:700}
+.aprt{margin:0;font-size:14px;line-height:1.55}.aptm{margin:0;font-size:20px;font-weight:700;color:var(--shu)}
+.apopts{display:flex;flex-direction:column;gap:10px}
+.apopt{position:relative}.apbest{display:inline-block;margin-bottom:8px;padding:3px 9px;border-radius:999px;background:var(--shu);color:#fff;font-size:12px;font-weight:700}
+.apsteps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.apsteps li{display:flex;flex-direction:column;gap:3px}.apsteps .rt{font-size:15.5px;font-weight:600}.apsteps small{color:var(--ink-2);font-size:13.5px;padding-left:2px}
+.apsteps .step{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--ai);color:#fff;font-size:12px;margin-right:6px}
+.apsteps .min{color:var(--shu);margin-left:4px}
+.apnote{margin:10px 0 0;font-size:13.5px;color:var(--ink-2)}
+.apic{margin:0 0 6px;font-size:17px}.aplbl{display:inline-block;font-size:12px;font-weight:700;color:var(--ink-2);margin-right:6px}
+.aplinks{display:flex;flex-wrap:wrap;gap:6px 14px}.aplinks a{color:var(--ai);font-weight:600}
+.apsec{margin-top:28px}
+/*APCSS_END*/
 footer{border-top:1px solid var(--line);color:var(--ink-2);font-size:12.5px}
 footer .wrap{padding-block:20px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
