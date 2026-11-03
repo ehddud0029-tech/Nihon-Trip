@@ -51,6 +51,8 @@
 - 도쿄 영상 참고 보완: 도청 전망실 시간·휴무·프로젝션 매핑, 센소지 팁(아사쿠사 문화관광센터 전망 테라스)은 `i18n_work/patch_tokyo_video.py`, 도쿄돔 시티(s_tokyodome)는 region_fuji_kyoto.py의 POPULAR. 번역 tr_40·zh_41·th_41.
 - **region_inject.py를 돌린 뒤에는** `patch_th.py → patch_weather.py → patch_airport.py → patch_tabbar.py → patch_tokyo_video.py`를 차례로 다시 돌려 주세요 (region_inject가 DESC 등 일부 줄을 다시 써요. 각 패치는 여러 번 돌려도 안전해요).
 
+- 사이트 아이콘 파일(favicon.ico·icon-*.png, 네이버 검색 결과 아이콘용)은 `sitegen/icons/` (`make_icons.py`로 다시 생성), gen.py가 dist 맨 위로 복사해요. 네이버 서치어드바이저용 RSS(`rss.xml`, 한국어 일정·날씨·공항·여행 준비·축제 달력 페이지)는 gen.py의 `write_rss()`가 만들어요.
+
 ## 배포
 ```
 python3 /home/claude/deploy.py "변경 내용" --trailer "Co-Authored-By: ..."

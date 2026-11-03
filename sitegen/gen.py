@@ -86,7 +86,9 @@ def page_html(lang, title, desc, path, body, fonts, icon, alternates=True, index
           f'<meta property="og:url" content="{url}">', f'<meta property="og:locale" content="{OG_LOCALE[lang]}">',
           f'<meta property="og:image" content="{ORIGIN}{BASE}og-{lang}.png">', '<meta property="og:image:width" content="1200">',
           '<meta property="og:image:height" content="630">', '<meta property="og:image:alt" content="Go Nihon Trip">',
-          '<meta name="twitter:card" content="summary_large_image">', f'<meta name="twitter:image" content="{ORIGIN}{BASE}og-{lang}.png">', icon]
+          '<meta name="twitter:card" content="summary_large_image">', f'<meta name="twitter:image" content="{ORIGIN}{BASE}og-{lang}.png">', icon,
+          f'<link rel="icon" type="image/png" sizes="32x32" href="{BASE}icon-32.png">', f'<link rel="apple-touch-icon" href="{BASE}icon-180.png">',
+          f'<link rel="alternate" type="application/rss+xml" title="Go Nihon Trip" href="{ORIGIN}{BASE}rss.xml">']
     h.append(GA)
     h.append(ADSENSE)
     h += fonts
@@ -130,6 +132,29 @@ GRAB = r'''async (url)=>{
 }'''
 
 
+RSS_PREFIX = ['itinerary/', 'weather/', 'airport/', 'guide/', 'festivals/', 'tokyo/weather/', 'osaka/weather/', 'fukuoka/weather/', 'hokkaido/weather/',
+              'okinawa/weather/', 'nagoya/weather/', 'hiroshima/weather/', 'shikoku/weather/']
+
+def write_rss(meta):
+    """네이버 서치어드바이저용 RSS (한국어 페이지 중 일정·날씨·공항·여행 준비·축제 달력)"""
+    from xml.sax.saxutils import escape
+    import email.utils, time
+    now = email.utils.formatdate(time.time(), localtime=False)
+    items = [p for p in meta if any(p.startswith(x) for x in RSS_PREFIX)]
+    items.sort(key=lambda p: (p.count('/'), p))
+    x = ['<?xml version="1.0" encoding="UTF-8"?>', '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">', '<channel>',
+         '<title>Go Nihon Trip · 일본 여행 가이드</title>', f'<link>{ORIGIN}{BASE}</link>',
+         f'<atom:link href="{ORIGIN}{BASE}rss.xml" rel="self" type="application/rss+xml"/>',
+         f'<description>{escape(HOME_DESC["ko"])}</description>', '<language>ko</language>', f'<lastBuildDate>{now}</lastBuildDate>']
+    for p in items:
+        t, d = meta[p]; u = f'{ORIGIN}{BASE}{p}'
+        x += ['<item>', f'<title>{escape(t.replace(" | Go Nihon Trip", ""))}</title>', f'<link>{u}</link>', f'<guid>{u}</guid>',
+              f'<description>{escape(d)}</description>', f'<pubDate>{now}</pubDate>', '</item>']
+    x += ['</channel>', '</rss>', '']
+    open(f'{OUT}/rss.xml', 'w', encoding='utf-8').write('\n'.join(x))
+    print('rss items', len(items))
+
+
 def main():
     engine, app, css, body, fonts, icon = split_source()
     if os.path.isdir(OUT):
@@ -140,6 +165,8 @@ def main():
     shutil.copytree(f'{SITE}/i18n', f'{OUT}/i18n')
     shutil.copytree(f'{SITE}/photos', f'{OUT}/photos')
     shutil.copy(f'{SITE}/README.md', OUT)
+    for f in ['favicon.ico', 'icon-32.png', 'icon-48.png', 'icon-180.png', 'icon-192.png', 'icon-512.png']:   # 사이트 아이콘 (icons/make_icons.py)
+        shutil.copy(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'icons', f), OUT)
     for f in os.listdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'og')):
         if f.endswith('.png'):
             shutil.copy(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'og', f), OUT)
@@ -162,6 +189,7 @@ def main():
     root = f'http://127.0.0.1:{port}{BASE}'
 
     pages = []
+    META = {}
     with sync_playwright() as p:
         br = p.chromium.launch()
         for lang in LANGS:
@@ -186,6 +214,7 @@ def main():
                 home = path == ''
                 desc = HOME_DESC[lang] if home else d['desc']
                 pages.append((lang, path))
+                if lang == 'ko': META[path] = (d['title'], desc or '')
                 out = page_html(lang, d['title'], desc, path, d['body'], fonts, icon,
                                 index=path != 'saved/', home=home, ld=d.get('ld'))
                 fp = os.path.join(OUT, lp + path, 'index.html')
@@ -211,6 +240,7 @@ def main():
             sm.append('  </url>')
     sm.append('</urlset>')
     open(f'{OUT}/sitemap.xml', 'w', encoding='utf-8').write('\n'.join(sm) + '\n')
+    write_rss(META)
     open(f'{OUT}/CNAME', 'w').write(DOMAIN + '\n')
     open(f'{OUT}/ads.txt', 'w').write(f"google.com, {ADSENSE_ID.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n")
     open(f'{OUT}/robots.txt', 'w').write(f'User-agent: *\nAllow: /\n\nSitemap: {ORIGIN}/sitemap.xml\n')
