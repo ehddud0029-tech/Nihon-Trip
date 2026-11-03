@@ -583,6 +583,42 @@ html:not(:lang(ko)) .brief .rt{white-space:normal}
 footer .flinks{margin-top:8px}
 footer .flinks a{color:var(--ink-2)}
 body.is-info .hero{display:none}
+/*WXCSS_BEGIN*/
+.wx{max-width:960px;margin:0 auto;padding-top:24px;display:flex;flex-direction:column;gap:16px}
+body.is-wx .hero{display:none}
+.wxcrumb{font-size:13px;color:var(--ink-2)}.wxcrumb a{color:var(--ink-2)}.wxcrumb i{font-style:normal;margin:0 4px}
+.wxmon{display:flex;flex-wrap:wrap;gap:6px}
+.wxmon a{padding:7px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);text-decoration:none;color:var(--ink);font-size:14px}
+.wxmon a.on{background:var(--ai);border-color:var(--ai);color:#fff;font-weight:700}
+.wxsts{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px}
+.wxst{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px;display:flex;flex-direction:column;gap:2px}
+.wxst span{font-size:12.5px;color:var(--ink-2)}.wxst b{font-size:22px;font-variant-numeric:tabular-nums}
+.wxsts.big .wxst b{font-size:30px}.wxst.hi b{color:var(--shu)}.wxst.lo b{color:var(--ai)}
+.wxtwo{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:760px){.wxtwo{grid-template-columns:1fr}}
+.wxout{font-size:18px;font-weight:700;margin:0 0 14px;line-height:1.55}
+.wxchart{width:100%;height:auto;display:block}
+.wxchart text{font-size:12px;fill:var(--ink-2);font-variant-numeric:tabular-nums}.wxchart text.th{fill:var(--shu)}.wxchart text.tl{fill:var(--ai)}
+.wxleg{display:flex;gap:14px;margin:6px 0 0;font-size:12.5px;color:var(--ink-2)}
+.wxleg span::before{content:"";display:inline-block;width:14px;height:3px;border-radius:2px;margin-right:6px;vertical-align:middle;background:var(--ai)}
+.wxleg .hi::before{background:var(--shu)}
+.wxgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.wxcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.wxcard h3{margin:0;font-family:var(--f-display);font-size:19px}
+.wxcard .wxsts{grid-template-columns:repeat(3,1fr);gap:6px}.wxcard .wxst{padding:6px 8px}.wxcard .wxst b{font-size:18px}
+.wxfeel{margin:0;color:var(--ink-2);font-size:14px}
+.wxo{margin:0;font-size:14.5px;line-height:1.55}.wxo span{display:block;font-size:12px;color:var(--ink-2)}
+.wxcard .more{margin-top:auto;font-weight:700;color:var(--ai);text-decoration:none;font-size:14px}.wxcard .more i{font-style:normal}
+.wxtblw{overflow-x:auto}
+.wxtbl{border-collapse:collapse;width:100%;font-size:13.5px;background:var(--surface)}
+.wxtbl th,.wxtbl td{border:1px solid var(--line);padding:6px 6px;text-align:center;white-space:nowrap}
+.wxtbl a{text-decoration:none;color:var(--ink);display:block}
+.wxtbl td b{display:block;color:var(--shu)}.wxtbl td small{color:var(--ai)}
+.wxtbl tbody th{text-align:left}
+.wxrows td.o{text-align:left;white-space:normal;min-width:220px}
+.wxmemo{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px}.wxmemo dt{font-weight:700;color:var(--ink-2);font-size:13.5px}.wxmemo dd{margin:0;line-height:1.6}
+.wxlinks{display:flex;flex-wrap:wrap;gap:8px}.wxlinks i{font-style:normal}
+/*WXCSS_END*/
 footer{border-top:1px solid var(--line);color:var(--ink-2);font-size:12.5px}
 footer .wrap{padding-block:20px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}

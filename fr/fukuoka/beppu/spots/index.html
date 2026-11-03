@@ -34,14 +34,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=43cd0570">
+<link rel="stylesheet" href="/app.css?v=e2538e4c">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=43cd0570"><\/script><script src="'+B+'engine.js?v=43cd0570"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=e2538e4c"><\/script><script src="'+B+'engine.js?v=e2538e4c"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -62,6 +62,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=43cd0570"><\/s
       <a href="/fr/fukuoka/beppu/food/" data-view="food"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M4.5 3v5a2.5 2.5 0 005 0V3M7 11v10"></path><path d="M17 21V3c-2.2 1.2-3.5 3.6-3.5 6.5V13H17"></path></svg><span>Restaurants</span></a>
       <a href="/fr/fukuoka/beppu/transport/" data-view="transport"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="3"></rect><path d="M5 10h14M9 13.5h.01M15 13.5h.01M8 20l1.5-3M16 20l-1.5-3"></path></svg><span>Transports</span></a>
       <a href="/fr/fukuoka/beppu/shopping/" data-view="shopping"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 8V6.5a3 3 0 016 0V8"></path></svg><span>Shopping</span></a>
+      <a href="/fr/fukuoka/weather/" data-view="weather"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3.2"></circle><path d="M9 2.5v1.3M3.8 4.8l.9.9M2.5 9h1.3M14.2 4.8l-.9.9"></path><path d="M8 19.5h9.5a3.5 3.5 0 0 0 .3-7 5 5 0 0 0-9.4 1.3A2.9 2.9 0 0 0 8 19.5z"></path></svg><span>Météo</span></a>
       <a href="/fr/guide/etiquette/" data-view="guide"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"></rect><path d="M9 4V2.8h6V4M8.5 10.5l1.5 1.5 3-3M8.5 16l1.5 1.5 3-3M15 11h1.5M15 16.5h1.5"></path></svg><span>Préparatifs</span></a>
     </div></nav>
 </header>
@@ -72,7 +73,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=43cd0570"><\/s
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="Voir les régions précédentes" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="Sélectionner une zone"><button class="city" type="button" data-city="all" aria-pressed="false">Tout<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">Tokyo<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">Osaka<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="true">Fukuoka<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">Hokkaido<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">Okinawa<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">Nagoya<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">Hiroshima<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">Shikoku<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="Voir plus de régions" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="Sélectionner une sous-zone"><button class="area" type="button" data-area="hakata" aria-pressed="false">Gare de Hakata</button><button class="area" type="button" data-area="tenjin" aria-pressed="false">Tenjin·Daimyo</button><button class="area" type="button" data-area="nakasu" aria-pressed="false">Nakasu et Haruyoshi</button><button class="area" type="button" data-area="dazaifu" aria-pressed="false">Dazaifu</button><button class="area" type="button" data-area="itoshima" aria-pressed="false">Itoshima</button><button class="area" type="button" data-area="yufuin" aria-pressed="false">Yufuin</button><button class="area" type="button" data-area="beppu" aria-pressed="true">Beppu</button></div>
   <dl class="brief" id="brief"><div class="bw"><dt>Météo du jour à Beppu</dt>
-        <dd class="wxtime"><span class="jstclock">lun. 2 nov., 22:23</span> <small>Japon maintenant</small></dd>
+        <dd class="wxtime"><span class="jstclock">mar. 3 nov., 10:53</span> <small>Japon maintenant</small></dd>
         <dd class="wxnow"><span class="big">18°</span> <b>Température normale</b><span class="wxicon" aria-hidden="true">🌤️</span></dd>
         <dd class="sub wxline">Maximale normale · novembre</dd>
         <dd class="sub">Chargement de la météo en direct…</dd></div><div class="bspot"><dt>Top 3 : Sites à Beppu</dt><ol class="picks"><li><button type="button" class="pick" data-open="s_jigoku"><b>Beppu Hell Tour</b><em class="pm">Paysages·Nature</em><span class="pd">Kannawa</span></button></li><li><button type="button" class="pick" data-open="s_takegawara"><b>Takegawara Onsen</b><em class="pm">Histoire·Temples</em><span class="pd">Beppu</span></button></li><li><button type="button" class="pick" data-open="s_kannawa"><b>Kannawa Onsen · Yukemuri Observatory</b><em class="pm">Rues·Lieux</em><span class="pd">Kannawa</span></button></li></ol>
@@ -117,10 +118,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=43cd0570"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=43cd0570"></script>
-<script src="/autoreserve.js?v=43cd0570"></script>
-<script src="/google_picks.js?v=43cd0570"></script>
-<script src="/geo.js?v=43cd0570"></script>
-<script src="/app.js?v=43cd0570"></script>
+<script src="/areas.js?v=e2538e4c"></script>
+<script src="/autoreserve.js?v=e2538e4c"></script>
+<script src="/google_picks.js?v=e2538e4c"></script>
+<script src="/geo.js?v=e2538e4c"></script>
+<script src="/app.js?v=e2538e4c"></script>
 </body>
 </html>
