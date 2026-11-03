@@ -1052,7 +1052,7 @@ const SPOT_CAT = {heritage:{ko:"유적·사찰",c:"--shu"},nature:{ko:"풍경·�
 const FOOD_CAT = {ramen:"라멘",sea:"스시·해산물",local:"향토요리",street:"길거리·간식"};
 
 const SPOTS = [
- ["sensoji","tokyo","heritage","寺","센소지","浅草寺","도쿄에서 가장 오래된 사찰. 가미나리몬에서 본당까지 이어지는 나카미세 거리가 볼거리예요.","아사쿠사","아사쿠사역","이른 아침이나 저녁 라이트업 시간대가 한산해요."],
+ ["sensoji","tokyo","heritage","寺","센소지","浅草寺","도쿄에서 가장 오래된 사찰. 가미나리몬에서 본당까지 이어지는 나카미세 거리가 볼거리예요.","아사쿠사","아사쿠사역","이른 아침이나 저녁 라이트업 시간대가 한산해요. 가미나리몬 맞은편 아사쿠사 문화관광센터 8층 전망 테라스(무료)에서 나카미세와 센소지를 내려다볼 수 있어요."],
  ["meiji","tokyo","heritage","社","메이지 신궁","明治神宮","하라주쿠역 바로 옆, 울창한 숲속에 자리한 신사. 도심 한가운데서 조용히 걷기 좋아요.","하라주쿠","하라주쿠역 · 메이지진구마에역","다케시타 거리와 오모테산도를 묶어 반나절 코스로 잡아보세요."],
  ["skytree","tokyo","nature","塔","도쿄 스카이트리","東京スカイツリー","높이 634m 전파탑. 맑은 날에는 전망대에서 후지산까지 보여요.","오시아게","도쿄스카이트리역 · 오시아게역","해 질 무렵 입장하면 낮 풍경과 야경을 모두 볼 수 있어요."],
  ["shibuya","tokyo","street","街","시부야 스크램블 교차로","渋谷スクランブル交差点","신호 한 번에 사방에서 사람이 건너는 교차로. 주변 전망대에서 내려다보면 더 실감 나요.","시부야","시부야역","하치코 동상 앞은 늘 붐비니 약속 장소로는 피하세요."],
@@ -1265,7 +1265,7 @@ const AREA_ROUTE = {
 };
 /* 하위 지역별 관광지 추가분: [id, 지역, 하위 지역, 분류, 한자, 이름, 일본어, 설명, 위치, 가는 역, 팁] — 사진은 SPOT_WIKI 의 위키백과 문서에서 */
 const SPOTS_MORE = [
- ["s_tocho", "tokyo", "shinjuku", "nature", "望", "도쿄도청 전망실", "東京都庁展望室", "지상 202m 높이의 무료 전망대. 신주쿠 고층 빌딩가와 도쿄 시내를 한눈에 볼 수 있어요.", "니시신주쿠", "도초마에역", "맑은 겨울 아침엔 서쪽으로 후지산이 보여요."],
+ ["s_tocho", "tokyo", "shinjuku", "nature", "望", "도쿄도청 전망실", "東京都庁展望室", "지상 202m 높이의 무료 전망대. 신주쿠 고층 빌딩가와 도쿄 시내를 한눈에 볼 수 있어요.", "니시신주쿠", "도초마에역", "밤 7시부터 9시 30분까지 30분마다 청사 외벽에서 무료 프로젝션 매핑 쇼가 열려요. 맑은 겨울 아침엔 서쪽으로 후지산이 보여요."],
  ["s_omoide", "tokyo", "shinjuku", "street", "灯", "오모이데요코초", "思い出横丁", "신주쿠역 서쪽 출구 옆 좁은 골목에 작은 꼬치구이 집이 다닥다닥 붙어 있는 옛 거리.", "니시신주쿠", "신주쿠역 서쪽 출구", "가게가 좁아 2~3명이 가기 좋아요. 자릿세가 있는 곳도 있어요."],
  ["s_kabuki", "tokyo", "shinjuku", "street", "街", "가부키초 · 고질라 로드", "歌舞伎町", "네온사인이 가득한 번화가. 호텔 옥상에서 내려다보는 고질라 머리 조형물이 명물이에요.", "가부키초", "세이부신주쿠역 · 신주쿠역 동쪽 출구", "밤늦게 호객 행위가 많으니 따라가지 마세요."],
  ["s_shibuyasky", "tokyo", "shibuya", "nature", "空", "시부야 스카이", "SHIBUYA SKY", "시부야 스크램블 스퀘어 꼭대기의 야외 전망대. 스크램블 교차로를 바로 위에서 내려다봐요.", "시부야", "시부야역 직결", "해 질 무렵 시간대는 일찍 매진되니 온라인 예매가 좋아요."],
@@ -2517,7 +2517,7 @@ const SPOT_INFO = {
  otaru:F24,
  shuri:{f:[["park_free"],["paid_area",400]],h:[["8:00","18:30",0,[12,3]],["8:00","19:30",0,[4,6]],["8:00","20:30",0,[7,9]],["8:00","19:30",0,[10,11]]],hx:["paid30"],c:[{t:{ko:"7월 첫째 수요일과 다음 날",en:"First Wednesday of July and the next day",ja:"7月第1水曜とその翌日",es:"Primer miércoles de julio y el día siguiente",fr:"Premier mercredi de juillet et le lendemain"}}]},
  kokusai:FS, churaumi:{f:[["adult",2180]],h:[["8:30","18:30","18:00"]],c:["none"]}, kouri:F24,
- s_tocho:{f:"F",h:[["9:30","21:30",0,0,"south"]],c:["irr"]},
+ s_tocho:{f:"F",h:[["9:30","22:00","21:30",0,"south"]],c:[{n:1,w:"tue"},{n:3,w:"tue"}],x:{ko:"남쪽 전망실 기준이에요. 북쪽 전망실은 둘째·넷째 월요일에 쉬어요.",en:"Hours shown are for the South Observatory; the North Observatory closes on the 2nd and 4th Mondays.",ja:"南展望室の情報です。北展望室は第2・第4月曜休室です。",es:"Datos del mirador sur; el mirador norte cierra el 2.º y 4.º lunes.",fr:"Informations de l'observatoire sud ; l'observatoire nord ferme les 2e et 4e lundis."}},
  s_omoide:FS, s_kabuki:F24,
  s_shibuyasky:{f:[["adult","2,600~"]],fx:["online","vary"],h:[["10:00","22:30","21:20"]],c:[{d:[[1,1],[1,1]]}]},
  s_yoyogi:F24,
@@ -2700,7 +2700,7 @@ const SIV = (()=>{
   closedNow:W("현재 휴관 중","Currently closed","現在休館中","Cerrado actualmente","Actuellement fermé")
  };
  const WD = {mon:W("월요일","Mondays","月曜","lunes","lundi"),tue:W("화요일","Tuesdays","火曜","martes","mardi"),wed:W("수요일","Wednesdays","水曜","miércoles","mercredi"),thu:W("목요일","Thursdays","木曜","jueves","jeudi"),fri:W("금요일","Fridays","金曜","viernes","vendredi")};
- const WD1 = {mon:W("월요일","Monday","月曜","lunes","lundi"),wed:W("수요일","Wednesday","水曜","miércoles","mercredi")};
+ const WD1 = {mon:W("월요일","Monday","月曜","lunes","lundi"),tue:W("화요일","Tuesday","火曜","martes","mardi"),wed:W("수요일","Wednesday","水曜","miércoles","mercredi")};
  const NEXT = W(" (공휴일이면 다음 날)"," (next day if a holiday)","（祝日の場合は翌日）"," (si es festivo, el día siguiente)"," (le lendemain si férié)");
  const NEXTWD = W(" (공휴일이면 다음 평일)"," (next weekday if a holiday)","（祝日の場合は翌平日）"," (si es festivo, el siguiente día laborable)"," (le jour ouvré suivant si férié)");
  const MON = {en:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],es:["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"],th:["ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค."],fr:["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc."]};

@@ -52,7 +52,7 @@ const SIV = (()=>{
   closedNow:W("현재 휴관 중","Currently closed","現在休館中","Cerrado actualmente","Actuellement fermé")
  };
  const WD = {mon:W("월요일","Mondays","月曜","lunes","lundi"),tue:W("화요일","Tuesdays","火曜","martes","mardi"),wed:W("수요일","Wednesdays","水曜","miércoles","mercredi"),thu:W("목요일","Thursdays","木曜","jueves","jeudi"),fri:W("금요일","Fridays","金曜","viernes","vendredi")};
- const WD1 = {mon:W("월요일","Monday","月曜","lunes","lundi"),wed:W("수요일","Wednesday","水曜","miércoles","mercredi")};
+ const WD1 = {mon:W("월요일","Monday","月曜","lunes","lundi"),tue:W("화요일","Tuesday","火曜","martes","mardi"),wed:W("수요일","Wednesday","水曜","miércoles","mercredi")};
  const NEXT = W(" (공휴일이면 다음 날)"," (next day if a holiday)","（祝日の場合は翌日）"," (si es festivo, el día siguiente)"," (le lendemain si férié)");
  const NEXTWD = W(" (공휴일이면 다음 평일)"," (next weekday if a holiday)","（祝日の場合は翌平日）"," (si es festivo, el siguiente día laborable)"," (le jour ouvré suivant si férié)");
  const MON = {en:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],es:["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"],th:["ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค."],fr:["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc."]};

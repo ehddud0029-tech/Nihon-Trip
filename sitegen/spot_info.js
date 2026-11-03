@@ -25,7 +25,7 @@ const SPOT_INFO = {
  otaru:F24,
  shuri:{f:[["park_free"],["paid_area",400]],h:[["8:00","18:30",0,[12,3]],["8:00","19:30",0,[4,6]],["8:00","20:30",0,[7,9]],["8:00","19:30",0,[10,11]]],hx:["paid30"],c:[{t:{ko:"7월 첫째 수요일과 다음 날",en:"First Wednesday of July and the next day",ja:"7月第1水曜とその翌日",es:"Primer miércoles de julio y el día siguiente",fr:"Premier mercredi de juillet et le lendemain"}}]},
  kokusai:FS, churaumi:{f:[["adult",2180]],h:[["8:30","18:30","18:00"]],c:["none"]}, kouri:F24,
- s_tocho:{f:"F",h:[["9:30","21:30",0,0,"south"]],c:["irr"]},
+ s_tocho:{f:"F",h:[["9:30","22:00","21:30",0,"south"]],c:[{n:1,w:"tue"},{n:3,w:"tue"}],x:{ko:"남쪽 전망실 기준이에요. 북쪽 전망실은 둘째·넷째 월요일에 쉬어요.",en:"Hours shown are for the South Observatory; the North Observatory closes on the 2nd and 4th Mondays.",ja:"南展望室の情報です。北展望室は第2・第4月曜休室です。",es:"Datos del mirador sur; el mirador norte cierra el 2.º y 4.º lunes.",fr:"Informations de l'observatoire sud ; l'observatoire nord ferme les 2e et 4e lundis."}},
  s_omoide:FS, s_kabuki:F24,
  s_shibuyasky:{f:[["adult","2,600~"]],fx:["online","vary"],h:[["10:00","22:30","21:20"]],c:[{d:[[1,1],[1,1]]}]},
  s_yoyogi:F24,

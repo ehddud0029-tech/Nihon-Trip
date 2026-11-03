@@ -88,6 +88,9 @@ def patch(s):
     s = block(s, '/*APMETA_BEGIN*/', '/*APMETA_END*/', META_JS, 'function setMeta(sel,val)')
     for a, b in R:
         if b in s: continue
+        add = b.replace(a, '', 1).strip() if a in b else ''
+        if add and add.split('\n')[0][:60] in s: continue   # 이미 넣은 줄 (다른 패치가 주변을 바꿨어도)
+        if s.count(a) == 0: continue   # 이미 다른 패치가 이 줄을 바꿨어요
         assert s.count(a) == 1, (a[:60], s.count(a))
         s = s.replace(a, b)
     return s
