@@ -46,6 +46,8 @@
 - 공항에서 시내 가는 법 페이지(`airport/`, `airport/<공항>/`, `airport/<공항>/<지역>/`): 경로는 사이트의 TO_AREA를 그대로 쓰고, 공항 목록(APS)과 화면은 `sitegen/airport_view.js`, 붙이는 스크립트는 `i18n_work/patch_airport.py` (html과 backup pre에 같이 적용). 교통 화면에도 공항 링크가 붙어요. 번역은 tr_38·zh_38·th_38. 사이트 TO_AREA에 없는 다른 방법은 airport_view.js의 AP_EXTRA(번역 tr_39·zh_40·th_40), 요금은 고정값 대신 구글 지도 대중교통 길찾기 링크(APJ 공항 일본어 이름)로 보여줘요.
 - 추가 추천 일정 10개는 `i18n_work/itin_more.py` (7개 언어 문구를 한곳에), `itin_emit.py`가 합쳐서 itin_data.js·tr_27과 zh_39·th_39를 만들어요. 그다음 html·pre의 `const ITIN =` 줄을 itin_data.js로 바꿔요 (region_inject.py도 같은 일을 해요).
 
+- 모바일 하단 탭바 색(--bar)·선택 표시·날씨 탭, 긴 이름 언어(영·스·프·태)는 가로 스크롤: `i18n_work/patch_tabbar.py` (html과 backup pre에 같이 적용).
+
 ## 배포
 ```
 python3 /home/claude/deploy.py "변경 내용" --trailer "Co-Authored-By: ..."

@@ -315,7 +315,8 @@ html:not(:lang(ko)):not(:lang(ja)) nav.tabs a{font-size:9.5px;letter-spacing:-.0
 nav.tabs a i{font-style:normal;line-height:0;height:22px;display:grid;place-items:center}
 nav.tabs a i svg{width:21px;height:21px}
 nav.tabs a[aria-current="page"]{color:var(--shu);font-weight:600}
-@media (min-width:600px){nav.tabs{display:none}}
+/*TABBAR*/:root{--bar:#E9EDF4;--bar-line:#C3CCDA}@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bar:#27324A;--bar-line:#3E4C66}}:root[data-theme="dark"]{--bar:#27324A;--bar-line:#3E4C66}nav.tabs{background:var(--bar);border-top:1px solid var(--bar-line);box-shadow:0 -6px 18px rgba(0,0,0,.18);grid-template-columns:repeat(10,minmax(0,1fr))}nav.tabs a{color:var(--ink);opacity:.78;min-width:0;overflow:hidden}nav.tabs a[aria-current="page"]{opacity:1;color:var(--shu)}nav.tabs a[aria-current="page"] i{background:var(--surface);border-radius:999px;width:42px;box-shadow:0 1px 3px rgba(0,0,0,.18)}
+html:not(:lang(ko)):not(:lang(ja)):not(:lang(zh-Hans)):not(:lang(zh-Hant)) nav.tabs{display:flex;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}html:not(:lang(ko)):not(:lang(ja)):not(:lang(zh-Hans)):not(:lang(zh-Hant)) nav.tabs::-webkit-scrollbar{display:none}html:not(:lang(ko)):not(:lang(ja)):not(:lang(zh-Hans)):not(:lang(zh-Hant)) nav.tabs a{flex:1 0 auto;padding:8px 9px 6px;font-size:10.5px;overflow:visible;text-overflow:clip}@media (min-width:600px){nav.tabs{display:none}}
 
 /* drawer */
 .scrim{position:fixed;inset:0;background:rgba(10,14,20,.45);z-index:40}
@@ -971,6 +972,7 @@ body.is-itin .hero{display:none}
   <a href="#food" data-view="food"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 12h17c0 4.4-3.6 8-8 8h-1c-4.4 0-8-3.6-8-8z"/><path d="M8 20.5h8M14 3 9.5 11M19 4l-6.5 7.5"/></svg></i>맛집</a>
   <a href="#transport" data-view="transport"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="3.5" width="12" height="13" rx="3"/><path d="M6 10h12M9.5 13.5h.01M14.5 13.5h.01M9 16.5 7 20.5M15 16.5l2 4"/></svg></i>교통</a>
   <a href="#shopping" data-view="shopping"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"/><path d="M9 10V6.5a3 3 0 0 1 6 0V10"/></svg></i>쇼핑</a>
+  <a href="#weather" data-view="weather"><i><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3.2"/><path d="M9 2.5v1.3M3.8 4.8l.9.9M2.5 9h1.3M14.2 4.8l-.9.9"/><path d="M8 19.5h9.5a3.5 3.5 0 0 0 .3-7 5 5 0 0 0-9.4 1.3A2.9 2.9 0 0 0 8 19.5z"/></svg></i>날씨</a>
   <a href="#guide" data-view="guide"><i><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.8h6V4M8.5 10.5l1.5 1.5 3-3M8.5 16l1.5 1.5 3-3M15 11h1.5M15 16.5h1.5"/></svg></i>준비</a>
 </nav>
 
@@ -2127,6 +2129,7 @@ function setNav(){
     if(a.dataset.view===st.view) a.setAttribute("aria-current","page");
   });
   $("#savedN").textContent = saved.length;
+  const tb=document.querySelector("nav.tabs"), ta=tb&&tb.querySelector("a[aria-current]"); if(tb&&ta&&tb.scrollWidth>tb.clientWidth) tb.scrollLeft=ta.offsetLeft-(tb.clientWidth-ta.offsetWidth)/2;
 }
 
 /* cards */
