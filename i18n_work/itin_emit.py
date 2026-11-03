@@ -2,7 +2,8 @@ import json,sys
 sys.path.insert(0,'.')
 from itin_data import COURSES, UI
 from region_more import COURSES_ADD
-COURSES = COURSES + COURSES_ADD
+import itin_more
+COURSES = COURSES + COURSES_ADD + itin_more.COURSES_MORE
 rows={}
 def k(t):
     assert len(t)==5 and all(t), t
@@ -14,4 +15,6 @@ for c in COURSES:
 for u in UI: k(u)
 open('tr_27.tsv','w',encoding='utf-8').write(''.join('\t'.join(r)+'\n' for r in rows.values()))
 open('/home/claude/sitegen/itin_data.js','w',encoding='utf-8').write('const ITIN = '+json.dumps(out,ensure_ascii=False)+';\n')
+open('zh_39.tsv','w',encoding='utf-8').write(''.join(f'{k}\t{v}\n' for k,v in itin_more.ZH.items()))
+open('th_39.tsv','w',encoding='utf-8').write(''.join(f'{k}\t{v}\n' for k,v in itin_more.TH.items()))
 print(len(out),'courses',len(rows),'rows')

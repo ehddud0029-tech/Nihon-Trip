@@ -43,6 +43,9 @@
 
 - 월별 날씨·옷차림 페이지(`weather/`, `weather/<월>/`, `<도시>/weather/`, `<도시>/weather/<월>/`): 화면 코드와 기상청 평년값(1991~2020) 데이터는 `sitegen/weather_view.js`, 붙이는 스크립트는 `i18n_work/patch_weather.py` (html과 backup pre에 같이 적용, 다시 돌리면 블록만 교체). 옷차림·준비물 문장은 기온·강수량 규칙으로 골라요. 번역은 tr_37·zh_37·th_37, 문장 틀은 tpl.tsv 맨 앞 5줄.
 
+- 공항에서 시내 가는 법 페이지(`airport/`, `airport/<공항>/`, `airport/<공항>/<지역>/`): 경로는 사이트의 TO_AREA를 그대로 쓰고, 공항 목록(APS)과 화면은 `sitegen/airport_view.js`, 붙이는 스크립트는 `i18n_work/patch_airport.py` (html과 backup pre에 같이 적용). 교통 화면에도 공항 링크가 붙어요. 번역은 tr_38·zh_38·th_38.
+- 추가 추천 일정 10개는 `i18n_work/itin_more.py` (7개 언어 문구를 한곳에), `itin_emit.py`가 합쳐서 itin_data.js·tr_27과 zh_39·th_39를 만들어요. 그다음 html·pre의 `const ITIN =` 줄을 itin_data.js로 바꿔요 (region_inject.py도 같은 일을 해요).
+
 ## 배포
 ```
 python3 /home/claude/deploy.py "변경 내용" --trailer "Co-Authored-By: ..."
