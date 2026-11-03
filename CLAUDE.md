@@ -41,6 +41,8 @@
 - 장소 페이지 검색 제목·설명(`pageMeta()`): 관광지는 동네(it.area)와 입장료·운영 시간·가는 길, 쇼핑은 가는 길과 추천 쇼핑 목록을 넣어요. `i18n_work/patch_placemeta.py` (html과 backup pre 파일에 같이 적용).
 - 후지산·가와구치코(도쿄 아래)와 교토 5개 지역 나누기: `i18n_work/region_fuji_kyoto.py` (region_inject.py가 읽음). 새 교토 지역(kyotoeki·arashiyama·nanzenji·uji)과 fuji는 AutoReserve 목록 대신 구글 지도 기준 추천 가게(`i18n_work/gp_add.py`, AR_SLUG 값이 `gp/…`)를 보여줘요. 가게 이름은 arnames_5.tsv, 메뉴·특징 번역은 tr_35·zh_35 (region_inject.py가 만듦).
 
+- 월별 날씨·옷차림 페이지(`weather/`, `weather/<월>/`, `<도시>/weather/`, `<도시>/weather/<월>/`): 화면 코드와 기상청 평년값(1991~2020) 데이터는 `sitegen/weather_view.js`, 붙이는 스크립트는 `i18n_work/patch_weather.py` (html과 backup pre에 같이 적용, 다시 돌리면 블록만 교체). 옷차림·준비물 문장은 기온·강수량 규칙으로 골라요. 번역은 tr_37·zh_37·th_37, 문장 틀은 tpl.tsv 맨 앞 5줄.
+
 ## 배포
 ```
 python3 /home/claude/deploy.py "변경 내용" --trailer "Co-Authored-By: ..."

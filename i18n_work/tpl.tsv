@@ -1,3 +1,8 @@
+일본 {n}월 날씨와 옷차림	Japan Weather in {MC0} & What to Wear	日本の{0}月の天気と服装	El tiempo en Japón en {M0} y qué ropa llevar	Météo au Japon en {M0} et tenue conseillée
+{x} {n}월 날씨와 옷차림	{0} Weather in {MC1} & What to Wear	{0}の{1}月の天気と服装	El tiempo en {0} en {M1} y qué ropa llevar	Météo à {0} en {M1} et tenue conseillée
+{x} 월별 날씨와 옷차림	{0} Weather by Month & What to Wear	{0}の月別の天気と服装	El tiempo en {0} mes a mes y qué ropa llevar	Météo à {0} mois par mois et tenue conseillée
+도시별 {n}월 날씨	Weather by city in {MC0}	都市別の{0}月の天気	El tiempo por ciudad en {M0}	Météo par ville en {M0}
+{n}월 축제 보기	See festivals in {MC0}	{0}月の祭りを見る	Ver festivales de {M0}	Voir les fêtes de {M0}
 {x} {x}의 {x}, 풍경, 거리 명소 {n}곳	{2}, scenery & street sights in {1}, {0} · {3} {3?spot|spots}	{0} {1}の{2}・風景・街並みの名所 {3}か所	{2}, paisajes y calles en {1} ({0}) · {3} {3?lugar|lugares}	{2}, paysages et rues à {1} ({0}) · {3} {3?lieu|lieux}
 {x} 관광지는 아직 준비 중이라 {x} 전체를 보여드려요 · {x}의 {x}, 풍경, 거리 명소 {n}곳	Sights for {0} are still being prepared, so all of {1} is shown · {3}, scenery & street sights in {2} · {4} {4?spot|spots}	{0}の観光地はまだ準備中のため{1}全体を表示しています · {2}の{3}・風景・街並みの名所 {4}か所	Los lugares de {0} aún se están preparando, así que se muestra todo {1} · {3}, paisajes y calles en {2} · {4} {4?lugar|lugares}	Les sites de {0} sont en préparation : tout {1} est affiché · {3}, paysages et rues à {2} · {4} {4?lieu|lieux}
 {n}월에 등록된 {x} {x} 행사가 없어요. 위에서 다른 달을 골라보세요.	No events are listed for {2}, {1} in {MC0}. Try another month above.	{0}月に登録された{1} {2}のイベントはありません。上で別の月を選んでください。	No hay eventos registrados en {2} ({1}) en {M0}. Elige otro mes arriba.	Aucun événement à {2} ({1}) en {M0}. Choisissez un autre mois ci-dessus.

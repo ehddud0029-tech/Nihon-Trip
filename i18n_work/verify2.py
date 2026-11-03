@@ -38,6 +38,7 @@ for(const pass of [0,1]){
  for(const g of GKEYS){ st.view="guide"; st.gsec=g; await R(); }
  for(const x of ALL.filter(x=>PLACE_TYPES.includes(x.type))){ st.view="place"; st.place=x.id; await R(); }
  for(const v of ["about","contact","privacy"]){ st.view=v; await R(); }
+ for(const c of ["all",...WX_ORDER]) for(let m=0;m<=12;m++){ st.view="weather"; st.city=c; st.wm=m; await R(); }
  st.view="map"; st.city="all"; await R(); for(const c of Object.keys(CITIES)){ st.city=c; await R(); }
  // language menu
  document.querySelector('#langBtn').click(); await tick(); grab(); document.body.click();
