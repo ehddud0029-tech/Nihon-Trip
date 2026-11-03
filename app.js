@@ -1157,6 +1157,7 @@ function setNav(){
     if(a.dataset.view===st.view) a.setAttribute("aria-current","page");
   });
   $("#savedN").textContent = saved.length;
+  const tb=document.querySelector("nav.tabs"), ta=tb&&tb.querySelector("a[aria-current]"); if(tb&&ta&&tb.scrollWidth>tb.clientWidth) tb.scrollLeft=ta.offsetLeft-(tb.clientWidth-ta.offsetWidth)/2;
 }
 
 /* cards */
