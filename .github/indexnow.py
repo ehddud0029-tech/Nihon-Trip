@@ -13,6 +13,18 @@ for line in out.split('\n'):
         continue
     elif cur and line[:1] in '+-' and not ver.search(line):
         changed.add(cur)
+# GitHub Pages에 이번 버전이 올라갈 때까지 기다려요 (build.txt 비교, 최대 20분)
+import time
+want = open('build.txt').read().strip()
+for _ in range(80):
+    try:
+        with urllib.request.urlopen(f'{origin}/build.txt?t={time.time()}', timeout=20) as r:
+            if r.read().decode().strip() == want: print('live:', want); break
+    except Exception as e:
+        pass
+    time.sleep(15)
+else:
+    print('new version not live yet; giving up'); raise SystemExit
 if os.path.exists('.github/indexnow_full'):   # 한 번 전체 제출 (배포할 때 INDEXNOW_FULL=1)
     changed = set(subprocess.run(['git', 'ls-files', '*index.html'], capture_output=True, text=True).stdout.split())
 urls = []
