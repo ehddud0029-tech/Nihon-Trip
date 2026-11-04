@@ -55,6 +55,10 @@
 
 - AI·검색 인용용: 날씨(도시·월)·공항 경로 페이지의 "자주 묻는 질문"(FAQPage 마이크로데이터)과 이동 경로(BreadcrumbList)는 weather_view.js·airport_view.js, 추천 일정 상세의 TouristTrip 마이크로데이터는 `i18n_work/patch_aio.py`. 번역 tr_41·zh_42·th_42, 문장 틀은 tpl.tsv 맨 앞. gen.py가 `llms.txt`(AI용 사이트 안내)와 IndexNow 키 파일(`<INDEXNOW_KEY>.txt`), `.github/workflows/indexnow.yml`(main에 올라가면 실제로 바뀐 페이지만 IndexNow로 알림)을 만들어요. region_inject 뒤에는 patch_aio.py도 다시 돌려 주세요.
 
+## 수정 전·후 비교 (사용자 요청: 사이트를 고치면 항상 보여주기)
+- 화면이 바뀌는 수정을 하면 배포 전에 `python3 sitegen/compare.py <이름> <언어:주소> ... [--mobile] [--ref main]`로 비교 이미지를 만들어 사용자에게 보내요 (왼쪽 수정 전 = 배포된 main, 오른쪽 수정 후 = 작업 공간 원본). 결과는 `sitegen/compare_out/<이름>_<번호>.png`.
+- 바뀐 페이지의 대표 주소 1~3개를 고르고, 모바일 화면이 바뀌면 `--mobile`도 같이 만들어요.
+
 ## 배포
 ```
 python3 /home/claude/deploy.py "변경 내용" --trailer "Co-Authored-By: ..."
