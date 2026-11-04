@@ -61,9 +61,18 @@ function wxFestLink(c,m){ return c==="all"
   : `<a class="btn ghost" href="${ROUTED?window.NT_BASE+LPRE+`${c}/${areasOf(c)[0].key}/festivals/`:"#festivals"}" data-wxfest="${c}" data-m="${m}">${m}월 축제 보기<i> →</i></a>`; }
 const WX_SRC = `<p class="sisrc">기상청 평년값(1991~2020년) 기준이에요. 그해 날씨에 따라 다를 수 있어요.</p><p class="sisrc">홋카이도는 삿포로, 오키나와는 나하, 시코쿠는 다카마쓰 관측값이에요.</p>`;
 function wxMemo(m){ const mm=(typeof MONTH_MOOD!=="undefined"&&MONTH_MOOD[m-1])||[]; return mm.length?`<div class="gblk"><h4>${m}월 여행 메모</h4><dl class="wxmemo">${mm.map(r=>`<dt>${esc(r[0])}</dt><dd>${esc(r[1])}</dd>`).join("")}</dl></div>`:""; }
+function wxFaq(c,m){
+  const d=wxData(c,m), ex=wxExtras(c,m), n=esc(CITIES[c].ko);
+  const qa=(q,a)=>`<div class="faqi" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">${q}</dt><dd itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">${a}</div></dd></div>`;
+  return `<section class="gblk faq" itemscope itemtype="https://schema.org/FAQPage"><h4>자주 묻는 질문</h4><dl>
+   ${qa(`${n} ${m}월 날씨는 어떤가요?`, `<span>${esc(wxFeel(c,m))}</span> <span>평균 최고기온은 ${d.hi}°, 최저기온은 ${d.lo}°이고 한 달 강수량은 ${d.pr}mm예요.</span>`)}
+   ${qa(`${n} ${m}월에는 뭘 입으면 좋을까요?`, `<span>${esc(wxOutfit(c,m))}</span>.${ex.slice(0,2).map(x=>` <span>${esc(x)}</span>`).join("")}`)}
+  </dl></section>`;
+}
 V.weather = function(){
   const c = WXN[st.city] ? st.city : "all", m = st.wm>=1&&st.wm<=12 ? st.wm : 0;
-  const crumb = `<nav class="wxcrumb">${wxA("all",0,"일본 월별 날씨와 옷차림")}${c!=="all"?` <i>›</i> ${wxA(c,0,esc(CITIES[c].ko))}`:""}</nav>`;
+  const bc=(i,h)=>`<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${h.replace("<a ",'<a itemprop="item" ').replace(/>([^<]*)<\/a>$/,'><span itemprop="name">$1</span></a>')}<meta itemprop="position" content="${i}"></span>`;
+  const crumb = `<nav class="wxcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">${bc(1,wxA("all",0,"일본 월별 날씨와 옷차림"))}${c!=="all"?` <i>›</i> ${bc(2,wxA(c,0,esc(CITIES[c].ko)))}`:""}</nav>`;
   if(c==="all" && !m){
     return `<div class="wx">
      <div class="ghead"><h2>일본 월별 날씨와 옷차림</h2><p>도시와 달을 고르면 평균 기온, 강수량, 추천 옷차림을 볼 수 있어요.</p></div>
@@ -109,6 +118,7 @@ V.weather = function(){
    </div>
    <h3 class="sgh"><span>다른 달 보기</span></h3>${wxMonths(c,m)}
    <h3 class="sgh"><span>다른 도시 보기</span></h3>${wxCities(c,m)}
+   ${wxFaq(c,m)}
    ${wxMemo(m)}
    <div class="wxlinks">${wxFestLink(c,m)}${wxA("all",m,`일본 ${m}월 날씨와 옷차림<i> →</i>`,"btn ghost")}</div>
    ${WX_SRC}

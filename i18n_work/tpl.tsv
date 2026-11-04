@@ -1,3 +1,8 @@
+{x} {n}월 날씨는 어떤가요?	What's the weather like in {0} in {M1}?	{0}の{1}月の天気はどうですか？	¿Qué tiempo hace en {0} en {M1}?	Quel temps fait-il à {0} en {M1} ?
+{x} {n}월에는 뭘 입으면 좋을까요?	What should I wear in {0} in {M1}?	{0}の{1}月は何を着ればいいですか？	¿Qué ropa llevar a {0} en {M1}?	Comment s'habiller à {0} en {M1} ?
+평균 최고기온은 {x}°, 최저기온은 {x}°이고 한 달 강수량은 {x}mm예요.	The average high is {0}°C and the low {1}°C, with {2} mm of rain in the month.	平均最高気温は{0}℃、最低気温は{1}℃で、月間降水量は{2}mmです。	La máxima media es de {0} °C y la mínima de {1} °C, con {2} mm de lluvia al mes.	La maximale moyenne est de {0} °C et la minimale de {1} °C, avec {2} mm de pluie sur le mois.
+{x}에서 {x}까지 어떻게 가나요?	How do I get from {0} to {1}?	{0}から{1}へはどう行けばいいですか？	¿Cómo ir de {0} a {1}?	Comment aller de {0} à {1} ?
+{x}에서 {x}까지 얼마나 걸리나요?	How long does it take from {0} to {1}?	{0}から{1}まではどのくらいかかりますか？	¿Cuánto se tarda de {0} a {1}?	Combien de temps de {0} à {1} ?
 {x}에서 시내 가는 법	From {0} to the City	{0}から市内への行き方	{0}: cómo llegar al centro	{0} : comment rejoindre le centre
 {x}에서 {x} 가는 법	How to Get from {0} to {1}	{0}から{1}への行き方	{0} → {1}: cómo llegar	{0} → {1} : comment y aller
 가장 빠른 방법은 {x} 걸려요.	Fastest option: {0}.	最速の方法で{0}です。	Opción más rápida: {0}.	Option la plus rapide : {0}.

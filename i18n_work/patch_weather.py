@@ -41,6 +41,7 @@ body.is-wx .hero{display:none}
 .wxtbl tbody th{text-align:left}
 .wxrows td.o{text-align:left;white-space:normal;min-width:220px}
 .wxmemo{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px}.wxmemo dt{font-weight:700;color:var(--ink-2);font-size:13.5px}.wxmemo dd{margin:0;line-height:1.6}
+.faq dl{margin:0;display:flex;flex-direction:column;gap:14px}.faq dt{font-weight:700;font-size:15.5px;margin:0 0 4px}.faq dd{margin:0;line-height:1.65;color:var(--ink)}.faqo{display:inline}
 .wxlinks{display:flex;flex-wrap:wrap;gap:8px}.wxlinks i{font-style:normal}
 /*WXCSS_END*/
 """

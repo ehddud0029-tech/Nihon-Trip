@@ -53,6 +53,8 @@
 
 - 사이트 아이콘 파일(favicon.ico·icon-*.png, 네이버 검색 결과 아이콘용)은 `sitegen/icons/` (`make_icons.py`로 다시 생성), gen.py가 dist 맨 위로 복사해요. 네이버 서치어드바이저용 RSS(`rss.xml`, 한국어 일정·날씨·공항·여행 준비·축제 달력 페이지)는 gen.py의 `write_rss()`가 만들어요.
 
+- AI·검색 인용용: 날씨(도시·월)·공항 경로 페이지의 "자주 묻는 질문"(FAQPage 마이크로데이터)과 이동 경로(BreadcrumbList)는 weather_view.js·airport_view.js, 추천 일정 상세의 TouristTrip 마이크로데이터는 `i18n_work/patch_aio.py`. 번역 tr_41·zh_42·th_42, 문장 틀은 tpl.tsv 맨 앞. gen.py가 `llms.txt`(AI용 사이트 안내)와 IndexNow 키 파일(`<INDEXNOW_KEY>.txt`), `.github/workflows/indexnow.yml`(main에 올라가면 실제로 바뀐 페이지만 IndexNow로 알림)을 만들어요. region_inject 뒤에는 patch_aio.py도 다시 돌려 주세요.
+
 ## 배포
 ```
 python3 /home/claude/deploy.py "변경 내용" --trailer "Co-Authored-By: ..."

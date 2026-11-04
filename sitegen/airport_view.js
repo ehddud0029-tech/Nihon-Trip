@@ -51,9 +51,19 @@ function apIC(r){
 }
 const AP_NOTE = `<p class="sisrc">걸리는 시간은 대략적인 값이에요. 시간표와 요금은 출발 전에 공식 사이트에서 확인하세요.</p>`;
 function apChips(list,cur){ return `<div class="wxmon">${list.map(a=>apA(a,"",esc(apName(a)),a===cur?"on":"")).join("")}</div>`; }
+function apFaq(a,k,opts,r){
+  const A=AREA[k], an=esc(apName(a)), kn=esc(A.ko), c=CITIES[r];
+  const qa=(q,x)=>`<div class="faqi" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">${q}</dt><dd itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">${x}</div></dd></div>`;
+  return `<section class="gblk faq" itemscope itemtype="https://schema.org/FAQPage"><h4>자주 묻는 질문</h4><dl>
+   ${qa(`${an}에서 ${kn}까지 어떻게 가나요?`, opts.map(o=>`<span class="faqo">${o.map(x=>`<span>${x.line}</span>`).join(" → ")} · <span>${apMin(apSum(o))}</span></span>`).join(" / "))}
+   ${qa(`${an}에서 ${kn}까지 얼마나 걸리나요?`, `<span>가장 빠른 방법은 ${apMin(apSum(opts[0]))} 걸려요.</span>`)}
+   ${c?qa(`교통카드는 어디서 사나요?`, `<span>${esc(c.ic)}</span>${ICBUY[r]?` · <span>${esc(ICBUY[r])}</span>`:""}`):""}
+  </dl></section>`;
+}
 V.airport = function(){
   const a = APS[st.ap] ? st.ap : "", k = a && st.apk && apOpts(a,st.apk).length ? st.apk : "";
-  const crumb = `<nav class="wxcrumb">${apA("","","일본 공항에서 시내 가는 법")}${a&&k?` <i>›</i> ${apA(a,"",esc(apName(a)))}`:""}</nav>`;
+  const bc=(i,h)=>`<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${h.replace("<a ",'<a itemprop="item" ').replace(/>([^<]*)<\/a>$/,'><span itemprop="name">$1</span></a>')}<meta itemprop="position" content="${i}"></span>`;
+  const crumb = `<nav class="wxcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">${bc(1,apA("","","일본 공항에서 시내 가는 법"))}${a&&k?` <i>›</i> ${bc(2,apA(a,"",esc(apName(a))))}`:""}</nav>`;
   if(!a){
     return `<div class="wx">
      <div class="ghead"><h2>일본 공항에서 시내 가는 법</h2><p>공항을 고르면 시내와 관광지까지 가는 기차·버스와 걸리는 시간을 볼 수 있어요.</p></div>
@@ -82,6 +92,7 @@ V.airport = function(){
    <div class="apopts">${opts.map((o,i)=>`<div class="gblk apopt">${i===0&&opts.length>1?`<span class="apbest">가장 빨라요</span>`:""}${apSteps(o)}</div>`).join("")}</div>
    <div class="wxlinks"><a class="btn ghost" href="${apGmap(a,k)}" target="_blank" rel="noopener">구글 지도에서 실시간 요금·시간표 보기 ↗</a></div>
    ${apIC(r)}
+   ${apFaq(a,k,opts,r)}
    ${sights.length?`<div class="gblk"><h4>도착해서 가 볼 곳</h4><div class="aplinks">${sights.map(x=>`<a href="${placeHref(x.id)}" data-open="${x.id}">${esc(x.name)}</a>`).join("")}</div></div>`:""}
    ${others.length?`<h3 class="sgh"><span>다른 공항에서 가기</span></h3><div class="wxmon">${others.map(x=>apA(x,k,esc(apName(x)))).join("")}</div>`:""}
    <h3 class="sgh"><span>같은 공항에서 갈 수 있는 곳</span></h3>

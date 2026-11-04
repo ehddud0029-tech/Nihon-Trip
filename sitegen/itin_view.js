@@ -32,10 +32,10 @@ V.itin = function(){
     </div>`;
   }
   const others = ITIN.filter(x=>x.city===c.city && x.key!==c.key);
-  return `<div class="itin">
+  return `<div class="itin" itemscope itemtype="https://schema.org/TouristTrip">
    <a class="iback" href="${itinHref("")}" data-itin=""><i>← </i>전체 일정</a>
-   <div class="ghead"><div class="ich"><span class="inb${c.n===0?" day":""}">${esc(nightsLabel(c.n))}</span><span class="ist">${esc(CITIES[c.city].ko)}</span></div><h2>${esc(c.title)}</h2><p>${esc(c.sum)}</p></div>
-   <ol class="idays">${c.plan.map((d,i)=>`<li class="iday"><div class="idh"><span class="idn">${esc(dayLabel(i+1))}</span><h3>${esc(d.t)}</h3></div><ol class="istops">${d.s.map(itinStop).join("")}</ol></li>`).join("")}</ol>
+   <div class="ghead"><div class="ich"><span class="inb${c.n===0?" day":""}">${esc(nightsLabel(c.n))}</span><span class="ist">${esc(CITIES[c.city].ko)}</span></div><h2 itemprop="name">${esc(c.title)}</h2><p itemprop="description">${esc(c.sum)}</p></div>
+   <ol class="idays" itemprop="itinerary" itemscope itemtype="https://schema.org/ItemList">${c.plan.map((d,i)=>`<li class="iday" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><meta itemprop="position" content="${i+1}"><div class="idh"><span class="idn">${esc(dayLabel(i+1))}</span><h3 itemprop="name">${esc(d.t)}</h3></div><ol class="istops">${d.s.map(itinStop).join("")}</ol></li>`).join("")}</ol>
    ${c.tips.length?`<div class="gblk"><h4><span class="gbi">${gsvg("list")}</span>일정 팁</h4><ul class="gul">${c.tips.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></div>`:""}
    <p class="sisrc">2026년 10월 기준 · 요금과 시간은 바뀔 수 있으니 방문 전에 공식 사이트에서 확인하세요.</p>
    ${others.length?`<div class="gmore"><h4>다른 일정</h4><div>${others.map(o=>`<a href="${itinHref(o.key)}" data-itin="${o.key}"><span>${esc(o.title)}</span> →</a>`).join("")}</div></div>`:""}

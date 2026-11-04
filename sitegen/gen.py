@@ -140,6 +140,7 @@ def write_rss(meta):
     from xml.sax.saxutils import escape
     import email.utils, time
     now = email.utils.formatdate(time.time(), localtime=False)
+    meta = {p: v for (l, p), v in meta.items() if l == 'ko'}
     items = [p for p in meta if any(p.startswith(x) for x in RSS_PREFIX)]
     items.sort(key=lambda p: (p.count('/'), p))
     x = ['<?xml version="1.0" encoding="UTF-8"?>', '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">', '<channel>',
@@ -153,6 +154,82 @@ def write_rss(meta):
     x += ['</channel>', '</rss>', '']
     open(f'{OUT}/rss.xml', 'w', encoding='utf-8').write('\n'.join(x))
     print('rss items', len(items))
+
+
+INDEXNOW_KEY = '3df7fdd9ec42d1ae624f94732c4f09cf'   # IndexNow 키 (공개 값). 키 파일은 사이트 맨 위 <키>.txt
+
+def write_llms(meta):
+    """AI용 사이트 안내 (llms.txt): 사이트 소개와 주요 페이지 목록"""
+    def sec(title, prefix, lang='en', depth=None):
+        ps = sorted(p for (l, p) in meta if l == lang and p.startswith(prefix) and (depth is None or p.count('/') == depth))
+        lp = '' if lang == 'ko' else lang + '/'
+        return [f'## {title}', ''] + [f'- [{meta[(lang, p)][0].replace(" | Go Nihon Trip", "")}]({ORIGIN}{BASE}{lp}{p}): {meta[(lang, p)][1]}' for p in ps] + ['']
+    x = ['# Go Nihon Trip', '',
+         '> Japan travel guide organized by region: sights, festivals, restaurants, shopping, transport, airport-to-city routes, '
+         'monthly weather and what to wear, and day-by-day itineraries for Tokyo, Osaka/Kyoto/Nara/Kobe, Nagoya, Hiroshima, Shikoku, '
+         'Fukuoka, Hokkaido and Okinawa. Available in Korean (default, /), English (/en/), Japanese (/ja/), Simplified Chinese (/zh/), '
+         'Traditional Chinese (/tw/), Thai (/th/), Spanish (/es/) and French (/fr/). Admission fees and hours were compiled from official '
+         'sources (as of October 2026); weather figures are Japan Meteorological Agency normals (1991–2020).', '']
+    x += sec('Suggested itineraries', 'itinerary/')
+    x += sec('Airport to city', 'airport/')
+    x += sec('Weather and what to wear by month (all of Japan)', 'weather/')
+    x += sec('Travel preparation', 'guide/')
+    x += ['## Other', '', f'- [Sitemap]({ORIGIN}{BASE}sitemap.xml): all pages in all languages', f'- [About]({ORIGIN}{BASE}en/about/): sources and contact', '']
+    open(f'{OUT}/llms.txt', 'w', encoding='utf-8').write('\n'.join(x))
+    print('llms.txt lines', len(x))
+
+def write_indexnow():
+    """IndexNow 키 파일과, main에 올라갈 때 바뀐 페이지를 빙 등에 알리는 GitHub Actions"""
+    open(f'{OUT}/{INDEXNOW_KEY}.txt', 'w').write(INDEXNOW_KEY)
+    os.makedirs(f'{OUT}/.github/workflows', exist_ok=True)
+    open(f'{OUT}/.github/workflows/indexnow.yml', 'w').write(f"""name: IndexNow
+on:
+  push:
+    branches: [main]
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Send changed pages to IndexNow
+        run: python3 .github/indexnow.py
+        env:
+          INDEXNOW_KEY: {INDEXNOW_KEY}
+          SITE_ORIGIN: {ORIGIN}
+""")
+    open(f'{OUT}/.github/indexnow.py', 'w').write(INDEXNOW_PY)
+
+INDEXNOW_PY = r'''# 바뀐 페이지만 IndexNow로 알려요 (스크립트·CSS 버전 번호만 바뀐 페이지는 빼요)
+import json, os, re, subprocess, urllib.request
+key, origin = os.environ['INDEXNOW_KEY'], os.environ['SITE_ORIGIN'].rstrip('/')
+if subprocess.run(['git', 'rev-parse', 'HEAD~1'], capture_output=True).returncode:
+    print('no previous commit'); raise SystemExit
+out = subprocess.run(['git', 'diff', '-U0', 'HEAD~1', 'HEAD', '--', '*.html'], capture_output=True, text=True).stdout
+ver = re.compile(r'\?v=[0-9a-f]+')
+changed, cur = set(), None
+for line in out.split('\n'):
+    if line.startswith('+++ '):
+        cur = line[6:] if line.startswith('+++ b/') else None
+    elif line.startswith('--- '):
+        continue
+    elif cur and line[:1] in '+-' and not ver.search(line):
+        changed.add(cur)
+urls = []
+for f in sorted(changed):
+    if f == '404.html' or not f.endswith('index.html'): continue
+    urls.append(origin + '/' + f[:-len('index.html')])
+print(len(urls), 'changed pages')
+host = origin.split('://')[1]
+for i in range(0, len(urls), 10000):
+    body = json.dumps({'host': host, 'key': key, 'keyLocation': f'{origin}/{key}.txt', 'urlList': urls[i:i + 10000]}).encode()
+    req = urllib.request.Request('https://api.indexnow.org/indexnow', data=body, headers={'Content-Type': 'application/json; charset=utf-8'})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r: print('IndexNow', r.status)
+    except Exception as e:
+        print('IndexNow error', e)
+'''
 
 
 def main():
@@ -214,7 +291,7 @@ def main():
                 home = path == ''
                 desc = HOME_DESC[lang] if home else d['desc']
                 pages.append((lang, path))
-                if lang == 'ko': META[path] = (d['title'], desc or '')
+                if lang in ('ko', 'en'): META[(lang, path)] = (d['title'], desc or '')
                 out = page_html(lang, d['title'], desc, path, d['body'], fonts, icon,
                                 index=path != 'saved/', home=home, ld=d.get('ld'))
                 fp = os.path.join(OUT, lp + path, 'index.html')
@@ -241,6 +318,8 @@ def main():
     sm.append('</urlset>')
     open(f'{OUT}/sitemap.xml', 'w', encoding='utf-8').write('\n'.join(sm) + '\n')
     write_rss(META)
+    write_llms(META)
+    write_indexnow()
     open(f'{OUT}/CNAME', 'w').write(DOMAIN + '\n')
     open(f'{OUT}/ads.txt', 'w').write(f"google.com, {ADSENSE_ID.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n")
     open(f'{OUT}/robots.txt', 'w').write(f'User-agent: *\nAllow: /\n\nSitemap: {ORIGIN}/sitemap.xml\n')

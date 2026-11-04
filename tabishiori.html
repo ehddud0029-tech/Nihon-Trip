@@ -727,6 +727,7 @@ body.is-wx .hero{display:none}
 .wxtbl tbody th{text-align:left}
 .wxrows td.o{text-align:left;white-space:normal;min-width:220px}
 .wxmemo{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px}.wxmemo dt{font-weight:700;color:var(--ink-2);font-size:13.5px}.wxmemo dd{margin:0;line-height:1.6}
+.faq dl{margin:0;display:flex;flex-direction:column;gap:14px}.faq dt{font-weight:700;font-size:15.5px;margin:0 0 4px}.faq dd{margin:0;line-height:1.65;color:var(--ink)}.faqo{display:inline}
 .wxlinks{display:flex;flex-wrap:wrap;gap:8px}.wxlinks i{font-style:normal}
 /*WXCSS_END*/
 /*APCSS_BEGIN*/
@@ -2819,10 +2820,10 @@ V.itin = function(){
     </div>`;
   }
   const others = ITIN.filter(x=>x.city===c.city && x.key!==c.key);
-  return `<div class="itin">
+  return `<div class="itin" itemscope itemtype="https://schema.org/TouristTrip">
    <a class="iback" href="${itinHref("")}" data-itin=""><i>← </i>전체 일정</a>
-   <div class="ghead"><div class="ich"><span class="inb${c.n===0?" day":""}">${esc(nightsLabel(c.n))}</span><span class="ist">${esc(CITIES[c.city].ko)}</span></div><h2>${esc(c.title)}</h2><p>${esc(c.sum)}</p></div>
-   <ol class="idays">${c.plan.map((d,i)=>`<li class="iday"><div class="idh"><span class="idn">${esc(dayLabel(i+1))}</span><h3>${esc(d.t)}</h3></div><ol class="istops">${d.s.map(itinStop).join("")}</ol></li>`).join("")}</ol>
+   <div class="ghead"><div class="ich"><span class="inb${c.n===0?" day":""}">${esc(nightsLabel(c.n))}</span><span class="ist">${esc(CITIES[c.city].ko)}</span></div><h2 itemprop="name">${esc(c.title)}</h2><p itemprop="description">${esc(c.sum)}</p></div>
+   <ol class="idays" itemprop="itinerary" itemscope itemtype="https://schema.org/ItemList">${c.plan.map((d,i)=>`<li class="iday" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><meta itemprop="position" content="${i+1}"><div class="idh"><span class="idn">${esc(dayLabel(i+1))}</span><h3 itemprop="name">${esc(d.t)}</h3></div><ol class="istops">${d.s.map(itinStop).join("")}</ol></li>`).join("")}</ol>
    ${c.tips.length?`<div class="gblk"><h4><span class="gbi">${gsvg("list")}</span>일정 팁</h4><ul class="gul">${c.tips.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></div>`:""}
    <p class="sisrc">2026년 10월 기준 · 요금과 시간은 바뀔 수 있으니 방문 전에 공식 사이트에서 확인하세요.</p>
    ${others.length?`<div class="gmore"><h4>다른 일정</h4><div>${others.map(o=>`<a href="${itinHref(o.key)}" data-itin="${o.key}"><span>${esc(o.title)}</span> →</a>`).join("")}</div></div>`:""}
@@ -3146,9 +3147,18 @@ function wxFestLink(c,m){ return c==="all"
   : `<a class="btn ghost" href="${ROUTED?window.NT_BASE+LPRE+`${c}/${areasOf(c)[0].key}/festivals/`:"#festivals"}" data-wxfest="${c}" data-m="${m}">${m}월 축제 보기<i> →</i></a>`; }
 const WX_SRC = `<p class="sisrc">기상청 평년값(1991~2020년) 기준이에요. 그해 날씨에 따라 다를 수 있어요.</p><p class="sisrc">홋카이도는 삿포로, 오키나와는 나하, 시코쿠는 다카마쓰 관측값이에요.</p>`;
 function wxMemo(m){ const mm=(typeof MONTH_MOOD!=="undefined"&&MONTH_MOOD[m-1])||[]; return mm.length?`<div class="gblk"><h4>${m}월 여행 메모</h4><dl class="wxmemo">${mm.map(r=>`<dt>${esc(r[0])}</dt><dd>${esc(r[1])}</dd>`).join("")}</dl></div>`:""; }
+function wxFaq(c,m){
+  const d=wxData(c,m), ex=wxExtras(c,m), n=esc(CITIES[c].ko);
+  const qa=(q,a)=>`<div class="faqi" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">${q}</dt><dd itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">${a}</div></dd></div>`;
+  return `<section class="gblk faq" itemscope itemtype="https://schema.org/FAQPage"><h4>자주 묻는 질문</h4><dl>
+   ${qa(`${n} ${m}월 날씨는 어떤가요?`, `<span>${esc(wxFeel(c,m))}</span> <span>평균 최고기온은 ${d.hi}°, 최저기온은 ${d.lo}°이고 한 달 강수량은 ${d.pr}mm예요.</span>`)}
+   ${qa(`${n} ${m}월에는 뭘 입으면 좋을까요?`, `<span>${esc(wxOutfit(c,m))}</span>.${ex.slice(0,2).map(x=>` <span>${esc(x)}</span>`).join("")}`)}
+  </dl></section>`;
+}
 V.weather = function(){
   const c = WXN[st.city] ? st.city : "all", m = st.wm>=1&&st.wm<=12 ? st.wm : 0;
-  const crumb = `<nav class="wxcrumb">${wxA("all",0,"일본 월별 날씨와 옷차림")}${c!=="all"?` <i>›</i> ${wxA(c,0,esc(CITIES[c].ko))}`:""}</nav>`;
+  const bc=(i,h)=>`<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${h.replace("<a ",'<a itemprop="item" ').replace(/>([^<]*)<\/a>$/,'><span itemprop="name">$1</span></a>')}<meta itemprop="position" content="${i}"></span>`;
+  const crumb = `<nav class="wxcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">${bc(1,wxA("all",0,"일본 월별 날씨와 옷차림"))}${c!=="all"?` <i>›</i> ${bc(2,wxA(c,0,esc(CITIES[c].ko)))}`:""}</nav>`;
   if(c==="all" && !m){
     return `<div class="wx">
      <div class="ghead"><h2>일본 월별 날씨와 옷차림</h2><p>도시와 달을 고르면 평균 기온, 강수량, 추천 옷차림을 볼 수 있어요.</p></div>
@@ -3194,6 +3204,7 @@ V.weather = function(){
    </div>
    <h3 class="sgh"><span>다른 달 보기</span></h3>${wxMonths(c,m)}
    <h3 class="sgh"><span>다른 도시 보기</span></h3>${wxCities(c,m)}
+   ${wxFaq(c,m)}
    ${wxMemo(m)}
    <div class="wxlinks">${wxFestLink(c,m)}${wxA("all",m,`일본 ${m}월 날씨와 옷차림<i> →</i>`,"btn ghost")}</div>
    ${WX_SRC}
@@ -3253,9 +3264,19 @@ function apIC(r){
 }
 const AP_NOTE = `<p class="sisrc">걸리는 시간은 대략적인 값이에요. 시간표와 요금은 출발 전에 공식 사이트에서 확인하세요.</p>`;
 function apChips(list,cur){ return `<div class="wxmon">${list.map(a=>apA(a,"",esc(apName(a)),a===cur?"on":"")).join("")}</div>`; }
+function apFaq(a,k,opts,r){
+  const A=AREA[k], an=esc(apName(a)), kn=esc(A.ko), c=CITIES[r];
+  const qa=(q,x)=>`<div class="faqi" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">${q}</dt><dd itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">${x}</div></dd></div>`;
+  return `<section class="gblk faq" itemscope itemtype="https://schema.org/FAQPage"><h4>자주 묻는 질문</h4><dl>
+   ${qa(`${an}에서 ${kn}까지 어떻게 가나요?`, opts.map(o=>`<span class="faqo">${o.map(x=>`<span>${x.line}</span>`).join(" → ")} · <span>${apMin(apSum(o))}</span></span>`).join(" / "))}
+   ${qa(`${an}에서 ${kn}까지 얼마나 걸리나요?`, `<span>가장 빠른 방법은 ${apMin(apSum(opts[0]))} 걸려요.</span>`)}
+   ${c?qa(`교통카드는 어디서 사나요?`, `<span>${esc(c.ic)}</span>${ICBUY[r]?` · <span>${esc(ICBUY[r])}</span>`:""}`):""}
+  </dl></section>`;
+}
 V.airport = function(){
   const a = APS[st.ap] ? st.ap : "", k = a && st.apk && apOpts(a,st.apk).length ? st.apk : "";
-  const crumb = `<nav class="wxcrumb">${apA("","","일본 공항에서 시내 가는 법")}${a&&k?` <i>›</i> ${apA(a,"",esc(apName(a)))}`:""}</nav>`;
+  const bc=(i,h)=>`<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${h.replace("<a ",'<a itemprop="item" ').replace(/>([^<]*)<\/a>$/,'><span itemprop="name">$1</span></a>')}<meta itemprop="position" content="${i}"></span>`;
+  const crumb = `<nav class="wxcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">${bc(1,apA("","","일본 공항에서 시내 가는 법"))}${a&&k?` <i>›</i> ${bc(2,apA(a,"",esc(apName(a))))}`:""}</nav>`;
   if(!a){
     return `<div class="wx">
      <div class="ghead"><h2>일본 공항에서 시내 가는 법</h2><p>공항을 고르면 시내와 관광지까지 가는 기차·버스와 걸리는 시간을 볼 수 있어요.</p></div>
@@ -3284,6 +3305,7 @@ V.airport = function(){
    <div class="apopts">${opts.map((o,i)=>`<div class="gblk apopt">${i===0&&opts.length>1?`<span class="apbest">가장 빨라요</span>`:""}${apSteps(o)}</div>`).join("")}</div>
    <div class="wxlinks"><a class="btn ghost" href="${apGmap(a,k)}" target="_blank" rel="noopener">구글 지도에서 실시간 요금·시간표 보기 ↗</a></div>
    ${apIC(r)}
+   ${apFaq(a,k,opts,r)}
    ${sights.length?`<div class="gblk"><h4>도착해서 가 볼 곳</h4><div class="aplinks">${sights.map(x=>`<a href="${placeHref(x.id)}" data-open="${x.id}">${esc(x.name)}</a>`).join("")}</div></div>`:""}
    ${others.length?`<h3 class="sgh"><span>다른 공항에서 가기</span></h3><div class="wxmon">${others.map(x=>apA(x,k,esc(apName(x)))).join("")}</div>`:""}
    <h3 class="sgh"><span>같은 공항에서 갈 수 있는 곳</span></h3>
