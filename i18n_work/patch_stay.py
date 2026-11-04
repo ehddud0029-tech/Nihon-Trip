@@ -59,6 +59,7 @@ R = [
  ('  const gs = e.target.closest("[data-gsec]");', '  const stl = e.target.closest("[data-stayc]"); if(stl){ e.preventDefault(); st.view="stay"; st.city=stl.dataset.stayc; render(); window.scrollTo({top:0}); return; }\n  const gs = e.target.closest("[data-gsec]");'),
  ('<a href="#guide" data-view="guide"><svg', NAV + '<a href="#guide" data-view="guide"><svg'),
  ('  <a href="#guide" data-view="guide"><i>', MTAB + '  <a href="#guide" data-view="guide"><i>'),
+ ('    ${blocks.map(gBlock).join("")}', '    ${sec.key==="stay"&&typeof stayGuideBlocks==="function"?stayGuideBlocks(sec,blocks):blocks.map(gBlock).join("")}'),
  ('grid-template-columns:repeat(10,minmax(0,1fr))}', 'grid-template-columns:repeat(11,minmax(0,1fr))}'),
 ]
 def patch(s):
