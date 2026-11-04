@@ -181,20 +181,19 @@ def write_llms(meta):
 def write_indexnow():
     """IndexNow 키 파일과, main에 올라갈 때 바뀐 페이지를 빙 등에 알리는 GitHub Actions"""
     open(f'{OUT}/{INDEXNOW_KEY}.txt', 'w').write(INDEXNOW_KEY)
+    import time as _t; open(f'{OUT}/build.txt', 'w').write(f'{VER}-{int(_t.time())}\n')   # 배포 버전 표시 (IndexNow가 반영 확인용)
     os.makedirs(f'{OUT}/.github/workflows', exist_ok=True)
     open(f'{OUT}/.github/workflows/indexnow.yml', 'w').write(f"""name: IndexNow
 on:
-  workflow_run:
-    workflows: ["pages build and deployment"]
-    types: [completed]
+  push:
+    branches: [main]
 jobs:
   ping:
-    if: ${{{{ github.event.workflow_run.conclusion == 'success' }}}}
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{{{ github.event.workflow_run.head_sha }}}}
           fetch-depth: 2
       - name: Send changed pages to IndexNow
         run: python3 .github/indexnow.py
@@ -220,6 +219,18 @@ for line in out.split('\n'):
         continue
     elif cur and line[:1] in '+-' and not ver.search(line):
         changed.add(cur)
+# GitHub Pages에 이번 버전이 올라갈 때까지 기다려요 (build.txt 비교, 최대 20분)
+import time
+want = open('build.txt').read().strip()
+for _ in range(80):
+    try:
+        with urllib.request.urlopen(f'{origin}/build.txt?t={time.time()}', timeout=20) as r:
+            if r.read().decode().strip() == want: print('live:', want); break
+    except Exception as e:
+        pass
+    time.sleep(15)
+else:
+    print('new version not live yet; giving up'); raise SystemExit
 if os.path.exists('.github/indexnow_full'):   # 한 번 전체 제출 (배포할 때 INDEXNOW_FULL=1)
     changed = set(subprocess.run(['git', 'ls-files', '*index.html'], capture_output=True, text=True).stdout.split())
 urls = []
