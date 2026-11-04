@@ -46,7 +46,7 @@
 - 공항에서 시내 가는 법 페이지(`airport/`, `airport/<공항>/`, `airport/<공항>/<지역>/`): 경로는 사이트의 TO_AREA를 그대로 쓰고, 공항 목록(APS)과 화면은 `sitegen/airport_view.js`, 붙이는 스크립트는 `i18n_work/patch_airport.py` (html과 backup pre에 같이 적용). 교통 화면에도 공항 링크가 붙어요. 번역은 tr_38·zh_38·th_38. 사이트 TO_AREA에 없는 다른 방법은 airport_view.js의 AP_EXTRA(번역 tr_39·zh_40·th_40), 요금은 고정값 대신 구글 지도 대중교통 길찾기 링크(APJ 공항 일본어 이름)로 보여줘요.
 - 추가 추천 일정 10개는 `i18n_work/itin_more.py` (7개 언어 문구를 한곳에), `itin_emit.py`가 합쳐서 itin_data.js·tr_27과 zh_39·th_39를 만들어요. 그다음 html·pre의 `const ITIN =` 줄을 itin_data.js로 바꿔요 (region_inject.py도 같은 일을 해요).
 
-- 모바일 하단 탭바 색(--bar)·선택 표시·날씨 탭, 긴 이름 언어(영·스·프·태)는 가로 스크롤: `i18n_work/patch_tabbar.py` (html과 backup pre에 같이 적용).
+- 모바일 하단 탭바 색(--bar)·선택 표시·날씨 탭, 모든 언어에서 가로 스크롤(칸 최소 58px, 지금 탭이 화면 안으로): `i18n_work/patch_tabbar.py` (html과 backup pre에 같이 적용).
 
 - 도쿄 영상 참고 보완: 도청 전망실 시간·휴무·프로젝션 매핑, 센소지 팁(아사쿠사 문화관광센터 전망 테라스)은 `i18n_work/patch_tokyo_video.py`, 도쿄돔 시티(s_tokyodome)는 region_fuji_kyoto.py의 POPULAR. 번역 tr_40·zh_41·th_41.
 - **region_inject.py를 돌린 뒤에는** `patch_th.py → patch_weather.py → patch_airport.py → patch_tabbar.py → patch_tokyo_video.py`를 차례로 다시 돌려 주세요 (region_inject가 DESC 등 일부 줄을 다시 써요. 각 패치는 여러 번 돌려도 안전해요).
@@ -55,7 +55,7 @@
 
 - AI·검색 인용용: 날씨(도시·월)·공항 경로 페이지의 "자주 묻는 질문"(FAQPage 마이크로데이터)과 이동 경로(BreadcrumbList)는 weather_view.js·airport_view.js, 추천 일정 상세의 TouristTrip 마이크로데이터는 `i18n_work/patch_aio.py`. 번역 tr_41·zh_42·th_42, 문장 틀은 tpl.tsv 맨 앞. gen.py가 `llms.txt`(AI용 사이트 안내)와 IndexNow 키 파일(`<INDEXNOW_KEY>.txt`), `.github/workflows/indexnow.yml`(main에 올라가면 GitHub Pages에 새 버전이 뜰 때까지 `build.txt`로 기다린 뒤, 버전 번호·현재 시각 줄만 바뀐 페이지는 빼고 실제로 바뀐 페이지만 IndexNow로 알림. 전체를 한 번 다시 보내려면 `INDEXNOW_FULL=1 python3 deploy.py ...`)을 만들어요. region_inject 뒤에는 patch_aio.py도 다시 돌려 주세요.
 
-- 숙소 페이지(`stay/`, `<도시>/stay/`, 도시 6곳): 화면·추천 숙소(HOTELS, 마이리얼트립 제휴 링크)·나고야 동네 데이터는 `sitegen/stay_view.js`, 붙이는 스크립트는 `i18n_work/patch_stay.py`. 동네 비교는 여행 준비 > 숙소(GUIDE stay)를 그대로 써요. 제휴 링크와 추천 숙소는 **한국어·영어 페이지에만** 보이고(사용자 결정), 아래에 제휴 수수료 안내를 붙여요. 번역 tr_42·zh_43·th_43 (호텔 문구는 영어만). region_inject 뒤에는 patch_stay.py도 다시 돌려 주세요.
+- 숙소 페이지(`stay/`, `<도시>/stay/`, 도시 6곳): 화면·추천 숙소(HOTELS, 마이리얼트립 제휴 링크)·나고야 동네 데이터는 `sitegen/stay_view.js`, 붙이는 스크립트는 `i18n_work/patch_stay.py`. 동네 비교는 여행 준비 > 숙소(GUIDE stay)를 그대로 써요. 제휴 링크와 추천 숙소는 **한국어·영어 페이지에만** 보이고(사용자 결정), 아래에 제휴 수수료 안내를 붙여요. 번역 tr_42·zh_43·th_43 (호텔 문구는 영어만). PC 상단 메뉴와 모바일 하단 탭바(11칸, 날씨와 준비 사이)에 "숙소"가 들어가요. region_inject 뒤에는 patch_stay.py도 다시 돌려 주세요.
 
 ## 수정 전·후 비교 (사용자 요청: 사이트를 고치면 항상 보여주기)
 - 날씨 값은 비교용 예시로 채워요(실제 예보 아님). 화면이 바뀌는 수정을 하면 배포 전에 `python3 sitegen/compare.py <이름> <언어:주소> ... [--mobile] [--ref main]`로 비교 이미지를 만들어 사용자에게 보내요 (왼쪽 수정 전 = 배포된 main, 오른쪽 수정 후 = 작업 공간 원본). 결과는 `sitegen/compare_out/<이름>_<번호>.png`.

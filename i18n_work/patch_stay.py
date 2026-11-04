@@ -48,6 +48,8 @@ function stayMeta(L,T){
 """
 NAV = ('<a href="#stay" data-view="stay"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'
        '<path d="M3 18V7M3 14h18v4M21 14v-2.5A2.5 2.5 0 0 0 18.5 9H11v5"/><circle cx="7" cy="11" r="1.8"/></svg><span>숙소</span></a>\n      ')
+MTAB = ('<a href="#stay" data-view="stay"><i><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">'
+        '<path d="M3 18V7M3 14h18v4M21 14v-2.5A2.5 2.5 0 0 0 18.5 9H11v5"/><circle cx="7" cy="11" r="1.8"/></svg></i>숙소</a>\n')
 R = [
  ('"weather","airport"];\nconst INFO_VIEWS', '"weather","airport","stay"];\nconst INFO_VIEWS'),
  ('  if(s.view==="saved") return "saved/";', '  if(s.view==="stay") return STAY_CITIES.includes(s.city) ? `${s.city}/stay/` : "stay/";\n  if(s.view==="saved") return "saved/";'),
@@ -56,6 +58,8 @@ R = [
  ('  if(st.view==="airport") return apMeta(L,T);', '  if(st.view==="airport") return apMeta(L,T);\n  if(st.view==="stay") return stayMeta(L,T);'),
  ('  const gs = e.target.closest("[data-gsec]");', '  const stl = e.target.closest("[data-stayc]"); if(stl){ e.preventDefault(); st.view="stay"; st.city=stl.dataset.stayc; render(); window.scrollTo({top:0}); return; }\n  const gs = e.target.closest("[data-gsec]");'),
  ('<a href="#guide" data-view="guide"><svg', NAV + '<a href="#guide" data-view="guide"><svg'),
+ ('  <a href="#guide" data-view="guide"><i>', MTAB + '  <a href="#guide" data-view="guide"><i>'),
+ ('grid-template-columns:repeat(10,minmax(0,1fr))}', 'grid-template-columns:repeat(11,minmax(0,1fr))}'),
 ]
 def patch(s):
     s = block(s, '/*STCSS_BEGIN*/', '/*STCSS_END*/', CSS, 'footer{border-top:1px solid var(--line);')
