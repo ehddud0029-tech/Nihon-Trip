@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=e4813452">
+<link rel="stylesheet" href="/app.css?v=1be2273c">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=e4813452"><\/script><script src="'+B+'engine.js?v=e4813452"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1be2273c"><\/script><script src="'+B+'engine.js?v=1be2273c"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -92,13 +92,18 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=e4813452"><\/s
   <div class="wxnote" id="wxnote">リアルタイムの天気を読み込めなかったため平年値を表示しています。</div>
 </section>
 
-<main class="wrap" id="main"><div class="wx"><nav class="wxcrumb"><a href="/ja/airport/" data-apa="" data-apk="">日本の空港から市内への行き方</a> <i>›</i> <a href="/ja/airport/hiroshima/" data-apa="hiroshima" data-apk="">広島空港</a></nav>
+<main class="wrap" id="main"><div class="wx"><nav class="wxcrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a itemprop="item" href="/ja/airport/" data-apa="" data-apk=""><span itemprop="name">日本の空港から市内への行き方</span></a><meta itemprop="position" content="1"></span> <i>›</i> <span itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a itemprop="item" href="/ja/airport/hiroshima/" data-apa="hiroshima" data-apk=""><span itemprop="name">広島空港</span></a><meta itemprop="position" content="2"></span></nav>
    <div class="ghead"><h2>広島空港から宮島への行き方</h2><p>最速の方法で約1時間37分です。</p></div>
    <div class="apopts"><div class="gblk apopt"><ol class="apsteps"><li><span class="rt"><span class="step">1</span><span class="mode m-버스">バス</span> 広島空港 → 広島駅 <b class="min">約50分</b></span><small>空港リムジンバス</small></li><li><span class="rt"><span class="step">2</span><span class="mode m-기차">列車</span> 広島駅 → 宮島口駅 <b class="min">約27分</b></span><small>JR山陽本線</small></li><li><span class="rt"><span class="step">3</span><span class="mode m-배">船</span> 宮島口 → 宮島 <b class="min">約10分</b></span><small>JR・松大フェリー</small></li></ol>
    <p class="apnote">広島駅で乗り換え · 合計約97分</p></div></div>
    <div class="wxlinks"><a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&amp;origin=%E5%BA%83%E5%B3%B6%E7%A9%BA%E6%B8%AF&amp;destination=%E5%AE%AE%E5%B3%B6&amp;travelmode=transit" target="_blank" rel="noopener">Googleマップで最新の運賃・時刻表を見る ↗</a></div>
    <div class="gblk"><h4>交通系ICカード</h4><p class="apic"><b>ICOCA</b></p><p>空港で交通系ICカードを買っておけば、市内の電車・バス・コンビニですぐに使えます。</p>
    <p><span class="aplbl">ICカードの買える場所</span> JR広島駅の券売機（ICOCA）</p></div>
+   <section class="gblk faq" itemscope="" itemtype="https://schema.org/FAQPage"><h4>よくある質問</h4><dl>
+   <div class="faqi" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">広島空港から宮島へはどう行けばいいですか？</dt><dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><span class="faqo"><span>空港リムジンバス</span> → <span>JR山陽本線</span> → <span>JR・松大フェリー</span> · <span>約1時間37分</span></span></div></dd></div>
+   <div class="faqi" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">広島空港から宮島まではどのくらいかかりますか？</dt><dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><span>最速の方法で約1時間37分です。</span></div></dd></div>
+   <div class="faqi" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">交通系ICカードはどこで買えますか？</dt><dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><span>ICOCA</span> · <span>JR広島駅の券売機（ICOCA）</span></div></dd></div>
+  </dl></section>
    <div class="gblk"><h4>着いたら行きたい場所</h4><div class="aplinks"><a href="/ja/place/h-itsukushima/" data-open="h_itsukushima">厳島神社</a><a href="/ja/place/h-misen/" data-open="h_misen">弥山・宮島ロープウエー</a><a href="/ja/place/h-daishoin/" data-open="h_daishoin">大聖院</a></div></div>
    
    <h3 class="sgh"><span>同じ空港から行ける場所</span></h3>
@@ -124,10 +129,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=e4813452"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=e4813452"></script>
-<script src="/autoreserve.js?v=e4813452"></script>
-<script src="/google_picks.js?v=e4813452"></script>
-<script src="/geo.js?v=e4813452"></script>
-<script src="/app.js?v=e4813452"></script>
+<script src="/areas.js?v=1be2273c"></script>
+<script src="/autoreserve.js?v=1be2273c"></script>
+<script src="/google_picks.js?v=1be2273c"></script>
+<script src="/geo.js?v=1be2273c"></script>
+<script src="/app.js?v=1be2273c"></script>
 </body>
 </html>

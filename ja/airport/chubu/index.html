@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=e4813452">
+<link rel="stylesheet" href="/app.css?v=1be2273c">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=e4813452"><\/script><script src="'+B+'engine.js?v=e4813452"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1be2273c"><\/script><script src="'+B+'engine.js?v=1be2273c"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -92,7 +92,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=e4813452"><\/s
   <div class="wxnote" id="wxnote">リアルタイムの天気を読み込めなかったため平年値を表示しています。</div>
 </section>
 
-<main class="wrap" id="main"><div class="wx"><nav class="wxcrumb"><a href="/ja/airport/" data-apa="" data-apk="">日本の空港から市内への行き方</a></nav>
+<main class="wrap" id="main"><div class="wx"><nav class="wxcrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a itemprop="item" href="/ja/airport/" data-apa="" data-apk=""><span itemprop="name">日本の空港から市内への行き方</span></a><meta itemprop="position" content="1"></span></nav>
      <div class="ghead"><h2>中部国際空港から市内への行き方</h2><p>行きたい場所を押すと、詳しい行き方が見られます。</p></div>
      <div class="wxgrid"><article class="wxcard"><h3>名古屋市内</h3>
        <p class="aprt"><span class="mode m-전철">電車</span> <span>名鉄 特急ミュースカイ</span></p><p class="aptm">約28分</p>
@@ -124,10 +124,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=e4813452"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=e4813452"></script>
-<script src="/autoreserve.js?v=e4813452"></script>
-<script src="/google_picks.js?v=e4813452"></script>
-<script src="/geo.js?v=e4813452"></script>
-<script src="/app.js?v=e4813452"></script>
+<script src="/areas.js?v=1be2273c"></script>
+<script src="/autoreserve.js?v=1be2273c"></script>
+<script src="/google_picks.js?v=1be2273c"></script>
+<script src="/geo.js?v=1be2273c"></script>
+<script src="/app.js?v=1be2273c"></script>
 </body>
 </html>

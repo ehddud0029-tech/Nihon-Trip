@@ -1,0 +1,16 @@
+name: IndexNow
+on:
+  push:
+    branches: [main]
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Send changed pages to IndexNow
+        run: python3 .github/indexnow.py
+        env:
+          INDEXNOW_KEY: 3df7fdd9ec42d1ae624f94732c4f09cf
+          SITE_ORIGIN: https://gonihontrip.com
