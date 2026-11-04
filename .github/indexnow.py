@@ -1,5 +1,5 @@
 # 바뀐 페이지만 IndexNow로 알려요 (스크립트·CSS 버전 번호만 바뀐 페이지는 빼요)
-import json, os, re, subprocess, urllib.request
+import json, os, re, subprocess, urllib.request, urllib.error
 key, origin = os.environ['INDEXNOW_KEY'], os.environ['SITE_ORIGIN'].rstrip('/')
 if subprocess.run(['git', 'rev-parse', 'HEAD~1'], capture_output=True).returncode:
     print('no previous commit'); raise SystemExit
@@ -35,8 +35,10 @@ print(len(urls), 'changed pages')
 host = origin.split('://')[1]
 for i in range(0, len(urls), 10000):
     body = json.dumps({'host': host, 'key': key, 'keyLocation': f'{origin}/{key}.txt', 'urlList': urls[i:i + 10000]}).encode()
-    req = urllib.request.Request('https://api.indexnow.org/indexnow', data=body, headers={'Content-Type': 'application/json; charset=utf-8'})
+    req = urllib.request.Request('https://api.indexnow.org/indexnow', data=body, headers={'Content-Type': 'application/json; charset=utf-8', 'User-Agent': 'GoNihonTrip-IndexNow/1.0 (+https://gonihontrip.com/)'})
     try:
         with urllib.request.urlopen(req, timeout=30) as r: print('IndexNow', r.status)
+    except urllib.error.HTTPError as e:
+        print('IndexNow error', e.code, e.read()[:300])
     except Exception as e:
         print('IndexNow error', e)
