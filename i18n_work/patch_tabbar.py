@@ -12,7 +12,7 @@ CSS = ('/*TABBAR*/:root{--bar:#E9EDF4;--bar-line:#C3CCDA}'
 TAB = ('  <a href="#weather" data-view="weather"><i><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" '
        'stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3.2"/><path d="M9 2.5v1.3M3.8 4.8l.9.9M2.5 9h1.3M14.2 4.8l-.9.9"/>'
        '<path d="M8 19.5h9.5a3.5 3.5 0 0 0 .3-7 5 5 0 0 0-9.4 1.3A2.9 2.9 0 0 0 8 19.5z"/></svg></i>날씨</a>\n')
-ADD = 'html:not(:lang(ko)):not(:lang(ja)):not(:lang(zh-Hans)):not(:lang(zh-Hant)) nav.tabs{display:flex;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}html:not(:lang(ko)):not(:lang(ja)):not(:lang(zh-Hans)):not(:lang(zh-Hant)) nav.tabs::-webkit-scrollbar{display:none}html:not(:lang(ko)):not(:lang(ja)):not(:lang(zh-Hans)):not(:lang(zh-Hant)) nav.tabs a{flex:1 0 auto;padding:8px 9px 6px;font-size:10.5px;overflow:visible;text-overflow:clip}'
+ADD = '@media (max-width:599px){html:not(:lang(ko)):not(:lang(ja)):not(:lang(zh-Hans)):not(:lang(zh-Hant)) nav.tabs{display:flex;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}}html:not(:lang(ko)):not(:lang(ja)):not(:lang(zh-Hans)):not(:lang(zh-Hant)) nav.tabs::-webkit-scrollbar{display:none}html:not(:lang(ko)):not(:lang(ja)):not(:lang(zh-Hans)):not(:lang(zh-Hant)) nav.tabs a{flex:1 0 auto;padding:8px 9px 6px;font-size:10.5px;overflow:visible;text-overflow:clip}'
 JS_A = '  $("#savedN").textContent = saved.length;\n}'
 JS_B = '  $("#savedN").textContent = saved.length;\n  const tb=document.querySelector("nav.tabs"), ta=tb&&tb.querySelector("a[aria-current]"); if(tb&&ta&&tb.scrollWidth>tb.clientWidth) tb.scrollLeft=ta.offsetLeft-(tb.clientWidth-ta.offsetWidth)/2;\n}'
 for f in FILES:

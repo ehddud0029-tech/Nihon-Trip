@@ -53,10 +53,12 @@
 
 - 사이트 아이콘 파일(favicon.ico·icon-*.png, 네이버 검색 결과 아이콘용)은 `sitegen/icons/` (`make_icons.py`로 다시 생성), gen.py가 dist 맨 위로 복사해요. 네이버 서치어드바이저용 RSS(`rss.xml`, 한국어 일정·날씨·공항·여행 준비·축제 달력 페이지)는 gen.py의 `write_rss()`가 만들어요.
 
-- AI·검색 인용용: 날씨(도시·월)·공항 경로 페이지의 "자주 묻는 질문"(FAQPage 마이크로데이터)과 이동 경로(BreadcrumbList)는 weather_view.js·airport_view.js, 추천 일정 상세의 TouristTrip 마이크로데이터는 `i18n_work/patch_aio.py`. 번역 tr_41·zh_42·th_42, 문장 틀은 tpl.tsv 맨 앞. gen.py가 `llms.txt`(AI용 사이트 안내)와 IndexNow 키 파일(`<INDEXNOW_KEY>.txt`), `.github/workflows/indexnow.yml`(main에 올라가면 실제로 바뀐 페이지만 IndexNow로 알림)을 만들어요. region_inject 뒤에는 patch_aio.py도 다시 돌려 주세요.
+- AI·검색 인용용: 날씨(도시·월)·공항 경로 페이지의 "자주 묻는 질문"(FAQPage 마이크로데이터)과 이동 경로(BreadcrumbList)는 weather_view.js·airport_view.js, 추천 일정 상세의 TouristTrip 마이크로데이터는 `i18n_work/patch_aio.py`. 번역 tr_41·zh_42·th_42, 문장 틀은 tpl.tsv 맨 앞. gen.py가 `llms.txt`(AI용 사이트 안내)와 IndexNow 키 파일(`<INDEXNOW_KEY>.txt`), `.github/workflows/indexnow.yml`(main에 올라가면 GitHub Pages에 새 버전이 뜰 때까지 `build.txt`로 기다린 뒤, 버전 번호·현재 시각 줄만 바뀐 페이지는 빼고 실제로 바뀐 페이지만 IndexNow로 알림. 전체를 한 번 다시 보내려면 `INDEXNOW_FULL=1 python3 deploy.py ...`)을 만들어요. region_inject 뒤에는 patch_aio.py도 다시 돌려 주세요.
+
+- 숙소 페이지(`stay/`, `<도시>/stay/`, 도시 6곳): 화면·추천 숙소(HOTELS, 마이리얼트립 제휴 링크)·나고야 동네 데이터는 `sitegen/stay_view.js`, 붙이는 스크립트는 `i18n_work/patch_stay.py`. 동네 비교는 여행 준비 > 숙소(GUIDE stay)를 그대로 써요. 제휴 링크와 추천 숙소는 **한국어·영어 페이지에만** 보이고(사용자 결정), 아래에 제휴 수수료 안내를 붙여요. 번역 tr_42·zh_43·th_43 (호텔 문구는 영어만). region_inject 뒤에는 patch_stay.py도 다시 돌려 주세요.
 
 ## 수정 전·후 비교 (사용자 요청: 사이트를 고치면 항상 보여주기)
-- 화면이 바뀌는 수정을 하면 배포 전에 `python3 sitegen/compare.py <이름> <언어:주소> ... [--mobile] [--ref main]`로 비교 이미지를 만들어 사용자에게 보내요 (왼쪽 수정 전 = 배포된 main, 오른쪽 수정 후 = 작업 공간 원본). 결과는 `sitegen/compare_out/<이름>_<번호>.png`.
+- 날씨 값은 비교용 예시로 채워요(실제 예보 아님). 화면이 바뀌는 수정을 하면 배포 전에 `python3 sitegen/compare.py <이름> <언어:주소> ... [--mobile] [--ref main]`로 비교 이미지를 만들어 사용자에게 보내요 (왼쪽 수정 전 = 배포된 main, 오른쪽 수정 후 = 작업 공간 원본). 결과는 `sitegen/compare_out/<이름>_<번호>.png`.
 - 바뀐 페이지의 대표 주소 1~3개를 고르고, 모바일 화면이 바뀌면 `--mobile`도 같이 만들어요.
 
 ## 배포
