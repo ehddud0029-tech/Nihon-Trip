@@ -4,7 +4,7 @@ key, origin = os.environ['INDEXNOW_KEY'], os.environ['SITE_ORIGIN'].rstrip('/')
 if subprocess.run(['git', 'rev-parse', 'HEAD~1'], capture_output=True).returncode:
     print('no previous commit'); raise SystemExit
 out = subprocess.run(['git', 'diff', '-U0', 'HEAD~1', 'HEAD', '--', '*.html'], capture_output=True, text=True).stdout
-ver = re.compile(r'\?v=[0-9a-f]+')
+ver = re.compile(r'\?v=[0-9a-f]+|jstclock')   # 버전 번호·현재 시각 줄은 무시
 changed, cur = set(), None
 for line in out.split('\n'):
     if line.startswith('+++ '):
@@ -13,6 +13,8 @@ for line in out.split('\n'):
         continue
     elif cur and line[:1] in '+-' and not ver.search(line):
         changed.add(cur)
+if os.path.exists('.github/indexnow_full'):   # 한 번 전체 제출 (배포할 때 INDEXNOW_FULL=1)
+    changed = set(subprocess.run(['git', 'ls-files', '*index.html'], capture_output=True, text=True).stdout.split())
 urls = []
 for f in sorted(changed):
     if f == '404.html' or not f.endswith('index.html'): continue
