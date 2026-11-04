@@ -69,6 +69,10 @@ function wxFaq(c,m){
    ${qa(`${n} ${m}월에는 뭘 입으면 좋을까요?`, `<span>${esc(wxOutfit(c,m))}</span>.${ex.slice(0,2).map(x=>` <span>${esc(x)}</span>`).join("")}`)}
   </dl></section>`;
 }
+function wxLiveBlock(c){
+  const h = window.WX_LIVE_HTML || "";
+  return `<div class="gblk wxlive"${h?"":" hidden"}><h4>지금 ${esc(CITIES[c].ko)} 날씨 (실시간)</h4><div id="wxLive">${h}</div></div>`;
+}
 V.weather = function(){
   const c = WXN[st.city] ? st.city : "all", m = st.wm>=1&&st.wm<=12 ? st.wm : 0;
   const bc=(i,h)=>`<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${h.replace("<a ",'<a itemprop="item" ').replace(/>([^<]*)<\/a>$/,'><span itemprop="name">$1</span></a>')}<meta itemprop="position" content="${i}"></span>`;
@@ -101,6 +105,7 @@ V.weather = function(){
     return `<div class="wx">${crumb}
      <div class="ghead"><h2>${esc(CITIES[c].ko)} 월별 날씨와 옷차림</h2><p>달을 누르면 그달의 옷차림과 챙기면 좋은 것을 볼 수 있어요.</p></div>
      ${wxCities(c,0)}
+     ${wxLiveBlock(c)}
      <div class="gblk"><h4>월별 평균 기온</h4>${wxChart(c,0)}<p class="wxleg"><span class="hi">평균 최고</span><span class="lo">평균 최저</span></p></div>
      <div class="wxtblw"><table class="wxtbl wxrows"><thead><tr><th></th><th>평균 최고</th><th>평균 최저</th><th>강수량</th><th>추천 옷차림</th></tr></thead>
       <tbody>${Array.from({length:12},(_,i)=>{ const d=wxData(c,i+1); return `<tr><th>${wxA(c,i+1,`${i+1}월`)}</th><td>${wxR(d.hi)}°</td><td>${wxR(d.lo)}°</td><td>${d.pr}mm</td><td class="o">${esc(wxOutfit(c,i+1))}</td></tr>`; }).join("")}</tbody></table></div>
@@ -110,6 +115,7 @@ V.weather = function(){
   const d = wxData(c,m), ex = wxExtras(c,m);
   return `<div class="wx">${crumb}
    <div class="ghead"><h2>${esc(CITIES[c].ko)} ${m}월 날씨와 옷차림</h2><p>${esc(wxFeel(c,m))}</p></div>
+   ${m===NOW_M?wxLiveBlock(c):""}
    <div class="wxsts big">${wxStat("평균 최고",`${wxR(d.hi)}°`,"hi")}${wxStat("평균 최저",`${wxR(d.lo)}°`,"lo")}${wxStat("강수량",`${d.pr}mm`)}${d.hum?wxStat("습도",`${d.hum}%`):""}</div>
    <div class="wxtwo">
     <div class="gblk"><h4>추천 옷차림</h4><p class="wxout">${esc(wxOutfit(c,m))}</p>

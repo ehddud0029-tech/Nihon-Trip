@@ -41,6 +41,7 @@ body.is-wx .hero{display:none}
 .wxtbl tbody th{text-align:left}
 .wxrows td.o{text-align:left;white-space:normal;min-width:220px}
 .wxmemo{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px}.wxmemo dt{font-weight:700;color:var(--ink-2);font-size:13.5px}.wxmemo dd{margin:0;line-height:1.6}
+.wxlive .wxhourly{margin-top:0}.wxlive .wxweek{margin-top:12px}
 .faq dl{margin:0;display:flex;flex-direction:column;gap:14px}.faq dt{font-weight:700;font-size:15.5px;margin:0 0 4px}.faq dd{margin:0;line-height:1.65;color:var(--ink)}.faqo{display:inline}
 .wxlinks{display:flex;flex-wrap:wrap;gap:8px}.wxlinks i{font-style:normal}
 /*WXCSS_END*/
@@ -109,6 +110,14 @@ def block(s, begin, end, new, anchor):
     return s.replace(anchor, new.strip() + '\n' + anchor)
 
 R = [
+ # 시간별·주간 날씨 그래프는 날씨 페이지(도시)에서만 보여요. 다른 화면의 위쪽 날씨 상자는 숨겨요
+ ('  const w = c && WX && (WX[A?A.key:st.city] || WX[st.city]);\n  const wxBox = $("#wx");\n  wxBox.hidden = !w;',
+  '  const w = c && WX && (st.view==="weather" ? (WX[st.city]||WX[A?.key]) : (WX[A?A.key:st.city] || WX[st.city]));\n  const wxBox = $("#wx");\n  wxBox.hidden = true;   /* 시간별·주간 날씨는 날씨 페이지에서만 */\n  window.WX_LIVE_HTML = "";'),
+ ('      wxBox.innerHTML = `${hours}<div class="wxweek"><div class="wxwhead">주간 날씨</div><div class="wxwgrid">${days}</div></div>`;',
+  '      wxBox.innerHTML = `${hours}<div class="wxweek"><div class="wxwhead">주간 날씨</div><div class="wxwgrid">${days}</div></div>`;\n      window.WX_LIVE_HTML = wxBox.innerHTML;'),
+ ('  const wxBox = $("#wx");\n  wxBox.hidden = true;   /* 시간별·주간 날씨는 날씨 페이지에서만 */\n  window.WX_LIVE_HTML = "";\n  if(c){',
+  '  const wxBox = $("#wx");\n  wxBox.hidden = true;   /* 시간별·주간 날씨는 날씨 페이지에서만 */\n  window.WX_LIVE_HTML = "";\n  setTimeout(()=>{ const lv=document.getElementById("wxLive"); if(lv){ lv.innerHTML=window.WX_LIVE_HTML||""; lv.parentElement.hidden=!window.WX_LIVE_HTML; } },0);\n  if(c){'),
+
  ('"about","contact","privacy"];\nconst INFO_VIEWS', '"about","contact","privacy","weather"];\nconst INFO_VIEWS'),
  ('  if(s.view==="saved") return "saved/";', '  if(s.view==="weather"){ const c=WXN[s.city]?s.city:"all", m=s.wm>=1&&s.wm<=12?s.wm:0; return c==="all"?(m?`weather/${m}/`:"weather/"):(m?`${c}/weather/${m}/`:`${c}/weather/`); }\n  if(s.view==="saved") return "saved/";'),
  ('  if(seg[0]==="guide"){', '  if(seg[0]==="weather"){ st.view="weather"; st.city="all"; st.wm=+seg[1]>=1&&+seg[1]<=12?+seg[1]:0; return; }\n  if(CITIES[seg[0]]&&seg[1]==="weather"){ st.view="weather"; st.city=seg[0]; st.wm=+seg[2]>=1&&+seg[2]<=12?+seg[2]:0; return; }\n  if(seg[0]==="guide"){'),

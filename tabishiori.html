@@ -727,6 +727,7 @@ body.is-wx .hero{display:none}
 .wxtbl tbody th{text-align:left}
 .wxrows td.o{text-align:left;white-space:normal;min-width:220px}
 .wxmemo{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px}.wxmemo dt{font-weight:700;color:var(--ink-2);font-size:13.5px}.wxmemo dd{margin:0;line-height:1.6}
+.wxlive .wxhourly{margin-top:0}.wxlive .wxweek{margin-top:12px}
 .faq dl{margin:0;display:flex;flex-direction:column;gap:14px}.faq dt{font-weight:700;font-size:15.5px;margin:0 0 4px}.faq dd{margin:0;line-height:1.65;color:var(--ink)}.faqo{display:inline}
 .wxlinks{display:flex;flex-wrap:wrap;gap:8px}.wxlinks i{font-style:normal}
 /*WXCSS_END*/
@@ -1969,9 +1970,11 @@ function renderCities(){
   $("#areas").hidden = !c;
   if(c) $("#areas").innerHTML = areasOf(st.city).map(a=>`<button class="area" type="button" data-area="${a.key}" aria-pressed="${st.area===a.key}">${a.ko}</button>`).join("");
   $("#heroTitle").textContent = st.view==="home" ? "일본 여행, 어디로 갈까요?" : A ? `${c.ko} · ${A.ko}, 무엇부터 볼까요?` : c ? `${c.ko} 여행, 무엇부터 볼까요?` : "어느 지역부터 둘러볼까요?";
-  const w = c && WX && (WX[A?A.key:st.city] || WX[st.city]);
+  const w = c && WX && (st.view==="weather" ? (WX[st.city]||WX[A?.key]) : (WX[A?A.key:st.city] || WX[st.city]));
   const wxBox = $("#wx");
-  wxBox.hidden = !w;
+  wxBox.hidden = true;   /* 시간별·주간 날씨는 날씨 페이지에서만 */
+  window.WX_LIVE_HTML = "";
+  setTimeout(()=>{ const lv=document.getElementById("wxLive"); if(lv){ lv.innerHTML=window.WX_LIVE_HTML||""; lv.parentElement.hidden=!window.WX_LIVE_HTML; } },0);
   if(c){
     $("#brief").classList.remove("ball","bthemed");
     const j = jstParts();
@@ -1995,6 +1998,7 @@ function renderCities(){
         return `<div class="wxday${i===0?" today":""}"><b>${label}</b><span class="wxdi" title="${wmo(d.weather_code[di+i])}">${wicon(d.weather_code[di+i])}</span><span class="wxdc">${wmo(d.weather_code[di+i])}</span><span class="wxdt"><span class="hi">${rnd(d.temperature_2m_max[di+i])}°</span> / <span class="lo">${rnd(d.temperature_2m_min[di+i])}°</span></span><span class="wxdp">💧 ${d.precipitation_probability_max[di+i]??"–"}%</span></div>`;
       }).join("");
       wxBox.innerHTML = `${hours}<div class="wxweek"><div class="wxwhead">주간 날씨</div><div class="wxwgrid">${days}</div></div>`;
+      window.WX_LIVE_HTML = wxBox.innerHTML;
     }else{
       wxCell = `<div class="bw"><dt>${A?esc(A.ko)+" ":""}오늘 날씨</dt>
         <dd class="wxtime">${clock} <small>일본 현재</small></dd>
@@ -3155,6 +3159,10 @@ function wxFaq(c,m){
    ${qa(`${n} ${m}월에는 뭘 입으면 좋을까요?`, `<span>${esc(wxOutfit(c,m))}</span>.${ex.slice(0,2).map(x=>` <span>${esc(x)}</span>`).join("")}`)}
   </dl></section>`;
 }
+function wxLiveBlock(c){
+  const h = window.WX_LIVE_HTML || "";
+  return `<div class="gblk wxlive"${h?"":" hidden"}><h4>지금 ${esc(CITIES[c].ko)} 날씨 (실시간)</h4><div id="wxLive">${h}</div></div>`;
+}
 V.weather = function(){
   const c = WXN[st.city] ? st.city : "all", m = st.wm>=1&&st.wm<=12 ? st.wm : 0;
   const bc=(i,h)=>`<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${h.replace("<a ",'<a itemprop="item" ').replace(/>([^<]*)<\/a>$/,'><span itemprop="name">$1</span></a>')}<meta itemprop="position" content="${i}"></span>`;
@@ -3187,6 +3195,7 @@ V.weather = function(){
     return `<div class="wx">${crumb}
      <div class="ghead"><h2>${esc(CITIES[c].ko)} 월별 날씨와 옷차림</h2><p>달을 누르면 그달의 옷차림과 챙기면 좋은 것을 볼 수 있어요.</p></div>
      ${wxCities(c,0)}
+     ${wxLiveBlock(c)}
      <div class="gblk"><h4>월별 평균 기온</h4>${wxChart(c,0)}<p class="wxleg"><span class="hi">평균 최고</span><span class="lo">평균 최저</span></p></div>
      <div class="wxtblw"><table class="wxtbl wxrows"><thead><tr><th></th><th>평균 최고</th><th>평균 최저</th><th>강수량</th><th>추천 옷차림</th></tr></thead>
       <tbody>${Array.from({length:12},(_,i)=>{ const d=wxData(c,i+1); return `<tr><th>${wxA(c,i+1,`${i+1}월`)}</th><td>${wxR(d.hi)}°</td><td>${wxR(d.lo)}°</td><td>${d.pr}mm</td><td class="o">${esc(wxOutfit(c,i+1))}</td></tr>`; }).join("")}</tbody></table></div>
@@ -3196,6 +3205,7 @@ V.weather = function(){
   const d = wxData(c,m), ex = wxExtras(c,m);
   return `<div class="wx">${crumb}
    <div class="ghead"><h2>${esc(CITIES[c].ko)} ${m}월 날씨와 옷차림</h2><p>${esc(wxFeel(c,m))}</p></div>
+   ${m===NOW_M?wxLiveBlock(c):""}
    <div class="wxsts big">${wxStat("평균 최고",`${wxR(d.hi)}°`,"hi")}${wxStat("평균 최저",`${wxR(d.lo)}°`,"lo")}${wxStat("강수량",`${d.pr}mm`)}${d.hum?wxStat("습도",`${d.hum}%`):""}</div>
    <div class="wxtwo">
     <div class="gblk"><h4>추천 옷차림</h4><p class="wxout">${esc(wxOutfit(c,m))}</p>

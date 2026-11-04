@@ -48,15 +48,29 @@ def after_dir():
     open(f'{d}/404.html', 'w').write(gen.page_html('ko', 'x', 'x', '', body, fonts, icon, alternates=False, index=False))
     return d
 
+def fake_wx(route):
+    import json, datetime, urllib.parse
+    q = urllib.parse.parse_qs(urllib.parse.urlparse(route.request.url).query)
+    n = len(q.get('latitude', ['0'])[0].split(','))
+    jst = datetime.datetime.utcnow() + datetime.timedelta(hours=9)
+    days = [(jst + datetime.timedelta(days=i)).strftime('%Y-%m-%d') for i in range(7)]
+    hrs = [f'{d}T{h:02d}:00' for d in days for h in range(24)]
+    temps = [12 + 6 * __import__('math').sin((i % 24 - 9) / 24 * 6.28) for i in range(len(hrs))]
+    one = {"current": {"time": jst.strftime('%Y-%m-%dT%H:00'), "temperature_2m": 15, "apparent_temperature": 14, "weather_code": 2, "relative_humidity_2m": 60},
+           "hourly": {"time": hrs, "temperature_2m": temps, "weather_code": [0, 1, 2, 3, 61, 2] * 28, "precipitation_probability": [10] * 168, "wind_speed_10m": [3] * 168, "relative_humidity_2m": [60] * 168},
+           "daily": {"time": days, "weather_code": [0, 2, 3, 61, 1, 2, 3], "temperature_2m_max": [18, 17, 19, 15, 16, 18, 17], "temperature_2m_min": [10, 9, 11, 8, 9, 10, 9], "precipitation_probability_max": [10, 20, 5, 80, 10, 20, 30]}}
+    route.fulfill(status=200, content_type='application/json', body=json.dumps([one] * n), headers={'Access-Control-Allow-Origin': '*'})
+
 def shoot(br, url, out, mobile, grab=None):
     vp = {'width': 390, 'height': 844} if mobile else {'width': 1300, 'height': 900}
     pg = br.new_page(viewport=vp, device_scale_factor=2 if mobile else 1)
     pg.route(re.compile(r'^https?://(?!127\.0\.0\.1)'), lambda r: r.abort())
+    pg.route(re.compile(r'^https://api\.open-meteo\.com/'), fake_wx)   # 날씨는 예시 값으로 (화면 비교용)
     if grab:
         pg.goto(grab[0], wait_until='load'); pg.wait_for_timeout(400); pg.evaluate(gen.GRAB, grab[1])
     else:
         pg.goto(url, wait_until='load')
-    pg.wait_for_timeout(600)
+    pg.wait_for_timeout(1500)
     pg.screenshot(path=out, full_page=True); pg.close()
 
 def side(a, b, out, label):
