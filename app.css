@@ -651,6 +651,7 @@ body.is-wx .hero{display:none}
 .hst{margin:0;font-size:14px;font-weight:600}.hcard .gul li{font-size:14px}
 .hbtn{margin-top:auto;justify-content:center;background:var(--shu);border-color:var(--shu);color:#fff}
 /*STCSS_END*/
+/*PPLUS*/.pplus{margin-top:14px;display:flex;flex-direction:column;gap:12px}.pmore{margin:0;line-height:1.7}.pfloor dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0}.pfloor dt{font-weight:700;color:var(--ink-2);white-space:nowrap}.pfloor dd{margin:0}.ptax{border-left:4px solid var(--ai)}.pplus .faq dl{margin:0}
 footer{border-top:1px solid var(--line);color:var(--ink-2);font-size:12.5px}
 footer .wrap{padding-block:20px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
