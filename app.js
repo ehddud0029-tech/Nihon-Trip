@@ -2404,6 +2404,10 @@ const STAY_TYPES = ["비즈니스호텔: 방은 작지만 역 가깝고 깔끔�
  "캡슐호텔: 가장 저렴하지만 짐 둘 곳이 작고 남녀 층이 나뉘어요.","민박(민파쿠): 가족 여행에 넓은 방이 좋지만, 허가 번호가 있는 숙소인지 확인하세요."];
 const stayAreaCard = o => `<article class="gblk starea"><h4>${esc(o.name)}</h4>
      <dl><dt>장점</dt><dd>${esc(o.pros)}</dd><dt>단점</dt><dd>${esc(o.cons)}</dd><dt>이런 분께</dt><dd>${esc(o.for)}</dd></dl></article>`;
+const stayAreaCardC = o => `<article class="gblk starea stc"><h4>${esc(o.name)}</h4><p class="stfor"><span>이런 분께</span> ${esc(o.for)}</p>
+     <dl class="stpc"><dt>장점</dt><dd>${esc(o.pros)}</dd><dt>단점</dt><dd>${esc(o.cons)}</dd></dl></article>`;
+const hotelMini = h => `<div class="hmini"><div class="hmt"><span class="harea">${esc(h.area)}</span><b>${esc(h.ko)}</b><small>${esc(h.st)}</small></div>
+     <a class="btn hbtn" href="${h.url}" target="_blank" rel="sponsored noopener">마이리얼트립에서 예약하기 ↗</a></div>`;
 const stayList = (h,items) => `<div class="gblk"><h4>${h}</h4><ul class="gul">${items.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`;
 V.stay = function(){
   const c = STAY_CITIES.includes(st.city) ? st.city : "";
@@ -2413,13 +2417,14 @@ V.stay = function(){
     const sec = (GUIDE.secs||[]).find(x=>x.key==="stay");
     return `<div class="wx">
      <div class="ghead"><h2>일본 숙소 추천과 예약 방법</h2><p>${esc(sec?sec.lead:"")}</p></div>
-     ${stayChips("")}
+     <nav class="wxmon stjump">${STAY_CITIES.map(k=>`<a href="#st-${k}" data-stjump="${k}">${esc(CITIES[k].ko)}</a>`).join("")}</nav>
      ${sec?stayList(esc(sec.blocks[0].h), sec.blocks[0].items):""}
      ${STAY_CITIES.map(k=>{ const a=stayAreas(k), hs=HOTELS.filter(h=>h.city===k);
        return `<section class="stsec" id="st-${k}"><h3 class="sgh"><span>${esc(a.h||CITIES[k].ko)}</span></h3>${a.sub?`<p class="stsub">${esc(a.sub)}</p>`:""}
-        <div class="stgrid">${a.opts.map(stayAreaCard).join("")}</div>
-        ${show&&hs.length?`<p class="wxo stho"><span>추천 숙소</span> ${hs.map(h=>esc(h.ko)).join(" · ")}</p>`:""}
-        <p class="stmore">${stayA(k,`자세히 보기<i> →</i>`,"more")}</p></section>`; }).join("")}
+        <div class="stgrid">${a.opts.map(stayAreaCardC).join("")}</div>
+        <button type="button" class="stxbtn" data-sttog="${k}"><span class="o">장단점 펼쳐 보기</span><span class="c">장단점 접기</span></button>
+        ${show&&hs.length?`<div class="hminis"><h4>추천 숙소</h4>${hs.map(hotelMini).join("")}${STAY_AD}</div>`:""}
+        <p class="stmore">${stayA(k,`${esc(CITIES[k].ko)} 숙소 자세히 보기<i> →</i>`,"more")}</p></section>`; }).join("")}
      <section id="booking">${stayList("예약 사이트 고르기", STAY_SITES)}</section>
      ${stayList("예약할 때 꼭 확인할 것", STAY_CHECK)}
      ${stayList("숙소 종류", STAY_TYPES)}
@@ -2482,6 +2487,8 @@ document.addEventListener("click",e=>{
   const wxf = e.target.closest("[data-wxfest]"); if(wxf){ e.preventDefault(); const c=wxf.dataset.wxfest; st.month=+wxf.dataset.m; st.city=c; if(c!=="all") st.area=areasOf(c)[0].key; st.view="festivals"; render(); window.scrollTo({top:0}); return; }
   const apl = e.target.closest("[data-apa]"); if(apl){ e.preventDefault(); st.view="airport"; st.ap=apl.dataset.apa; st.apk=apl.dataset.apk; render(); window.scrollTo({top:0}); return; }
   const aps = e.target.closest("[data-apspots]"); if(aps){ e.preventDefault(); const k=aps.dataset.apspots; st.city=AREA[k].region; st.area=k; st.view="spots"; render(); window.scrollTo({top:0}); return; }
+  const stj = e.target.closest("[data-stjump]"); if(stj){ e.preventDefault(); const t=document.getElementById("st-"+stj.dataset.stjump); if(t) t.scrollIntoView({behavior:"smooth",block:"start"}); return; }
+  const stt = e.target.closest("[data-sttog]"); if(stt){ const sc=stt.closest(".stsec"); if(sc) sc.classList.toggle("open"); return; }
   const stl = e.target.closest("[data-stayc]"); if(stl){ e.preventDefault(); st.view="stay"; st.city=stl.dataset.stayc; render(); window.scrollTo({top:0}); return; }
   const gs = e.target.closest("[data-gsec]"); if(gs){ e.preventDefault(); st.gsec=gs.dataset.gsec; st.view="guide"; render(); window.scrollTo({top:0}); return; }
   const v = e.target.closest("[data-view]");
