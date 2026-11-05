@@ -1,0 +1,19 @@
+name: photos
+on:
+  push:
+    branches: [photo-job]
+    paths: ['photos.py', 'titles.json', 'search.json', 'fix.json']
+permissions:
+  contents: write
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 photos.py
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add photo_cache.json photo_candidates.json
+          git commit -m "photo job results" || true
+          git push
