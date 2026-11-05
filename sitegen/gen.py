@@ -84,9 +84,11 @@ def page_html(lang, title, desc, path, body, fonts, icon, alternates=True, index
     h += ['<meta property="og:type" content="website">', '<meta property="og:site_name" content="Go Nihon Trip">',
           f'<meta property="og:title" content="{esc(title)}">', f'<meta property="og:description" content="{esc(desc)}">',
           f'<meta property="og:url" content="{url}">', f'<meta property="og:locale" content="{OG_LOCALE[lang]}">',
-          f'<meta property="og:image" content="{ORIGIN}{BASE}og-{lang}.png">', '<meta property="og:image:width" content="1200">',
-          '<meta property="og:image:height" content="630">', '<meta property="og:image:alt" content="Go Nihon Trip">',
-          '<meta name="twitter:card" content="summary_large_image">', f'<meta name="twitter:image" content="{ORIGIN}{BASE}og-{lang}.png">', icon,
+          *([f'<meta property="og:image" content="{esc(ld["image"])}">', f'<meta property="og:image:alt" content="{esc(ld.get("name", ""))}">',   # 장소 사진(위키미디어 공용)
+             '<meta name="twitter:card" content="summary_large_image">', f'<meta name="twitter:image" content="{esc(ld["image"])}">'] if ld and ld.get('image') else
+            [f'<meta property="og:image" content="{ORIGIN}{BASE}og-{lang}.png">', '<meta property="og:image:width" content="1200">',
+             '<meta property="og:image:height" content="630">', '<meta property="og:image:alt" content="Go Nihon Trip">',
+             '<meta name="twitter:card" content="summary_large_image">', f'<meta name="twitter:image" content="{ORIGIN}{BASE}og-{lang}.png">']), icon,
           f'<link rel="icon" type="image/png" sizes="32x32" href="{BASE}icon-32.png">', f'<link rel="apple-touch-icon" href="{BASE}icon-180.png">',
           f'<link rel="alternate" type="application/rss+xml" title="Go Nihon Trip" href="{ORIGIN}{BASE}rss.xml">']
     h.append(GA)
@@ -118,6 +120,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         pass
 
 
+import base64
+PNG1 = base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=')
 GRAB = r'''async (url)=>{
   history.pushState(null,"",url);
   Object.assign(st,{q:"",more:false,focus:null,menu:"ramen",spotCat:"all",hm:null,month:NOW_M}); delete st.wxTab;
@@ -308,6 +312,7 @@ def main():
             errs = []
             pg.on('pageerror', lambda e: errs.append(str(e)))
             pg.route(re.compile(r'^https?://(?!127\.0\.0\.1)'), lambda r: r.abort())
+            pg.route(re.compile(r'^https://(upload|thumb)\.wikimedia\.org/'), lambda r: r.fulfill(status=200, content_type='image/png', body=PNG1))   # 사진 태그가 지워지지 않게 (실제로 받지는 않음)
             lp = '' if lang == 'ko' else lang + '/'
             pg.goto(root + lp, wait_until='load')
             pg.wait_for_timeout(300)

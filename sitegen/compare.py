@@ -13,6 +13,7 @@ ROOT = '/home/claude'
 SITE_REPO = f'{ROOT}/nihon-trip'
 OUTDIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'compare_out')
 TMP = '/tmp/nt_compare'
+REAL_IMG = False   # 작업 공간에서는 위키 사진 서버에 못 붙어서 빈 사진으로 대신해요
 
 def args():
     a = sys.argv[1:]; ref = 'main'; mobile = False
@@ -66,6 +67,7 @@ def shoot(br, url, out, mobile, grab=None):
     pg = br.new_page(viewport=vp, device_scale_factor=2 if mobile else 1)
     pg.route(re.compile(r'^https?://(?!127\.0\.0\.1)'), lambda r: r.abort())
     pg.route(re.compile(r'^https://api\.open-meteo\.com/'), fake_wx)   # 날씨는 예시 값으로 (화면 비교용)
+    pg.route(re.compile(r'^https://(upload|thumb)\.wikimedia\.org/'), lambda r: r.continue_() if REAL_IMG else r.fulfill(status=200, content_type='image/png', body=gen.PNG1))   # 위키 사진은 빈 이미지로 대신 (작업 공간에서 못 받아서)
     if grab:
         pg.goto(grab[0], wait_until='load'); pg.wait_for_timeout(400); pg.evaluate(gen.GRAB, grab[1])
     else:

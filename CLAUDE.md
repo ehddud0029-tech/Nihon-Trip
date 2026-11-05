@@ -63,6 +63,8 @@
 - 맛집 목록의 똑같이 반복되는 틀 문장 특징(feat)은 `i18n_work/ar_dedupe.py`가 비워요(region_inject 뒤에 다시 돌려 주세요).
 - `i18n_work/patch_navfix.py`: 메뉴의 '추천 일정' 링크는 항상 일정 목록, '여행 준비'는 첫 섹션(전에는 정적 생성 때 남은 상태 때문에 오키나와 일정으로 가 있었어요). 추천 일정의 장소는 장소 페이지 링크(<a class="istop">), 장소 페이지에는 '이 장소가 들어간 추천 일정'(placeItins). html·pre·itin_view.js에 같이 적용, region_inject 뒤에 다시 돌려 주세요.
 
+- 사진을 페이지에 미리 넣기(2026-11): 작업 공간·페이지 생성은 위키 사이트에 못 붙어서, 사진 주소·저작자·라이선스는 GitHub의 `photo-job` 브랜치(photos.py + titles.json·search.json, push하면 Actions가 돌고 photo_cache.json·photo_candidates.json을 커밋)로 받아요. 결과 중 위키미디어 공용 사진만 `site/photo_static.json`에 모으고(사진 없던 곳은 후보 중 직접 고른 파일), `i18n_work/patch_photos.py`가 html·pre에 PHOTO_STATIC으로 넣어요(사진 alt=장소 이름, 장소 JSON-LD image → gen.py가 og:image로 사용). gen.py·compare.py는 위키 이미지 요청에 1px 이미지로 답해서 img 태그가 지워지지 않게 해요(비교 이미지에서는 사진 자리가 비어 보여요). region_inject 뒤에는 patch_photos.py도 다시 돌려 주세요.
+
 ## 수정 전·후 비교 (사용자 요청: 사이트를 고치면 항상 보여주기)
 - 날씨 값은 비교용 예시로 채워요(실제 예보 아님). 화면이 바뀌는 수정을 하면 배포 전에 `python3 sitegen/compare.py <이름> <언어:주소> ... [--mobile] [--ref main]`로 비교 이미지를 만들어 사용자에게 보내요 (왼쪽 수정 전 = 배포된 main, 오른쪽 수정 후 = 작업 공간 원본). 결과는 `sitegen/compare_out/<이름>_<번호>.png`.
 - 바뀐 페이지의 대표 주소 1~3개를 고르고, 모바일 화면이 바뀌면 `--mobile`도 같이 만들어요.
