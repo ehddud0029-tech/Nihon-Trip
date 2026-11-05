@@ -191,8 +191,17 @@ def make(D, T, lang):
         return None
     return tr
 
+DOT = re.compile(r'(?<=[A-Za-z0-9).])·(?=[A-Za-z0-9(])')
+def amp(v):
+    # 영어·스페인어·프랑스어: 붙여 쓴 가운뎃점(A·B·C)을 'A, B & C'로 (검색어와 맞추기 쉽게)
+    if not isinstance(v, str) or not DOT.search(v): return v
+    parts = DOT.split(v)
+    return ', '.join(parts[:-1]) + ' & ' + parts[-1]
+
 def emit(outdir):
     D, T = load()
+    for l in ('en', 'es', 'fr'):
+        D[l] = {k: amp(v) for k, v in D[l].items()}
     os.makedirs(outdir, exist_ok=True)
     for l in ALL_LANGS:
         o = {'lang': l, 'ar': {'en': 'en', 'ja': 'ja', 'zh': 'zh-cn', 'tw': 'zh-tw'}.get(l, 'en'), 'D': D[l],

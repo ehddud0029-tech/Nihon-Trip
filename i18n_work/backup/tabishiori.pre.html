@@ -2900,13 +2900,16 @@ function pageMeta(){
     const DL={ko:["입장료","운영","가는 길","추천 쇼핑"],en:["Admission","Open","Access","What to buy"],ja:["入場料","営業","アクセス","おすすめ"],es:["Entrada","Horario","Acceso","Qué comprar"],fr:["Entrée","Horaires","Accès","À acheter"],zh:["门票","开放","交通","推荐"],tw:["門票","開放","交通","推薦"],th:["ค่าเข้าชม","เวลาเปิด","การเดินทาง","ของน่าซื้อ"]}[L]||["입장료","운영","가는 길","추천 쇼핑"];
     const col=(L==="ja"||L==="zh"||L==="tw")?"：":L==="fr"?" : ":": ", sp=(L==="ja"||L==="zh"||L==="tw")?"、":", ";
     const facts=[]; if(it.type==="spot"){ const si=SIV.rows(it.id); const fr=si&&si.rows.find(r=>r[0]==="fee"), hr=si&&si.rows.find(r=>r[0]==="hours"); if(fr) facts.push(DL[0]+col+fr[1][0]); if(hr) facts.push(DL[1]+col+hr[1][0]); }
+    const shi=typeof shopInfo==="function"?shopInfo(it):null; if(shi&&shi.h) facts.push(DL[1]+col+shi.h);
     if((it.type==="spot"||it.type==="shop")&&it.station) facts.push(DL[2]+col+T(it.station));
     const picks=(it.type==="shop"&&SHOP_PICKS[it.id])?DL[3]+col+SHOP_PICKS[it.id].map(x=>T(x)).join(sp):"";
-    let desc=[facts.join(" | "),[T(it.desc),picks||T(it.tip||"")].filter(Boolean).join(" ")].filter(Boolean).join((L==="ja"||L==="zh"||L==="tw")?"。":" – "); if(desc.length>160) desc=desc.slice(0,157)+"…";
+    const rest=[facts.join(" | "), picks||(facts.length?"":T(it.tip||""))].filter(Boolean).join(" | ");   // 검색 설명: 소개 문장 먼저, 실용 정보는 뒤에
+    let desc=[T(it.desc),rest].filter(Boolean).join((L==="ja"||L==="zh"||L==="tw")?"":" "); if(desc.length>160) desc=desc.slice(0,157)+"…";
+    const PTH={ko:"{n} – 영업시간·추천 쇼핑·가는 길 ({a})",en:"{n} – Opening Hours, What to Buy & Access ({a})",ja:"{n} – 営業時間・おすすめの買い物・アクセス（{a}）",es:"{n} – Horario, qué comprar y cómo llegar ({a})",fr:"{n} – Horaires, quoi acheter et accès ({a})",zh:"{n} – 营业时间·推荐购物·交通（{a}）",tw:"{n} – 營業時間·推薦購物·交通（{a}）",th:"{n} – เวลาเปิด ของน่าซื้อ และการเดินทาง ({a})"};
     const g=(window.GEO||{})[it.id];
     window.__ld={"@context":"https://schema.org","@type":it.type==="spot"?"TouristAttraction":"Place",name:n,alternateName:it.jp,description:T(it.desc),
-      ...(g?{geo:{"@type":"GeoCoordinates",latitude:g[0],longitude:g[1]}}:{}),address:{"@type":"PostalAddress",addressCountry:"JP",addressRegion:T(CITIES[it.city].ko)}};
-    return {title:(PT[L]||PT.ko)[it.type].replace("{n}",n).replace("{a}",a)+" | Go Nihon Trip", desc};
+      ...(g?{geo:{"@type":"GeoCoordinates",latitude:g[0],longitude:g[1]}}:{}),address:{"@type":"PostalAddress",addressCountry:"JP",addressRegion:T(CITIES[it.city].ko)},...(shi&&shi.u?{url:shi.u}:{}),...(shi&&shi.h?{openingHours:"Mo-Su "+shi.h.replace("–","-")}:{})};
+    return {title:((it.type==="shop"&&shi&&shi.h&&PTH[L])||(PT[L]||PT.ko)[it.type]).replace("{n}",n).replace("{a}",a)+" | Go Nihon Trip", desc};
   } }
  const IT={ko:{about:"사이트 소개",contact:"문의하기",privacy:"개인정보처리방침",d:"Go Nihon Trip 사이트 소개, 정보 출처, 문의 방법과 개인정보처리방침."},
    en:{about:"About",contact:"Contact",privacy:"Privacy Policy",d:"About Go Nihon Trip, where our information comes from, how to contact us, and our privacy policy."},
@@ -3020,6 +3023,49 @@ function placeIdOf(slug){ if(!PLACE_IDX){ PLACE_IDX={}; ALL.forEach(x=>{ if(PLAC
 const placeHref = id => ROUTED ? window.NT_BASE + LPRE + `place/${placeSlug(id)}/` : "#";
 const TYPE_VIEW = {spot:"spots",fest:"festivals",shop:"shopping",food:"food"};
 const plateHTML = it => `<div class="plate" style="--c:var(${colorOf(it)})"><span class="tag">${esc(tagOf(it))}</span><span class="k">${itemIcon(it)}</span>${PHOTO[it.id]?`<img class="bg" src="${esc(PHOTO[it.id].src)}" alt="" aria-hidden="true" decoding="async" referrerpolicy="no-referrer">`:""}${imgTag(it.id)}</div>`;
+/*SHOPINFO_BEGIN*/
+/* 쇼핑 장소의 영업시간·공식 사이트 (2026년 11월, 각 시설 공식 사이트 기준). h=매장 영업시간, r=식당가, hs=일요일·공휴일, u=공식 사이트, f=층별 안내가 있는 시설 */
+const SHOP_INFO = {
+ yodobashi_umeda:{h:"9:30–22:00",u:"https://www.yodobashi.com/ec/store/0081/",f:1},
+ yodobashi_shinjuku:{h:"9:30–22:00",u:"https://www.yodobashi.com/ec/store/0011/",f:1},
+ iwataya:{h:"10:00–20:00",u:"https://www.iwataya-mitsukoshi.mistore.jp/iwataya.html",f:1},
+ hakatahankyu:{h:"10:00–20:00",u:"https://www.hankyu-dept.co.jp/hakata/",f:1},
+ amu_hakata:{h:"10:00–20:00",r:"11:00–22:00",u:"https://www.jrhakatacity.com/",f:1},
+ s109:{h:"10:00–21:00",u:"https://shibuya109.jp/",f:1},
+ nambaparks:{h:"11:00–21:00",r:"11:00–22:00",u:"https://nambaparks.com/",f:1},
+ daimaru_sapporo:{h:"10:00–20:00",r:"11:00–22:00",u:"https://www.daimaru.co.jp/sapporo/",f:1},
+ kitte:{h:"11:00–20:00",r:"11:00–22:00",u:"https://marunouchi.jp-kitte.jp/",f:1},
+ umie:{h:"10:00–20:00",u:"https://umie.jp/",f:1},
+ worldporters:{h:"10:30–21:00",r:"11:00–23:00",u:"https://www.yim.co.jp/",f:1},
+ itosaisai:{h:"9:00–18:00",u:"https://ja-itoshima.or.jp/itosaisai/"},
+ isetan:{h:"10:00–20:00",u:"https://www.mistore.jp/store/shinjuku.html",f:1},
+ solamachi:{r:"11:00–23:00",u:"https://www.tokyo-solamachi.jp/",f:1},
+ itoya:{h:"10:00–20:00",hs:"10:00–19:00",u:"https://www.ito-ya.co.jp/ext/store/ginza/ginza/index.html",f:1},
+ canal:{h:"10:00–21:00",r:"11:00–23:00",u:"https://canalcity.co.jp/",f:1},
+ floral:{h:"9:30–17:30",u:"https://floral-village.com/"},
+ harukas:{h:"10:00–20:00",u:"https://abenoharukas.d-kintetsu.co.jp/",f:1},
+ hepfive:{h:"11:00–21:00",r:"11:00–22:30",u:"https://www.hepfive.jp/",f:1},
+ scramble:{h:"10:00–21:00",r:"11:00–23:00",u:"https://www.shibuya-scramble-square.com/",f:1},
+ omohills:{h:"11:00–20:00",r:"11:00–22:30",u:"https://www.omotesandohills.com/",f:1},
+ ginzasix:{h:"10:30–20:30",r:"11:00–23:00",u:"https://ginza6.tokyo/",f:1},
+ gotemba:{h:"10:00–20:00",u:"https://www.premiumoutlets.co.jp/gotemba/",f:1},
+ factory:{h:"10:00–20:00",r:"11:00–22:00",u:"https://sapporofactory.jp/",f:1},
+ orgel:{h:"9:00–18:00",u:"https://www.otaru-orgel.co.jp/"},
+ kanemori_shop:{h:"9:30–19:00",u:"https://hakodate-kanemori.com/"},
+ pineapple:{h:"10:00–18:00",u:"https://www.nagopine.com/"},
+ stellar:{u:"https://www.stellarplace.net/",f:1},
+ grandfront:{u:"https://www.grandfront-osaka.jp/",f:1},
+ p_meieki:{u:"https://www.jr-takashimaya.co.jp/",f:1},
+ marinoa:{u:"https://www.marinoacity.com/",f:1},
+ p_ekie:{u:"https://www.ekie.jp/",f:1},
+ tomita_shop:{u:"https://www.farm-tomita.co.jp/"}
+};
+const shopInfo = it => (it && it.type==="shop" && SHOP_INFO[it.id]) || null;
+function shopFacts(it, facts){ const s=shopInfo(it); if(!s) return;
+  if(s.h) facts.push(["영업 시간", s.h]); if(s.hs) facts.push(["일요일·공휴일", s.hs]); if(s.r) facts.push(["식당가", s.r]); }
+function shopNote(it){ const s=shopInfo(it); return s&&(s.h||s.r) ? `<p class="sisrc">2026년 11월 기준 · 매장마다 영업시간이 다를 수 있으니 방문 전에 공식 사이트에서 확인하세요.</p>` : ""; }
+function shopBtn(it){ const s=shopInfo(it); return s&&s.u ? `<a class="btn" href="${s.u}" target="_blank" rel="noopener">${s.f?"공식 사이트·층별 안내 ↗":"공식 사이트 ↗"}</a>` : ""; }
+/*SHOPINFO_END*/
 function detailHTML(it, htag, inDrawer){
   const c = CITIES[it.city], isSaved = saved.includes(it.id);
   const facts = [["지역",`${c.ko}${it.sub&&AREA[it.sub]?" · "+AREA[it.sub].ko:""}`]];
@@ -3027,16 +3073,19 @@ function detailHTML(it, htag, inDrawer){
   if(it.when) facts.push(["시기",it.when]);
   if(it.area) facts.push(["위치",it.area]);
   if(it.station) facts.push(["가는 길",it.station]);
+  if(typeof shopFacts==="function") shopFacts(it, facts);
   if(it.price) facts.push(["가격대","¥".repeat(it.price)+" (3단계 중 "+it.price+")"]);
   const mq = encodeURIComponent(`${it.jp} ${it.sub?placeQ(it):c.jp}`);
   const si = it.type==="spot" ? SIV.rows(it.id) : null;
   return `<${htag}>${esc(it.name)}</${htag}><div class="jpn">${esc(it.jp)}</div><p>${esc(it.desc)}</p>
    <dl class="facts">${facts.map(([a,b])=>`<dt>${a}</dt><dd>${esc(b)}</dd>`).join("")}${si?si.rows.map(([k,v])=>`<dt>${{fee:"입장료",hours:"운영 시간",closed:"휴무",status:"현재 상태"}[k]}</dt><dd class="si${k==="status"?" warn":""}">${v.map(x=>`<span>${esc(x)}</span>`).join("")}</dd>`).join(""):""}</dl>
    ${si?`${si.note?`<p class="sinote">${esc(si.note)}</p>`:""}<p class="sisrc">2026년 10월 기준 · 요금과 시간은 바뀔 수 있으니 방문 전에 공식 사이트에서 확인하세요.</p>`:""}
+   ${typeof shopNote==="function"?shopNote(it):""}
    ${SHOP_PICKS[it.id]&&it.type==="shop"?`<div class="picks2"><b>추천 쇼핑 목록</b><ul>${SHOP_PICKS[it.id].map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
    ${it.tip?`<div class="tip"><b>여행 팁</b> · ${esc(it.tip)}</div>`:""}
    ${it.type==="rest"?`<p class="credit">별점과 리뷰는 아래 링크에서 확인하세요. 영업시간·휴무일도 방문 전에 확인하는 게 좋아요.</p>`:""}
    <div class="actions"><button class="btn${isSaved?"":" primary"}" type="button" data-psave="${it.id}">${isSaved?"나의 여행에서 빼기":"나의 여행에 저장"}</button>
+   ${typeof shopBtn==="function"?shopBtn(it):""}
    <a class="btn" href="https://www.google.com/maps/search/?api=1&query=${mq}" target="_blank" rel="noopener">${it.type==="rest"?"Google 지도 평점 ↗":"지도에서 보기 ↗"}</a>
    ${inDrawer&&ROUTED&&PLACE_TYPES.includes(it.type)?`<a class="btn" href="${placeHref(it.id)}">장소 페이지<i> →</i></a>`:""}
 </div>
