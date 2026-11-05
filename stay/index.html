@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=d8d261c6">
+<link rel="stylesheet" href="/app.css?v=c3856a86">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=d8d261c6"><\/script><script src="'+B+'engine.js?v=d8d261c6"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=c3856a86"><\/script><script src="'+B+'engine.js?v=c3856a86"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -95,25 +95,61 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=d8d261c6"><\/s
 
 <main class="wrap" id="main"><div class="wx">
      <div class="ghead"><h2>일본 숙소 추천과 예약 방법</h2><p>어느 동네에 묵느냐에 따라 이동 시간과 여행 분위기가 크게 달라져요. 지역별로 많이 묵는 동네를 비교해 보세요.</p></div>
-     <div class="wxgrid"><article class="wxcard"><h3>도쿄</h3><p class="wxfeel">신주쿠 · 시부야 · 우에노·아사쿠사 · 도쿄역·긴자</p>
-        <p class="wxo"><span>추천 숙소</span> 신주쿠 워싱턴 호텔 본관</p>
-        <a class="more" href="/tokyo/stay/" data-stayc="tokyo">자세히 보기<i> →</i></a></article><article class="wxcard"><h3>오사카</h3><p class="wxfeel">난바·신사이바시 · 우메다(오사카역) · 덴노지·신세카이 · 교토역 주변 · 가와라마치·기온</p>
-        <p class="wxo"><span>추천 숙소</span> APA호텔&amp;리조트 오사카 난바 역앞 타워 · 교토 우메코지 카덴쇼</p>
-        <a class="more" href="/osaka/stay/" data-stayc="osaka">자세히 보기<i> →</i></a></article><article class="wxcard"><h3>후쿠오카</h3><p class="wxfeel">하카타역 · 텐진 · 나카스·하루요시</p>
-        <p class="wxo"><span>추천 숙소</span> 컴포트 인 후쿠오카 텐진 · 유후인 바이엔 가든 리조트</p>
-        <a class="more" href="/fukuoka/stay/" data-stayc="fukuoka">자세히 보기<i> →</i></a></article><article class="wxcard"><h3>홋카이도</h3><p class="wxfeel">삿포로역 · 스스키노·오도리 · 하코다테역·베이 에어리어</p>
-        <p class="wxo"><span>추천 숙소</span> 삿포로 호텔 바이 그랑벨</p>
-        <a class="more" href="/hokkaido/stay/" data-stayc="hokkaido">자세히 보기<i> →</i></a></article><article class="wxcard"><h3>오키나와</h3><p class="wxfeel">나하 (국제거리 주변) · 중부 (차탄·기노완) · 북부 (온나·모토부)</p>
-        <p class="wxo"><span>추천 숙소</span> 레쿠 오키나와 차탄 스파&amp;리조트</p>
-        <a class="more" href="/okinawa/stay/" data-stayc="okinawa">자세히 보기<i> →</i></a></article><article class="wxcard"><h3>나고야</h3><p class="wxfeel">나고야역 주변 (메이에키) · 사카에 · 다카야마역 주변</p>
-        <p class="wxo"><span>추천 숙소</span> 컴포트 인 나고야 사카에</p>
-        <a class="more" href="/nagoya/stay/" data-stayc="nagoya">자세히 보기<i> →</i></a></article><article class="wxcard"><h3>히로시마</h3><p class="wxfeel">히로시마역 주변 · 핫초보리·혼도리 · 미야지마 료칸</p>
-        
-        <a class="more" href="/hiroshima/stay/" data-stayc="hiroshima">자세히 보기<i> →</i></a></article><article class="wxcard"><h3>시코쿠</h3><p class="wxfeel">도고온천 · 마쓰야마 오카이도 · 다카마쓰역·항구 주변</p>
-        
-        <a class="more" href="/shikoku/stay/" data-stayc="shikoku">자세히 보기<i> →</i></a></article></div>
+     <div class="wxmon"><a href="/tokyo/stay/" data-stayc="tokyo">도쿄</a><a href="/osaka/stay/" data-stayc="osaka">오사카</a><a href="/fukuoka/stay/" data-stayc="fukuoka">후쿠오카</a><a href="/hokkaido/stay/" data-stayc="hokkaido">홋카이도</a><a href="/okinawa/stay/" data-stayc="okinawa">오키나와</a><a href="/nagoya/stay/" data-stayc="nagoya">나고야</a><a href="/hiroshima/stay/" data-stayc="hiroshima">히로시마</a><a href="/shikoku/stay/" data-stayc="shikoku">시코쿠</a></div>
      <div class="gblk"><h4>숙소 고를 때 알아 둘 점</h4><ul class="gul"><li>역에서 걸어서 5~10분 안쪽이면 짐을 들고 다니기 편해요. 지도에서 가장 가까운 역과 출구를 먼저 확인하세요.</li><li>일본 호텔 방은 작은 편이에요. 큰 캐리어가 두 개 이상이면 방 크기(㎡)를 꼭 확인하세요.</li><li>도쿄·오사카·교토·후쿠오카 등은 숙박세를 따로 받아요. 예약 금액에 포함됐는지 확인하세요.</li><li>벚꽃·단풍철과 큰 축제 기간에는 몇 달 전부터 방이 차요. 날짜가 정해지면 취소 가능한 요금으로 먼저 잡아 두세요.</li></ul></div>
-     <section id="booking"><div class="gblk"><h4>예약 사이트 고르기</h4><ul class="gul"><li>아고다: 아시아 숙소가 많고 한국어로 예약할 수 있어요.</li><li>부킹닷컴: 무료 취소 요금이 많아 일정이 바뀔 수 있을 때 좋아요.</li><li>라쿠텐 트래블·자란: 일본 예약 사이트라 료칸·온천 숙소가 많고 할인 쿠폰이 자주 나와요.</li><li>호텔 공식 사이트: 회원 요금이나 조식 같은 특전이 있는지 비교해 보세요.</li></ul></div></section>
+     <section class="stsec" id="st-tokyo"><h3 class="sgh"><span>도쿄</span></h3><p class="stsub">처음이라면 교통이 편한 신주쿠나 도쿄역 주변이 무난해요.</p>
+        <div class="stgrid"><article class="gblk starea"><h4>신주쿠</h4>
+     <dl><dt>장점</dt><dd>노선이 가장 많이 모이고 공항버스도 있어요. 밤늦게까지 먹고 놀 곳이 많아요.</dd><dt>단점</dt><dd>역이 아주 크고 복잡해요. 가부키초 주변은 밤에 소란스러워요.</dd><dt>이런 분께</dt><dd>첫 도쿄 여행, 교통 편의를 가장 중요하게 보는 분</dd></dl></article><article class="gblk starea"><h4>시부야</h4>
+     <dl><dt>장점</dt><dd>쇼핑과 트렌디한 맛집이 가깝고, 하라주쿠·오모테산도까지 걸어갈 수 있어요.</dd><dt>단점</dt><dd>숙박비가 비싼 편이고 주말엔 사람이 아주 많아요.</dd><dt>이런 분께</dt><dd>쇼핑과 야경을 즐기는 분</dd></dl></article><article class="gblk starea"><h4>우에노·아사쿠사</h4>
+     <dl><dt>장점</dt><dd>숙소값이 비교적 싸고, 나리타공항 가는 스카이라이너가 우에노에서 출발해요.</dd><dt>단점</dt><dd>시부야·신주쿠 등 서쪽 지역까지는 30분 이상 걸려요. 밤에는 일찍 조용해져요.</dd><dt>이런 분께</dt><dd>가성비를 따지는 분, 나리타공항을 이용하는 분</dd></dl></article><article class="gblk starea"><h4>도쿄역·긴자</h4>
+     <dl><dt>장점</dt><dd>신칸센과 공항 접근이 좋고 거리가 깔끔해요. 하코네·가마쿠라 당일치기에도 편해요.</dd><dt>단점</dt><dd>숙박비가 비싸고, 밤에는 문 닫는 가게가 많아요.</dd><dt>이런 분께</dt><dd>근교로 자주 이동하는 분, 조용한 숙소를 원하는 분</dd></dl></article></div>
+        <p class="wxo stho"><span>추천 숙소</span> 신주쿠 워싱턴 호텔 본관</p>
+        <p class="stmore"><a class="more" href="/tokyo/stay/" data-stayc="tokyo">자세히 보기<i> →</i></a></p></section><section class="stsec" id="st-osaka"><h3 class="sgh"><span>오사카·교토</span></h3><p class="stsub">오사카에 묵으며 교토·나라를 당일로 다녀오는 사람이 많아요. 교토에 오래 있다면 교토 숙박도 좋아요.</p>
+        <div class="stgrid"><article class="gblk starea"><h4>난바·신사이바시</h4>
+     <dl><dt>장점</dt><dd>간사이공항에서 난카이선으로 바로 오고, 도톤보리 먹거리가 코앞이에요.</dd><dt>단점</dt><dd>밤늦게까지 붐비고 시끄러워요. 교토로 갈 때는 우메다보다 조금 멀어요.</dd><dt>이런 분께</dt><dd>첫 오사카 여행, 맛집 탐방이 목적인 분</dd></dl></article><article class="gblk starea"><h4>우메다(오사카역)</h4>
+     <dl><dt>장점</dt><dd>JR·한큐·한신이 모여 교토·고베·나라 당일치기가 편해요. 백화점과 식당가도 많아요.</dd><dt>단점</dt><dd>역과 지하상가가 복잡해서 처음엔 길을 잃기 쉬워요.</dd><dt>이런 분께</dt><dd>교토·고베를 자주 오가는 분</dd></dl></article><article class="gblk starea"><h4>덴노지·신세카이</h4>
+     <dl><dt>장점</dt><dd>숙소값이 싼 편이고, 간사이공항 특급 하루카가 덴노지에 서요.</dd><dt>단점</dt><dd>밤 분위기는 호불호가 갈려요. 북쪽 관광지까지는 갈아타야 해요.</dd><dt>이런 분께</dt><dd>가성비를 따지는 분, 간사이공항을 JR로 이용하는 분</dd></dl></article><article class="gblk starea"><h4>교토역 주변</h4>
+     <dl><dt>장점</dt><dd>신칸센·공항 특급이 서고 버스터미널이 있어 짐 들고 움직이기 편해요.</dd><dt>단점</dt><dd>기요미즈데라·기온 등 주요 관광지까지는 버스나 전철을 타야 해요.</dd><dt>이런 분께</dt><dd>짐이 많은 분, 교토를 여러 날 둘러보는 분</dd></dl></article><article class="gblk starea"><h4>가와라마치·기온</h4>
+     <dl><dt>장점</dt><dd>기온·폰토초·니시키 시장을 걸어서 다닐 수 있고, 아침 일찍 한산한 거리를 볼 수 있어요.</dd><dt>단점</dt><dd>숙박비가 비싸고 성수기엔 방 구하기가 어려워요.</dd><dt>이런 분께</dt><dd>교토의 옛 거리 분위기를 오래 즐기고 싶은 분</dd></dl></article></div>
+        <p class="wxo stho"><span>추천 숙소</span> APA호텔&amp;리조트 오사카 난바 역앞 타워 · 교토 우메코지 카덴쇼</p>
+        <p class="stmore"><a class="more" href="/osaka/stay/" data-stayc="osaka">자세히 보기<i> →</i></a></p></section><section class="stsec" id="st-fukuoka"><h3 class="sgh"><span>후쿠오카</span></h3><p class="stsub">도시가 작아서 하카타·텐진·나카스 어디에 묵어도 이동이 편해요.</p>
+        <div class="stgrid"><article class="gblk starea"><h4>하카타역</h4>
+     <dl><dt>장점</dt><dd>공항에서 지하철로 약 5분이고, 신칸센과 유후인·벳푸행 열차·버스가 출발해요.</dd><dt>단점</dt><dd>밤에 놀 곳은 텐진·나카스보다 적어요.</dd><dt>이런 분께</dt><dd>짧은 일정, 근교로 이동이 많은 분</dd></dl></article><article class="gblk starea"><h4>텐진</h4>
+     <dl><dt>장점</dt><dd>백화점·지하상가·맛집이 모인 번화가예요. 다자이후행 니시테쓰 전철이 출발해요.</dd><dt>단점</dt><dd>공항과 신칸센역까지는 하카타역보다 조금 더 걸려요.</dd><dt>이런 분께</dt><dd>쇼핑과 먹거리를 즐기는 분</dd></dl></article><article class="gblk starea"><h4>나카스·하루요시</h4>
+     <dl><dt>장점</dt><dd>강가 야타이(포장마차)와 밤 풍경이 바로 앞이고, 하카타·텐진 사이라 어디든 가까워요.</dd><dt>단점</dt><dd>유흥가가 섞여 있어 밤에는 분위기가 조금 어수선해요.</dd><dt>이런 분께</dt><dd>야타이와 밤 산책을 즐기고 싶은 분</dd></dl></article></div>
+        <p class="wxo stho"><span>추천 숙소</span> 컴포트 인 후쿠오카 텐진 · 유후인 바이엔 가든 리조트</p>
+        <p class="stmore"><a class="more" href="/fukuoka/stay/" data-stayc="fukuoka">자세히 보기<i> →</i></a></p></section><section class="stsec" id="st-hokkaido"><h3 class="sgh"><span>홋카이도</span></h3><p class="stsub">삿포로를 거점으로 오타루는 당일치기, 하코다테·후라노는 1박 이상 잡는 사람이 많아요.</p>
+        <div class="stgrid"><article class="gblk starea"><h4>삿포로역</h4>
+     <dl><dt>장점</dt><dd>신치토세공항에서 JR로 바로 오고, 오타루·아사히카와행 열차가 출발해요.</dd><dt>단점</dt><dd>밤 먹거리는 스스키노 쪽이 훨씬 많아요.</dd><dt>이런 분께</dt><dd>근교 이동이 많은 분, 겨울에 눈길을 덜 걷고 싶은 분</dd></dl></article><article class="gblk starea"><h4>스스키노·오도리</h4>
+     <dl><dt>장점</dt><dd>라멘·징기스칸·해산물 가게가 모여 있고, 눈축제 회장인 오도리 공원이 가까워요.</dd><dt>단점</dt><dd>유흥가라 밤늦게까지 시끄러운 곳이 있어요.</dd><dt>이런 분께</dt><dd>먹거리와 밤 여행을 즐기는 분</dd></dl></article><article class="gblk starea"><h4>하코다테역·베이 에어리어</h4>
+     <dl><dt>장점</dt><dd>아침시장과 빨간 벽돌 창고, 하코다테산 로프웨이까지 가까워요.</dd><dt>단점</dt><dd>고료카쿠·유노카와 온천 쪽은 노면전차로 20~30분 걸려요.</dd><dt>이런 분께</dt><dd>하코다테 야경과 아침시장이 목적인 분</dd></dl></article></div>
+        <p class="wxo stho"><span>추천 숙소</span> 삿포로 호텔 바이 그랑벨</p>
+        <p class="stmore"><a class="more" href="/hokkaido/stay/" data-stayc="hokkaido">자세히 보기<i> →</i></a></p></section><section class="stsec" id="st-okinawa"><h3 class="sgh"><span>오키나와</span></h3><p class="stsub">렌터카를 안 쓰면 나하, 쓰면 중부나 북부 리조트에 묵는 사람이 많아요.</p>
+        <div class="stgrid"><article class="gblk starea"><h4>나하 (국제거리 주변)</h4>
+     <dl><dt>장점</dt><dd>공항에서 유이레일로 바로 오고, 식당과 기념품 가게가 많아 차 없이도 다니기 좋아요.</dd><dt>단점</dt><dd>예쁜 바다와 해변까지는 거리가 있어요.</dd><dt>이런 분께</dt><dd>렌터카 없이 다니는 분, 짧은 일정</dd></dl></article><article class="gblk starea"><h4>중부 (차탄·기노완)</h4>
+     <dl><dt>장점</dt><dd>아메리칸 빌리지 앞 바다에서 노을을 보고, 남부·북부 어디로든 다니기 좋아요.</dd><dt>단점</dt><dd>버스로 다니기 불편해서 렌터카가 있어야 편해요.</dd><dt>이런 분께</dt><dd>렌터카 여행, 바다와 도시를 모두 즐기고 싶은 분</dd></dl></article><article class="gblk starea"><h4>북부 (온나·모토부)</h4>
+     <dl><dt>장점</dt><dd>리조트 호텔 앞 맑은 바다를 즐기고, 추라우미 수족관·고우리섬이 가까워요.</dd><dt>단점</dt><dd>렌터카가 꼭 필요하고, 숙박비가 비싸요. 공항에서 1시간 반 이상 걸려요.</dd><dt>이런 분께</dt><dd>리조트에서 쉬고 싶은 분, 가족 여행</dd></dl></article></div>
+        <p class="wxo stho"><span>추천 숙소</span> 레쿠 오키나와 차탄 스파&amp;리조트</p>
+        <p class="stmore"><a class="more" href="/okinawa/stay/" data-stayc="okinawa">자세히 보기<i> →</i></a></p></section><section class="stsec" id="st-nagoya"><h3 class="sgh"><span>나고야·다카야마</span></h3><p class="stsub">나고야는 역 주변이 이동에 가장 편하고, 다카야마·시라카와고에 간다면 다카야마에서 하루 묵는 게 좋아요.</p>
+        <div class="stgrid"><article class="gblk starea"><h4>나고야역 주변 (메이에키)</h4>
+     <dl><dt>장점</dt><dd>공항 열차·신칸센·다카야마행 특급이 모두 서서 짐 들고 다니기 편해요.</dd><dt>단점</dt><dd>밤에 놀 거리는 사카에보다 적어요.</dd><dt>이런 분께</dt><dd>근교 당일치기가 많은 분, 짧은 일정</dd></dl></article><article class="gblk starea"><h4>사카에</h4>
+     <dl><dt>장점</dt><dd>백화점·오아시스21·오스 상점가가 가깝고 식당과 술집이 많아요.</dd><dt>단점</dt><dd>나고야역에서 지하철로 한 번 더 이동해야 해요.</dd><dt>이런 분께</dt><dd>쇼핑과 밤 식사를 즐기는 분</dd></dl></article><article class="gblk starea"><h4>다카야마역 주변</h4>
+     <dl><dt>장점</dt><dd>옛 거리와 아침시장이 걸어서 10분이고, 시라카와고행 버스 터미널이 역 바로 옆이에요.</dd><dt>단점</dt><dd>가게가 일찍 닫아 밤에는 조용해요. 성수기엔 숙소가 빨리 차요.</dd><dt>이런 분께</dt><dd>시라카와고까지 묶어 여행하는 분, 료칸 체험</dd></dl></article></div>
+        <p class="wxo stho"><span>추천 숙소</span> 컴포트 인 나고야 사카에</p>
+        <p class="stmore"><a class="more" href="/nagoya/stay/" data-stayc="nagoya">자세히 보기<i> →</i></a></p></section><section class="stsec" id="st-hiroshima"><h3 class="sgh"><span>히로시마</span></h3><p class="stsub">히로시마역 주변이나 시내 중심가에 묵고, 미야지마는 당일치기나 료칸 1박으로 다녀오는 사람이 많아요.</p>
+        <div class="stgrid"><article class="gblk starea"><h4>히로시마역 주변</h4>
+     <dl><dt>장점</dt><dd>공항 버스·신칸센·미야지마행 JR이 모두 출발해서 이동이 편해요.</dd><dt>단점</dt><dd>평화공원까지는 노면전차로 20분쯤 걸려요.</dd><dt>이런 분께</dt><dd>오노미치·구라시키까지 다니는 분</dd></dl></article><article class="gblk starea"><h4>핫초보리·혼도리</h4>
+     <dl><dt>장점</dt><dd>평화공원까지 걸어서 갈 수 있고 오코노미야키 가게와 상점가가 가까워요.</dd><dt>단점</dt><dd>역에서 짐을 들고 오려면 노면전차나 택시를 타야 해요.</dd><dt>이런 분께</dt><dd>시내 관광과 저녁 식사를 즐기는 분</dd></dl></article><article class="gblk starea"><h4>미야지마 료칸</h4>
+     <dl><dt>장점</dt><dd>당일치기 손님이 떠난 저녁과 이른 아침의 조용한 신사를 볼 수 있어요.</dd><dt>단점</dt><dd>숙박비가 비싸고 저녁에 여는 식당이 적어요.</dd><dt>이런 분께</dt><dd>특별한 하룻밤을 원하는 분, 커플</dd></dl></article></div>
+        
+        <p class="stmore"><a class="more" href="/hiroshima/stay/" data-stayc="hiroshima">자세히 보기<i> →</i></a></p></section><section class="stsec" id="st-shikoku"><h3 class="sgh"><span>시코쿠</span></h3><p class="stsub">마쓰야마는 도고온천이나 시내 중심가, 다카마쓰는 항구가 가까운 역 주변에 많이 묵어요.</p>
+        <div class="stgrid"><article class="gblk starea"><h4>도고온천</h4>
+     <dl><dt>장점</dt><dd>온천 료칸에 묵으며 유카타 차림으로 본관과 상점가를 걸어 다닐 수 있어요.</dd><dt>단점</dt><dd>공항·JR 역에서 노면전차로 20분 이상 걸려요.</dd><dt>이런 분께</dt><dd>온천을 즐기고 싶은 분</dd></dl></article><article class="gblk starea"><h4>마쓰야마 오카이도</h4>
+     <dl><dt>장점</dt><dd>성 로프웨이와 상점가가 가깝고 비즈니스호텔이 많아 저렴해요.</dd><dt>단점</dt><dd>온천 분위기는 없어요.</dd><dt>이런 분께</dt><dd>가성비 숙소를 찾는 분</dd></dl></article><article class="gblk starea"><h4>다카마쓰역·항구 주변</h4>
+     <dl><dt>장점</dt><dd>나오시마행 배, 고토덴, 공항 버스가 모두 가까워요.</dd><dt>단점</dt><dd>밤 식당가는 조금 떨어진 가와라마치 쪽에 있어요.</dd><dt>이런 분께</dt><dd>섬 여행·고토히라 당일치기를 하는 분</dd></dl></article></div>
+        
+        <p class="stmore"><a class="more" href="/shikoku/stay/" data-stayc="shikoku">자세히 보기<i> →</i></a></p></section>
+     <section id="booking"><div class="gblk"><h4>예약 사이트 고르기</h4><ul class="gul"><li>아고다: 아시아 숙소가 많고 한국어로 예약할 수 있어요.</li><li>부킹닷컴: 무료 취소 요금이 많아 일정이 바뀔 수 있을 때 좋아요.</li><li>라쿠텐 트래블·자란: 일본 예약 사이트라 료칸·온천 숙소가 많고 할인 쿠폰이 자주 나와요.</li><li>에어비앤비: 가족·친구끼리 집을 통째로 빌리기 좋아요. 청소비·수수료가 따로 붙으니 총액으로 비교하고, 숙소 설명에 일본 민박 신고 번호가 있는지 확인하세요.</li><li>호텔 공식 사이트: 회원 요금이나 조식 같은 특전이 있는지 비교해 보세요.</li></ul></div></section>
      <div class="gblk"><h4>예약할 때 꼭 확인할 것</h4><ul class="gul"><li>무료 취소 기한: 일본 시간 기준인지, 며칠 전까지인지 확인하세요.</li><li>표시된 금액이 1인 요금인지 1실 요금인지 확인하세요. 일본 사이트는 1인 요금으로 보여 주는 경우가 많아요.</li><li>숙박세: 도쿄·오사카·교토·후쿠오카·삿포로 등은 1인 1박마다 숙박세가 붙고, 현장에서 따로 내는 경우도 있어요.</li><li>체크인은 보통 15시, 체크아웃은 10~11시예요. 일찍 도착하면 프런트에 짐을 맡길 수 있는지 확인하세요.</li><li>침대 크기: '세미더블'은 1인용에 가까운 크기라 둘이 쓰기엔 좁아요.</li></ul></div>
      <div class="gblk"><h4>숙소 종류</h4><ul class="gul"><li>비즈니스호텔: 방은 작지만 역 가깝고 깔끔해요. 짧은 일정에 가장 무난해요.</li><li>료칸: 다다미방과 온천, 저녁·아침 2식이 포함된 경우가 많아요. 저녁 시간에 맞춰 도착하세요.</li><li>캡슐호텔: 가장 저렴하지만 짐 둘 곳이 작고 남녀 층이 나뉘어요.</li><li>민박(민파쿠): 가족 여행에 넓은 방이 좋지만, 허가 번호가 있는 숙소인지 확인하세요.</li></ul></div>
      <p class="sisrc">숙소 정보와 요금은 바뀔 수 있어요. 예약 전에 숙소 페이지에서 다시 확인하세요.</p>
@@ -137,10 +173,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=d8d261c6"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=d8d261c6"></script>
-<script src="/autoreserve.js?v=d8d261c6"></script>
-<script src="/google_picks.js?v=d8d261c6"></script>
-<script src="/geo.js?v=d8d261c6"></script>
-<script src="/app.js?v=d8d261c6"></script>
+<script src="/areas.js?v=c3856a86"></script>
+<script src="/autoreserve.js?v=c3856a86"></script>
+<script src="/google_picks.js?v=c3856a86"></script>
+<script src="/geo.js?v=c3856a86"></script>
+<script src="/app.js?v=c3856a86"></script>
 </body>
 </html>

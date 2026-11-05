@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=d8d261c6">
+<link rel="stylesheet" href="/app.css?v=c3856a86">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=d8d261c6"><\/script><script src="'+B+'engine.js?v=d8d261c6"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=c3856a86"><\/script><script src="'+B+'engine.js?v=c3856a86"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -95,25 +95,61 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=d8d261c6"><\/s
 
 <main class="wrap" id="main"><div class="wx">
      <div class="ghead"><h2>Dónde alojarse en Japón y cómo reservar</h2><p>El barrio donde te alojes cambia mucho los traslados y el ambiente del viaje. Compara los barrios más elegidos de cada región.</p></div>
-     <div class="wxgrid"><article class="wxcard"><h3>Tokio</h3><p class="wxfeel">Shinjuku · Shibuya · Ueno y Asakusa · Estación de Tokio y Ginza</p>
-        
-        <a class="more" href="/es/tokyo/stay/" data-stayc="tokyo">Ver detalles<i> →</i></a></article><article class="wxcard"><h3>Osaka</h3><p class="wxfeel">Namba y Shinsaibashi · Umeda (estación de Osaka) · Tennoji y Shinsekai · Alrededor de la estación de Kioto · Kawaramachi y Gion</p>
-        
-        <a class="more" href="/es/osaka/stay/" data-stayc="osaka">Ver detalles<i> →</i></a></article><article class="wxcard"><h3>Fukuoka</h3><p class="wxfeel">Estación de Hakata · Tenjin · Nakasu y Haruyoshi</p>
-        
-        <a class="more" href="/es/fukuoka/stay/" data-stayc="fukuoka">Ver detalles<i> →</i></a></article><article class="wxcard"><h3>Hokkaido</h3><p class="wxfeel">Estación de Sapporo · Susukino y Odori · Estación de Hakodate y zona de la bahía</p>
-        
-        <a class="more" href="/es/hokkaido/stay/" data-stayc="hokkaido">Ver detalles<i> →</i></a></article><article class="wxcard"><h3>Okinawa</h3><p class="wxfeel">Naha (alrededor de Kokusai-dori) · Centro (Chatan y Ginowan) · Norte (Onna y Motobu)</p>
-        
-        <a class="more" href="/es/okinawa/stay/" data-stayc="okinawa">Ver detalles<i> →</i></a></article><article class="wxcard"><h3>Nagoya</h3><p class="wxfeel">Alrededor de la est. de Nagoya (Meieki) · Sakae · Alrededor de la est. de Takayama</p>
-        
-        <a class="more" href="/es/nagoya/stay/" data-stayc="nagoya">Ver detalles<i> →</i></a></article><article class="wxcard"><h3>Hiroshima</h3><p class="wxfeel">Alrededor de la est. de Hiroshima · Hatchobori y Hondori · Ryokan en Miyajima</p>
-        
-        <a class="more" href="/es/hiroshima/stay/" data-stayc="hiroshima">Ver detalles<i> →</i></a></article><article class="wxcard"><h3>Shikoku</h3><p class="wxfeel">Dogo Onsen · Okaido (Matsuyama) · Alrededor de la est. y el puerto de Takamatsu</p>
-        
-        <a class="more" href="/es/shikoku/stay/" data-stayc="shikoku">Ver detalles<i> →</i></a></article></div>
+     <div class="wxmon"><a href="/es/tokyo/stay/" data-stayc="tokyo">Tokio</a><a href="/es/osaka/stay/" data-stayc="osaka">Osaka</a><a href="/es/fukuoka/stay/" data-stayc="fukuoka">Fukuoka</a><a href="/es/hokkaido/stay/" data-stayc="hokkaido">Hokkaido</a><a href="/es/okinawa/stay/" data-stayc="okinawa">Okinawa</a><a href="/es/nagoya/stay/" data-stayc="nagoya">Nagoya</a><a href="/es/hiroshima/stay/" data-stayc="hiroshima">Hiroshima</a><a href="/es/shikoku/stay/" data-stayc="shikoku">Shikoku</a></div>
      <div class="gblk"><h4>Al reservar, conviene saber</h4><ul class="gul"><li>Alojarse a 5–10 minutos a pie de una estación facilita mucho llevar el equipaje. Mira antes en el mapa la estación y la salida más cercanas.</li><li>Las habitaciones en Japón suelen ser pequeñas. Con dos maletas grandes o más, mira los m² de la habitación.</li><li>Ciudades como Tokio, Osaka, Kioto y Fukuoka cobran un impuesto de alojamiento aparte. Comprueba si está incluido en la reserva.</li><li>En temporada de cerezos, de arces y en grandes festivales, las habitaciones se agotan con meses de antelación. Con las fechas claras, reserva pronto una tarifa reembolsable.</li></ul></div>
-     <section id="booking"><div class="gblk"><h4>Cómo elegir web de reservas</h4><ul class="gul"><li>Agoda: muchos alojamientos en Asia y reservas en varios idiomas.</li><li>Booking.com: muchas tarifas con cancelación gratuita, ideal si tus planes pueden cambiar.</li><li>Rakuten Travel y Jalan: webs japonesas con muchos ryokan y alojamientos con onsen, y cupones de descuento frecuentes.</li><li>Web oficial del hotel: compara si hay tarifas para socios o extras como el desayuno.</li></ul></div></section>
+     <section class="stsec" id="st-tokyo"><h3 class="sgh"><span>Tokio</span></h3><p class="stsub">Para una primera visita, Shinjuku o la zona de la estación de Tokio son apuestas seguras.</p>
+        <div class="stgrid"><article class="gblk starea"><h4>Shinjuku</h4>
+     <dl><dt>Ventajas</dt><dd>Aquí confluyen más líneas que en ningún sitio y hay autobuses al aeropuerto. Mucho que comer y hacer hasta tarde.</dd><dt>Inconvenientes</dt><dd>La estación es enorme y confusa, y la zona de Kabukicho es ruidosa de noche.</dd><dt>Ideal para</dt><dd>Quien visita Tokio por primera vez y prioriza el transporte</dd></dl></article><article class="gblk starea"><h4>Shibuya</h4>
+     <dl><dt>Ventajas</dt><dd>Cerca de tiendas y restaurantes de moda, y a pie de Harajuku y Omotesando.</dd><dt>Inconvenientes</dt><dd>Alojarse es caro y los fines de semana hay muchísima gente.</dd><dt>Ideal para</dt><dd>Amantes de las compras y las vistas nocturnas</dd></dl></article><article class="gblk starea"><h4>Ueno y Asakusa</h4>
+     <dl><dt>Ventajas</dt><dd>El alojamiento es relativamente barato y el Skyliner al aeropuerto de Narita sale de Ueno.</dd><dt>Inconvenientes</dt><dd>Shibuya y Shinjuku, al oeste, quedan a más de 30 minutos, y de noche se apaga pronto.</dd><dt>Ideal para</dt><dd>Viajeros con presupuesto ajustado y quien usa el aeropuerto de Narita</dd></dl></article><article class="gblk starea"><h4>Estación de Tokio y Ginza</h4>
+     <dl><dt>Ventajas</dt><dd>Muy buen acceso al shinkansen y a los aeropuertos, con calles cuidadas. Práctico para excursiones a Hakone o Kamakura.</dd><dt>Inconvenientes</dt><dd>Es caro y muchas tiendas cierran pronto por la noche.</dd><dt>Ideal para</dt><dd>Quien hace excursiones o busca una base tranquila</dd></dl></article></div>
+        
+        <p class="stmore"><a class="more" href="/es/tokyo/stay/" data-stayc="tokyo">Ver detalles<i> →</i></a></p></section><section class="stsec" id="st-osaka"><h3 class="sgh"><span>Osaka y Kioto</span></h3><p class="stsub">Mucha gente se aloja en Osaka y va a Kioto y Nara en el día. Si pasas varios días en Kioto, alójate allí.</p>
+        <div class="stgrid"><article class="gblk starea"><h4>Namba y Shinsaibashi</h4>
+     <dl><dt>Ventajas</dt><dd>Directo desde el aeropuerto de Kansai en la línea Nankai, con la comida de Dotonbori a la puerta.</dd><dt>Inconvenientes</dt><dd>Hay gente y ruido hasta tarde, y queda algo más lejos de Kioto que Umeda.</dd><dt>Ideal para</dt><dd>Primera vez en Osaka o viaje centrado en la comida</dd></dl></article><article class="gblk starea"><h4>Umeda (estación de Osaka)</h4>
+     <dl><dt>Ventajas</dt><dd>Aquí se juntan JR, Hankyu y Hanshin: ideal para ir en el día a Kioto, Kobe y Nara. Muchos grandes almacenes y restaurantes.</dd><dt>Inconvenientes</dt><dd>Las estaciones y galerías subterráneas son un laberinto al principio.</dd><dt>Ideal para</dt><dd>Quien va y viene a menudo a Kioto y Kobe</dd></dl></article><article class="gblk starea"><h4>Tennoji y Shinsekai</h4>
+     <dl><dt>Ventajas</dt><dd>El alojamiento suele ser más barato y el expreso Haruka al aeropuerto para en Tennoji.</dd><dt>Inconvenientes</dt><dd>El ambiente nocturno no gusta a todos y para los sitios del norte hay que hacer transbordo.</dd><dt>Ideal para</dt><dd>Viajeros con presupuesto ajustado que usan JR al aeropuerto de Kansai</dd></dl></article><article class="gblk starea"><h4>Alrededor de la estación de Kioto</h4>
+     <dl><dt>Ventajas</dt><dd>Paran el shinkansen y los expresos al aeropuerto, y la terminal de autobuses facilita moverse con equipaje.</dd><dt>Inconvenientes</dt><dd>Para llegar a Kiyomizu-dera o Gion hay que tomar autobús o tren.</dd><dt>Ideal para</dt><dd>Quien lleva mucho equipaje o pasa varios días en Kioto</dd></dl></article><article class="gblk starea"><h4>Kawaramachi y Gion</h4>
+     <dl><dt>Ventajas</dt><dd>Gion, Pontocho y el mercado de Nishiki están a pie, y puedes ver las calles tranquilas a primera hora.</dd><dt>Inconvenientes</dt><dd>Es caro y en temporada alta cuesta encontrar habitación.</dd><dt>Ideal para</dt><dd>Quien quiere empaparse del Kioto antiguo</dd></dl></article></div>
+        
+        <p class="stmore"><a class="more" href="/es/osaka/stay/" data-stayc="osaka">Ver detalles<i> →</i></a></p></section><section class="stsec" id="st-fukuoka"><h3 class="sgh"><span>Fukuoka</span></h3><p class="stsub">La ciudad es compacta: Hakata, Tenjin o Nakasu funcionan igual de bien.</p>
+        <div class="stgrid"><article class="gblk starea"><h4>Estación de Hakata</h4>
+     <dl><dt>Ventajas</dt><dd>A unos 5 minutos del aeropuerto en metro, y punto de salida del shinkansen y de trenes o autobuses a Yufuin y Beppu.</dd><dt>Inconvenientes</dt><dd>Menos vida nocturna que Tenjin o Nakasu.</dd><dt>Ideal para</dt><dd>Viajes cortos o con muchas excursiones</dd></dl></article><article class="gblk starea"><h4>Tenjin</h4>
+     <dl><dt>Ventajas</dt><dd>El centro de compras y restaurantes, con grandes almacenes y galería subterránea. De aquí salen los trenes Nishitetsu a Dazaifu.</dd><dt>Inconvenientes</dt><dd>Algo más lejos del aeropuerto y del shinkansen que Hakata.</dd><dt>Ideal para</dt><dd>Amantes de las compras y la comida</dd></dl></article><article class="gblk starea"><h4>Nakasu y Haruyoshi</h4>
+     <dl><dt>Ventajas</dt><dd>Los puestos yatai junto al río y las vistas nocturnas a la puerta, a medio camino entre Hakata y Tenjin.</dd><dt>Inconvenientes</dt><dd>Se mezcla con zona de ocio nocturno y de noche puede resultar algo caótica.</dd><dt>Ideal para</dt><dd>Quien quiere yatai y paseos nocturnos</dd></dl></article></div>
+        
+        <p class="stmore"><a class="more" href="/es/fukuoka/stay/" data-stayc="fukuoka">Ver detalles<i> →</i></a></p></section><section class="stsec" id="st-hokkaido"><h3 class="sgh"><span>Hokkaido</span></h3><p class="stsub">Muchos se alojan en Sapporo, van a Otaru en el día y pasan al menos una noche en Hakodate o Furano.</p>
+        <div class="stgrid"><article class="gblk starea"><h4>Estación de Sapporo</h4>
+     <dl><dt>Ventajas</dt><dd>Trenes JR directos desde el aeropuerto de New Chitose y salidas hacia Otaru y Asahikawa.</dd><dt>Inconvenientes</dt><dd>Susukino tiene muchas más opciones para cenar.</dd><dt>Ideal para</dt><dd>Quien hace excursiones o prefiere caminar menos por la nieve en invierno</dd></dl></article><article class="gblk starea"><h4>Susukino y Odori</h4>
+     <dl><dt>Ventajas</dt><dd>Ramen, jingisukan y marisco por todas partes, y cerca del parque Odori, sede del Festival de la Nieve.</dd><dt>Inconvenientes</dt><dd>Es zona de ocio y algunas calles son ruidosas hasta tarde.</dd><dt>Ideal para</dt><dd>Amantes de la comida y de la noche</dd></dl></article><article class="gblk starea"><h4>Estación de Hakodate y zona de la bahía</h4>
+     <dl><dt>Ventajas</dt><dd>Cerca del Mercado Matinal, los almacenes de ladrillo y el teleférico del monte Hakodate.</dd><dt>Inconvenientes</dt><dd>Goryokaku y Yunokawa Onsen quedan a 20–30 minutos en tranvía.</dd><dt>Ideal para</dt><dd>Quien viene por las vistas nocturnas y el Mercado Matinal</dd></dl></article></div>
+        
+        <p class="stmore"><a class="more" href="/es/hokkaido/stay/" data-stayc="hokkaido">Ver detalles<i> →</i></a></p></section><section class="stsec" id="st-okinawa"><h3 class="sgh"><span>Okinawa</span></h3><p class="stsub">Sin coche, la mayoría se queda en Naha; con coche, muchos eligen resorts del centro o del norte.</p>
+        <div class="stgrid"><article class="gblk starea"><h4>Naha (alrededor de Kokusai-dori)</h4>
+     <dl><dt>Ventajas</dt><dd>Directo desde el aeropuerto en Yui Rail, con muchos restaurantes y tiendas: se puede ir sin coche.</dd><dt>Inconvenientes</dt><dd>Las playas bonitas quedan algo lejos.</dd><dt>Ideal para</dt><dd>Viajeros sin coche, viajes cortos</dd></dl></article><article class="gblk starea"><h4>Centro (Chatan y Ginowan)</h4>
+     <dl><dt>Ventajas</dt><dd>Atardeceres sobre el mar en American Village y buen acceso en coche al norte y al sur.</dd><dt>Inconvenientes</dt><dd>Los autobuses no son prácticos: conviene tener coche.</dd><dt>Ideal para</dt><dd>Viajes en coche con mar y ciudad</dd></dl></article><article class="gblk starea"><h4>Norte (Onna y Motobu)</h4>
+     <dl><dt>Ventajas</dt><dd>Agua cristalina frente a los resorts, cerca del acuario Churaumi y la isla de Kouri.</dd><dt>Inconvenientes</dt><dd>Imprescindible el coche, precios altos y a más de hora y media del aeropuerto.</dd><dt>Ideal para</dt><dd>Amantes de los resorts y familias</dd></dl></article></div>
+        
+        <p class="stmore"><a class="more" href="/es/okinawa/stay/" data-stayc="okinawa">Ver detalles<i> →</i></a></p></section><section class="stsec" id="st-nagoya"><h3 class="sgh"><span>Nagoya y Takayama</span></h3><p class="stsub">En Nagoya lo más práctico es la zona de la estación; si vas a Takayama y Shirakawa-go, duerme una noche en Takayama.</p>
+        <div class="stgrid"><article class="gblk starea"><h4>Alrededor de la est. de Nagoya (Meieki)</h4>
+     <dl><dt>Ventajas</dt><dd>Paran aquí los trenes del aeropuerto, el shinkansen y los expresos a Takayama: cómodo con equipaje.</dd><dt>Inconvenientes</dt><dd>Menos vida nocturna que Sakae.</dd><dt>Ideal para</dt><dd>Quien hace excursiones de un día, estancias cortas</dd></dl></article><article class="gblk starea"><h4>Sakae</h4>
+     <dl><dt>Ventajas</dt><dd>Cerca de grandes almacenes, Oasis 21 y Osu, con muchos restaurantes y bares.</dd><dt>Inconvenientes</dt><dd>Hay que tomar el metro hasta la estación de Nagoya.</dd><dt>Ideal para</dt><dd>Quien quiere compras y cenas</dd></dl></article><article class="gblk starea"><h4>Alrededor de la est. de Takayama</h4>
+     <dl><dt>Ventajas</dt><dd>El casco antiguo y los mercados están a 10 minutos a pie, y la terminal de autobuses a Shirakawa-go está junto a la estación.</dd><dt>Inconvenientes</dt><dd>Las tiendas cierran pronto y las noches son tranquilas; en temporada alta se llena todo.</dd><dt>Ideal para</dt><dd>Quien combina con Shirakawa-go, amantes de los ryokan</dd></dl></article></div>
+        
+        <p class="stmore"><a class="more" href="/es/nagoya/stay/" data-stayc="nagoya">Ver detalles<i> →</i></a></p></section><section class="stsec" id="st-hiroshima"><h3 class="sgh"><span>Hiroshima</span></h3><p class="stsub">La mayoría se aloja cerca de la estación o en el centro y visita Miyajima en el día o con una noche en un ryokan.</p>
+        <div class="stgrid"><article class="gblk starea"><h4>Alrededor de la est. de Hiroshima</h4>
+     <dl><dt>Ventajas</dt><dd>Desde aquí salen los autobuses del aeropuerto, el shinkansen y los trenes JR a Miyajima.</dd><dt>Inconvenientes</dt><dd>El Parque de la Paz queda a unos 20 minutos en tranvía.</dd><dt>Ideal para</dt><dd>Quien va también a Onomichi o Kurashiki</dd></dl></article><article class="gblk starea"><h4>Hatchobori y Hondori</h4>
+     <dl><dt>Ventajas</dt><dd>A distancia a pie del Parque de la Paz y cerca de okonomiyaki y tiendas.</dd><dt>Inconvenientes</dt><dd>Desde la estación con equipaje necesitas tranvía o taxi.</dd><dt>Ideal para</dt><dd>Turismo urbano y cenas</dd></dl></article><article class="gblk starea"><h4>Ryokan en Miyajima</h4>
+     <dl><dt>Ventajas</dt><dd>Disfruta del santuario en calma al atardecer y al amanecer, sin excursionistas.</dd><dt>Inconvenientes</dt><dd>Es caro y hay pocos restaurantes abiertos por la noche.</dd><dt>Ideal para</dt><dd>Parejas y quien busca una noche especial</dd></dl></article></div>
+        
+        <p class="stmore"><a class="more" href="/es/hiroshima/stay/" data-stayc="hiroshima">Ver detalles<i> →</i></a></p></section><section class="stsec" id="st-shikoku"><h3 class="sgh"><span>Shikoku</span></h3><p class="stsub">En Matsuyama, alójate en Dogo Onsen o en el centro; en Takamatsu, cerca de la estación junto al puerto.</p>
+        <div class="stgrid"><article class="gblk starea"><h4>Dogo Onsen</h4>
+     <dl><dt>Ventajas</dt><dd>Alójate en un ryokan termal y pasea en yukata hasta el Honkan y la galería.</dd><dt>Inconvenientes</dt><dd>Está a más de 20 minutos en tranvía de la estación JR.</dd><dt>Ideal para</dt><dd>Amantes de las aguas termales</dd></dl></article><article class="gblk starea"><h4>Okaido (Matsuyama)</h4>
+     <dl><dt>Ventajas</dt><dd>Cerca del teleférico del castillo y las galerías, con muchos hoteles económicos.</dd><dt>Inconvenientes</dt><dd>No hay ambiente de aguas termales.</dd><dt>Ideal para</dt><dd>Quien busca buena relación calidad-precio</dd></dl></article><article class="gblk starea"><h4>Alrededor de la est. y el puerto de Takamatsu</h4>
+     <dl><dt>Ventajas</dt><dd>Ferris a Naoshima, Kotoden y el autobús del aeropuerto, todo cerca.</dd><dt>Inconvenientes</dt><dd>La zona de ocio nocturno queda algo lejos, en Kawaramachi.</dd><dt>Ideal para</dt><dd>Quien visita las islas o Kotohira</dd></dl></article></div>
+        
+        <p class="stmore"><a class="more" href="/es/shikoku/stay/" data-stayc="shikoku">Ver detalles<i> →</i></a></p></section>
+     <section id="booking"><div class="gblk"><h4>Cómo elegir web de reservas</h4><ul class="gul"><li>Agoda: muchos alojamientos en Asia y reservas en varios idiomas.</li><li>Booking.com: muchas tarifas con cancelación gratuita, ideal si tus planes pueden cambiar.</li><li>Rakuten Travel y Jalan: webs japonesas con muchos ryokan y alojamientos con onsen, y cupones de descuento frecuentes.</li><li>Airbnb: ideal para alquilar una casa entera con familia o amigos. Las tarifas de limpieza y de servicio se cobran aparte, así que compara el precio total y comprueba que el anuncio muestre un número de registro de minpaku japonés.</li><li>Web oficial del hotel: compara si hay tarifas para socios o extras como el desayuno.</li></ul></div></section>
      <div class="gblk"><h4>Qué revisar al reservar</h4><ul class="gul"><li>Plazo de cancelación gratuita: comprueba cuántos días antes y si es en hora de Japón.</li><li>Comprueba si el precio es por persona o por habitación; las webs japonesas suelen mostrarlo por persona.</li><li>Impuesto de alojamiento: Tokio, Osaka, Kioto, Fukuoka, Sapporo y otras lo cobran por persona y noche, a veces aparte en el hotel.</li><li>El check-in suele ser a las 15:00 y el check-out entre las 10 y las 11. Si llegas antes, pregunta si te guardan el equipaje.</li><li>Tamaño de cama: la «semidoble» es casi individual y queda estrecha para dos.</li></ul></div>
      <div class="gblk"><h4>Tipos de alojamiento</h4><ul class="gul"><li>Hoteles business: habitaciones pequeñas pero limpias y cerca de estaciones; lo más práctico en viajes cortos.</li><li>Ryokan: habitaciones de tatami y aguas termales, a menudo con cena y desayuno; llega a tiempo para la cena.</li><li>Hoteles cápsula: lo más barato, pero con poco espacio para el equipaje y plantas separadas por sexo.</li><li>Alquileres privados (minpaku): amplios para familias, pero comprueba que el anuncio tenga número de licencia.</li></ul></div>
      <p class="sisrc">La información y los precios pueden cambiar. Revisa la página del alojamiento antes de reservar.</p>
@@ -137,10 +173,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=d8d261c6"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=d8d261c6"></script>
-<script src="/autoreserve.js?v=d8d261c6"></script>
-<script src="/google_picks.js?v=d8d261c6"></script>
-<script src="/geo.js?v=d8d261c6"></script>
-<script src="/app.js?v=d8d261c6"></script>
+<script src="/areas.js?v=c3856a86"></script>
+<script src="/autoreserve.js?v=c3856a86"></script>
+<script src="/google_picks.js?v=c3856a86"></script>
+<script src="/geo.js?v=c3856a86"></script>
+<script src="/app.js?v=c3856a86"></script>
 </body>
 </html>

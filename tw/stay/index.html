@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=d8d261c6">
+<link rel="stylesheet" href="/app.css?v=c3856a86">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=d8d261c6"><\/script><script src="'+B+'engine.js?v=d8d261c6"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=c3856a86"><\/script><script src="'+B+'engine.js?v=c3856a86"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -95,25 +95,61 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=d8d261c6"><\/s
 
 <main class="wrap" id="main"><div class="wx">
      <div class="ghead"><h2>日本住宿推薦與預訂方法</h2><p>住在哪個區域，會大大影響移動時間和旅行氛圍。請比較各地熱門住宿區域。</p></div>
-     <div class="wxgrid"><article class="wxcard"><h3>東京</h3><p class="wxfeel">新宿 · 澀谷 · 上野·淺草 · 東京站·銀座</p>
-        
-        <a class="more" href="/tw/tokyo/stay/" data-stayc="tokyo">檢視詳情<i> →</i></a></article><article class="wxcard"><h3>大阪</h3><p class="wxfeel">難波·心齋橋 · 梅田（大阪站） · 天王寺·新世界 · 京都站周邊 · 河原町·祇園</p>
-        
-        <a class="more" href="/tw/osaka/stay/" data-stayc="osaka">檢視詳情<i> →</i></a></article><article class="wxcard"><h3>福岡</h3><p class="wxfeel">博多站 · 天神 · 中洲·春吉</p>
-        
-        <a class="more" href="/tw/fukuoka/stay/" data-stayc="fukuoka">檢視詳情<i> →</i></a></article><article class="wxcard"><h3>北海道</h3><p class="wxfeel">札幌站 · 薄野·大通 · 函館站·港灣區</p>
-        
-        <a class="more" href="/tw/hokkaido/stay/" data-stayc="hokkaido">檢視詳情<i> →</i></a></article><article class="wxcard"><h3>沖繩</h3><p class="wxfeel">那霸（國際通周邊） · 中部（北谷·宜野灣） · 北部（恩納·本部）</p>
-        
-        <a class="more" href="/tw/okinawa/stay/" data-stayc="okinawa">檢視詳情<i> →</i></a></article><article class="wxcard"><h3>名古屋</h3><p class="wxfeel">名古屋站周邊（名站） · 榮 · 高山站周邊</p>
-        
-        <a class="more" href="/tw/nagoya/stay/" data-stayc="nagoya">檢視詳情<i> →</i></a></article><article class="wxcard"><h3>廣島</h3><p class="wxfeel">廣島站周邊 · 八丁堀·本通 · 宮島旅館</p>
-        
-        <a class="more" href="/tw/hiroshima/stay/" data-stayc="hiroshima">檢視詳情<i> →</i></a></article><article class="wxcard"><h3>四国</h3><p class="wxfeel">道後溫泉 · 松山 大街道 · 高松站·港口周邊</p>
-        
-        <a class="more" href="/tw/shikoku/stay/" data-stayc="shikoku">檢視詳情<i> →</i></a></article></div>
+     <div class="wxmon"><a href="/tw/tokyo/stay/" data-stayc="tokyo">東京</a><a href="/tw/osaka/stay/" data-stayc="osaka">大阪</a><a href="/tw/fukuoka/stay/" data-stayc="fukuoka">福岡</a><a href="/tw/hokkaido/stay/" data-stayc="hokkaido">北海道</a><a href="/tw/okinawa/stay/" data-stayc="okinawa">沖繩</a><a href="/tw/nagoya/stay/" data-stayc="nagoya">名古屋</a><a href="/tw/hiroshima/stay/" data-stayc="hiroshima">廣島</a><a href="/tw/shikoku/stay/" data-stayc="shikoku">四国</a></div>
      <div class="gblk"><h4>選住宿時的要點</h4><ul class="gul"><li>距離車站步行5–10分鐘以內，帶行李會輕鬆很多。請先在地圖上確認最近的車站和出口。</li><li>日本酒店房間偏小。如果有兩個以上大行李箱，請務必確認房間面積（㎡）。</li><li>東京、大阪、京都、福岡等地另收住宿稅，請確認預訂金額中是否已包含。</li><li>櫻花、紅葉季和大型祭典期間，房間幾個月前就會訂滿。日期確定後，請先用可取消的價格預訂。</li></ul></div>
-     <section id="booking"><div class="gblk"><h4>如何選擇預訂網站</h4><ul class="gul"><li>Agoda：亞洲住宿多，可用多種語言預訂。</li><li>Booking.com：免費取消的房價多，行程可能變動時很方便。</li><li>樂天旅遊·Jalan：日本本地預訂網站，旅館和溫泉住宿多，常有折扣券。</li><li>酒店官網：比較是否有會員價或含早餐等優惠。</li></ul></div></section>
+     <section class="stsec" id="st-tokyo"><h3 class="sgh"><span>東京</span></h3><p class="stsub">第一次去的話，交通便利的新宿或東京站周邊比較穩妥。</p>
+        <div class="stgrid"><article class="gblk starea"><h4>新宿</h4>
+     <dl><dt>優點</dt><dd>線路最多的交匯點，還有機場巴士，到深夜都有很多吃喝玩樂的地方。</dd><dt>缺點</dt><dd>車站非常大且複雜，歌舞伎町一帶晚上比較喧鬧。</dd><dt>適合人群</dt><dd>第一次遊東京、最看重交通便利的人</dd></dl></article><article class="gblk starea"><h4>澀谷</h4>
+     <dl><dt>優點</dt><dd>購物和潮流美食就在身邊，步行可到原宿、表參道。</dd><dt>缺點</dt><dd>住宿費偏高，週末人非常多。</dd><dt>適合人群</dt><dd>喜歡購物和夜景的人</dd></dl></article><article class="gblk starea"><h4>上野·淺草</h4>
+     <dl><dt>優點</dt><dd>住宿相對便宜，前往成田機場的Skyliner從上野出發。</dd><dt>缺點</dt><dd>到澀谷、新宿等西部地區需要30分鐘以上，晚上很早就安靜下來。</dd><dt>適合人群</dt><dd>注重價效比、使用成田機場的人</dd></dl></article><article class="gblk starea"><h4>東京站·銀座</h4>
+     <dl><dt>優點</dt><dd>前往新幹線和機場都很方便，街道整潔，去箱根、鎌倉一日遊也方便。</dd><dt>缺點</dt><dd>住宿費較貴，晚上很多店會關門。</dd><dt>適合人群</dt><dd>經常去近郊、喜歡安靜住宿的人</dd></dl></article></div>
+        
+        <p class="stmore"><a class="more" href="/tw/tokyo/stay/" data-stayc="tokyo">檢視詳情<i> →</i></a></p></section><section class="stsec" id="st-osaka"><h3 class="sgh"><span>大阪·京都</span></h3><p class="stsub">很多人住在大阪，再一日遊京都、奈良。如果在京都停留較久，住京都也不錯。</p>
+        <div class="stgrid"><article class="gblk starea"><h4>難波·心齋橋</h4>
+     <dl><dt>優點</dt><dd>從關西機場乘南海線直達，道頓堀美食就在眼前。</dd><dt>缺點</dt><dd>到深夜都很擁擠嘈雜，去京都比梅田稍遠。</dd><dt>適合人群</dt><dd>第一次遊大阪、以美食為主要目的的人</dd></dl></article><article class="gblk starea"><h4>梅田（大阪站）</h4>
+     <dl><dt>優點</dt><dd>JR、阪急、阪神線在此交匯，去京都、神戶、奈良一日遊都方便，百貨店和餐飲街也多。</dd><dt>缺點</dt><dd>車站和地下街非常複雜，第一次去容易迷路。</dd><dt>適合人群</dt><dd>經常往返京都、神戶的人</dd></dl></article><article class="gblk starea"><h4>天王寺·新世界</h4>
+     <dl><dt>優點</dt><dd>住宿相對便宜，關西機場特急Haruka在天王寺停靠。</dd><dt>缺點</dt><dd>夜晚氛圍見仁見智，去北邊的景點需要換乘。</dd><dt>適合人群</dt><dd>注重價效比、乘JR往返關西機場的人</dd></dl></article><article class="gblk starea"><h4>京都站周邊</h4>
+     <dl><dt>優點</dt><dd>新幹線和機場特急都停靠，還有巴士總站，帶行李移動方便。</dd><dt>缺點</dt><dd>去清水寺、祇園等主要景點需要乘巴士或電車。</dd><dt>適合人群</dt><dd>行李多、在京都遊覽多日的人</dd></dl></article><article class="gblk starea"><h4>河原町·祇園</h4>
+     <dl><dt>優點</dt><dd>步行可到祇園、先鬥町、錦市場，清晨還能看到寧靜的街道。</dd><dt>缺點</dt><dd>住宿費較貴，旺季很難訂到房間。</dd><dt>適合人群</dt><dd>想慢慢感受京都老街氛圍的人</dd></dl></article></div>
+        
+        <p class="stmore"><a class="more" href="/tw/osaka/stay/" data-stayc="osaka">檢視詳情<i> →</i></a></p></section><section class="stsec" id="st-fukuoka"><h3 class="sgh"><span>福岡</span></h3><p class="stsub">城市不大，住在博多、天神、中洲哪裡都很方便。</p>
+        <div class="stgrid"><article class="gblk starea"><h4>博多站</h4>
+     <dl><dt>優點</dt><dd>從機場乘地鐵約5分鐘，新幹線以及前往由布院、別府的列車和巴士都從這裡出發。</dd><dt>缺點</dt><dd>晚上的娛樂場所比天神、中洲少。</dd><dt>適合人群</dt><dd>行程較短、經常去近郊的人</dd></dl></article><article class="gblk starea"><h4>天神</h4>
+     <dl><dt>優點</dt><dd>百貨店、地下街和美食雲集的繁華街，前往太宰府的西鐵電車從這裡出發。</dd><dt>缺點</dt><dd>到機場和新幹線車站比博多站稍遠一些。</dd><dt>適合人群</dt><dd>喜歡購物和美食的人</dd></dl></article><article class="gblk starea"><h4>中洲·春吉</h4>
+     <dl><dt>優點</dt><dd>河邊屋台和夜景就在眼前，位於博多和天神之間，去哪裡都近。</dd><dt>缺點</dt><dd>夾雜著娛樂街區，晚上氛圍有點雜亂。</dd><dt>適合人群</dt><dd>想享受屋台美食和夜間散步的人</dd></dl></article></div>
+        
+        <p class="stmore"><a class="more" href="/tw/fukuoka/stay/" data-stayc="fukuoka">檢視詳情<i> →</i></a></p></section><section class="stsec" id="st-hokkaido"><h3 class="sgh"><span>北海道</span></h3><p class="stsub">很多人以札幌為據點，小樽當天往返，函館、富良野則住一晚以上。</p>
+        <div class="stgrid"><article class="gblk starea"><h4>札幌站</h4>
+     <dl><dt>優點</dt><dd>從新千歲機場乘JR直達，前往小樽、旭川的列車也從這裡出發。</dd><dt>缺點</dt><dd>晚上吃東西的地方薄野一帶要多得多。</dd><dt>適合人群</dt><dd>經常去近郊、冬天想少走雪路的人</dd></dl></article><article class="gblk starea"><h4>薄野·大通</h4>
+     <dl><dt>優點</dt><dd>拉麵、成吉思汗烤肉、海鮮店雲集，離冰雪節會場大通公園也很近。</dd><dt>缺點</dt><dd>這裡是娛樂街區，部分地方到深夜都很吵。</dd><dt>適合人群</dt><dd>喜歡美食和夜生活的人</dd></dl></article><article class="gblk starea"><h4>函館站·港灣區</h4>
+     <dl><dt>優點</dt><dd>離朝市、紅磚倉庫和函館山纜車都很近。</dd><dt>缺點</dt><dd>去五稜郭、湯之川溫泉乘路面電車需要20–30分鐘。</dd><dt>適合人群</dt><dd>以函館夜景和朝市為目的的人</dd></dl></article></div>
+        
+        <p class="stmore"><a class="more" href="/tw/hokkaido/stay/" data-stayc="hokkaido">檢視詳情<i> →</i></a></p></section><section class="stsec" id="st-okinawa"><h3 class="sgh"><span>沖繩</span></h3><p class="stsub">不租車的話多住那霸，租車的話很多人住中部或北部的度假酒店。</p>
+        <div class="stgrid"><article class="gblk starea"><h4>那霸（國際通周邊）</h4>
+     <dl><dt>優點</dt><dd>從機場乘單軌電車直達，餐廳和伴手禮店多，沒有車也很方便。</dd><dt>缺點</dt><dd>離漂亮的大海和海灘有一段距離。</dd><dt>適合人群</dt><dd>不租車出行的人、行程較短的人</dd></dl></article><article class="gblk starea"><h4>中部（北谷·宜野灣）</h4>
+     <dl><dt>優點</dt><dd>可以在美國村前的海邊看日落，去南部、北部都方便。</dd><dt>缺點</dt><dd>乘巴士出行不便，最好租車。</dd><dt>適合人群</dt><dd>自駕旅行、想同時享受海景和城市的人</dd></dl></article><article class="gblk starea"><h4>北部（恩納·本部）</h4>
+     <dl><dt>優點</dt><dd>度假酒店門前就是清澈的大海，離美麗海水族館和古宇利島很近。</dd><dt>缺點</dt><dd>必須租車，住宿費較貴，距機場1個半小時以上。</dd><dt>適合人群</dt><dd>想在度假村放鬆的人、家庭旅行</dd></dl></article></div>
+        
+        <p class="stmore"><a class="more" href="/tw/okinawa/stay/" data-stayc="okinawa">檢視詳情<i> →</i></a></p></section><section class="stsec" id="st-nagoya"><h3 class="sgh"><span>名古屋·高山</span></h3><p class="stsub">名古屋住車站周邊出行最方便；如果要去高山、白川鄉，建議在高山住一晚。</p>
+        <div class="stgrid"><article class="gblk starea"><h4>名古屋站周邊（名站）</h4>
+     <dl><dt>優點</dt><dd>機場線、新幹線和開往高山的特急都在這裡停靠，帶行李出行方便。</dd><dt>缺點</dt><dd>晚上的娛樂比榮少。</dd><dt>適合人群</dt><dd>經常近郊一日遊、行程較短的人</dd></dl></article><article class="gblk starea"><h4>榮</h4>
+     <dl><dt>優點</dt><dd>離百貨店、綠洲21、大須商店街很近，餐廳和酒吧很多。</dd><dt>缺點</dt><dd>從名古屋站還需要再換乘一次地鐵。</dd><dt>適合人群</dt><dd>喜歡購物和夜間用餐的人</dd></dl></article><article class="gblk starea"><h4>高山站周邊</h4>
+     <dl><dt>優點</dt><dd>老街和朝市步行10分鐘可到，前往白川鄉的巴士總站就在車站旁邊。</dd><dt>缺點</dt><dd>店鋪關門早，晚上很安靜；旺季住宿很快就會訂滿。</dd><dt>適合人群</dt><dd>順道遊白川鄉的人、想體驗旅館的人</dd></dl></article></div>
+        
+        <p class="stmore"><a class="more" href="/tw/nagoya/stay/" data-stayc="nagoya">檢視詳情<i> →</i></a></p></section><section class="stsec" id="st-hiroshima"><h3 class="sgh"><span>廣島</span></h3><p class="stsub">很多人住在廣島站周邊或市中心，宮島則當天往返或在旅館住一晚。</p>
+        <div class="stgrid"><article class="gblk starea"><h4>廣島站周邊</h4>
+     <dl><dt>優點</dt><dd>機場巴士、新幹線和前往宮島的JR都從這裡出發，出行方便。</dd><dt>缺點</dt><dd>到和平公園乘路面電車約20分鐘。</dd><dt>適合人群</dt><dd>要順道去尾道、倉敷的人</dd></dl></article><article class="gblk starea"><h4>八丁堀·本通</h4>
+     <dl><dt>優點</dt><dd>步行可到和平公園，離大阪燒店和商店街也很近。</dd><dt>缺點</dt><dd>從車站帶著行李過來需要乘路面電車或計程車。</dd><dt>適合人群</dt><dd>喜歡市區觀光和晚餐的人</dd></dl></article><article class="gblk starea"><h4>宮島旅館</h4>
+     <dl><dt>優點</dt><dd>可以在一日遊遊客離開後的傍晚和清晨，看到寧靜的神社。</dd><dt>缺點</dt><dd>住宿費較貴，晚上營業的餐廳很少。</dd><dt>適合人群</dt><dd>想度過特別一晚的人、情侶</dd></dl></article></div>
+        
+        <p class="stmore"><a class="more" href="/tw/hiroshima/stay/" data-stayc="hiroshima">檢視詳情<i> →</i></a></p></section><section class="stsec" id="st-shikoku"><h3 class="sgh"><span>四国</span></h3><p class="stsub">松山多住道後溫泉或市中心，高松則多住靠近港口的車站周邊。</p>
+        <div class="stgrid"><article class="gblk starea"><h4>道後溫泉</h4>
+     <dl><dt>優點</dt><dd>住溫泉旅館，可以穿著浴衣漫步到本館和商店街。</dd><dt>缺點</dt><dd>從機場或JR車站乘路面電車需要20分鐘以上。</dd><dt>適合人群</dt><dd>想享受溫泉的人</dd></dl></article><article class="gblk starea"><h4>松山 大街道</h4>
+     <dl><dt>優點</dt><dd>離城堡纜車和商店街很近，有很多平價商務酒店。</dd><dt>缺點</dt><dd>沒有溫泉氛圍。</dd><dt>適合人群</dt><dd>尋找高價效比住宿的人</dd></dl></article><article class="gblk starea"><h4>高松站·港口周邊</h4>
+     <dl><dt>優點</dt><dd>前往直島的船、琴電、機場巴士都很近。</dd><dt>缺點</dt><dd>夜間餐飲街在稍遠一些的瓦町一帶。</dd><dt>適合人群</dt><dd>跳島遊或去琴平一日遊的人</dd></dl></article></div>
+        
+        <p class="stmore"><a class="more" href="/tw/shikoku/stay/" data-stayc="shikoku">檢視詳情<i> →</i></a></p></section>
+     <section id="booking"><div class="gblk"><h4>如何選擇預訂網站</h4><ul class="gul"><li>Agoda：亞洲住宿多，可用多種語言預訂。</li><li>Booking.com：免費取消的房價多，行程可能變動時很方便。</li><li>樂天旅遊·Jalan：日本本地預訂網站，旅館和溫泉住宿多，常有折扣券。</li><li>愛彼迎（Airbnb）：適合家人或朋友一起整套租住。清潔費和服務費另計，請按總價比較，並確認房源說明中有日本民宿備案編號。</li><li>酒店官網：比較是否有會員價或含早餐等優惠。</li></ul></div></section>
      <div class="gblk"><h4>預訂時務必確認</h4><ul class="gul"><li>免費取消期限：確認提前幾天以及是否按日本時間。</li><li>確認顯示價格是每人還是每間，日本網站多顯示每人價格。</li><li>住宿稅：東京、大阪、京都、福岡、札幌等按每人每晚收取，有時需在現場另付。</li><li>入住一般在15點，退房在10~11點。早到的話確認能否在前台寄存行李。</li><li>床的大小：「半雙人床」接近單人床，兩人睡會很擠。</li></ul></div>
      <div class="gblk"><h4>住宿型別</h4><ul class="gul"><li>商務酒店：房間小但乾淨、離車站近，短途最穩妥。</li><li>旅館：榻榻米房和溫泉，多含晚餐和早餐，請按晚餐時間到達。</li><li>膠囊酒店：最便宜，但放行李的地方小，男女分樓層。</li><li>民宿（民泊）：適合家庭的大房間，但請確認有許可編號。</li></ul></div>
      <p class="sisrc">住宿資訊和價格可能變動，預訂前請在住宿頁面再次確認。</p>
@@ -137,10 +173,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=d8d261c6"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=d8d261c6"></script>
-<script src="/autoreserve.js?v=d8d261c6"></script>
-<script src="/google_picks.js?v=d8d261c6"></script>
-<script src="/geo.js?v=d8d261c6"></script>
-<script src="/app.js?v=d8d261c6"></script>
+<script src="/areas.js?v=c3856a86"></script>
+<script src="/autoreserve.js?v=c3856a86"></script>
+<script src="/google_picks.js?v=c3856a86"></script>
+<script src="/geo.js?v=c3856a86"></script>
+<script src="/app.js?v=c3856a86"></script>
 </body>
 </html>
