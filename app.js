@@ -1154,7 +1154,7 @@ function renderCities(){
 }
 function setNav(){
   document.querySelectorAll("[data-view]").forEach(a=>{
-    if(ROUTED) a.setAttribute("href", window.NT_BASE + LPRE + pathOf({...st, view:a.dataset.view, city:a.dataset.view==="home"?"all":st.city}));
+    if(ROUTED) a.setAttribute("href", window.NT_BASE + LPRE + pathOf({...st, view:a.dataset.view, city:a.dataset.view==="home"?"all":st.city, itin:a.dataset.view==="itin"?null:st.itin, gsec:a.dataset.view==="guide"&&st.view!=="guide"?null:st.gsec}));
     if(a.classList.contains("brand")) return;
     a.toggleAttribute("aria-current",a.dataset.view===st.view);
     if(a.dataset.view===st.view) a.setAttribute("aria-current","page");
@@ -1825,7 +1825,7 @@ function itinCard(c){
 function itinStop(id){
   const it = byId(id); if(!it) return "";
   const si = SIV.rows(id), fee = si && si.rows.find(r=>r[0]==="fee");
-  return `<li><button type="button" class="istop" data-open="${id}" style="--c:var(${colorOf(it)})">${mapThumb({id,cat:"spot"})}<span class="isn"><b>${esc(it.name)}</b><small>${esc((it.sub&&AREA[it.sub]?.ko)||CITIES[it.city].ko)}${fee?` · <span class="ifee">${esc(fee[1][0])}</span>`:""}</small></span><span class="iar">›</span></button></li>`;
+  return `<li><a class="istop" href="${PLACE_TYPES.includes(it.type)?placeHref(id):"#"}" data-open="${id}" style="--c:var(${colorOf(it)})">${mapThumb({id,cat:"spot"})}<span class="isn"><b>${esc(it.name)}</b><small>${esc((it.sub&&AREA[it.sub]?.ko)||CITIES[it.city].ko)}${fee?` · <span class="ifee">${esc(fee[1][0])}</span>`:""}</small></span><span class="iar">›</span></a></li>`;
 }
 V.itin = function(){
   const c = ITIN.find(x=>x.key===st.itin);
@@ -2127,6 +2127,9 @@ function shopFacts(it, facts){ const pa=it&&it.type==="shop"&&PLACE_PLUS[it.id];
 function shopNote(it){ const s=shopInfo(it); return s&&(s.h||s.r) ? `<p class="sisrc">2026년 11월 기준 · 매장마다 영업시간이 다를 수 있으니 방문 전에 공식 사이트에서 확인하세요.</p>` : ""; }
 function shopBtn(it){ const s=shopInfo(it); return s&&s.u ? `<a class="btn" href="${s.u}" target="_blank" rel="noopener">${s.f?"공식 사이트·층별 안내 ↗":"공식 사이트 ↗"}</a>` : ""; }
 /*SHOPINFO_END*/
+/*PITIN*/function placeItins(it){ if(typeof ITIN==="undefined"||!it) return "";
+  const L=ITIN.filter(c=>c.plan.some(d=>d.s.includes(it.id))); if(!L.length) return "";
+  return `<div class="gblk pitin"><h4>이 장소가 들어간 추천 일정</h4><ul class="gul">${L.map(c=>`<li><a href="${itinHref(c.key)}" data-itin="${c.key}">${esc(c.title)}</a></li>`).join("")}</ul></div>`; }
 function detailHTML(it, htag, inDrawer){
   const c = CITIES[it.city], isSaved = saved.includes(it.id);
   const facts = [["지역",`${c.ko}${it.sub&&AREA[it.sub]?" · "+AREA[it.sub].ko:""}`]];
@@ -2145,6 +2148,7 @@ function detailHTML(it, htag, inDrawer){
    ${SHOP_PICKS[it.id]&&it.type==="shop"?`<div class="picks2"><b>추천 쇼핑 목록</b><ul>${SHOP_PICKS[it.id].map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
    ${it.tip?`<div class="tip"><b>여행 팁</b> · ${esc(it.tip)}</div>`:""}
    ${it.type==="rest"?`<p class="credit">별점과 리뷰는 아래 링크에서 확인하세요. 영업시간·휴무일도 방문 전에 확인하는 게 좋아요.</p>`:""}
+   ${typeof placeItins==="function"?placeItins(it):""}
    ${typeof shopPlus==="function"?shopPlus(it):""}
    <div class="actions"><button class="btn${isSaved?"":" primary"}" type="button" data-psave="${it.id}">${isSaved?"나의 여행에서 빼기":"나의 여행에 저장"}</button>
    ${typeof shopBtn==="function"?shopBtn(it):""}
