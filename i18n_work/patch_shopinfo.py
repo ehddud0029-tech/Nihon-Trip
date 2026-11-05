@@ -10,7 +10,12 @@ PTH = ('const PTH={ko:"{n} – 영업시간·추천 쇼핑·가는 길 ({a})",en
 OLD_DESC = '    let desc=[facts.join(" | "),[T(it.desc),picks||T(it.tip||"")].filter(Boolean).join(" ")].filter(Boolean).join((L==="ja"||L==="zh"||L==="tw")?"。":" – "); if(desc.length>160) desc=desc.slice(0,157)+"…";'
 NEW_DESC = ('    const rest=[facts.join(" | "), picks||(facts.length?"":T(it.tip||""))].filter(Boolean).join(" | ");   // 검색 설명: 소개 문장 먼저, 실용 정보는 뒤에\n'
             '    let desc=[T(it.desc),rest].filter(Boolean).join((L==="ja"||L==="zh"||L==="tw")?"":" "); if(desc.length>160) desc=desc.slice(0,157)+"…";\n    ' + PTH)
+CSS = ('/*PPLUS*/.pplus{margin-top:14px;display:flex;flex-direction:column;gap:12px}.pmore{margin:0;line-height:1.7}'
+       '.pfloor dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0}.pfloor dt{font-weight:700;color:var(--ink-2);white-space:nowrap}.pfloor dd{margin:0}'
+       '.ptax{border-left:4px solid var(--ai)}.pplus .faq dl{margin:0}\n')
 R = [
+ ('footer{border-top:1px solid var(--line);', CSS + 'footer{border-top:1px solid var(--line);'),
+ ('   <div class="actions"><button class="btn${isSaved?"":" primary"}" type="button" data-psave', '   ${typeof shopPlus==="function"?shopPlus(it):""}\n   <div class="actions"><button class="btn${isSaved?"":" primary"}" type="button" data-psave'),
  ('  if(it.station) facts.push(["가는 길",it.station]);', '  if(it.station) facts.push(["가는 길",it.station]);\n  if(typeof shopFacts==="function") shopFacts(it, facts);'),
  ('   ${SHOP_PICKS[it.id]&&it.type==="shop"?`<div class="picks2">', '   ${typeof shopNote==="function"?shopNote(it):""}\n   ${SHOP_PICKS[it.id]&&it.type==="shop"?`<div class="picks2">'),
  ('   <a class="btn" href="https://www.google.com/maps/search/?api=1&query=${mq}"', '   ${typeof shopBtn==="function"?shopBtn(it):""}\n   <a class="btn" href="https://www.google.com/maps/search/?api=1&query=${mq}"'),
