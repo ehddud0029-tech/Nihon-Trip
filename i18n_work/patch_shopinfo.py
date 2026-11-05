@@ -12,7 +12,9 @@ NEW_DESC = ('    const rest=[facts.join(" | "), picks||(facts.length?"":T(it.tip
             '    let desc=[T(it.desc),rest].filter(Boolean).join((L==="ja"||L==="zh"||L==="tw")?"":" "); if(desc.length>160) desc=desc.slice(0,157)+"…";\n    ' + PTH)
 CSS = ('/*PPLUS*/.pplus{margin-top:14px;display:flex;flex-direction:column;gap:12px}.pmore{margin:0;line-height:1.7}'
        '.pfloor dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0}.pfloor dt{font-weight:700;color:var(--ink-2);white-space:nowrap}.pfloor dd{margin:0}'
-       '.ptax{border-left:4px solid var(--ai)}.pplus .faq dl{margin:0}\n')
+       '.ptax{border-left:4px solid var(--ai)}.pplus .faq dl{margin:0}'
+       '.psgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}.psub h4{margin:0 0 4px}.psw{margin:0 0 6px;font-size:13px;color:var(--ink-2)}.psub p{line-height:1.6}'
+       '.psub dl{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;margin:8px 0;font-size:14px}.psub dt{color:var(--ink-2)}.psub dd{margin:0;white-space:nowrap}\n')
 R = [
  ('footer{border-top:1px solid var(--line);', CSS + 'footer{border-top:1px solid var(--line);'),
  ('   <div class="actions"><button class="btn${isSaved?"":" primary"}" type="button" data-psave', '   ${typeof shopPlus==="function"?shopPlus(it):""}\n   <div class="actions"><button class="btn${isSaved?"":" primary"}" type="button" data-psave'),
