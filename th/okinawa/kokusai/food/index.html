@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=6a7bd029">
+<link rel="stylesheet" href="/app.css?v=8012c68a">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a7bd029"><\/script><script src="'+B+'engine.js?v=6a7bd029"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=8012c68a"><\/script><script src="'+B+'engine.js?v=8012c68a"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -77,7 +77,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a7bd029"><\/s
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="แสดงภูมิภาคก่อนหน้า" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="เลือกพื้นที่"><button class="city" type="button" data-city="all" aria-pressed="false">ทั้งหมด<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">โตเกียว<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">โอซาก้า<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">ฟุกุโอกะ<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">ฮอกไกโด<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="true">โอกินาว่า<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">นาโกย่า<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">ฮิโรชิม่า<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">ชิโกกุ<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="แสดงภูมิภาคเพิ่มเติม" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="เลือกพื้นที่ย่อย"><button class="area" type="button" data-area="kokusai" aria-pressed="true">ถนนโคคุไซ·มากิชิ</button><button class="area" type="button" data-area="naha" aria-pressed="false">ใจกลางนาฮะ</button><button class="area" type="button" data-area="chubu" aria-pressed="false">โอกินาว่าตอนกลาง (ชาตัน·อุราโซเอะ)</button><button class="area" type="button" data-area="hokubu" aria-pressed="false">โอกินาว่าตอนเหนือ (โมโตบุ·นาโงะ)</button><button class="area" type="button" data-area="ishigaki" aria-pressed="false">เกาะอิชิงากิ</button><button class="area" type="button" data-area="miyako" aria-pressed="false">เกาะมิยาโกะ</button></div>
   <dl class="brief" id="brief"><div class="bw"><dt>สภาพอากาศวันนี้ที่ถนนโคคุไซ·มากิชิ</dt>
-        <dd class="wxtime"><span class="jstclock">พฤ. 5 พ.ย. 22:37</span> <small>ญี่ปุ่นตอนนี้</small></dd>
+        <dd class="wxtime"><span class="jstclock">พฤ. 5 พ.ย. 22:45</span> <small>ญี่ปุ่นตอนนี้</small></dd>
         <dd class="wxnow"><span class="big">24°</span> <b>อุณหภูมิเฉลี่ย</b><span class="wxicon" aria-hidden="true">🌤️</span></dd>
         <dd class="sub wxline">อุณหภูมิสูงสุดเฉลี่ยเดือนพฤศจิกายน</dd>
         <dd class="sub">กำลังโหลดสภาพอากาศสด…</dd></div><div class="bdish"><dt>อาหารที่ต้องลองในถนนโคคุไซ·มากิชิ</dt>
@@ -96,10 +96,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a7bd029"><\/s
     <a class="btn reserve" href="https://autoreserve.com/en/jp/okinawa/naha-shi/ramen" target="_blank" rel="noopener sponsored">จองร้านอาหารแนะนำ ↗</a>
     <p class="credit">ลำดับร้านแนะนำของ AutoReserve ในพื้นที่ถนนโคคุไซ·มากิชิ (ข้อมูล ณ ตุลาคม 2026) เมนูเด่นและจุดเด่นรวบรวมโดย Go Nihon Trip ตรวจสอบอันดับและการจองได้บน AutoReserve</p></section>
    <h3 class="subh">อาหารท้องถิ่นที่ควรลอง <span>2 ร้าน · ¥ แสดงช่วงราคา</span></h3><div class="grid"><a class="card" href="/th/place/champuru/" data-open="champuru" style="--c:var(--shu)">
-    <div class="plate"><span class="tag">อาหารท้องถิ่น</span><span class="where">ถนนโคคุไซ·มากิชิ</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 12h17c0 4.4-3.6 8-8 8h-1c-4.4 0-8-3.6-8-8z"></path><path d="M8 20.5h8M14 3 9.5 11M19 4l-6.5 7.5"></path></svg></span></div>
+    <div class="plate"><span class="tag">อาหารท้องถิ่น</span><span class="where">ถนนโคคุไซ·มากิชิ</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 12h17c0 4.4-3.6 8-8 8h-1c-4.4 0-8-3.6-8-8z"></path><path d="M8 20.5h8M14 3 9.5 11M19 4l-6.5 7.5"></path></svg></span><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Goya_Champuru_at_Yumenoya.jpg/960px-Goya_Champuru_at_Yumenoya.jpg?utm_source=en.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="โกยะจัมปูรุ" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
     <div class="body"><h3>โกยะจัมปูรุ</h3><div class="jpn">ゴーヤーチャンプルー</div><p>อาหารบ้านโอกินาว่า มะระผัดกับเต้าหู้และไข่ ขมกำลังดี</p>
     <div class="meta"><span>¥<span style="opacity:.3">¥¥</span></span></div></div></a><a class="card" href="/th/place/beniimo/" data-open="beniimo" style="--c:var(--shu)">
-    <div class="plate"><span class="tag">สตรีตฟู้ด·ของกินเล่น</span><span class="where">ถนนโคคุไซ·มากิชิ</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 12h17c0 4.4-3.6 8-8 8h-1c-4.4 0-8-3.6-8-8z"></path><path d="M8 20.5h8M14 3 9.5 11M19 4l-6.5 7.5"></path></svg></span></div>
+    <div class="plate"><span class="tag">สตรีตฟู้ด·ของกินเล่น</span><span class="where">ถนนโคคุไซ·มากิชิ</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 12h17c0 4.4-3.6 8-8 8h-1c-4.4 0-8-3.6-8-8z"></path><path d="M8 20.5h8M14 3 9.5 11M19 4l-6.5 7.5"></path></svg></span><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Kambar_wh.jpg/960px-Kambar_wh.jpg?utm_source=en.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="ทาร์ตเบนิอิโมะ (มันม่วง)" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
     <div class="body"><h3>ทาร์ตเบนิอิโมะ (มันม่วง)</h3><div class="jpn">紅芋タルト</div><p>ขนมและของฝากสัญลักษณ์ของโอกินาว่า ทำจากมันม่วง</p>
     <div class="meta"><span>¥<span style="opacity:.3">¥¥</span></span></div></div></a></div></main>
 
@@ -121,10 +121,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a7bd029"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=6a7bd029"></script>
-<script src="/autoreserve.js?v=6a7bd029"></script>
-<script src="/google_picks.js?v=6a7bd029"></script>
-<script src="/geo.js?v=6a7bd029"></script>
-<script src="/app.js?v=6a7bd029"></script>
+<script src="/areas.js?v=8012c68a"></script>
+<script src="/autoreserve.js?v=8012c68a"></script>
+<script src="/google_picks.js?v=8012c68a"></script>
+<script src="/geo.js?v=8012c68a"></script>
+<script src="/app.js?v=8012c68a"></script>
 </body>
 </html>
