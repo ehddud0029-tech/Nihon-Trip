@@ -21,7 +21,7 @@ function itinCard(c){
 function itinStop(id){
   const it = byId(id); if(!it) return "";
   const si = SIV.rows(id), fee = si && si.rows.find(r=>r[0]==="fee");
-  return `<li><button type="button" class="istop" data-open="${id}" style="--c:var(${colorOf(it)})">${mapThumb({id,cat:"spot"})}<span class="isn"><b>${esc(it.name)}</b><small>${esc((it.sub&&AREA[it.sub]?.ko)||CITIES[it.city].ko)}${fee?` · <span class="ifee">${esc(fee[1][0])}</span>`:""}</small></span><span class="iar">›</span></button></li>`;
+  return `<li><a class="istop" href="${PLACE_TYPES.includes(it.type)?placeHref(id):"#"}" data-open="${id}" style="--c:var(${colorOf(it)})">${mapThumb({id,cat:"spot"})}<span class="isn"><b>${esc(it.name)}</b><small>${esc((it.sub&&AREA[it.sub]?.ko)||CITIES[it.city].ko)}${fee?` · <span class="ifee">${esc(fee[1][0])}</span>`:""}</small></span><span class="iar">›</span></a></li>`;
 }
 V.itin = function(){
   const c = ITIN.find(x=>x.key===st.itin);

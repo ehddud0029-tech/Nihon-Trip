@@ -59,6 +59,10 @@
 
 - 검색 클릭률 개선(2026-11, 서치콘솔 분석): 장소 페이지 검색 설명은 소개 문장 먼저, 입장료·운영·가는 길·추천 쇼핑은 뒤에(`pageMeta()`). 쇼핑 장소 33곳의 영업시간·식당가 시간·공식 사이트(층별 안내) 데이터는 `sitegen/shop_info.js`(SHOP_INFO, 2026년 11월 공식 사이트 기준), 붙이는 스크립트 `i18n_work/patch_shopinfo.py`(html·pre, 여러 번 돌려도 안전). 영업시간이 있으면 제목이 '영업시간·추천 쇼핑·가는 길'(PTH)로 바뀌고 JSON-LD에 url·openingHours가 들어가요. 번역 tr_43·zh_44·th_44. 영어·스페인어·프랑스어 사전은 `build.py emit`이 붙여 쓴 가운뎃점(A·B·C)을 'A, B & C'로 바꿔요(amp). region_inject 뒤에는 patch_shopinfo.py도 다시 돌려 주세요.
 
+- 상위 페이지 보강(2026-11): `sitegen/shop_info.js`의 PLACE_PLUS(주소·가는 길 보충·층별 구성·추가 소개, 교토역은 매장별 안내 subs)와 TAXFREE(2026년 11월 1일 시작한 환급 방식 면세 안내), 쇼핑 장소 '자주 묻는 질문'(FAQPage). SHOP_INFO의 tf=면세 안내를 보여줄 큰 시설. 번역 tr_43·zh_44·th_44.
+- 맛집 목록의 똑같이 반복되는 틀 문장 특징(feat)은 `i18n_work/ar_dedupe.py`가 비워요(region_inject 뒤에 다시 돌려 주세요).
+- `i18n_work/patch_navfix.py`: 메뉴의 '추천 일정' 링크는 항상 일정 목록, '여행 준비'는 첫 섹션(전에는 정적 생성 때 남은 상태 때문에 오키나와 일정으로 가 있었어요). 추천 일정의 장소는 장소 페이지 링크(<a class="istop">), 장소 페이지에는 '이 장소가 들어간 추천 일정'(placeItins). html·pre·itin_view.js에 같이 적용, region_inject 뒤에 다시 돌려 주세요.
+
 ## 수정 전·후 비교 (사용자 요청: 사이트를 고치면 항상 보여주기)
 - 날씨 값은 비교용 예시로 채워요(실제 예보 아님). 화면이 바뀌는 수정을 하면 배포 전에 `python3 sitegen/compare.py <이름> <언어:주소> ... [--mobile] [--ref main]`로 비교 이미지를 만들어 사용자에게 보내요 (왼쪽 수정 전 = 배포된 main, 오른쪽 수정 후 = 작업 공간 원본). 결과는 `sitegen/compare_out/<이름>_<번호>.png`.
 - 바뀐 페이지의 대표 주소 1~3개를 고르고, 모바일 화면이 바뀌면 `--mobile`도 같이 만들어요.
