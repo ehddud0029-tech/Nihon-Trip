@@ -132,7 +132,7 @@ GRAB = r'''async (url)=>{
 }'''
 
 
-RSS_PREFIX = ['itinerary/', 'weather/', 'airport/', 'guide/', 'festivals/', 'tokyo/weather/', 'osaka/weather/', 'fukuoka/weather/', 'hokkaido/weather/',
+RSS_PREFIX = ['itinerary/', 'weather/', 'airport/', 'guide/', 'festivals/', 'stay/', 'tokyo/weather/', 'osaka/weather/', 'fukuoka/weather/', 'hokkaido/weather/',
               'okinawa/weather/', 'nagoya/weather/', 'hiroshima/weather/', 'shikoku/weather/']
 
 def write_rss(meta):
@@ -174,9 +174,24 @@ def write_llms(meta):
     x += sec('Airport to city', 'airport/')
     x += sec('Weather and what to wear by month (all of Japan)', 'weather/')
     x += sec('Travel preparation', 'guide/')
+    x += sec('Where to stay', 'stay/')
+    cs = sorted(p for (l, p) in meta if l == 'en' and p.endswith('/stay/') and p.count('/') == 2)
+    x += ['## Where to stay by region', ''] + [f'- [{meta[("en", p)][0].replace(" | Go Nihon Trip", "")}]({ORIGIN}{BASE}en/{p}): {meta[("en", p)][1]}' for p in cs] + ['']
     x += ['## Other', '', f'- [Sitemap]({ORIGIN}{BASE}sitemap.xml): all pages in all languages', f'- [About]({ORIGIN}{BASE}en/about/): sources and contact', '']
     open(f'{OUT}/llms.txt', 'w', encoding='utf-8').write('\n'.join(x))
     print('llms.txt lines', len(x))
+
+MOVED = {'guide/stay/': 'stay/'}   # 옮긴 페이지: 예전 주소에서 새 주소로 보내는 안내 페이지 (검색 제외)
+def write_moved():
+    for l in LANGS:
+        lp = '' if l == 'ko' else l + '/'
+        for a, b in MOVED.items():
+            u = f'{ORIGIN}{BASE}{lp}{b}'
+            os.makedirs(f'{OUT}/{lp}{a}', exist_ok=True)
+            open(f'{OUT}/{lp}{a}index.html', 'w', encoding='utf-8').write(
+                f'<!doctype html><html lang="{l}"><head><meta charset="utf-8"><title>Go Nihon Trip</title><meta name="robots" content="noindex">'
+                f'<link rel="canonical" href="{u}"><meta http-equiv="refresh" content="0; url={u}"></head>'
+                f'<body><a href="{u}">{u}</a><script>location.replace("{u}")</script></body></html>')
 
 def write_indexnow():
     """IndexNow 키 파일과, main에 올라갈 때 바뀐 페이지를 빙 등에 알리는 GitHub Actions"""
@@ -338,6 +353,7 @@ def main():
     open(f'{OUT}/sitemap.xml', 'w', encoding='utf-8').write('\n'.join(sm) + '\n')
     write_rss(META)
     write_llms(META)
+    write_moved()
     write_indexnow()
     open(f'{OUT}/CNAME', 'w').write(DOMAIN + '\n')
     open(f'{OUT}/ads.txt', 'w').write(f"google.com, {ADSENSE_ID.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n")

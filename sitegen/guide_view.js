@@ -31,13 +31,13 @@ V.guide = function(){
   const isKo = !((window.I18N&&window.I18N.lang)||"").length || window.I18N.lang==="ko";
   const sec = GUIDE.secs.find(s=>s.key===st.gsec) || GUIDE.secs[0];
   const blocks = sec.blocks.filter(b=>!b.only || (b.only==="ko")===isKo);
-  const tabs = GUIDE.secs.map(s=>`<a class="gtab" href="${gsecHref(s.key)}" data-gsec="${s.key}"${s.key===sec.key?' aria-current="page"':""}>${gsvg(s.icon)}<span>${esc(s.name)}</span></a>`).join("");
+  const tabs = GUIDE.secs.filter(s=>s.key!=="stay").map(s=>`<a class="gtab" href="${gsecHref(s.key)}" data-gsec="${s.key}"${s.key===sec.key?' aria-current="page"':""}>${gsvg(s.icon)}<span>${esc(s.name)}</span></a>`).join("");
   return `<div class="guide">
    <div class="ghead"><h2>${esc(GUIDE.page.title)}</h2><p>${esc(GUIDE.page.lead)}</p></div>
    <nav class="gtabs" aria-label="${esc(GUIDE.page.title)}">${tabs}</nav>
    <section class="gsec"><div class="gsech"><span class="gsi">${gsvg(sec.icon)}</span><div><h3>${esc(sec.name)}</h3><p>${esc(sec.lead)}</p></div></div>
-    ${sec.key==="stay"&&typeof stayGuideBlocks==="function"?stayGuideBlocks(sec,blocks):blocks.map(gBlock).join("")}
+    ${blocks.map(gBlock).join("")}
     <p class="gupd">${esc(GUIDE.page.upd)}</p></section>
-   <div class="gmore"><h4>다른 준비 정보</h4><div>${GUIDE.secs.filter(s=>s.key!==sec.key).map(s=>`<a href="${gsecHref(s.key)}" data-gsec="${s.key}">${gsvg(s.icon)}<span>${esc(s.name)}</span> →</a>`).join("")}</div></div>
+   <div class="gmore"><h4>다른 준비 정보</h4><div>${GUIDE.secs.filter(s=>s.key!==sec.key&&s.key!=="stay").map(s=>`<a href="${gsecHref(s.key)}" data-gsec="${s.key}">${gsvg(s.icon)}<span>${esc(s.name)}</span> →</a>`).join("")}</div></div>
   </div>`;
 };

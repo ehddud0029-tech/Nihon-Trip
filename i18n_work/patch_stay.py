@@ -9,6 +9,7 @@ VIEW = open(f'{W}/sitegen/stay_view.js', encoding='utf-8').read().strip()
 CSS = """/*STCSS_BEGIN*/
 body.is-wx .hero{display:none}
 .stgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.stsec{margin-top:30px}.stsec .sgh{margin-top:0}.stsub{color:var(--ink-2);margin:0 0 12px;line-height:1.6}.stho{margin:12px 0 0}.stmore{margin:10px 0 0}
 .starea dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px}.starea dt{font-size:13px;font-weight:700;color:var(--ink-2)}.starea dd{margin:0;line-height:1.6}
 .hgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
 .hcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:8px}
@@ -59,10 +60,14 @@ R = [
  ('  const gs = e.target.closest("[data-gsec]");', '  const stl = e.target.closest("[data-stayc]"); if(stl){ e.preventDefault(); st.view="stay"; st.city=stl.dataset.stayc; render(); window.scrollTo({top:0}); return; }\n  const gs = e.target.closest("[data-gsec]");'),
  ('<a href="#guide" data-view="guide"><svg', NAV + '<a href="#guide" data-view="guide"><svg'),
  ('  <a href="#guide" data-view="guide"><i>', MTAB + '  <a href="#guide" data-view="guide"><i>'),
- ('    ${blocks.map(gBlock).join("")}', '    ${sec.key==="stay"&&typeof stayGuideBlocks==="function"?stayGuideBlocks(sec,blocks):blocks.map(gBlock).join("")}'),
+ ('const GKEYS = GUIDE.secs.map(s=>s.key);', 'const GKEYS = GUIDE.secs.filter(s=>s.key!=="stay").map(s=>s.key);   // 숙소는 숙소 페이지(stay/)로 옮김'),
+ ('  const tabs = GUIDE.secs.map(s=>', '  const tabs = GUIDE.secs.filter(s=>s.key!=="stay").map(s=>'),
+ ('GUIDE.secs.filter(s=>s.key!==sec.key).map(s=>`<a href="${gsecHref(s.key)}"', 'GUIDE.secs.filter(s=>s.key!==sec.key&&s.key!=="stay").map(s=>`<a href="${gsecHref(s.key)}"'),
+ ('  if(seg[0]==="guide"){', '  if(seg[0]==="guide"&&seg[1]==="stay"){ st.view="stay"; st.city="all"; return; }\n  if(seg[0]==="guide"){'),
  ('grid-template-columns:repeat(10,minmax(0,1fr))}', 'grid-template-columns:repeat(11,minmax(0,1fr))}'),
 ]
 def patch(s):
+    s = s.replace('${sec.key==="stay"&&typeof stayGuideBlocks==="function"?stayGuideBlocks(sec,blocks):blocks.map(gBlock).join("")}', '${blocks.map(gBlock).join("")}')
     s = block(s, '/*STCSS_BEGIN*/', '/*STCSS_END*/', CSS, 'footer{border-top:1px solid var(--line);')
     s = block(s, '/*STAY_BEGIN*/', '/*STAY_END*/', VIEW, 'V.place = function(){')
     s = block(s, '/*STMETA_BEGIN*/', '/*STMETA_END*/', META_JS, 'function setMeta(sel,val)')

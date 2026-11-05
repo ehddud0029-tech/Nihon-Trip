@@ -1,5 +1,5 @@
 /*STAY_BEGIN*/
-/* 숙소: stay/ (전체·예약 방법), <도시>/stay/ (묵기 좋은 동네 + 추천 숙소). 동네 비교 데이터는 GUIDE 숙소 섹션에 있고, 여행 준비 > 숙소 화면은 요약과 이 페이지 링크만 보여줘요(stayGuideBlocks).
+/* 숙소: stay/ (전체·예약 방법), <도시>/stay/ (묵기 좋은 동네 + 추천 숙소). 동네 비교 데이터는 GUIDE 숙소 섹션에 있지만 여행 준비 화면에는 숙소 탭이 없어요(GKEYS에서 뺌, 예전 guide/stay/ 주소는 stay/로 보냄).
    추천 숙소 링크는 마이리얼트립 제휴 링크라 한국어·영어 페이지에만 보여요. */
 const STAY_CITIES = ["tokyo","osaka","fukuoka","hokkaido","okinawa","nagoya","hiroshima","shikoku"];
 const STAY_GUIDE_IDX = {tokyo:1, osaka:2, fukuoka:3, hokkaido:4, okinawa:5, nagoya:6, hiroshima:7, shikoku:8};   // GUIDE 숙소 섹션의 compare 블록 순서
@@ -24,7 +24,7 @@ const HOTELS = [
 const stayShowHotels = () => { const l=(window.I18N&&window.I18N.lang)||"ko"; return l==="ko"||l==="en"; };
 function stayAreas(c){
   const sec = (GUIDE.secs||[]).find(x=>x.key==="stay"); const b = sec && sec.blocks[STAY_GUIDE_IDX[c]];
-  return b ? {sub:b.sub, opts:b.opts} : {sub:"", opts:[]};
+  return b ? {h:b.h, sub:b.sub, opts:b.opts} : {h:"", sub:"", opts:[]};
 }
 const stayHref = c => ROUTED ? window.NT_BASE + LPRE + (c && c!=="all" ? `${c}/stay/` : "stay/") : "#stay";
 const stayA = (c,inner,cls) => `<a${cls?` class="${cls}"`:""} href="${stayHref(c)}" data-stayc="${c||"all"}">${inner}</a>`;
@@ -37,21 +37,16 @@ function hotelCard(h){
 const STAY_AD = `<p class="sisrc">이 링크로 예약하면 Go Nihon Trip이 제휴 수수료를 받을 수 있어요. 숙박 요금은 같아요.</p>`;
 function stayChips(cur){ return `<div class="wxmon">${STAY_CITIES.map(k=>stayA(k,esc(CITIES[k].ko),k===cur?"on":"")).join("")}</div>`; }
 const STAY_SITES = ["아고다: 아시아 숙소가 많고 한국어로 예약할 수 있어요.","부킹닷컴: 무료 취소 요금이 많아 일정이 바뀔 수 있을 때 좋아요.",
- "라쿠텐 트래블·자란: 일본 예약 사이트라 료칸·온천 숙소가 많고 할인 쿠폰이 자주 나와요.","호텔 공식 사이트: 회원 요금이나 조식 같은 특전이 있는지 비교해 보세요."];
+ "라쿠텐 트래블·자란: 일본 예약 사이트라 료칸·온천 숙소가 많고 할인 쿠폰이 자주 나와요.","에어비앤비: 가족·친구끼리 집을 통째로 빌리기 좋아요. 청소비·수수료가 따로 붙으니 총액으로 비교하고, 숙소 설명에 일본 민박 신고 번호가 있는지 확인하세요.",
+ "호텔 공식 사이트: 회원 요금이나 조식 같은 특전이 있는지 비교해 보세요."];
 const STAY_CHECK = ["무료 취소 기한: 일본 시간 기준인지, 며칠 전까지인지 확인하세요.","표시된 금액이 1인 요금인지 1실 요금인지 확인하세요. 일본 사이트는 1인 요금으로 보여 주는 경우가 많아요.",
  "숙박세: 도쿄·오사카·교토·후쿠오카·삿포로 등은 1인 1박마다 숙박세가 붙고, 현장에서 따로 내는 경우도 있어요.","체크인은 보통 15시, 체크아웃은 10~11시예요. 일찍 도착하면 프런트에 짐을 맡길 수 있는지 확인하세요.",
  "침대 크기: '세미더블'은 1인용에 가까운 크기라 둘이 쓰기엔 좁아요."];
 const STAY_TYPES = ["비즈니스호텔: 방은 작지만 역 가깝고 깔끔해요. 짧은 일정에 가장 무난해요.","료칸: 다다미방과 온천, 저녁·아침 2식이 포함된 경우가 많아요. 저녁 시간에 맞춰 도착하세요.",
  "캡슐호텔: 가장 저렴하지만 짐 둘 곳이 작고 남녀 층이 나뉘어요.","민박(민파쿠): 가족 여행에 넓은 방이 좋지만, 허가 번호가 있는 숙소인지 확인하세요."];
+const stayAreaCard = o => `<article class="gblk starea"><h4>${esc(o.name)}</h4>
+     <dl><dt>장점</dt><dd>${esc(o.pros)}</dd><dt>단점</dt><dd>${esc(o.cons)}</dd><dt>이런 분께</dt><dd>${esc(o.for)}</dd></dl></article>`;
 const stayList = (h,items) => `<div class="gblk"><h4>${h}</h4><ul class="gul">${items.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`;
-function stayGuideBlocks(sec, blocks){
-  const tip = blocks.find(b=>b.type==="list");
-  return `${tip?gBlock(tip):""}
-   <div class="gblk"><h4><span class="gbi">${gsvg("bed")}</span>지역별 묵기 좋은 동네와 추천 숙소</h4>
-    <p class="gsub">동네별 장단점과 추천 숙소, 예약할 때 확인할 점은 숙소 페이지에 모아 두었어요.</p>
-    <div class="wxmon">${STAY_CITIES.map(k=>stayA(k,esc(CITIES[k].ko))).join("")}</div>
-    <p>${stayA("all","숙소 추천과 예약 방법 보기<i> →</i>","btn")}</p></div>`;
-}
 V.stay = function(){
   const c = STAY_CITIES.includes(st.city) ? st.city : "";
   const show = stayShowHotels();
@@ -60,11 +55,13 @@ V.stay = function(){
     const sec = (GUIDE.secs||[]).find(x=>x.key==="stay");
     return `<div class="wx">
      <div class="ghead"><h2>일본 숙소 추천과 예약 방법</h2><p>${esc(sec?sec.lead:"")}</p></div>
-     <div class="wxgrid">${STAY_CITIES.map(k=>{ const a=stayAreas(k), hs=HOTELS.filter(h=>h.city===k);
-       return `<article class="wxcard"><h3>${esc(CITIES[k].ko)}</h3><p class="wxfeel">${a.opts.map(o=>esc(o.name)).join(" · ")}</p>
-        ${show&&hs.length?`<p class="wxo"><span>추천 숙소</span> ${hs.map(h=>esc(h.ko)).join(" · ")}</p>`:""}
-        ${stayA(k,`자세히 보기<i> →</i>`,"more")}</article>`; }).join("")}</div>
+     ${stayChips("")}
      ${sec?stayList(esc(sec.blocks[0].h), sec.blocks[0].items):""}
+     ${STAY_CITIES.map(k=>{ const a=stayAreas(k), hs=HOTELS.filter(h=>h.city===k);
+       return `<section class="stsec" id="st-${k}"><h3 class="sgh"><span>${esc(a.h||CITIES[k].ko)}</span></h3>${a.sub?`<p class="stsub">${esc(a.sub)}</p>`:""}
+        <div class="stgrid">${a.opts.map(stayAreaCard).join("")}</div>
+        ${show&&hs.length?`<p class="wxo stho"><span>추천 숙소</span> ${hs.map(h=>esc(h.ko)).join(" · ")}</p>`:""}
+        <p class="stmore">${stayA(k,`자세히 보기<i> →</i>`,"more")}</p></section>`; }).join("")}
      <section id="booking">${stayList("예약 사이트 고르기", STAY_SITES)}</section>
      ${stayList("예약할 때 꼭 확인할 것", STAY_CHECK)}
      ${stayList("숙소 종류", STAY_TYPES)}
@@ -78,8 +75,7 @@ V.stay = function(){
    <div class="ghead"><h2>${n} 숙소 추천</h2><p>${esc(a.sub)}</p></div>
    ${stayChips(c)}
    <h3 class="sgh"><span>묵기 좋은 동네</span></h3>
-   <div class="stgrid">${a.opts.map(o=>`<article class="gblk starea"><h4>${esc(o.name)}</h4>
-     <dl><dt>장점</dt><dd>${esc(o.pros)}</dd><dt>단점</dt><dd>${esc(o.cons)}</dd><dt>이런 분께</dt><dd>${esc(o.for)}</dd></dl></article>`).join("")}</div>
+   <div class="stgrid">${a.opts.map(stayAreaCard).join("")}</div>
    ${show&&hs.length?`<h3 class="sgh"><span>추천 숙소</span></h3><div class="hgrid">${hs.map(hotelCard).join("")}</div>${STAY_AD}`:""}
    <section class="gblk faq" itemscope itemtype="https://schema.org/FAQPage"><h4>자주 묻는 질문</h4><dl>
     ${qa(`${n}에서는 어느 동네에 묵는 게 좋나요?`, a.opts.map(o=>`<span><b>${esc(o.name)}</b>: <span>${esc(o.for)}</span></span>`).join(" / "))}
