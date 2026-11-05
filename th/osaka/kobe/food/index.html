@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=4f6555f3">
+<link rel="stylesheet" href="/app.css?v=1fa64b0c">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=4f6555f3"><\/script><script src="'+B+'engine.js?v=4f6555f3"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1fa64b0c"><\/script><script src="'+B+'engine.js?v=1fa64b0c"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -77,7 +77,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=4f6555f3"><\/s
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="แสดงภูมิภาคก่อนหน้า" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="เลือกพื้นที่"><button class="city" type="button" data-city="all" aria-pressed="false">ทั้งหมด<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">โตเกียว<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="true">โอซาก้า<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">ฟุกุโอกะ<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">ฮอกไกโด<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">โอกินาว่า<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">นาโกย่า<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">ฮิโรชิม่า<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">ชิโกกุ<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="แสดงภูมิภาคเพิ่มเติม" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="เลือกพื้นที่ย่อย"><button class="area" type="button" data-area="dotonbori" aria-pressed="false">โดทงโบริ·นัมบะ</button><button class="area" type="button" data-area="umeda" aria-pressed="false">อุเมดะ</button><button class="area" type="button" data-area="shinsekai" aria-pressed="false">ชินเซไก·เท็นโนจิ·สึรุฮาชิ</button><button class="area" type="button" data-area="tenma" aria-pressed="false">เท็มมะ·เท็นจินบาชิซูจิ</button><button class="area" type="button" data-area="kyoto" aria-pressed="false">เกียวโต: กิออนและฮิงาชิยามะ</button><button class="area" type="button" data-area="kyotoeki" aria-pressed="false">สถานีเกียวโตและปราสาทนิโจ</button><button class="area" type="button" data-area="arashiyama" aria-pressed="false">เกียวโต: อาราชิยามะและคินคาคุจิ</button><button class="area" type="button" data-area="nanzenji" aria-pressed="false">เกียวโต: นันเซ็นจิและกินคาคุจิ</button><button class="area" type="button" data-area="uji" aria-pressed="false">เกียวโต: ฟูชิมิและอุจิ</button><button class="area" type="button" data-area="nara" aria-pressed="false">นารา</button><button class="area" type="button" data-area="kobe" aria-pressed="true">โกเบ</button></div>
   <dl class="brief" id="brief"><div class="bw"><dt>สภาพอากาศวันนี้ที่โกเบ</dt>
-        <dd class="wxtime"><span class="jstclock">พฤ. 5 พ.ย. 22:18</span> <small>ญี่ปุ่นตอนนี้</small></dd>
+        <dd class="wxtime"><span class="jstclock">พฤ. 5 พ.ย. 22:32</span> <small>ญี่ปุ่นตอนนี้</small></dd>
         <dd class="wxnow"><span class="big">17°</span> <b>อุณหภูมิเฉลี่ย</b><span class="wxicon" aria-hidden="true">🌤️</span></dd>
         <dd class="sub wxline">อุณหภูมิสูงสุดเฉลี่ยเดือนพฤศจิกายน</dd>
         <dd class="sub">กำลังโหลดสภาพอากาศสด…</dd></div><div class="bdish"><dt>อาหารที่ต้องลองในโกเบ</dt>
@@ -92,7 +92,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=4f6555f3"><\/s
 <main class="wrap" id="main"><div class="sechead"><div><h2>อาหาร</h2><p>โกเบ, โอซาก้า · ราเมง · ลำดับแนะนำของ AutoReserve</p></div></div>
    <div class="tools"><button class="chip" type="button" data-chip="menu" data-v="ramen" aria-pressed="true">ราเมง</button><button class="chip" type="button" data-chip="menu" data-v="washoku" aria-pressed="false">ซูชิ·อาหารญี่ปุ่น</button><button class="chip" type="button" data-chip="menu" data-v="izakaya" aria-pressed="false">อิซากายะ·ไม้เสียบ</button><button class="chip" type="button" data-chip="menu" data-v="meat" aria-pressed="false">เนื้อ·ยากินิกุ</button><button class="chip" type="button" data-chip="menu" data-v="konamon" aria-pressed="false">โอโคโนมิยากิ·ทาโกยากิ</button><button class="chip" type="button" data-chip="menu" data-v="cafe" aria-pressed="false">คาเฟ่·ของหวาน</button><button class="chip" type="button" data-chip="menu" data-v="local" aria-pressed="false">อาหารท้องถิ่น</button></div><section class="arbox"><div class="arhead"><span class="arbadge">ร้านแนะนำจาก AutoReserve</span><h3>ราเมง TOP 5 · โกเบ</h3></div>
     <div class="arcols" aria-hidden="true"><span></span><span>ร้าน</span><span>อาหารขึ้นชื่อ</span><span>ไฮไลต์</span><span>งบประมาณ</span></div>
-    <ol class="arlist"><li><span class="no">1</span><b class="nm">Kobe Beef Ramen Yazawa</b><span class="dish">ราเมงเนื้อโกเบ</span><span class="feat">ราเมงน้ำซุปเนื้อ</span><span class="bud">¥1,500</span></li><li><span class="no">2</span><b class="nm">Menya Tenson Korin Sannomiya Honten</b><span class="dish">ราเมง</span><span class="feat">ร้านราเมงในโกเบสำหรับมื้อเบา ๆ</span><span class="bud">¥1,500</span></li><li><span class="no">3</span><b class="nm">Makka na Ramen Tomako Sannomiya Center Plaza</b><span class="dish">ราเมง</span><span class="feat">ร้านราเมงในโกเบสำหรับมื้อเบา ๆ</span><span class="bud">¥1,500</span></li><li><span class="no">4</span><b class="nm">METRO RAMEN</b><span class="dish">ราเมง</span><span class="feat">ร้านราเมงในโกเบสำหรับมื้อเบา ๆ</span><span class="bud">¥1,500</span></li><li><span class="no">5</span><b class="nm">Kitanozaka Oku</b><span class="dish">ราเมง</span><span class="feat">ร้านราเมงในโกเบสำหรับมื้อเบา ๆ</span><span class="bud">¥1,500</span></li></ol>
+    <ol class="arlist"><li><span class="no">1</span><b class="nm">Kobe Beef Ramen Yazawa</b><span class="dish">ราเมงเนื้อโกเบ</span><span class="feat">ราเมงน้ำซุปเนื้อ</span><span class="bud">¥1,500</span></li><li><span class="no">2</span><b class="nm">Menya Tenson Korin Sannomiya Honten</b><span class="dish">ราเมง</span><span class="feat"></span><span class="bud">¥1,500</span></li><li><span class="no">3</span><b class="nm">Makka na Ramen Tomako Sannomiya Center Plaza</b><span class="dish">ราเมง</span><span class="feat"></span><span class="bud">¥1,500</span></li><li><span class="no">4</span><b class="nm">METRO RAMEN</b><span class="dish">ราเมง</span><span class="feat"></span><span class="bud">¥1,500</span></li><li><span class="no">5</span><b class="nm">Kitanozaka Oku</b><span class="dish">ราเมง</span><span class="feat"></span><span class="bud">¥1,500</span></li></ol>
     <a class="btn reserve" href="https://autoreserve.com/en/jp/hyogo/kobe-shi-chuo-ku/ramen" target="_blank" rel="noopener sponsored">จองร้านอาหารแนะนำ ↗</a>
     <p class="credit">ลำดับร้านแนะนำของ AutoReserve ในพื้นที่โกเบ (ข้อมูล ณ ตุลาคม 2026) เมนูเด่นและจุดเด่นรวบรวมโดย Go Nihon Trip ตรวจสอบอันดับและการจองได้บน AutoReserve</p></section>
    </main>
@@ -115,10 +115,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=4f6555f3"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=4f6555f3"></script>
-<script src="/autoreserve.js?v=4f6555f3"></script>
-<script src="/google_picks.js?v=4f6555f3"></script>
-<script src="/geo.js?v=4f6555f3"></script>
-<script src="/app.js?v=4f6555f3"></script>
+<script src="/areas.js?v=1fa64b0c"></script>
+<script src="/autoreserve.js?v=1fa64b0c"></script>
+<script src="/google_picks.js?v=1fa64b0c"></script>
+<script src="/geo.js?v=1fa64b0c"></script>
+<script src="/app.js?v=1fa64b0c"></script>
 </body>
 </html>

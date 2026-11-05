@@ -38,14 +38,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=4f6555f3">
+<link rel="stylesheet" href="/app.css?v=1fa64b0c">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=4f6555f3"><\/script><script src="'+B+'engine.js?v=4f6555f3"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1fa64b0c"><\/script><script src="'+B+'engine.js?v=1fa64b0c"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -78,7 +78,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=4f6555f3"><\/s
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="檢視上一組地區" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="選擇地區"><button class="city" type="button" data-city="all" aria-pressed="false">全部<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">東京<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="true">大阪<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">福岡<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">北海道<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">沖繩<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">名古屋<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">廣島<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">四国<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="檢視更多地區" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="選擇區域"><button class="area" type="button" data-area="dotonbori" aria-pressed="false">道頓堀·難波</button><button class="area" type="button" data-area="umeda" aria-pressed="false">梅田</button><button class="area" type="button" data-area="shinsekai" aria-pressed="false">新世界·天王寺·鶴橋</button><button class="area" type="button" data-area="tenma" aria-pressed="false">天滿·天神橋筋</button><button class="area" type="button" data-area="kyoto" aria-pressed="false">京都 祇園·東山</button><button class="area" type="button" data-area="kyotoeki" aria-pressed="true">京都站·二條城</button><button class="area" type="button" data-area="arashiyama" aria-pressed="false">京都 嵐山·金閣寺</button><button class="area" type="button" data-area="nanzenji" aria-pressed="false">京都 南禪寺·銀閣寺</button><button class="area" type="button" data-area="uji" aria-pressed="false">京都 伏見·宇治</button><button class="area" type="button" data-area="nara" aria-pressed="false">奈良</button><button class="area" type="button" data-area="kobe" aria-pressed="false">神戶</button></div>
   <dl class="brief" id="brief"><div class="bw"><dt>京都站·二條城今日天氣</dt>
-        <dd class="wxtime"><span class="jstclock">11月5日（周四）22:18</span> <small>日本當前</small></dd>
+        <dd class="wxtime"><span class="jstclock">11月5日（周四）22:31</span> <small>日本當前</small></dd>
         <dd class="wxnow"><span class="big">17°</span> <b>往年平均氣溫</b><span class="wxicon" aria-hidden="true">🌤️</span></dd>
         <dd class="sub wxline">11月往年平均最高氣溫</dd>
         <dd class="sub">正在載入即時天氣</dd></div><div class="broute"><dt>從機場到京都站·二條城的交通方式</dt><dd class=""><span class="rt"><span class="mode m-기차">列車</span> 關西機場 → 京都站 <b class="min">約80分鐘</b></span><br><small>JR特急HARUKA</small></dd><dd class="sub rnote">直達，無需換乘</dd></div><div class="beat"><dt>京都站·二條城推薦美食</dt><ol class="picks"><li><span class="pick"><b>本家 第一旭 たかばし本店</b><em class="pm">拉麵</em><span class="pd">京都醬油拉麵</span></span></li><li><span class="pick"><b>新福菜館 本店</b><em class="pm">拉麵</em><span class="pd">黑湯醬油拉麵·炒飯</span></span></li><li><span class="pick"><b>京都拉麺小路</b><em class="pm">拉麵</em><span class="pd">日本各地名店拉麵</span></span></li></ol>
@@ -97,7 +97,13 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=4f6555f3"><\/s
    <div class="picks2"><b>推薦購物清單</b><ul><li>八橋（生八橋）</li><li>宇治抹茶點心</li><li>京都醃菜</li></ul></div>
    <div class="tip"><b>旅行貼士</b> · 適合在離開當天一次買齊。</div>
    
+   <div class="pplus">
    
+   
+   <section class="psubs"><h3 class="sgh"><span>京都站購物指南（分店介紹）</span></h3><div class="psgrid"><article class="gblk psub"><h4>京都Porta</h4><p class="psw">與JR、地鐵京都站及站前巴士站直接相連的地下街和車站大樓</p><p>1~2層的“伴手禮街道”彙集了京都點心和伴手禮店，免稅櫃檯在地下1層。</p><dl><dt>1~2層伴手禮街道</dt><dd>7:30–22:00</dd><dt>地下1層商店</dt><dd>11:00–20:30</dd><dt>11層餐廳</dt><dd>11:00–22:00</dd></dl><a class="more" href="https://www.porta.co.jp/" target="_blank" rel="noopener">官網 ↗</a></article><article class="gblk psub"><h4>ASTY京都</h4><p class="psw">八條口一側的新幹線檢票口周邊</p><p>1層檢票口外的“ASTY ROAD”有伴手禮店和藥妝店，2層新幹線檢票口內的“ASTY SQUARE”有車站便當和京都伴手禮店。進入檢票口內需要車票或入場券。</p><dl><dt>大部分店鋪</dt><dd>約9:00–21:00</dd></dl><a class="more" href="https://www.asty-kyoto.co.jp/" target="_blank" rel="noopener">官網 ↗</a></article><article class="gblk psub"><h4>The CUBE</h4><p class="psw">京都站大樓正下方的地下</p><p>京都站大樓的專賣店街，有京都點心、茶葉等伴手禮以及時尚和美食店。</p><a class="more" href="https://www.thecube.co.jp/" target="_blank" rel="noopener">官網 ↗</a></article><article class="gblk psub"><h4>JR京都伊勢丹</h4><p class="psw">京都站大樓內</p><p>車站大樓裡的百貨店，地下食品館適合買京都點心，還有美術館“Eki”KYOTO。</p><a class="more" href="https://kyoto.wjr-isetan.co.jp/" target="_blank" rel="noopener">官網 ↗</a></article><article class="gblk psub"><h4>京都塔SANDO</h4><p class="psw">京都站烏丸中央口前的京都塔大樓</p><p>地下1層美食大廳有17家店，1層市場有17家八橋、和果子、茶葉等店鋪。2層可以體驗做和果子、租和服等。</p><dl><dt>地下1層美食大廳</dt><dd>11:00–23:00</dd><dt>1層市場</dt><dd>10:00–21:00</dd><dt>2層體驗</dt><dd>10:00–19:00</dd></dl><a class="more" href="https://www.kyoto-tower-sando.jp/" target="_blank" rel="noopener">官網 ↗</a></article><article class="gblk psub"><h4>京都友都八喜</h4><p class="psw">京都站北側，烏丸通</p><p>地下1層至3層是家電相機店友都八喜，4~5層是時尚（優衣庫等），6層是餐廳。</p><dl><dt>家電（地下1層至3層）</dt><dd>9:30–22:00</dd><dt>6層餐廳</dt><dd>11:00–23:00</dd></dl><a class="more" href="https://www.yodobashi-kyoto.com/" target="_blank" rel="noopener">官網 ↗</a></article></div></section>
+   <div class="gblk ptax"><h4>免稅購物（2026年11月起的新方式）</h4><ul class="gul"><li>自2026年11月1日起，日本免稅改為退稅方式。在店內按含消費稅的價格付款。</li><li>在一家免稅店消費滿5,000日元（不含稅）即可享受，結賬時請出示護照。</li><li>需在購買後90天內出境，並在機場或港口海關接受攜帶出境的確認。</li><li>確認後由購買店鋪退還相當於消費稅的金額（如退到信用卡）。退稅方式和手續費因店而異。</li><li>在成田、羽田、關西、中部、福岡、新千歲、那霸機場，也可以通過Visit Japan Web線上完成海關確認。</li></ul></div>
+   <section class="gblk faq" itemscope="" itemtype="https://schema.org/FAQPage"><h4>常見問題</h4><dl><div class="faqi" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">可以免稅嗎？</dt><dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><span>在免稅店購買滿5,000日元（不含稅）即可享受。</span> <span>自2026年11月起先含稅付款，出境時經海關確認後退還稅款。</span></div></dd></div><div class="faqi" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">怎麼去？</dt><dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><span>交通方式</span>: <span>京都站</span> · </div></dd></div></dl></section>
+  </div>
    <div class="actions"><button class="btn primary" type="button" data-psave="kyotostation">儲存到我的旅行</button>
    
    <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=%E4%BA%AC%E9%83%BD%E9%A7%85%20%E4%BA%AC%E9%83%BD%E9%A7%85" target="_blank" rel="noopener">在地圖上檢視 ↗</a>
@@ -150,10 +156,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=4f6555f3"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=4f6555f3"></script>
-<script src="/autoreserve.js?v=4f6555f3"></script>
-<script src="/google_picks.js?v=4f6555f3"></script>
-<script src="/geo.js?v=4f6555f3"></script>
-<script src="/app.js?v=4f6555f3"></script>
+<script src="/areas.js?v=1fa64b0c"></script>
+<script src="/autoreserve.js?v=1fa64b0c"></script>
+<script src="/google_picks.js?v=1fa64b0c"></script>
+<script src="/geo.js?v=1fa64b0c"></script>
+<script src="/app.js?v=1fa64b0c"></script>
 </body>
 </html>

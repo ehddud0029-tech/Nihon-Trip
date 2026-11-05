@@ -38,14 +38,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=4f6555f3">
+<link rel="stylesheet" href="/app.css?v=1fa64b0c">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=4f6555f3"><\/script><script src="'+B+'engine.js?v=4f6555f3"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1fa64b0c"><\/script><script src="'+B+'engine.js?v=1fa64b0c"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -78,7 +78,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=4f6555f3"><\/s
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="Show previous regions" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="Select area"><button class="city" type="button" data-city="all" aria-pressed="false">All<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="true">Tokyo<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">Osaka<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">Fukuoka<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">Hokkaido<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">Okinawa<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">Nagoya<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">Hiroshima<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">Shikoku<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="Show more regions" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="Select sub-area"><button class="area" type="button" data-area="shinjuku" aria-pressed="false">Shinjuku</button><button class="area" type="button" data-area="shibuya" aria-pressed="false">Shibuya, Ebisu &amp; Roppongi</button><button class="area" type="button" data-area="ginza" aria-pressed="false">Ginza &amp; Tsukiji</button><button class="area" type="button" data-area="asakusa" aria-pressed="false">Asakusa &amp; Ueno</button><button class="area" type="button" data-area="tokyoeki" aria-pressed="true">Tokyo Station &amp; Kanda</button><button class="area" type="button" data-area="yokohama" aria-pressed="false">Yokohama</button><button class="area" type="button" data-area="kamakura" aria-pressed="false">Kamakura &amp; Enoshima</button><button class="area" type="button" data-area="hakone" aria-pressed="false">Hakone</button><button class="area" type="button" data-area="fuji" aria-pressed="false">Mt. Fuji &amp; Lake Kawaguchi</button></div>
   <dl class="brief" id="brief"><div class="bw"><dt>Today's weather in Tokyo Station &amp; Kanda</dt>
-        <dd class="wxtime"><span class="jstclock">Thu Nov 5, 22:16</span> <small>Japan now</small></dd>
+        <dd class="wxtime"><span class="jstclock">Thu Nov 5, 22:30</span> <small>Japan now</small></dd>
         <dd class="wxnow"><span class="big">17°</span> <b>Average temperature</b><span class="wxicon" aria-hidden="true">🌤️</span></dd>
         <dd class="sub wxline">Average November high</dd>
         <dd class="sub">Loading live weather…</dd></div><div class="broute"><dt>From the airport to Tokyo Station &amp; Kanda</dt><dd class=""><span class="rt"><span class="mode m-기차">Train</span> Narita Airport → Tokyo Sta. <b class="min">About 60 min</b></span><br><small>JR Narita Express</small></dd><dd class="sub"><span class="rt"><span class="mode m-버스">Bus</span> Haneda Airport → Tokyo Sta. <b class="min">About 35 min</b></span><br><small>Airport limousine bus</small></dd><dd class="sub rnote">Direct, no transfers</dd></div><div class="beat"><dt>Recommended Food in Tokyo Station &amp; Kanda</dt><ol class="picks"><li><span class="pick"><b>GOTTSU AKIHABARA</b><em class="pm">Ramen</em><span class="pd">Rich, oily shoyu ramen</span></span></li><li><span class="pick"><b>Manten Sushi Hibiya Okuroji</b><em class="pm">Sushi</em><span class="pd">Edomae sushi</span></span></li><li><span class="pick"><b>Kanda Shinpachi</b><em class="pm">Izakaya</em><span class="pd">Junmai sake &amp; Seasonal dishes</span></span></li></ol>
@@ -99,6 +99,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=4f6555f3"><\/s
    
    <div class="pplus">
    <p class="pmore">Built around the former Tokyo Central Post Office, it has regional food and craft shops and long-established restaurants from B1 to 6F. The 6F rooftop 'KITTE Garden' looks down on Tokyo Station.</p>
+   
    
    <div class="gblk ptax"><h4>Tax-free shopping (new system from November 2026)</h4><ul class="gul"><li>From November 1, 2026, Japan's tax-free system became a refund system. You pay the price including consumption tax at the store.</li><li>Spending ¥5,000 or more (before tax) at one tax-free shop qualifies. Show your passport at the till.</li><li>Within 90 days of purchase, have customs at the airport or seaport confirm you are taking the goods out of Japan.</li><li>After that, the store refunds the consumption tax (by credit card, for example). Refund methods and fees vary by store.</li><li>At Narita, Haneda, Kansai, Chubu, Fukuoka, New Chitose and Naha airports you can also do the customs check online with Visit Japan Web.</li></ul></div>
    <section class="gblk faq" itemscope="" itemtype="https://schema.org/FAQPage"><h4>Frequently asked questions</h4><dl><div class="faqi" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">What are the opening hours?</dt><dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><span>Opening hours</span> 11:00–20:00 · <span>Restaurant floors</span> 11:00–22:00 · <span>Hours can differ by store, so check the official site before you go.</span></div></dd></div><div class="faqi" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">Can I shop tax-free?</dt><dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><span>Purchases of ¥5,000 or more (before tax) at a tax-free shop qualify.</span> <span>Since November 2026 you pay the tax at the till and get it refunded after customs confirms the goods when you leave Japan.</span></div></dd></div><div class="faqi" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">How do I get there?</dt><dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><span>Getting there</span>: <span>Tokyo Sta.</span> ·  <span>About a 1-minute walk from the Marunouchi South Exit of JR Tokyo Station.</span> <span class="notranslate" lang="ja">東京都千代田区丸の内2-7-2</span></div></dd></div></dl></section>
@@ -155,10 +156,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=4f6555f3"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=4f6555f3"></script>
-<script src="/autoreserve.js?v=4f6555f3"></script>
-<script src="/google_picks.js?v=4f6555f3"></script>
-<script src="/geo.js?v=4f6555f3"></script>
-<script src="/app.js?v=4f6555f3"></script>
+<script src="/areas.js?v=1fa64b0c"></script>
+<script src="/autoreserve.js?v=1fa64b0c"></script>
+<script src="/google_picks.js?v=1fa64b0c"></script>
+<script src="/geo.js?v=1fa64b0c"></script>
+<script src="/app.js?v=1fa64b0c"></script>
 </body>
 </html>
