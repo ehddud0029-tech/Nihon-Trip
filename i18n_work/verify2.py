@@ -34,7 +34,7 @@ for(const pass of [0,1]){
  // drawer for each item
  for(const x of ALL){ openItem(x.id); await tick(); grab(); saved=[x.id]; openItem(x.id); await tick(); grab(); saved=[]; }
  closeItem();
- st.view="itin"; st.itin=null; await R(); for(const k of IKEYS){ st.itin=k; await R(); } st.itin=null;
+ st.view="itin"; st.itin=null; await R(); for(const k of IKEYS){ st.itin=k; await R(); } for(const k of ICITY_ORDER){ st.itin=k; await R(); } st.itin=null;
  for(const g of GKEYS){ st.view="guide"; st.gsec=g; await R(); }
  for(const x of ALL.filter(x=>PLACE_TYPES.includes(x.type))){ st.view="place"; st.place=x.id; await R(); }
  for(const v of ["about","contact","privacy"]){ st.view=v; await R(); }
