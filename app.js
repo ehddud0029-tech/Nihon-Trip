@@ -1068,7 +1068,7 @@ function renderCities(){
     const gd = AREA_GUIDE[pa] || {};
     const cStops = (gd.stops||[]).map(([id,leg])=>[byId(id),leg]).filter(([x])=>x);
     const courseCell = `<div class="bcourse"><dt>추천 여행 경로${gd.title?` · ${esc(gd.title)}`:""}</dt>${cStops.length?`<ol class="course">${cStops.map(([x,leg],i)=>`<li><button type="button" data-open="${x.id}">${esc(x.name)}</button>${leg&&i<cStops.length-1?`<span class="leg">${esc(leg)}</span>`:""}</li>`).join("")}</ol>`:`<dd class="sub">준비 중이에요</dd>`}</div>`;
-    const moveCell = `<div class="bmove"><dt>${esc((tgOn()&&A?A.ko:AREA[pa]?.ko)||c.ko)} 시내 이동</dt><dd class="mv">${tgMove(pa).map(([k,t])=>`<p class="mv-${k}"><span>${MOVE_LABEL[k]}</span>${esc(t)}</p>`).join("")}</dd>
+    const moveCell = `<div class="bmove"><dt>${esc(((tgOn()&&A?A.ko:AREA[pa]?.ko)||c.ko).replace(/ 시내$/,""))} 시내 이동</dt><dd class="mv">${tgMove(pa).map(([k,t])=>`<p class="mv-${k}"><span>${MOVE_LABEL[k]}</span>${esc(t)}</p>`).join("")}</dd>
       <dd class="sub links"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((AREA[pa]?.jp.split("・")[0]||c.jp)+" 駅")}" target="_blank" rel="noopener">주변 역 지도 ↗</a></dd></div>`;
     const ic = IC_CARDS.find(x=>x.cities.includes(st.city));
     const icBrief = ic ? `<div class="bic"><dt>교통카드</dt><dd class="icrow">${ic.img?`<img src="${ic.img}" alt="" loading="lazy" referrerpolicy="no-referrer">`:""}<span><b>${esc(ic.name)}</b><small>${esc(ic.area)}</small></span></dd><dd class="sub">${esc(ic.cities[0]===st.city?ic.buy[0]:(ICBUY[st.city]||ic.buy[0]))}</dd><dd class="sub links"><a href="#icguide">교통카드 자세히 보기 ↓</a></dd></div>` : icCell;
@@ -1098,7 +1098,7 @@ function renderCities(){
       extraCell = `<div class="bsum"><dt>나의 여행 요약</dt>${its.length?`<dd class="trows2">${Object.entries(by).map(([k,n])=>`<span><b>${n}</b>${esc(k)}</span>`).join("")}</dd><dd class="sub">${Object.entries(byC).map(([k,n])=>`${esc(k)} ${n}곳`).join(" · ")}</dd>`:`<dd class="sub">아직 저장한 곳이 없어요</dd>`}</div>`;
     }
     const cells = st.view==="spots" ? [topicCell, courseCell]
-      : st.view==="transport" ? [apCell, icBrief, moveCell]
+      : st.view==="transport" ? [apCell, moveCell]
       : [topicCell, extraCell];
     document.body.classList.add("nowx");
     const missing = [!window.AREAS&&"areas.js", !window.AR_SHOPS&&"autoreserve.js", !window.GOOGLE_PICKS&&"google_picks.js"].filter(Boolean);
@@ -2907,7 +2907,11 @@ V.transport = function(){
     body = aps.map(a=>`<section class="apsec"><h3 class="sgh"><span>${apA(a,"",esc(apName(a)))}</span></h3><div class="wxgrid">${apDests(a).map(k2=>{ const o=apOpts(a,k2)[0]; return o?`<article class="wxcard"><h3>${esc(AREA[k2].ko)}</h3>
        <p class="aprt"><span class="mode m-${o[0].mode}">${o[0].mode}</span> ${o.map(x=>`<span>${x.line}</span>`).join(" → ")}</p><p class="aptm">${apMin(apSum(o))}</p>
        ${apA(a,k2,`자세히 보기<i> →</i>`,"more")}</article>`:""; }).join("")}</div></section>`).join("") || pick(".apsec");
-  } else body = notes + `<div class="wxlinks">${TTABS.slice(1).map(([k,l])=>`<a class="btn ghost" href="${ROUTED?window.NT_BASE+LPRE+pathOf({...st,sub:k}):"#"}" data-subtab="${k}">${esc(l)}<i> →</i></a>`).join("")}</div>`;
+  } else {
+    const ic = st.city!=="all" && IC_CARDS.find(x=>x.cities.includes(st.city));
+    const icOv = ic ? `<section class="ovic"><h3 class="sgh"><span>교통카드</span></h3><div class="ovic-card"><div class="icrow">${ic.img?`<img src="${ic.img}" alt="" loading="lazy" referrerpolicy="no-referrer">`:""}<span><b>${esc(ic.name)}</b><small>${esc(ic.area)}</small></span></div><p>${esc(ic.cities[0]===st.city?ic.buy[0]:(ICBUY[st.city]||ic.buy[0]))}</p><a class="more" href="${ROUTED?window.NT_BASE+LPRE+pathOf({...st,sub:"ic"}):"#"}" data-subtab="ic">교통카드 안내<i> →</i></a></div></section>` : "";
+    body = icOv + notes + `<div class="wxlinks ttlinks">${TTABS.slice(1).map(([k,l])=>`<a class="btn ghost" href="${ROUTED?window.NT_BASE+LPRE+pathOf({...st,sub:k}):"#"}" data-subtab="${k}">${esc(l)}<i> →</i></a>`).join("")}</div>`;
+  }
   return `<div class="sechead"><div><h2>교통</h2><p>공항에서 시내까지, 그리고 도시 안에서 이동하는 방법</p></div></div>
    ${subTabs(TTABS,t)}
    ${body}`;

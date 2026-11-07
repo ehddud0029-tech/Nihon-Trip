@@ -678,6 +678,9 @@ body.is-wx .hero{display:none}
 /*SBCSS_END*/
 /*TTCSS_BEGIN*/
 body.tsub #brief{display:none}
+.ovic{margin:0 0 22px}.ovic-card{background:var(--card,#fff);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;max-width:640px}
+.ovic .icrow{display:flex;align-items:center;gap:12px}.ovic .icrow img{width:72px;height:46px;object-fit:contain;border-radius:6px;background:#fff;border:1px solid var(--line)}.ovic .icrow span{display:flex;flex-direction:column}.ovic .icrow small{font-size:13px;color:var(--ink-2)}.ovic p{margin:0;color:var(--ink-2);font-size:14px}.ovic .more{font-weight:600;font-size:14px}
+.ttlinks{margin-top:20px}
 /*TTCSS_END*/
 /*BRCSS_BEGIN*/
 .brief .picks .pdx{grid-column:2/-1;color:var(--ink-2);font-size:14px;font-weight:400;line-height:1.55;margin:0 0 10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-align:left}

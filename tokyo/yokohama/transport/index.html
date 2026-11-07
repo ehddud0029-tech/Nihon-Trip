@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=36a78195">
+<link rel="stylesheet" href="/app.css?v=b128d528">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=36a78195"><\/script><script src="'+B+'engine.js?v=36a78195"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b128d528"><\/script><script src="'+B+'engine.js?v=b128d528"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -77,7 +77,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=36a78195"><\/s
   <h1 id="heroTitle">도쿄 · 요코하마, 무엇부터 볼까요?</h1>
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="이전 지역 보기" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="지역 선택"><button class="city" type="button" data-city="all" aria-pressed="false">전체<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="true">도쿄<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">오사카<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">후쿠오카<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">홋카이도<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">오키나와<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">나고야<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">히로시마<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">시코쿠<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="다음 지역 보기" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="하위 지역 선택"><button class="area" type="button" data-area="shinjuku" aria-pressed="false">도쿄 시내</button><button class="area" type="button" data-area="yokohama" aria-pressed="true">요코하마</button><button class="area" type="button" data-area="kamakura" aria-pressed="false">가마쿠라·에노시마</button><button class="area" type="button" data-area="hakone" aria-pressed="false">하코네</button><button class="area" type="button" data-area="fuji" aria-pressed="false">후지산·가와구치코</button></div>
-  <dl class="brief" id="brief"><div class="broute"><dt>공항에서 요코하마 가는 법</dt><dd class=""><span class="rt"><span class="mode m-전철">전철</span> 하네다공항 → 요코하마역 <b class="min">약 25분</b></span><br><small>게이큐선</small></dd><dd class="sub"><span class="rt"><span class="mode m-기차">기차</span> 나리타공항 → 요코하마역 <b class="min">약 90분</b></span><br><small>JR 나리타 익스프레스</small></dd><dd class="sub rnote">갈아타지 않고 바로 가요</dd></div><div class="bic"><dt>교통카드</dt><dd class="icrow"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Welcome_Suica.jpg?width=360" alt="" loading="lazy" referrerpolicy="no-referrer"><span><b>Suica</b><small>도쿄 · 수도권 (JR 동일본)</small></span></dd><dd class="sub">JR 동일본 역 발매기 (무기명 카드는 2025년 3월부터 다시 판매, 보증금 500엔 포함)</dd><dd class="sub links"><a href="#icguide">교통카드 자세히 보기 ↓</a></dd></div><div class="bmove"><dt>요코하마 시내 이동</dt><dd class="mv"><p class="mv-rail"><span>주로 이용</span>미나토미라이선 — 요코하마역~미나토미라이~바샤미치~모토마치·주카가이를 이어요. 주요 명소는 대부분 이 노선</p><p class="mv-rail"><span>주로 이용</span>JR 네기시선 — 사쿠라기초(미나토미라이)·간나이·이시카와초(주카가이)</p><p class="mv-bus"><span>버스</span>지하철이 닿지 않는 야마테·항구가 보이는 언덕 공원은 순환버스 '아카이쿠쓰'(사쿠라기초역~주카가이~야마시타 공원)</p><p class="mv-etc"><span>그 밖에</span>로프웨이 '에어 캐빈'(사쿠라기초~운하파크), 수상버스 '시버스'(요코하마역~야마시타 공원)</p><p class="mv-pass"><span>할인 승차권</span>미나토미라이선 1일 승차권</p></dd>
+  <dl class="brief" id="brief"><div class="broute"><dt>공항에서 요코하마 가는 법</dt><dd class=""><span class="rt"><span class="mode m-전철">전철</span> 하네다공항 → 요코하마역 <b class="min">약 25분</b></span><br><small>게이큐선</small></dd><dd class="sub"><span class="rt"><span class="mode m-기차">기차</span> 나리타공항 → 요코하마역 <b class="min">약 90분</b></span><br><small>JR 나리타 익스프레스</small></dd><dd class="sub rnote">갈아타지 않고 바로 가요</dd></div><div class="bmove"><dt>요코하마 시내 이동</dt><dd class="mv"><p class="mv-rail"><span>주로 이용</span>미나토미라이선 — 요코하마역~미나토미라이~바샤미치~모토마치·주카가이를 이어요. 주요 명소는 대부분 이 노선</p><p class="mv-rail"><span>주로 이용</span>JR 네기시선 — 사쿠라기초(미나토미라이)·간나이·이시카와초(주카가이)</p><p class="mv-bus"><span>버스</span>지하철이 닿지 않는 야마테·항구가 보이는 언덕 공원은 순환버스 '아카이쿠쓰'(사쿠라기초역~주카가이~야마시타 공원)</p><p class="mv-etc"><span>그 밖에</span>로프웨이 '에어 캐빈'(사쿠라기초~운하파크), 수상버스 '시버스'(요코하마역~야마시타 공원)</p><p class="mv-pass"><span>할인 승차권</span>미나토미라이선 1일 승차권</p></dd>
       <dd class="sub links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%A8%AA%E6%B5%9C%20%E9%A7%85" target="_blank" rel="noopener">주변 역 지도 ↗</a></dd></div></dl>
   <div class="wx" id="wx" hidden=""></div>
   <div class="wxnote" id="wxnote">실시간 날씨를 불러오지 못해 평년값을 보여드려요.</div>
@@ -85,11 +85,11 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=36a78195"><\/s
 
 <main class="wrap" id="main"><div class="sechead"><div><h2>교통</h2><p>공항에서 시내까지, 그리고 도시 안에서 이동하는 방법</p></div></div>
    <nav class="dtabs sbtabs"><a href="/tokyo/yokohama/transport/" data-subtab="" class="on" aria-current="page">한눈에 보기</a><a href="/tokyo/yokohama/transport/times/" data-subtab="times">이동별 걸리는 시간</a><a href="/tokyo/yokohama/transport/airport/" data-subtab="airport">공항에서 시내 가는 법</a><a href="/tokyo/yokohama/transport/ic/" data-subtab="ic">교통카드 안내</a></nav>
-   <div class="notes">
+   <section class="ovic"><h3 class="sgh"><span>교통카드</span></h3><div class="ovic-card"><div class="icrow"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Welcome_Suica.jpg?width=360" alt="" loading="lazy" referrerpolicy="no-referrer"><span><b>Suica</b><small>도쿄 · 수도권 (JR 동일본)</small></span></div><p>JR 동일본 역 발매기 (무기명 카드는 2025년 3월부터 다시 판매, 보증금 500엔 포함)</p><a class="more" href="/tokyo/yokohama/transport/ic/" data-subtab="ic">교통카드 안내<i> →</i></a></div></section><div class="notes">
     <div class="note"><h4>교통카드 한 장이면 전국에서</h4><p>Suica·PASMO·ICOCA 등 주요 교통계 IC 카드는 서로 호환돼요. 아이폰 지갑 앱에서도 Suica를 만들 수 있어요.</p></div>
     <div class="note"><h4>JR 패스는 계산해보고</h4><p>도시 한두 곳만 머문다면 전국 JR 패스보다 지역 패스나 IC 카드가 저렴한 경우가 많아요.</p></div>
     <div class="note"><h4>막차 시간 확인</h4><p>대부분 지하철은 자정 무렵 끊겨요. 늦은 일정이 있다면 숙소 근처 막차를 미리 확인하세요.</p></div>
-   </div><div class="wxlinks"><a class="btn ghost" href="/tokyo/yokohama/transport/times/" data-subtab="times">이동별 걸리는 시간<i> →</i></a><a class="btn ghost" href="/tokyo/yokohama/transport/airport/" data-subtab="airport">공항에서 시내 가는 법<i> →</i></a><a class="btn ghost" href="/tokyo/yokohama/transport/ic/" data-subtab="ic">교통카드 안내<i> →</i></a></div></main>
+   </div><div class="wxlinks ttlinks"><a class="btn ghost" href="/tokyo/yokohama/transport/times/" data-subtab="times">이동별 걸리는 시간<i> →</i></a><a class="btn ghost" href="/tokyo/yokohama/transport/airport/" data-subtab="airport">공항에서 시내 가는 법<i> →</i></a><a class="btn ghost" href="/tokyo/yokohama/transport/ic/" data-subtab="ic">교통카드 안내<i> →</i></a></div></main>
 
 <footer><div class="wrap">Go Nihon Trip · 날씨 <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · 사진 <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> (각 사진의 저작자·라이선스는 상세 화면에 표시) · 이동 시간·운영 정보는 바뀔 수 있으니 공식 사이트에서 다시 확인하세요.<div class="flinks"><a href="/about/" data-view="about">사이트 소개</a> · <a href="/contact/" data-view="contact">문의하기</a> · <a href="/privacy/" data-view="privacy">개인정보처리방침</a></div></div></footer>
 
@@ -110,10 +110,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=36a78195"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=36a78195"></script>
-<script src="/autoreserve.js?v=36a78195"></script>
-<script src="/google_picks.js?v=36a78195"></script>
-<script src="/geo.js?v=36a78195"></script>
-<script src="/app.js?v=36a78195"></script>
+<script src="/areas.js?v=b128d528"></script>
+<script src="/autoreserve.js?v=b128d528"></script>
+<script src="/google_picks.js?v=b128d528"></script>
+<script src="/geo.js?v=b128d528"></script>
+<script src="/app.js?v=b128d528"></script>
 </body>
 </html>

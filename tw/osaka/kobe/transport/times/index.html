@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=36a78195">
+<link rel="stylesheet" href="/app.css?v=b128d528">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=36a78195"><\/script><script src="'+B+'engine.js?v=36a78195"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b128d528"><\/script><script src="'+B+'engine.js?v=b128d528"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -77,7 +77,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=36a78195"><\/s
   <h1 id="heroTitle">大阪 · 神戶，先看什麼？</h1>
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="檢視上一組地區" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="選擇地區"><button class="city" type="button" data-city="all" aria-pressed="false">全部<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">東京<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="true">大阪<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">福岡<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">北海道<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">沖繩<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">名古屋<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">廣島<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">四国<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="檢視更多地區" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="選擇區域"><button class="area" type="button" data-area="dotonbori" aria-pressed="false">大阪市區</button><button class="area" type="button" data-area="kyoto" aria-pressed="false">京都</button><button class="area" type="button" data-area="nara" aria-pressed="false">奈良</button><button class="area" type="button" data-area="kobe" aria-pressed="true">神戶</button></div>
-  <dl class="brief" id="brief"><div class="broute"><dt>從機場到神戶的交通方式</dt><dd class=""><span class="rt"><span class="mode m-버스">巴士</span> 關西機場 → 三宮 <b class="min">約65分鐘</b></span><br><small>機場利木津巴士</small></dd><dd class="sub"><span class="rt"><span class="mode m-배">船</span> 關西機場 → 神戶機場 <b class="min">約30分鐘</b></span><br><small>神戶－關西機場海灣穿梭船</small></dd><dd class="sub rnote">直達，無需換乘</dd></div><div class="bic"><dt>交通卡</dt><dd class="icrow"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/ICOCA_logo.svg?width=360" alt="" loading="lazy" referrerpolicy="no-referrer"><span><b>ICOCA</b><small>大阪 · 京都 · 神戶 · 奈良（JR西日本）</small></span></dd><dd class="sub">關西機場站JR售票機·售票處，JR西日本車站售票機（含500日元押金）</dd><dd class="sub links"><a href="#icguide">檢視交通卡詳情 ↓</a></dd></div><div class="bmove"><dt>神戶市內交通</dt><dd class="mv"><p class="mv-rail"><span>常用路線</span>JR、阪急、阪神、地鐵都在三宮交匯；去港灣樂園乘JR神戶站或地鐵海岸線</p><p class="mv-bus"><span>巴士</span>觀光迴圈巴士“City Loop” — 環繞北野異人館、三宮、美利堅公園</p><p class="mv-etc"><span>其他</span>布引香草園乘新神戶站的纜車，去港島乘Port Liner</p><p class="mv-walk"><span>步行</span>三宮、元町（南京町）、美利堅公園之間步行20分鐘</p></dd>
+  <dl class="brief" id="brief"><div class="broute"><dt>從機場到神戶的交通方式</dt><dd class=""><span class="rt"><span class="mode m-버스">巴士</span> 關西機場 → 三宮 <b class="min">約65分鐘</b></span><br><small>機場利木津巴士</small></dd><dd class="sub"><span class="rt"><span class="mode m-배">船</span> 關西機場 → 神戶機場 <b class="min">約30分鐘</b></span><br><small>神戶－關西機場海灣穿梭船</small></dd><dd class="sub rnote">直達，無需換乘</dd></div><div class="bmove"><dt>神戶市內交通</dt><dd class="mv"><p class="mv-rail"><span>常用路線</span>JR、阪急、阪神、地鐵都在三宮交匯；去港灣樂園乘JR神戶站或地鐵海岸線</p><p class="mv-bus"><span>巴士</span>觀光迴圈巴士“City Loop” — 環繞北野異人館、三宮、美利堅公園</p><p class="mv-etc"><span>其他</span>布引香草園乘新神戶站的纜車，去港島乘Port Liner</p><p class="mv-walk"><span>步行</span>三宮、元町（南京町）、美利堅公園之間步行20分鐘</p></dd>
       <dd class="sub links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A5%9E%E6%88%B8%20%E9%A7%85" target="_blank" rel="noopener">周邊車站地圖 ↗</a></dd></div></dl>
   <div class="wx" id="wx" hidden=""></div>
   <div class="wxnote" id="wxnote">無法載入即時天氣，顯示往年平均值。</div>
@@ -109,10 +109,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=36a78195"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=36a78195"></script>
-<script src="/autoreserve.js?v=36a78195"></script>
-<script src="/google_picks.js?v=36a78195"></script>
-<script src="/geo.js?v=36a78195"></script>
-<script src="/app.js?v=36a78195"></script>
+<script src="/areas.js?v=b128d528"></script>
+<script src="/autoreserve.js?v=b128d528"></script>
+<script src="/google_picks.js?v=b128d528"></script>
+<script src="/geo.js?v=b128d528"></script>
+<script src="/app.js?v=b128d528"></script>
 </body>
 </html>
