@@ -81,40 +81,48 @@ const DRINK_ORDER = ["사케는 보통 1고(一合, 약 180ml) 단위로 주문�
  "노미호다이(飲み放題)는 정해진 시간 동안 마음껏 마시는 요금제예요."];
 const DRINK_BUY = {
  tokyo:[
-  {k:"sake", n:"사와노이", ja:"澤乃井", d:"도쿄 오메에서 빚는 도쿄 지역 사케. 깔끔한 맛이라 처음 마시는 사람에게도 무난해요.", w:"양조장 매장, 도쿄 백화점 주류 코너"},
-  {k:"whisky", n:"기린 싱글 그레인 위스키 후지", ja:"キリン シングルグレーンウイスキー 富士", d:"후지산 기슭 후지고텐바 증류소의 위스키. 부드럽고 달콤한 향이에요.", w:"증류소 매장, 큰 주류점·백화점"},
-  {k:"sake", n:"닷사이", ja:"獺祭", d:"야마구치현 사케지만 과일 향이 화사한 준마이 다이긴조로 인기가 많아 도쿄에서도 쉽게 살 수 있어요.", w:"백화점, 공항 면세점"}],
+  {k:"sake", n:"사와노이", ja:"澤乃井", d:"도쿄 오메에서 빚는 도쿄 지역 사케. 깔끔한 맛이라 처음 마시는 사람에게도 무난해요.", w:"양조장 매장, 도쿄 백화점 주류 코너", p:"720ml 약 1,500~2,500엔", t:"맛: 물처럼 맑고 깔끔하며 끝맛이 가벼워요."},
+  {k:"whisky", n:"기린 싱글 그레인 위스키 후지", ja:"キリン シングルグレーンウイスキー 富士", d:"후지산 기슭 후지고텐바 증류소의 위스키. 부드럽고 달콤한 향이에요.", w:"증류소 매장, 큰 주류점·백화점", p:"700ml 약 5,000~6,000엔", t:"맛: 바닐라와 꿀 같은 달콤한 향에 부드러운 목 넘김이에요."},
+  {k:"sake", n:"닷사이", ja:"獺祭", d:"야마구치현 사케지만 과일 향이 화사한 준마이 다이긴조로 인기가 많아 도쿄에서도 쉽게 살 수 있어요.", w:"백화점, 공항 면세점", p:"720ml 약 2,000~3,000엔 (상위 등급은 더 비싸요)", t:"맛: 멜론·사과 같은 과일 향이 화사하고 단맛이 은은해요."}],
  osaka:[
-  {k:"sake", n:"나다·후시미 사케", ja:"灘・伏見の酒", d:"하쿠쓰루·기쿠마사무네(나다), 겟케이칸(후시미) 등 간사이 대표 양조장의 사케예요.", w:"양조장 기념관 매장, 오사카·교토 백화점"},
-  {k:"umeshu", n:"초야 우메슈", ja:"チョーヤ梅酒", d:"오사카 하비키노에 본사가 있는 우메슈 회사. 매실이 든 병이나 작은 병 세트가 선물하기 좋아요.", w:"슈퍼, 백화점, 공항"},
-  {k:"whisky", n:"야마자키", ja:"山崎", d:"일본 첫 몰트위스키 증류소의 위스키. 인기가 많아 일반 매장에서는 구하기 어려운 경우가 많아요.", w:"증류소 매장(수량 한정), 백화점"}],
+  {k:"sake", n:"나다·후시미 사케", ja:"灘・伏見の酒", d:"하쿠쓰루·기쿠마사무네(나다), 겟케이칸(후시미) 등 간사이 대표 양조장의 사케예요.", w:"양조장 기념관 매장, 오사카·교토 백화점", p:"720ml 약 1,000~3,000엔", t:"맛: 나다는 쌉쌀하고 힘 있는 맛, 후시미는 부드럽고 순한 맛이에요."},
+  {k:"umeshu", n:"초야 우메슈", ja:"チョーヤ梅酒", d:"오사카 하비키노에 본사가 있는 우메슈 회사. 매실이 든 병이나 작은 병 세트가 선물하기 좋아요.", w:"슈퍼, 백화점, 공항", p:"720ml 약 1,000~1,500엔", t:"맛: 매실 향이 진하고 새콤달콤해요. 얼음에 타 마시기 좋아요."},
+  {k:"whisky", n:"야마자키", ja:"山崎", d:"일본 첫 몰트위스키 증류소의 위스키. 인기가 많아 일반 매장에서는 구하기 어려운 경우가 많아요.", w:"증류소 매장(수량 한정), 백화점", p:"700ml 약 7,000엔 (정가, 실제로는 더 비싼 경우가 많아요)", t:"맛: 딸기·체리 같은 과일 향과 일본 오크(미즈나라)의 은은한 향이에요."}],
  fukuoka:[
-  {k:"shochu", n:"구로키리시마", ja:"黒霧島", d:"미야자키현의 고구마 소주. 규슈에서 가장 흔히 마시는 소주 가운데 하나예요.", w:"슈퍼, 주류점, 공항"},
-  {k:"shochu", n:"이이치코", ja:"いいちこ", d:"오이타현의 보리 소주. 향이 순해서 물이나 탄산수에 타 마시기 좋아요.", w:"슈퍼, 주류점, 공항"},
-  {k:"sake", n:"시게마스", ja:"繁桝", d:"후쿠오카현 야메의 오래된 양조장 사케. 후쿠오카 지역 사케를 찾는다면 좋은 선택이에요.", w:"하카타역·백화점 기념품 매장"}],
+  {k:"shochu", n:"구로키리시마", ja:"黒霧島", d:"미야자키현의 고구마 소주. 규슈에서 가장 흔히 마시는 소주 가운데 하나예요.", w:"슈퍼, 주류점, 공항", p:"900ml 약 1,000~1,500엔", t:"맛: 고구마 향이 은은하고 단맛이 돌며 뒷맛이 깔끔해요."},
+  {k:"shochu", n:"이이치코", ja:"いいちこ", d:"오이타현의 보리 소주. 향이 순해서 물이나 탄산수에 타 마시기 좋아요.", w:"슈퍼, 주류점, 공항", p:"720ml 약 1,000엔", t:"맛: 보리의 고소한 향이 가볍고 순해서 부담이 없어요."},
+  {k:"sake", n:"시게마스", ja:"繁桝", d:"후쿠오카현 야메의 오래된 양조장 사케. 후쿠오카 지역 사케를 찾는다면 좋은 선택이에요.", w:"하카타역·백화점 기념품 매장", p:"720ml 약 1,500~3,000엔", t:"맛: 쌀의 감칠맛이 살아 있는 부드럽고 균형 잡힌 맛이에요."}],
  hokkaido:[
-  {k:"beer", n:"삿포로 클래식", ja:"サッポロクラシック", d:"홋카이도에서만 파는 삿포로 맥주. 여행 중에 꼭 마셔 볼 만해요.", w:"홋카이도 슈퍼·편의점, 신치토세 공항"},
-  {k:"whisky", n:"싱글 몰트 요이치", ja:"シングルモルト余市", d:"닛카 요이치 증류소의 몰트위스키. 증류소에서만 파는 위스키도 있어요.", w:"요이치 증류소 매장, 백화점"},
-  {k:"sake", n:"오토코야마·구니마레", ja:"男山・国稀", d:"아사히카와의 오토코야마, 마시케의 구니마레 등 추운 북쪽에서 빚는 깔끔한 사케예요.", w:"양조장 매장, 삿포로 백화점"},
-  {k:"wine", n:"오타루 와인", ja:"おたるワイン", d:"홋카이도산 포도로 만든 오타루의 와인. 오타루 관광 기념품으로 많이 사요.", w:"오타루 운하 근처 기념품 매장, 홋카이도 슈퍼"}],
+  {k:"beer", n:"삿포로 클래식", ja:"サッポロクラシック", d:"홋카이도에서만 파는 삿포로 맥주. 여행 중에 꼭 마셔 볼 만해요.", w:"홋카이도 슈퍼·편의점, 신치토세 공항", p:"350ml 캔 약 250엔", t:"맛: 보리 맛이 진하면서도 깔끔하고 시원해요."},
+  {k:"whisky", n:"싱글 몰트 요이치", ja:"シングルモルト余市", d:"닛카 요이치 증류소의 몰트위스키. 증류소에서만 파는 위스키도 있어요.", w:"요이치 증류소 매장, 백화점", p:"700ml 약 7,700엔 (정가)", t:"맛: 석탄 직화 증류에서 오는 스모키한 향과 묵직한 맛이에요."},
+  {k:"sake", n:"오토코야마·구니마레", ja:"男山・国稀", d:"아사히카와의 오토코야마, 마시케의 구니마레 등 추운 북쪽에서 빚는 깔끔한 사케예요.", w:"양조장 매장, 삿포로 백화점", p:"720ml 약 1,500~3,000엔", t:"맛: 쌉쌀하고 깔끔한 가라쿠치(드라이)가 많아요."},
+  {k:"wine", n:"오타루 와인", ja:"おたるワイン", d:"홋카이도산 포도로 만든 오타루의 와인. 오타루 관광 기념품으로 많이 사요.", w:"오타루 운하 근처 기념품 매장, 홋카이도 슈퍼", p:"720ml 약 1,500~2,500엔", t:"맛: 산뜻한 산미의 가벼운 화이트 와인이 많아요."}],
  okinawa:[
-  {k:"awamori", n:"구스(오래 숙성한 아와모리)", ja:"古酒（クース）", d:"3년 넘게 숙성한 아와모리. 양조장 매장에서 시음해 보고 고를 수 있어요.", w:"양조장 매장, 국제거리 주류점"},
-  {k:"awamori", n:"잔파", ja:"残波", d:"요미탄의 아와모리. 향이 부드러워 처음 마시는 사람에게도 무난해요.", w:"슈퍼, 공항"},
-  {k:"beer", n:"오리온 드래프트", ja:"オリオン ドラフト", d:"오키나와를 대표하는 맥주. 가볍고 시원한 맛이라 더운 날씨에 잘 어울려요.", w:"슈퍼·편의점, 나하 공항"}],
+  {k:"awamori", n:"구스(오래 숙성한 아와모리)", ja:"古酒（クース）", d:"3년 넘게 숙성한 아와모리. 양조장 매장에서 시음해 보고 고를 수 있어요.", w:"양조장 매장, 국제거리 주류점", p:"720ml 약 2,000~5,000엔 (오래 숙성할수록 비싸요)", t:"맛: 바닐라 같은 단 향이 나고 숙성될수록 부드러워요."},
+  {k:"awamori", n:"잔파", ja:"残波", d:"요미탄의 아와모리. 향이 부드러워 처음 마시는 사람에게도 무난해요.", w:"슈퍼, 공항", p:"720ml 약 1,500엔", t:"맛: 과일 같은 향이 나고 아와모리치고 순해요."},
+  {k:"beer", n:"오리온 드래프트", ja:"オリオン ドラフト", d:"오키나와를 대표하는 맥주. 가볍고 시원한 맛이라 더운 날씨에 잘 어울려요.", w:"슈퍼·편의점, 나하 공항", p:"350ml 캔 약 250엔", t:"맛: 가볍고 상쾌해서 더운 날 벌컥 마시기 좋아요."}],
  nagoya:[
-  {k:"sake", n:"히다 다카야마 사케", ja:"飛騨高山の酒", d:"하라다 주조의 '산샤', 히라세 주조의 '구스다마', 후나사카 주조의 '미야마기쿠' 등 옛 거리 양조장의 사케예요.", w:"다카야마 옛 거리 양조장 매장"},
-  {k:"sake", n:"구니자카리", ja:"國盛", d:"아이치현 한다의 나카노 주조 사케. 나고야 근처에서 쉽게 살 수 있어요.", w:"나고야 백화점, 기념품 매장"},
-  {k:"beer", n:"긴샤치 맥주", ja:"金しゃちビール", d:"아이치현의 지역 맥주. 이름은 나고야성 지붕의 황금 샤치호코 장식에서 왔어요.", w:"나고야역 기념품 매장"}],
+  {k:"sake", n:"히다 다카야마 사케", ja:"飛騨高山の酒", d:"하라다 주조의 '산샤', 히라세 주조의 '구스다마', 후나사카 주조의 '미야마기쿠' 등 옛 거리 양조장의 사케예요.", w:"다카야마 옛 거리 양조장 매장", p:"720ml 약 1,500~3,000엔", t:"맛: 쌀 맛이 풍부하고 단단한 맛이 많아요."},
+  {k:"sake", n:"구니자카리", ja:"國盛", d:"아이치현 한다의 나카노 주조 사케. 나고야 근처에서 쉽게 살 수 있어요.", w:"나고야 백화점, 기념품 매장", p:"720ml 약 1,000~2,000엔", t:"맛: 순하고 부드러워 식사와 함께 마시기 편해요."},
+  {k:"beer", n:"긴샤치 맥주", ja:"金しゃちビール", d:"아이치현의 지역 맥주. 이름은 나고야성 지붕의 황금 샤치호코 장식에서 왔어요.", w:"나고야역 기념품 매장", p:"330ml 병 약 400~600엔", t:"맛: 종류가 여러 가지이고, 진하고 향이 풍부한 수제 맥주예요."}],
  hiroshima:[
-  {k:"sake", n:"사이조 사케", ja:"西条の酒", d:"가모쓰루·하쿠보탄·가모이즈미·기레이 등 '사케의 도시' 사이조 양조장의 사케예요.", w:"사이조 양조장 매장, 히로시마역 기념품 매장"},
-  {k:"liqueur", n:"세토우치 레몬 술", ja:"瀬戸内レモンのお酒", d:"히로시마는 일본 최대 레몬 산지예요. 레몬 리큐어나 레몬 사와가 기념품으로 많아요.", w:"히로시마역 기념품 매장, 공항"}],
+  {k:"sake", n:"사이조 사케", ja:"西条の酒", d:"가모쓰루·하쿠보탄·가모이즈미·기레이 등 '사케의 도시' 사이조 양조장의 사케예요.", w:"사이조 양조장 매장, 히로시마역 기념품 매장", p:"720ml 약 1,500~3,000엔", t:"맛: 연수로 빚어 부드럽고 은은한 단맛이 있어요."},
+  {k:"liqueur", n:"세토우치 레몬 술", ja:"瀬戸内レモンのお酒", d:"히로시마는 일본 최대 레몬 산지예요. 레몬 리큐어나 레몬 사와가 기념품으로 많아요.", w:"히로시마역 기념품 매장, 공항", p:"캔 약 200~300엔, 병 약 1,000~2,000엔", t:"맛: 레몬 껍질 향이 상큼하고 새콤해요."}],
  shikoku:[
-  {k:"sake", n:"고치 사케", ja:"土佐の酒", d:"쓰카사보탄·스이게이·도사쓰루 등 깔끔하고 쌉쌀한 맛의 고치 사케예요.", w:"고치 백화점·역 기념품 매장"},
-  {k:"beer", n:"도고 맥주", ja:"道後ビール", d:"마쓰야마 도고온천의 지역 맥주. '봇짱'·'마돈나' 등 소설에서 딴 이름이 붙어 있어요.", w:"도고온천 상점가, 마쓰야마 공항"},
-  {k:"sake", n:"긴료", ja:"金陵", d:"가가와 고토히라의 양조장 사케. 곤피라 참배 기념품으로 좋아요.", w:"긴료노사토, 고토히라 상점가"},
-  {k:"liqueur", n:"유자 술", ja:"ゆず酒", d:"일본 최대 유자 산지 고치의 유자로 만든 리큐어. 상큼해서 술이 약한 사람도 마시기 쉬워요.", w:"고치 기념품 매장"}],
+  {k:"sake", n:"고치 사케", ja:"土佐の酒", d:"쓰카사보탄·스이게이·도사쓰루 등 깔끔하고 쌉쌀한 맛의 고치 사케예요.", w:"고치 백화점·역 기념품 매장", p:"720ml 약 1,500~3,000엔", t:"맛: 단맛이 적고 쌉쌀해서 생선 요리와 잘 어울려요."},
+  {k:"beer", n:"도고 맥주", ja:"道後ビール", d:"마쓰야마 도고온천의 지역 맥주. '봇짱'·'마돈나' 등 소설에서 딴 이름이 붙어 있어요.", w:"도고온천 상점가, 마쓰야마 공항", p:"330ml 병 약 500~600엔", t:"맛: 종류마다 달라요. 쾰시·에일 등 향이 좋은 수제 맥주예요."},
+  {k:"sake", n:"긴료", ja:"金陵", d:"가가와 고토히라의 양조장 사케. 곤피라 참배 기념품으로 좋아요.", w:"긴료노사토, 고토히라 상점가", p:"720ml 약 1,500~3,000엔", t:"맛: 쌀의 단맛이 은은하고 부드러워요."},
+  {k:"liqueur", n:"유자 술", ja:"ゆず酒", d:"일본 최대 유자 산지 고치의 유자로 만든 리큐어. 상큼해서 술이 약한 사람도 마시기 쉬워요.", w:"고치 기념품 매장", p:"720ml 약 1,500~2,500엔", t:"맛: 유자 향이 상큼하고 달콤해서 디저트처럼 마셔요."}],
 };
-const DRINK_SHOP = ["백화점 지하 식품관 주류 코너에는 지역 술이 모여 있고, 시음해 보고 고를 수 있는 곳도 많아요.",
+/*DRPHOTO*/const DRINK_PHOTO = {"사와노이":{"src":"https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Ozawa_shuzo_211009.jpg/960px-Ozawa_shuzo_211009.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","file":"Ozawa shuzo 211009.jpg","artist":"江戸村のとくぞう","license":"CC BY-SA 4.0"},"기린 싱글 그레인 위스키 후지":{"src":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Fuji_Gotemba_distillery05.jpg/960px-Fuji_Gotemba_distillery05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","file":"Fuji Gotemba distillery05.jpg","artist":"Keeezawa","license":"CC0"},"닷사이":{"src":"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/%E7%8D%BA%E7%A5%AD_%E9%8C%A6%E5%B8%AF%E6%A9%8B.jpg/960px-%E7%8D%BA%E7%A5%AD_%E9%8C%A6%E5%B8%AF%E6%A9%8B.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","file":"獺祭 錦帯橋.jpg","artist":"Breizhiz75","license":"CC BY-SA 4.0"},"나다·후시미 사케":{"src":"https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Gekkeikanbottle.JPG/960px-Gekkeikanbottle.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","file":"Gekkeikanbottle.JPG","artist":"Fotonovela","license":"CC BY-SA 3.0"},"야마자키":{"src":"https://upload.wikimedia.org/wikipedia/commons/e/e4/The_Yamazaki_Single_Malt_Whisky_Aged_12_years.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled","file":"The Yamazaki Single Malt Whisky Aged 12 years.JPG","artist":"Look Sharp!","license":"CC BY-SA 3.0"},"구로키리시마":{"src":"https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/%E9%BB%92%E9%9C%A7%E5%B3%B6_20%E5%BA%A6900ML%E7%93%B6%E8%A1%A8%E9%9D%A2.jpg/960px-%E9%BB%92%E9%9C%A7%E5%B3%B6_20%E5%BA%A6900ML%E7%93%B6%E8%A1%A8%E9%9D%A2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","file":"黒霧島 20度900ML瓶表面.jpg","artist":"A-sonoda","license":"CC BY-SA 4.0"},"이이치코":{"src":"https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Iichiko_%E3%81%84%E3%81%84%E3%81%A1%E3%81%93_%2830726907326%29.jpg/960px-Iichiko_%E3%81%84%E3%81%84%E3%81%A1%E3%81%93_%2830726907326%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","file":"Iichiko いいちこ (30726907326).jpg","artist":"ayustety","license":"CC BY-SA 2.0"},"삿포로 클래식":{"src":"https://upload.wikimedia.org/wikipedia/commons/d/d5/%E3%82%B5%E3%83%83%E3%83%9D%E3%83%AD%E3%82%AF%E3%83%A9%E3%82%B7%E3%83%83%E3%82%AF.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled","file":"サッポロクラシック.JPG","artist":"Mininomo","license":"CC BY-SA 3.0"},"싱글 몰트 요이치":{"src":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/JapaneseNikkaWhiskyYoichiWoodyVanillic.jpg/960px-JapaneseNikkaWhiskyYoichiWoodyVanillic.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","file":"JapaneseNikkaWhiskyYoichiWoodyVanillic.jpg","artist":"サフィル","license":"CC BY-SA 4.0"},"오토코야마·구니마레":{"src":"https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Otokoyama%2C_Asahikawa.jpg/960px-Otokoyama%2C_Asahikawa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","file":"Otokoyama, Asahikawa.jpg","artist":"K. Takeda","license":"CC BY-SA 3.0"},"오타루 와인":{"src":"https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Hokkaido_wine.JPG/960px-Hokkaido_wine.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","file":"Hokkaido wine.JPG","artist":"星組背番号10","license":"CC BY-SA 3.0"},"구스(오래 숙성한 아와모리)":{"src":"https://upload.wikimedia.org/wikipedia/commons/6/66/Various_Awamori_bottles_by_jetalone_in_Ginza%2C_Tokyo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled","file":"Various Awamori bottles by jetalone in Ginza, Tokyo.jpg","artist":"jetalone from Ginza, Tokyo","license":"CC BY 2.0"},"오리온 드래프트":{"src":"https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Orion_beer_350ml_can_01.jpg/960px-Orion_beer_350ml_can_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","file":"Orion beer 350ml can 01.jpg","artist":"妖精書士","license":"CC0"},"히다 다카야마 사케":{"src":"https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Sake_shop_-Takayama.jpg/960px-Sake_shop_-Takayama.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","file":"Sake shop -Takayama.jpg","artist":"Kat Clay from Sydney, Australia","license":"CC BY 2.0"},"구니자카리":{"src":"https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Kunizakari_Sake_no_Bunkakan_Museum_ac.jpg/960px-Kunizakari_Sake_no_Bunkakan_Museum_ac.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","file":"Kunizakari Sake no Bunkakan Museum ac.jpg","artist":"Asturio Cantabrio","license":"CC BY-SA 4.0"},"사이조 사케":{"src":"https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/%E9%85%92%E8%94%B5%E9%80%9A%E3%82%8A_%E8%B3%80%E8%8C%82%E9%B6%B4_Sake_brewery_%22Kamotsuru%22_-_panoramio.jpg/960px-%E9%85%92%E8%94%B5%E9%80%9A%E3%82%8A_%E8%B3%80%E8%8C%82%E9%B6%B4_Sake_brewery_%22Kamotsuru%22_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","file":"酒蔵通り 賀茂鶴 Sake brewery \"Kamotsuru\" - panoramio.jpg","artist":"OS6","license":"CC BY-SA 3.0"},"세토우치 레몬 술":{"src":"https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/NGO_Kita_s20260303_192954_%E7%84%A1%E7%B3%96%E3%83%AC%E3%83%A2%E3%83%B3%E3%82%B5%E3%83%AF%E3%83%BC.jpg/960px-NGO_Kita_s20260303_192954_%E7%84%A1%E7%B3%96%E3%83%AC%E3%83%A2%E3%83%B3%E3%82%B5%E3%83%AF%E3%83%BC.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","file":"NGO Kita s20260303 192954 無糖レモンサワー.jpg","artist":"円周率３パーセント","license":"CC BY-SA 4.0"},"고치 사케":{"src":"https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/%E7%B4%94%E7%B1%B3%E5%90%9F%E9%86%B8_%E9%85%94%E9%AF%A8.jpg/960px-%E7%B4%94%E7%B1%B3%E5%90%9F%E9%86%B8_%E9%85%94%E9%AF%A8.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","file":"純米吟醸 酔鯨.jpg","artist":"Kozakura154","license":"CC BY 4.0"},"도고 맥주":{"src":"https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Dogo_Beer.jpg/960px-Dogo_Beer.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","file":"Dogo Beer.jpg","artist":"Kanatam...","license":"CC BY-SA 3.0"},"긴료":{"src":"https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Kotohira_Nishino-Kinryo_2021-08_ac.jpg/960px-Kotohira_Nishino-Kinryo_2021-08_ac.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","file":"Kotohira Nishino-Kinryo 2021-08 ac.jpg","artist":"Asturio Cantabrio","license":"CC BY-SA 4.0"},"유자 술":{"src":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Yuzufruit.jpg/960px-Yuzufruit.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","file":"Yuzufruit.jpg","artist":"Nagarazoku from TOKYO, Japan","license":"CC BY-SA 2.0"}};/*DRPHOTO_END*/
+const DRINK_STORES = [
+ ["백화점 지하 식품관 (데파치카)","지역 사케·와인·위스키가 모여 있고, 시음 코너가 있는 곳도 많아요. 선물 포장도 해 줘요."],
+ ["주류 전문점·할인점","야마야·카쿠야스·리커 마운틴 같은 체인은 종류가 많고 값이 싼 편이에요."],
+ ["슈퍼·편의점","맥주·추하이·작은 병 사케를 쉽게 살 수 있어요. 그 지역에서만 파는 맥주도 있어요."],
+ ["돈키호테·대형 가전 매장","위스키 코너가 큰 곳이 많고 늦게까지 열어요."],
+ ["공항 면세점","출국 심사를 마친 뒤 사면 기내에 들고 탈 수 있어요. 시내보다 종류가 적을 수 있어요."],
+ ["양조장·증류소 직매장","그곳에서만 파는 술이나 생술을 살 수 있고, 시음해 보고 고를 수 있어요."]];
+const DRINK_SHOP = ["가격대는 2026년 11월 일본 매장 기준 대략적인 값이에요. 매장과 시기에 따라 달라요.","백화점 지하 식품관 주류 코너에는 지역 술이 모여 있고, 시음해 보고 고를 수 있는 곳도 많아요.",
  "역·공항 기념품 가게에는 작은 병이나 맛보기 세트가 있어 선물하기 좋아요.",
  "생술(나마자케)은 냉장 보관이 필요하니 여행 마지막 날에 사세요.",
  "증류소 한정 위스키는 한 사람이 살 수 있는 수량이 정해진 경우가 많아요."];
@@ -130,9 +138,12 @@ const DRINK_CARRY = ["한국으로 가져올 때: 술은 2병, 합계 2L, 400달
 const drinkKo = () => ((window.I18N&&window.I18N.lang)||"ko")==="ko";
 const drinkCarry = () => drinkKo() ? DRINK_CARRY : [DRINK_HOME_OTHER, ...DRINK_CARRY.slice(1)];
 const drinkHomeQ = () => drinkKo() ? "일본 술은 한국에 몇 병까지 가져올 수 있나요?" : "일본 술은 몇 병까지 가져갈 수 있나요?";
-const drinkHref = c => ROUTED ? window.NT_BASE + LPRE + (c && c!=="all" ? `${c}/drink/` : "drink/") : "#drink";
-const drinkA = (c,inner,cls) => `<a${cls?` class="${cls}"`:""} href="${drinkHref(c)}" data-drc="${c||"all"}">${inner}</a>`;
-function drinkChips(cur){ return `<div class="wxmon">${DRINK_CITIES.map(k=>drinkA(k,esc(CITIES[k].ko),k===cur?"on":"")).join("")}</div>`; }
+const DRINK_TABS = ["","buy","tips","shops"];
+const DRINK_TAB_LABEL = {"":"견학·시음할 수 있는 곳", buy:"사 가면 좋은 술", tips:"술 살 때 팁", shops:"술을 사는 매장"};
+const drinkHref = (c,t) => ROUTED ? window.NT_BASE + LPRE + (c && c!=="all" ? `${c}/drink/${t?t+"/":""}` : "drink/") : "#drink";
+const drinkA = (c,inner,cls,t) => `<a${cls?` class="${cls}"`:""} href="${drinkHref(c,t)}" data-drc="${c||"all"}" data-drt="${t||""}">${inner}</a>`;
+function drinkChips(cur,t){ return `<div class="wxmon">${DRINK_CITIES.map(k=>drinkA(k,esc(CITIES[k].ko),k===cur?"on":"",t)).join("")}</div>`; }
+function drinkTabs(c,t){ return `<nav class="dtabs" aria-label="술 여행">${DRINK_TABS.map(k=>drinkA(c,esc(DRINK_TAB_LABEL[k]),k===t?"on":"",k).replace("<a ",k===t?'<a aria-current="page" ':"<a ")).join("")}</nav>`; }
 const drinkList = (h,items) => `<div class="gblk"><h4>${h}</h4><ul class="gul">${items.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`;
 function drinkCard(v){
   const row=(a,b)=>b?`<dt>${a}</dt><dd>${esc(b)}</dd>`:"";
@@ -142,9 +153,11 @@ function drinkCard(v){
    <a class="more" href="${v.u}" target="_blank" rel="noopener">${v.o===0?"안내 페이지 ↗":"공식 사이트 ↗"}</a></article>`;
 }
 function drinkBuyCard(v){
-  return `<article class="dcard dbuy"><div class="dtop"><span class="dkind dk-${v.k}">${DRINK_KIND[v.k]}</span></div>
-   <h3>${esc(v.n)}</h3><p class="hja notranslate" lang="ja">${esc(v.ja)}</p><p class="dd">${esc(v.d)}</p>
-   <dl><dt>살 수 있는 곳</dt><dd>${esc(v.w)}</dd></dl></article>`;
+  const ph = DRINK_PHOTO[v.n];
+  const fig = ph ? `<figure class="dph"><img src="${esc(ph.src)}" alt="${esc((window.__tr||(x=>x))(v.n))}" loading="lazy" decoding="async"><figcaption><a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(ph.file.replace(/ /g,"_"))}" target="_blank" rel="noopener">사진</a> <span class="notranslate">${esc(ph.artist)} · ${esc(ph.license)}</span></figcaption></figure>` : "";
+  return `<article class="dcard dbuy">${fig}<div class="dtop"><span class="dkind dk-${v.k}">${DRINK_KIND[v.k]}</span></div>
+   <h3>${esc(v.n)}</h3><p class="hja notranslate" lang="ja">${esc(v.ja)}</p><p class="dd">${esc(v.d)}</p>${v.t?`<p class="dtaste">${esc(v.t)}</p>`:""}
+   <dl>${v.p?`<dt>가격대</dt><dd>${esc(v.p)}</dd>`:""}<dt>살 수 있는 곳</dt><dd>${esc(v.w)}</dd></dl></article>`;
 }
 V.drink = function(){
   const c = DRINK_CITIES.includes(st.city) ? st.city : "";
@@ -173,24 +186,35 @@ V.drink = function(){
      ${note}
     </div>`;
   }
-  const vs = DRINKS.filter(v=>v.city===c), n = esc(CITIES[c].ko), free = vs.filter(v=>v.rv&&v.rv.startsWith("필요 없음"));
+  const vs = DRINKS.filter(v=>v.city===c), n = esc(CITIES[c].ko), free = vs.filter(v=>v.rv&&v.rv.startsWith("필요 없음")), t = DRINK_TABS.includes(st.dtab)?st.dtab:"", buy = DRINK_BUY[c]||[];
+  let body = "", faq = [];
+  if(t===""){
+    body = `<div class="dgrid">${vs.map(drinkCard).join("")}</div>${drinkList("양조장·증류소 견학 팁", DRINK_VISIT)}`;
+    if(free.length) faq.push(qa(`${n}에서 예약 없이 들를 수 있는 곳은 어디인가요?`, free.map(v=>`<span><b>${esc(v.n)}</b> (<span>${esc(v.area)}</span>)</span>`).join(" / ")));
+    faq.push(qa("견학할 때 시음을 못 하는 경우가 있나요?", `<span>${esc(DRINK_VISIT[0])}</span> <span>${esc(DRINK_VISIT[1])}</span>`));
+  } else if(t==="buy"){
+    body = `<div class="dgrid">${buy.map(drinkBuyCard).join("")}</div><p class="sisrc">${esc(DRINK_SHOP[0])}</p>`;
+    if(buy.length) faq.push(qa(`${n}에서 사 갈 만한 술은 무엇인가요?`, buy.map(v=>`<span><b>${esc(v.n)}</b> (<span>${DRINK_KIND[v.k]}</span>)</span>`).join(" / ")));
+  } else if(t==="tips"){
+    body = `${drinkList("술 살 때 팁", DRINK_SHOP.slice(1))}${drinkList("사케 라벨 읽는 법", DRINK_LABEL)}${drinkList("술을 가지고 올 때", drinkCarry())}`;
+    faq.push(qa(drinkHomeQ(), `<span>${esc(drinkCarry()[0])}</span>`));
+    faq.push(qa("비행기에 술을 실을 수 있나요?", `<span>${esc(DRINK_CARRY[1])}</span> <span>${esc(DRINK_CARRY[2])}</span>`));
+  } else {
+    const shops = vs.filter(v=>["sake","whisky","awamori"].includes(v.k)&&v.n!=="일본 술 정보관");
+    body = `<div class="dtypes">${DRINK_STORES.map(([a,b])=>`<div class="gblk"><h4>${esc(a)}</h4><p>${esc(b)}</p></div>`).join("")}</div>
+     ${buy.length?`<div class="gblk"><h4>추천 술을 살 수 있는 곳</h4><dl class="dwhere">${buy.map(v=>`<dt>${esc(v.n)}</dt><dd>${esc(v.w)}</dd>`).join("")}</dl></div>`:""}
+     ${shops.length?`<div class="gblk"><h4>직매장에서 살 수 있는 양조장·증류소</h4><ul class="gul">${shops.map(v=>`<li><b>${esc(v.n)}</b> (<span>${esc(v.area)}</span>)</li>`).join("")}</ul></div>`:""}`;
+  }
   return `<div class="wx">
-   <nav class="wxcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">${bc(1,drinkA("all","일본 술 여행 – 지역별 사케·맥주·위스키"))}</nav>
+   <nav class="wxcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">${bc(1,drinkA("all","일본 술 여행 – 지역별 사케·맥주·위스키"))}${t?` › ${bc(2,drinkA(c,`${n} 술 여행`))}`:""}</nav>
    <div class="ghead"><h2>${n} 술 여행</h2><p>${esc(DRINK_INTRO[c])}</p></div>
-   ${drinkChips(c)}
-   <h3 class="sgh"><span>견학·시음할 수 있는 곳</span></h3>
-   <div class="dgrid">${vs.map(drinkCard).join("")}</div>
-   <h3 class="sgh"><span>사 가면 좋은 술</span></h3>
-   <div class="dgrid">${(DRINK_BUY[c]||[]).map(drinkBuyCard).join("")}</div>
-   ${drinkList("술 살 때 팁", DRINK_SHOP)}
+   ${drinkChips(c,t)}
+   ${drinkTabs(c,t)}
+   <h3 class="sgh"><span>${esc(DRINK_TAB_LABEL[t])}</span></h3>
+   ${body}
    ${note}
-   <section class="gblk faq" itemscope itemtype="https://schema.org/FAQPage"><h4>자주 묻는 질문</h4><dl>
-    ${free.length?qa(`${n}에서 예약 없이 들를 수 있는 곳은 어디인가요?`, free.map(v=>`<span><b>${esc(v.n)}</b> (<span>${esc(v.area)}</span>)</span>`).join(" / ")):""}
-    ${(DRINK_BUY[c]||[]).length?qa(`${n}에서 사 갈 만한 술은 무엇인가요?`, DRINK_BUY[c].map(v=>`<span><b>${esc(v.n)}</b> (<span>${DRINK_KIND[v.k]}</span>)</span>`).join(" / ")):""}
-    ${qa("견학할 때 시음을 못 하는 경우가 있나요?", `<span>${esc(DRINK_VISIT[0])}</span> <span>${esc(DRINK_VISIT[1])}</span>`)}
-    ${qa(drinkHomeQ(), `<span>${esc(drinkCarry()[0])}</span>`)}
-   </dl></section>
-   <div class="wxlinks">${drinkA("all",`일본 술 종류와 라벨 읽는 법<i> →</i>`,"btn ghost")}${typeof stayA==="function"?stayA(c,`${n} 숙소 추천<i> →</i>`,"btn ghost"):""}</div>
+   ${faq.length?`<section class="gblk faq" itemscope itemtype="https://schema.org/FAQPage"><h4>자주 묻는 질문</h4><dl>${faq.join("")}</dl></section>`:""}
+   <div class="wxlinks">${DRINK_TABS.filter(k=>k!==t).map(k=>drinkA(c,`${esc(DRINK_TAB_LABEL[k])}<i> →</i>`,"btn ghost",k)).join("")}${typeof stayA==="function"?stayA(c,`${n} 숙소 추천<i> →</i>`,"btn ghost"):""}</div>
   </div>`;
 };
 /*DRINK_END*/

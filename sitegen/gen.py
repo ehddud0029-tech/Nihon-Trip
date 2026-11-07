@@ -321,7 +321,7 @@ def main():
             pg.wait_for_timeout(300)
             routes = pg.evaluate('''()=>{ const r=["","saved/","map/"]; for(const g of GKEYS) r.push(`guide/${g}/`); r.push("about/","contact/","privacy/"); r.push("itinerary/"); for(const k of IKEYS) r.push(`itinerary/${k}/`); for(const v of ["spots","food","transport","shopping"]) r.push(v+"/");
               for(let m=1;m<=12;m++) r.push(`festivals/${m}/`);
-              r.push("stay/"); for(const c of STAY_CITIES) r.push(`${c}/stay/`); r.push("drink/"); for(const c of DRINK_CITIES) r.push(`${c}/drink/`); r.push("airport/"); for(const a of Object.keys(APS)){ r.push(`airport/${a}/`); for(const k of apDests(a)) r.push(`airport/${a}/${k}/`); } r.push("weather/"); for(let m=1;m<=12;m++) r.push(`weather/${m}/`); for(const c of WX_ORDER){ r.push(`${c}/weather/`); for(let m=1;m<=12;m++) r.push(`${c}/weather/${m}/`); }
+              r.push("stay/"); for(const c of STAY_CITIES) r.push(`${c}/stay/`); r.push("drink/"); for(const c of DRINK_CITIES) for(const t of DRINK_TABS) r.push(`${c}/drink/${t?t+"/":""}`); r.push("airport/"); for(const a of Object.keys(APS)){ r.push(`airport/${a}/`); for(const k of apDests(a)) r.push(`airport/${a}/${k}/`); } r.push("weather/"); for(let m=1;m<=12;m++) r.push(`weather/${m}/`); for(const c of WX_ORDER){ r.push(`${c}/weather/`); for(let m=1;m<=12;m++) r.push(`${c}/weather/${m}/`); }
               for(const c of Object.keys(CITIES)) for(const a of areasOf(c)) for(const v of ["spots","festivals","food","transport","shopping"]) r.push(`${c}/${a.key}/${v}/`);
               for(const x of ALL) if(PLACE_TYPES.includes(x.type)) r.push(`place/${placeSlug(x.id)}/`);
               return r; }''')
