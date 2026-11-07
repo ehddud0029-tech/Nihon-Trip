@@ -70,6 +70,15 @@
 - 여행 준비 > 통신 > eSIM 구매 링크(마이리얼트립 제휴, https://myrealt.rip/10FBq6a): `i18n_work/patch_esim.py`(guide_data.js·html·pre·guide_view.js). 비교(compare) 블록의 구매 링크는 한국어·영어에서만 보이고 아래 제휴 수수료 안내가 붙어요. region_inject 뒤에는 patch_esim.py도 다시 돌려 주세요.
 - patch_drink.py는 R2(이미 붙은 줄을 탭용으로 고치는 규칙)가 있어서, R의 같은 규칙이 다시 끼어들지 않게 막아 두었어요(중복 선언으로 페이지 생성이 멈춘 적 있음). 패치 후 `node --check`로 app.js 문법을 확인하면 안전해요.
 
+- 페이지 안 탭(하위 페이지, 2026-11): `i18n_work/patch_tabs.py`(공통: st.sub, subTabs(), subOk()/subFromSeg()로 주소 끝 탭 처리, data-subtab 클릭, 메뉴·다른 화면 링크는 첫 탭, 탭별 검색 제목 subMeta). 화면은 각 view 파일이 st.sub로 그려요.
+  - 숙소: `stay/`(묵기 좋은 동네) · `stay/hotels/`(추천 숙소, 한국어·영어만) · `stay/booking/`(예약 방법), 도시도 같은 3탭(`<도시>/stay/hotels/`…).
+  - 술 전체: `drink/`(지역별 견학·시음) · `drink/types/` · `drink/visit/` · `drink/carry/`. (도시 술 페이지는 따로 st.dtab의 buy/tips/shops)
+  - 날씨 도시: `<도시>/weather/`(월별 기온·강수) · `/outfit/`(월별 옷차림) · `/faq/`(가장 더운·추운·비 많은 달, 여행하기 좋은 달). 월 페이지는 그대로.
+  - 공항: `airport/<공항>/`(시내 가는 법) · `/all/`(모든 방법 비교) · `/faq/`(목적지별 걸리는 시간·교통카드).
+  - gen.py 경로·verify2도 탭까지 돌아요. 번역 tr_48·zh_49·th_49, 문장 틀 tpl.tsv 맨 앞 4줄. region_inject 뒤에는 patch_tabs.py도(맨 마지막에) 다시 돌려 주세요. patch_navfix의 MENU_RESET에 sub:"" 포함.
+
+- 교통 화면 지역 묶기(2026-11): 이동 방법이 거의 같은 하위 지역은 교통 화면에서만 하나로 보여요. 묶음은 `site/tgroups.json`(도쿄 시내·오사카 시내·교토·후쿠오카 시내·삿포로·나하, 첫 지역이 대표 주소), 스크립트 `i18n_work/patch_tgroup.py`(지역 버튼 묶기, 공항 직행편·시내 이동 합치기(종류별 2줄, 최대 6줄), 묶음 안 다른 지역은 대표로). gen.py는 묶인 지역의 `<도시>/<지역>/transport/`를 만들지 않고 MOVED로 대표 주소에 보내요. 번역 tr_49·zh_50·th_50. region_inject 뒤에는 patch_tgroup.py도 다시 돌려 주세요.
+
 ## 수정 전·후 비교 (사용자 요청: 사이트를 고치면 항상 보여주기)
 - 날씨 값은 비교용 예시로 채워요(실제 예보 아님). 화면이 바뀌는 수정을 하면 배포 전에 `python3 sitegen/compare.py <이름> <언어:주소> ... [--mobile] [--ref main]`로 비교 이미지를 만들어 사용자에게 보내요 (왼쪽 수정 전 = 배포된 main, 오른쪽 수정 후 = 작업 공간 원본). 결과는 `sitegen/compare_out/<이름>_<번호>.png`.
 - 바뀐 페이지의 대표 주소 1~3개를 고르고, 모바일 화면이 바뀌면 `--mobile`도 같이 만들어요.

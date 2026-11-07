@@ -26,8 +26,9 @@ function stayAreas(c){
   const sec = (GUIDE.secs||[]).find(x=>x.key==="stay"); const b = sec && sec.blocks[STAY_GUIDE_IDX[c]];
   return b ? {h:b.h, sub:b.sub, opts:b.opts} : {h:"", sub:"", opts:[]};
 }
-const stayHref = c => ROUTED ? window.NT_BASE + LPRE + (c && c!=="all" ? `${c}/stay/` : "stay/") : "#stay";
-const stayA = (c,inner,cls) => `<a${cls?` class="${cls}"`:""} href="${stayHref(c)}" data-stayc="${c||"all"}">${inner}</a>`;
+const stayHref = (c,t) => ROUTED ? window.NT_BASE + LPRE + (c && c!=="all" ? `${c}/stay/` : "stay/") + (t?t+"/":"") : "#stay";
+const stayA = (c,inner,cls,t) => `<a${cls?` class="${cls}"`:""} href="${stayHref(c,t)}" data-stayc="${c||"all"}" data-sub="${t||""}">${inner}</a>`;
+const stayTabList = () => [["", "묵기 좋은 동네"], ...(stayShowHotels()?[["hotels","추천 숙소"]]:[]), ["booking","예약 방법"]];
 function hotelCard(h){
   return `<article class="hcard"><div class="htop"><span class="harea">${esc(h.area)}</span></div>
    <h3>${esc(h.ko)}</h3><p class="hja notranslate" lang="ja">${esc(h.ja)}</p>
@@ -35,7 +36,7 @@ function hotelCard(h){
    <a class="btn hbtn" href="${h.url}" target="_blank" rel="sponsored noopener">마이리얼트립에서 예약하기 ↗</a></article>`;
 }
 const STAY_AD = `<p class="sisrc">이 링크로 예약하면 Go Nihon Trip이 제휴 수수료를 받을 수 있어요. 숙박 요금은 같아요.</p>`;
-function stayChips(cur){ return `<div class="wxmon">${STAY_CITIES.map(k=>stayA(k,esc(CITIES[k].ko),k===cur?"on":"")).join("")}</div>`; }
+function stayChips(cur,t){ return `<div class="wxmon">${STAY_CITIES.map(k=>stayA(k,esc(CITIES[k].ko),k===cur?"on":"",t)).join("")}</div>`; }
 const STAY_SITES = ["아고다: 아시아 숙소가 많고 한국어로 예약할 수 있어요.","부킹닷컴: 무료 취소 요금이 많아 일정이 바뀔 수 있을 때 좋아요.",
  "라쿠텐 트래블·자란: 일본 예약 사이트라 료칸·온천 숙소가 많고 할인 쿠폰이 자주 나와요.","에어비앤비: 가족·친구끼리 집을 통째로 빌리기 좋아요. 청소비·수수료가 따로 붙으니 총액으로 비교하고, 숙소 설명에 일본 민박 신고 번호가 있는지 확인하세요.",
  "호텔 공식 사이트: 회원 요금이나 조식 같은 특전이 있는지 비교해 보세요."];
@@ -54,40 +55,46 @@ const stayList = (h,items) => `<div class="gblk"><h4>${h}</h4><ul class="gul">${
 V.stay = function(){
   const c = STAY_CITIES.includes(st.city) ? st.city : "";
   const show = stayShowHotels();
+  const tabs = stayTabList(), t = tabs.some(x=>x[0]===st.sub) ? st.sub : "";
   const bc=(i,h)=>`<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${h.replace("<a ",'<a itemprop="item" ').replace(/>([^<]*)<\/a>$/,'><span itemprop="name">$1</span></a>')}<meta itemprop="position" content="${i}"></span>`;
+  const note = `<p class="sisrc">숙소 정보와 요금은 바뀔 수 있어요. 예약 전에 숙소 페이지에서 다시 확인하세요.</p>`;
+  const booking = `<section id="booking">${stayList("예약 사이트 고르기", STAY_SITES)}</section>${stayList("예약할 때 꼭 확인할 것", STAY_CHECK)}${stayList("숙소 종류", STAY_TYPES)}`;
   if(!c){
     const sec = (GUIDE.secs||[]).find(x=>x.key==="stay");
-    return `<div class="wx">
-     <div class="ghead"><h2>일본 숙소 추천과 예약 방법</h2><p>${esc(sec?sec.lead:"")}</p></div>
-     <nav class="wxmon stjump">${STAY_CITIES.map(k=>`<a href="#st-${k}" data-stjump="${k}">${esc(CITIES[k].ko)}</a>`).join("")}</nav>
+    let body;
+    if(t==="hotels") body = `${STAY_CITIES.map(k=>{ const hs=HOTELS.filter(h=>h.city===k); return hs.length?`<section class="stsec"><h3 class="sgh"><span>${esc(CITIES[k].ko)}</span></h3>
+        <div class="hminis">${hs.map(hotelMini).join("")}</div><p class="stmore">${stayA(k,`${esc(CITIES[k].ko)} 추천 숙소 자세히 보기<i> →</i>`,"more","hotels")}</p></section>`:""; }).join("")}${STAY_AD}`;
+    else if(t==="booking") body = booking;
+    else body = `<nav class="wxmon stjump">${STAY_CITIES.map(k=>`<a href="#st-${k}" data-stjump="${k}">${esc(CITIES[k].ko)}</a>`).join("")}</nav>
      ${sec?stayList(esc(sec.blocks[0].h), sec.blocks[0].items):""}
-     ${STAY_CITIES.map(k=>{ const a=stayAreas(k), hs=HOTELS.filter(h=>h.city===k);
+     ${STAY_CITIES.map(k=>{ const a=stayAreas(k);
        return `<section class="stsec" id="st-${k}"><h3 class="sgh"><span>${esc(a.h||CITIES[k].ko)}</span></h3>${a.sub?`<p class="stsub">${esc(a.sub)}</p>`:""}
         <div class="stgrid">${a.opts.map(stayAreaCardC).join("")}</div>
         <button type="button" class="stxbtn" data-sttog="${k}"><span class="o">장단점 펼쳐 보기</span><span class="c">장단점 접기</span></button>
-        ${show&&hs.length?`<div class="hminis"><h4>추천 숙소</h4>${hs.map(hotelMini).join("")}${STAY_AD}</div>`:""}
-        <p class="stmore">${stayA(k,`${esc(CITIES[k].ko)} 숙소 자세히 보기<i> →</i>`,"more")}</p></section>`; }).join("")}
-     <section id="booking">${stayList("예약 사이트 고르기", STAY_SITES)}</section>
-     ${stayList("예약할 때 꼭 확인할 것", STAY_CHECK)}
-     ${stayList("숙소 종류", STAY_TYPES)}
-     <p class="sisrc">숙소 정보와 요금은 바뀔 수 있어요. 예약 전에 숙소 페이지에서 다시 확인하세요.</p>
+        <p class="stmore">${stayA(k,`${esc(CITIES[k].ko)} 숙소 자세히 보기<i> →</i>`,"more")}</p></section>`; }).join("")}`;
+    return `<div class="wx">
+     <div class="ghead"><h2>일본 숙소 추천과 예약 방법</h2><p>${esc(sec?sec.lead:"")}</p></div>
+     ${subTabs(tabs,t)}
+     ${body}
+     ${note}
     </div>`;
   }
   const a = stayAreas(c), hs = HOTELS.filter(h=>h.city===c), n = esc(CITIES[c].ko);
   const qa=(q,x)=>`<div class="faqi" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">${q}</dt><dd itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">${x}</div></dd></div>`;
+  let body, faq = "";
+  if(t==="hotels") body = `${hs.length?`<div class="hgrid">${hs.map(hotelCard).join("")}</div>${STAY_AD}`:`<p class="stsub">추천 숙소를 준비하고 있어요.</p>`}`;
+  else if(t==="booking"){ body = booking; faq = qa(`숙소 예약할 때 무엇을 확인해야 하나요?`, STAY_CHECK.slice(0,3).map(x=>`<span>${esc(x)}</span>`).join(" ")); }
+  else { body = `<div class="stgrid">${a.opts.map(stayAreaCard).join("")}</div>`; faq = qa(`${n}에서는 어느 동네에 묵는 게 좋나요?`, a.opts.map(o=>`<span><b>${esc(o.name)}</b>: <span>${esc(o.for)}</span></span>`).join(" / ")); }
   return `<div class="wx">
    <nav class="wxcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">${bc(1,stayA("all","일본 숙소 추천과 예약 방법"))}</nav>
    <div class="ghead"><h2>${n} 숙소 추천</h2><p>${esc(a.sub)}</p></div>
-   ${stayChips(c)}
-   <h3 class="sgh"><span>묵기 좋은 동네</span></h3>
-   <div class="stgrid">${a.opts.map(stayAreaCard).join("")}</div>
-   ${show&&hs.length?`<h3 class="sgh"><span>추천 숙소</span></h3><div class="hgrid">${hs.map(hotelCard).join("")}</div>${STAY_AD}`:""}
-   <section class="gblk faq" itemscope itemtype="https://schema.org/FAQPage"><h4>자주 묻는 질문</h4><dl>
-    ${qa(`${n}에서는 어느 동네에 묵는 게 좋나요?`, a.opts.map(o=>`<span><b>${esc(o.name)}</b>: <span>${esc(o.for)}</span></span>`).join(" / "))}
-    ${qa(`숙소 예약할 때 무엇을 확인해야 하나요?`, STAY_CHECK.slice(0,3).map(x=>`<span>${esc(x)}</span>`).join(" "))}
-   </dl></section>
-   ${typeof apLinks==="function"?apLinks([c]):""}
-   <div class="wxlinks">${stayA("all",`예약 사이트 고르는 법<i> →</i>`,"btn ghost")}</div>
+   ${stayChips(c,t)}
+   ${subTabs(tabs,t)}
+   <h3 class="sgh"><span>${esc((tabs.find(x=>x[0]===t)||tabs[0])[1])}</span></h3>
+   ${body}
+   ${faq?`<section class="gblk faq" itemscope itemtype="https://schema.org/FAQPage"><h4>자주 묻는 질문</h4><dl>${faq}</dl></section>`:""}
+   ${t===""&&typeof apLinks==="function"?apLinks([c]):""}
+   <div class="wxlinks">${tabs.filter(x=>x[0]!==t).map(x=>stayA(c,`${esc(x[1])}<i> →</i>`,"btn ghost",x[0])).join("")}</div>
   </div>`;
 };
 /*STAY_END*/

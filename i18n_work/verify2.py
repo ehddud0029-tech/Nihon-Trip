@@ -38,7 +38,10 @@ for(const pass of [0,1]){
  for(const g of GKEYS){ st.view="guide"; st.gsec=g; await R(); }
  for(const x of ALL.filter(x=>PLACE_TYPES.includes(x.type))){ st.view="place"; st.place=x.id; await R(); }
  for(const v of ["about","contact","privacy"]){ st.view=v; await R(); }
- for(const c of ["all",...STAY_CITIES]){ st.view="stay"; st.city=c; await R(); }
+ for(const c of ["all",...STAY_CITIES]) for(const t of ["","hotels","booking"]){ st.view="stay"; st.city=c; st.sub=t; await R(); } st.sub="";
+ for(const t of ["types","visit","carry"]){ st.view="drink"; st.city="all"; st.sub=t; await R(); } st.sub="";
+ for(const c of WX_ORDER) for(const t of ["outfit","faq"]){ st.view="weather"; st.city=c; st.wm=0; st.sub=t; await R(); } st.sub="";
+ for(const a of Object.keys(APS)) for(const t of ["all","faq"]){ st.view="airport"; st.ap=a; st.apk=""; st.sub=t; await R(); } st.sub="";
  for(const c of ["all",...DRINK_CITIES]) for(const t of (c==="all"?[""]:DRINK_TABS)){ st.view="drink"; st.city=c; st.dtab=t; await R(); } st.dtab="";
  st.ap=""; st.view="airport"; await R(); for(const a of Object.keys(APS)){ st.ap=a; st.apk=""; await R(); for(const k of apDests(a)){ st.apk=k; await R(); } }
  for(const c of ["all",...WX_ORDER]) for(let m=0;m<=12;m++){ st.view="weather"; st.city=c; st.wm=m; await R(); }

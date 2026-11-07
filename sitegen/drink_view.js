@@ -165,24 +165,28 @@ V.drink = function(){
   const qa=(q,x)=>`<div class="faqi" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">${q}</dt><dd itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">${x}</div></dd></div>`;
   const note = `<p class="sisrc">2026년 11월 각 공식 사이트 기준이에요. 요금·시간·예약 방식은 바뀔 수 있어요. 술은 20세부터, 운전 전에는 마시지 마세요.</p>`;
   if(!c){
-    return `<div class="wx">
-     <div class="ghead"><h2>일본 술 여행 – 지역별 사케·맥주·위스키</h2><p>일본 술의 종류와 고르는 법, 지역별로 견학·시음할 수 있는 양조장과 증류소, 한국에 가져올 때의 규칙까지 정리했어요.</p></div>
-     <nav class="wxmon stjump">${DRINK_CITIES.map(k=>`<a href="#st-${k}" data-stjump="${k}">${esc(CITIES[k].ko)}</a>`).join("")}</nav>
-     <div class="dtypes">${DRINK_TYPES.map(([a,b])=>`<div class="gblk"><h4>${esc(a)}</h4><p>${esc(b)}</p></div>`).join("")}</div>
+    const tabs = [["","지역별 견학·시음"],["types","술 종류와 라벨"],["visit","견학 팁"],["carry","가지고 올 때"]], t = tabs.some(x=>x[0]===st.sub)?st.sub:"";
+    let body;
+    if(t==="types") body = `<div class="dtypes">${DRINK_TYPES.map(([a,b])=>`<div class="gblk"><h4>${esc(a)}</h4><p>${esc(b)}</p></div>`).join("")}</div>
      ${drinkList("사케 라벨 읽는 법", DRINK_LABEL)}
-     ${drinkList("주문할 때 알아 둘 말", DRINK_ORDER)}
+     ${drinkList("주문할 때 알아 둘 말", DRINK_ORDER)}`;
+    else if(t==="visit") body = `${drinkList("양조장·증류소 견학 팁", DRINK_VISIT)}
+     <section class="gblk faq" itemscope itemtype="https://schema.org/FAQPage"><h4>자주 묻는 질문</h4><dl>${qa("견학할 때 시음을 못 하는 경우가 있나요?", `<span>${esc(DRINK_VISIT[0])}</span> <span>${esc(DRINK_VISIT[1])}</span>`)}</dl></section>`;
+    else if(t==="carry") body = `${drinkList("술을 가지고 올 때", drinkCarry())}
+     <section class="gblk faq" itemscope itemtype="https://schema.org/FAQPage"><h4>자주 묻는 질문</h4><dl>
+      ${qa(drinkHomeQ(), `<span>${esc(drinkCarry()[0])}</span>`)}
+      ${qa("비행기에 술을 실을 수 있나요?", `<span>${esc(DRINK_CARRY[1])}</span> <span>${esc(DRINK_CARRY[2])}</span>`)}
+     </dl></section>`;
+    else body = `<nav class="wxmon stjump">${DRINK_CITIES.map(k=>`<a href="#st-${k}" data-stjump="${k}">${esc(CITIES[k].ko)}</a>`).join("")}</nav>
      ${DRINK_CITIES.map(k=>{ const vs=DRINKS.filter(v=>v.city===k);
        return `<section class="stsec" id="st-${k}"><h3 class="sgh"><span>${esc(CITIES[k].ko)}</span></h3><p class="stsub">${esc(DRINK_INTRO[k])}</p>
         <div class="dlist">${vs.map(v=>`<div class="dmini"><span class="dkind dk-${v.k}">${DRINK_KIND[v.k]}</span><b>${esc(v.n)}</b><small>${esc(v.area)}</small></div>`).join("")}</div>
         <p class="dbuyl"><b>사 가면 좋은 술</b>${(DRINK_BUY[k]||[]).map(v=>`<span>${esc(v.n)}</span>`).join("")}</p>
-        <p class="stmore">${drinkA(k,`${esc(CITIES[k].ko)} 술 여행 자세히 보기<i> →</i>`,"more")}</p></section>`; }).join("")}
-     ${drinkList("술 살 때 팁", DRINK_SHOP)}
-     ${drinkList("양조장·증류소 견학 팁", DRINK_VISIT)}
-     <section class="gblk faq" itemscope itemtype="https://schema.org/FAQPage"><h4>자주 묻는 질문</h4><dl>
-      ${qa(drinkHomeQ(), `<span>${esc(drinkCarry()[0])}</span>`)}
-      ${qa("비행기에 술을 실을 수 있나요?", `<span>${esc(DRINK_CARRY[1])}</span> <span>${esc(DRINK_CARRY[2])}</span>`)}
-     </dl></section>
-     ${drinkList("술을 가지고 올 때", drinkCarry())}
+        <p class="stmore">${drinkA(k,`${esc(CITIES[k].ko)} 술 여행 자세히 보기<i> →</i>`,"more")}</p></section>`; }).join("")}`;
+    return `<div class="wx">
+     <div class="ghead"><h2>일본 술 여행 – 지역별 사케·맥주·위스키</h2><p>일본 술의 종류와 고르는 법, 지역별로 견학·시음할 수 있는 양조장과 증류소, 한국에 가져올 때의 규칙까지 정리했어요.</p></div>
+     ${subTabs(tabs,t)}
+     ${body}
      ${note}
     </div>`;
   }

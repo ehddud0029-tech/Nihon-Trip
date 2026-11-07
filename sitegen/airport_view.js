@@ -74,13 +74,24 @@ V.airport = function(){
   }
   const r = apRegion(a), dests = apDests(a), same = Object.keys(APS).filter(x=>x!==a&&apRegion(x)===r);
   if(!k){
-    return `<div class="wx">${crumb}
-     <div class="ghead"><h2>${esc(apName(a))}에서 시내 가는 법</h2><p>가고 싶은 곳을 누르면 자세한 가는 법을 볼 수 있어요.</p></div>
-     <div class="wxgrid">${dests.map(k2=>{ const o=apOpts(a,k2)[0]; return `<article class="wxcard"><h3>${esc(AREA[k2].ko)}</h3>
+    const tabs = [["","시내 가는 법"],["all","모든 방법 비교"],["faq","자주 묻는 질문"]], t = tabs.some(x=>x[0]===st.sub)?st.sub:"", an = esc(apName(a));
+    let body;
+    if(t==="all") body = dests.map(k2=>`<div class="gblk"><h4>${apA(a,k2,esc(AREA[k2].ko))}</h4><ul class="gul">${apOpts(a,k2).map(o=>`<li><span class="mode m-${o[0].mode}">${o[0].mode}</span> ${o.map(x=>`<span>${x.line}</span>`).join(" → ")} · <b>${apMin(apSum(o))}</b></li>`).join("")}</ul></div>`).join("");
+    else if(t==="faq"){
+      const qa=(q,x)=>`<div class="faqi" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">${q}</dt><dd itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">${x}</div></dd></div>`;
+      const c = CITIES[r];
+      body = `<section class="gblk faq" itemscope itemtype="https://schema.org/FAQPage"><h4>자주 묻는 질문</h4><dl>
+       ${dests.map(k2=>{ const kn=esc(AREA[k2].ko); return qa(`${an}에서 ${kn}까지 얼마나 걸리나요?`, `<span>가장 빠른 방법은 ${apMin(apSum(apOpts(a,k2)[0]))} 걸려요.</span>`); }).join("")}
+       ${c?qa(`교통카드는 어디서 사나요?`, `<span>${esc(c.ic)}</span>${ICBUY[r]?` · <span>${esc(ICBUY[r])}</span>`:""}`):""}
+      </dl></section>${apIC(r)}`;
+    } else body = `<div class="wxgrid">${dests.map(k2=>{ const o=apOpts(a,k2)[0]; return `<article class="wxcard"><h3>${esc(AREA[k2].ko)}</h3>
        <p class="aprt"><span class="mode m-${o[0].mode}">${o[0].mode}</span> ${o.map(x=>`<span>${x.line}</span>`).join(" → ")}</p><p class="aptm">${apMin(apSum(o))}</p>
        ${apA(a,k2,`자세히 보기<i> →</i>`,"more")}</article>`; }).join("")}</div>
-     ${apIC(r)}
-     ${same.length?`<h3 class="sgh"><span>다른 공항 보기</span></h3>${apChips(same,"")}`:""}
+     ${same.length?`<h3 class="sgh"><span>다른 공항 보기</span></h3>${apChips(same,"")}`:""}`;
+    return `<div class="wx">${crumb}
+     <div class="ghead"><h2>${an}에서 시내 가는 법</h2><p>가고 싶은 곳을 누르면 자세한 가는 법을 볼 수 있어요.</p></div>
+     ${subTabs(tabs,t)}
+     ${body}
      ${AP_NOTE}
     </div>`;
   }

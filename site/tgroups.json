@@ -1,0 +1,7 @@
+{
+ "tokyo":   [["도쿄 시내", ["shinjuku","shibuya","ginza","asakusa","tokyoeki"]]],
+ "osaka":   [["오사카 시내", ["dotonbori","umeda","shinsekai","tenma"]], ["교토", ["kyoto","kyotoeki","arashiyama","nanzenji","uji"]]],
+ "fukuoka": [["후쿠오카 시내", ["hakata","tenjin","nakasu"]]],
+ "hokkaido":[["삿포로", ["susukino","sapporoeki"]]],
+ "okinawa": [["나하", ["kokusai","naha"]]]
+}

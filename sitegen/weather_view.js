@@ -102,13 +102,32 @@ V.weather = function(){
     </div>`;
   }
   if(!m){
-    return `<div class="wx">${crumb}
-     <div class="ghead"><h2>${esc(CITIES[c].ko)} 월별 날씨와 옷차림</h2><p>달을 누르면 그달의 옷차림과 챙기면 좋은 것을 볼 수 있어요.</p></div>
-     ${wxCities(c,0)}
-     ${wxLiveBlock(c)}
+    const tabs = [["","월별 기온·강수"],["outfit","월별 옷차림"],["faq","자주 묻는 질문"]], t = tabs.some(x=>x[0]===st.sub)?st.sub:"", n = esc(CITIES[c].ko);
+    const M = Array.from({length:12},(_,i)=>i+1), D = M.map(k=>wxData(c,k));
+    let body;
+    if(t==="outfit") body = `<div class="wxgrid">${M.map(k=>{ const d=D[k-1], ex=wxExtras(c,k); return `<article class="wxcard"><h3>${k}월</h3>
+       <div class="wxsts">${wxStat("평균 최고",`${wxR(d.hi)}°`,"hi")}${wxStat("평균 최저",`${wxR(d.lo)}°`,"lo")}</div>
+       <p class="wxo"><span>추천 옷차림</span> ${esc(wxOutfit(c,k))}</p>${ex.length?`<ul class="gul">${ex.slice(0,2).map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:""}
+       ${wxA(c,k,`자세히 보기<i> →</i>`,"more")}</article>`; }).join("")}</div>`;
+    else if(t==="faq"){
+      const qa=(q,a)=>`<div class="faqi" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">${q}</dt><dd itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">${a}</div></dd></div>`;
+      const pick = f => M.reduce((a,b)=>f(D[b-1])>f(D[a-1])?b:a, 1);
+      const hot = pick(d=>d.hi), cold = pick(d=>-d.lo), wet = pick(d=>d.pr), good = M.filter(k=>D[k-1].hi>=17&&D[k-1].hi<=26);
+      body = `<section class="gblk faq" itemscope itemtype="https://schema.org/FAQPage"><h4>자주 묻는 질문</h4><dl>
+       ${qa(`${n}에서 가장 더운 달은 언제인가요?`, `<span>${hot}월</span> · <span>평균 최고</span> ${wxR(D[hot-1].hi)}°`)}
+       ${qa(`${n}에서 가장 추운 달은 언제인가요?`, `<span>${cold}월</span> · <span>평균 최저</span> ${wxR(D[cold-1].lo)}°`)}
+       ${qa(`${n}에서 비가 가장 많이 오는 달은 언제인가요?`, `<span>${wet}월</span> · <span>강수량</span> ${D[wet-1].pr}mm`)}
+       ${good.length?qa(`${n} 여행하기 좋은 달은 언제인가요?`, `<span>평균 최고기온이 17~26°인 달:</span> ${good.map(k=>wxA(c,k,`${k}월`)).join(", ")}`):""}
+      </dl></section>`;
+    } else body = `${wxLiveBlock(c)}
      <div class="gblk"><h4>월별 평균 기온</h4>${wxChart(c,0)}<p class="wxleg"><span class="hi">평균 최고</span><span class="lo">평균 최저</span></p></div>
-     <div class="wxtblw"><table class="wxtbl wxrows"><thead><tr><th></th><th>평균 최고</th><th>평균 최저</th><th>강수량</th><th>추천 옷차림</th></tr></thead>
-      <tbody>${Array.from({length:12},(_,i)=>{ const d=wxData(c,i+1); return `<tr><th>${wxA(c,i+1,`${i+1}월`)}</th><td>${wxR(d.hi)}°</td><td>${wxR(d.lo)}°</td><td>${d.pr}mm</td><td class="o">${esc(wxOutfit(c,i+1))}</td></tr>`; }).join("")}</tbody></table></div>
+     <div class="wxtblw"><table class="wxtbl wxrows"><thead><tr><th></th><th>평균 최고</th><th>평균 최저</th><th>강수량</th></tr></thead>
+      <tbody>${M.map(k=>{ const d=D[k-1]; return `<tr><th>${wxA(c,k,`${k}월`)}</th><td>${wxR(d.hi)}°</td><td>${wxR(d.lo)}°</td><td>${d.pr}mm</td></tr>`; }).join("")}</tbody></table></div>`;
+    return `<div class="wx">${crumb}
+     <div class="ghead"><h2>${n} 월별 날씨와 옷차림</h2><p>달을 누르면 그달의 옷차림과 챙기면 좋은 것을 볼 수 있어요.</p></div>
+     ${wxCities(c,0)}
+     ${subTabs(tabs,t)}
+     ${body}
      ${WX_SRC}
     </div>`;
   }
