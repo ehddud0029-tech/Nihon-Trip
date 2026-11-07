@@ -1,0 +1,1082 @@
+{
+"snowfes": [
+{
+"url": "https://www.snowfes.com/",
+"status": 200,
+"final": "https://www.snowfes.com/",
+"title": "さっぽろ雪まつり公式サイト"
+}
+],
+"hanami": [
+{
+"url": "https://www.kensetsu.metro.tokyo.lg.jp/jimusho/toubuk/ueno/index_top.html",
+"status": 200,
+"final": "https://www.kensetsu.metro.tokyo.lg.jp/jimusho/toubuk/ueno",
+"title": "上野恩賜公園 Ueno Park 公式ホームページ|東京都建設局"
+}
+],
+"dontaku": [
+{
+"url": "https://www.dontaku.fukunet.or.jp/",
+"status": 200,
+"final": "https://www.dontaku.fukunet.or.jp/",
+"title": "福岡市民の祭り　博多どんたく港まつり モバイルどんたく（モバどん）"
+}
+],
+"aoi": [
+{
+"url": "https://www.kamigamojinja.jp/hitotose-kamomatsuri.html",
+"status": 404,
+"final": "https://www.kamigamojinja.jp/hitotose-kamomatsuri.html",
+"title": ""
+},
+{
+"url": "https://www.shimogamo-jinja.or.jp/",
+"status": 200,
+"final": "https://www.shimogamo-jinja.or.jp/",
+"title": ""
+}
+],
+"sanja": [
+{
+"url": "https://www.asakusajinja.jp/sanjamatsuri/",
+"status": 200,
+"final": "https://asakusajinja.jp/sanjamatsuri/",
+"title": "三社祭 – 浅草神社"
+}
+],
+"yosakoi": [
+{
+"url": "https://www.yosakoi-soran.jp/",
+"status": 200,
+"final": "https://www.yosakoi-soran.jp/",
+"title": "YOSAKOIソーラン祭り 公式ホームページ"
+}
+],
+"gion-m": [
+{
+"url": "https://www.yasaka-jinja.or.jp/event/gion/",
+"status": 200,
+"final": "https://www.yasaka-jinja.or.jp/event/gion/",
+"title": "祇園祭｜主な神事・行事｜八坂神社"
+},
+{
+"url": "https://www.gionmatsuri.or.jp/",
+"status": 0,
+"final": "https://www.gionmatsuri.or.jp/",
+"title": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issue"
+}
+],
+"yamakasa": [
+{
+"url": "https://www.hakatayamakasa.com/",
+"status": 200,
+"final": "https://www.hakatayamakasa.com/",
+"title": "博多祇園山笠"
+}
+],
+"tenjin-m": [
+{
+"url": "https://www.tenjinmatsuri.com/",
+"status": 200,
+"final": "https://tenjinmatsuri.com/",
+"title": "ポーカー アプリ おすすめ - 日本の2026年おすすめサービスを比較"
+},
+{
+"url": "https://osakatemmangu.or.jp/",
+"status": 200,
+"final": "https://osakatemmangu.or.jp/",
+"title": "大阪天満宮"
+}
+],
+"sumida": [
+{
+"url": "https://www.sumidagawa-hanabi.com/",
+"status": 200,
+"final": "https://www.sumidagawa-hanabi.com/",
+"title": "隅田川花火大会 公式Webサイト"
+},
+{
+"url": "http://sumidagawa-hanabi.com/",
+"status": 200,
+"final": "https://sumidagawa-hanabi.com/",
+"title": "隅田川花火大会 公式Webサイト"
+}
+],
+"eisa": [
+{
+"url": "https://www.zentoeisa.com/",
+"status": 200,
+"final": "https://www.zentoeisa.com/",
+"title": "沖縄全島エイサーまつり実行委員会オフィシャルサイト"
+}
+],
+"okuribi": [
+{
+"url": "https://ja.kyoto.travel/event/major/okuribi/",
+"status": 403,
+"final": "https://ja.kyoto.travel/event/major/okuribi/",
+"title": ""
+}
+],
+"danjiri": [
+{
+"url": "https://www.city.kishiwada.osaka.jp/site/danjiri/",
+"status": 0,
+"final": "https://www.city.kishiwada.osaka.jp/site/danjiri/",
+"title": "<urlopen error [Errno -2] Name or service not known>"
+}
+],
+"jidai": [
+{
+"url": "https://www.heianjingu.or.jp/festival/jidaisai.html",
+"status": 404,
+"final": "https://www.heianjingu.or.jp/festival/jidaisai.html",
+"title": ""
+},
+{
+"url": "https://www.heianjingu.or.jp/",
+"status": 200,
+"final": "https://www.heianjingu.or.jp/",
+"title": ""
+}
+],
+"tsunahiki": [
+{
+"url": "https://www.naha-otsunahiki.org/",
+"status": 200,
+"final": "https://www.naha-otsunahiki.org/",
+"title": "那覇大綱挽｜一般社団法人 那覇大綱挽保存会"
+},
+{
+"url": "https://www.naha-navi.or.jp/",
+"status": 200,
+"final": "https://www.naha-navi.or.jp/",
+"title": "【那覇市観光協会公式】沖縄那覇の観光情報サイト | NAHANAVI（ナハナビ）"
+}
+],
+"illumi": [
+{
+"url": "https://white-illumination.jp/",
+"status": 200,
+"final": "https://www.sapporo.travel/white-illumination/",
+"title": "さっぽろホワイトイルミネーション｜公式ウェブサイト"
+},
+{
+"url": "http://www.sapporo-christmas.com/",
+"status": 522,
+"final": "http://www.sapporo-christmas.com/",
+"title": ""
+}
+],
+"luminarie": [
+{
+"url": "https://www.kobe-luminarie.jp/",
+"status": 200,
+"final": "https://kobe-luminarie.jp/",
+"title": "【公式サイト】第32回神戸ルミナリエ"
+}
+],
+"dezome": [
+{
+"url": "https://www.tfd.metro.tokyo.lg.jp/",
+"status": 200,
+"final": "https://www.tfd.metro.tokyo.lg.jp/",
+"title": "東京消防庁"
+}
+],
+"tokaebisu": [
+{
+"url": "https://www.imamiya-ebisu.jp/",
+"status": 200,
+"final": "https://www.imamiya-ebisu.jp/",
+"title": "今宮戎神社 | 十日戎 | 大阪市浪速区恵美須"
+}
+],
+"yamayaki": [
+{
+"url": "https://www3.pref.nara.jp/yamayaki/",
+"status": 200,
+"final": "https://www.pref.nara.lg.jp/yamayaki/index.html",
+"title": "若草山焼き行事 / 奈良県"
+},
+{
+"url": "https://www.pref.nara.jp/",
+"status": 200,
+"final": "https://www.pref.nara.lg.jp/index.html",
+"title": "奈良県公式ホームページ"
+}
+],
+"yaedake": [
+{
+"url": "https://www.motobu-ka.com/",
+"status": 200,
+"final": "https://www.motobu-ka.com/",
+"title": "本部町観光協会【公式】ウェブサイト – 太陽と海と緑　観光文化のまち"
+},
+{
+"url": "http://www.town.motobu.okinawa.jp/",
+"status": 200,
+"final": "http://www.town.motobu.okinawa.jp/",
+"title": "本部町役場"
+}
+],
+"setsubun": [
+{
+"url": "https://www.senso-ji.jp/",
+"status": 200,
+"final": "https://www.senso-ji.jp/",
+"title": "聖観音宗 あさくさかんのん 浅草寺 公式サイト - 浅草寺"
+}
+],
+"yukiakari": [
+{
+"url": "https://yukiakarinomichi.org/",
+"status": 0,
+"final": "https://yukiakarinomichi.org/",
+"title": "<urlopen error [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1000)>"
+},
+{
+"url": "http://yukiakarinomichi.org/",
+"status": 200,
+"final": "http://yukiakarinomichi.org/",
+"title": "小樽雪あかりの路 – 雪に灯す、静夜の揺らめきに想い耽る"
+}
+],
+"asahifuyu": [
+{
+"url": "https://asahikawa-winterfes.jp/",
+"status": 200,
+"final": "https://asahikawa-winterfes.jp/",
+"title": "旭川冬まつり公式サイト"
+}
+],
+"ume": [
+{
+"url": "https://www.dazaifutenmangu.or.jp/",
+"status": 200,
+"final": "https://www.dazaifutenmangu.or.jp/",
+"title": "太宰府天満宮｜全国天満宮総本宮"
+}
+],
+"omizutori": [
+{
+"url": "https://www.todaiji.or.jp/",
+"status": 200,
+"final": "https://www.todaiji.or.jp/",
+"title": "東大寺"
+}
+],
+"fkjosakura": [
+{
+"url": "https://fukuokajyo.com/",
+"status": 200,
+"final": "https://fukuokajyo.com/",
+"title": "【公式】福岡城・鴻臚館"
+}
+],
+"meguro": [
+{
+"url": "https://www.nakameguro.info/",
+"status": 0,
+"final": "https://www.nakameguro.info/",
+"title": "<urlopen error [Errno -2] Name or service not known>"
+},
+{
+"url": "https://nakameguro-sakura.com/",
+"status": 0,
+"final": "https://nakameguro-sakura.com/",
+"title": "<urlopen error [Errno -2] Name or service not known>"
+}
+],
+"miyakoodori": [
+{
+"url": "https://miyako-odori.jp/",
+"status": 0,
+"final": "https://miyako-odori.jp/",
+"title": "<urlopen error timed out>"
+}
+],
+"hari": [
+{
+"url": "https://nahahari.jp/",
+"status": 0,
+"final": "https://nahahari.jp/",
+"title": "<urlopen error [Errno -2] Name or service not known>"
+},
+{
+"url": "https://www.naha-navi.or.jp/",
+"status": 200,
+"final": "https://www.naha-navi.or.jp/",
+"title": "【那覇市観光協会公式】沖縄那覇の観光情報サイト | NAHANAVI（ナハナビ）"
+}
+],
+"kanda": [
+{
+"url": "https://www.kandamyoujin.or.jp/kandamatsuri/",
+"status": 200,
+"final": "https://kandamatsuri.com/",
+"title": "令和七年神田祭"
+}
+],
+"lilac": [
+{
+"url": "https://lilac.sapporo-fes.com/",
+"status": 0,
+"final": "https://lilac.sapporo-fes.com/",
+"title": "<urlopen error timed out>"
+},
+{
+"url": "http://lilac.sapporo-fes.com/",
+"status": 0,
+"final": "http://lilac.sapporo-fes.com/",
+"title": "<urlopen error timed out>"
+}
+],
+"sapporomatsuri": [
+{
+"url": "https://www.hokkaidojingu.or.jp/",
+"status": 0,
+"final": "https://www.hokkaidojingu.or.jp/",
+"title": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issue"
+}
+],
+"sanno": [
+{
+"url": "https://www.hiejinja.net/",
+"status": 200,
+"final": "https://www.hiejinja.net/",
+"title": "皇城の鎮 日枝神社 | トップページ"
+}
+],
+"aizen": [
+{
+"url": "https://www.aizendo.com/",
+"status": 200,
+"final": "https://www.aizendo.com/",
+"title": "愛染堂勝鬘院ホームページ"
+},
+{
+"url": "https://aizenmatsuri.osaka/",
+"status": 403,
+"final": "https://aizenmatsuri.osaka/",
+"title": ""
+}
+],
+"ushio": [
+{
+"url": "https://otaru.ushiomatsuri.net/",
+"status": 200,
+"final": "https://otaru.ushiomatsuri.net/",
+"title": "おたる潮まつり公式サイト"
+}
+],
+"koenji": [
+{
+"url": "https://www.koenji-awaodori.com/",
+"status": 200,
+"final": "https://www.koenji-awaodori.com/",
+"title": "NPO法人 東京高円寺阿波おどり振興協会"
+}
+],
+"yodogawa": [
+{
+"url": "https://www.yodohanabi.com/",
+"status": 200,
+"final": "https://www.yodohanabi.com/",
+"title": "第38回 なにわ淀川花火大会 公式サイト"
+}
+],
+"minato": [
+{
+"url": "https://www.hakodate-minatomatsuri.org/",
+"status": 200,
+"final": "https://www.hakodate-minatomatsuri.org/",
+"title": "函館港まつりオフィシャルサイト＊HAKODATE MINATOMATSURI"
+},
+{
+"url": "http://www.hakodate-minatomatsuri.org/",
+"status": 200,
+"final": "https://www.hakodate-minatomatsuri.org/",
+"title": "函館港まつりオフィシャルサイト＊HAKODATE MINATOMATSURI"
+}
+],
+"autumnfest": [
+{
+"url": "https://sapporo-autumnfest.jp/",
+"status": 0,
+"final": "https://sapporo-autumnfest.jp/",
+"title": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+}
+],
+"hojoya": [
+{
+"url": "https://hakozakigu.or.jp/omatsuri/houjoya/",
+"status": 200,
+"final": "https://hakozakigu.or.jp/omatsuri/hojoya/",
+"title": "放生会 | 日本三大八幡宮 筥崎宮【公式】"
+}
+],
+"okunchi": [
+{
+"url": "https://www.hakata-okunchi.jp/",
+"status": 0,
+"final": "https://www.hakata-okunchi.jp/",
+"title": "<urlopen error [Errno -2] Name or service not known>"
+},
+{
+"url": "https://www.hakatanomiya.or.jp/",
+"status": 0,
+"final": "https://www.hakatanomiya.or.jp/",
+"title": "<urlopen error [Errno -2] Name or service not known>"
+}
+],
+"torinoichi": [
+{
+"url": "https://www.otorisama.or.jp/",
+"status": 200,
+"final": "https://otorisama.or.jp/",
+"title": "浅草 酉の市起源発祥 鷲神社公式ホームページ"
+},
+{
+"url": "https://www.asakusa-torinoichi.tokyo/",
+"status": 0,
+"final": "https://www.asakusa-torinoichi.tokyo/",
+"title": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+}
+],
+"tokyojidai": [
+{
+"url": "https://www.e-asakusa.jp/",
+"status": 200,
+"final": "https://www.e-asakusa.jp/",
+"title": "浅草観光連盟 - Asakusa sightseeing information."
+},
+{
+"url": "http://www.e-asakusa.jp/",
+"status": 200,
+"final": "http://www.e-asakusa.jp/",
+"title": "浅草観光連盟 - Asakusa sightseeing information."
+}
+],
+"xmasmarket": [
+{
+"url": "https://christmasmarket.fukuoka.jp/",
+"status": 0,
+"final": "https://christmasmarket.fukuoka.jp/",
+"title": "<urlopen error [Errno -2] Name or service not known>"
+},
+{
+"url": "https://www.christmasmarket-fukuoka.jp/",
+"status": 0,
+"final": "https://www.christmasmarket-fukuoka.jp/",
+"title": "<urlopen error [Errno -2] Name or service not known>"
+}
+],
+"hikari": [
+{
+"url": "https://www.hikari-kyoen.com/",
+"status": 200,
+"final": "https://hikari-kyoen.com/",
+"title": "大阪・光の饗宴2026"
+},
+{
+"url": "http://www.hikari-kyoen.com/",
+"status": 200,
+"final": "https://hikari-kyoen.com/",
+"title": "大阪・光の饗宴2026"
+}
+],
+"boroichi": [
+{
+"url": "https://boroichi.com/",
+"status": 200,
+"final": "https://boroichi.com/",
+"title": "ボロ市通り桜栄会商店会 – 世田谷ボロ市開催地、ボロ市通りの商店会ＨＰ"
+},
+{
+"url": "https://www.city.setagaya.lg.jp/setagaya/001/003/d00125000.html",
+"status": 200,
+"final": "https://www.city.setagaya.lg.jp/02072/10108.html",
+"title": "世田谷のボロ市 | 世田谷区公式ホームページ"
+}
+],
+"f_nagoyamatsuri": [
+{
+"url": "https://www.nagoya-festival.jp/",
+"status": 200,
+"final": "https://www.nagoya-festival.jp/",
+"title": "名古屋まつり"
+},
+{
+"url": "http://www.nagoya-festival.jp/",
+"status": 200,
+"final": "http://www.nagoya-festival.jp/",
+"title": "名古屋まつり"
+}
+],
+"f_inuyamamatsuri": [
+{
+"url": "https://www.inuyama-matsuri.com/",
+"status": 200,
+"final": "https://inuyama-matsuri.com/",
+"title": "犬山祭保存会"
+},
+{
+"url": "http://www.inuyama-matsuri.com/",
+"status": 200,
+"final": "https://inuyama-matsuri.com/",
+"title": "犬山祭保存会"
+}
+],
+"f_takayama_spring": [
+{
+"url": "https://www.takayama-yatai.jp/",
+"status": 200,
+"final": "https://www.takayama-yatai.jp/",
+"title": "飛騨高山の祭屋台の保存会『高山屋台保存会』"
+},
+{
+"url": "https://www.hidatakayama.or.jp/",
+"status": 200,
+"final": "https://www.hidatakayama.or.jp/",
+"title": "【公式】飛騨高山旅ガイド｜岐阜県高山市の観光・イベント情報！"
+}
+],
+"f_takayama_autumn": [
+{
+"url": "https://www.takayama-yatai.jp/",
+"status": 200,
+"final": "https://www.takayama-yatai.jp/",
+"title": "飛騨高山の祭屋台の保存会『高山屋台保存会』"
+},
+{
+"url": "https://www.hidatakayama.or.jp/",
+"status": 200,
+"final": "https://www.hidatakayama.or.jp/",
+"title": "【公式】飛騨高山旅ガイド｜岐阜県高山市の観光・イベント情報！"
+}
+],
+"f_shirakawa_light": [
+{
+"url": "https://shirakawa-go.gr.jp/",
+"status": 200,
+"final": "https://shirakawa-go.gr.jp/",
+"title": "【公式】白川郷観光協会"
+}
+],
+"f_flowerfes": [
+{
+"url": "https://www.hiroshima-ff.com/",
+"status": 200,
+"final": "https://www.hiroshima-ff.com/",
+"title": "50thひろしまフラワーフェスティバル"
+},
+{
+"url": "http://www.hiroshima-ff.com",
+"status": 200,
+"final": "https://www.hiroshima-ff.com/",
+"title": "50thひろしまフラワーフェスティバル"
+}
+],
+"f_toronagashi": [
+{
+"url": "https://www.hiroshima-toronagashi.com/",
+"status": 0,
+"final": "https://www.hiroshima-toronagashi.com/",
+"title": "<urlopen error [Errno -2] Name or service not known>"
+},
+{
+"url": "https://toronagashi.com/",
+"status": 200,
+"final": "https://toronagashi.com/",
+"title": "永平寺町大燈籠ながし |"
+}
+],
+"f_dogoaki": [
+{
+"url": "https://isaniwa.official.jp/",
+"status": 200,
+"final": "https://isaniwa.official.jp/",
+"title": "伊佐爾波神社公式サイト"
+}
+],
+"f_takamatsumatsuri": [
+{
+"url": "https://www.takamatsu-matsuri.com/",
+"status": 0,
+"final": "https://www.takamatsu-matsuri.com/",
+"title": "<urlopen error [Errno -2] Name or service not known>"
+},
+{
+"url": "https://www.takamatsu-matsuri.jp/",
+"status": 0,
+"final": "https://www.takamatsu-matsuri.jp/",
+"title": "<urlopen error [Errno -2] Name or service not known>"
+}
+],
+"f_konpiratai": [
+{
+"url": "https://www.konpira.or.jp/",
+"status": 200,
+"final": "https://www.konpira.or.jp/",
+"title": "金刀比羅宮"
+}
+],
+"f_shibazakura": [
+{
+"url": "https://shibazakura.fujiyamanavi.jp/",
+"status": 0,
+"final": "https://shibazakura.fujiyamanavi.jp/",
+"title": "<urlopen error [Errno -2] Name or service not known>"
+},
+{
+"url": "https://www.yamanashi-kankou.jp/fujikawaguchiko/event/shibazakura-matsuri.html",
+"status": 200,
+"final": "https://www.yamanashi-kankou.jp/fujikawaguchiko/event/shibazakura-matsuri.html",
+"title": "富士芝桜まつり2026【4月11日～5月24日】／富士の国やまなし観光ネット 山梨県公式観光情報"
+}
+],
+"f_herbfes": [
+{
+"url": "https://www.fujisan.ne.jp/pages/380/",
+"status": 200,
+"final": "https://fujisan.ne.jp/event/",
+"title": "イベント情報 | 富士河口湖｜公式サイト"
+},
+{
+"url": "https://www.fujisan.ne.jp/",
+"status": 200,
+"final": "https://fujisan.ne.jp/",
+"title": "富士河口湖町観光情報サイト│FUJIKAWAGUCHIKO"
+}
+],
+"f_himatsuri": [
+{
+"url": "https://www.sengenjinja.jp/",
+"status": 200,
+"final": "https://www.sengenjinja.jp/",
+"title": "北口本宮冨士浅間神社"
+},
+{
+"url": "https://www.mfi.or.jp/himatsuri/",
+"status": 404,
+"final": "https://www.mfi.or.jp/himatsuri/",
+"title": ""
+}
+],
+"f_kawaguchikomomiji": [
+{
+"url": "https://www.fujisan.ne.jp/",
+"status": 200,
+"final": "https://fujisan.ne.jp/",
+"title": "富士河口湖町観光情報サイト│FUJIKAWAGUCHIKO"
+}
+],
+"f_tokyomarathon": [
+{
+"url": "https://www.marathon.tokyo/",
+"status": 200,
+"final": "https://www.marathon.tokyo/",
+"title": "トップページ | 東京マラソン2027"
+}
+],
+"f_yabusame": [
+{
+"url": "https://www.hachimangu.or.jp/",
+"status": 0,
+"final": "https://www.hachimangu.or.jp/",
+"title": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issue"
+}
+],
+"f_tiff": [
+{
+"url": "https://www.tiff-jp.net/",
+"status": 200,
+"final": "https://www.tiff-jp.net/",
+"title": "東京国際映画祭"
+}
+],
+"f_kasuga_mantoro": [
+{
+"url": "https://www.kasugataisha.or.jp/",
+"status": 200,
+"final": "https://www.kasugataisha.or.jp/",
+"title": "春日大社"
+}
+],
+"f_baikasai": [
+{
+"url": "https://www.kitanotenmangu.or.jp/",
+"status": 200,
+"final": "https://kitanotenmangu.or.jp/",
+"title": "北野天満宮"
+}
+],
+"f_otaimatsu": [
+{
+"url": "https://seiryoji.or.jp/",
+"status": 0,
+"final": "https://seiryoji.or.jp/",
+"title": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certif"
+},
+{
+"url": "http://seiryoji.or.jp/",
+"status": 200,
+"final": "http://seiryoji.or.jp/",
+"title": "ＨＯＭＥ | 清凉寺（嵯峨釈迦堂）"
+}
+],
+"f_chionin_bell": [
+{
+"url": "https://www.chion-in.or.jp/",
+"status": 200,
+"final": "https://www.chion-in.or.jp/",
+"title": "浄土宗総本山 知恩院"
+}
+],
+"f_penguinwalk": [
+{
+"url": "https://www.city.asahikawa.hokkaido.jp/asahiyamazoo/",
+"status": 200,
+"final": "https://www.city.asahikawa.hokkaido.jp/asahiyamazoo/",
+"title": "旭川市 旭山動物園"
+}
+],
+"f_goryokaku_sakura": [
+{
+"url": "https://www.goryokaku-tower.co.jp/",
+"status": 200,
+"final": "https://www.goryokaku-tower.co.jp/",
+"title": "函館・五稜郭タワー | 公式ウェブサイト - Goryokaku Tower"
+},
+{
+"url": "https://www.hakobura.jp/",
+"status": 200,
+"final": "https://www.hakobura.jp/",
+"title": "はこぶら - 函館市公式観光サイト"
+}
+],
+"f_hokudai_ginkgo": [
+{
+"url": "https://kinyousai.com/",
+"status": 0,
+"final": "https://kinyousai.com/",
+"title": "<urlopen error [Errno -2] Name or service not known>"
+},
+{
+"url": "https://www.hokudai.ac.jp/",
+"status": 200,
+"final": "https://www.hokudai.ac.jp/",
+"title": "北海道大学"
+}
+],
+"f_hakodate_xmas": [
+{
+"url": "https://www.hakodatexmas.com/",
+"status": 0,
+"final": "https://www.hakodatexmas.com/",
+"title": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certif"
+},
+{
+"url": "http://www.hakodatexmas.com/",
+"status": 200,
+"final": "http://www.hakodatexmas.com/",
+"title": "2026はこだてクリスマスファンタジー｜公式"
+}
+],
+"f_usokae": [
+{
+"url": "https://www.dazaifutenmangu.or.jp/",
+"status": 200,
+"final": "https://www.dazaifutenmangu.or.jp/",
+"title": "太宰府天満宮｜全国天満宮総本宮"
+}
+],
+"f_beppu_hatto": [
+{
+"url": "https://beppu-event.jp/onsenmatsuri/",
+"status": 200,
+"final": "https://beppu-event.jp/onsenmatsuri/",
+"title": "第112回 別府八湯温泉まつり 公式サイト"
+},
+{
+"url": "http://beppu-event.jp/onsenmatsuri/",
+"status": 200,
+"final": "https://beppu-event.jp/onsenmatsuri/",
+"title": "第112回 別府八湯温泉まつり 公式サイト"
+}
+],
+"f_yufuin_film": [
+{
+"url": "https://yufuin-eigasai.com/",
+"status": 0,
+"final": "https://yufuin-eigasai.com/",
+"title": "<urlopen error [Errno -2] Name or service not known>"
+},
+{
+"url": "http://www.oct-net.ne.jp/yufuin-c",
+"status": 0,
+"final": "http://www.oct-net.ne.jp/yufuin-c",
+"title": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issue"
+}
+],
+"f_umibiraki": [
+{
+"url": "https://yaeyama.or.jp/",
+"status": 200,
+"final": "https://yaeyama.or.jp/",
+"title": "石垣市観光交流協会 | 石垣島の観光総合情報サイト"
+}
+],
+"f_iejima_lily": [
+{
+"url": "https://iejima.okinawa/",
+"status": 200,
+"final": "https://iejima.okinawa/",
+"title": "伊江島観光協会"
+},
+{
+"url": "https://www.iejima.org/",
+"status": 200,
+"final": "https://www.iejima.org/",
+"title": "伊江村トップページ | 伊江村公式ホームページ"
+}
+],
+"f_itoman_hare": [
+{
+"url": "http://www.city.itoman.okinawa.jp/site_hare/",
+"status": 404,
+"final": "http://www.city.itoman.okinawa.jp/site_hare/",
+"title": ""
+},
+{
+"url": "https://www.city.itoman.lg.jp/",
+"status": 200,
+"final": "https://www.city.itoman.lg.jp/",
+"title": "糸満市ホームページ トップページ"
+}
+],
+"f_expo_fireworks": [
+{
+"url": "https://oki-park.jp/",
+"status": 200,
+"final": "https://oki-park.jp/",
+"title": "国営沖縄記念公園　 海洋博公園　首里城公園"
+}
+],
+"f_chushu": [
+{
+"url": "https://oki-park.jp/shurijo/",
+"status": 200,
+"final": "https://oki-park.jp/shurijo/",
+"title": "首里城 ‐ 琉球王国の栄華を物語る　世界遺産 首里城"
+}
+],
+"f_shurijo_fes": [
+{
+"url": "https://oki-park.jp/shurijo/",
+"status": 200,
+"final": "https://oki-park.jp/shurijo/",
+"title": "首里城 ‐ 琉球王国の栄華を物語る　世界遺産 首里城"
+}
+],
+"f_naha_marathon": [
+{
+"url": "https://www.naha-marathon.jp/",
+"status": 200,
+"final": "https://naha-marathon.jp/",
+"title": "NAHAマラソン公式サイト｜太陽と海とジョガーの祭典 沖縄・那覇の市民マラソン"
+},
+{
+"url": "http://www.naha-marathon.jp/",
+"status": 200,
+"final": "https://naha-marathon.jp/",
+"title": "NAHAマラソン公式サイト｜太陽と海とジョガーの祭典 沖縄・那覇の市民マラソン"
+}
+],
+"f_konomiya": [
+{
+"url": "https://www.konomiya.or.jp/main/hadakamatsuri",
+"status": 200,
+"final": "https://www.konomiya.or.jp/hadakamatsuri",
+"title": "はだか祭 - 尾張大國霊神社 国府宮"
+},
+{
+"url": "http://www.konomiya.or.jp/main/hadakamatsuri",
+"status": 200,
+"final": "http://www.konomiya.or.jp/hadakamatsuri",
+"title": "はだか祭 - 尾張大國霊神社 国府宮"
+}
+],
+"f_tagata": [
+{
+"url": "https://www.tagatajinja.com/",
+"status": 0,
+"final": "https://www.tagatajinja.com/",
+"title": "<urlopen error [Errno 111] Connection refused>"
+},
+{
+"url": "http://www.tagatajinja.com/",
+"status": 200,
+"final": "http://www.tagatajinja.com/",
+"title": "田縣神社トップページ│Tagata jinja New Site"
+}
+],
+"f_atsuta": [
+{
+"url": "https://www.atsutajingu.or.jp/",
+"status": 503,
+"final": "https://www.atsutajingu.or.jp/",
+"title": ""
+}
+],
+"f_minato": [
+{
+"url": "https://www.nagoya-port-festival.com/",
+"status": 0,
+"final": "https://www.nagoya-port-festival.com/",
+"title": "<urlopen error timed out>"
+},
+{
+"url": "http://www.nagoya-port-festival.com/",
+"status": 0,
+"final": "http://www.nagoya-port-festival.com/",
+"title": "<urlopen error timed out>"
+}
+],
+"f_domannaka": [
+{
+"url": "https://www.domatsuri.com/",
+"status": 200,
+"final": "https://www.domatsuri.com/",
+"title": "公益財団法人にっぽんど真ん中祭り文化財団 - 真夏の名古屋・最大の祭典 -"
+}
+],
+"f_korankei": [
+{
+"url": "https://asuke.info/",
+"status": 200,
+"final": "https://asuke.info/",
+"title": "豊田市足助観光協会"
+},
+{
+"url": "https://www.tourismtoyota.jp/",
+"status": 200,
+"final": "https://www.tourismtoyota.jp/",
+"title": "【公式】愛知県豊田市の観光サイト「ツーリズムとよた」"
+}
+],
+"f_nabana": [
+{
+"url": "https://www.nagashima-onsen.co.jp/nabana/",
+"status": 200,
+"final": "https://www.nagashima-onsen.co.jp/nabana/",
+"title": "なばなの里 -ナガシマリゾート"
+}
+],
+"fe_miyajima_oyster": [
+{
+"url": "https://www.miyajima.or.jp/",
+"status": 200,
+"final": "https://www.miyajima.or.jp/",
+"title": "一般社団法人宮島観光協会  嚴島神社等の観光施設や歴史・自然をご紹介"
+}
+],
+"f_senkoji_sakura": [
+{
+"url": "https://www.city.onomichi.hiroshima.jp/site/onomichikanko/1316.html",
+"status": 200,
+"final": "https://www.city.onomichi.hiroshima.jp/site/onomichikanko/1316.html",
+"title": "千光寺公園 - 観光情報 - 尾道市ホームページ"
+},
+{
+"url": "https://www.ononavi.jp/",
+"status": 403,
+"final": "https://www.ononavi.jp/",
+"title": ""
+}
+],
+"f_tokasan": [
+{
+"url": "https://www.toukasan.jp/",
+"status": 200,
+"final": "https://toukasan.jp/",
+"title": "とうかさん公式Webサイト – 広島はとうかさん大祭で夏がくる"
+},
+{
+"url": "http://www.toukasan.jp/",
+"status": 200,
+"final": "https://toukasan.jp/",
+"title": "とうかさん公式Webサイト – 広島はとうかさん大祭で夏がくる"
+}
+],
+"f_kangensai": [
+{
+"url": "https://www.miyajima.or.jp/event/event_kangen.html",
+"status": 200,
+"final": "https://www.miyajima.or.jp/event/event_kangen.html",
+"title": "管絃祭｜行事｜一般社団法人宮島観光協会"
+},
+{
+"url": "https://www.itsukushimajinja.jp/",
+"status": 200,
+"final": "https://www.itsukushimajinja.jp/",
+"title": "国宝・世界遺産 嚴島神社 【公式サイト】"
+}
+],
+"f_hiro_food": [
+{
+"url": "https://www.city.hiroshima.lg.jp/hiroshima-brand/oshirase/1054643.html",
+"status": 200,
+"final": "https://www.city.hiroshima.lg.jp/hiroshima-brand/oshirase/1054643.html",
+"title": "【終了】ひろしまフードフェスティバル2026に「ザ・広島ブランド」ブースを出展します｜広島市公式ウェブサイト"
+}
+],
+"f_momijidani": [
+{
+"url": "https://www.miyajima.or.jp/sightseeing/ss_momiji.html",
+"status": 200,
+"final": "https://www.miyajima.or.jp/sightseeing/ss_momiji.html",
+"title": "紅葉谷公園｜観光スポット｜一般社団法人宮島観光協会"
+}
+],
+"f_dream_illumi": [
+{
+"url": "https://www.dreamination.com/",
+"status": 200,
+"final": "https://www.dreamination.com/",
+"title": "広島　イルミネーション　｜　ライトアップ事業　ひろしまドリミネーション"
+},
+{
+"url": "http://www.dreamination.com",
+"status": 200,
+"final": "https://www.dreamination.com/",
+"title": "広島　イルミネーション　｜　ライトアップ事業　ひろしまドリミネーション"
+}
+],
+"f_dogo_spring": [
+{
+"url": "https://dogo.jp/",
+"status": 200,
+"final": "https://dogo.jp/",
+"title": "【公式サイト】道後温泉"
+}
+],
+"f_konpira_kabuki": [
+{
+"url": "https://www.konpirakabuki.jp/",
+"status": 200,
+"final": "https://www.konpirakabuki.jp/",
+"title": "こんぴら歌舞伎"
+}
+],
+"f_ritsurin_light": [
+{
+"url": "https://www.my-kagawa.jp/ritsuringarden",
+"status": 200,
+"final": "https://www.my-kagawa.jp/ritsuringarden",
+"title": "【公式】特別名勝　栗林公園｜香川県観光協会公式サイト - うどん県旅ネット"
+}
+]
+}
