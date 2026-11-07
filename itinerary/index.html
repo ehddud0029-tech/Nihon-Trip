@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=b128d528">
+<link rel="stylesheet" href="/app.css?v=27be868d">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b128d528"><\/script><script src="'+B+'engine.js?v=b128d528"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=27be868d"><\/script><script src="'+B+'engine.js?v=27be868d"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -96,7 +96,8 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b128d528"><\/s
 
 <main class="wrap" id="main"><div class="itin">
      <div class="ghead"><h2>추천 일정</h2><p>사이트에 소개된 장소들로 짠 일정이에요. 장소를 누르면 입장료와 가는 길을 볼 수 있어요.</p></div>
-     <section class="igrp"><h3 class="sgh"><span>도쿄</span><small>東京</small></h3><div class="igrid"><a class="icard" href="/itinerary/tokyo-3n4d/" data-itin="tokyo-3n4d">
+     <nav class="wxmon stjump ijump"><a href="#st-tokyo" data-stjump="tokyo">도쿄</a><a href="#st-osaka" data-stjump="osaka">오사카</a><a href="#st-fukuoka" data-stjump="fukuoka">후쿠오카</a><a href="#st-hokkaido" data-stjump="hokkaido">홋카이도</a><a href="#st-okinawa" data-stjump="okinawa">오키나와</a><a href="#st-nagoya" data-stjump="nagoya">나고야</a><a href="#st-hiroshima" data-stjump="hiroshima">히로시마</a><a href="#st-shikoku" data-stjump="shikoku">시코쿠</a></nav>
+     <section class="igrp" id="st-tokyo"><h3 class="sgh"><span>도쿄</span><small>東京</small></h3><div class="igrid"><a class="icard" href="/itinerary/tokyo-3n4d/" data-itin="tokyo-3n4d">
     <div class="ich"><span class="inb">3박 4일</span><span class="ist">17곳</span></div>
     <h3>도쿄 핵심 3박 4일</h3><p>옛 도쿄와 최신 도쿄를 하루씩 나눠 보는 첫 여행 코스예요.</p>
     <ol class="iflow"><li>아사쿠사·스카이트리</li><li>하라주쿠·시부야·신주쿠</li><li>도요스·긴자·오다이바</li><li>도쿄역·우에노</li></ol>
@@ -120,7 +121,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b128d528"><\/s
     <div class="ich"><span class="inb day">당일치기</span><span class="ist">4곳</span></div>
     <h3>후지산 가와구치코 당일치기</h3><p>도쿄에서 아침 일찍 출발해 후지산 전망 명소를 하루에 돌아요.</p>
     <ol class="iflow"><li>가와구치코·주레이토</li></ol>
-    <span class="igo">일정 보기<i> →</i></span></a></div></section><section class="igrp"><h3 class="sgh"><span>오사카</span><small>大阪</small></h3><div class="igrid"><a class="icard" href="/itinerary/kansai-4n5d/" data-itin="kansai-4n5d">
+    <span class="igo">일정 보기<i> →</i></span></a></div></section><section class="igrp" id="st-osaka"><h3 class="sgh"><span>오사카</span><small>大阪</small></h3><div class="igrid"><a class="icard" href="/itinerary/kansai-4n5d/" data-itin="kansai-4n5d">
     <div class="ich"><span class="inb">4박 5일</span><span class="ist">22곳</span></div>
     <h3>오사카·교토·나라 4박 5일</h3><p>오사카에 묵으며 교토 이틀, 나라 하루를 다녀오는 간사이 대표 코스예요.</p>
     <ol class="iflow"><li>오사카성·도톤보리</li><li>교토 동쪽</li><li>교토 서쪽·아라시야마</li><li>나라</li><li>우메다</li></ol>
@@ -148,7 +149,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b128d528"><\/s
     <div class="ich"><span class="inb day">당일치기</span><span class="ist">5곳</span></div>
     <h3>나라 당일치기</h3><p>사슴 공원과 대불, 옛 거리 나라마치를 하루에 걸어서 봐요.</p>
     <ol class="iflow"><li>나라 공원·도다이지·나라마치</li></ol>
-    <span class="igo">일정 보기<i> →</i></span></a></div></section><section class="igrp"><h3 class="sgh"><span>후쿠오카</span><small>福岡</small></h3><div class="igrid"><a class="icard" href="/itinerary/fukuoka-2n3d/" data-itin="fukuoka-2n3d">
+    <span class="igo">일정 보기<i> →</i></span></a></div></section><section class="igrp" id="st-fukuoka"><h3 class="sgh"><span>후쿠오카</span><small>福岡</small></h3><div class="igrid"><a class="icard" href="/itinerary/fukuoka-2n3d/" data-itin="fukuoka-2n3d">
     <div class="ich"><span class="inb">2박 3일</span><span class="ist">12곳</span></div>
     <h3>후쿠오카 2박 3일</h3><p>가까운 도시라 짧게 다녀오기 좋아요. 다자이후 반나절과 야타이를 꼭 넣었어요.</p>
     <ol class="iflow"><li>하카타·나카스</li><li>다자이후·텐진</li><li>오호리 공원·모모치</li></ol>
@@ -164,7 +165,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b128d528"><\/s
     <div class="ich"><span class="inb">1박 2일</span><span class="ist">7곳</span></div>
     <h3>후쿠오카 1박 2일</h3><p>공항이 시내와 가까워 짧은 일정에도 하카타, 나카스 야타이, 다자이후까지 볼 수 있어요.</p>
     <ol class="iflow"><li>하카타·나카스</li><li>다자이후·텐진</li></ol>
-    <span class="igo">일정 보기<i> →</i></span></a></div></section><section class="igrp"><h3 class="sgh"><span>홋카이도</span><small>北海道</small></h3><div class="igrid"><a class="icard" href="/itinerary/sapporo-3n4d/" data-itin="sapporo-3n4d">
+    <span class="igo">일정 보기<i> →</i></span></a></div></section><section class="igrp" id="st-hokkaido"><h3 class="sgh"><span>홋카이도</span><small>北海道</small></h3><div class="igrid"><a class="icard" href="/itinerary/sapporo-3n4d/" data-itin="sapporo-3n4d">
     <div class="ich"><span class="inb">3박 4일</span><span class="ist">17곳</span></div>
     <h3>삿포로·오타루 3박 4일</h3><p>삿포로 시내와 운하 도시 오타루를 묶은 홋카이도 첫 여행 코스예요.</p>
     <ol class="iflow"><li>오도리·스스키노</li><li>오타루</li><li>과자 공장·맥주·야경</li><li>삿포로역 주변</li></ol>
@@ -180,7 +181,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b128d528"><\/s
     <div class="ich"><span class="inb">2박 3일</span><span class="ist">11곳</span></div>
     <h3>삿포로·오타루 2박 3일</h3><p>삿포로 시내와 운하 도시 오타루를 짧게 묶은 코스예요. 아침 시장 해산물로 마무리해요.</p>
     <ol class="iflow"><li>오도리 공원·스스키노</li><li>오타루</li><li>니조 시장·삿포로역 (귀국일)</li></ol>
-    <span class="igo">일정 보기<i> →</i></span></a></div></section><section class="igrp"><h3 class="sgh"><span>오키나와</span><small>沖縄</small></h3><div class="igrid"><a class="icard" href="/itinerary/okinawa-3n4d/" data-itin="okinawa-3n4d">
+    <span class="igo">일정 보기<i> →</i></span></a></div></section><section class="igrp" id="st-okinawa"><h3 class="sgh"><span>오키나와</span><small>沖縄</small></h3><div class="igrid"><a class="icard" href="/itinerary/okinawa-3n4d/" data-itin="okinawa-3n4d">
     <div class="ich"><span class="inb">3박 4일</span><span class="ist">15곳</span></div>
     <h3>오키나와 본섬 3박 4일 (렌터카)</h3><p>나하의 역사와 시장, 북부 바다와 수족관, 남부 성지를 렌터카로 한 바퀴 도는 코스예요.</p>
     <ol class="iflow"><li>나하</li><li>북부</li><li>남부</li><li>중부</li></ol>
@@ -196,7 +197,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b128d528"><\/s
     <div class="ich"><span class="inb">2박 3일</span><span class="ist">12곳</span></div>
     <h3>오키나와 2박 3일 (렌터카)</h3><p>나하, 북부 추라우미 수족관, 중부 해변을 렌터카로 짧게 도는 코스예요.</p>
     <ol class="iflow"><li>슈리성·국제거리</li><li>북부: 만좌모·추라우미·고우리섬</li><li>중부: 아메리칸 빌리지 (귀국일)</li></ol>
-    <span class="igo">일정 보기<i> →</i></span></a></div></section><section class="igrp"><h3 class="sgh"><span>나고야</span><small>名古屋</small></h3><div class="igrid"><a class="icard" href="/itinerary/nagoya-2n3d/" data-itin="nagoya-2n3d">
+    <span class="igo">일정 보기<i> →</i></span></a></div></section><section class="igrp" id="st-nagoya"><h3 class="sgh"><span>나고야</span><small>名古屋</small></h3><div class="igrid"><a class="icard" href="/itinerary/nagoya-2n3d/" data-itin="nagoya-2n3d">
     <div class="ich"><span class="inb">2박 3일</span><span class="ist">9곳</span></div>
     <h3>나고야·이누야마 2박 3일</h3><p>성과 박물관이 많은 나고야 시내를 이틀 보고, 국보 이누야마성까지 다녀오는 코스예요.</p>
     <ol class="iflow"><li>나고야성과 사카에</li><li>산업기념관·아쓰타·오스</li><li>이누야마</li></ol>
@@ -204,7 +205,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b128d528"><\/s
     <div class="ich"><span class="inb">2박 3일</span><span class="ist">8곳</span></div>
     <h3>다카야마·시라카와고 2박 3일</h3><p>나고야에서 특급 히다를 타고 산속 옛 마을 다카야마와 갓쇼즈쿠리 마을 시라카와고를 도는 코스예요.</p>
     <ol class="iflow"><li>다카야마 옛 거리</li><li>아침시장과 시라카와고</li><li>오쿠히다 산 풍경</li></ol>
-    <span class="igo">일정 보기<i> →</i></span></a></div></section><section class="igrp"><h3 class="sgh"><span>히로시마</span><small>広島</small></h3><div class="igrid"><a class="icard" href="/itinerary/hiroshima-miyajima-1n2d/" data-itin="hiroshima-miyajima-1n2d">
+    <span class="igo">일정 보기<i> →</i></span></a></div></section><section class="igrp" id="st-hiroshima"><h3 class="sgh"><span>히로시마</span><small>広島</small></h3><div class="igrid"><a class="icard" href="/itinerary/hiroshima-miyajima-1n2d/" data-itin="hiroshima-miyajima-1n2d">
     <div class="ich"><span class="inb">1박 2일</span><span class="ist">7곳</span></div>
     <h3>히로시마·미야지마 1박 2일</h3><p>첫날은 평화공원에서 역사를 돌아보고, 둘째 날은 바다 위 도리이가 있는 미야지마로 가는 코스예요.</p>
     <ol class="iflow"><li>평화기념공원</li><li>미야지마</li></ol>
@@ -212,7 +213,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b128d528"><\/s
     <div class="ich"><span class="inb">3박 4일</span><span class="ist">11곳</span></div>
     <h3>히로시마·오노미치·구라시키 3박 4일</h3><p>히로시마와 미야지마를 본 뒤 동쪽으로 이동하며 언덕 마을 오노미치와 운하 마을 구라시키를 들르는 코스예요.</p>
     <ol class="iflow"><li>히로시마 시내</li><li>미야지마</li><li>오노미치</li><li>구라시키</li></ol>
-    <span class="igo">일정 보기<i> →</i></span></a></div></section><section class="igrp"><h3 class="sgh"><span>시코쿠</span><small>四国</small></h3><div class="igrid"><a class="icard" href="/itinerary/matsuyama-1n2d/" data-itin="matsuyama-1n2d">
+    <span class="igo">일정 보기<i> →</i></span></a></div></section><section class="igrp" id="st-shikoku"><h3 class="sgh"><span>시코쿠</span><small>四国</small></h3><div class="igrid"><a class="icard" href="/itinerary/matsuyama-1n2d/" data-itin="matsuyama-1n2d">
     <div class="ich"><span class="inb">1박 2일</span><span class="ist">3곳</span></div>
     <h3>마쓰야마·도고온천 1박 2일</h3><p>산 위의 마쓰야마성을 보고 오래된 온천 도고에서 하룻밤 쉬는 느긋한 코스예요.</p>
     <ol class="iflow"><li>마쓰야마성과 도고온천</li><li>이시테지와 도고 산책</li></ol>
@@ -242,10 +243,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b128d528"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=b128d528"></script>
-<script src="/autoreserve.js?v=b128d528"></script>
-<script src="/google_picks.js?v=b128d528"></script>
-<script src="/geo.js?v=b128d528"></script>
-<script src="/app.js?v=b128d528"></script>
+<script src="/areas.js?v=27be868d"></script>
+<script src="/autoreserve.js?v=27be868d"></script>
+<script src="/google_picks.js?v=27be868d"></script>
+<script src="/geo.js?v=27be868d"></script>
+<script src="/app.js?v=27be868d"></script>
 </body>
 </html>

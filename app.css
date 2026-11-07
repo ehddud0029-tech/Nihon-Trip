@@ -688,6 +688,7 @@ body.nowx #wxnote{display:none}
 @media (min-width:760px){.brief:not(.ball) .picks{grid-template-columns:auto max-content auto minmax(0,1fr)}.brief:not(.ball) .picks .pick b{border-right:1px solid var(--line);padding-right:12px;align-self:center}.brief:not(.ball) .picks .pm{margin-left:0;align-self:center}.brief:not(.ball) .picks .pick b + .pd{grid-column:3/-1;border-left:0;padding-left:0}}
 .brief:not(.ball) .picks .pd{border-left:1px solid var(--line);padding-left:12px;align-self:center}
 /*BRCSS_END*/
+.itin .ijump{margin:14px 0 20px}.itin .igrp{scroll-margin-top:150px}@media (max-width:599px){.itin .igrp{scroll-margin-top:76px}}
 footer{border-top:1px solid var(--line);color:var(--ink-2);font-size:12.5px}
 footer .wrap{padding-block:20px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
