@@ -19,6 +19,10 @@ body.nowx #wxnote{display:none}
 R = [
  ('    const cells = st.view==="spots" ? [wxCell, topicCell, courseCell, moveCell]\n      : st.view==="transport" ? [wxCell, apCell, icBrief, moveCell]\n      : [wxCell, extraCell, topicCell, moveCell];',
   '    const cells = st.view==="spots" ? [topicCell, courseCell]\n      : st.view==="transport" ? [apCell, icBrief, moveCell]\n      : [topicCell, extraCell];\n    document.body.classList.add("nowx");'),
+ # 교통카드는 요약 칸에서 빼고 '한눈에 보기' 본문으로 (patch_ttabs.py)
+ ('st.view==="transport" ? [apCell, icBrief, moveCell]', 'st.view==="transport" ? [apCell, moveCell]'),
+ # '도쿄 시내 시내 이동' → '도쿄 시내 이동'
+ ('<div class="bmove"><dt>${esc((tgOn()&&A?A.ko:AREA[pa]?.ko)||c.ko)} 시내 이동</dt>', '<div class="bmove"><dt>${esc(((tgOn()&&A?A.ko:AREA[pa]?.ko)||c.ko).replace(/ 시내$/,""))} 시내 이동</dt>'),
  # 관광지 TOP 3에 짧은 설명
  ('${pickList(items, x=>SPOT_CAT[x.cat].ko, x=>x.area||"")}',
   '${pickList(items, x=>SPOT_CAT[x.cat].ko, x=>x.area||"").replace(/<\\/button><\\/li>/g,"</button></li>").replace(/(<button type="button" class="pick" data-open="([^"]+)">[\\s\\S]*?)<\\/button>/g,(m,a,id)=>{ const it=byId(id); return a+(it&&it.desc?`<span class="pdx">${esc(it.desc)}</span>`:"")+"</button>"; })}'),
@@ -32,6 +36,7 @@ def patch(s):
     s = block(s, '/*BRCSS_BEGIN*/', '/*BRCSS_END*/', CSS, 'footer{border-top:1px solid var(--line);')
     for a, b in R:
         if b in s: continue
+        if a not in s and 'st.view==="transport" ? [apCell, moveCell]' in s and 'wxCell, topicCell' in a: continue
         assert s.count(a) == 1, (a[:60], s.count(a))
         s = s.replace(a, b)
     return s

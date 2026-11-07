@@ -51,7 +51,11 @@ V.transport = function(){
     body = aps.map(a=>`<section class="apsec"><h3 class="sgh"><span>${apA(a,"",esc(apName(a)))}</span></h3><div class="wxgrid">${apDests(a).map(k2=>{ const o=apOpts(a,k2)[0]; return o?`<article class="wxcard"><h3>${esc(AREA[k2].ko)}</h3>
        <p class="aprt"><span class="mode m-${o[0].mode}">${o[0].mode}</span> ${o.map(x=>`<span>${x.line}</span>`).join(" → ")}</p><p class="aptm">${apMin(apSum(o))}</p>
        ${apA(a,k2,`자세히 보기<i> →</i>`,"more")}</article>`:""; }).join("")}</div></section>`).join("") || pick(".apsec");
-  } else body = notes + `<div class="wxlinks">${TTABS.slice(1).map(([k,l])=>`<a class="btn ghost" href="${ROUTED?window.NT_BASE+LPRE+pathOf({...st,sub:k}):"#"}" data-subtab="${k}">${esc(l)}<i> →</i></a>`).join("")}</div>`;
+  } else {
+    const ic = st.city!=="all" && IC_CARDS.find(x=>x.cities.includes(st.city));
+    const icOv = ic ? `<section class="ovic"><h3 class="sgh"><span>교통카드</span></h3><div class="ovic-card"><div class="icrow">${ic.img?`<img src="${ic.img}" alt="" loading="lazy" referrerpolicy="no-referrer">`:""}<span><b>${esc(ic.name)}</b><small>${esc(ic.area)}</small></span></div><p>${esc(ic.cities[0]===st.city?ic.buy[0]:(ICBUY[st.city]||ic.buy[0]))}</p><a class="more" href="${ROUTED?window.NT_BASE+LPRE+pathOf({...st,sub:"ic"}):"#"}" data-subtab="ic">교통카드 안내<i> →</i></a></div></section>` : "";
+    body = icOv + notes + `<div class="wxlinks ttlinks">${TTABS.slice(1).map(([k,l])=>`<a class="btn ghost" href="${ROUTED?window.NT_BASE+LPRE+pathOf({...st,sub:k}):"#"}" data-subtab="${k}">${esc(l)}<i> →</i></a>`).join("")}</div>`;
+  }
   return `<div class="sechead"><div><h2>교통</h2><p>공항에서 시내까지, 그리고 도시 안에서 이동하는 방법</p></div></div>
    ${subTabs(TTABS,t)}
    ${body}`;
@@ -60,6 +64,9 @@ V.transport = function(){
 """
 CSS = """/*TTCSS_BEGIN*/
 body.tsub #brief{display:none}
+.ovic{margin:0 0 22px}.ovic-card{background:var(--card,#fff);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;max-width:640px}
+.ovic .icrow{display:flex;align-items:center;gap:12px}.ovic .icrow img{width:72px;height:46px;object-fit:contain;border-radius:6px;background:#fff;border:1px solid var(--line)}.ovic .icrow span{display:flex;flex-direction:column}.ovic .icrow small{font-size:13px;color:var(--ink-2)}.ovic p{margin:0;color:var(--ink-2);font-size:14px}.ovic .more{font-weight:600;font-size:14px}
+.ttlinks{margin-top:20px}
 /*TTCSS_END*/
 """
 R = [
