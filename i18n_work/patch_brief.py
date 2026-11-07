@@ -12,6 +12,7 @@ FILES = [f'{W}/tabishiori.html', f'{W}/i18n_work/backup/tabishiori.pre.html']
 CSS = """/*BRCSS_BEGIN*/
 .brief .picks .pdx{grid-column:2/-1;color:var(--ink-2);font-size:14px;font-weight:400;line-height:1.55;margin:0 0 10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-align:left}
 body.nowx #wxnote{display:none}
+@media (min-width:760px){.brief .bspot .picks,.brief .bfest .picks{grid-template-columns:auto max-content auto minmax(0,1fr)}.brief .bspot .picks .pm,.brief .bfest .picks .pm{margin-left:10px}}
 .brief .bspot .picks .pd,.brief .bfest .picks .pd{border-left:1px solid var(--line);padding-left:12px;align-self:center}
 /*BRCSS_END*/
 """
