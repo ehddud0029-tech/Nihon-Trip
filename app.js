@@ -1245,7 +1245,7 @@ const V = {
   const counts = Array.from({length:12},(_,i)=>inC.filter(f=>f.month===i+1).length);
   const items = inC.filter(f=>f.month===st.month);
   return `${focusBox()}<div class="sechead"><div><h2>축제 · 계절 행사</h2><p>여행하는 달을 고르면 ${cityName()}에서 열리는 행사를 보여드려요.</p></div></div>
-   <div class="months" role="group" aria-label="월 선택">${counts.map((n,i)=>`<button class="month${i+1===NOW_M?" now":""}" type="button" data-month="${i+1}" aria-pressed="${st.month===i+1}"><b>${i+1}월</b><span>${n?n+"개":"–"}</span></button>`).join("")}</div>
+   ${st.city==="all"?`<div class="months" role="group" aria-label="월 선택">${counts.map((n,i)=>`<button class="month${i+1===NOW_M?" now":""}" type="button" data-month="${i+1}" aria-pressed="${st.month===i+1}"><b>${i+1}월</b><span>${n?n+"개":"–"}</span></button>`).join("")}</div>`:""}
    <div class="season"><b>${st.month}월</b> · ${SEASON[st.month-1]}</div>
    ${items.length?`<div class="flist">${items.map(f=>`<a class="fest" href="${placeHref(f.id)}" data-open="${f.id}" style="--c:var(--yamabuki)"><span class="stamp">${SVGI(MICON.fest)}${imgTag(f.id)}</span><span><span class="when">${esc(f.when)} · ${esc(placeOf(f))}</span><h3>${esc(f.name)}</h3><p>${esc(f.desc)}</p>${saved.includes(f.id)?'<span class="saved-mark" style="font-size:12px">저장됨</span>':''}</span></a>`).join("")}</div>`
      :`<div class="empty">${st.month}월에 등록된 ${cityName()} 행사가 없어요. 위에서 다른 달을 골라보세요.</div>`}`;
