@@ -2013,7 +2013,7 @@ function cityScrollInit(){
   requestAnimationFrame(cityArrows);
 }
 function renderCities(){
-  const list = [["all","전체","日本"],...Object.entries(CITIES).map(([k,v])=>[k,v.ko,v.jp])];
+  const list = [...(st.view==="weather"?[]:[["all","전체","日本"]]),...Object.entries(CITIES).map(([k,v])=>[k,v.ko,v.jp])];
   $("#cityscroll").hidden = st.view==="home";
   $("#cities").innerHTML = list.map(([k,ko,jp])=>`<button class="city" type="button" data-city="${k}" aria-pressed="${st.city===k}">${ko}<span class="jp">${jp}</span></button>`).join("");
   cityScrollInit();
@@ -2982,7 +2982,7 @@ function readPath(){
   if(seg[0]==="place"){ const id=placeIdOf(seg[1]||""); if(id){ st.view="place"; st.place=id; } return; }
   if(seg[0]==="map"){ st.view="map"; return; }
   if(seg[0]==="itinerary"){ st.view="itin"; st.itin=(IKEYS.includes(seg[1])||ICITY_ORDER.includes(seg[1]))?seg[1]:""; return; }
-  if(seg[0]==="weather"){ st.view="weather"; st.city="all"; st.wm=+seg[1]>=1&&+seg[1]<=12?+seg[1]:0; return; }
+  if(seg[0]==="weather"){ st.view="weather"; st.city="tokyo"; st.wm=+seg[1]>=1&&+seg[1]<=12?+seg[1]:0; return; }
   if(CITIES[seg[0]]&&seg[1]==="weather"){ st.view="weather"; st.city=seg[0]; st.wm=+seg[2]>=1&&+seg[2]<=12?+seg[2]:0; return; }
   if(seg[0]==="airport"){ st.view="airport"; st.city="all"; st.ap=APS[seg[1]]?seg[1]:""; st.apk=st.ap&&seg[2]?seg[2]:""; return; }
   if(seg[0]==="drink"){ st.view="drink"; st.city="all"; st.dtab=""; return; }
@@ -3132,6 +3132,7 @@ function syncUrl(){
 window.addEventListener("popstate",()=>{ if(ROUTED){ readPath(); st.q=""; st.focus=null; render(); } });
 
 function render(){
+  if(st.view==="weather" && !(WXN[st.city] && st.city!=="all")) st.city = "tokyo";
   if(st.view==="transport" && st.area!=="all"){ const r=tgRep(st.area); if(r!==st.area) st.area=r; }
   document.body.classList.toggle("is-map", st.view==="map");
   document.body.classList.toggle("is-guide", st.view==="guide");
@@ -3376,7 +3377,7 @@ function wxExtras(c,m){
   if(hi>=18 && hi<26 && !rainy && pr<150) out.push("걷기 좋은 날씨예요. 편한 운동화면 충분해요.");
   return out;
 }
-const wxHref = (c,m) => ROUTED ? window.NT_BASE + LPRE + (c==="all" ? (m?`weather/${m}/`:"weather/") : (m?`${c}/weather/${m}/`:`${c}/weather/`)) : "#weather";
+const wxHref = (c,m) => (c==="all"&&(c="tokyo"), ROUTED ? window.NT_BASE + LPRE + (c==="all" ? (m?`weather/${m}/`:"weather/") : (m?`${c}/weather/${m}/`:`${c}/weather/`)) : "#weather");
 const wxA = (c,m,inner,cls) => `<a${cls?` class="${cls}"`:""} href="${wxHref(c,m)}" data-wxc="${c}" data-wxm="${m||0}">${inner}</a>`;
 function wxChart(c,m){
   const d=WXN[c], W=600, H=190, top=18, bot=44, lo=Math.min(...d.lo, 0), hi=Math.max(...d.hi, 30), y=v=>top+(1-(v-lo)/(hi-lo))*(H-top-bot), cw=W/12;
@@ -3414,7 +3415,7 @@ function wxLiveBlock(c){
 V.weather = function(){
   const c = WXN[st.city] ? st.city : "all", m = st.wm>=1&&st.wm<=12 ? st.wm : 0;
   const bc=(i,h)=>`<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${h.replace("<a ",'<a itemprop="item" ').replace(/>([^<]*)<\/a>$/,'><span itemprop="name">$1</span></a>')}<meta itemprop="position" content="${i}"></span>`;
-  const crumb = `<nav class="wxcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">${bc(1,wxA("all",0,"일본 월별 날씨와 옷차림"))}${c!=="all"?` <i>›</i> ${bc(2,wxA(c,0,esc(CITIES[c].ko)))}`:""}</nav>`;
+  const crumb = `<nav class="wxcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">${c!=="all"?bc(1,wxA(c,0,esc(CITIES[c].ko))):""}</nav>`;
   if(c==="all" && !m){
     return `<div class="wx">
      <div class="ghead"><h2>일본 월별 날씨와 옷차림</h2><p>도시와 달을 고르면 평균 기온, 강수량, 추천 옷차림을 볼 수 있어요.</p></div>

@@ -176,7 +176,7 @@ def write_llms(meta):
          'sources (as of October 2026); weather figures are Japan Meteorological Agency normals (1991–2020).', '']
     x += sec('Suggested itineraries', 'itinerary/')
     x += sec('Airport to city', 'airport/')
-    x += sec('Weather and what to wear by month (all of Japan)', 'weather/')
+    x += sec('Weather and what to wear by month (Tokyo; other cities from the city buttons)', 'tokyo/weather/')
     x += sec('Travel preparation', 'guide/')
     x += sec('Where to stay', 'stay/')
     x += sec('Sake, beer & whisky trips', 'drink/')
@@ -188,7 +188,7 @@ def write_llms(meta):
     open(f'{OUT}/llms.txt', 'w', encoding='utf-8').write('\n'.join(x))
     print('llms.txt lines', len(x))
 
-MOVED = {'guide/stay/': 'stay/'}
+MOVED = {'guide/stay/': 'stay/', 'weather/': 'tokyo/weather/', **{f'weather/{m}/': f'tokyo/weather/{m}/' for m in range(1, 13)}}   # 날씨 첫 화면은 도쿄 (patch_wxtokyo.py)
 for _c, _gs in json.load(open(f'{SITE}/tgroups.json', encoding='utf-8')).items():   # 교통: 묶인 지역의 예전 주소 → 대표 지역 (i18n_work/patch_tgroup.py)
     for _n, _m in _gs:
         for _k in _m[1:]: MOVED[f'{_c}/{_k}/transport/'] = f'{_c}/{_m[0]}/transport/'   # 옮긴 페이지: 예전 주소에서 새 주소로 보내는 안내 페이지 (검색 제외)
@@ -324,7 +324,7 @@ def main():
             pg.wait_for_timeout(300)
             routes = pg.evaluate('''()=>{ const r=["","saved/","map/"]; for(const g of GKEYS) r.push(`guide/${g}/`); r.push("about/","contact/","privacy/"); r.push("itinerary/"); for(const k of IKEYS) r.push(`itinerary/${k}/`); for(const k of ICITY_ORDER) if(ITIN.some(x=>x.city===k)) r.push(`itinerary/${k}/`); for(const v of ["spots","food","transport","shopping"]) r.push(v+"/");
               for(let m=1;m<=12;m++) r.push(`festivals/${m}/`); for(const t of ["times","airport","ic"]) r.push(`transport/${t}/`);
-              { const sts=["","booking",...(stayShowHotels()?["hotels"]:[])]; for(const t of sts) r.push(`stay/${t?t+"/":""}`); for(const c of STAY_CITIES) for(const t of sts) r.push(`${c}/stay/${t?t+"/":""}`); } r.push("drink/","drink/types/","drink/visit/","drink/carry/"); for(const c of DRINK_CITIES) for(const t of DRINK_TABS) r.push(`${c}/drink/${t?t+"/":""}`); r.push("airport/"); for(const a of Object.keys(APS)){ r.push(`airport/${a}/`,`airport/${a}/all/`,`airport/${a}/faq/`); for(const k of apDests(a)) r.push(`airport/${a}/${k}/`); } r.push("weather/"); for(let m=1;m<=12;m++) r.push(`weather/${m}/`); for(const c of WX_ORDER){ r.push(`${c}/weather/`,`${c}/weather/outfit/`,`${c}/weather/faq/`); for(let m=1;m<=12;m++) r.push(`${c}/weather/${m}/`); }
+              { const sts=["","booking",...(stayShowHotels()?["hotels"]:[])]; for(const t of sts) r.push(`stay/${t?t+"/":""}`); for(const c of STAY_CITIES) for(const t of sts) r.push(`${c}/stay/${t?t+"/":""}`); } r.push("drink/","drink/types/","drink/visit/","drink/carry/"); for(const c of DRINK_CITIES) for(const t of DRINK_TABS) r.push(`${c}/drink/${t?t+"/":""}`); r.push("airport/"); for(const a of Object.keys(APS)){ r.push(`airport/${a}/`,`airport/${a}/all/`,`airport/${a}/faq/`); for(const k of apDests(a)) r.push(`airport/${a}/${k}/`); }  for(const c of WX_ORDER){ r.push(`${c}/weather/`,`${c}/weather/outfit/`,`${c}/weather/faq/`); for(let m=1;m<=12;m++) r.push(`${c}/weather/${m}/`); }
               for(const c of Object.keys(CITIES)) for(const a of areasOf(c)) for(const v of ["spots","festivals","food","transport","shopping"]) if((v!=="transport"||tgRep(a.key)===a.key)&&(v!=="festivals"||a.key===areasOf(c)[0].key)){ r.push(`${c}/${a.key}/${v}/`); if(v==="transport") for(const t of ["times","airport","ic"]) r.push(`${c}/${a.key}/transport/${t}/`); }
               for(const x of ALL) if(PLACE_TYPES.includes(x.type)) r.push(`place/${placeSlug(x.id)}/`);
               return r; }''')
