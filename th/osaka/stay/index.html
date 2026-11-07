@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=6a767f04">
+<link rel="stylesheet" href="/app.css?v=9d772f99">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a767f04"><\/script><script src="'+B+'engine.js?v=6a767f04"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=9d772f99"><\/script><script src="'+B+'engine.js?v=9d772f99"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -78,7 +78,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a767f04"><\/s
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="แสดงภูมิภาคก่อนหน้า" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="เลือกพื้นที่"><button class="city" type="button" data-city="all" aria-pressed="false">ทั้งหมด<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">โตเกียว<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="true">โอซาก้า<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">ฟุกุโอกะ<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">ฮอกไกโด<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">โอกินาว่า<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">นาโกย่า<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">ฮิโรชิม่า<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">ชิโกกุ<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="แสดงภูมิภาคเพิ่มเติม" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="เลือกพื้นที่ย่อย"><button class="area" type="button" data-area="dotonbori" aria-pressed="true">โดทงโบริ·นัมบะ</button><button class="area" type="button" data-area="umeda" aria-pressed="false">อุเมดะ</button><button class="area" type="button" data-area="shinsekai" aria-pressed="false">ชินเซไก·เท็นโนจิ·สึรุฮาชิ</button><button class="area" type="button" data-area="tenma" aria-pressed="false">เท็มมะ·เท็นจินบาชิซูจิ</button><button class="area" type="button" data-area="kyoto" aria-pressed="false">เกียวโต: กิออนและฮิงาชิยามะ</button><button class="area" type="button" data-area="kyotoeki" aria-pressed="false">สถานีเกียวโตและปราสาทนิโจ</button><button class="area" type="button" data-area="arashiyama" aria-pressed="false">เกียวโต: อาราชิยามะและคินคาคุจิ</button><button class="area" type="button" data-area="nanzenji" aria-pressed="false">เกียวโต: นันเซ็นจิและกินคาคุจิ</button><button class="area" type="button" data-area="uji" aria-pressed="false">เกียวโต: ฟูชิมิและอุจิ</button><button class="area" type="button" data-area="nara" aria-pressed="false">นารา</button><button class="area" type="button" data-area="kobe" aria-pressed="false">โกเบ</button></div>
   <dl class="brief" id="brief"><div class="bw"><dt>สภาพอากาศวันนี้ที่โดทงโบริ·นัมบะ</dt>
-        <dd class="wxtime"><span class="jstclock">ส. 7 พ.ย. 15:01</span> <small>ญี่ปุ่นตอนนี้</small></dd>
+        <dd class="wxtime"><span class="jstclock">ส. 7 พ.ย. 15:35</span> <small>ญี่ปุ่นตอนนี้</small></dd>
         <dd class="wxnow"><span class="big">17°</span> <b>อุณหภูมิเฉลี่ย</b><span class="wxicon" aria-hidden="true">🌤️</span></dd>
         <dd class="sub wxline">อุณหภูมิสูงสุดเฉลี่ยเดือนพฤศจิกายน</dd>
         <dd class="sub">กำลังโหลดสภาพอากาศสด…</dd></div><div class="broute"><dt>วิธีเดินทางจากสนามบินไปโดทงโบริ·นัมบะ</dt><dd class=""><span class="rt"><span class="mode m-전철">รถไฟ</span> สนามบินคันไซ → สถานีนัมบะ <b class="min">ประมาณ 40 นาที</b></span><br><small>รถไฟด่วนพิเศษนันไค Rapi:t</small></dd><dd class="sub rnote">ไปตรง ไม่ต้องเปลี่ยนรถ</dd></div><div class="beat"><dt>อาหารแนะนำในโดทงโบริ·นัมบะ</dt><ol class="picks"><li><span class="pick"><b>HAKATA Ramen Chikappa</b><em class="pm">ราเมง</em><span class="pd">ราเมงทงคตสึฮากาตะ·โมตสึนาเบะ</span></span></li><li><span class="pick"><b>Sushi Takuma</b><em class="pm">ซูชิ</em><span class="pd">ซูชิเอโดะมาเอะ</span></span></li><li><span class="pick"><b>The New World</b><em class="pm">อิซากายะ</em><span class="pd">โอบันไซ·ซาชิมิ</span></span></li></ol>
@@ -89,9 +89,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a767f04"><\/s
 </section>
 
 <main class="wrap" id="main"><div class="wx">
-   <nav class="wxcrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a itemprop="item" href="/th/stay/" data-stayc="all"><span itemprop="name">ที่พักในญี่ปุ่นและวิธีจอง</span></a><meta itemprop="position" content="1"></span></nav>
+   <nav class="wxcrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a itemprop="item" href="/th/stay/" data-stayc="all" data-sub=""><span itemprop="name">ที่พักในญี่ปุ่นและวิธีจอง</span></a><meta itemprop="position" content="1"></span></nav>
    <div class="ghead"><h2>ที่พักแนะนำในโอซาก้า</h2><p>หลายคนพักโอซาก้าแล้วไปกลับวันเดียวเกียวโตและนารา ถ้าอยู่เกียวโตหลายวัน ควรพักที่เกียวโต</p></div>
-   <div class="wxmon"><a href="/th/tokyo/stay/" data-stayc="tokyo">โตเกียว</a><a class="on" href="/th/osaka/stay/" data-stayc="osaka">โอซาก้า</a><a href="/th/fukuoka/stay/" data-stayc="fukuoka">ฟุกุโอกะ</a><a href="/th/hokkaido/stay/" data-stayc="hokkaido">ฮอกไกโด</a><a href="/th/okinawa/stay/" data-stayc="okinawa">โอกินาว่า</a><a href="/th/nagoya/stay/" data-stayc="nagoya">นาโกย่า</a><a href="/th/hiroshima/stay/" data-stayc="hiroshima">ฮิโรชิม่า</a><a href="/th/shikoku/stay/" data-stayc="shikoku">ชิโกกุ</a></div>
+   <div class="wxmon"><a href="/th/tokyo/stay/" data-stayc="tokyo" data-sub="">โตเกียว</a><a class="on" href="/th/osaka/stay/" data-stayc="osaka" data-sub="">โอซาก้า</a><a href="/th/fukuoka/stay/" data-stayc="fukuoka" data-sub="">ฟุกุโอกะ</a><a href="/th/hokkaido/stay/" data-stayc="hokkaido" data-sub="">ฮอกไกโด</a><a href="/th/okinawa/stay/" data-stayc="okinawa" data-sub="">โอกินาว่า</a><a href="/th/nagoya/stay/" data-stayc="nagoya" data-sub="">นาโกย่า</a><a href="/th/hiroshima/stay/" data-stayc="hiroshima" data-sub="">ฮิโรชิม่า</a><a href="/th/shikoku/stay/" data-stayc="shikoku" data-sub="">ชิโกกุ</a></div>
+   <nav class="dtabs sbtabs"><a href="/th/osaka/stay/" data-subtab="" class="on" aria-current="page">ย่านที่พักแนะนำ</a><a href="/th/osaka/stay/booking/" data-subtab="booking">วิธีจอง</a></nav>
    <h3 class="sgh"><span>ย่านที่พักแนะนำ</span></h3>
    <div class="stgrid"><article class="gblk starea"><h4>นัมบะและชินไซบาชิ</h4>
      <dl><dt>ข้อดี</dt><dd>นั่งสายนันไคจากสนามบินคันไซตรงมาถึง และอาหารโดทงโบริอยู่หน้าประตู</dd><dt>ข้อเสีย</dt><dd>คนแน่นและเสียงดังจนดึก และไปเกียวโตไกลกว่าอุเมดะเล็กน้อย</dd><dt>เหมาะกับ</dt><dd>มาโอซาก้าครั้งแรก หรือมาเพื่ออาหาร</dd></dl></article><article class="gblk starea"><h4>อุเมดะ (สถานีโอซาก้า)</h4>
@@ -99,13 +100,9 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a767f04"><\/s
      <dl><dt>ข้อดี</dt><dd>ห้องพักมักถูกกว่า และรถไฟด่วนสนามบินฮารุกะจอดที่เท็นโนจิ</dd><dt>ข้อเสีย</dt><dd>บรรยากาศกลางคืนอาจไม่ถูกใจทุกคน และต้องเปลี่ยนรถไปที่เที่ยวทางเหนือ</dd><dt>เหมาะกับ</dt><dd>นักท่องเที่ยวงบประหยัดที่ใช้ JR ไปสนามบินคันไซ</dd></dl></article><article class="gblk starea"><h4>รอบสถานีเกียวโต</h4>
      <dl><dt>ข้อดี</dt><dd>ชินคันเซ็นและรถไฟด่วนสนามบินจอดที่นี่ และสถานีขนส่งทำให้ขนกระเป๋าเดินทางสะดวก</dd><dt>ข้อเสีย</dt><dd>ต้องนั่งรถบัสหรือรถไฟไปที่เที่ยวหลักอย่างวัดคิโยมิซุเดระและกิออน</dd><dt>เหมาะกับ</dt><dd>ผู้ที่มีกระเป๋าเยอะหรืออยู่เกียวโตหลายวัน</dd></dl></article><article class="gblk starea"><h4>คาวารามาจิและกิออน</h4>
      <dl><dt>ข้อดี</dt><dd>เดินไปกิออน ปอนโตะโจ และตลาดนิชิกิได้ และได้เห็นถนนเงียบสงบยามเช้าตรู่</dd><dt>ข้อเสีย</dt><dd>แพง และช่วงไฮซีซันหาห้องยาก</dd><dt>เหมาะกับ</dt><dd>ผู้ที่อยากซึมซับเกียวโตแบบดั้งเดิม</dd></dl></article></div>
-   
-   <section class="gblk faq" itemscope="" itemtype="https://schema.org/FAQPage"><h4>คำถามที่พบบ่อย</h4><dl>
-    <div class="faqi" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">ในโอซาก้าควรพักย่านไหนดี?</dt><dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><span><b>นัมบะและชินไซบาชิ</b>: <span>มาโอซาก้าครั้งแรก หรือมาเพื่ออาหาร</span></span> / <span><b>อุเมดะ (สถานีโอซาก้า)</b>: <span>ผู้ที่ไปมาระหว่างเกียวโตและโกเบ</span></span> / <span><b>เท็นโนจิและชินเซไก</b>: <span>นักท่องเที่ยวงบประหยัดที่ใช้ JR ไปสนามบินคันไซ</span></span> / <span><b>รอบสถานีเกียวโต</b>: <span>ผู้ที่มีกระเป๋าเยอะหรืออยู่เกียวโตหลายวัน</span></span> / <span><b>คาวารามาจิและกิออน</b>: <span>ผู้ที่อยากซึมซับเกียวโตแบบดั้งเดิม</span></span></div></dd></div>
-    <div class="faqi" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">จองที่พักต้องเช็กอะไรบ้าง?</dt><dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><span>กำหนดยกเลิกฟรี: เช็กว่าก่อนกี่วันและใช้เวลาญี่ปุ่นหรือไม่</span> <span>เช็กว่าราคาที่แสดงเป็นต่อคนหรือต่อห้อง เว็บญี่ปุ่นมักแสดงราคาต่อคน</span> <span>ภาษีที่พัก: โตเกียว โอซาก้า เกียวโต ฟุกุโอกะ ซัปโปโร ฯลฯ เก็บต่อคนต่อคืน บางครั้งต้องจ่ายแยกที่โรงแรม</span></div></dd></div>
-   </dl></section>
+   <section class="gblk faq" itemscope="" itemtype="https://schema.org/FAQPage"><h4>คำถามที่พบบ่อย</h4><dl><div class="faqi" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">ในโอซาก้าควรพักย่านไหนดี?</dt><dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><span><b>นัมบะและชินไซบาชิ</b>: <span>มาโอซาก้าครั้งแรก หรือมาเพื่ออาหาร</span></span> / <span><b>อุเมดะ (สถานีโอซาก้า)</b>: <span>ผู้ที่ไปมาระหว่างเกียวโตและโกเบ</span></span> / <span><b>เท็นโนจิและชินเซไก</b>: <span>นักท่องเที่ยวงบประหยัดที่ใช้ JR ไปสนามบินคันไซ</span></span> / <span><b>รอบสถานีเกียวโต</b>: <span>ผู้ที่มีกระเป๋าเยอะหรืออยู่เกียวโตหลายวัน</span></span> / <span><b>คาวารามาจิและกิออน</b>: <span>ผู้ที่อยากซึมซับเกียวโตแบบดั้งเดิม</span></span></div></dd></div></dl></section>
    <section class="apsec"><div class="sechead"><div><h2>วิธีเดินทางจากสนามบินเข้าเมือง</h2><p>แตะสนามบินเพื่อดูวิธีไปแต่ละพื้นที่และเวลาที่ใช้</p></div></div><div class="wxmon"><a href="/th/airport/kansai/" data-apa="kansai" data-apk="">สนามบินคันไซ</a></div></section>
-   <div class="wxlinks"><a class="btn ghost" href="/th/stay/" data-stayc="all">วิธีเลือกเว็บจอง<i> →</i></a></div>
+   <div class="wxlinks"><a class="btn ghost" href="/th/osaka/stay/booking/" data-stayc="osaka" data-sub="booking">วิธีจอง<i> →</i></a></div>
   </div></main>
 
 <footer><div class="wrap">Go Nihon Trip · สภาพอากาศ <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · รูปภาพ <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> (ผู้สร้างและสัญญาอนุญาตของแต่ละภาพแสดงในหน้ารายละเอียด) · เวลาเดินทางและข้อมูลการเปิดอาจเปลี่ยนแปลง โปรดตรวจสอบเว็บไซต์ทางการอีกครั้ง<div class="flinks"><a href="/th/about/" data-view="about">เกี่ยวกับเรา</a> · <a href="/th/contact/" data-view="contact">ติดต่อเรา</a> · <a href="/th/privacy/" data-view="privacy">นโยบายความเป็นส่วนตัว</a></div></div></footer>
@@ -127,10 +124,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a767f04"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=6a767f04"></script>
-<script src="/autoreserve.js?v=6a767f04"></script>
-<script src="/google_picks.js?v=6a767f04"></script>
-<script src="/geo.js?v=6a767f04"></script>
-<script src="/app.js?v=6a767f04"></script>
+<script src="/areas.js?v=9d772f99"></script>
+<script src="/autoreserve.js?v=9d772f99"></script>
+<script src="/google_picks.js?v=9d772f99"></script>
+<script src="/geo.js?v=9d772f99"></script>
+<script src="/app.js?v=9d772f99"></script>
 </body>
 </html>

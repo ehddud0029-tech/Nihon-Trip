@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=6a767f04">
+<link rel="stylesheet" href="/app.css?v=9d772f99">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a767f04"><\/script><script src="'+B+'engine.js?v=6a767f04"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=9d772f99"><\/script><script src="'+B+'engine.js?v=9d772f99"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -78,7 +78,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a767f04"><\/s
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="檢視上一組地區" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="選擇地區"><button class="city" type="button" data-city="all" aria-pressed="false">全部<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">東京<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="true">大阪<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">福岡<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">北海道<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">沖繩<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">名古屋<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">廣島<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">四国<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="檢視更多地區" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="選擇區域"><button class="area" type="button" data-area="dotonbori" aria-pressed="true">道頓堀·難波</button><button class="area" type="button" data-area="umeda" aria-pressed="false">梅田</button><button class="area" type="button" data-area="shinsekai" aria-pressed="false">新世界·天王寺·鶴橋</button><button class="area" type="button" data-area="tenma" aria-pressed="false">天滿·天神橋筋</button><button class="area" type="button" data-area="kyoto" aria-pressed="false">京都 祇園·東山</button><button class="area" type="button" data-area="kyotoeki" aria-pressed="false">京都站·二條城</button><button class="area" type="button" data-area="arashiyama" aria-pressed="false">京都 嵐山·金閣寺</button><button class="area" type="button" data-area="nanzenji" aria-pressed="false">京都 南禪寺·銀閣寺</button><button class="area" type="button" data-area="uji" aria-pressed="false">京都 伏見·宇治</button><button class="area" type="button" data-area="nara" aria-pressed="false">奈良</button><button class="area" type="button" data-area="kobe" aria-pressed="false">神戶</button></div>
   <dl class="brief" id="brief"><div class="bw"><dt>道頓堀·難波今日天氣</dt>
-        <dd class="wxtime"><span class="jstclock">11月7日（周六）15:01</span> <small>日本當前</small></dd>
+        <dd class="wxtime"><span class="jstclock">11月7日（周六）15:35</span> <small>日本當前</small></dd>
         <dd class="wxnow"><span class="big">17°</span> <b>往年平均氣溫</b><span class="wxicon" aria-hidden="true">🌤️</span></dd>
         <dd class="sub wxline">11月往年平均最高氣溫</dd>
         <dd class="sub">正在載入即時天氣</dd></div><div class="broute"><dt>從機場到道頓堀·難波的交通方式</dt><dd class=""><span class="rt"><span class="mode m-전철">電車</span> 關西機場 → 難波站 <b class="min">約40分鐘</b></span><br><small>南海特急Rapi:t</small></dd><dd class="sub rnote">直達，無需換乘</dd></div><div class="beat"><dt>道頓堀·難波推薦美食</dt><ol class="picks"><li><span class="pick"><b>HAKATAラーメン チカッパ</b><em class="pm">拉麵</em><span class="pd">博多豬骨拉麵·牛雜鍋</span></span></li><li><span class="pick"><b>鮨 たくま</b><em class="pm">寿司</em><span class="pd">江戶前壽司</span></span></li><li><span class="pick"><b>ザ・ニューワールド</b><em class="pm">居酒屋</em><span class="pd">京都家常菜·刺身</span></span></li></ol>
@@ -89,9 +89,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a767f04"><\/s
 </section>
 
 <main class="wrap" id="main"><div class="wx">
-   <nav class="wxcrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a itemprop="item" href="/tw/stay/" data-stayc="all"><span itemprop="name">日本住宿推薦與預訂方法</span></a><meta itemprop="position" content="1"></span></nav>
+   <nav class="wxcrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a itemprop="item" href="/tw/stay/" data-stayc="all" data-sub=""><span itemprop="name">日本住宿推薦與預訂方法</span></a><meta itemprop="position" content="1"></span></nav>
    <div class="ghead"><h2>大阪住宿推薦</h2><p>很多人住在大阪，再一日遊京都、奈良。如果在京都停留較久，住京都也不錯。</p></div>
-   <div class="wxmon"><a href="/tw/tokyo/stay/" data-stayc="tokyo">東京</a><a class="on" href="/tw/osaka/stay/" data-stayc="osaka">大阪</a><a href="/tw/fukuoka/stay/" data-stayc="fukuoka">福岡</a><a href="/tw/hokkaido/stay/" data-stayc="hokkaido">北海道</a><a href="/tw/okinawa/stay/" data-stayc="okinawa">沖繩</a><a href="/tw/nagoya/stay/" data-stayc="nagoya">名古屋</a><a href="/tw/hiroshima/stay/" data-stayc="hiroshima">廣島</a><a href="/tw/shikoku/stay/" data-stayc="shikoku">四国</a></div>
+   <div class="wxmon"><a href="/tw/tokyo/stay/" data-stayc="tokyo" data-sub="">東京</a><a class="on" href="/tw/osaka/stay/" data-stayc="osaka" data-sub="">大阪</a><a href="/tw/fukuoka/stay/" data-stayc="fukuoka" data-sub="">福岡</a><a href="/tw/hokkaido/stay/" data-stayc="hokkaido" data-sub="">北海道</a><a href="/tw/okinawa/stay/" data-stayc="okinawa" data-sub="">沖繩</a><a href="/tw/nagoya/stay/" data-stayc="nagoya" data-sub="">名古屋</a><a href="/tw/hiroshima/stay/" data-stayc="hiroshima" data-sub="">廣島</a><a href="/tw/shikoku/stay/" data-stayc="shikoku" data-sub="">四国</a></div>
+   <nav class="dtabs sbtabs"><a href="/tw/osaka/stay/" data-subtab="" class="on" aria-current="page">適合住宿的區域</a><a href="/tw/osaka/stay/booking/" data-subtab="booking">預訂方法</a></nav>
    <h3 class="sgh"><span>適合住宿的區域</span></h3>
    <div class="stgrid"><article class="gblk starea"><h4>難波·心齋橋</h4>
      <dl><dt>優點</dt><dd>從關西機場乘南海線直達，道頓堀美食就在眼前。</dd><dt>缺點</dt><dd>到深夜都很擁擠嘈雜，去京都比梅田稍遠。</dd><dt>適合人群</dt><dd>第一次遊大阪、以美食為主要目的的人</dd></dl></article><article class="gblk starea"><h4>梅田（大阪站）</h4>
@@ -99,13 +100,9 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a767f04"><\/s
      <dl><dt>優點</dt><dd>住宿相對便宜，關西機場特急Haruka在天王寺停靠。</dd><dt>缺點</dt><dd>夜晚氛圍見仁見智，去北邊的景點需要換乘。</dd><dt>適合人群</dt><dd>注重價效比、乘JR往返關西機場的人</dd></dl></article><article class="gblk starea"><h4>京都站周邊</h4>
      <dl><dt>優點</dt><dd>新幹線和機場特急都停靠，還有巴士總站，帶行李移動方便。</dd><dt>缺點</dt><dd>去清水寺、祇園等主要景點需要乘巴士或電車。</dd><dt>適合人群</dt><dd>行李多、在京都遊覽多日的人</dd></dl></article><article class="gblk starea"><h4>河原町·祇園</h4>
      <dl><dt>優點</dt><dd>步行可到祇園、先鬥町、錦市場，清晨還能看到寧靜的街道。</dd><dt>缺點</dt><dd>住宿費較貴，旺季很難訂到房間。</dd><dt>適合人群</dt><dd>想慢慢感受京都老街氛圍的人</dd></dl></article></div>
-   
-   <section class="gblk faq" itemscope="" itemtype="https://schema.org/FAQPage"><h4>常見問題</h4><dl>
-    <div class="faqi" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">在大阪住哪個區域比較好？</dt><dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><span><b>難波·心齋橋</b>: <span>第一次遊大阪、以美食為主要目的的人</span></span> / <span><b>梅田（大阪站）</b>: <span>經常往返京都、神戶的人</span></span> / <span><b>天王寺·新世界</b>: <span>注重價效比、乘JR往返關西機場的人</span></span> / <span><b>京都站周邊</b>: <span>行李多、在京都遊覽多日的人</span></span> / <span><b>河原町·祇園</b>: <span>想慢慢感受京都老街氛圍的人</span></span></div></dd></div>
-    <div class="faqi" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">預訂住宿時需要確認什麼？</dt><dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><span>免費取消期限：確認提前幾天以及是否按日本時間。</span> <span>確認顯示價格是每人還是每間，日本網站多顯示每人價格。</span> <span>住宿稅：東京、大阪、京都、福岡、札幌等按每人每晚收取，有時需在現場另付。</span></div></dd></div>
-   </dl></section>
+   <section class="gblk faq" itemscope="" itemtype="https://schema.org/FAQPage"><h4>常見問題</h4><dl><div class="faqi" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">在大阪住哪個區域比較好？</dt><dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><span><b>難波·心齋橋</b>: <span>第一次遊大阪、以美食為主要目的的人</span></span> / <span><b>梅田（大阪站）</b>: <span>經常往返京都、神戶的人</span></span> / <span><b>天王寺·新世界</b>: <span>注重價效比、乘JR往返關西機場的人</span></span> / <span><b>京都站周邊</b>: <span>行李多、在京都遊覽多日的人</span></span> / <span><b>河原町·祇園</b>: <span>想慢慢感受京都老街氛圍的人</span></span></div></dd></div></dl></section>
    <section class="apsec"><div class="sechead"><div><h2>機場到市區怎麼走</h2><p>點選機場即可檢視前往各地區的方式和所需時間。</p></div></div><div class="wxmon"><a href="/tw/airport/kansai/" data-apa="kansai" data-apk="">關西機場</a></div></section>
-   <div class="wxlinks"><a class="btn ghost" href="/tw/stay/" data-stayc="all">如何選擇預訂網站<i> →</i></a></div>
+   <div class="wxlinks"><a class="btn ghost" href="/tw/osaka/stay/booking/" data-stayc="osaka" data-sub="booking">預訂方法<i> →</i></a></div>
   </div></main>
 
 <footer><div class="wrap">Go Nihon Trip · 天氣 <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · 照片 <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> （每張照片的作者·授權資訊顯示在詳情頁面）· 交通時間和營業資訊可能變動，請在官方網站再次確認。<div class="flinks"><a href="/tw/about/" data-view="about">關於本站</a> · <a href="/tw/contact/" data-view="contact">聯絡我們</a> · <a href="/tw/privacy/" data-view="privacy">隱私政策</a></div></div></footer>
@@ -127,10 +124,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a767f04"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=6a767f04"></script>
-<script src="/autoreserve.js?v=6a767f04"></script>
-<script src="/google_picks.js?v=6a767f04"></script>
-<script src="/geo.js?v=6a767f04"></script>
-<script src="/app.js?v=6a767f04"></script>
+<script src="/areas.js?v=9d772f99"></script>
+<script src="/autoreserve.js?v=9d772f99"></script>
+<script src="/google_picks.js?v=9d772f99"></script>
+<script src="/geo.js?v=9d772f99"></script>
+<script src="/app.js?v=9d772f99"></script>
 </body>
 </html>

@@ -671,6 +671,10 @@ body.is-wx .hero{display:none}
 .dlist{display:flex;flex-direction:column;gap:6px}.dmini{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px}
 .dmini b{font-size:15px}.dmini small{color:var(--ink-2);font-size:13px}
 /*DRCSS_END*/
+/*SBCSS_BEGIN*/
+.sbtabs{margin:16px 0 14px}
+@media (max-width:599px){.sbtabs a{padding:8px 11px;font-size:14px}}
+/*SBCSS_END*/
 footer{border-top:1px solid var(--line);color:var(--ink-2);font-size:12.5px}
 footer .wrap{padding-block:20px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}

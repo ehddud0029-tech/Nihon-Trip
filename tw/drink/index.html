@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=6a767f04">
+<link rel="stylesheet" href="/app.css?v=9d772f99">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a767f04"><\/script><script src="'+B+'engine.js?v=6a767f04"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=9d772f99"><\/script><script src="'+B+'engine.js?v=9d772f99"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -96,10 +96,8 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a767f04"><\/s
 
 <main class="wrap" id="main"><div class="wx">
      <div class="ghead"><h2>日本酒類之旅 – 各地區清酒·啤酒·威士忌</h2><p>整理了日本酒的種類和挑選方法、各地區可參觀試飲的酒藏和蒸餾所，以及帶酒回去的規定。</p></div>
+     <nav class="dtabs sbtabs"><a href="/tw/drink/" data-subtab="" class="on" aria-current="page">各地區參觀·試飲</a><a href="/tw/drink/types/" data-subtab="types">酒的種類與酒標</a><a href="/tw/drink/visit/" data-subtab="visit">參觀小貼士</a><a href="/tw/drink/carry/" data-subtab="carry">帶回去時</a></nav>
      <nav class="wxmon stjump"><a href="#st-tokyo" data-stjump="tokyo">東京</a><a href="#st-osaka" data-stjump="osaka">大阪</a><a href="#st-fukuoka" data-stjump="fukuoka">福岡</a><a href="#st-hokkaido" data-stjump="hokkaido">北海道</a><a href="#st-okinawa" data-stjump="okinawa">沖繩</a><a href="#st-nagoya" data-stjump="nagoya">名古屋</a><a href="#st-hiroshima" data-stjump="hiroshima">廣島</a><a href="#st-shikoku" data-stjump="shikoku">四国</a></nav>
-     <div class="dtypes"><div class="gblk"><h4>清酒（日本酒）</h4><p>用米、曲和水釀造的發酵酒。酒精度約15%，冰飲、常溫、溫熱都可以。</p></div><div class="gblk"><h4>燒酒</h4><p>用紅薯、大麥、米等製成的蒸餾酒。九州是主產地，常兌水或蘇打水喝。</p></div><div class="gblk"><h4>泡盛</h4><p>沖繩的蒸餾酒，用泰國米和黑曲製成，陳釀3年以上的稱為古酒（kusu）。</p></div><div class="gblk"><h4>啤酒</h4><p>除了朝日、麒麟、札幌、三得利四大公司，還有很多地方啤酒（精釀）。</p></div><div class="gblk"><h4>威士忌</h4><p>山崎、白州、餘市等蒸餾所限定威士忌，往往只能在蒸餾所買到。在日本也常喝嗨棒（Highball）。</p></div><div class="gblk"><h4>梅酒</h4><p>用青梅浸泡製成的甜酒，酒量小的人也容易入口。</p></div></div>
-     <div class="gblk"><h4>清酒酒標的看法</h4><ul class="gul"><li>純米（純米）：只用米、曲和水釀造的清酒。</li><li>吟釀（吟醸）·大吟釀（大吟醸）：米磨得多（精米步合60%·50%以下），香氣華麗。</li><li>本釀造（本醸造）：加入少量釀造酒精，口感清爽。</li><li>生酒：未經加熱殺菌，需要冷藏儲存。</li><li>濁酒（にごり酒）：留有酒糟，呈乳白色，口感柔和。</li><li>日本酒度：正數越大，一般甜味越少（辛口）。</li></ul></div>
-     <div class="gblk"><h4>點酒時要知道的詞</h4><ul class="gul"><li>清酒一般以1合（約180ml）為單位點。</li><li>冷（冷や）是冰的或常溫，熱燗（熱燗）是溫熱的清酒。</li><li>在居酒屋即使沒點也常會上一小碟小菜（お通し），像座位費一樣收費。</li><li>飲放題（飲み放題）是在規定時間內隨便喝的套餐。</li></ul></div>
      <section class="stsec" id="st-tokyo"><h3 class="sgh"><span>東京</span></h3><p class="stsub">東京彙集了日本各地的酒。在市區可以到日本酒情報館或惠比壽釀酒廠輕鬆品嚐，空出一天還能去青梅的酒藏，或富士山、山梨的威士忌蒸餾所。</p>
         <div class="dlist"><div class="dmini"><span class="dkind dk-beer">啤酒</span><b>YEBISU BREWERY TOKYO</b><small>惠比壽</small></div><div class="dmini"><span class="dkind dk-sake">清酒</span><b>日本酒情報館</b><small>虎之門</small></div><div class="dmini"><span class="dkind dk-sake">清酒</span><b>澤乃井（小澤酒造）</b><small>青梅（東京西部）</small></div><div class="dmini"><span class="dkind dk-whisky">威士忌</span><b>麒麟富士御殿場蒸餾所</b><small>富士山麓（靜岡縣御殿場）</small></div><div class="dmini"><span class="dkind dk-whisky">威士忌</span><b>三得利白州蒸餾所</b><small>山梨縣北杜（東京出發一日遊）</small></div></div>
         <p class="dbuyl"><b>值得買的酒</b><span>澤乃井</span><span>麒麟單一穀物威士忌 富士</span><span>獺祭</span></p>
@@ -125,13 +123,6 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a767f04"><\/s
         <div class="dlist"><div class="dmini"><span class="dkind dk-beer">啤酒</span><b>道後麥酒館</b><small>松山·道後溫泉</small></div><div class="dmini"><span class="dkind dk-sake">清酒</span><b>金陵之鄉</b><small>香川·琴平</small></div></div>
         <p class="dbuyl"><b>值得買的酒</b><span>高知清酒</span><span>道後啤酒</span><span>金陵</span><span>柚子酒</span></p>
         <p class="stmore"><a class="more" href="/tw/shikoku/drink/" data-drc="shikoku" data-drt="">檢視更多四国酒類之旅<i> →</i></a></p></section>
-     <div class="gblk"><h4>買酒小貼士</h4><ul class="gul"><li>價格區間為2026年11月日本門店的大致價格，因店鋪和時期而異。</li><li>百貨店地下食品館的酒類專櫃彙集了各地好酒，很多地方可以試飲後再選。</li><li>車站和機場的伴手禮店有小瓶裝和品鑑套裝，很適合送禮。</li><li>生酒需要冷藏儲存，最好在旅行最後一天購買。</li><li>蒸餾所限定威士忌往往有每人限購數量。</li></ul></div>
-     <div class="gblk"><h4>參觀酒藏·蒸餾所的小貼士</h4><ul class="gul"><li>日本20歲起才能喝酒，未滿20歲參觀時也不能試飲。</li><li>開車的人不能試飲，很多地方會改送飲料或紀念品。</li><li>工廠參觀大多需要預約，很多隻有日語講解。</li><li>費用和預約方式經常變動，出發前請在官網確認。</li></ul></div>
-     <section class="gblk faq" itemscope="" itemtype="https://schema.org/FAQPage"><h4>常見問題</h4><dl>
-      <div class="faqi" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">日本的酒最多可以帶幾瓶回去？</dt><dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><span>帶回國時：免稅額度因國家而異，出發前請確認本國海關的規定。</span></div></dd></div>
-      <div class="faqi" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">可以帶酒上飛機嗎？</dt><dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><span>飛機：酒精度24%以下不限量，超過24%、70%以下每人最多5L，超過70%的酒不能攜帶（各航空公司可能不同）。</span> <span>國際航班隨身行李有100ml液體限制，市區買的酒請放進托執行李。機場免稅店買的酒連同密封袋一起帶上飛機。</span></div></dd></div>
-     </dl></section>
-     <div class="gblk"><h4>帶酒回去時</h4><ul class="gul"><li>帶回國時：免稅額度因國家而異，出發前請確認本國海關的規定。</li><li>飛機：酒精度24%以下不限量，超過24%、70%以下每人最多5L，超過70%的酒不能攜帶（各航空公司可能不同）。</li><li>國際航班隨身行李有100ml液體限制，市區買的酒請放進托執行李。機場免稅店買的酒連同密封袋一起帶上飛機。</li><li>用衣服包好酒瓶，或使用店裡賣的緩衝包裝，以免破碎。</li></ul></div>
      <p class="sisrc">依據2026年11月各官網資訊，費用、時間和預約方式可能變動。20歲起才能喝酒，開車前請勿飲酒。</p>
     </div></main>
 
@@ -154,10 +145,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a767f04"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=6a767f04"></script>
-<script src="/autoreserve.js?v=6a767f04"></script>
-<script src="/google_picks.js?v=6a767f04"></script>
-<script src="/geo.js?v=6a767f04"></script>
-<script src="/app.js?v=6a767f04"></script>
+<script src="/areas.js?v=9d772f99"></script>
+<script src="/autoreserve.js?v=9d772f99"></script>
+<script src="/google_picks.js?v=9d772f99"></script>
+<script src="/geo.js?v=9d772f99"></script>
+<script src="/app.js?v=9d772f99"></script>
 </body>
 </html>

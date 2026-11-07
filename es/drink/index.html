@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=6a767f04">
+<link rel="stylesheet" href="/app.css?v=9d772f99">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a767f04"><\/script><script src="'+B+'engine.js?v=6a767f04"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=9d772f99"><\/script><script src="'+B+'engine.js?v=9d772f99"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -96,10 +96,8 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a767f04"><\/s
 
 <main class="wrap" id="main"><div class="wx">
      <div class="ghead"><h2>Guía de bebidas de Japón – Sake, cerveza y whisky por región</h2><p>Tipos de alcohol japonés y cómo elegir, bodegas y destilerías para visitar y catar por región, y normas para llevarse alcohol a casa.</p></div>
+     <nav class="dtabs sbtabs"><a href="/es/drink/" data-subtab="" class="on" aria-current="page">Visitas y catas por región</a><a href="/es/drink/types/" data-subtab="types">Tipos y etiquetas</a><a href="/es/drink/visit/" data-subtab="visit">Consejos de visita</a><a href="/es/drink/carry/" data-subtab="carry">Llevarlo a casa</a></nav>
      <nav class="wxmon stjump"><a href="#st-tokyo" data-stjump="tokyo">Tokio</a><a href="#st-osaka" data-stjump="osaka">Osaka</a><a href="#st-fukuoka" data-stjump="fukuoka">Fukuoka</a><a href="#st-hokkaido" data-stjump="hokkaido">Hokkaido</a><a href="#st-okinawa" data-stjump="okinawa">Okinawa</a><a href="#st-nagoya" data-stjump="nagoya">Nagoya</a><a href="#st-hiroshima" data-stjump="hiroshima">Hiroshima</a><a href="#st-shikoku" data-stjump="shikoku">Shikoku</a></nav>
-     <div class="dtypes"><div class="gblk"><h4>Sake (nihonshu)</h4><p>Bebida fermentada de arroz, koji y agua. Tiene alrededor de un 15 % de alcohol y se toma fría, a temperatura ambiente o caliente.</p></div><div class="gblk"><h4>Shochu</h4><p>Destilado de boniato, cebada, arroz y más. Su cuna es Kyushu y suele tomarse con agua o soda.</p></div><div class="gblk"><h4>Awamori</h4><p>Destilado de Okinawa, hecho de arroz tailandés con koji negro. El envejecido más de tres años se llama kusu.</p></div><div class="gblk"><h4>Cerveza</h4><p>Además de las cuatro grandes (Asahi, Kirin, Sapporo y Suntory) hay muchas cervezas artesanas locales (ji-biru).</p></div><div class="gblk"><h4>Whisky</h4><p>Los whiskies exclusivos de destilerías como Yamazaki, Hakushu y Yoichi a menudo solo se venden allí. En Japón también se bebe mucho en highball.</p></div><div class="gblk"><h4>Umeshu</h4><p>Licor dulce de ciruela ume macerada. Fácil de beber aunque no aguantes mucho el alcohol.</p></div></div>
-     <div class="gblk"><h4>Cómo leer una etiqueta de sake</h4><ul class="gul"><li>Junmai (純米): sake elaborado solo con arroz, koji y agua.</li><li>Ginjo (吟醸) · Daiginjo (大吟醸): arroz muy pulido (al 60 % / 50 % o menos), con aroma afrutado.</li><li>Honjozo (本醸造): con un poco de alcohol añadido, de sabor limpio.</li><li>Namazake (生酒): sake sin pasteurizar que debe guardarse en frío.</li><li>Nigorizake (にごり酒): turbio y suave, con restos de lías de arroz.</li><li>Nihonshu-do (日本酒度): cuanto mayor es el número positivo, en general menos dulce (karakuchi, seco).</li></ul></div>
-     <div class="gblk"><h4>Palabras útiles para pedir</h4><ul class="gul"><li>El sake suele pedirse por gō (一合, unos 180 ml).</li><li>Hiya (冷や) es frío o a temperatura ambiente; atsukan (熱燗) es sake caliente.</li><li>En los izakaya suele llegar un pequeño aperitivo (otoshi) sin pedirlo, que se cobra como cubierto.</li><li>Nomihodai (飲み放題) es una tarifa de bebida libre durante un tiempo fijo.</li></ul></div>
      <section class="stsec" id="st-tokyo"><h3 class="sgh"><span>Tokio</span></h3><p class="stsub">Tokio reúne alcohol de todo Japón. En la ciudad puedes probar un poco en el Japan Sake and Shochu Information Center o en la fábrica de Yebisu, y con un día libre llegar a una bodega de sake en Ome o a destilerías de whisky junto al monte Fuji y en Yamanashi.</p>
         <div class="dlist"><div class="dmini"><span class="dkind dk-beer">Cerveza</span><b>YEBISU BREWERY TOKYO</b><small>Ebisu</small></div><div class="dmini"><span class="dkind dk-sake">Sake</span><b>Japan Sake and Shochu Information Center</b><small>Toranomon</small></div><div class="dmini"><span class="dkind dk-sake">Sake</span><b>Sawanoi (Ozawa Shuzo)</b><small>Ome (oeste de Tokio)</small></div><div class="dmini"><span class="dkind dk-whisky">Whisky</span><b>Destilería Kirin Fuji Gotemba</b><small>Al pie del monte Fuji (Gotemba, Shizuoka)</small></div><div class="dmini"><span class="dkind dk-whisky">Whisky</span><b>Destilería Suntory Hakushu</b><small>Hokuto, Yamanashi (excursión de un día desde Tokio)</small></div></div>
         <p class="dbuyl"><b>Qué comprar</b><span>Sawanoi</span><span>Kirin Single Grain Whisky Fuji</span><span>Dassai</span></p>
@@ -125,13 +123,6 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a767f04"><\/s
         <div class="dlist"><div class="dmini"><span class="dkind dk-beer">Cerveza</span><b>Dogo Bakushukan</b><small>Dogo Onsen, Matsuyama</small></div><div class="dmini"><span class="dkind dk-sake">Sake</span><b>Kinryo no Sato</b><small>Kotohira, Kagawa</small></div></div>
         <p class="dbuyl"><b>Qué comprar</b><span>Sake de Kochi</span><span>Cerveza Dogo</span><span>Kinryo</span><span>Licor de yuzu</span></p>
         <p class="stmore"><a class="more" href="/es/shikoku/drink/" data-drc="shikoku" data-drt="">Más sobre bebidas en Shikoku<i> →</i></a></p></section>
-     <div class="gblk"><h4>Consejos para comprar alcohol</h4><ul class="gul"><li>Los precios son orientativos según tiendas de Japón en noviembre de 2026 y varían según la tienda y la época.</li><li>Las zonas de alimentación de los grandes almacenes tienen secciones de licores con bebidas regionales, y en muchas puedes probar antes de elegir.</li><li>Las tiendas de recuerdos de estaciones y aeropuertos tienen botellitas y packs de cata, ideales para regalar.</li><li>El namazake (sake sin pasteurizar) debe guardarse en frío, así que cómpralo el último día del viaje.</li><li>Los whiskies exclusivos de destilería suelen tener un límite de compra por persona.</li></ul></div>
-     <div class="gblk"><h4>Consejos para visitar bodegas y destilerías</h4><ul class="gul"><li>En Japón se puede beber a partir de los 20 años. Los menores de 20 tampoco pueden catar en las visitas.</li><li>Quien conduce no puede catar. Muchos lugares le dan un refresco o un recuerdo a cambio.</li><li>Casi todas las visitas a fábricas requieren reserva, y muchas son solo en japonés.</li><li>Los precios y la forma de reservar cambian a menudo; consulta la web oficial antes de ir.</li></ul></div>
-     <section class="gblk faq" itemscope="" itemtype="https://schema.org/FAQPage"><h4>Preguntas frecuentes</h4><dl>
-      <div class="faqi" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">¿Cuántas botellas de alcohol japonés puedo llevarme?</dt><dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><span>Al llevarlo a casa: la franquicia varía según el país. Consulta las normas de aduanas de tu país antes de salir.</span></div></dd></div>
-      <div class="faqi" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">¿Puedo llevar alcohol en el avión?</dt><dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><span>Avión: hasta un 24 % de alcohol sin límite; de más del 24 % al 70 %, hasta 5 L por persona; más del 70 % no se puede llevar (puede variar según la aerolínea).</span> <span>En vuelos internacionales rige la norma de 100 ml para líquidos en cabina, así que factura el alcohol comprado en la ciudad. El comprado en el duty free del aeropuerto se lleva en su bolsa sellada.</span></div></dd></div>
-     </dl></section>
-     <div class="gblk"><h4>Cómo llevarse alcohol a casa</h4><ul class="gul"><li>Al llevarlo a casa: la franquicia varía según el país. Consulta las normas de aduanas de tu país antes de salir.</li><li>Avión: hasta un 24 % de alcohol sin límite; de más del 24 % al 70 %, hasta 5 L por persona; más del 70 % no se puede llevar (puede variar según la aerolínea).</li><li>En vuelos internacionales rige la norma de 100 ml para líquidos en cabina, así que factura el alcohol comprado en la ciudad. El comprado en el duty free del aeropuerto se lleva en su bolsa sellada.</li><li>Envuelve las botellas en ropa o usa el embalaje acolchado que venden en las tiendas para que no se rompan.</li></ul></div>
      <p class="sisrc">Según las webs oficiales en noviembre de 2026. Precios, horarios y reservas pueden cambiar. Se bebe a partir de los 20 años, y nunca antes de conducir.</p>
     </div></main>
 
@@ -154,10 +145,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a767f04"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=6a767f04"></script>
-<script src="/autoreserve.js?v=6a767f04"></script>
-<script src="/google_picks.js?v=6a767f04"></script>
-<script src="/geo.js?v=6a767f04"></script>
-<script src="/app.js?v=6a767f04"></script>
+<script src="/areas.js?v=9d772f99"></script>
+<script src="/autoreserve.js?v=9d772f99"></script>
+<script src="/google_picks.js?v=9d772f99"></script>
+<script src="/geo.js?v=9d772f99"></script>
+<script src="/app.js?v=9d772f99"></script>
 </body>
 </html>

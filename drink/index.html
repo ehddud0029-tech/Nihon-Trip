@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=6a767f04">
+<link rel="stylesheet" href="/app.css?v=9d772f99">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a767f04"><\/script><script src="'+B+'engine.js?v=6a767f04"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=9d772f99"><\/script><script src="'+B+'engine.js?v=9d772f99"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -96,10 +96,8 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a767f04"><\/s
 
 <main class="wrap" id="main"><div class="wx">
      <div class="ghead"><h2>일본 술 여행 – 지역별 사케·맥주·위스키</h2><p>일본 술의 종류와 고르는 법, 지역별로 견학·시음할 수 있는 양조장과 증류소, 한국에 가져올 때의 규칙까지 정리했어요.</p></div>
+     <nav class="dtabs sbtabs"><a href="/drink/" data-subtab="" class="on" aria-current="page">지역별 견학·시음</a><a href="/drink/types/" data-subtab="types">술 종류와 라벨</a><a href="/drink/visit/" data-subtab="visit">견학 팁</a><a href="/drink/carry/" data-subtab="carry">가지고 올 때</a></nav>
      <nav class="wxmon stjump"><a href="#st-tokyo" data-stjump="tokyo">도쿄</a><a href="#st-osaka" data-stjump="osaka">오사카</a><a href="#st-fukuoka" data-stjump="fukuoka">후쿠오카</a><a href="#st-hokkaido" data-stjump="hokkaido">홋카이도</a><a href="#st-okinawa" data-stjump="okinawa">오키나와</a><a href="#st-nagoya" data-stjump="nagoya">나고야</a><a href="#st-hiroshima" data-stjump="hiroshima">히로시마</a><a href="#st-shikoku" data-stjump="shikoku">시코쿠</a></nav>
-     <div class="dtypes"><div class="gblk"><h4>사케 (니혼슈)</h4><p>쌀·누룩·물로 빚는 발효주. 알코올 15% 안팎이고, 차게·상온·따뜻하게 모두 마셔요.</p></div><div class="gblk"><h4>소주 (쇼추)</h4><p>고구마·보리·쌀 등으로 만든 증류주. 규슈가 본고장이고, 물이나 탄산수에 타 마시는 경우가 많아요.</p></div><div class="gblk"><h4>아와모리</h4><p>오키나와의 증류주. 타이 쌀과 검은 누룩으로 만들고, 3년 넘게 숙성한 것을 구스(古酒)라고 해요.</p></div><div class="gblk"><h4>맥주</h4><p>아사히·기린·삿포로·산토리 4대 회사 외에 지역 맥주(지비루)도 많아요.</p></div><div class="gblk"><h4>위스키</h4><p>야마자키·하쿠슈·요이치 같은 증류소 한정 위스키는 증류소에서만 살 수 있는 경우가 많아요. 일본에서는 하이볼로도 많이 마셔요.</p></div><div class="gblk"><h4>우메슈</h4><p>매실을 담가 만든 달콤한 술. 술이 약한 사람도 마시기 쉬워요.</p></div></div>
-     <div class="gblk"><h4>사케 라벨 읽는 법</h4><ul class="gul"><li>준마이(純米): 쌀·누룩·물만으로 빚은 사케예요.</li><li>긴조(吟醸)·다이긴조(大吟醸): 쌀을 많이 깎아(정미율 60%·50% 이하) 향이 화사해요.</li><li>혼조조(本醸造): 양조 알코올을 조금 더해 깔끔한 맛이에요.</li><li>나마자케(生酒): 가열 살균을 하지 않은 생술이라 냉장 보관해야 해요.</li><li>니고리자케(にごり酒): 술지게미가 남아 뿌옇고 부드러워요.</li><li>일본주도(日本酒度): 숫자가 플러스로 클수록 대체로 단맛이 적어요(카라구치).</li></ul></div>
-     <div class="gblk"><h4>주문할 때 알아 둘 말</h4><ul class="gul"><li>사케는 보통 1고(一合, 약 180ml) 단위로 주문해요.</li><li>히야(冷や)는 차게 또는 상온, 아쓰칸(熱燗)은 따뜻하게 데운 사케예요.</li><li>이자카야에서는 주문하지 않아도 작은 안주(오토시)가 나오고 자릿세처럼 요금이 붙는 경우가 많아요.</li><li>노미호다이(飲み放題)는 정해진 시간 동안 마음껏 마시는 요금제예요.</li></ul></div>
      <section class="stsec" id="st-tokyo"><h3 class="sgh"><span>도쿄</span></h3><p class="stsub">도쿄에는 전국의 술이 모여요. 시내에서는 일본 술 정보관이나 에비스 양조장에서 가볍게 맛보고, 하루를 내면 오메의 사케 양조장이나 후지산·야마나시의 위스키 증류소까지 다녀올 수 있어요.</p>
         <div class="dlist"><div class="dmini"><span class="dkind dk-beer">맥주</span><b>YEBISU BREWERY TOKYO</b><small>에비스</small></div><div class="dmini"><span class="dkind dk-sake">사케</span><b>일본 술 정보관</b><small>도라노몬</small></div><div class="dmini"><span class="dkind dk-sake">사케</span><b>사와노이 (오자와 주조)</b><small>오메 (도쿄 서쪽)</small></div><div class="dmini"><span class="dkind dk-whisky">위스키</span><b>기린 후지고텐바 증류소</b><small>후지산 기슭 (시즈오카현 고텐바)</small></div><div class="dmini"><span class="dkind dk-whisky">위스키</span><b>산토리 하쿠슈 증류소</b><small>야마나시현 호쿠토 (도쿄에서 당일치기)</small></div></div>
         <p class="dbuyl"><b>사 가면 좋은 술</b><span>사와노이</span><span>기린 싱글 그레인 위스키 후지</span><span>닷사이</span></p>
@@ -125,13 +123,6 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a767f04"><\/s
         <div class="dlist"><div class="dmini"><span class="dkind dk-beer">맥주</span><b>도고 바쿠슈칸</b><small>마쓰야마 도고온천</small></div><div class="dmini"><span class="dkind dk-sake">사케</span><b>긴료노사토</b><small>가가와 고토히라</small></div></div>
         <p class="dbuyl"><b>사 가면 좋은 술</b><span>고치 사케</span><span>도고 맥주</span><span>긴료</span><span>유자 술</span></p>
         <p class="stmore"><a class="more" href="/shikoku/drink/" data-drc="shikoku" data-drt="">시코쿠 술 여행 자세히 보기<i> →</i></a></p></section>
-     <div class="gblk"><h4>술 살 때 팁</h4><ul class="gul"><li>가격대는 2026년 11월 일본 매장 기준 대략적인 값이에요. 매장과 시기에 따라 달라요.</li><li>백화점 지하 식품관 주류 코너에는 지역 술이 모여 있고, 시음해 보고 고를 수 있는 곳도 많아요.</li><li>역·공항 기념품 가게에는 작은 병이나 맛보기 세트가 있어 선물하기 좋아요.</li><li>생술(나마자케)은 냉장 보관이 필요하니 여행 마지막 날에 사세요.</li><li>증류소 한정 위스키는 한 사람이 살 수 있는 수량이 정해진 경우가 많아요.</li></ul></div>
-     <div class="gblk"><h4>양조장·증류소 견학 팁</h4><ul class="gul"><li>일본은 20세부터 술을 마실 수 있어요. 견학 시음도 20세 미만은 할 수 없어요.</li><li>운전하는 사람은 시음할 수 없어요. 대신 음료나 기념품을 주는 곳이 많아요.</li><li>공장 투어는 대부분 예약제이고, 안내는 일본어로만 하는 곳이 많아요.</li><li>요금과 예약 방식은 자주 바뀌니 방문 전에 공식 사이트에서 확인하세요.</li></ul></div>
-     <section class="gblk faq" itemscope="" itemtype="https://schema.org/FAQPage"><h4>자주 묻는 질문</h4><dl>
-      <div class="faqi" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">일본 술은 한국에 몇 병까지 가져올 수 있나요?</dt><dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><span>한국으로 가져올 때: 술은 2병, 합계 2L, 400달러까지 면세예요. 기본 면세 한도(800달러)와 따로 계산하고, 만 19세 미만은 면세가 안 돼요.</span></div></dd></div>
-      <div class="faqi" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">비행기에 술을 실을 수 있나요?</dt><dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><span>비행기: 알코올 24% 이하는 제한이 없고, 24% 넘고 70% 이하는 1인 5L까지 실을 수 있어요. 70%가 넘는 술은 실을 수 없어요(항공사마다 다를 수 있어요).</span> <span>국제선 기내 반입은 액체 100ml 규정이 있어서, 시내에서 산 술은 위탁 수하물에 넣으세요. 공항 면세점에서 산 술은 봉인된 봉투째로 들고 타요.</span></div></dd></div>
-     </dl></section>
-     <div class="gblk"><h4>술을 가지고 올 때</h4><ul class="gul"><li>한국으로 가져올 때: 술은 2병, 합계 2L, 400달러까지 면세예요. 기본 면세 한도(800달러)와 따로 계산하고, 만 19세 미만은 면세가 안 돼요.</li><li>비행기: 알코올 24% 이하는 제한이 없고, 24% 넘고 70% 이하는 1인 5L까지 실을 수 있어요. 70%가 넘는 술은 실을 수 없어요(항공사마다 다를 수 있어요).</li><li>국제선 기내 반입은 액체 100ml 규정이 있어서, 시내에서 산 술은 위탁 수하물에 넣으세요. 공항 면세점에서 산 술은 봉인된 봉투째로 들고 타요.</li><li>병이 깨지지 않게 옷으로 감싸거나 매장에서 파는 완충 포장을 쓰세요.</li></ul></div>
      <p class="sisrc">2026년 11월 각 공식 사이트 기준이에요. 요금·시간·예약 방식은 바뀔 수 있어요. 술은 20세부터, 운전 전에는 마시지 마세요.</p>
     </div></main>
 
@@ -154,10 +145,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=6a767f04"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=6a767f04"></script>
-<script src="/autoreserve.js?v=6a767f04"></script>
-<script src="/google_picks.js?v=6a767f04"></script>
-<script src="/geo.js?v=6a767f04"></script>
-<script src="/app.js?v=6a767f04"></script>
+<script src="/areas.js?v=9d772f99"></script>
+<script src="/autoreserve.js?v=9d772f99"></script>
+<script src="/google_picks.js?v=9d772f99"></script>
+<script src="/geo.js?v=9d772f99"></script>
+<script src="/app.js?v=9d772f99"></script>
 </body>
 </html>
