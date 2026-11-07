@@ -12,7 +12,7 @@ FILES = [f'{W}/tabishiori.html', f'{W}/i18n_work/backup/tabishiori.pre.html']
 CSS = """/*BRCSS_BEGIN*/
 .brief .picks .pdx{grid-column:2/-1;color:var(--ink-2);font-size:14px;font-weight:400;line-height:1.55;margin:0 0 10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-align:left}
 body.nowx #wxnote{display:none}
-.brief .bspot .picks{grid-template-columns:auto auto minmax(0,1fr);row-gap:3px}.brief .bspot .picks .pick b{grid-column:2/-1}.brief .bspot .picks .pm{grid-column:2;justify-self:start;min-width:0;margin:0}.brief .bspot .picks .pd{grid-column:3;white-space:normal}
+.brief .bspot .picks .pd{border-left:1px solid var(--line);padding-left:12px;align-self:center}
 /*BRCSS_END*/
 """
 R = [
