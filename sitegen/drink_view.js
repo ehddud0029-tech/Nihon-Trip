@@ -154,7 +154,7 @@ function drinkCard(v){
 }
 function drinkBuyCard(v){
   const ph = DRINK_PHOTO[v.n];
-  const fig = ph ? `<figure class="dph"><img src="${esc(ph.src)}" alt="${esc((window.__tr||(x=>x))(v.n))}" loading="lazy" decoding="async"><figcaption><a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(ph.file.replace(/ /g,"_"))}" target="_blank" rel="noopener">사진</a> <span class="notranslate">${esc(ph.artist)} · ${esc(ph.license)}</span></figcaption></figure>` : "";
+  const fig = ph ? `<figure class="dph"><img src="${esc(ph.src)}" alt="${esc((window.__tr||(x=>x))(v.n))}" decoding="async"><figcaption><a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(ph.file.replace(/ /g,"_"))}" target="_blank" rel="noopener">사진</a> <span class="notranslate">${esc(ph.artist)} · ${esc(ph.license)}</span></figcaption></figure>` : "";
   return `<article class="dcard dbuy">${fig}<div class="dtop"><span class="dkind dk-${v.k}">${DRINK_KIND[v.k]}</span></div>
    <h3>${esc(v.n)}</h3><p class="hja notranslate" lang="ja">${esc(v.ja)}</p><p class="dd">${esc(v.d)}</p>${v.t?`<p class="dtaste">${esc(v.t)}</p>`:""}
    <dl>${v.p?`<dt>가격대</dt><dd>${esc(v.p)}</dd>`:""}<dt>살 수 있는 곳</dt><dd>${esc(v.w)}</dd></dl></article>`;

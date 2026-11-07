@@ -104,6 +104,7 @@ def patch(s):
     s = block(s, '/*DRMETA_BEGIN*/', '/*DRMETA_END*/', META_JS, 'function setMeta(sel,val)')
     for a, b in R:
         if b in s: continue
+        if any(k in b and k in s for k in ('closest("[data-drc]")', 'if(s.view==="drink") return', 'if(seg[0]==="drink")')): continue  # R2가 이미 바꾼 규칙
         assert s.count(a) == 1, (a[:60], s.count(a))
         s = s.replace(a, b)
     for a, b in R2:

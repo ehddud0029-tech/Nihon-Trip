@@ -67,6 +67,9 @@
 
 - 술 여행 페이지(2026-11, `drink/`, `<도시>/drink/`, 도시 8곳): 일본 술 종류·사케 라벨 읽는 법·주문 말·견학 팁·가지고 올 때 규칙(한국 세관 문구는 한국어에서만, 다른 언어는 "나라마다 다름"), 지역별 견학·시음 장소 23곳(DRINKS, 2026년 11월 공식 사이트 기준, 별점 없음). 화면·데이터는 `sitegen/drink_view.js`, 붙이는 스크립트 `i18n_work/patch_drink.py`(html·pre, 메뉴·하단 탭 "술", 메타 제목·설명 8개 언어). 번역 tr_44·zh_45·th_45(`i18n_work/drink_tr.py`로 생성), 문장 틀 tpl.tsv 맨 앞 3줄. RSS·llms.txt·verify2에도 들어가요. 아사히 하카타·나고야 공장은 견학 종료라 뺐어요. 도시별 '사 가면 좋은 술'(DRINK_BUY: 종류·이름·일본어 이름·설명·살 수 있는 곳)과 '술 살 때 팁'(DRINK_SHOP), 도시 페이지 FAQ '{x}에서 사 갈 만한 술은 무엇인가요?'도 drink_view.js에 있어요(번역 tr_45·zh_46·th_46, `i18n_work/drink_tr2.py`). 카드마다 가격대(p, 2026년 11월 일본 매장 기준 대략)·맛 한 줄(t)·사진(DRINK_PHOTO, `site/drink_photos.json`에서 넣음: 위키미디어 공용 자유 라이선스 사진만, 카드에 저작자·라이선스 표시. 후보는 photo-job 브랜치의 drinks.py+drink_search.json → drink_candidates.json, 직접 보고 고름. 사진 없는 술: 시게마스·잔파·긴샤치·초야). 번역 tr_46·zh_47·th_47(`i18n_work/drink_tr3.py`). 도시 술 페이지는 탭 4개로 나눠요(st.dtab, DRINK_TABS): `<도시>/drink/`(견학·시음), `/buy/`(사 가면 좋은 술), `/tips/`(술 살 때 팁·라벨·가지고 올 때), `/shops/`(매장 종류 DRINK_STORES + 추천 술별 구매처 + 직매장 있는 양조장). 탭별 검색 제목은 patch_drink.py의 TABM, gen.py 경로·verify2도 탭까지 돌아요. 번역 tr_47·zh_48·th_48. region_inject 뒤에는 patch_drink.py도 다시 돌려 주세요.
 
+- 여행 준비 > 통신 > eSIM 구매 링크(마이리얼트립 제휴, https://myrealt.rip/10FBq6a): `i18n_work/patch_esim.py`(guide_data.js·html·pre·guide_view.js). 비교(compare) 블록의 구매 링크는 한국어·영어에서만 보이고 아래 제휴 수수료 안내가 붙어요. region_inject 뒤에는 patch_esim.py도 다시 돌려 주세요.
+- patch_drink.py는 R2(이미 붙은 줄을 탭용으로 고치는 규칙)가 있어서, R의 같은 규칙이 다시 끼어들지 않게 막아 두었어요(중복 선언으로 페이지 생성이 멈춘 적 있음). 패치 후 `node --check`로 app.js 문법을 확인하면 안전해요.
+
 ## 수정 전·후 비교 (사용자 요청: 사이트를 고치면 항상 보여주기)
 - 날씨 값은 비교용 예시로 채워요(실제 예보 아님). 화면이 바뀌는 수정을 하면 배포 전에 `python3 sitegen/compare.py <이름> <언어:주소> ... [--mobile] [--ref main]`로 비교 이미지를 만들어 사용자에게 보내요 (왼쪽 수정 전 = 배포된 main, 오른쪽 수정 후 = 작업 공간 원본). 결과는 `sitegen/compare_out/<이름>_<번호>.png`.
 - 바뀐 페이지의 대표 주소 1~3개를 고르고, 모바일 화면이 바뀌면 `--mobile`도 같이 만들어요.
