@@ -28,7 +28,8 @@ V.itin = function(){
   if(!c){
     return `<div class="itin">
      <div class="ghead"><h2>추천 일정</h2><p>사이트에 소개된 장소들로 짠 일정이에요. 장소를 누르면 입장료와 가는 길을 볼 수 있어요.</p></div>
-     ${ICITY_ORDER.map(k=>{ const g=ITIN.filter(x=>x.city===k); return g.length?`<section class="igrp"><h3 class="sgh"><span>${esc(CITIES[k].ko)}</span><small>${esc(CITIES[k].jp)}</small></h3><div class="igrid">${g.map(itinCard).join("")}</div></section>`:""; }).join("")}
+     <nav class="wxmon stjump ijump">${ICITY_ORDER.filter(k=>ITIN.some(x=>x.city===k)).map(k=>`<a href="#st-${k}" data-stjump="${k}">${esc(CITIES[k].ko)}</a>`).join("")}</nav>
+     ${ICITY_ORDER.map(k=>{ const g=ITIN.filter(x=>x.city===k); return g.length?`<section class="igrp" id="st-${k}"><h3 class="sgh"><span>${esc(CITIES[k].ko)}</span><small>${esc(CITIES[k].jp)}</small></h3><div class="igrid">${g.map(itinCard).join("")}</div></section>`:""; }).join("")}
     </div>`;
   }
   const others = ITIN.filter(x=>x.city===c.city && x.key!==c.key);

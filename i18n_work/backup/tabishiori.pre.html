@@ -797,6 +797,7 @@ body.nowx #wxnote{display:none}
 @media (min-width:760px){.brief:not(.ball) .picks{grid-template-columns:auto max-content auto minmax(0,1fr)}.brief:not(.ball) .picks .pick b{border-right:1px solid var(--line);padding-right:12px;align-self:center}.brief:not(.ball) .picks .pm{margin-left:0;align-self:center}.brief:not(.ball) .picks .pick b + .pd{grid-column:3/-1;border-left:0;padding-left:0}}
 .brief:not(.ball) .picks .pd{border-left:1px solid var(--line);padding-left:12px;align-self:center}
 /*BRCSS_END*/
+.itin .ijump{margin:14px 0 20px}.itin .igrp{scroll-margin-top:150px}@media (max-width:599px){.itin .igrp{scroll-margin-top:76px}}
 footer{border-top:1px solid var(--line);color:var(--ink-2);font-size:12.5px}
 footer .wrap{padding-block:20px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -2848,7 +2849,8 @@ V.itin = function(){
   if(!c){
     return `<div class="itin">
      <div class="ghead"><h2>추천 일정</h2><p>사이트에 소개된 장소들로 짠 일정이에요. 장소를 누르면 입장료와 가는 길을 볼 수 있어요.</p></div>
-     ${ICITY_ORDER.map(k=>{ const g=ITIN.filter(x=>x.city===k); return g.length?`<section class="igrp"><h3 class="sgh"><span>${esc(CITIES[k].ko)}</span><small>${esc(CITIES[k].jp)}</small></h3><div class="igrid">${g.map(itinCard).join("")}</div></section>`:""; }).join("")}
+     <nav class="wxmon stjump ijump">${ICITY_ORDER.filter(k=>ITIN.some(x=>x.city===k)).map(k=>`<a href="#st-${k}" data-stjump="${k}">${esc(CITIES[k].ko)}</a>`).join("")}</nav>
+     ${ICITY_ORDER.map(k=>{ const g=ITIN.filter(x=>x.city===k); return g.length?`<section class="igrp" id="st-${k}"><h3 class="sgh"><span>${esc(CITIES[k].ko)}</span><small>${esc(CITIES[k].jp)}</small></h3><div class="igrid">${g.map(itinCard).join("")}</div></section>`:""; }).join("")}
     </div>`;
   }
   const others = ITIN.filter(x=>x.city===c.city && x.key!==c.key);
