@@ -39,6 +39,7 @@ for(const pass of [0,1]){
  for(const x of ALL.filter(x=>PLACE_TYPES.includes(x.type))){ st.view="place"; st.place=x.id; await R(); }
  for(const v of ["about","contact","privacy"]){ st.view=v; await R(); }
  for(const c of ["all",...STAY_CITIES]){ st.view="stay"; st.city=c; await R(); }
+ for(const c of ["all",...DRINK_CITIES]){ st.view="drink"; st.city=c; await R(); }
  st.ap=""; st.view="airport"; await R(); for(const a of Object.keys(APS)){ st.ap=a; st.apk=""; await R(); for(const k of apDests(a)){ st.apk=k; await R(); } }
  for(const c of ["all",...WX_ORDER]) for(let m=0;m<=12;m++){ st.view="weather"; st.city=c; st.wm=m; await R(); }
  st.view="map"; st.city="all"; await R(); for(const c of Object.keys(CITIES)){ st.city=c; await R(); }
