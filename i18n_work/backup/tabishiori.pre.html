@@ -770,6 +770,8 @@ body.is-wx .hero{display:none}
 .dcard dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:5px 12px;font-size:14px}.dcard dt{color:var(--ink-2);font-weight:700;white-space:nowrap}.dcard dd{margin:0}
 .dcard .more{margin-top:auto}.dtop{display:flex;gap:6px;flex-wrap:wrap}
 .dkind{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700;color:#fff;background:var(--ink-2)}
+.dk-shochu{background:#6b5b95}.dk-umeshu{background:#b5536b}.dk-wine{background:#7a2e45}.dk-liqueur{background:#c2701a}
+.dbuyl{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0 0;font-size:14px}.dbuyl b{margin-right:4px}.dbuyl span{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
 .dk-sake{background:#3d6f8e}.dk-beer{background:#c08a1e}.dk-whisky{background:#8a4b2a}.dk-awamori{background:#2f7d6b}
 .dlist{display:flex;flex-direction:column;gap:6px}.dmini{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px}
 .dmini b{font-size:15px}.dmini small{color:var(--ink-2);font-size:13px}
@@ -3549,7 +3551,7 @@ V.stay = function(){
 /* 술 여행: drink/ (일본 술 종류·라벨 읽는 법·주문 팁·가져오기 규칙 + 지역별 양조장), <도시>/drink/ (지역 술 특징 + 견학·시음할 수 있는 곳 + 자주 묻는 질문)
    양조장·증류소 정보는 2026년 11월 각 공식 사이트 기준. 요금·예약 방식이 자주 바뀌어서 카드마다 공식 사이트 링크를 붙여요. */
 const DRINK_CITIES = ["tokyo","osaka","fukuoka","hokkaido","okinawa","nagoya","hiroshima","shikoku"];
-const DRINK_KIND = {sake:"사케", beer:"맥주", whisky:"위스키", awamori:"아와모리"};
+const DRINK_KIND = {sake:"사케", beer:"맥주", whisky:"위스키", awamori:"아와모리", shochu:"소주", umeshu:"우메슈", wine:"와인", liqueur:"리큐어"};
 const DRINK_INTRO = {
  tokyo:"도쿄에는 전국의 술이 모여요. 시내에서는 일본 술 정보관이나 에비스 양조장에서 가볍게 맛보고, 하루를 내면 오메의 사케 양조장이나 후지산·야마나시의 위스키 증류소까지 다녀올 수 있어요.",
  osaka:"간사이는 사케의 본고장이에요. 고베의 나다와 교토의 후시미는 일본을 대표하는 사케 산지이고, 오사카와 교토 사이에는 일본 첫 몰트위스키 증류소인 야마자키가 있어요.",
@@ -3626,6 +3628,45 @@ const DRINK_ORDER = ["사케는 보통 1고(一合, 약 180ml) 단위로 주문�
  "히야(冷や)는 차게 또는 상온, 아쓰칸(熱燗)은 따뜻하게 데운 사케예요.",
  "이자카야에서는 주문하지 않아도 작은 안주(오토시)가 나오고 자릿세처럼 요금이 붙는 경우가 많아요.",
  "노미호다이(飲み放題)는 정해진 시간 동안 마음껏 마시는 요금제예요."];
+const DRINK_BUY = {
+ tokyo:[
+  {k:"sake", n:"사와노이", ja:"澤乃井", d:"도쿄 오메에서 빚는 도쿄 지역 사케. 깔끔한 맛이라 처음 마시는 사람에게도 무난해요.", w:"양조장 매장, 도쿄 백화점 주류 코너"},
+  {k:"whisky", n:"기린 싱글 그레인 위스키 후지", ja:"キリン シングルグレーンウイスキー 富士", d:"후지산 기슭 후지고텐바 증류소의 위스키. 부드럽고 달콤한 향이에요.", w:"증류소 매장, 큰 주류점·백화점"},
+  {k:"sake", n:"닷사이", ja:"獺祭", d:"야마구치현 사케지만 과일 향이 화사한 준마이 다이긴조로 인기가 많아 도쿄에서도 쉽게 살 수 있어요.", w:"백화점, 공항 면세점"}],
+ osaka:[
+  {k:"sake", n:"나다·후시미 사케", ja:"灘・伏見の酒", d:"하쿠쓰루·기쿠마사무네(나다), 겟케이칸(후시미) 등 간사이 대표 양조장의 사케예요.", w:"양조장 기념관 매장, 오사카·교토 백화점"},
+  {k:"umeshu", n:"초야 우메슈", ja:"チョーヤ梅酒", d:"오사카 하비키노에 본사가 있는 우메슈 회사. 매실이 든 병이나 작은 병 세트가 선물하기 좋아요.", w:"슈퍼, 백화점, 공항"},
+  {k:"whisky", n:"야마자키", ja:"山崎", d:"일본 첫 몰트위스키 증류소의 위스키. 인기가 많아 일반 매장에서는 구하기 어려운 경우가 많아요.", w:"증류소 매장(수량 한정), 백화점"}],
+ fukuoka:[
+  {k:"shochu", n:"구로키리시마", ja:"黒霧島", d:"미야자키현의 고구마 소주. 규슈에서 가장 흔히 마시는 소주 가운데 하나예요.", w:"슈퍼, 주류점, 공항"},
+  {k:"shochu", n:"이이치코", ja:"いいちこ", d:"오이타현의 보리 소주. 향이 순해서 물이나 탄산수에 타 마시기 좋아요.", w:"슈퍼, 주류점, 공항"},
+  {k:"sake", n:"시게마스", ja:"繁桝", d:"후쿠오카현 야메의 오래된 양조장 사케. 후쿠오카 지역 사케를 찾는다면 좋은 선택이에요.", w:"하카타역·백화점 기념품 매장"}],
+ hokkaido:[
+  {k:"beer", n:"삿포로 클래식", ja:"サッポロクラシック", d:"홋카이도에서만 파는 삿포로 맥주. 여행 중에 꼭 마셔 볼 만해요.", w:"홋카이도 슈퍼·편의점, 신치토세 공항"},
+  {k:"whisky", n:"싱글 몰트 요이치", ja:"シングルモルト余市", d:"닛카 요이치 증류소의 몰트위스키. 증류소에서만 파는 위스키도 있어요.", w:"요이치 증류소 매장, 백화점"},
+  {k:"sake", n:"오토코야마·구니마레", ja:"男山・国稀", d:"아사히카와의 오토코야마, 마시케의 구니마레 등 추운 북쪽에서 빚는 깔끔한 사케예요.", w:"양조장 매장, 삿포로 백화점"},
+  {k:"wine", n:"오타루 와인", ja:"おたるワイン", d:"홋카이도산 포도로 만든 오타루의 와인. 오타루 관광 기념품으로 많이 사요.", w:"오타루 운하 근처 기념품 매장, 홋카이도 슈퍼"}],
+ okinawa:[
+  {k:"awamori", n:"구스(오래 숙성한 아와모리)", ja:"古酒（クース）", d:"3년 넘게 숙성한 아와모리. 양조장 매장에서 시음해 보고 고를 수 있어요.", w:"양조장 매장, 국제거리 주류점"},
+  {k:"awamori", n:"잔파", ja:"残波", d:"요미탄의 아와모리. 향이 부드러워 처음 마시는 사람에게도 무난해요.", w:"슈퍼, 공항"},
+  {k:"beer", n:"오리온 드래프트", ja:"オリオン ドラフト", d:"오키나와를 대표하는 맥주. 가볍고 시원한 맛이라 더운 날씨에 잘 어울려요.", w:"슈퍼·편의점, 나하 공항"}],
+ nagoya:[
+  {k:"sake", n:"히다 다카야마 사케", ja:"飛騨高山の酒", d:"하라다 주조의 '산샤', 히라세 주조의 '구스다마', 후나사카 주조의 '미야마기쿠' 등 옛 거리 양조장의 사케예요.", w:"다카야마 옛 거리 양조장 매장"},
+  {k:"sake", n:"구니자카리", ja:"國盛", d:"아이치현 한다의 나카노 주조 사케. 나고야 근처에서 쉽게 살 수 있어요.", w:"나고야 백화점, 기념품 매장"},
+  {k:"beer", n:"긴샤치 맥주", ja:"金しゃちビール", d:"아이치현의 지역 맥주. 이름은 나고야성 지붕의 황금 샤치호코 장식에서 왔어요.", w:"나고야역 기념품 매장"}],
+ hiroshima:[
+  {k:"sake", n:"사이조 사케", ja:"西条の酒", d:"가모쓰루·하쿠보탄·가모이즈미·기레이 등 '사케의 도시' 사이조 양조장의 사케예요.", w:"사이조 양조장 매장, 히로시마역 기념품 매장"},
+  {k:"liqueur", n:"세토우치 레몬 술", ja:"瀬戸内レモンのお酒", d:"히로시마는 일본 최대 레몬 산지예요. 레몬 리큐어나 레몬 사와가 기념품으로 많아요.", w:"히로시마역 기념품 매장, 공항"}],
+ shikoku:[
+  {k:"sake", n:"고치 사케", ja:"土佐の酒", d:"쓰카사보탄·스이게이·도사쓰루 등 깔끔하고 쌉쌀한 맛의 고치 사케예요.", w:"고치 백화점·역 기념품 매장"},
+  {k:"beer", n:"도고 맥주", ja:"道後ビール", d:"마쓰야마 도고온천의 지역 맥주. '봇짱'·'마돈나' 등 소설에서 딴 이름이 붙어 있어요.", w:"도고온천 상점가, 마쓰야마 공항"},
+  {k:"sake", n:"긴료", ja:"金陵", d:"가가와 고토히라의 양조장 사케. 곤피라 참배 기념품으로 좋아요.", w:"긴료노사토, 고토히라 상점가"},
+  {k:"liqueur", n:"유자 술", ja:"ゆず酒", d:"일본 최대 유자 산지 고치의 유자로 만든 리큐어. 상큼해서 술이 약한 사람도 마시기 쉬워요.", w:"고치 기념품 매장"}],
+};
+const DRINK_SHOP = ["백화점 지하 식품관 주류 코너에는 지역 술이 모여 있고, 시음해 보고 고를 수 있는 곳도 많아요.",
+ "역·공항 기념품 가게에는 작은 병이나 맛보기 세트가 있어 선물하기 좋아요.",
+ "생술(나마자케)은 냉장 보관이 필요하니 여행 마지막 날에 사세요.",
+ "증류소 한정 위스키는 한 사람이 살 수 있는 수량이 정해진 경우가 많아요."];
 const DRINK_VISIT = ["일본은 20세부터 술을 마실 수 있어요. 견학 시음도 20세 미만은 할 수 없어요.",
  "운전하는 사람은 시음할 수 없어요. 대신 음료나 기념품을 주는 곳이 많아요.",
  "공장 투어는 대부분 예약제이고, 안내는 일본어로만 하는 곳이 많아요.",
@@ -3649,6 +3690,11 @@ function drinkCard(v){
    <dl>${row("요금",v.fee)}${row("예약",v.rv)}${row("시간",v.h)}${row("휴무",v.cl)}${row("가는 길",v.st)}</dl>
    <a class="more" href="${v.u}" target="_blank" rel="noopener">${v.o===0?"안내 페이지 ↗":"공식 사이트 ↗"}</a></article>`;
 }
+function drinkBuyCard(v){
+  return `<article class="dcard dbuy"><div class="dtop"><span class="dkind dk-${v.k}">${DRINK_KIND[v.k]}</span></div>
+   <h3>${esc(v.n)}</h3><p class="hja notranslate" lang="ja">${esc(v.ja)}</p><p class="dd">${esc(v.d)}</p>
+   <dl><dt>살 수 있는 곳</dt><dd>${esc(v.w)}</dd></dl></article>`;
+}
 V.drink = function(){
   const c = DRINK_CITIES.includes(st.city) ? st.city : "";
   const bc=(i,h)=>`<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${h.replace("<a ",'<a itemprop="item" ').replace(/>([^<]*)<\/a>$/,'><span itemprop="name">$1</span></a>')}<meta itemprop="position" content="${i}"></span>`;
@@ -3664,7 +3710,9 @@ V.drink = function(){
      ${DRINK_CITIES.map(k=>{ const vs=DRINKS.filter(v=>v.city===k);
        return `<section class="stsec" id="st-${k}"><h3 class="sgh"><span>${esc(CITIES[k].ko)}</span></h3><p class="stsub">${esc(DRINK_INTRO[k])}</p>
         <div class="dlist">${vs.map(v=>`<div class="dmini"><span class="dkind dk-${v.k}">${DRINK_KIND[v.k]}</span><b>${esc(v.n)}</b><small>${esc(v.area)}</small></div>`).join("")}</div>
+        <p class="dbuyl"><b>사 가면 좋은 술</b>${(DRINK_BUY[k]||[]).map(v=>`<span>${esc(v.n)}</span>`).join("")}</p>
         <p class="stmore">${drinkA(k,`${esc(CITIES[k].ko)} 술 여행 자세히 보기<i> →</i>`,"more")}</p></section>`; }).join("")}
+     ${drinkList("술 살 때 팁", DRINK_SHOP)}
      ${drinkList("양조장·증류소 견학 팁", DRINK_VISIT)}
      <section class="gblk faq" itemscope itemtype="https://schema.org/FAQPage"><h4>자주 묻는 질문</h4><dl>
       ${qa(drinkHomeQ(), `<span>${esc(drinkCarry()[0])}</span>`)}
@@ -3681,9 +3729,13 @@ V.drink = function(){
    ${drinkChips(c)}
    <h3 class="sgh"><span>견학·시음할 수 있는 곳</span></h3>
    <div class="dgrid">${vs.map(drinkCard).join("")}</div>
+   <h3 class="sgh"><span>사 가면 좋은 술</span></h3>
+   <div class="dgrid">${(DRINK_BUY[c]||[]).map(drinkBuyCard).join("")}</div>
+   ${drinkList("술 살 때 팁", DRINK_SHOP)}
    ${note}
    <section class="gblk faq" itemscope itemtype="https://schema.org/FAQPage"><h4>자주 묻는 질문</h4><dl>
     ${free.length?qa(`${n}에서 예약 없이 들를 수 있는 곳은 어디인가요?`, free.map(v=>`<span><b>${esc(v.n)}</b> (<span>${esc(v.area)}</span>)</span>`).join(" / ")):""}
+    ${(DRINK_BUY[c]||[]).length?qa(`${n}에서 사 갈 만한 술은 무엇인가요?`, DRINK_BUY[c].map(v=>`<span><b>${esc(v.n)}</b> (<span>${DRINK_KIND[v.k]}</span>)</span>`).join(" / ")):""}
     ${qa("견학할 때 시음을 못 하는 경우가 있나요?", `<span>${esc(DRINK_VISIT[0])}</span> <span>${esc(DRINK_VISIT[1])}</span>`)}
     ${qa(drinkHomeQ(), `<span>${esc(drinkCarry()[0])}</span>`)}
    </dl></section>

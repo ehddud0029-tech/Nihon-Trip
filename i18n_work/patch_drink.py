@@ -14,6 +14,8 @@ CSS = """/*DRCSS_BEGIN*/
 .dcard dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:5px 12px;font-size:14px}.dcard dt{color:var(--ink-2);font-weight:700;white-space:nowrap}.dcard dd{margin:0}
 .dcard .more{margin-top:auto}.dtop{display:flex;gap:6px;flex-wrap:wrap}
 .dkind{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700;color:#fff;background:var(--ink-2)}
+.dk-shochu{background:#6b5b95}.dk-umeshu{background:#b5536b}.dk-wine{background:#7a2e45}.dk-liqueur{background:#c2701a}
+.dbuyl{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0 0;font-size:14px}.dbuyl b{margin-right:4px}.dbuyl span{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
 .dk-sake{background:#3d6f8e}.dk-beer{background:#c08a1e}.dk-whisky{background:#8a4b2a}.dk-awamori{background:#2f7d6b}
 .dlist{display:flex;flex-direction:column;gap:6px}.dmini{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px}
 .dmini b{font-size:15px}.dmini small{color:var(--ink-2);font-size:13px}
