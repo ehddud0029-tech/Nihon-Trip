@@ -1050,7 +1050,7 @@ function renderCities(){
       const inC = FESTS.filter(f=>f.city===st.city);
       let items = inC.filter(f=>f.month===st.month), label = `${st.month}월`;
       if(!items.length){ const next = [...inC].sort((a,b)=>((a.month-st.month+12)%12)-((b.month-st.month+12)%12))[0]; if(next){ items = inC.filter(f=>f.month===next.month); label = `다가오는 ${next.month}월`; } }
-      topicCell = `<div class="bfest"><dt>${esc(c.ko)} ${label} 축제</dt>${items.length?pickList(items.slice(0,3), x=>x.month+"월", x=>x.when):`<dd class="sub">등록된 축제가 없어요</dd>`}</div>`;
+      topicCell = `<div class="bfest"><dt>${esc(c.ko)} ${label} 축제</dt>${items.length?pickList(items.slice(0,3), x=>x.month+"월", x=>x.when).replace(/(<button type="button" class="pick" data-open="([^"]+)">[\s\S]*?)<\/button>/g,(m,a,id)=>{ const it=byId(id); return a+(it&&it.desc?`<span class="pdx">${esc(it.desc)}</span>`:"")+"</button>"; }):`<dd class="sub">등록된 축제가 없어요</dd>`}</div>`;
     }else if(st.view==="shopping"){
       const own = A ? SHOPS.filter(it=>it.sub===A.key) : [];
       const items = (own.length ? own : inArea(SHOPS)).slice(0,3);
