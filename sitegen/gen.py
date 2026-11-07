@@ -323,9 +323,9 @@ def main():
             pg.goto(root + lp, wait_until='load')
             pg.wait_for_timeout(300)
             routes = pg.evaluate('''()=>{ const r=["","saved/","map/"]; for(const g of GKEYS) r.push(`guide/${g}/`); r.push("about/","contact/","privacy/"); r.push("itinerary/"); for(const k of IKEYS) r.push(`itinerary/${k}/`); for(const v of ["spots","food","transport","shopping"]) r.push(v+"/");
-              for(let m=1;m<=12;m++) r.push(`festivals/${m}/`);
+              for(let m=1;m<=12;m++) r.push(`festivals/${m}/`); for(const t of ["times","airport","ic"]) r.push(`transport/${t}/`);
               { const sts=["","booking",...(stayShowHotels()?["hotels"]:[])]; for(const t of sts) r.push(`stay/${t?t+"/":""}`); for(const c of STAY_CITIES) for(const t of sts) r.push(`${c}/stay/${t?t+"/":""}`); } r.push("drink/","drink/types/","drink/visit/","drink/carry/"); for(const c of DRINK_CITIES) for(const t of DRINK_TABS) r.push(`${c}/drink/${t?t+"/":""}`); r.push("airport/"); for(const a of Object.keys(APS)){ r.push(`airport/${a}/`,`airport/${a}/all/`,`airport/${a}/faq/`); for(const k of apDests(a)) r.push(`airport/${a}/${k}/`); } r.push("weather/"); for(let m=1;m<=12;m++) r.push(`weather/${m}/`); for(const c of WX_ORDER){ r.push(`${c}/weather/`,`${c}/weather/outfit/`,`${c}/weather/faq/`); for(let m=1;m<=12;m++) r.push(`${c}/weather/${m}/`); }
-              for(const c of Object.keys(CITIES)) for(const a of areasOf(c)) for(const v of ["spots","festivals","food","transport","shopping"]) if(v!=="transport"||tgRep(a.key)===a.key) r.push(`${c}/${a.key}/${v}/`);
+              for(const c of Object.keys(CITIES)) for(const a of areasOf(c)) for(const v of ["spots","festivals","food","transport","shopping"]) if(v!=="transport"||tgRep(a.key)===a.key){ r.push(`${c}/${a.key}/${v}/`); if(v==="transport") for(const t of ["times","airport","ic"]) r.push(`${c}/${a.key}/transport/${t}/`); }
               for(const x of ALL) if(PLACE_TYPES.includes(x.type)) r.push(`place/${placeSlug(x.id)}/`);
               return r; }''')
             for path in routes:

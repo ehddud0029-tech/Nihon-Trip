@@ -152,12 +152,27 @@ function drinkCard(v){
    <dl>${row("요금",v.fee)}${row("예약",v.rv)}${row("시간",v.h)}${row("휴무",v.cl)}${row("가는 길",v.st)}</dl>
    <a class="more" href="${v.u}" target="_blank" rel="noopener">${v.o===0?"안내 페이지 ↗":"공식 사이트 ↗"}</a></article>`;
 }
-function drinkBuyCard(v){
+const DRINK_ART = {
+ sake:   ["#3d6f8e","#e8f0f5",'<path d="M44 14h12v14c0 4 10 8 10 22v46c0 4-3 6-6 6H40c-3 0-6-2-6-6V50c0-14 10-18 10-22z" fill="#fff" opacity=".95"/><rect x="38" y="58" width="24" height="26" rx="2" fill="#fffdf8"/><path d="M50 62v18M45 67h10M45 74h10" stroke="#3d6f8e" stroke-width="2.2"/>'],
+ shochu: ["#6b5b95","#eeebf4",'<path d="M45 12h10v16c0 3 9 6 9 18v50c0 4-3 6-6 6H42c-3 0-6-2-6-6V46c0-12 9-15 9-18z" fill="#fff" opacity=".95"/><rect x="40" y="56" width="20" height="30" rx="2" fill="#fffdf8"/><circle cx="50" cy="71" r="6" fill="none" stroke="#6b5b95" stroke-width="2.2"/>'],
+ awamori:["#2f7d6b","#e6f2ef",'<path d="M38 40c0-8 6-12 6-18h12c0 6 6 10 6 18v52c0 5-4 8-8 8H46c-4 0-8-3-8-8z" fill="#fff" opacity=".95"/><rect x="44" y="14" width="12" height="9" rx="2" fill="#fff"/><path d="M38 64h24" stroke="#2f7d6b" stroke-width="10"/><path d="M42 64h16" stroke="#2f7d6b" stroke-width="2" stroke-dasharray="3 3"/>'],
+ beer:   ["#c08a1e","#faf1de",'<path d="M46 12h8v14c0 3 7 6 7 15v53c0 4-3 6-6 6H45c-3 0-6-2-6-6V41c0-9 7-12 7-15z" fill="#fff" opacity=".95"/><ellipse cx="50" cy="66" rx="9" ry="12" fill="#fffdf8"/><path d="M50 58v16" stroke="#c08a1e" stroke-width="2.2"/><circle cx="50" cy="12" r="5" fill="#fff"/>'],
+ whisky: ["#8a4b2a","#f5ece6",'<rect x="45" y="10" width="10" height="16" rx="2" fill="#fff"/><path d="M36 34c0-5 4-8 9-8h10c5 0 9 3 9 8v58c0 4-3 7-7 7H43c-4 0-7-3-7-7z" fill="#fff" opacity=".95"/><rect x="40" y="52" width="20" height="24" rx="2" fill="#fffdf8"/><path d="M44 60h12M44 66h12" stroke="#8a4b2a" stroke-width="2"/>'],
+ umeshu: ["#b5536b","#f8e9ed",'<rect x="44" y="12" width="12" height="10" rx="2" fill="#fff"/><path d="M36 30c0-5 4-8 8-8h12c4 0 8 3 8 8v62c0 4-3 7-7 7H43c-4 0-7-3-7-7z" fill="#fff" opacity=".95"/><circle cx="45" cy="80" r="6" fill="#d9a441"/><circle cx="55" cy="84" r="6" fill="#c9922f"/><circle cx="50" cy="72" r="6" fill="#e0b04a"/>'],
+ wine:   ["#7a2e45","#f4e7eb",'<path d="M46 10h8v22c0 4 8 7 8 18v44c0 4-3 6-6 6H44c-3 0-6-2-6-6V50c0-11 8-14 8-18z" fill="#fff" opacity=".95"/><rect x="41" y="60" width="18" height="20" rx="2" fill="#fffdf8"/>'],
+ liqueur:["#c2701a","#fbefe2",'<path d="M44 12h12v12c0 3 10 8 10 20v50c0 4-3 6-6 6H40c-3 0-6-2-6-6V44c0-12 10-17 10-20z" fill="#fff" opacity=".95"/><circle cx="50" cy="70" r="10" fill="#e7c23a"/><path d="M50 60v-6" stroke="#5b8a3a" stroke-width="3"/>'],
+};
+const drinkArt = k => { const [c,bg,body]=DRINK_ART[k]||DRINK_ART.sake; return `<figure class="dph dart" aria-hidden="true" style="background:${bg}"><svg viewBox="0 0 100 110" width="150" height="165"><rect x="0" y="100" width="100" height="10" fill="${c}" opacity=".18"/><g style="filter:drop-shadow(0 2px 3px rgba(0,0,0,.18))">${body.replace(/<path d="M(\d)/,`<path fill="${c}" d="M$1`)}</g></svg></figure>`; };
+const drinkMap = q => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+const DRINK_STORE_Q = ["デパ地下 酒売り場","酒 ディスカウント","スーパー","ドン・キホーテ","空港 免税店","酒蔵 直売所"];
+function drinkBuyCard(v,c){
   const ph = DRINK_PHOTO[v.n];
+  const art = ph ? "" : drinkArt(v.k);
   const fig = ph ? `<figure class="dph"><img src="${esc(ph.src)}" alt="${esc((window.__tr||(x=>x))(v.n))}" decoding="async"><figcaption><a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(ph.file.replace(/ /g,"_"))}" target="_blank" rel="noopener">사진</a> <span class="notranslate">${esc(ph.artist)} · ${esc(ph.license)}</span></figcaption></figure>` : "";
-  return `<article class="dcard dbuy">${fig}<div class="dtop"><span class="dkind dk-${v.k}">${DRINK_KIND[v.k]}</span></div>
+  return `<article class="dcard dbuy">${fig||art}<div class="dtop"><span class="dkind dk-${v.k}">${DRINK_KIND[v.k]}</span></div>
    <h3>${esc(v.n)}</h3><p class="hja notranslate" lang="ja">${esc(v.ja)}</p><p class="dd">${esc(v.d)}</p>${v.t?`<p class="dtaste">${esc(v.t)}</p>`:""}
-   <dl>${v.p?`<dt>가격대</dt><dd>${esc(v.p)}</dd>`:""}<dt>살 수 있는 곳</dt><dd>${esc(v.w)}</dd></dl></article>`;
+   <dl>${v.p?`<dt>가격대</dt><dd>${esc(v.p)}</dd>`:""}<dt>살 수 있는 곳</dt><dd>${esc(v.w)}</dd></dl>
+   ${c&&CITIES[c]?`<a class="more dmap" href="${drinkMap(`${v.ja.split("（")[0]} ${CITIES[c].jp}`)}" target="_blank" rel="noopener">구글 지도에서 파는 곳 찾기 ↗</a>`:""}</article>`;
 }
 V.drink = function(){
   const c = DRINK_CITIES.includes(st.city) ? st.city : "";
@@ -197,7 +212,7 @@ V.drink = function(){
     if(free.length) faq.push(qa(`${n}에서 예약 없이 들를 수 있는 곳은 어디인가요?`, free.map(v=>`<span><b>${esc(v.n)}</b> (<span>${esc(v.area)}</span>)</span>`).join(" / ")));
     faq.push(qa("견학할 때 시음을 못 하는 경우가 있나요?", `<span>${esc(DRINK_VISIT[0])}</span> <span>${esc(DRINK_VISIT[1])}</span>`));
   } else if(t==="buy"){
-    body = `<div class="dgrid">${buy.map(drinkBuyCard).join("")}</div><p class="sisrc">${esc(DRINK_SHOP[0])}</p>`;
+    body = `<div class="dgrid">${buy.map(v=>drinkBuyCard(v,c)).join("")}</div><p class="sisrc">${esc(DRINK_SHOP[0])}</p>`;
     if(buy.length) faq.push(qa(`${n}에서 사 갈 만한 술은 무엇인가요?`, buy.map(v=>`<span><b>${esc(v.n)}</b> (<span>${DRINK_KIND[v.k]}</span>)</span>`).join(" / ")));
   } else if(t==="tips"){
     body = `${drinkList("술 살 때 팁", DRINK_SHOP.slice(1))}${drinkList("사케 라벨 읽는 법", DRINK_LABEL)}${drinkList("술을 가지고 올 때", drinkCarry())}`;
@@ -205,8 +220,8 @@ V.drink = function(){
     faq.push(qa("비행기에 술을 실을 수 있나요?", `<span>${esc(DRINK_CARRY[1])}</span> <span>${esc(DRINK_CARRY[2])}</span>`));
   } else {
     const shops = vs.filter(v=>["sake","whisky","awamori"].includes(v.k)&&v.n!=="일본 술 정보관");
-    body = `<div class="dtypes">${DRINK_STORES.map(([a,b])=>`<div class="gblk"><h4>${esc(a)}</h4><p>${esc(b)}</p></div>`).join("")}</div>
-     ${buy.length?`<div class="gblk"><h4>추천 술을 살 수 있는 곳</h4><dl class="dwhere">${buy.map(v=>`<dt>${esc(v.n)}</dt><dd>${esc(v.w)}</dd>`).join("")}</dl></div>`:""}
+    body = `<div class="dtypes">${DRINK_STORES.map(([a,b],i)=>`<div class="gblk"><h4>${esc(a)}</h4><p>${esc(b)}</p><p><a class="more" href="${drinkMap(`${DRINK_STORE_Q[i]} ${CITIES[c].jp}`)}" target="_blank" rel="noopener">구글 지도에서 ${esc(CITIES[c].ko)} 매장 찾기 ↗</a></p></div>`).join("")}</div>
+     ${buy.length?`<div class="gblk"><h4>추천 술을 살 수 있는 곳</h4><dl class="dwhere">${buy.map(v=>`<dt>${esc(v.n)}</dt><dd>${esc(v.w)} · <a href="${drinkMap(`${v.ja.split("（")[0]} ${CITIES[c].jp}`)}" target="_blank" rel="noopener">지도 ↗</a></dd>`).join("")}</dl></div>`:""}
      ${shops.length?`<div class="gblk"><h4>직매장에서 살 수 있는 양조장·증류소</h4><ul class="gul">${shops.map(v=>`<li><b>${esc(v.n)}</b> (<span>${esc(v.area)}</span>)</li>`).join("")}</ul></div>`:""}`;
   }
   return `<div class="wx">

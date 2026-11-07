@@ -776,6 +776,7 @@ body.is-wx .hero{display:none}
 .dtaste{margin:0;font-size:14px;color:var(--ink-2);font-style:italic}
 .dtabs{display:flex;gap:6px;overflow-x:auto;margin:14px 0 4px;padding-bottom:2px;border-bottom:1px solid var(--line)}.dtabs a{flex:0 0 auto;padding:9px 14px;border-radius:10px 10px 0 0;text-decoration:none;color:var(--ink-2);font-weight:600;font-size:14.5px;border-bottom:3px solid transparent}.dtabs a.on{color:var(--ink);border-bottom-color:var(--accent,#c0392b)}
 .dwhere{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px}.dwhere dt{font-weight:700}.dwhere dd{margin:0}
+.dart{display:flex;align-items:center;justify-content:center;height:190px;border-radius:var(--r) var(--r) 0 0}.dart svg{display:block}.dmap{margin-top:6px}
 .dk-sake{background:#3d6f8e}.dk-beer{background:#c08a1e}.dk-whisky{background:#8a4b2a}.dk-awamori{background:#2f7d6b}
 .dlist{display:flex;flex-direction:column;gap:6px}.dmini{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px}
 .dmini b{font-size:15px}.dmini small{color:var(--ink-2);font-size:13px}
@@ -784,6 +785,9 @@ body.is-wx .hero{display:none}
 .sbtabs{margin:16px 0 14px}
 @media (max-width:599px){.sbtabs a{padding:8px 11px;font-size:14px}}
 /*SBCSS_END*/
+/*TTCSS_BEGIN*/
+body.tsub #brief{display:none}
+/*TTCSS_END*/
 footer{border-top:1px solid var(--line);color:var(--ink-2);font-size:12.5px}
 footer .wrap{padding-block:20px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -3068,6 +3072,7 @@ function render(){
   if(st.view==="home" || INFO_VIEWS.includes(st.view)){ st.city="all"; }
   if(st.city==="all") st.area="all";
   if(st.city!=="all" && (st.area==="all" || !areasOf(st.city).some(a=>a.key===st.area))) st.area = areasOf(st.city)[0]?.key || "all";
+  document.body.classList.toggle("tsub", st.view==="transport" && !!subOk(st));
   renderCities(); setNav();
   $("#main").innerHTML = V[st.view]();
   const q = $("#q");
@@ -3777,12 +3782,27 @@ function drinkCard(v){
    <dl>${row("요금",v.fee)}${row("예약",v.rv)}${row("시간",v.h)}${row("휴무",v.cl)}${row("가는 길",v.st)}</dl>
    <a class="more" href="${v.u}" target="_blank" rel="noopener">${v.o===0?"안내 페이지 ↗":"공식 사이트 ↗"}</a></article>`;
 }
-function drinkBuyCard(v){
+const DRINK_ART = {
+ sake:   ["#3d6f8e","#e8f0f5",'<path d="M44 14h12v14c0 4 10 8 10 22v46c0 4-3 6-6 6H40c-3 0-6-2-6-6V50c0-14 10-18 10-22z" fill="#fff" opacity=".95"/><rect x="38" y="58" width="24" height="26" rx="2" fill="#fffdf8"/><path d="M50 62v18M45 67h10M45 74h10" stroke="#3d6f8e" stroke-width="2.2"/>'],
+ shochu: ["#6b5b95","#eeebf4",'<path d="M45 12h10v16c0 3 9 6 9 18v50c0 4-3 6-6 6H42c-3 0-6-2-6-6V46c0-12 9-15 9-18z" fill="#fff" opacity=".95"/><rect x="40" y="56" width="20" height="30" rx="2" fill="#fffdf8"/><circle cx="50" cy="71" r="6" fill="none" stroke="#6b5b95" stroke-width="2.2"/>'],
+ awamori:["#2f7d6b","#e6f2ef",'<path d="M38 40c0-8 6-12 6-18h12c0 6 6 10 6 18v52c0 5-4 8-8 8H46c-4 0-8-3-8-8z" fill="#fff" opacity=".95"/><rect x="44" y="14" width="12" height="9" rx="2" fill="#fff"/><path d="M38 64h24" stroke="#2f7d6b" stroke-width="10"/><path d="M42 64h16" stroke="#2f7d6b" stroke-width="2" stroke-dasharray="3 3"/>'],
+ beer:   ["#c08a1e","#faf1de",'<path d="M46 12h8v14c0 3 7 6 7 15v53c0 4-3 6-6 6H45c-3 0-6-2-6-6V41c0-9 7-12 7-15z" fill="#fff" opacity=".95"/><ellipse cx="50" cy="66" rx="9" ry="12" fill="#fffdf8"/><path d="M50 58v16" stroke="#c08a1e" stroke-width="2.2"/><circle cx="50" cy="12" r="5" fill="#fff"/>'],
+ whisky: ["#8a4b2a","#f5ece6",'<rect x="45" y="10" width="10" height="16" rx="2" fill="#fff"/><path d="M36 34c0-5 4-8 9-8h10c5 0 9 3 9 8v58c0 4-3 7-7 7H43c-4 0-7-3-7-7z" fill="#fff" opacity=".95"/><rect x="40" y="52" width="20" height="24" rx="2" fill="#fffdf8"/><path d="M44 60h12M44 66h12" stroke="#8a4b2a" stroke-width="2"/>'],
+ umeshu: ["#b5536b","#f8e9ed",'<rect x="44" y="12" width="12" height="10" rx="2" fill="#fff"/><path d="M36 30c0-5 4-8 8-8h12c4 0 8 3 8 8v62c0 4-3 7-7 7H43c-4 0-7-3-7-7z" fill="#fff" opacity=".95"/><circle cx="45" cy="80" r="6" fill="#d9a441"/><circle cx="55" cy="84" r="6" fill="#c9922f"/><circle cx="50" cy="72" r="6" fill="#e0b04a"/>'],
+ wine:   ["#7a2e45","#f4e7eb",'<path d="M46 10h8v22c0 4 8 7 8 18v44c0 4-3 6-6 6H44c-3 0-6-2-6-6V50c0-11 8-14 8-18z" fill="#fff" opacity=".95"/><rect x="41" y="60" width="18" height="20" rx="2" fill="#fffdf8"/>'],
+ liqueur:["#c2701a","#fbefe2",'<path d="M44 12h12v12c0 3 10 8 10 20v50c0 4-3 6-6 6H40c-3 0-6-2-6-6V44c0-12 10-17 10-20z" fill="#fff" opacity=".95"/><circle cx="50" cy="70" r="10" fill="#e7c23a"/><path d="M50 60v-6" stroke="#5b8a3a" stroke-width="3"/>'],
+};
+const drinkArt = k => { const [c,bg,body]=DRINK_ART[k]||DRINK_ART.sake; return `<figure class="dph dart" aria-hidden="true" style="background:${bg}"><svg viewBox="0 0 100 110" width="150" height="165"><rect x="0" y="100" width="100" height="10" fill="${c}" opacity=".18"/><g style="filter:drop-shadow(0 2px 3px rgba(0,0,0,.18))">${body.replace(/<path d="M(\d)/,`<path fill="${c}" d="M$1`)}</g></svg></figure>`; };
+const drinkMap = q => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+const DRINK_STORE_Q = ["デパ地下 酒売り場","酒 ディスカウント","スーパー","ドン・キホーテ","空港 免税店","酒蔵 直売所"];
+function drinkBuyCard(v,c){
   const ph = DRINK_PHOTO[v.n];
+  const art = ph ? "" : drinkArt(v.k);
   const fig = ph ? `<figure class="dph"><img src="${esc(ph.src)}" alt="${esc((window.__tr||(x=>x))(v.n))}" decoding="async"><figcaption><a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(ph.file.replace(/ /g,"_"))}" target="_blank" rel="noopener">사진</a> <span class="notranslate">${esc(ph.artist)} · ${esc(ph.license)}</span></figcaption></figure>` : "";
-  return `<article class="dcard dbuy">${fig}<div class="dtop"><span class="dkind dk-${v.k}">${DRINK_KIND[v.k]}</span></div>
+  return `<article class="dcard dbuy">${fig||art}<div class="dtop"><span class="dkind dk-${v.k}">${DRINK_KIND[v.k]}</span></div>
    <h3>${esc(v.n)}</h3><p class="hja notranslate" lang="ja">${esc(v.ja)}</p><p class="dd">${esc(v.d)}</p>${v.t?`<p class="dtaste">${esc(v.t)}</p>`:""}
-   <dl>${v.p?`<dt>가격대</dt><dd>${esc(v.p)}</dd>`:""}<dt>살 수 있는 곳</dt><dd>${esc(v.w)}</dd></dl></article>`;
+   <dl>${v.p?`<dt>가격대</dt><dd>${esc(v.p)}</dd>`:""}<dt>살 수 있는 곳</dt><dd>${esc(v.w)}</dd></dl>
+   ${c&&CITIES[c]?`<a class="more dmap" href="${drinkMap(`${v.ja.split("（")[0]} ${CITIES[c].jp}`)}" target="_blank" rel="noopener">구글 지도에서 파는 곳 찾기 ↗</a>`:""}</article>`;
 }
 V.drink = function(){
   const c = DRINK_CITIES.includes(st.city) ? st.city : "";
@@ -3822,7 +3842,7 @@ V.drink = function(){
     if(free.length) faq.push(qa(`${n}에서 예약 없이 들를 수 있는 곳은 어디인가요?`, free.map(v=>`<span><b>${esc(v.n)}</b> (<span>${esc(v.area)}</span>)</span>`).join(" / ")));
     faq.push(qa("견학할 때 시음을 못 하는 경우가 있나요?", `<span>${esc(DRINK_VISIT[0])}</span> <span>${esc(DRINK_VISIT[1])}</span>`));
   } else if(t==="buy"){
-    body = `<div class="dgrid">${buy.map(drinkBuyCard).join("")}</div><p class="sisrc">${esc(DRINK_SHOP[0])}</p>`;
+    body = `<div class="dgrid">${buy.map(v=>drinkBuyCard(v,c)).join("")}</div><p class="sisrc">${esc(DRINK_SHOP[0])}</p>`;
     if(buy.length) faq.push(qa(`${n}에서 사 갈 만한 술은 무엇인가요?`, buy.map(v=>`<span><b>${esc(v.n)}</b> (<span>${DRINK_KIND[v.k]}</span>)</span>`).join(" / ")));
   } else if(t==="tips"){
     body = `${drinkList("술 살 때 팁", DRINK_SHOP.slice(1))}${drinkList("사케 라벨 읽는 법", DRINK_LABEL)}${drinkList("술을 가지고 올 때", drinkCarry())}`;
@@ -3830,8 +3850,8 @@ V.drink = function(){
     faq.push(qa("비행기에 술을 실을 수 있나요?", `<span>${esc(DRINK_CARRY[1])}</span> <span>${esc(DRINK_CARRY[2])}</span>`));
   } else {
     const shops = vs.filter(v=>["sake","whisky","awamori"].includes(v.k)&&v.n!=="일본 술 정보관");
-    body = `<div class="dtypes">${DRINK_STORES.map(([a,b])=>`<div class="gblk"><h4>${esc(a)}</h4><p>${esc(b)}</p></div>`).join("")}</div>
-     ${buy.length?`<div class="gblk"><h4>추천 술을 살 수 있는 곳</h4><dl class="dwhere">${buy.map(v=>`<dt>${esc(v.n)}</dt><dd>${esc(v.w)}</dd>`).join("")}</dl></div>`:""}
+    body = `<div class="dtypes">${DRINK_STORES.map(([a,b],i)=>`<div class="gblk"><h4>${esc(a)}</h4><p>${esc(b)}</p><p><a class="more" href="${drinkMap(`${DRINK_STORE_Q[i]} ${CITIES[c].jp}`)}" target="_blank" rel="noopener">구글 지도에서 ${esc(CITIES[c].ko)} 매장 찾기 ↗</a></p></div>`).join("")}</div>
+     ${buy.length?`<div class="gblk"><h4>추천 술을 살 수 있는 곳</h4><dl class="dwhere">${buy.map(v=>`<dt>${esc(v.n)}</dt><dd>${esc(v.w)} · <a href="${drinkMap(`${v.ja.split("（")[0]} ${CITIES[c].jp}`)}" target="_blank" rel="noopener">지도 ↗</a></dd>`).join("")}</dl></div>`:""}
      ${shops.length?`<div class="gblk"><h4>직매장에서 살 수 있는 양조장·증류소</h4><ul class="gul">${shops.map(v=>`<li><b>${esc(v.n)}</b> (<span>${esc(v.area)}</span>)</li>`).join("")}</ul></div>`:""}`;
   }
   return `<div class="wx">
@@ -3853,6 +3873,7 @@ function subOk(s){
   if(s.view==="stay") return (t==="booking"||(t==="hotels"&&typeof stayShowHotels==="function"&&stayShowHotels()))?t:"";
   if(s.view==="drink") return !DRINK_CITIES.includes(s.city)&&["types","visit","carry"].includes(t)?t:"";
   if(s.view==="weather") return WXN[s.city]&&s.city!=="all"&&!(s.wm>=1&&s.wm<=12)&&["outfit","faq"].includes(t)?t:"";
+  if(s.view==="transport") return ["times","airport","ic"].includes(t)?t:"";
   if(s.view==="airport") return APS[s.ap]&&!(s.apk&&apOpts(s.ap,s.apk).length)&&["all","faq"].includes(t)?t:"";
   return "";
 }
@@ -3862,6 +3883,7 @@ function subFromSeg(seg){
   if(CITIES[seg[0]]&&seg[1]==="stay"&&n===3&&["hotels","booking"].includes(l)) return l;
   if(seg[0]==="drink"&&n===2&&["types","visit","carry"].includes(l)) return l;
   if(CITIES[seg[0]]&&seg[1]==="weather"&&n===3&&["outfit","faq"].includes(l)) return l;
+  if(seg[n-2]==="transport"&&["times","airport","ic"].includes(l)) return l;
   if(seg[0]==="airport"&&n===3&&APS[seg[1]]&&["all","faq"].includes(l)) return l;
   return "";
 }
@@ -3877,6 +3899,7 @@ function subMeta(){
   else if(st.view==="drink") key=`drink:i:${st.sub}`;
   else if(st.view==="weather"){ key=`weather:c:${st.sub}`; o.a=T(CITIES[st.city].ko); }
   else if(st.view==="airport"){ key=`airport:a:${st.sub}`; o.ap=T(apName(st.ap)); }
+  else if(st.view==="transport"){ const tm=(TTABM[L]||TTABM.ko)[st.sub]; if(!tm) return null; const A=curArea(); const a=st.city==="all"?T("일본"):A?T(A.ko):T(CITIES[st.city].ko); return {title:f(tm[0],{a})+" | Go Nihon Trip", desc:f(tm[1],{a})}; }
   const m=M[key]; if(!m) return null;
   return {title:f(m[0],o)+" | Go Nihon Trip", desc:f(m[1],o)};
 }
@@ -3896,6 +3919,30 @@ function tgTo(A){
 }
 function tgMove(pa){ const g=tgOn()&&tgOf(pa); if(!g) return (AREA_GUIDE[pa]||{}).move||[]; const n={}; return tgMerge(g.members.flatMap(k=>(AREA_GUIDE[k]||{}).move||[]), x=>x[1], 99).filter(x=>(n[x[0]]=(n[x[0]]||0)+1)<=2).slice(0,6); }
 /*TGROUP_END*/
+/*TTABS_BEGIN*/
+const TTABS = [["","한눈에 보기"],["times","이동별 걸리는 시간"],["airport","공항에서 시내 가는 법"],["ic","교통카드 안내"]];
+const TTABM = {"ko":{"times":["{a} 교통 – 이동별 걸리는 시간","{a}에서 주요 구간을 기차·지하철·버스로 이동할 때 걸리는 시간과 노선을 정리했어요."],"airport":["{a} 공항에서 시내 가는 법 – 기차·버스·걸리는 시간","{a}의 공항에서 시내와 관광지까지 가는 가장 빠른 방법과 걸리는 시간을 정리했어요."],"ic":["{a} 교통카드 안내 – 어디서 사고 어떻게 쓰나","{a}에서 쓰는 교통카드 종류와 사는 곳, 충전·환불 방법, 전국 호환 여부를 정리했어요."]},"en":{"times":["{a} Transport – Travel Times by Route","Travel times and lines for the main routes around {a} by train, subway and bus."],"airport":["{a} Airport to City – Trains, Buses & Times","The fastest ways from the airport to the city and sights in {a}, with travel times."],"ic":["{a} IC Card Guide – Where to Buy & How to Use","Which IC card to use in {a}, where to buy it, how to top up and get a refund, and where it works."]},"ja":{"times":["{a}の交通 – 区間ごとの所要時間","{a}の主な区間を電車・地下鉄・バスで移動するときの所要時間と路線をまとめました。"],"airport":["{a}の空港から市内への行き方 – 電車・バス・所要時間","{a}の空港から市内や観光地へのいちばん早い行き方と所要時間をまとめました。"],"ic":["{a}の交通系ICカード案内 – 買える場所と使い方","{a}で使える交通系ICカードの種類と買える場所、チャージ・払い戻し、全国での相互利用をまとめました。"]},"es":{"times":["Transporte en {a} – Tiempos por trayecto","Tiempos y líneas de los principales trayectos en {a} en tren, metro y autobús."],"airport":["Del aeropuerto al centro en {a} – Trenes, autobuses y tiempos","Las formas más rápidas de ir del aeropuerto al centro y a los lugares de interés en {a}, con tiempos."],"ic":["Tarjetas IC en {a} – Dónde comprarlas y cómo usarlas","Qué tarjeta IC usar en {a}, dónde comprarla, cómo recargarla y pedir el reembolso, y dónde funciona."]},"fr":{"times":["Transports à {a} – Durées par trajet","Durées et lignes des principaux trajets à {a} en train, métro et bus."],"airport":["De l'aéroport au centre de {a} – Trains, bus et durées","Les moyens les plus rapides de l'aéroport vers le centre et les sites de {a}, avec les durées."],"ic":["Cartes IC à {a} – Où les acheter et comment les utiliser","Quelle carte IC utiliser à {a}, où l'acheter, comment la recharger et se faire rembourser, et où elle fonctionne."]},"zh":{"times":["{a}交通 – 各区间所需时间","整理了{a}主要区间乘坐电车、地铁、巴士所需的时间和线路。"],"airport":["{a}机场到市区的交通 – 电车·巴士·所需时间","整理了从{a}的机场到市区和景点最快的方法与所需时间。"],"ic":["{a}交通卡指南 – 在哪买·怎么用","整理了{a}使用的交通卡种类、购买地点、充值与退款方法，以及全国通用情况。"]},"th":{"times":["การเดินทางใน{a} – เวลาเดินทางแต่ละเส้นทาง","เวลาและสายของเส้นทางหลักใน{a} ทั้งรถไฟ รถไฟใต้ดิน และรถบัส"],"airport":["จากสนามบินเข้าเมือง{a} – รถไฟ รถบัส และเวลา","วิธีที่เร็วที่สุดจากสนามบินเข้าเมืองและไปสถานที่ท่องเที่ยวใน{a} พร้อมเวลาเดินทาง"],"ic":["คู่มือบัตร IC ใน{a} – ซื้อที่ไหนและใช้อย่างไร","บัตร IC ที่ใช้ใน{a} ซื้อได้ที่ไหน วิธีเติมเงินและขอคืนเงิน และใช้ได้ที่ไหนบ้าง"]},"tw":{"times":["{a}交通 – 各區間所需時間","整理了{a}主要區間乘坐電車、地鐵、巴士所需的時間和線路。"],"airport":["{a}機場到市區的交通 – 電車·巴士·所需時間","整理了從{a}的機場到市區和景點最快的方法與所需時間。"],"ic":["{a}交通卡指南 – 在哪買·怎麼用","整理了{a}使用的交通卡種類、購買地點、充值與退款方法，以及全國通用情況。"]}};
+const _vTransport = V.transport;
+V.transport = function(){
+  const html = _vTransport.call(this), t = TTABS.some(x=>x[0]===st.sub)?st.sub:"";
+  const tp = document.createElement("template"); tp.innerHTML = html;
+  const pick = sel => { const e = tp.content.querySelector(sel); return e ? e.outerHTML : ""; };
+  const notes = [...tp.content.children].filter(e=>e.classList.contains("notes")).map(e=>e.outerHTML).join("");
+  const keys = st.city==="all" ? Object.keys(CITIES) : [st.city];
+  let body;
+  if(t==="times") body = pick(".tgrid");
+  else if(t==="ic") body = pick("#icguide") + notes;
+  else if(t==="airport"){
+    const aps = Object.keys(APS).filter(a=>keys.includes(apRegion(a)));
+    body = aps.map(a=>`<section class="apsec"><h3 class="sgh"><span>${apA(a,"",esc(apName(a)))}</span></h3><div class="wxgrid">${apDests(a).map(k2=>{ const o=apOpts(a,k2)[0]; return o?`<article class="wxcard"><h3>${esc(AREA[k2].ko)}</h3>
+       <p class="aprt"><span class="mode m-${o[0].mode}">${o[0].mode}</span> ${o.map(x=>`<span>${x.line}</span>`).join(" → ")}</p><p class="aptm">${apMin(apSum(o))}</p>
+       ${apA(a,k2,`자세히 보기<i> →</i>`,"more")}</article>`:""; }).join("")}</div></section>`).join("") || pick(".apsec");
+  } else body = notes + `<div class="wxlinks">${TTABS.slice(1).map(([k,l])=>`<a class="btn ghost" href="${ROUTED?window.NT_BASE+LPRE+pathOf({...st,sub:k}):"#"}" data-subtab="${k}">${esc(l)}<i> →</i></a>`).join("")}</div>`;
+  return `<div class="sechead"><div><h2>교통</h2><p>공항에서 시내까지, 그리고 도시 안에서 이동하는 방법</p></div></div>
+   ${subTabs(TTABS,t)}
+   ${body}`;
+};
+/*TTABS_END*/
 V.place = function(){
   const it = byId(st.place); if(!it) return "";
   const c = CITIES[it.city], A = it.sub&&AREA[it.sub], view = TYPE_VIEW[it.type];
