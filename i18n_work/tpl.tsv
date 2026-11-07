@@ -1,3 +1,4 @@
+{x} 여행, 무엇부터 볼까요?	{0} — where to start?	{0}旅行、何から見ましょうか？	{0}: ¿por dónde empezar?	{0} : par où commencer ?
 {x} 추천 일정	{0} itineraries	{0}のモデルコース	Itinerarios por {0}	Itinéraires à {0}
 {x} 여행은 며칠이 적당한가요?	How many days do you need in {0}?	{0}旅行は何日くらいがちょうどいいですか？	¿Cuántos días se necesitan en {0}?	Combien de jours prévoir à {0} ?
 {x}에 처음 가면 어떤 일정이 좋나요?	Which itinerary is best for a first trip to {0}?	{0}に初めて行くならどのコースがいいですか？	¿Qué itinerario es mejor para un primer viaje a {0}?	Quel itinéraire choisir pour un premier voyage à {0} ?
@@ -116,3 +117,5 @@ AutoReserve의 {x} 지역 추천 순서예요 ({n}년 {n}월 기준). 대표 메
 {x} ({x}	{0} ({1}	{0}（{1}	{0} ({1}	{0} ({1}
 {x}의 {x}	{1} · {0}	{0}の{1}	{1} · {0}	{1} · {0}
 {x} {x}	{0} {1}	{0} {1}	{0} {1}	{0} {1}
+여행하는 달을 고르면 {x}에서 열리는 행사를 보여드려요.	Pick your travel month to see events in {0}.	旅行する月を選ぶと{0}で開かれるイベントを表示します。	Elige el mes de tu viaje para ver los eventos en {0}.	Choisissez votre mois de voyage pour voir les événements à {0}.
+{n}월에 등록된 {x} 행사가 없어요. 위에서 다른 달을 골라보세요.	No events are listed for {1} in {MC0}. Try another month above.	{0}月に登録された{1}のイベントはありません。上で別の月を選んでください。	No hay eventos registrados en {1} en {M0}. Elige otro mes arriba.	Aucun événement à {1} en {M0}. Choisissez un autre mois ci-dessus.
