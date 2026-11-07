@@ -653,6 +653,18 @@ body.is-wx .hero{display:none}
 /*STCSS_END*/
 /*PPLUS*/.pplus{margin-top:14px;display:flex;flex-direction:column;gap:12px}.pmore{margin:0;line-height:1.7}.pfloor dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0}.pfloor dt{font-weight:700;color:var(--ink-2);white-space:nowrap}.pfloor dd{margin:0}.ptax{border-left:4px solid var(--ai)}.pplus .faq dl{margin:0}.psgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}.psub h4{margin:0 0 4px}.psw{margin:0 0 6px;font-size:13px;color:var(--ink-2)}.psub p{line-height:1.6}.psub dl{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;margin:8px 0;font-size:14px}.psub dt{color:var(--ink-2)}.psub dd{margin:0;white-space:nowrap}
 /*ISTOPA*/a.istop{text-decoration:none;color:inherit}
+/*DRCSS_BEGIN*/
+.dtypes{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:12px}.dtypes p{margin:0;line-height:1.6}
+.dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.dcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.dcard h3{margin:0;font-family:var(--f-display);font-size:19px;line-height:1.35}.dcard .dd{margin:0;line-height:1.65}
+.dcard dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:5px 12px;font-size:14px}.dcard dt{color:var(--ink-2);font-weight:700;white-space:nowrap}.dcard dd{margin:0}
+.dcard .more{margin-top:auto}.dtop{display:flex;gap:6px;flex-wrap:wrap}
+.dkind{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700;color:#fff;background:var(--ink-2)}
+.dk-sake{background:#3d6f8e}.dk-beer{background:#c08a1e}.dk-whisky{background:#8a4b2a}.dk-awamori{background:#2f7d6b}
+.dlist{display:flex;flex-direction:column;gap:6px}.dmini{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px}
+.dmini b{font-size:15px}.dmini small{color:var(--ink-2);font-size:13px}
+/*DRCSS_END*/
 footer{border-top:1px solid var(--line);color:var(--ink-2);font-size:12.5px}
 footer .wrap{padding-block:20px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}

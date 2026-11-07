@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=8012c68a">
+<link rel="stylesheet" href="/app.css?v=909b142c">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=8012c68a"><\/script><script src="'+B+'engine.js?v=8012c68a"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=909b142c"><\/script><script src="'+B+'engine.js?v=909b142c"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -67,6 +67,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=8012c68a"><\/s
       <a href="/tw/osaka/arashiyama/shopping/" data-view="shopping"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 8V6.5a3 3 0 016 0V8"></path></svg><span>購物</span></a>
       <a href="/tw/osaka/weather/12/" data-view="weather"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3.2"></circle><path d="M9 2.5v1.3M3.8 4.8l.9.9M2.5 9h1.3M14.2 4.8l-.9.9"></path><path d="M8 19.5h9.5a3.5 3.5 0 0 0 .3-7 5 5 0 0 0-9.4 1.3A2.9 2.9 0 0 0 8 19.5z"></path></svg><span>天氣</span></a>
       <a href="/tw/osaka/stay/" data-view="stay"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18V7M3 14h18v4M21 14v-2.5A2.5 2.5 0 0 0 18.5 9H11v5"></path><circle cx="7" cy="11" r="1.8"></circle></svg><span>住宿</span></a>
+      <a href="/tw/osaka/drink/" data-view="drink"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l-1.2 6.5a3.9 3.9 0 0 1-7.6 0z"></path><path d="M12 13.5V20M8.5 20.5h7"></path></svg><span>酒</span></a>
       <a href="/tw/guide/entry/" data-view="guide"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"></rect><path d="M9 4V2.8h6V4M8.5 10.5l1.5 1.5 3-3M8.5 16l1.5 1.5 3-3M15 11h1.5M15 16.5h1.5"></path></svg><span>行前準備</span></a>
     </div></nav>
 </header>
@@ -77,7 +78,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=8012c68a"><\/s
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="檢視上一組地區" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="選擇地區"><button class="city" type="button" data-city="all" aria-pressed="false">全部<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">東京<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="true">大阪<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">福岡<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">北海道<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">沖繩<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">名古屋<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">廣島<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">四国<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="檢視更多地區" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="選擇區域"><button class="area" type="button" data-area="dotonbori" aria-pressed="false">道頓堀·難波</button><button class="area" type="button" data-area="umeda" aria-pressed="false">梅田</button><button class="area" type="button" data-area="shinsekai" aria-pressed="false">新世界·天王寺·鶴橋</button><button class="area" type="button" data-area="tenma" aria-pressed="false">天滿·天神橋筋</button><button class="area" type="button" data-area="kyoto" aria-pressed="false">京都 祇園·東山</button><button class="area" type="button" data-area="kyotoeki" aria-pressed="false">京都站·二條城</button><button class="area" type="button" data-area="arashiyama" aria-pressed="true">京都 嵐山·金閣寺</button><button class="area" type="button" data-area="nanzenji" aria-pressed="false">京都 南禪寺·銀閣寺</button><button class="area" type="button" data-area="uji" aria-pressed="false">京都 伏見·宇治</button><button class="area" type="button" data-area="nara" aria-pressed="false">奈良</button><button class="area" type="button" data-area="kobe" aria-pressed="false">神戶</button></div>
   <dl class="brief" id="brief"><div class="bw"><dt>京都 嵐山·金閣寺今日天氣</dt>
-        <dd class="wxtime"><span class="jstclock">11月5日（周四）22:44</span> <small>日本當前</small></dd>
+        <dd class="wxtime"><span class="jstclock">11月7日（周六）13:16</span> <small>日本當前</small></dd>
         <dd class="wxnow"><span class="big">17°</span> <b>往年平均氣溫</b><span class="wxicon" aria-hidden="true">🌤️</span></dd>
         <dd class="sub wxline">11月往年平均最高氣溫</dd>
         <dd class="sub">正在載入即時天氣</dd></div><div class="bspot"><dt>京都 嵐山·金閣寺推薦景點 TOP 3</dt><ol class="picks"><li><button type="button" class="pick" data-open="arashiyama"><b>嵐山竹林小徑</b><em class="pm">風景·自然</em><span class="pd">嵐山</span></button></li><li><button type="button" class="pick" data-open="s_kinkakuji"><b>金閣寺</b><em class="pm">古蹟·寺社</em><span class="pd">北山</span></button></li><li><button type="button" class="pick" data-open="s_ryoanji"><b>龍安寺</b><em class="pm">古蹟·寺社</em><span class="pd">衣笠</span></button></li></ol>
@@ -125,15 +126,16 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=8012c68a"><\/s
   <a href="/tw/osaka/arashiyama/shopping/" data-view="shopping"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></i>購物</a>
   <a href="/tw/osaka/weather/12/" data-view="weather"><i><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3.2"></circle><path d="M9 2.5v1.3M3.8 4.8l.9.9M2.5 9h1.3M14.2 4.8l-.9.9"></path><path d="M8 19.5h9.5a3.5 3.5 0 0 0 .3-7 5 5 0 0 0-9.4 1.3A2.9 2.9 0 0 0 8 19.5z"></path></svg></i>天氣</a>
 <a href="/tw/osaka/stay/" data-view="stay"><i><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18V7M3 14h18v4M21 14v-2.5A2.5 2.5 0 0 0 18.5 9H11v5"></path><circle cx="7" cy="11" r="1.8"></circle></svg></i>住宿</a>
+<a href="/tw/osaka/drink/" data-view="drink"><i><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l-1.2 6.5a3.9 3.9 0 0 1-7.6 0z"></path><path d="M12 13.5V20M8.5 20.5h7"></path></svg></i>酒</a>
   <a href="/tw/guide/entry/" data-view="guide"><i><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"></rect><path d="M9 4V2.8h6V4M8.5 10.5l1.5 1.5 3-3M8.5 16l1.5 1.5 3-3M15 11h1.5M15 16.5h1.5"></path></svg></i>準備</a>
 </nav>
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=8012c68a"></script>
-<script src="/autoreserve.js?v=8012c68a"></script>
-<script src="/google_picks.js?v=8012c68a"></script>
-<script src="/geo.js?v=8012c68a"></script>
-<script src="/app.js?v=8012c68a"></script>
+<script src="/areas.js?v=909b142c"></script>
+<script src="/autoreserve.js?v=909b142c"></script>
+<script src="/google_picks.js?v=909b142c"></script>
+<script src="/geo.js?v=909b142c"></script>
+<script src="/app.js?v=909b142c"></script>
 </body>
 </html>
