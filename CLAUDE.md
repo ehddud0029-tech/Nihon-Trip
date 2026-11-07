@@ -61,7 +61,7 @@
 
 - 상위 페이지 보강(2026-11): `sitegen/shop_info.js`의 PLACE_PLUS(주소·가는 길 보충·층별 구성·추가 소개, 교토역은 매장별 안내 subs)와 TAXFREE(2026년 11월 1일 시작한 환급 방식 면세 안내), 쇼핑 장소 '자주 묻는 질문'(FAQPage). SHOP_INFO의 tf=면세 안내를 보여줄 큰 시설. 번역 tr_43·zh_44·th_44.
 - 맛집 목록의 똑같이 반복되는 틀 문장 특징(feat)은 `i18n_work/ar_dedupe.py`가 비워요(region_inject 뒤에 다시 돌려 주세요).
-- `i18n_work/patch_navfix.py`: 메뉴의 '추천 일정' 링크는 항상 일정 목록, '여행 준비'는 첫 섹션(전에는 정적 생성 때 남은 상태 때문에 오키나와 일정으로 가 있었어요). 추천 일정의 장소는 장소 페이지 링크(<a class="istop">), 장소 페이지에는 '이 장소가 들어간 추천 일정'(placeItins). html·pre·itin_view.js에 같이 적용, region_inject 뒤에 다시 돌려 주세요.
+- `i18n_work/patch_navfix.py`: 메뉴의 '추천 일정' 링크는 항상 일정 목록, '여행 준비'는 첫 섹션(전에는 정적 생성 때 남은 상태 때문에 오키나와 일정으로 가 있었어요). 추천 일정의 장소는 장소 페이지 링크(<a class="istop">), 장소 페이지에는 '이 장소가 들어간 추천 일정'(placeItins). html·pre·itin_view.js에 같이 적용, region_inject 뒤에 다시 돌려 주세요. 메뉴(상단·하단 탭)를 누르면 어느 메뉴든 항상 첫 페이지(전체)로 가요(도시·동네·날씨 월·공항 선택을 넘기지 않음, 같은 파일의 MENU_RESET).
 
 - 사진을 페이지에 미리 넣기(2026-11): 작업 공간·페이지 생성은 위키 사이트에 못 붙어서, 사진 주소·저작자·라이선스는 GitHub의 `photo-job` 브랜치(photos.py + titles.json·search.json, push하면 Actions가 돌고 photo_cache.json·photo_candidates.json을 커밋)로 받아요. 결과 중 위키미디어 공용 사진만 `site/photo_static.json`에 모으고(사진 없던 곳은 후보 중 직접 고른 파일), `i18n_work/patch_photos.py`가 html·pre에 PHOTO_STATIC으로 넣어요(사진 alt=장소 이름, 장소 JSON-LD image → gen.py가 og:image로 사용). gen.py·compare.py는 위키 이미지 요청에 1px 이미지로 답해서 img 태그가 지워지지 않게 해요(비교 이미지에서는 사진 자리가 비어 보여요). region_inject 뒤에는 patch_photos.py도 다시 돌려 주세요.
 

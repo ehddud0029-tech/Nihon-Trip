@@ -41,3 +41,16 @@ for f in FILES:
     if B4 not in s:
         assert s.count(A4) == 1, (f, s.count(A4)); s = s.replace(A4, B4)
     open(f, 'w', encoding='utf-8').write(s); print('place itins', f)
+
+# 메뉴를 누르면 어느 메뉴든 항상 첫 페이지(전체)로: 보고 있던 도시·동네·날씨 월·공항 선택을 넘기지 않아요 (2026-11)
+MENU_RESET = 'city:"all", area:"all", itin:null, gsec:null, ap:"", apk:"", wm:0, focus:null'
+B4 = 'if(ROUTED) a.setAttribute("href", window.NT_BASE + LPRE + pathOf({...st, view:a.dataset.view, ' + MENU_RESET + '}));'
+A5 = 'if(v){ e.preventDefault(); if(v.dataset.view==="itin") st.itin=""; go(v.dataset.view); return; }'
+B5 = 'if(v){ e.preventDefault(); if(!v.classList.contains("brand")) Object.assign(st, {' + MENU_RESET + '}); if(v.dataset.view==="itin") st.itin=""; go(v.dataset.view); return; }'
+for f in FILES:
+    s = open(f, encoding='utf-8').read()
+    if B4 not in s:
+        assert s.count(B) == 1, (f, 'B', s.count(B)); s = s.replace(B, B4)
+    if B5 not in s:
+        assert s.count(A5) == 1, (f, 'A5', s.count(A5)); s = s.replace(A5, B5)
+    open(f, 'w', encoding='utf-8').write(s); print('menu reset', f)
