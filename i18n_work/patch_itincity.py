@@ -32,9 +32,9 @@ H = [
   '  if(s.view==="itin") return (IKEYS.includes(s.itin)||ICITY_ORDER.includes(s.itin)) ? `itinerary/${s.itin}/` : "itinerary/";'),
  ('  if(seg[0]==="itinerary"){ st.view="itin"; st.itin=IKEYS.includes(seg[1])?seg[1]:""; return; }',
   '  if(seg[0]==="itinerary"){ st.view="itin"; st.itin=(IKEYS.includes(seg[1])||ICITY_ORDER.includes(seg[1]))?seg[1]:""; return; }'),
- ('    const c=ITIN.find(x=>x.key===st.itin); return c ?',
-  '    if(ICITY_ORDER.includes(st.itin)){ const L=(window.I18N&&window.I18N.lang)||"ko", T=window.__tr||(x=>x), k=st.itin, cn=T(CITIES[k].ko), ns=[...new Set(ITIN.filter(x=>x.city===k).map(x=>x.n))].sort((a,b)=>a-b).map(n=>n===0?T("당일치기"):nightsLabel(n)).join(L==="ko"||L==="ja"||L==="zh"||L==="tw"?"·":", "); const TT={ko:"{c} 여행 추천 일정 – {d} 코스",en:"{c} Itineraries – {d} Trip Plans",ja:"{c}旅行のモデルコース – {d}",es:"Itinerarios por {c} – {d}",fr:"Itinéraires à {c} – {d}",zh:"{c}旅行推荐行程 – {d}",tw:"{c}旅行推薦行程 – {d}",th:"แผนเที่ยว{c}แนะนำ – {d}"}[L]||"{c} – {d}"; return {title:TT.replace("{c}",cn).replace("{d}",ns)+" | Go Nihon Trip", desc:T((ICITY_INFO[k]||{}).intro||"")}; }\n    const c=ITIN.find(x=>x.key===st.itin); return c ?'),
+ ('    const c=ITIN.find(x=>x.key===st.itin); return c ?', '    if(ICITY_ORDER.includes(st.itin)) return itinCityMeta(st.itin);\n    const c=ITIN.find(x=>x.key===st.itin); return c ?'),
 ]
+OPT = [('    if(ICITY_ORDER.includes(st.itin)){ const L=(window.I18N&&window.I18N.lang)||"ko", T=window.__tr||(x=>x), k=st.itin, cn=T(CITIES[k].ko), ns=[...new Set(ITIN.filter(x=>x.city===k).map(x=>x.n))].sort((a,b)=>a-b).map(n=>n===0?T("당일치기"):nightsLabel(n)).join(L==="ko"||L==="ja"||L==="zh"||L==="tw"?"·":", "); const TT={ko:"{c} 여행 추천 일정 – {d} 코스",en:"{c} Itineraries – {d} Trip Plans",ja:"{c}旅行のモデルコース – {d}",es:"Itinerarios por {c} – {d}",fr:"Itinéraires à {c} – {d}",zh:"{c}旅行推荐行程 – {d}",tw:"{c}旅行推薦行程 – {d}",th:"แผนเที่ยว{c}แนะนำ – {d}"}[L]||"{c} – {d}"; return {title:TT.replace("{c}",cn).replace("{d}",ns)+" | Go Nihon Trip", desc:T((ICITY_INFO[k]||{}).intro||"")}; }\n    const c=ITIN.find(x=>x.key===st.itin); return c ?', '    if(ICITY_ORDER.includes(st.itin)) return itinCityMeta(st.itin);\n    const c=ITIN.find(x=>x.key===st.itin); return c ?')]  # 예전 버전(긴 검색 제목) 고치기
 def rep(s, rules, f):
     for a, b in rules:
         if b in s: continue
@@ -45,6 +45,7 @@ for f in HTML:
     s = open(f, encoding='utf-8').read()
     s = block(s, '/*ICITY_BEGIN*/', '/*ICITY_END*/', CITY, 'V.itin = function(){')
     s = block(s, '/*ICCSS_BEGIN*/', '/*ICCSS_END*/', CSS, 'footer{border-top:1px solid var(--line);')
+    s = rep(s, [r for r in OPT if r[0] in s], f)
     s = rep(s, V + H, f)
     open(f, 'w', encoding='utf-8').write(s); print('patched', f)
 s = open(VIEW, encoding='utf-8').read()

@@ -2919,6 +2919,20 @@ const ICITY_INFO = {
   base:"다카마쓰는 항구 근처에 묵으면 나오시마행 페리가 가깝고, 마쓰야마는 도고온천 주변 료칸이 인기예요.",
   season:"나오시마 미술관은 월요일에 쉬는 곳이 많아요. 페리 시간과 휴관일을 함께 확인하세요."}
 };
+function itinCityMeta(k){
+  const L=(window.I18N&&window.I18N.lang)||"ko", T=window.__tr||(x=>x), cn=T(CITIES[k].ko), ns=ITIN.filter(x=>x.city===k).map(x=>x.n);
+  const cnt=ns.length, lo=Math.min(...ns), hi=Math.max(...ns), D=hi+1, d1=lo+1, day=lo===0;
+  const nl=n=>n===0?T("당일치기"):nightsLabel(n), r=lo===hi?nl(hi):`${nl(lo)}~${nl(hi)}`;
+  const t={ko:`${cn} 여행 추천 일정 ${cnt}개 – ${r} 코스`,
+    ja:`${cn}旅行のモデルコース${cnt}選 – ${day?"日帰り":`${lo}泊${lo+1}日`}〜${hi}泊${D}日`,
+    zh:`${cn}旅行推荐行程${cnt}条 – ${day?"一日游":`${lo}晚${lo+1}天`}到${hi}晚${D}天`,
+    tw:`${cn}旅行推薦行程${cnt}條 – ${day?"一日遊":`${lo}晚${lo+1}天`}到${hi}晚${D}天`,
+    en:`${cnt} ${cn} Itineraries – ${day?`Day Trips to ${D}-Day Plans`:`${d1}- to ${D}-Day Plans`}`,
+    es:`${cnt} itinerarios por ${cn} – ${d1===D?`${D} días`:`de ${d1} a ${D} días`}`,
+    fr:`${cnt} itinéraires à ${cn} – ${d1===D?`${D} jours`:`de ${d1} à ${D} jours`}`,
+    th:`แผนเที่ยว${cn}แนะนำ ${cnt} แผน – ${day?"ไปกลับวันเดียว":`${d1} วัน`}ถึง ${D} วัน`}[L]||`${cn} – ${r}`;
+  return {title:t+" | Go Nihon Trip", desc:T((ICITY_INFO[k]||{}).intro||"")};
+}
 function itinCityPage(k){
   const I = ICITY_INFO[k] || {}, g = ITIN.filter(x=>x.city===k).sort((a,b)=>a.n-b.n), n = esc(CITIES[k].ko), f = ITIN.find(x=>x.key===I.first);
   const qa=(q,a)=>`<div class="faqi" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">${q}</dt><dd itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">${a}</div></dd></div>`;
@@ -3066,7 +3080,7 @@ function pageMeta(){
   if(INFO_VIEWS.includes(st.view)) return {title:IT[st.view]+" | Go Nihon Trip", desc:IT.d};
   if(st.view==="home") return {title:T("Go Nihon Trip · 일본 여행 가이드"), desc:null};
   if(st.view==="itin"){ const IM={ko:["일본 여행 추천 일정 – 도쿄·오사카·교토·후쿠오카·홋카이도·오키나와 코스","{t} – 추천 여행 일정","도쿄·오사카·교토·나고야·히로시마·시코쿠·후쿠오카·홋카이도·오키나와의 며칠짜리 추천 일정. 날짜별 동선과 장소별 입장료까지 한눈에."],en:["Japan Itineraries – Tokyo, Osaka, Kyoto, Fukuoka, Hokkaido & Okinawa","{t} – Suggested itinerary","Multi-day itineraries for Tokyo, Osaka, Kyoto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido and Okinawa, with day-by-day routes and admission fees."],ja:["日本旅行モデルコース – 東京・大阪・京都・福岡・北海道・沖縄","{t} – モデルコース","東京・大阪・京都・名古屋・広島・四国・福岡・北海道・沖縄の数日間のモデルコース。日ごとのルートと料金を一目で。"],es:["Itinerarios por Japón – Tokio, Osaka, Kioto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido y Okinawa","{t} – Itinerario recomendado","Itinerarios de varios días por Tokio, Osaka, Kioto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido y Okinawa, con rutas diarias y precios de entrada."],fr:["Itinéraires au Japon – Tokyo, Osaka, Kyoto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido et Okinawa","{t} – Itinéraire conseillé","Itinéraires de plusieurs jours à Tokyo, Osaka, Kyoto, Nagoya, Hiroshima, Shikoku, Fukuoka, Hokkaido et Okinawa, avec trajets jour par jour et tarifs."],zh:["日本旅行推荐行程 – 东京·大阪·京都·福冈·北海道·冲绳路线","{t} – 推荐行程","东京、大阪、京都、名古屋、广岛、四国、福冈、北海道、冲绳的多日推荐行程，每日路线和门票一目了然。"],tw:["日本旅行推薦行程 – 東京·大阪·京都·福岡·北海道·沖繩路線","{t} – 推薦行程","東京、大阪、京都、名古屋、廣島、四國、福岡、北海道、沖繩的多日推薦行程，每日路線和門票一目瞭然。"],th:["แผนเที่ยวญี่ปุ่นแนะนำ – โตเกียว โอซาก้า เกียวโต ฟุกุโอกะ ฮอกไกโด โอกินาว่า","{t} – แผนเที่ยวแนะนำ","แผนเที่ยวหลายวันในโตเกียว โอซาก้า เกียวโต นาโกย่า ฮิโรชิม่า ชิโกกุ ฟุกุโอกะ ฮอกไกโด และโอกินาว่า พร้อมเส้นทางรายวันและค่าเข้าชม"]}[(window.I18N&&window.I18N.lang)||"ko"];
-    if(ICITY_ORDER.includes(st.itin)){ const L=(window.I18N&&window.I18N.lang)||"ko", T=window.__tr||(x=>x), k=st.itin, cn=T(CITIES[k].ko), ns=[...new Set(ITIN.filter(x=>x.city===k).map(x=>x.n))].sort((a,b)=>a-b).map(n=>n===0?T("당일치기"):nightsLabel(n)).join(L==="ko"||L==="ja"||L==="zh"||L==="tw"?"·":", "); const TT={ko:"{c} 여행 추천 일정 – {d} 코스",en:"{c} Itineraries – {d} Trip Plans",ja:"{c}旅行のモデルコース – {d}",es:"Itinerarios por {c} – {d}",fr:"Itinéraires à {c} – {d}",zh:"{c}旅行推荐行程 – {d}",tw:"{c}旅行推薦行程 – {d}",th:"แผนเที่ยว{c}แนะนำ – {d}"}[L]||"{c} – {d}"; return {title:TT.replace("{c}",cn).replace("{d}",ns)+" | Go Nihon Trip", desc:T((ICITY_INFO[k]||{}).intro||"")}; }
+    if(ICITY_ORDER.includes(st.itin)) return itinCityMeta(st.itin);
     const c=ITIN.find(x=>x.key===st.itin); return c ? {title:IM[1].replace("{t}",T(c.title))+" | Go Nihon Trip", desc:T(c.sum)} : {title:IM[0]+" | Go Nihon Trip", desc:IM[2]}; }
   const key = st.view==="saved" ? "saved" : st.view==="map" ? "map" : st.view==="guide" ? "guide_"+(GKEYS.includes(st.gsec)?st.gsec:"entry") : (st.city==="all" ? "all_"+st.view : st.view);
   const a = st.city==="all" ? "" : T(curArea()?.ko || CITIES[st.city].ko), c = {ko:"일본",en:"Japan",ja:"日本",es:"Japón",fr:"Japon",zh:"日本",tw:"日本",th:"ญี่ปุ่น"}[L];

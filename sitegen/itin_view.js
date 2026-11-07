@@ -67,6 +67,20 @@ const ICITY_INFO = {
   base:"다카마쓰는 항구 근처에 묵으면 나오시마행 페리가 가깝고, 마쓰야마는 도고온천 주변 료칸이 인기예요.",
   season:"나오시마 미술관은 월요일에 쉬는 곳이 많아요. 페리 시간과 휴관일을 함께 확인하세요."}
 };
+function itinCityMeta(k){
+  const L=(window.I18N&&window.I18N.lang)||"ko", T=window.__tr||(x=>x), cn=T(CITIES[k].ko), ns=ITIN.filter(x=>x.city===k).map(x=>x.n);
+  const cnt=ns.length, lo=Math.min(...ns), hi=Math.max(...ns), D=hi+1, d1=lo+1, day=lo===0;
+  const nl=n=>n===0?T("당일치기"):nightsLabel(n), r=lo===hi?nl(hi):`${nl(lo)}~${nl(hi)}`;
+  const t={ko:`${cn} 여행 추천 일정 ${cnt}개 – ${r} 코스`,
+    ja:`${cn}旅行のモデルコース${cnt}選 – ${day?"日帰り":`${lo}泊${lo+1}日`}〜${hi}泊${D}日`,
+    zh:`${cn}旅行推荐行程${cnt}条 – ${day?"一日游":`${lo}晚${lo+1}天`}到${hi}晚${D}天`,
+    tw:`${cn}旅行推薦行程${cnt}條 – ${day?"一日遊":`${lo}晚${lo+1}天`}到${hi}晚${D}天`,
+    en:`${cnt} ${cn} Itineraries – ${day?`Day Trips to ${D}-Day Plans`:`${d1}- to ${D}-Day Plans`}`,
+    es:`${cnt} itinerarios por ${cn} – ${d1===D?`${D} días`:`de ${d1} a ${D} días`}`,
+    fr:`${cnt} itinéraires à ${cn} – ${d1===D?`${D} jours`:`de ${d1} à ${D} jours`}`,
+    th:`แผนเที่ยว${cn}แนะนำ ${cnt} แผน – ${day?"ไปกลับวันเดียว":`${d1} วัน`}ถึง ${D} วัน`}[L]||`${cn} – ${r}`;
+  return {title:t+" | Go Nihon Trip", desc:T((ICITY_INFO[k]||{}).intro||"")};
+}
 function itinCityPage(k){
   const I = ICITY_INFO[k] || {}, g = ITIN.filter(x=>x.city===k).sort((a,b)=>a.n-b.n), n = esc(CITIES[k].ko), f = ITIN.find(x=>x.key===I.first);
   const qa=(q,a)=>`<div class="faqi" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">${q}</dt><dd itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">${a}</div></dd></div>`;
