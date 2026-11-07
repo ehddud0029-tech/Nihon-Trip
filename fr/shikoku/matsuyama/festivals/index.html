@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=802a8c84">
+<link rel="stylesheet" href="/app.css?v=c20f0dfb">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=802a8c84"><\/script><script src="'+B+'engine.js?v=802a8c84"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=c20f0dfb"><\/script><script src="'+B+'engine.js?v=c20f0dfb"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -74,9 +74,9 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=802a8c84"><\/s
 
 <section class="hero wrap">
   <div class="eyebrow">日本旅行 · Préparer le voyage</div>
-  <h1 id="heroTitle">Matsuyama et Dogo Onsen (Shikoku) : par où commencer ?</h1>
+  <h1 id="heroTitle">Shikoku : par où commencer ?</h1>
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="Voir les régions précédentes" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="Sélectionner une zone"><button class="city" type="button" data-city="all" aria-pressed="false">Tout<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">Tokyo<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">Osaka<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">Fukuoka<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">Hokkaido<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">Okinawa<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">Nagoya<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">Hiroshima<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="true">Shikoku<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="Voir plus de régions" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
-  <div class="areas" id="areas" role="group" aria-label="Sélectionner une sous-zone"><button class="area" type="button" data-area="matsuyama" aria-pressed="true">Matsuyama et Dogo Onsen</button><button class="area" type="button" data-area="takamatsu" aria-pressed="false">Takamatsu</button><button class="area" type="button" data-area="naoshima" aria-pressed="false">Naoshima</button><button class="area" type="button" data-area="kotohira" aria-pressed="false">Kotohira</button></div>
+  <div class="areas" id="areas" role="group" aria-label="Sélectionner une sous-zone" hidden=""><button class="area" type="button" data-area="matsuyama" aria-pressed="true">Matsuyama et Dogo Onsen</button><button class="area" type="button" data-area="takamatsu" aria-pressed="false">Takamatsu</button><button class="area" type="button" data-area="naoshima" aria-pressed="false">Naoshima</button><button class="area" type="button" data-area="kotohira" aria-pressed="false">Kotohira</button></div>
   <dl class="brief" id="brief"><div class="bfest"><dt>Bientôt à Shikoku · fêtes d'août</dt><ol class="picks"><li><button type="button" class="pick" data-open="f_takamatsumatsuri"><b>Fête Sanuki Takamatsu</b><em class="pm">Août</em><span class="pd">Mi-août</span><span class="pdx">Fête d'été avec feu d'artifice sur le port de Takamatsu et défilés de danse dans les rues.</span></button></li></ol></div><div class="bcal"><dt>Calendrier des fêtes · Shikoku</dt>
         <dd class="fcal"><button type="button" data-month="1" class=""><b>Janv.</b><span>–</span></button><button type="button" data-month="2" class=""><b>Févr.</b><span>–</span></button><button type="button" data-month="3" class=""><b>Mars</b><span>–</span></button><button type="button" data-month="4" class=""><b>Avr.</b><span>–</span></button><button type="button" data-month="5" class=""><b>Mai</b><span>–</span></button><button type="button" data-month="6" class=""><b>Juin</b><span>–</span></button><button type="button" data-month="7" class=""><b>Juil.</b><span>–</span></button><button type="button" data-month="8" class="has"><b>Août</b><span>1</span></button><button type="button" data-month="9" class=""><b>Sept.</b><span>–</span></button><button type="button" data-month="10" class="has"><b>Oct.</b><span>2</span></button><button type="button" data-month="11" class=" on"><b>Nov.</b><span>–</span></button><button type="button" data-month="12" class=""><b>Déc.</b><span>–</span></button></dd>
         <dd class="sub">Touchez un mois pour voir ses fêtes · Les stands préfèrent les espèces, et les hébergements se remplissent vite les grands jours</dd></div></dl>
@@ -84,10 +84,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=802a8c84"><\/s
   <div class="wxnote" id="wxnote">Météo en direct indisponible : valeurs normales affichées.</div>
 </section>
 
-<main class="wrap" id="main"><div class="sechead"><div><h2>Fêtes · Événements de saison</h2><p>Choisissez votre mois de voyage pour voir les événements à Matsuyama et Dogo Onsen (Shikoku).</p></div></div>
+<main class="wrap" id="main"><div class="sechead"><div><h2>Fêtes · Événements de saison</h2><p>Choisissez votre mois de voyage pour voir les événements à Shikoku.</p></div></div>
    <div class="months" role="group" aria-label="Choisir le mois"><button class="month" type="button" data-month="1" aria-pressed="false"><b>Janv.</b><span>–</span></button><button class="month" type="button" data-month="2" aria-pressed="false"><b>Févr.</b><span>–</span></button><button class="month" type="button" data-month="3" aria-pressed="false"><b>Mars</b><span>–</span></button><button class="month" type="button" data-month="4" aria-pressed="false"><b>Avr.</b><span>–</span></button><button class="month" type="button" data-month="5" aria-pressed="false"><b>Mai</b><span>–</span></button><button class="month" type="button" data-month="6" aria-pressed="false"><b>Juin</b><span>–</span></button><button class="month" type="button" data-month="7" aria-pressed="false"><b>Juil.</b><span>–</span></button><button class="month" type="button" data-month="8" aria-pressed="false"><b>Août</b><span>1</span></button><button class="month" type="button" data-month="9" aria-pressed="false"><b>Sept.</b><span>–</span></button><button class="month" type="button" data-month="10" aria-pressed="false"><b>Oct.</b><span>2</span></button><button class="month now" type="button" data-month="11" aria-pressed="true"><b>Nov.</b><span>–</span></button><button class="month" type="button" data-month="12" aria-pressed="false"><b>Déc.</b><span>–</span></button></div>
    <div class="season"><b>Nov.</b> · Pic des couleurs d'automne. Les temples de Kyoto s'illuminent le soir.</div>
-   <div class="empty">Aucun événement à Matsuyama et Dogo Onsen (Shikoku) en novembre. Choisissez un autre mois ci-dessus.</div></main>
+   <div class="empty">Aucun événement à Shikoku en novembre. Choisissez un autre mois ci-dessus.</div></main>
 
 <footer><div class="wrap">Go Nihon Trip · Météo <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · Photo <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> (L'auteur et la licence de chaque photo figurent sur sa fiche) · Durées de trajet et horaires peuvent changer : vérifiez sur les sites officiels.<div class="flinks"><a href="/fr/about/" data-view="about">À propos</a> · <a href="/fr/contact/" data-view="contact">Nous contacter</a> · <a href="/fr/privacy/" data-view="privacy">Politique de confidentialité</a></div></div></footer>
 
@@ -108,10 +108,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=802a8c84"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=802a8c84"></script>
-<script src="/autoreserve.js?v=802a8c84"></script>
-<script src="/google_picks.js?v=802a8c84"></script>
-<script src="/geo.js?v=802a8c84"></script>
-<script src="/app.js?v=802a8c84"></script>
+<script src="/areas.js?v=c20f0dfb"></script>
+<script src="/autoreserve.js?v=c20f0dfb"></script>
+<script src="/google_picks.js?v=c20f0dfb"></script>
+<script src="/geo.js?v=c20f0dfb"></script>
+<script src="/app.js?v=c20f0dfb"></script>
 </body>
 </html>

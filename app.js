@@ -979,8 +979,8 @@ function renderCities(){
   $("#cityscroll").hidden = st.view==="home";
   $("#cities").innerHTML = list.map(([k,ko,jp])=>`<button class="city" type="button" data-city="${k}" aria-pressed="${st.city===k}">${ko}<span class="jp">${jp}</span></button>`).join("");
   cityScrollInit();
-  const c = CITIES[st.city], A = curArea();
-  $("#areas").hidden = !c;
+  const c = CITIES[st.city], A = st.view==="festivals" ? null : curArea();
+  $("#areas").hidden = !c || st.view==="festivals";
   if(c) $("#areas").innerHTML = areasOf(st.city).filter(a=>!tgOn()||tgRep(a.key)===a.key).map(a=>{ const g=tgOn()&&tgOf(a.key); return `<button class="area" type="button" data-area="${a.key}" aria-pressed="${st.area===a.key}">${g?g.name:a.ko}</button>`; }).join("");
   $("#heroTitle").textContent = st.view==="home" ? "일본 여행, 어디로 갈까요?" : A ? `${c.ko} · ${A.ko}, 무엇부터 볼까요?` : c ? `${c.ko} 여행, 무엇부터 볼까요?` : "어느 지역부터 둘러볼까요?";
   const w = c && WX && (st.view==="weather" ? (WX[st.city]||WX[A?.key]) : (WX[A?A.key:st.city] || WX[st.city]));
@@ -1181,7 +1181,7 @@ function chips(map,key,allLabel){
     Object.entries(map).map(([k,v])=>`<button class="chip" type="button" data-chip="${key}" data-v="${k}" aria-pressed="${st[key]===k}">${typeof v==="string"?v:v.ko}</button>`).join("");
 }
 const searchBox = ph => `<input class="search" id="q" type="search" placeholder="${ph}" value="${esc(st.q)}" aria-label="검색">`;
-const cityName = () => curArea() ? `${CITIES[st.city].ko} ${curArea().ko}` : (CITIES[st.city]?.ko || "일본 전국");
+const cityName = () => curArea() && st.view!=="festivals" ? `${CITIES[st.city].ko} ${curArea().ko}` : (CITIES[st.city]?.ko || "일본 전국");
 const gridOr = (items,msg) => items.length ? `<div class="grid">${items.map(card).join("")}</div>` : `<div class="empty">${msg}</div>`;
 
 /* views */
@@ -1944,6 +1944,7 @@ function pathOf(s){
   if(s.view==="itin") return (IKEYS.includes(s.itin)||ICITY_ORDER.includes(s.itin)) ? `itinerary/${s.itin}/` : "itinerary/";
   if(s.view==="guide") return `guide/${GKEYS.includes(s.gsec)?s.gsec:"entry"}/`;
   if(s.city==="all") return s.view==="festivals" ? `festivals/${s.month}/` : s.view+"/";
+  if(s.view==="festivals" && areasOf(s.city)[0]) return `${s.city}/${areasOf(s.city)[0].key}/festivals/`;
   return `${s.city}/${s.area}/${s.view}/`;
 }
 function readPath(){

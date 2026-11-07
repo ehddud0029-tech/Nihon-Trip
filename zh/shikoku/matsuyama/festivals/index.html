@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=802a8c84">
+<link rel="stylesheet" href="/app.css?v=c20f0dfb">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=802a8c84"><\/script><script src="'+B+'engine.js?v=802a8c84"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=c20f0dfb"><\/script><script src="'+B+'engine.js?v=c20f0dfb"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -74,9 +74,9 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=802a8c84"><\/s
 
 <section class="hero wrap">
   <div class="eyebrow">日本旅行 · 行前准备</div>
-  <h1 id="heroTitle">四国 · 松山·道后温泉，先看什么？</h1>
+  <h1 id="heroTitle">四国旅行，先看什么？</h1>
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="查看上一组地区" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="选择地区"><button class="city" type="button" data-city="all" aria-pressed="false">全部<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">东京<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">大阪<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">福冈<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">北海道<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">冲绳<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">名古屋<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">广岛<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="true">四国<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="查看更多地区" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
-  <div class="areas" id="areas" role="group" aria-label="选择区域"><button class="area" type="button" data-area="matsuyama" aria-pressed="true">松山·道后温泉</button><button class="area" type="button" data-area="takamatsu" aria-pressed="false">高松</button><button class="area" type="button" data-area="naoshima" aria-pressed="false">直岛</button><button class="area" type="button" data-area="kotohira" aria-pressed="false">琴平</button></div>
+  <div class="areas" id="areas" role="group" aria-label="选择区域" hidden=""><button class="area" type="button" data-area="matsuyama" aria-pressed="true">松山·道后温泉</button><button class="area" type="button" data-area="takamatsu" aria-pressed="false">高松</button><button class="area" type="button" data-area="naoshima" aria-pressed="false">直岛</button><button class="area" type="button" data-area="kotohira" aria-pressed="false">琴平</button></div>
   <dl class="brief" id="brief"><div class="bfest"><dt>四国 即将到来的8月节庆</dt><ol class="picks"><li><button type="button" class="pick" data-open="f_takamatsumatsuri"><b>赞岐高松祭</b><em class="pm">8月</em><span class="pd">8月中旬</span><span class="pdx">高松港海上燃放烟花、街头有舞蹈游行的夏日祭典。</span></button></li></ol></div><div class="bcal"><dt>四国节庆日历</dt>
         <dd class="fcal"><button type="button" data-month="1" class=""><b>1月</b><span>–</span></button><button type="button" data-month="2" class=""><b>2月</b><span>–</span></button><button type="button" data-month="3" class=""><b>3月</b><span>–</span></button><button type="button" data-month="4" class=""><b>4月</b><span>–</span></button><button type="button" data-month="5" class=""><b>5月</b><span>–</span></button><button type="button" data-month="6" class=""><b>6月</b><span>–</span></button><button type="button" data-month="7" class=""><b>7月</b><span>–</span></button><button type="button" data-month="8" class="has"><b>8月</b><span>1个</span></button><button type="button" data-month="9" class=""><b>9月</b><span>–</span></button><button type="button" data-month="10" class="has"><b>10月</b><span>2个</span></button><button type="button" data-month="11" class=" on"><b>11月</b><span>–</span></button><button type="button" data-month="12" class=""><b>12月</b><span>–</span></button></dd>
         <dd class="sub">点击月份可查看当月的节庆 · 小摊用现金比较方便，大型节庆期间住宿很快订满</dd></div></dl>
@@ -84,10 +84,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=802a8c84"><\/s
   <div class="wxnote" id="wxnote">无法加载实时天气，显示往年平均值。</div>
 </section>
 
-<main class="wrap" id="main"><div class="sechead"><div><h2>节庆 · 季节活动</h2><p>选择出行月份，即可查看四国 松山·道后温泉举办的活动。</p></div></div>
+<main class="wrap" id="main"><div class="sechead"><div><h2>节庆 · 季节活动</h2><p>选择出行月份，即可查看四国举办的活动。</p></div></div>
    <div class="months" role="group" aria-label="选择月份"><button class="month" type="button" data-month="1" aria-pressed="false"><b>1月</b><span>–</span></button><button class="month" type="button" data-month="2" aria-pressed="false"><b>2月</b><span>–</span></button><button class="month" type="button" data-month="3" aria-pressed="false"><b>3月</b><span>–</span></button><button class="month" type="button" data-month="4" aria-pressed="false"><b>4月</b><span>–</span></button><button class="month" type="button" data-month="5" aria-pressed="false"><b>5月</b><span>–</span></button><button class="month" type="button" data-month="6" aria-pressed="false"><b>6月</b><span>–</span></button><button class="month" type="button" data-month="7" aria-pressed="false"><b>7月</b><span>–</span></button><button class="month" type="button" data-month="8" aria-pressed="false"><b>8月</b><span>1个</span></button><button class="month" type="button" data-month="9" aria-pressed="false"><b>9月</b><span>–</span></button><button class="month" type="button" data-month="10" aria-pressed="false"><b>10月</b><span>2个</span></button><button class="month now" type="button" data-month="11" aria-pressed="true"><b>11月</b><span>–</span></button><button class="month" type="button" data-month="12" aria-pressed="false"><b>12月</b><span>–</span></button></div>
    <div class="season"><b>11月</b> · 红叶最盛期，京都寺院举办夜间点灯。</div>
-   <div class="empty">11月没有收录四国 松山·道后温泉的活动，请在上方选择其他月份。</div></main>
+   <div class="empty">11月没有收录四国的活动，请在上方选择其他月份。</div></main>
 
 <footer><div class="wrap">Go Nihon Trip · 天气 <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · 照片 <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> （每张照片的作者·授权信息显示在详情页面）· 交通时间和营业信息可能变动，请在官方网站再次确认。<div class="flinks"><a href="/zh/about/" data-view="about">关于本站</a> · <a href="/zh/contact/" data-view="contact">联系我们</a> · <a href="/zh/privacy/" data-view="privacy">隐私政策</a></div></div></footer>
 
@@ -108,10 +108,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=802a8c84"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=802a8c84"></script>
-<script src="/autoreserve.js?v=802a8c84"></script>
-<script src="/google_picks.js?v=802a8c84"></script>
-<script src="/geo.js?v=802a8c84"></script>
-<script src="/app.js?v=802a8c84"></script>
+<script src="/areas.js?v=c20f0dfb"></script>
+<script src="/autoreserve.js?v=c20f0dfb"></script>
+<script src="/google_picks.js?v=c20f0dfb"></script>
+<script src="/geo.js?v=c20f0dfb"></script>
+<script src="/app.js?v=c20f0dfb"></script>
 </body>
 </html>
