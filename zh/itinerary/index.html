@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=27be868d">
+<link rel="stylesheet" href="/app.css?v=49d88bb0">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=27be868d"><\/script><script src="'+B+'engine.js?v=27be868d"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=49d88bb0"><\/script><script src="'+B+'engine.js?v=49d88bb0"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -96,8 +96,8 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=27be868d"><\/s
 
 <main class="wrap" id="main"><div class="itin">
      <div class="ghead"><h2>推荐行程</h2><p>用本站介绍的地点组成的行程。点击地点可查看门票和交通方式。</p></div>
-     <nav class="wxmon stjump ijump"><a href="#st-tokyo" data-stjump="tokyo">东京</a><a href="#st-osaka" data-stjump="osaka">大阪</a><a href="#st-fukuoka" data-stjump="fukuoka">福冈</a><a href="#st-hokkaido" data-stjump="hokkaido">北海道</a><a href="#st-okinawa" data-stjump="okinawa">冲绳</a><a href="#st-nagoya" data-stjump="nagoya">名古屋</a><a href="#st-hiroshima" data-stjump="hiroshima">广岛</a><a href="#st-shikoku" data-stjump="shikoku">四国</a></nav>
-     <section class="igrp" id="st-tokyo"><h3 class="sgh"><span>东京</span><small>東京</small></h3><div class="igrid"><a class="icard" href="/zh/itinerary/tokyo-3n4d/" data-itin="tokyo-3n4d">
+     <nav class="wxmon ijump"><a href="/zh/itinerary/tokyo/" data-itin="tokyo">东京</a><a href="/zh/itinerary/osaka/" data-itin="osaka">大阪</a><a href="/zh/itinerary/fukuoka/" data-itin="fukuoka">福冈</a><a href="/zh/itinerary/hokkaido/" data-itin="hokkaido">北海道</a><a href="/zh/itinerary/okinawa/" data-itin="okinawa">冲绳</a><a href="/zh/itinerary/nagoya/" data-itin="nagoya">名古屋</a><a href="/zh/itinerary/hiroshima/" data-itin="hiroshima">广岛</a><a href="/zh/itinerary/shikoku/" data-itin="shikoku">四国</a></nav>
+     <section class="igrp" id="st-tokyo"><h3 class="sgh"><span><a href="/zh/itinerary/tokyo/" data-itin="tokyo">东京</a></span><small>東京</small></h3><div class="igrid"><a class="icard" href="/zh/itinerary/tokyo-3n4d/" data-itin="tokyo-3n4d">
     <div class="ich"><span class="inb">3晚4天</span><span class="ist">17个地点</span></div>
     <h3>东京精华4天3晚</h3><p>把老东京和新东京分开游览的首游路线。</p>
     <ol class="iflow"><li>浅草·晴空塔</li><li>原宿·涩谷·新宿</li><li>丰洲·银座·台场</li><li>东京站·上野</li></ol>
@@ -121,7 +121,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=27be868d"><\/s
     <div class="ich"><span class="inb day">一日游</span><span class="ist">4个地点</span></div>
     <h3>富士山河口湖一日游</h3><p>从东京一早出发，一天逛遍富士山观景胜地。</p>
     <ol class="iflow"><li>河口湖·忠灵塔</li></ol>
-    <span class="igo">查看行程<i> →</i></span></a></div></section><section class="igrp" id="st-osaka"><h3 class="sgh"><span>大阪</span><small>大阪</small></h3><div class="igrid"><a class="icard" href="/zh/itinerary/kansai-4n5d/" data-itin="kansai-4n5d">
+    <span class="igo">查看行程<i> →</i></span></a></div><p class="imore"><a href="/zh/itinerary/tokyo/" data-itin="tokyo">查看东京行程指南<i> →</i></a></p></section><section class="igrp" id="st-osaka"><h3 class="sgh"><span><a href="/zh/itinerary/osaka/" data-itin="osaka">大阪</a></span><small>大阪</small></h3><div class="igrid"><a class="icard" href="/zh/itinerary/kansai-4n5d/" data-itin="kansai-4n5d">
     <div class="ich"><span class="inb">4晚5天</span><span class="ist">22个地点</span></div>
     <h3>大阪·京都·奈良5天4晚</h3><p>住在大阪，京都游两天、奈良游一天的关西经典路线。</p>
     <ol class="iflow"><li>大阪城·道顿堀</li><li>京都东部</li><li>京都西部·岚山</li><li>奈良</li><li>梅田</li></ol>
@@ -149,7 +149,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=27be868d"><\/s
     <div class="ich"><span class="inb day">一日游</span><span class="ist">5个地点</span></div>
     <h3>奈良一日游</h3><p>一天步行游览鹿公园、大佛和老街奈良町。</p>
     <ol class="iflow"><li>奈良公园·东大寺·奈良町</li></ol>
-    <span class="igo">查看行程<i> →</i></span></a></div></section><section class="igrp" id="st-fukuoka"><h3 class="sgh"><span>福冈</span><small>福岡</small></h3><div class="igrid"><a class="icard" href="/zh/itinerary/fukuoka-2n3d/" data-itin="fukuoka-2n3d">
+    <span class="igo">查看行程<i> →</i></span></a></div><p class="imore"><a href="/zh/itinerary/osaka/" data-itin="osaka">查看大阪行程指南<i> →</i></a></p></section><section class="igrp" id="st-fukuoka"><h3 class="sgh"><span><a href="/zh/itinerary/fukuoka/" data-itin="fukuoka">福冈</a></span><small>福岡</small></h3><div class="igrid"><a class="icard" href="/zh/itinerary/fukuoka-2n3d/" data-itin="fukuoka-2n3d">
     <div class="ich"><span class="inb">2晚3天</span><span class="ist">12个地点</span></div>
     <h3>福冈3天2晚</h3><p>距离近，适合短途旅行。一定要安排太宰府半日游和屋台。</p>
     <ol class="iflow"><li>博多·中洲</li><li>太宰府·天神</li><li>大濠公园·百道</li></ol>
@@ -165,7 +165,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=27be868d"><\/s
     <div class="ich"><span class="inb">1晚2天</span><span class="ist">7个地点</span></div>
     <h3>福冈2天1晚</h3><p>机场离市区近，短途也能逛博多、中洲屋台和太宰府。</p>
     <ol class="iflow"><li>博多·中洲</li><li>太宰府·天神</li></ol>
-    <span class="igo">查看行程<i> →</i></span></a></div></section><section class="igrp" id="st-hokkaido"><h3 class="sgh"><span>北海道</span><small>北海道</small></h3><div class="igrid"><a class="icard" href="/zh/itinerary/sapporo-3n4d/" data-itin="sapporo-3n4d">
+    <span class="igo">查看行程<i> →</i></span></a></div><p class="imore"><a href="/zh/itinerary/fukuoka/" data-itin="fukuoka">查看福冈行程指南<i> →</i></a></p></section><section class="igrp" id="st-hokkaido"><h3 class="sgh"><span><a href="/zh/itinerary/hokkaido/" data-itin="hokkaido">北海道</a></span><small>北海道</small></h3><div class="igrid"><a class="icard" href="/zh/itinerary/sapporo-3n4d/" data-itin="sapporo-3n4d">
     <div class="ich"><span class="inb">3晚4天</span><span class="ist">17个地点</span></div>
     <h3>札幌·小樽4天3晚</h3><p>结合札幌市区和运河小城小樽的北海道首游路线。</p>
     <ol class="iflow"><li>大通·薄野</li><li>小樽</li><li>点心工厂·啤酒·夜景</li><li>札幌站周边</li></ol>
@@ -181,7 +181,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=27be868d"><\/s
     <div class="ich"><span class="inb">2晚3天</span><span class="ist">11个地点</span></div>
     <h3>札幌·小樽3天2晚</h3><p>札幌市区和运河小城小樽的短途组合，最后以早市海鲜收尾。</p>
     <ol class="iflow"><li>大通公园·薄野</li><li>小樽</li><li>二条市场·札幌站（回国日）</li></ol>
-    <span class="igo">查看行程<i> →</i></span></a></div></section><section class="igrp" id="st-okinawa"><h3 class="sgh"><span>冲绳</span><small>沖縄</small></h3><div class="igrid"><a class="icard" href="/zh/itinerary/okinawa-3n4d/" data-itin="okinawa-3n4d">
+    <span class="igo">查看行程<i> →</i></span></a></div><p class="imore"><a href="/zh/itinerary/hokkaido/" data-itin="hokkaido">查看北海道行程指南<i> →</i></a></p></section><section class="igrp" id="st-okinawa"><h3 class="sgh"><span><a href="/zh/itinerary/okinawa/" data-itin="okinawa">冲绳</a></span><small>沖縄</small></h3><div class="igrid"><a class="icard" href="/zh/itinerary/okinawa-3n4d/" data-itin="okinawa-3n4d">
     <div class="ich"><span class="inb">3晚4天</span><span class="ist">15个地点</span></div>
     <h3>冲绳本岛4天3晚（租车）</h3><p>租车环游那霸的历史与市场、北部的大海与水族馆、南部的圣地。</p>
     <ol class="iflow"><li>那霸</li><li>北部</li><li>南部</li><li>中部</li></ol>
@@ -197,7 +197,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=27be868d"><\/s
     <div class="ich"><span class="inb">2晚3天</span><span class="ist">12个地点</span></div>
     <h3>冲绳3天2晚（自驾）</h3><p>自驾短途游览那霸、北部美丽海水族馆和中部海边。</p>
     <ol class="iflow"><li>首里城·国际通</li><li>北部：万座毛·美丽海·古宇利岛</li><li>中部：美国村（回国日）</li></ol>
-    <span class="igo">查看行程<i> →</i></span></a></div></section><section class="igrp" id="st-nagoya"><h3 class="sgh"><span>名古屋</span><small>名古屋</small></h3><div class="igrid"><a class="icard" href="/zh/itinerary/nagoya-2n3d/" data-itin="nagoya-2n3d">
+    <span class="igo">查看行程<i> →</i></span></a></div><p class="imore"><a href="/zh/itinerary/okinawa/" data-itin="okinawa">查看冲绳行程指南<i> →</i></a></p></section><section class="igrp" id="st-nagoya"><h3 class="sgh"><span><a href="/zh/itinerary/nagoya/" data-itin="nagoya">名古屋</a></span><small>名古屋</small></h3><div class="igrid"><a class="icard" href="/zh/itinerary/nagoya-2n3d/" data-itin="nagoya-2n3d">
     <div class="ich"><span class="inb">2晚3天</span><span class="ist">9个地点</span></div>
     <h3>名古屋·犬山3天2晚</h3><p>用两天游览城堡和博物馆众多的名古屋市区，再去国宝犬山城的路线。</p>
     <ol class="iflow"><li>名古屋城与荣</li><li>产业技术纪念馆·热田·大须</li><li>犬山</li></ol>
@@ -205,7 +205,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=27be868d"><\/s
     <div class="ich"><span class="inb">2晚3天</span><span class="ist">8个地点</span></div>
     <h3>高山·白川乡3天2晚</h3><p>从名古屋乘特急Hida，游览山中古镇高山和合掌造村落白川乡的路线。</p>
     <ol class="iflow"><li>高山老街</li><li>朝市与白川乡</li><li>奥飞驒山景</li></ol>
-    <span class="igo">查看行程<i> →</i></span></a></div></section><section class="igrp" id="st-hiroshima"><h3 class="sgh"><span>广岛</span><small>広島</small></h3><div class="igrid"><a class="icard" href="/zh/itinerary/hiroshima-miyajima-1n2d/" data-itin="hiroshima-miyajima-1n2d">
+    <span class="igo">查看行程<i> →</i></span></a></div><p class="imore"><a href="/zh/itinerary/nagoya/" data-itin="nagoya">查看名古屋行程指南<i> →</i></a></p></section><section class="igrp" id="st-hiroshima"><h3 class="sgh"><span><a href="/zh/itinerary/hiroshima/" data-itin="hiroshima">广岛</a></span><small>広島</small></h3><div class="igrid"><a class="icard" href="/zh/itinerary/hiroshima-miyajima-1n2d/" data-itin="hiroshima-miyajima-1n2d">
     <div class="ich"><span class="inb">1晚2天</span><span class="ist">7个地点</span></div>
     <h3>广岛·宫岛2天1晚</h3><p>第一天在和平公园回顾历史，第二天前往有海上鸟居的宫岛。</p>
     <ol class="iflow"><li>和平纪念公园</li><li>宫岛</li></ol>
@@ -213,7 +213,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=27be868d"><\/s
     <div class="ich"><span class="inb">3晚4天</span><span class="ist">11个地点</span></div>
     <h3>广岛·尾道·仓敷4天3晚</h3><p>游完广岛和宫岛后向东移动，途经坡道小城尾道和运河小镇仓敷的路线。</p>
     <ol class="iflow"><li>广岛市区</li><li>宫岛</li><li>尾道</li><li>仓敷</li></ol>
-    <span class="igo">查看行程<i> →</i></span></a></div></section><section class="igrp" id="st-shikoku"><h3 class="sgh"><span>四国</span><small>四国</small></h3><div class="igrid"><a class="icard" href="/zh/itinerary/matsuyama-1n2d/" data-itin="matsuyama-1n2d">
+    <span class="igo">查看行程<i> →</i></span></a></div><p class="imore"><a href="/zh/itinerary/hiroshima/" data-itin="hiroshima">查看广岛行程指南<i> →</i></a></p></section><section class="igrp" id="st-shikoku"><h3 class="sgh"><span><a href="/zh/itinerary/shikoku/" data-itin="shikoku">四国</a></span><small>四国</small></h3><div class="igrid"><a class="icard" href="/zh/itinerary/matsuyama-1n2d/" data-itin="matsuyama-1n2d">
     <div class="ich"><span class="inb">1晚2天</span><span class="ist">3个地点</span></div>
     <h3>松山·道后温泉2天1晚</h3><p>参观山上的松山城，在古老的道后温泉住一晚的悠闲路线。</p>
     <ol class="iflow"><li>松山城与道后温泉</li><li>石手寺与道后散步</li></ol>
@@ -221,7 +221,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=27be868d"><\/s
     <div class="ich"><span class="inb">2晚3天</span><span class="ist">9个地点</span></div>
     <h3>高松·直岛·琴平3天2晚</h3><p>住在高松，分别用一天游览庭园、艺术之岛直岛和金刀比罗宫石阶的路线。</p>
     <ol class="iflow"><li>高松市区</li><li>直岛</li><li>琴平</li></ol>
-    <span class="igo">查看行程<i> →</i></span></a></div></section>
+    <span class="igo">查看行程<i> →</i></span></a></div><p class="imore"><a href="/zh/itinerary/shikoku/" data-itin="shikoku">查看四国行程指南<i> →</i></a></p></section>
     </div></main>
 
 <footer><div class="wrap">Go Nihon Trip · 天气 <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · 照片 <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> （每张照片的作者·授权信息显示在详情页面）· 交通时间和营业信息可能变动，请在官方网站再次确认。<div class="flinks"><a href="/zh/about/" data-view="about">关于本站</a> · <a href="/zh/contact/" data-view="contact">联系我们</a> · <a href="/zh/privacy/" data-view="privacy">隐私政策</a></div></div></footer>
@@ -243,10 +243,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=27be868d"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=27be868d"></script>
-<script src="/autoreserve.js?v=27be868d"></script>
-<script src="/google_picks.js?v=27be868d"></script>
-<script src="/geo.js?v=27be868d"></script>
-<script src="/app.js?v=27be868d"></script>
+<script src="/areas.js?v=49d88bb0"></script>
+<script src="/autoreserve.js?v=49d88bb0"></script>
+<script src="/google_picks.js?v=49d88bb0"></script>
+<script src="/geo.js?v=49d88bb0"></script>
+<script src="/app.js?v=49d88bb0"></script>
 </body>
 </html>
