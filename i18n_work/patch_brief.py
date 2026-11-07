@@ -12,7 +12,7 @@ FILES = [f'{W}/tabishiori.html', f'{W}/i18n_work/backup/tabishiori.pre.html']
 CSS = """/*BRCSS_BEGIN*/
 .brief .picks .pdx{grid-column:2/-1;color:var(--ink-2);font-size:14px;font-weight:400;line-height:1.55;margin:0 0 10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-align:left}
 body.nowx #wxnote{display:none}
-.brief .bspot .picks .pd{border-left:1px solid var(--line);padding-left:12px;align-self:center}
+.brief .bspot .picks .pd,.brief .bfest .picks .pd{border-left:1px solid var(--line);padding-left:12px;align-self:center}
 /*BRCSS_END*/
 """
 R = [
@@ -21,6 +21,9 @@ R = [
  # 관광지 TOP 3에 짧은 설명
  ('${pickList(items, x=>SPOT_CAT[x.cat].ko, x=>x.area||"")}',
   '${pickList(items, x=>SPOT_CAT[x.cat].ko, x=>x.area||"").replace(/<\\/button><\\/li>/g,"</button></li>").replace(/(<button type="button" class="pick" data-open="([^"]+)">[\\s\\S]*?)<\\/button>/g,(m,a,id)=>{ const it=byId(id); return a+(it&&it.desc?`<span class="pdx">${esc(it.desc)}</span>`:"")+"</button>"; })}'),
+ # 축제 목록에도 짧은 설명
+ ('${items.length?pickList(items.slice(0,3), x=>x.month+"월", x=>x.when):',
+  '${items.length?pickList(items.slice(0,3), x=>x.month+"월", x=>x.when).replace(/(<button type="button" class="pick" data-open="([^"]+)">[\\s\\S]*?)<\\/button>/g,(m,a,id)=>{ const it=byId(id); return a+(it&&it.desc?`<span class="pdx">${esc(it.desc)}</span>`:"")+"</button>"; }):'),
  # 도시를 안 고른 화면에선 날씨 안내 줄 다시 보이게
  ('  document.body.classList.toggle("tsub",', '  document.body.classList.remove("nowx");\n  document.body.classList.toggle("tsub",'),
 ]
