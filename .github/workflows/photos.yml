@@ -2,7 +2,7 @@ name: photos
 on:
   push:
     branches: [photo-job]
-    paths: ['photos.py', 'titles.json', 'search.json', 'fix.json', 'drinks.py', 'drink_search.json', 'fests.py', 'fest_search.json']
+    paths: ['photos.py', 'titles.json', 'search.json', 'fix.json', 'drinks.py', 'drink_search.json', 'fests.py', 'fest_search.json', 'linkcheck.py', 'links.json']
 permissions:
   contents: write
 jobs:
@@ -10,10 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: if [ -f links.json ]; then python3 linkcheck.py; fi
       - run: if [ -f fest_search.json ]; then python3 fests.py; elif [ -f drink_search.json ]; then python3 drinks.py; else python3 photos.py; fi
       - run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          git add photo_cache.json photo_candidates.json; if [ -f drink_candidates.json ]; then git add drink_candidates.json; fi; if [ -f fest_candidates.json ]; then git add fest_candidates.json; fi
+          git add photo_cache.json photo_candidates.json; if [ -f drink_candidates.json ]; then git add drink_candidates.json; fi; if [ -f fest_candidates.json ]; then git add fest_candidates.json; fi; if [ -f links_result.json ]; then git add links_result.json; fi
           git commit -m "photo job results" || true
           git push
