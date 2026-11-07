@@ -1044,7 +1044,7 @@ function renderCities(){
     let topicCell = eatCell;
     if(st.view==="spots"){
       const items = inArea(SPOTS).slice(0,3);
-      topicCell = `<div class="bspot"><dt>${esc(where)} 추천 관광지 TOP ${items.length}</dt>${pickList(items, x=>SPOT_CAT[x.cat].ko, x=>x.area||"")}
+      topicCell = `<div class="bspot"><dt>${esc(where)} 추천 관광지 TOP ${items.length}</dt>${pickList(items, x=>SPOT_CAT[x.cat].ko, x=>x.area||"").replace(/<\/button><\/li>/g,"</button></li>").replace(/(<button type="button" class="pick" data-open="([^"]+)">[\s\S]*?)<\/button>/g,(m,a,id)=>{ const it=byId(id); return a+(it&&it.desc?`<span class="pdx">${esc(it.desc)}</span>`:"")+"</button>"; })}
         <dd class="sub">이름을 누르면 자세히 볼 수 있어요</dd></div>`;
     }else if(st.view==="festivals"){
       const inC = FESTS.filter(f=>f.city===st.city);
@@ -1097,9 +1097,10 @@ function renderCities(){
       const byC = {}; its.forEach(x=>{ const k=CITIES[x.city]?.ko||"기타"; byC[k]=(byC[k]||0)+1; });
       extraCell = `<div class="bsum"><dt>나의 여행 요약</dt>${its.length?`<dd class="trows2">${Object.entries(by).map(([k,n])=>`<span><b>${n}</b>${esc(k)}</span>`).join("")}</dd><dd class="sub">${Object.entries(byC).map(([k,n])=>`${esc(k)} ${n}곳`).join(" · ")}</dd>`:`<dd class="sub">아직 저장한 곳이 없어요</dd>`}</div>`;
     }
-    const cells = st.view==="spots" ? [wxCell, topicCell, courseCell, moveCell]
-      : st.view==="transport" ? [wxCell, apCell, icBrief, moveCell]
-      : [wxCell, extraCell, topicCell, moveCell];
+    const cells = st.view==="spots" ? [topicCell, courseCell]
+      : st.view==="transport" ? [apCell, icBrief, moveCell]
+      : [topicCell, extraCell];
+    document.body.classList.add("nowx");
     const missing = [!window.AREAS&&"areas.js", !window.AR_SHOPS&&"autoreserve.js", !window.GOOGLE_PICKS&&"google_picks.js"].filter(Boolean);
     const warn = missing.length ? `<div class="bwarn" style="grid-column:1/-1">⚠️ ${missing.join(", ")} 파일을 찾지 못했어요. index.html과 같은 폴더에 함께 두어야 하위 지역과 맛집이 보여요.</div>` : "";
     $("#brief").innerHTML = warn + cells.join("");
@@ -2040,6 +2041,7 @@ function render(){
   if(st.view==="home" || INFO_VIEWS.includes(st.view)){ st.city="all"; }
   if(st.city==="all") st.area="all";
   if(st.city!=="all" && (st.area==="all" || !areasOf(st.city).some(a=>a.key===st.area))) st.area = areasOf(st.city)[0]?.key || "all";
+  document.body.classList.remove("nowx");
   document.body.classList.toggle("tsub", st.view==="transport" && !!subOk(st));
   renderCities(); setNav();
   $("#main").innerHTML = V[st.view]();

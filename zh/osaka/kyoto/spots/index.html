@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=dfec835d">
+<link rel="stylesheet" href="/app.css?v=caa74f74">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=dfec835d"><\/script><script src="'+B+'engine.js?v=dfec835d"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=caa74f74"><\/script><script src="'+B+'engine.js?v=caa74f74"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -77,13 +77,8 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=dfec835d"><\/s
   <h1 id="heroTitle">大阪 · 京都 祇园·东山，先看什么？</h1>
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="查看上一组地区" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="选择地区"><button class="city" type="button" data-city="all" aria-pressed="false">全部<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">东京<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="true">大阪<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">福冈<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">北海道<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">冲绳<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">名古屋<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">广岛<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">四国<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="查看更多地区" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="选择区域"><button class="area" type="button" data-area="dotonbori" aria-pressed="false">道顿堀·难波</button><button class="area" type="button" data-area="umeda" aria-pressed="false">梅田</button><button class="area" type="button" data-area="shinsekai" aria-pressed="false">新世界·天王寺·鹤桥</button><button class="area" type="button" data-area="tenma" aria-pressed="false">天满·天神桥筋</button><button class="area" type="button" data-area="kyoto" aria-pressed="true">京都 祇园·东山</button><button class="area" type="button" data-area="kyotoeki" aria-pressed="false">京都站·二条城</button><button class="area" type="button" data-area="arashiyama" aria-pressed="false">京都 岚山·金阁寺</button><button class="area" type="button" data-area="nanzenji" aria-pressed="false">京都 南禅寺·银阁寺</button><button class="area" type="button" data-area="uji" aria-pressed="false">京都 伏见·宇治</button><button class="area" type="button" data-area="nara" aria-pressed="false">奈良</button><button class="area" type="button" data-area="kobe" aria-pressed="false">神户</button></div>
-  <dl class="brief" id="brief"><div class="bw"><dt>京都 祇园·东山今日天气</dt>
-        <dd class="wxtime"><span class="jstclock">11月7日（周六）17:17</span> <small>日本当前</small></dd>
-        <dd class="wxnow"><span class="big">17°</span> <b>往年平均气温</b><span class="wxicon" aria-hidden="true">🌤️</span></dd>
-        <dd class="sub wxline">11月往年平均最高气温</dd>
-        <dd class="sub">正在加载实时天气</dd></div><div class="bspot"><dt>京都 祇园·东山推荐景点 TOP 3</dt><ol class="picks"><li><button type="button" class="pick" data-open="kiyomizu"><b>清水寺</b><em class="pm">古迹·寺社</em><span class="pd">东山</span></button></li><li><button type="button" class="pick" data-open="gion"><b>祇园 · 花见小路</b><em class="pm">街区·名胜</em><span class="pd">祇园</span></button></li><li><button type="button" class="pick" data-open="s_sanjusangendo"><b>三十三间堂</b><em class="pm">古迹·寺社</em><span class="pd">七条</span></button></li></ol>
-        <dd class="sub">点击名称可查看详情</dd></div><div class="bcourse"><dt>推荐旅行路线 · 祇园·东山漫步</dt><ol class="course"><li><button type="button" data-open="kiyomizu">清水寺</button><span class="leg">步行5分钟</span></li><li><button type="button" data-open="s_ninenzaka">三年坂 · 二年坂</button><span class="leg">步行10分钟</span></li><li><button type="button" data-open="s_yasakajinja">八坂神社</button><span class="leg">步行5分钟</span></li><li><button type="button" data-open="gion">祇园 · 花见小路</button><span class="leg">步行10分钟</span></li><li><button type="button" data-open="s_ponto">先斗町</button></li></ol></div><div class="bmove"><dt>京都 祇园·东山市内交通</dt><dd class="mv"><p class="mv-rail"><span>常用路线</span>京阪——祇园四条站，阪急——京都河原町站</p><p class="mv-bus"><span>巴士</span>去清水寺可乘市巴士到五条坂或清水道站再步行上山</p><p class="mv-pass"><span>优惠车票</span>巴士总是很挤，建议电车和步行结合</p></dd>
-      <dd class="sub links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E4%BA%AC%E9%83%BD%20%E7%A5%87%E5%9C%92%20%E9%A7%85" target="_blank" rel="noopener">周边车站地图 ↗</a></dd></div></dl>
+  <dl class="brief" id="brief"><div class="bspot"><dt>京都 祇园·东山推荐景点 TOP 3</dt><ol class="picks"><li><button type="button" class="pick" data-open="kiyomizu"><b>清水寺</b><em class="pm">古迹·寺社</em><span class="pd">东山</span><span class="pdx">从悬崖上的木造舞台俯瞰京都市区的寺院。秋季红叶夜间特别开放很受欢迎。</span></button></li><li><button type="button" class="pick" data-open="gion"><b>祇园 · 花见小路</b><em class="pm">街区·名胜</em><span class="pd">祇园</span><span class="pdx">传统木造茶屋林立的京都老街，傍晚灯笼亮起时最有氛围。</span></button></li><li><button type="button" class="pick" data-open="s_sanjusangendo"><b>三十三间堂</b><em class="pm">古迹·寺社</em><span class="pd">七条</span><span class="pdx">长120米的正殿内排列着1,001尊千手观音像的寺院。</span></button></li></ol>
+        <dd class="sub">点击名称可查看详情</dd></div><div class="bcourse"><dt>推荐旅行路线 · 祇园·东山漫步</dt><ol class="course"><li><button type="button" data-open="kiyomizu">清水寺</button><span class="leg">步行5分钟</span></li><li><button type="button" data-open="s_ninenzaka">三年坂 · 二年坂</button><span class="leg">步行10分钟</span></li><li><button type="button" data-open="s_yasakajinja">八坂神社</button><span class="leg">步行5分钟</span></li><li><button type="button" data-open="gion">祇园 · 花见小路</button><span class="leg">步行10分钟</span></li><li><button type="button" data-open="s_ponto">先斗町</button></li></ol></div></dl>
   <div class="wx" id="wx" hidden=""></div>
   <div class="wxnote" id="wxnote">无法加载实时天气，显示往年平均值。</div>
 </section>
@@ -138,10 +133,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=dfec835d"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=dfec835d"></script>
-<script src="/autoreserve.js?v=dfec835d"></script>
-<script src="/google_picks.js?v=dfec835d"></script>
-<script src="/geo.js?v=dfec835d"></script>
-<script src="/app.js?v=dfec835d"></script>
+<script src="/areas.js?v=caa74f74"></script>
+<script src="/autoreserve.js?v=caa74f74"></script>
+<script src="/google_picks.js?v=caa74f74"></script>
+<script src="/geo.js?v=caa74f74"></script>
+<script src="/app.js?v=caa74f74"></script>
 </body>
 </html>

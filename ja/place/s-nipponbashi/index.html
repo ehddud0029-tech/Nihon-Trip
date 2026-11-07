@@ -36,14 +36,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=dfec835d">
+<link rel="stylesheet" href="/app.css?v=caa74f74">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=dfec835d"><\/script><script src="'+B+'engine.js?v=dfec835d"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=caa74f74"><\/script><script src="'+B+'engine.js?v=caa74f74"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -76,13 +76,8 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=dfec835d"><\/s
   <h1 id="heroTitle">大阪・道頓堀・難波、何から見ましょうか？</h1>
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="前の地域を見る" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="地域を選択"><button class="city" type="button" data-city="all" aria-pressed="false">すべて<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">東京<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="true">大阪<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">福岡<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">北海道<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">沖縄<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">名古屋<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">広島<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">四国<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="次の地域を見る" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="エリアを選択"><button class="area" type="button" data-area="dotonbori" aria-pressed="true">道頓堀・難波</button><button class="area" type="button" data-area="umeda" aria-pressed="false">梅田</button><button class="area" type="button" data-area="shinsekai" aria-pressed="false">新世界・天王寺・鶴橋</button><button class="area" type="button" data-area="tenma" aria-pressed="false">天満・天神橋筋</button><button class="area" type="button" data-area="kyoto" aria-pressed="false">京都 祇園・東山</button><button class="area" type="button" data-area="kyotoeki" aria-pressed="false">京都駅・二条城</button><button class="area" type="button" data-area="arashiyama" aria-pressed="false">京都 嵐山・金閣寺</button><button class="area" type="button" data-area="nanzenji" aria-pressed="false">京都 南禅寺・銀閣寺</button><button class="area" type="button" data-area="uji" aria-pressed="false">京都 伏見・宇治</button><button class="area" type="button" data-area="nara" aria-pressed="false">奈良</button><button class="area" type="button" data-area="kobe" aria-pressed="false">神戸</button></div>
-  <dl class="brief" id="brief"><div class="bw"><dt>道頓堀・難波の今日の天気</dt>
-        <dd class="wxtime"><span class="jstclock">11月7日(土) 17:16</span> <small>日本の現在</small></dd>
-        <dd class="wxnow"><span class="big">17°</span> <b>平年気温</b><span class="wxicon" aria-hidden="true">🌤️</span></dd>
-        <dd class="sub wxline">11月の平年最高気温</dd>
-        <dd class="sub">リアルタイムの天気を読み込み中です</dd></div><div class="broute"><dt>空港から道頓堀・難波への行き方</dt><dd class=""><span class="rt"><span class="mode m-전철">電車</span> 関西空港 → 難波駅 <b class="min">約40分</b></span><br><small>南海特急ラピート</small></dd><dd class="sub rnote">乗り換えなしで直通</dd></div><div class="beat"><dt>道頓堀・難波のおすすめグルメ</dt><ol class="picks"><li><span class="pick"><b>HAKATAラーメン チカッパ</b><em class="pm">ラーメン</em><span class="pd">博多豚骨ラーメン・もつ鍋</span></span></li><li><span class="pick"><b>鮨 たくま</b><em class="pm">寿司</em><span class="pd">江戸前寿司</span></span></li><li><span class="pick"><b>ザ・ニューワールド</b><em class="pm">居酒屋</em><span class="pd">おばんざい・刺身</span></span></li></ol>
-      <dd class="sub"><a href="https://autoreserve.com/ja/jp/osaka/osaka-shi-chuo-ku" target="_blank" rel="noopener sponsored">AutoReserveで予約する ↗</a></dd></div><div class="bmove"><dt>道頓堀・難波の市内移動</dt><dd class="mv"><p class="mv-rail"><span>主に利用</span>地下鉄御堂筋線 — 梅田・心斎橋・難波・天王寺を南北に結ぶ中心路線</p><p class="mv-rail"><span>主に利用</span>千日前線（日本橋）、四つ橋線（アメリカ村方面）</p><p class="mv-walk"><span>徒歩</span>難波〜道頓堀〜心斎橋〜アメリカ村は徒歩で回れます</p><p class="mv-pass"><span>割引乗車券</span>大阪エンジョイエコカード — 地下鉄・バス一日乗車券（土日はさらにお得）</p></dd>
-      <dd class="sub links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E9%81%93%E9%A0%93%E5%A0%80%20%E9%A7%85" target="_blank" rel="noopener">周辺の駅の地図 ↗</a></dd></div></dl>
+  <dl class="brief" id="brief"><div class="beat"><dt>道頓堀・難波のおすすめグルメ</dt><ol class="picks"><li><span class="pick"><b>HAKATAラーメン チカッパ</b><em class="pm">ラーメン</em><span class="pd">博多豚骨ラーメン・もつ鍋</span></span></li><li><span class="pick"><b>鮨 たくま</b><em class="pm">寿司</em><span class="pd">江戸前寿司</span></span></li><li><span class="pick"><b>ザ・ニューワールド</b><em class="pm">居酒屋</em><span class="pd">おばんざい・刺身</span></span></li></ol>
+      <dd class="sub"><a href="https://autoreserve.com/ja/jp/osaka/osaka-shi-chuo-ku" target="_blank" rel="noopener sponsored">AutoReserveで予約する ↗</a></dd></div><div class="broute"><dt>空港から道頓堀・難波への行き方</dt><dd class=""><span class="rt"><span class="mode m-전철">電車</span> 関西空港 → 難波駅 <b class="min">約40分</b></span><br><small>南海特急ラピート</small></dd><dd class="sub rnote">乗り換えなしで直通</dd></div></dl>
   <div class="wx" id="wx" hidden=""></div>
   <div class="wxnote" id="wxnote">リアルタイムの天気を読み込めなかったため平年値を表示しています。</div>
 </section>
@@ -126,7 +121,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=dfec835d"><\/s
     <div class="plate"><span class="tag">屋台・おやつ</span><span class="where">道頓堀・難波</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 12h17c0 4.4-3.6 8-8 8h-1c-4.4 0-8-3.6-8-8z"></path><path d="M8 20.5h8M14 3 9.5 11M19 4l-6.5 7.5"></path></svg></span><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/%E3%82%BD%E3%83%BC%E3%82%B9%E3%81%A8%E3%83%9D%E3%83%B3%E9%85%A2%E3%81%AE%E3%81%9F%E3%81%93%E7%84%BC%E3%81%8D.jpg/960px-%E3%82%BD%E3%83%BC%E3%82%B9%E3%81%A8%E3%83%9D%E3%83%B3%E9%85%A2%E3%81%AE%E3%81%9F%E3%81%93%E7%84%BC%E3%81%8D.jpg?utm_source=en.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="道頓堀 たこ焼き" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="ok"></div>
     <div class="body"><h3>道頓堀 たこ焼き</h3><div class="jpn">道頓堀 たこ焼き</div><p>外はカリッと中はとろっとしたたこ焼き。立ち食いの店が並んでいます。</p>
     <div class="meta"><span>¥<span style="opacity:.3">¥¥</span></span></div></div></a><a class="card" href="/ja/place/okonomi/" data-open="okonomi" style="--c:var(--shu)">
-    <div class="plate"><span class="tag">郷土料理</span><span class="where">道頓堀・難波</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 12h17c0 4.4-3.6 8-8 8h-1c-4.4 0-8-3.6-8-8z"></path><path d="M8 20.5h8M14 3 9.5 11M19 4l-6.5 7.5"></path></svg></span><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Okonomiyaki_001.jpg/960px-Okonomiyaki_001.jpg?utm_source=en.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="お好み焼き" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
+    <div class="plate"><span class="tag">郷土料理</span><span class="where">道頓堀・難波</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 12h17c0 4.4-3.6 8-8 8h-1c-4.4 0-8-3.6-8-8z"></path><path d="M8 20.5h8M14 3 9.5 11M19 4l-6.5 7.5"></path></svg></span><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Okonomiyaki_001.jpg/960px-Okonomiyaki_001.jpg?utm_source=en.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="お好み焼き" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="ok"></div>
     <div class="body"><h3>お好み焼き</h3><div class="jpn">お好み焼き</div><p>キャベツの生地を鉄板で焼き、ソースとマヨネーズをたっぷり。大阪を代表する郷土料理。</p>
     <div class="meta"><span>¥¥<span style="opacity:.3">¥</span></span></div></div></a></div></section>
    <div class="pl-all"><a class="btn" href="/ja/osaka/dotonbori/spots/" data-view="spots">一覧をすべて見る<i> →</i></a></div>
@@ -151,10 +146,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=dfec835d"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=dfec835d"></script>
-<script src="/autoreserve.js?v=dfec835d"></script>
-<script src="/google_picks.js?v=dfec835d"></script>
-<script src="/geo.js?v=dfec835d"></script>
-<script src="/app.js?v=dfec835d"></script>
+<script src="/areas.js?v=caa74f74"></script>
+<script src="/autoreserve.js?v=caa74f74"></script>
+<script src="/google_picks.js?v=caa74f74"></script>
+<script src="/geo.js?v=caa74f74"></script>
+<script src="/app.js?v=caa74f74"></script>
 </body>
 </html>

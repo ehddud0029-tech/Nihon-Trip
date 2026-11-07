@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=dfec835d">
+<link rel="stylesheet" href="/app.css?v=caa74f74">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=dfec835d"><\/script><script src="'+B+'engine.js?v=dfec835d"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=caa74f74"><\/script><script src="'+B+'engine.js?v=caa74f74"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -77,14 +77,9 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=dfec835d"><\/s
   <h1 id="heroTitle">大阪 · 天满·天神桥筋，先看什么？</h1>
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="查看上一组地区" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="选择地区"><button class="city" type="button" data-city="all" aria-pressed="false">全部<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">东京<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="true">大阪<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">福冈<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">北海道<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">冲绳<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">名古屋<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">广岛<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">四国<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="查看更多地区" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="选择区域"><button class="area" type="button" data-area="dotonbori" aria-pressed="false">道顿堀·难波</button><button class="area" type="button" data-area="umeda" aria-pressed="false">梅田</button><button class="area" type="button" data-area="shinsekai" aria-pressed="false">新世界·天王寺·鹤桥</button><button class="area" type="button" data-area="tenma" aria-pressed="true">天满·天神桥筋</button><button class="area" type="button" data-area="kyoto" aria-pressed="false">京都 祇园·东山</button><button class="area" type="button" data-area="kyotoeki" aria-pressed="false">京都站·二条城</button><button class="area" type="button" data-area="arashiyama" aria-pressed="false">京都 岚山·金阁寺</button><button class="area" type="button" data-area="nanzenji" aria-pressed="false">京都 南禅寺·银阁寺</button><button class="area" type="button" data-area="uji" aria-pressed="false">京都 伏见·宇治</button><button class="area" type="button" data-area="nara" aria-pressed="false">奈良</button><button class="area" type="button" data-area="kobe" aria-pressed="false">神户</button></div>
-  <dl class="brief" id="brief"><div class="bw"><dt>天满·天神桥筋今日天气</dt>
-        <dd class="wxtime"><span class="jstclock">11月7日（周六）17:17</span> <small>日本当前</small></dd>
-        <dd class="wxnow"><span class="big">17°</span> <b>往年平均气温</b><span class="wxicon" aria-hidden="true">🌤️</span></dd>
-        <dd class="sub wxline">11月往年平均最高气温</dd>
-        <dd class="sub">正在加载实时天气</dd></div><div class="bcal"><dt>大阪节庆日历</dt>
+  <dl class="brief" id="brief"><div class="bfest"><dt>大阪 11月节庆</dt><ol class="picks"><li><button type="button" class="pick" data-open="momiji"><b>京都红叶季</b><em class="pm">11月</em><span class="pd">11月中旬～12月上旬</span></button></li></ol></div><div class="bcal"><dt>大阪节庆日历</dt>
         <dd class="fcal"><button type="button" data-month="1" class="has"><b>1月</b><span>3个</span></button><button type="button" data-month="2" class=""><b>2月</b><span>–</span></button><button type="button" data-month="3" class="has"><b>3月</b><span>1个</span></button><button type="button" data-month="4" class="has"><b>4月</b><span>1个</span></button><button type="button" data-month="5" class="has"><b>5月</b><span>1个</span></button><button type="button" data-month="6" class="has"><b>6月</b><span>1个</span></button><button type="button" data-month="7" class="has"><b>7月</b><span>2个</span></button><button type="button" data-month="8" class="has"><b>8月</b><span>2个</span></button><button type="button" data-month="9" class="has"><b>9月</b><span>1个</span></button><button type="button" data-month="10" class="has"><b>10月</b><span>1个</span></button><button type="button" data-month="11" class="has on"><b>11月</b><span>1个</span></button><button type="button" data-month="12" class="has"><b>12月</b><span>1个</span></button></dd>
-        <dd class="sub">点击月份可查看当月的节庆 · 小摊用现金比较方便，大型节庆期间住宿很快订满</dd></div><div class="bfest"><dt>大阪 11月节庆</dt><ol class="picks"><li><button type="button" class="pick" data-open="momiji"><b>京都红叶季</b><em class="pm">11月</em><span class="pd">11月中旬～12月上旬</span></button></li></ol></div><div class="bmove"><dt>天满·天神桥筋市内交通</dt><dd class="mv"><p class="mv-rail"><span>常用路线</span>地铁谷町线 — 天满桥、天神桥筋六丁目；堺筋线</p><p class="mv-rail"><span>常用路线</span>JR大阪环状线 — 大阪城公园站（大阪城东侧）</p><p class="mv-etc"><span>其他</span>环游大阪城周边河道的水上巴士“Aqua-Liner”</p><p class="mv-walk"><span>步行</span>天神桥筋商店街南北长2.6公里，可以边走边逛</p></dd>
-      <dd class="sub links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A4%A9%E6%BA%80%20%E9%A7%85" target="_blank" rel="noopener">周边车站地图 ↗</a></dd></div></dl>
+        <dd class="sub">点击月份可查看当月的节庆 · 小摊用现金比较方便，大型节庆期间住宿很快订满</dd></div></dl>
   <div class="wx" id="wx" hidden=""></div>
   <div class="wxnote" id="wxnote">无法加载实时天气，显示往年平均值。</div>
 </section>
@@ -113,10 +108,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=dfec835d"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=dfec835d"></script>
-<script src="/autoreserve.js?v=dfec835d"></script>
-<script src="/google_picks.js?v=dfec835d"></script>
-<script src="/geo.js?v=dfec835d"></script>
-<script src="/app.js?v=dfec835d"></script>
+<script src="/areas.js?v=caa74f74"></script>
+<script src="/autoreserve.js?v=caa74f74"></script>
+<script src="/google_picks.js?v=caa74f74"></script>
+<script src="/geo.js?v=caa74f74"></script>
+<script src="/app.js?v=caa74f74"></script>
 </body>
 </html>
