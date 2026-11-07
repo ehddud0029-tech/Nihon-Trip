@@ -667,6 +667,7 @@ body.is-wx .hero{display:none}
 .dtaste{margin:0;font-size:14px;color:var(--ink-2);font-style:italic}
 .dtabs{display:flex;gap:6px;overflow-x:auto;margin:14px 0 4px;padding-bottom:2px;border-bottom:1px solid var(--line)}.dtabs a{flex:0 0 auto;padding:9px 14px;border-radius:10px 10px 0 0;text-decoration:none;color:var(--ink-2);font-weight:600;font-size:14.5px;border-bottom:3px solid transparent}.dtabs a.on{color:var(--ink);border-bottom-color:var(--accent,#c0392b)}
 .dwhere{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px}.dwhere dt{font-weight:700}.dwhere dd{margin:0}
+.dart{display:flex;align-items:center;justify-content:center;height:190px;border-radius:var(--r) var(--r) 0 0}.dart svg{display:block}.dmap{margin-top:6px}
 .dk-sake{background:#3d6f8e}.dk-beer{background:#c08a1e}.dk-whisky{background:#8a4b2a}.dk-awamori{background:#2f7d6b}
 .dlist{display:flex;flex-direction:column;gap:6px}.dmini{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px}
 .dmini b{font-size:15px}.dmini small{color:var(--ink-2);font-size:13px}
@@ -675,6 +676,9 @@ body.is-wx .hero{display:none}
 .sbtabs{margin:16px 0 14px}
 @media (max-width:599px){.sbtabs a{padding:8px 11px;font-size:14px}}
 /*SBCSS_END*/
+/*TTCSS_BEGIN*/
+body.tsub #brief{display:none}
+/*TTCSS_END*/
 footer{border-top:1px solid var(--line);color:var(--ink-2);font-size:12.5px}
 footer .wrap{padding-block:20px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
