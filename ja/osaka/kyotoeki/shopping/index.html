@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=973cdcb4">
+<link rel="stylesheet" href="/app.css?v=723d2521">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/script><script src="'+B+'engine.js?v=973cdcb4"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=723d2521"><\/script><script src="'+B+'engine.js?v=723d2521"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -77,10 +77,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/s
   <h1 id="heroTitle">大阪・京都駅・二条城、何から見ましょうか？</h1>
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="前の地域を見る" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="地域を選択"><button class="city" type="button" data-city="all" aria-pressed="false">すべて<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">東京<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="true">大阪<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">福岡<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">北海道<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">沖縄<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">名古屋<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">広島<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">四国<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="次の地域を見る" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="エリアを選択"><button class="area" type="button" data-area="dotonbori" aria-pressed="false">道頓堀・難波</button><button class="area" type="button" data-area="umeda" aria-pressed="false">梅田</button><button class="area" type="button" data-area="shinsekai" aria-pressed="false">新世界・天王寺・鶴橋</button><button class="area" type="button" data-area="tenma" aria-pressed="false">天満・天神橋筋</button><button class="area" type="button" data-area="kyoto" aria-pressed="false">京都 祇園・東山</button><button class="area" type="button" data-area="kyotoeki" aria-pressed="true">京都駅・二条城</button><button class="area" type="button" data-area="arashiyama" aria-pressed="false">京都 嵐山・金閣寺</button><button class="area" type="button" data-area="nanzenji" aria-pressed="false">京都 南禅寺・銀閣寺</button><button class="area" type="button" data-area="uji" aria-pressed="false">京都 伏見・宇治</button><button class="area" type="button" data-area="nara" aria-pressed="false">奈良</button><button class="area" type="button" data-area="kobe" aria-pressed="false">神戸</button></div>
-  <dl class="brief" id="brief"><div class="bshop"><dt>京都駅・二条城のショッピングスポット</dt><ol class="picks"><li><button type="button" class="pick" data-open="kyotostation"><b>京都駅</b><em class="pm">お土産</em><span class="pd">京都駅</span></button></li></ol></div><div class="btax"><dt>免税・ショッピング案内</dt><dd class="mv">
-        <p class="mv-rail"><span>免税</span>11月1日から「リファンド方式」に変わります。店では税込み価格で購入し、出国時に空港の税関で確認を受けた後に払い戻されます。パスポートを必ず持参しましょう。</p>
-        <p class="mv-walk"><span>お土産</span>八ッ橋、京漬物、抹茶菓子、京都限定の菓子</p>
-        <p class="mv-etc"><span>買い物のコツ</span>京都駅構内の店は夜遅くまで開いているので帰る日の買い物に便利。</p></dd></div></dl>
+  <dl class="brief" id="brief"><div class="bgift"><dt>京都駅・二条城で買いたいお土産</dt><ol class="picks"><li><span class="pick"><b>551蓬莱 豚まん</b><em class="pm">道頓堀</em><span class="pdx">大きな豚まん。要冷蔵なので当日か翌日に食べるお土産です。</span></span></li><li><span class="pick"><b>りくろーおじさんのチーズケーキ</b><em class="pm">道頓堀</em><span class="pdx">焼きたてのふわふわチーズケーキ。焼き上がるたびにベルが鳴ります。</span></span></li><li><span class="pick"><b>八ッ橋</b><em class="pm">京都 祇園</em><span class="pdx">シナモン風味の米粉生地のお菓子。焼いたものと、あんを包んだ「生八ッ橋」があります。</span></span></li></ol><dd class="sub links"><a href="#gifts">名産・お土産をすべて見る ↓</a></dd></div><div class="btax"><dt>買い物のコツ</dt><dd class="mv">
+        <p class="mv-etc"><span>買い物のコツ</span>京都駅構内の店は夜遅くまで開いているので帰る日の買い物に便利。</p>
+        <p class="mv-walk"><span>営業時間</span>百貨店は通常午前10時〜午後8時、ドン・キホーテのようなディスカウント店は夜遅くまで営業しています。</p>
+        <p class="mv-rail"><span>支払い</span>多くの店でカードや交通系ICカードが使えますが、市場や屋台は現金が便利です。免税を受けるときはパスポートを持参しましょう。</p></dd></div></dl>
   <div class="wx" id="wx" hidden=""></div>
   <div class="wxnote" id="wxnote">リアルタイムの天気を読み込めなかったため平年値を表示しています。</div>
 </section>
@@ -95,7 +95,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/s
     <div class="plate"><span class="tag">お土産</span><span class="where">京都駅・二条城</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Kyoto-STA_Central.jpg/960px-Kyoto-STA_Central.jpg?utm_source=en.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="京都駅" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
     <div class="body"><h3>京都駅</h3><div class="jpn">京都駅</div><p>駅ビルや地下街に京都のお菓子・お土産店が集まっています。</p>
     <div class="meta"><span>京都駅</span></div></div></a></div>
-   <section class="gifts"><div class="sechead"><div><h2>特産品・お土産のおすすめ</h2><p>大阪で買いたいお土産と売っている店 6種 · 京都駅・二条城のものを先に表示</p></div></div>
+   <section class="gifts" id="gifts"><div class="sechead"><div><h2>特産品・お土産のおすすめ</h2><p>大阪で買いたいお土産と売っている店 6種 · 京都駅・二条城のものを先に表示</p></div></div>
       <div class="giftgrid"><article class="gift"><div class="gphoto"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Hourai_butaman.jpg/960px-Hourai_butaman.jpg?utm_source=ja.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="ok"></div><div class="gcredit">写真：アイス · CC BY-SA 4.0 · <a href="https://commons.wikimedia.org/wiki/File:Hourai%20butaman.jpg" target="_blank" rel="noopener">ウィキメディア・コモンズ</a></div><div class="gh"><span class="gcat">食べ物</span><span class="gplace">道頓堀</span></div>
         <h3>551蓬莱 豚まん</h3><div class="gjp">551蓬莱 豚まん</div><p>大きな豚まん。要冷蔵なので当日か翌日に食べるお土産です。</p>
         <div class="gwhere"><b>売っている所</b><a href="https://www.google.com/maps/search/?api=1&amp;query=551%E8%93%AC%E8%8E%B1%20%E6%9C%AC%E5%BA%97" target="_blank" rel="noopener">551蓬莱本店（難波） ↗</a></div></article><article class="gift"><div class="gphoto"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Souffl%C3%A9-style_cheesecake_001.jpg/960px-Souffl%C3%A9-style_cheesecake_001.jpg?utm_source=ja.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="ok"></div><div class="gcredit">写真：Ocdp · CC0 · <a href="https://commons.wikimedia.org/wiki/File:Souffl%C3%A9-style%20cheesecake%20001.jpg" target="_blank" rel="noopener">ウィキメディア・コモンズ</a></div><div class="gh"><span class="gcat">お菓子</span><span class="gplace">道頓堀</span></div>
@@ -130,10 +130,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=973cdcb4"></script>
-<script src="/autoreserve.js?v=973cdcb4"></script>
-<script src="/google_picks.js?v=973cdcb4"></script>
-<script src="/geo.js?v=973cdcb4"></script>
-<script src="/app.js?v=973cdcb4"></script>
+<script src="/areas.js?v=723d2521"></script>
+<script src="/autoreserve.js?v=723d2521"></script>
+<script src="/google_picks.js?v=723d2521"></script>
+<script src="/geo.js?v=723d2521"></script>
+<script src="/app.js?v=723d2521"></script>
 </body>
 </html>

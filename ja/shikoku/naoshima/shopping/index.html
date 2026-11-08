@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=973cdcb4">
+<link rel="stylesheet" href="/app.css?v=723d2521">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/script><script src="'+B+'engine.js?v=973cdcb4"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=723d2521"><\/script><script src="'+B+'engine.js?v=723d2521"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -77,10 +77,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/s
   <h1 id="heroTitle">四国・直島、何から見ましょうか？</h1>
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="前の地域を見る" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="地域を選択"><button class="city" type="button" data-city="all" aria-pressed="false">すべて<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">東京<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">大阪<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">福岡<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">北海道<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">沖縄<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">名古屋<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">広島<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="true">四国<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="次の地域を見る" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="エリアを選択"><button class="area" type="button" data-area="matsuyama" aria-pressed="false">松山・道後温泉</button><button class="area" type="button" data-area="takamatsu" aria-pressed="false">高松</button><button class="area" type="button" data-area="naoshima" aria-pressed="true">直島</button><button class="area" type="button" data-area="kotohira" aria-pressed="false">琴平</button></div>
-  <dl class="brief" id="brief"><div class="bshop"><dt>直島のショッピングスポット</dt><ol class="picks"><li><button type="button" class="pick" data-open="p_naoshimaport"><b>海の駅なおしま（宮浦港）</b><em class="pm">お土産</em><span class="pd">宮浦港</span></button></li></ol></div><div class="btax"><dt>免税・ショッピング案内</dt><dd class="mv">
-        <p class="mv-rail"><span>免税</span>11月1日から「リファンド方式」に変わります。店では税込み価格で購入し、出国時に空港の税関で確認を受けた後に払い戻されます。パスポートを必ず持参しましょう。</p>
-        <p class="mv-walk"><span>お土産</span>美術館グッズ、黄色いかぼちゃのグッズ</p>
-        <p class="mv-etc"><span>買い物のコツ</span>店が少なく閉店も早め。美術館のショップと宮浦港の売店を利用。</p></dd></div></dl>
+  <dl class="brief" id="brief"><div class="bgift"><dt>直島で買いたいお土産</dt><ol class="picks"><li><span class="pick"><b>一六タルト</b><em class="pm">松山</em><span class="pdx">柚子香るあんをカステラで巻いた松山の菓子。名前はタルトでもロールケーキ形。</span></span></li><li><span class="pick"><b>今治タオル</b><em class="pm">松山</em><span class="pdx">吸水性がよくやわらかい愛媛・今治産のタオル。日本最大のタオル産地です。</span></span></li><li><span class="pick"><b>讃岐うどんの土産セット</b><em class="pm">高松</em><span class="pdx">家でゆでられる半生・乾麺のセット。つゆ付き。</span></span></li></ol><dd class="sub links"><a href="#gifts">名産・お土産をすべて見る ↓</a></dd></div><div class="btax"><dt>買い物のコツ</dt><dd class="mv">
+        <p class="mv-etc"><span>買い物のコツ</span>店が少なく閉店も早め。美術館のショップと宮浦港の売店を利用。</p>
+        <p class="mv-walk"><span>営業時間</span>百貨店は通常午前10時〜午後8時、ドン・キホーテのようなディスカウント店は夜遅くまで営業しています。</p>
+        <p class="mv-rail"><span>支払い</span>多くの店でカードや交通系ICカードが使えますが、市場や屋台は現金が便利です。免税を受けるときはパスポートを持参しましょう。</p></dd></div></dl>
   <div class="wx" id="wx" hidden=""></div>
   <div class="wxnote" id="wxnote">リアルタイムの天気を読み込めなかったため平年値を表示しています。</div>
 </section>
@@ -95,7 +95,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/s
     <div class="plate"><span class="tag">お土産</span><span class="where">直島</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Beachside_Torii%2C_Naoshima.jpg/960px-Beachside_Torii%2C_Naoshima.jpg?utm_source=en.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="海の駅なおしま（宮浦港）" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="ok"></div>
     <div class="body"><h3>海の駅なおしま（宮浦港）</h3><div class="jpn">海の駅なおしま</div><p>フェリーターミナル内の売店。島の土産やアートグッズが買えます。</p>
     <div class="meta"><span>宮浦港</span></div></div></a></div>
-   <section class="gifts"><div class="sechead"><div><h2>特産品・お土産のおすすめ</h2><p>四国で買いたいお土産と売っている店 3種 · 直島のものを先に表示</p></div></div>
+   <section class="gifts" id="gifts"><div class="sechead"><div><h2>特産品・お土産のおすすめ</h2><p>四国で買いたいお土産と売っている店 3種 · 直島のものを先に表示</p></div></div>
       <div class="giftgrid"><article class="gift"><div class="gphoto"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Ichiroku_Honpo_20240524.jpg/960px-Ichiroku_Honpo_20240524.jpg?utm_source=ja.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="ok"></div><div class="gcredit">写真：CT-May · CC0 · <a href="https://commons.wikimedia.org/wiki/File:Ichiroku%20Honpo%2020240524.jpg" target="_blank" rel="noopener">ウィキメディア・コモンズ</a></div><div class="gh"><span class="gcat">お菓子</span><span class="gplace">松山</span></div>
         <h3>一六タルト</h3><div class="gjp">一六タルト</div><p>柚子香るあんをカステラで巻いた松山の菓子。名前はタルトでもロールケーキ形。</p>
         <div class="gwhere"><b>売っている所</b><a href="https://www.google.com/maps/search/?api=1&amp;query=%E4%B8%80%E5%85%AD%E3%82%BF%E3%83%AB%E3%83%88%20%E9%81%93%E5%BE%8C" target="_blank" rel="noopener">道後ハイカラ通り・松山空港 ↗</a></div></article><article class="gift"><div class="gphoto"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Towels.JPG/960px-Towels.JPG?utm_source=ja.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="ok"></div><div class="gcredit">写真：No machine-readable author provided. Doronef assumed (based on copyright claims). · Public domain · <a href="https://commons.wikimedia.org/wiki/File:Towels.JPG" target="_blank" rel="noopener">ウィキメディア・コモンズ</a></div><div class="gh"><span class="gcat">工芸</span><span class="gplace">松山</span></div>
@@ -124,10 +124,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=973cdcb4"></script>
-<script src="/autoreserve.js?v=973cdcb4"></script>
-<script src="/google_picks.js?v=973cdcb4"></script>
-<script src="/geo.js?v=973cdcb4"></script>
-<script src="/app.js?v=973cdcb4"></script>
+<script src="/areas.js?v=723d2521"></script>
+<script src="/autoreserve.js?v=723d2521"></script>
+<script src="/google_picks.js?v=723d2521"></script>
+<script src="/geo.js?v=723d2521"></script>
+<script src="/app.js?v=723d2521"></script>
 </body>
 </html>

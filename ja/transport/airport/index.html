@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=973cdcb4">
+<link rel="stylesheet" href="/app.css?v=723d2521">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/script><script src="'+B+'engine.js?v=973cdcb4"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=723d2521"><\/script><script src="'+B+'engine.js?v=723d2521"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -89,123 +89,23 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/s
 
 <main class="wrap" id="main"><div class="sechead"><div><h2>交通</h2><p>空港から市内まで、そして街の中での移動方法</p></div></div>
    <nav class="dtabs sbtabs"><a href="/ja/transport/" data-subtab="">ひと目でわかる</a><a href="/ja/transport/times/" data-subtab="times">区間ごとの所要時間</a><a href="/ja/transport/airport/" data-subtab="airport" class="on" aria-current="page">空港から市内への行き方</a><a href="/ja/transport/ic/" data-subtab="ic">交通系ICカードの案内</a></nav>
-   <section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/narita/" data-apa="narita" data-apk="">成田空港</a></span></h3><div class="wxgrid"><article class="wxcard"><h3>浅草・上野</h3>
-       <p class="aprt"><span class="mode m-기차">列車</span> <span>京成スカイライナー</span></p><p class="aptm">約45分</p>
-       <a class="more" href="/ja/airport/narita/asakusa/" data-apa="narita" data-apk="asakusa">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>東京駅・神田</h3>
-       <p class="aprt"><span class="mode m-기차">列車</span> <span>JR成田エクスプレス</span></p><p class="aptm">約1時間</p>
-       <a class="more" href="/ja/airport/narita/tokyoeki/" data-apa="narita" data-apk="tokyoeki">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>銀座・築地</h3>
-       <p class="aprt"><span class="mode m-전철">電車</span> <span>京成アクセス特急（浅草線直通）</span></p><p class="aptm">約1時間5分</p>
-       <a class="more" href="/ja/airport/narita/ginza/" data-apa="narita" data-apk="ginza">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>渋谷・恵比寿・六本木</h3>
-       <p class="aprt"><span class="mode m-기차">列車</span> <span>JR成田エクスプレス</span></p><p class="aptm">約1時間15分</p>
-       <a class="more" href="/ja/airport/narita/shibuya/" data-apa="narita" data-apk="shibuya">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>新宿</h3>
-       <p class="aprt"><span class="mode m-기차">列車</span> <span>JR成田エクスプレス</span></p><p class="aptm">約1時間20分</p>
-       <a class="more" href="/ja/airport/narita/shinjuku/" data-apa="narita" data-apk="shinjuku">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>横浜</h3>
-       <p class="aprt"><span class="mode m-기차">列車</span> <span>JR成田エクスプレス</span></p><p class="aptm">約1時間30分</p>
-       <a class="more" href="/ja/airport/narita/yokohama/" data-apa="narita" data-apk="yokohama">詳しく見る<i> →</i></a></article></div></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/haneda/" data-apa="haneda" data-apk="">羽田空港</a></span></h3><div class="wxgrid"><article class="wxcard"><h3>横浜</h3>
-       <p class="aprt"><span class="mode m-전철">電車</span> <span>京急線</span></p><p class="aptm">約25分</p>
-       <a class="more" href="/ja/airport/haneda/yokohama/" data-apa="haneda" data-apk="yokohama">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>銀座・築地</h3>
-       <p class="aprt"><span class="mode m-전철">電車</span> <span>京急線（浅草線直通）</span></p><p class="aptm">約30分</p>
-       <a class="more" href="/ja/airport/haneda/ginza/" data-apa="haneda" data-apk="ginza">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>東京駅・神田</h3>
-       <p class="aprt"><span class="mode m-모노레일">モノレール</span> <span>東京モノレール</span> → <span>JR山手線</span></p><p class="aptm">約34分</p>
-       <a class="more" href="/ja/airport/haneda/tokyoeki/" data-apa="haneda" data-apk="tokyoeki">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>渋谷・恵比寿・六本木</h3>
-       <p class="aprt"><span class="mode m-전철">電車</span> <span>京急空港線</span> → <span>JR山手線</span></p><p class="aptm">約38分</p>
-       <a class="more" href="/ja/airport/haneda/shibuya/" data-apa="haneda" data-apk="shibuya">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>新宿</h3>
-       <p class="aprt"><span class="mode m-전철">電車</span> <span>京急空港線</span> → <span>JR山手線</span></p><p class="aptm">約45分</p>
-       <a class="more" href="/ja/airport/haneda/shinjuku/" data-apa="haneda" data-apk="shinjuku">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>浅草・上野</h3>
-       <p class="aprt"><span class="mode m-전철">電車</span> <span>京急線（浅草線直通）</span></p><p class="aptm">約45分</p>
-       <a class="more" href="/ja/airport/haneda/asakusa/" data-apa="haneda" data-apk="asakusa">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>鎌倉・江の島</h3>
-       <p class="aprt"><span class="mode m-전철">電車</span> <span>京急線</span> → <span>JR横須賀線</span></p><p class="aptm">約1時間</p>
-       <a class="more" href="/ja/airport/haneda/kamakura/" data-apa="haneda" data-apk="kamakura">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>箱根</h3>
-       <p class="aprt"><span class="mode m-전철">電車</span> <span>京急線→横浜でJR東海道線</span> → <span>箱根登山電車</span></p><p class="aptm">約1時間45分</p>
-       <a class="more" href="/ja/airport/haneda/hakone/" data-apa="haneda" data-apk="hakone">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>富士山・河口湖</h3>
-       <p class="aprt"><span class="mode m-버스">バス</span> <span>高速バス（予約推奨）</span></p><p class="aptm">約2時間30分</p>
-       <a class="more" href="/ja/airport/haneda/fuji/" data-apa="haneda" data-apk="fuji">詳しく見る<i> →</i></a></article></div></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/kansai/" data-apa="kansai" data-apk="">関西空港</a></span></h3><div class="wxgrid"><article class="wxcard"><h3>神戸</h3>
-       <p class="aprt"><span class="mode m-배">船</span> <span>神戸－関空ベイ・シャトル</span></p><p class="aptm">約30分</p>
-       <a class="more" href="/ja/airport/kansai/kobe/" data-apa="kansai" data-apk="kobe">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>新世界・天王寺・鶴橋</h3>
-       <p class="aprt"><span class="mode m-기차">列車</span> <span>JR 特急はるか</span></p><p class="aptm">約35分</p>
-       <a class="more" href="/ja/airport/kansai/shinsekai/" data-apa="kansai" data-apk="shinsekai">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>道頓堀・難波</h3>
-       <p class="aprt"><span class="mode m-전철">電車</span> <span>南海特急ラピート</span></p><p class="aptm">約40分</p>
-       <a class="more" href="/ja/airport/kansai/dotonbori/" data-apa="kansai" data-apk="dotonbori">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>梅田</h3>
-       <p class="aprt"><span class="mode m-기차">列車</span> <span>JR 特急はるか</span></p><p class="aptm">約50分</p>
-       <a class="more" href="/ja/airport/kansai/umeda/" data-apa="kansai" data-apk="umeda">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>天満・天神橋筋</h3>
-       <p class="aprt"><span class="mode m-기차">列車</span> <span>JR 特急はるか</span> → <span>JR大阪環状線</span></p><p class="aptm">約1時間3分</p>
-       <a class="more" href="/ja/airport/kansai/tenma/" data-apa="kansai" data-apk="tenma">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>京都 祇園・東山</h3>
-       <p class="aprt"><span class="mode m-기차">列車</span> <span>JR 特急はるか</span></p><p class="aptm">約1時間20分</p>
-       <a class="more" href="/ja/airport/kansai/kyoto/" data-apa="kansai" data-apk="kyoto">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>京都駅・二条城</h3>
-       <p class="aprt"><span class="mode m-기차">列車</span> <span>JR 特急はるか</span></p><p class="aptm">約1時間20分</p>
-       <a class="more" href="/ja/airport/kansai/kyotoeki/" data-apa="kansai" data-apk="kyotoeki">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>奈良</h3>
-       <p class="aprt"><span class="mode m-버스">バス</span> <span>空港リムジンバス</span></p><p class="aptm">約1時間30分</p>
-       <a class="more" href="/ja/airport/kansai/nara/" data-apa="kansai" data-apk="nara">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>京都 嵐山・金閣寺</h3>
-       <p class="aprt"><span class="mode m-기차">列車</span> <span>JR 特急はるか</span> → <span>JR 嵯峨野線</span></p><p class="aptm">約1時間45分</p>
-       <a class="more" href="/ja/airport/kansai/arashiyama/" data-apa="kansai" data-apk="arashiyama">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>京都 南禅寺・銀閣寺</h3>
-       <p class="aprt"><span class="mode m-기차">列車</span> <span>JR 特急はるか</span> → <span>地下鉄烏丸線 → 烏丸御池で東西線</span></p><p class="aptm">約1時間50分</p>
-       <a class="more" href="/ja/airport/kansai/nanzenji/" data-apa="kansai" data-apk="nanzenji">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>京都 伏見・宇治</h3>
-       <p class="aprt"><span class="mode m-기차">列車</span> <span>JR 特急はるか</span> → <span>JR 奈良線</span></p><p class="aptm">約1時間50分</p>
-       <a class="more" href="/ja/airport/kansai/uji/" data-apa="kansai" data-apk="uji">詳しく見る<i> →</i></a></article></div></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/fukuoka/" data-apa="fukuoka" data-apk="">福岡空港</a></span></h3><div class="wxgrid"><article class="wxcard"><h3>博多駅</h3>
-       <p class="aprt"><span class="mode m-지하철">地下鉄</span> <span>地下鉄空港線（国際線からは無料連絡バス約10分）</span></p><p class="aptm">約5分</p>
-       <a class="more" href="/ja/airport/fukuoka/hakata/" data-apa="fukuoka" data-apk="hakata">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>中洲・春吉</h3>
-       <p class="aprt"><span class="mode m-버스">バス</span> <span>無料連絡バス（10〜15分間隔）</span> → <span>地下鉄空港線（中洲川端駅）</span></p><p class="aptm">約29分</p>
-       <a class="more" href="/ja/airport/fukuoka/nakasu/" data-apa="fukuoka" data-apk="nakasu">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>太宰府</h3>
-       <p class="aprt"><span class="mode m-버스">バス</span> <span>西鉄直行バス（国際線ターミナル発）</span></p><p class="aptm">約30分</p>
-       <a class="more" href="/ja/airport/fukuoka/dazaifu/" data-apa="fukuoka" data-apk="dazaifu">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>天神・大名</h3>
-       <p class="aprt"><span class="mode m-버스">バス</span> <span>無料連絡バス（10〜15分間隔）</span> → <span>地下鉄空港線</span></p><p class="aptm">約31分</p>
-       <a class="more" href="/ja/airport/fukuoka/tenjin/" data-apa="fukuoka" data-apk="tenjin">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>糸島</h3>
-       <p class="aprt"><span class="mode m-버스">バス</span> <span>無料連絡バス（10〜15分間隔）</span> → <span>地下鉄空港線→JR筑肥線直通（筑前前原駅）</span></p><p class="aptm">約1時間</p>
-       <a class="more" href="/ja/airport/fukuoka/itoshima/" data-apa="fukuoka" data-apk="itoshima">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>由布院</h3>
-       <p class="aprt"><span class="mode m-버스">バス</span> <span>高速バスゆふいん号（国際線ターミナル発）</span></p><p class="aptm">約1時間50分</p>
-       <a class="more" href="/ja/airport/fukuoka/yufuin/" data-apa="fukuoka" data-apk="yufuin">詳しく見る<i> →</i></a></article></div></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/oita/" data-apa="oita" data-apk="">大分空港</a></span></h3><div class="wxgrid"><article class="wxcard"><h3>別府</h3>
-       <p class="aprt"><span class="mode m-버스">バス</span> <span>空港特急バス（エアライナー）</span></p><p class="aptm">約45分</p>
-       <a class="more" href="/ja/airport/oita/beppu/" data-apa="oita" data-apk="beppu">詳しく見る<i> →</i></a></article></div></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/newchitose/" data-apa="newchitose" data-apk="">新千歳空港</a></span></h3><div class="wxgrid"><article class="wxcard"><h3>札幌駅</h3>
-       <p class="aprt"><span class="mode m-기차">列車</span> <span>JR快速エアポート</span></p><p class="aptm">約37分</p>
-       <a class="more" href="/ja/airport/newchitose/sapporoeki/" data-apa="newchitose" data-apk="sapporoeki">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>札幌 すすきの・大通</h3>
-       <p class="aprt"><span class="mode m-기차">列車</span> <span>JR快速エアポート</span> → <span>地下鉄南北線</span></p><p class="aptm">約50分</p>
-       <a class="more" href="/ja/airport/newchitose/susukino/" data-apa="newchitose" data-apk="susukino">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>小樽</h3>
-       <p class="aprt"><span class="mode m-기차">列車</span> <span>JR快速エアポート</span></p><p class="aptm">約1時間15分</p>
-       <a class="more" href="/ja/airport/newchitose/otaru/" data-apa="newchitose" data-apk="otaru">詳しく見る<i> →</i></a></article></div></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/hakodate/" data-apa="hakodate" data-apk="">函館空港</a></span></h3><div class="wxgrid"><article class="wxcard"><h3>函館</h3>
-       <p class="aprt"><span class="mode m-버스">バス</span> <span>空港連絡バス</span></p><p class="aptm">約20分</p>
-       <a class="more" href="/ja/airport/hakodate/hakodate/" data-apa="hakodate" data-apk="hakodate">詳しく見る<i> →</i></a></article></div></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/asahikawa/" data-apa="asahikawa" data-apk="">旭川空港</a></span></h3><div class="wxgrid"><article class="wxcard"><h3>旭川</h3>
-       <p class="aprt"><span class="mode m-버스">バス</span> <span>空港連絡バス</span></p><p class="aptm">約35分</p>
-       <a class="more" href="/ja/airport/asahikawa/asahikawa/" data-apa="asahikawa" data-apk="asahikawa">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>富良野・美瑛</h3>
-       <p class="aprt"><span class="mode m-버스">バス</span> <span>ラベンダー号</span></p><p class="aptm">約1時間</p>
-       <a class="more" href="/ja/airport/asahikawa/furano/" data-apa="asahikawa" data-apk="furano">詳しく見る<i> →</i></a></article></div></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/naha/" data-apa="naha" data-apk="">那覇空港</a></span></h3><div class="wxgrid"><article class="wxcard"><h3>那覇</h3>
-       <p class="aprt"><span class="mode m-모노레일">モノレール</span> <span>ゆいレール</span></p><p class="aptm">約10分</p>
-       <a class="more" href="/ja/airport/naha/naha/" data-apa="naha" data-apk="naha">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>国際通り・牧志</h3>
-       <p class="aprt"><span class="mode m-모노레일">モノレール</span> <span>ゆいレール</span></p><p class="aptm">約12分</p>
-       <a class="more" href="/ja/airport/naha/kokusai/" data-apa="naha" data-apk="kokusai">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>宮古島</h3>
-       <p class="aprt"><span class="mode m-비행기">飛行機</span> <span>国内線</span></p><p class="aptm">約50分</p>
-       <a class="more" href="/ja/airport/naha/miyako/" data-apa="naha" data-apk="miyako">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>石垣島</h3>
-       <p class="aprt"><span class="mode m-비행기">飛行機</span> <span>国内線</span></p><p class="aptm">約55分</p>
-       <a class="more" href="/ja/airport/naha/ishigaki/" data-apa="naha" data-apk="ishigaki">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>沖縄中部</h3>
-       <p class="aprt"><span class="mode m-버스">バス</span> <span>空港リムジン・路線バス（アメリカンビレッジ）</span></p><p class="aptm">約1時間</p>
-       <a class="more" href="/ja/airport/naha/chubu/" data-apa="naha" data-apk="chubu">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>沖縄北部</h3>
-       <p class="aprt"><span class="mode m-버스">バス</span> <span>やんばる急行バス（美ら海水族館方面）</span></p><p class="aptm">約2時間</p>
-       <a class="more" href="/ja/airport/naha/hokubu/" data-apa="naha" data-apk="hokubu">詳しく見る<i> →</i></a></article></div></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/ishigaki/" data-apa="ishigaki" data-apk="">石垣空港</a></span></h3><div class="wxgrid"><article class="wxcard"><h3>石垣島</h3>
-       <p class="aprt"><span class="mode m-버스">バス</span> <span>空港連絡バス（バスターミナル）</span></p><p class="aptm">約30分</p>
-       <a class="more" href="/ja/airport/ishigaki/ishigaki/" data-apa="ishigaki" data-apk="ishigaki">詳しく見る<i> →</i></a></article></div></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/miyako/" data-apa="miyako" data-apk="">宮古空港</a></span></h3><div class="wxgrid"><article class="wxcard"><h3>宮古島</h3>
-       <p class="aprt"><span class="mode m-차">車</span> <span>タクシー・レンタカー</span></p><p class="aptm">約15分</p>
-       <a class="more" href="/ja/airport/miyako/miyako/" data-apa="miyako" data-apk="miyako">詳しく見る<i> →</i></a></article></div></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/chubu/" data-apa="chubu" data-apk="">中部国際空港</a></span></h3><div class="wxgrid"><article class="wxcard"><h3>名古屋市内</h3>
-       <p class="aprt"><span class="mode m-전철">電車</span> <span>名鉄 特急ミュースカイ</span></p><p class="aptm">約28分</p>
-       <a class="more" href="/ja/airport/chubu/meieki/" data-apa="chubu" data-apk="meieki">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>犬山</h3>
-       <p class="aprt"><span class="mode m-전철">電車</span> <span>名鉄 特急ミュースカイ</span> → <span>名鉄犬山線</span></p><p class="aptm">約1時間8分</p>
-       <a class="more" href="/ja/airport/chubu/inuyama/" data-apa="chubu" data-apk="inuyama">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>高山</h3>
-       <p class="aprt"><span class="mode m-전철">電車</span> <span>名鉄 特急ミュースカイ</span> → <span>JR 特急ひだ</span></p><p class="aptm">約2時間58分</p>
-       <a class="more" href="/ja/airport/chubu/takayama/" data-apa="chubu" data-apk="takayama">詳しく見る<i> →</i></a></article></div></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/hiroshima/" data-apa="hiroshima" data-apk="">広島空港</a></span></h3><div class="wxgrid"><article class="wxcard"><h3>広島市内</h3>
-       <p class="aprt"><span class="mode m-버스">バス</span> <span>空港リムジンバス</span></p><p class="aptm">約50分</p>
-       <a class="more" href="/ja/airport/hiroshima/hirocity/" data-apa="hiroshima" data-apk="hirocity">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>尾道</h3>
-       <p class="aprt"><span class="mode m-버스">バス</span> <span>空港連絡バス</span> → <span>JR山陽本線</span></p><p class="aptm">約1時間</p>
-       <a class="more" href="/ja/airport/hiroshima/onomichi/" data-apa="hiroshima" data-apk="onomichi">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>宮島</h3>
-       <p class="aprt"><span class="mode m-버스">バス</span> <span>空港リムジンバス</span> → <span>JR山陽本線</span> → <span>JR・松大フェリー</span></p><p class="aptm">約1時間37分</p>
-       <a class="more" href="/ja/airport/hiroshima/miyajima/" data-apa="hiroshima" data-apk="miyajima">詳しく見る<i> →</i></a></article></div></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/okayama/" data-apa="okayama" data-apk="">岡山空港</a></span></h3><div class="wxgrid"><article class="wxcard"><h3>倉敷（岡山）</h3>
-       <p class="aprt"><span class="mode m-버스">バス</span> <span>空港リムジンバス</span></p><p class="aptm">約35分</p>
-       <a class="more" href="/ja/airport/okayama/kurashiki/" data-apa="okayama" data-apk="kurashiki">詳しく見る<i> →</i></a></article></div></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/matsuyama/" data-apa="matsuyama" data-apk="">松山空港</a></span></h3><div class="wxgrid"><article class="wxcard"><h3>松山・道後温泉</h3>
-       <p class="aprt"><span class="mode m-버스">バス</span> <span>空港リムジンバス</span></p><p class="aptm">約25分</p>
-       <a class="more" href="/ja/airport/matsuyama/matsuyama/" data-apa="matsuyama" data-apk="matsuyama">詳しく見る<i> →</i></a></article></div></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/takamatsu/" data-apa="takamatsu" data-apk="">高松空港</a></span></h3><div class="wxgrid"><article class="wxcard"><h3>高松</h3>
-       <p class="aprt"><span class="mode m-버스">バス</span> <span>空港リムジンバス</span></p><p class="aptm">約45分</p>
-       <a class="more" href="/ja/airport/takamatsu/takamatsu/" data-apa="takamatsu" data-apk="takamatsu">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>直島</h3>
-       <p class="aprt"><span class="mode m-버스">バス</span> <span>空港リムジンバス</span> → <span>四国汽船 フェリー・高速旅客船</span></p><p class="aptm">約1時間45分</p>
-       <a class="more" href="/ja/airport/takamatsu/naoshima/" data-apa="takamatsu" data-apk="naoshima">詳しく見る<i> →</i></a></article><article class="wxcard"><h3>琴平</h3>
-       <p class="aprt"><span class="mode m-버스">バス</span> <span>空港リムジンバス</span> → <span>ことでん琴平線</span></p><p class="aptm">約1時間55分</p>
-       <a class="more" href="/ja/airport/takamatsu/kotohira/" data-apa="takamatsu" data-apk="kotohira">詳しく見る<i> →</i></a></article></div></section></main>
+   <section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/narita/" data-apa="narita" data-apk="">成田空港</a></span></h3><ul class="apmini"><li><b>浅草・上野</b><span class="mode m-기차">列車</span><span class="aptm">約45分</span></li><li><b>東京駅・神田</b><span class="mode m-기차">列車</span><span class="aptm">約1時間</span></li><li><b>銀座・築地</b><span class="mode m-전철">電車</span><span class="aptm">約1時間5分</span></li><li><b>渋谷・恵比寿・六本木</b><span class="mode m-기차">列車</span><span class="aptm">約1時間15分</span></li></ul>
+       <a class="btn ghost" href="/ja/airport/narita/" data-apa="narita" data-apk="">すべての行き先と行き方を見る<i> →</i></a></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/haneda/" data-apa="haneda" data-apk="">羽田空港</a></span></h3><ul class="apmini"><li><b>横浜</b><span class="mode m-전철">電車</span><span class="aptm">約25分</span></li><li><b>銀座・築地</b><span class="mode m-전철">電車</span><span class="aptm">約30分</span></li><li><b>東京駅・神田</b><span class="mode m-모노레일">モノレール</span><span class="aptm">約34分</span></li><li><b>渋谷・恵比寿・六本木</b><span class="mode m-전철">電車</span><span class="aptm">約38分</span></li></ul>
+       <a class="btn ghost" href="/ja/airport/haneda/" data-apa="haneda" data-apk="">すべての行き先と行き方を見る<i> →</i></a></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/kansai/" data-apa="kansai" data-apk="">関西空港</a></span></h3><ul class="apmini"><li><b>神戸</b><span class="mode m-배">船</span><span class="aptm">約30分</span></li><li><b>新世界・天王寺・鶴橋</b><span class="mode m-기차">列車</span><span class="aptm">約35分</span></li><li><b>道頓堀・難波</b><span class="mode m-전철">電車</span><span class="aptm">約40分</span></li><li><b>梅田</b><span class="mode m-기차">列車</span><span class="aptm">約50分</span></li></ul>
+       <a class="btn ghost" href="/ja/airport/kansai/" data-apa="kansai" data-apk="">すべての行き先と行き方を見る<i> →</i></a></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/fukuoka/" data-apa="fukuoka" data-apk="">福岡空港</a></span></h3><ul class="apmini"><li><b>博多駅</b><span class="mode m-지하철">地下鉄</span><span class="aptm">約5分</span></li><li><b>中洲・春吉</b><span class="mode m-버스">バス</span><span class="aptm">約29分</span></li><li><b>太宰府</b><span class="mode m-버스">バス</span><span class="aptm">約30分</span></li><li><b>天神・大名</b><span class="mode m-버스">バス</span><span class="aptm">約31分</span></li></ul>
+       <a class="btn ghost" href="/ja/airport/fukuoka/" data-apa="fukuoka" data-apk="">すべての行き先と行き方を見る<i> →</i></a></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/oita/" data-apa="oita" data-apk="">大分空港</a></span></h3><ul class="apmini"><li><b>別府</b><span class="mode m-버스">バス</span><span class="aptm">約45分</span></li></ul>
+       <a class="btn ghost" href="/ja/airport/oita/" data-apa="oita" data-apk="">すべての行き先と行き方を見る<i> →</i></a></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/newchitose/" data-apa="newchitose" data-apk="">新千歳空港</a></span></h3><ul class="apmini"><li><b>札幌駅</b><span class="mode m-기차">列車</span><span class="aptm">約37分</span></li><li><b>札幌 すすきの・大通</b><span class="mode m-기차">列車</span><span class="aptm">約50分</span></li><li><b>小樽</b><span class="mode m-기차">列車</span><span class="aptm">約1時間15分</span></li></ul>
+       <a class="btn ghost" href="/ja/airport/newchitose/" data-apa="newchitose" data-apk="">すべての行き先と行き方を見る<i> →</i></a></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/hakodate/" data-apa="hakodate" data-apk="">函館空港</a></span></h3><ul class="apmini"><li><b>函館</b><span class="mode m-버스">バス</span><span class="aptm">約20分</span></li></ul>
+       <a class="btn ghost" href="/ja/airport/hakodate/" data-apa="hakodate" data-apk="">すべての行き先と行き方を見る<i> →</i></a></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/asahikawa/" data-apa="asahikawa" data-apk="">旭川空港</a></span></h3><ul class="apmini"><li><b>旭川</b><span class="mode m-버스">バス</span><span class="aptm">約35分</span></li><li><b>富良野・美瑛</b><span class="mode m-버스">バス</span><span class="aptm">約1時間</span></li></ul>
+       <a class="btn ghost" href="/ja/airport/asahikawa/" data-apa="asahikawa" data-apk="">すべての行き先と行き方を見る<i> →</i></a></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/naha/" data-apa="naha" data-apk="">那覇空港</a></span></h3><ul class="apmini"><li><b>那覇</b><span class="mode m-모노레일">モノレール</span><span class="aptm">約10分</span></li><li><b>国際通り・牧志</b><span class="mode m-모노레일">モノレール</span><span class="aptm">約12分</span></li><li><b>宮古島</b><span class="mode m-비행기">飛行機</span><span class="aptm">約50分</span></li><li><b>石垣島</b><span class="mode m-비행기">飛行機</span><span class="aptm">約55分</span></li></ul>
+       <a class="btn ghost" href="/ja/airport/naha/" data-apa="naha" data-apk="">すべての行き先と行き方を見る<i> →</i></a></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/ishigaki/" data-apa="ishigaki" data-apk="">石垣空港</a></span></h3><ul class="apmini"><li><b>石垣島</b><span class="mode m-버스">バス</span><span class="aptm">約30分</span></li></ul>
+       <a class="btn ghost" href="/ja/airport/ishigaki/" data-apa="ishigaki" data-apk="">すべての行き先と行き方を見る<i> →</i></a></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/miyako/" data-apa="miyako" data-apk="">宮古空港</a></span></h3><ul class="apmini"><li><b>宮古島</b><span class="mode m-차">車</span><span class="aptm">約15分</span></li></ul>
+       <a class="btn ghost" href="/ja/airport/miyako/" data-apa="miyako" data-apk="">すべての行き先と行き方を見る<i> →</i></a></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/chubu/" data-apa="chubu" data-apk="">中部国際空港</a></span></h3><ul class="apmini"><li><b>名古屋市内</b><span class="mode m-전철">電車</span><span class="aptm">約28分</span></li><li><b>犬山</b><span class="mode m-전철">電車</span><span class="aptm">約1時間8分</span></li><li><b>高山</b><span class="mode m-전철">電車</span><span class="aptm">約2時間58分</span></li></ul>
+       <a class="btn ghost" href="/ja/airport/chubu/" data-apa="chubu" data-apk="">すべての行き先と行き方を見る<i> →</i></a></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/hiroshima/" data-apa="hiroshima" data-apk="">広島空港</a></span></h3><ul class="apmini"><li><b>広島市内</b><span class="mode m-버스">バス</span><span class="aptm">約50分</span></li><li><b>尾道</b><span class="mode m-버스">バス</span><span class="aptm">約1時間</span></li><li><b>宮島</b><span class="mode m-버스">バス</span><span class="aptm">約1時間37分</span></li></ul>
+       <a class="btn ghost" href="/ja/airport/hiroshima/" data-apa="hiroshima" data-apk="">すべての行き先と行き方を見る<i> →</i></a></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/okayama/" data-apa="okayama" data-apk="">岡山空港</a></span></h3><ul class="apmini"><li><b>倉敷（岡山）</b><span class="mode m-버스">バス</span><span class="aptm">約35分</span></li></ul>
+       <a class="btn ghost" href="/ja/airport/okayama/" data-apa="okayama" data-apk="">すべての行き先と行き方を見る<i> →</i></a></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/matsuyama/" data-apa="matsuyama" data-apk="">松山空港</a></span></h3><ul class="apmini"><li><b>松山・道後温泉</b><span class="mode m-버스">バス</span><span class="aptm">約25分</span></li></ul>
+       <a class="btn ghost" href="/ja/airport/matsuyama/" data-apa="matsuyama" data-apk="">すべての行き先と行き方を見る<i> →</i></a></section><section class="apsec"><h3 class="sgh"><span><a href="/ja/airport/takamatsu/" data-apa="takamatsu" data-apk="">高松空港</a></span></h3><ul class="apmini"><li><b>高松</b><span class="mode m-버스">バス</span><span class="aptm">約45分</span></li><li><b>直島</b><span class="mode m-버스">バス</span><span class="aptm">約1時間45分</span></li><li><b>琴平</b><span class="mode m-버스">バス</span><span class="aptm">約1時間55分</span></li></ul>
+       <a class="btn ghost" href="/ja/airport/takamatsu/" data-apa="takamatsu" data-apk="">すべての行き先と行き方を見る<i> →</i></a></section></main>
 
 <footer><div class="wrap">Go Nihon Trip · 天気 <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · 写真 <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> （各写真の著作者・ライセンスは詳細画面に表示）· 所要時間・営業情報は変わることがあるので公式サイトで再確認してください。<div class="flinks"><a href="/ja/about/" data-view="about">サイトについて</a> · <a href="/ja/contact/" data-view="contact">お問い合わせ</a> · <a href="/ja/privacy/" data-view="privacy">プライバシーポリシー</a></div></div></footer>
 
@@ -226,10 +126,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=973cdcb4"></script>
-<script src="/autoreserve.js?v=973cdcb4"></script>
-<script src="/google_picks.js?v=973cdcb4"></script>
-<script src="/geo.js?v=973cdcb4"></script>
-<script src="/app.js?v=973cdcb4"></script>
+<script src="/areas.js?v=723d2521"></script>
+<script src="/autoreserve.js?v=723d2521"></script>
+<script src="/google_picks.js?v=723d2521"></script>
+<script src="/geo.js?v=723d2521"></script>
+<script src="/app.js?v=723d2521"></script>
 </body>
 </html>

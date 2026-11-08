@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=973cdcb4">
+<link rel="stylesheet" href="/app.css?v=723d2521">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/script><script src="'+B+'engine.js?v=973cdcb4"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=723d2521"><\/script><script src="'+B+'engine.js?v=723d2521"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -77,10 +77,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/s
   <h1 id="heroTitle">Kamakura et Enoshima (Tokyo) : par où commencer ?</h1>
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="Voir les régions précédentes" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="Sélectionner une zone"><button class="city" type="button" data-city="all" aria-pressed="false">Tout<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="true">Tokyo<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">Osaka<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">Fukuoka<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">Hokkaido<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">Okinawa<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">Nagoya<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">Hiroshima<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">Shikoku<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="Voir plus de régions" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="Sélectionner une sous-zone"><button class="area" type="button" data-area="shinjuku" aria-pressed="false">Shinjuku</button><button class="area" type="button" data-area="shibuya" aria-pressed="false">Shibuya, Ebisu &amp; Roppongi</button><button class="area" type="button" data-area="ginza" aria-pressed="false">Ginza &amp; Tsukiji</button><button class="area" type="button" data-area="asakusa" aria-pressed="false">Asakusa et Ueno</button><button class="area" type="button" data-area="tokyoeki" aria-pressed="false">Tokyo Station &amp; Kanda</button><button class="area" type="button" data-area="yokohama" aria-pressed="false">Yokohama</button><button class="area" type="button" data-area="kamakura" aria-pressed="true">Kamakura et Enoshima</button><button class="area" type="button" data-area="hakone" aria-pressed="false">Hakone</button><button class="area" type="button" data-area="fuji" aria-pressed="false">Mont Fuji et lac Kawaguchi</button></div>
-  <dl class="brief" id="brief"><div class="bshop"><dt>Adresses shopping à Kamakura et Enoshima</dt><ol class="picks"><li><button type="button" class="pick" data-open="komachi"><b>Komachi-dori</b><em class="pm">Souvenirs</em><span class="pd">Gare de Kamakura</span></button></li><li><button type="button" class="pick" data-open="wakamiya"><b>Wakamiya-oji Craft Shops</b><em class="pm">Artisanat</em><span class="pd">Gare de Kamakura</span></button></li></ol></div><div class="btax"><dt>Guide détaxe et shopping</dt><dd class="mv">
-        <p class="mv-rail"><span>Détaxe</span>À partir du 1er novembre, c'est un « système de remboursement » : on paie TTC en magasin et la taxe est remboursée après contrôle douanier à l'aéroport au départ. N'oubliez pas votre passeport.</p>
-        <p class="mv-walk"><span>Souvenirs</span>Hato Sablé (sablés en forme de colombe), crackers de riz et douceurs au matcha sur Komachi-dori</p>
-        <p class="mv-etc"><span>Astuce shopping</span>Beaucoup de boutiques de Komachi-dori ferment vers 17–18 h. Les après-midi de week-end sont bondés.</p></dd></div></dl>
+  <dl class="brief" id="brief"><div class="bgift"><dt>Cadeaux à acheter à Kamakura et Enoshima</dt><ol class="picks"><li><span class="pick"><b>Hato Sablé</b><em class="pm">Kamakura</em><span class="pdx">Biscuits au beurre en forme de colombe, le cadeau emblématique de Kamakura.</span></span></li><li><span class="pick"><b>Tokyo Banana</b><em class="pm">Gare de Tokyo</em><span class="pdx">Gâteau moelleux fourré à la crème de banane, le cadeau classique de Tokyo.</span></span></li><li><span class="pick"><b>Ningyo-yaki</b><em class="pm">Asakusa</em><span class="pdx">Petits gâteaux en forme de poupée fourrés à la pâte de haricot rouge, spécialité d'Asakusa.</span></span></li></ol><dd class="sub links"><a href="#gifts">Voir tous les cadeaux locaux ↓</a></dd></div><div class="btax"><dt>Astuce shopping</dt><dd class="mv">
+        <p class="mv-etc"><span>Astuce shopping</span>Beaucoup de boutiques de Komachi-dori ferment vers 17–18 h. Les après-midi de week-end sont bondés.</p>
+        <p class="mv-walk"><span>Horaires</span>Les grands magasins ouvrent en général de 10 h à 20 h ; les discounters comme Don Quijote restent ouverts tard le soir.</p>
+        <p class="mv-rail"><span>Paiement</span>La plupart des boutiques acceptent la carte bancaire et les cartes IC, mais le liquide est plus pratique sur les marchés et les stands. Prenez votre passeport pour la détaxe.</p></dd></div></dl>
   <div class="wx" id="wx" hidden=""></div>
   <div class="wxnote" id="wxnote">Météo en direct indisponible : valeurs normales affichées.</div>
 </section>
@@ -98,7 +98,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/s
     <div class="plate"><span class="tag">Artisanat</span><span class="where">Kamakura et Enoshima</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Wakamiya_Oji.jpg/960px-Wakamiya_Oji.jpg?utm_source=ja.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="Wakamiya-oji Craft Shops" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
     <div class="body"><h3>Wakamiya-oji Craft Shops</h3><div class="jpn">若宮大路</div><p>Grande avenue de boutiques d'artisanat comme les sculptures laquées Kamakura-bori.</p>
     <div class="meta"><span>Gare de Kamakura</span></div></div></a></div>
-   <section class="gifts"><div class="sechead"><div><h2>Produits locaux et idées cadeaux</h2><p>6 cadeaux à rapporter de Tokyo et où les acheter · Kamakura et Enoshima en premier</p></div></div>
+   <section class="gifts" id="gifts"><div class="sechead"><div><h2>Produits locaux et idées cadeaux</h2><p>6 cadeaux à rapporter de Tokyo et où les acheter · Kamakura et Enoshima en premier</p></div></div>
       <div class="giftgrid"><article class="gift here"><div class="gphoto"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Toshimaya_Hato_Sable_04.jpg/960px-Toshimaya_Hato_Sable_04.jpg?utm_source=ja.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="ok"></div><div class="gcredit">Photo : KQuhen · CC BY-SA 4.0 · <a href="https://commons.wikimedia.org/wiki/File:Toshimaya%20Hato%20Sable%2004.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></div><div class="gh"><span class="gcat">Douceurs</span><span class="gplace">Kamakura</span></div>
         <h3>Hato Sablé</h3><div class="gjp">鳩サブレー</div><p>Biscuits au beurre en forme de colombe, le cadeau emblématique de Kamakura.</p>
         <div class="gwhere"><b>Où acheter</b><a href="https://www.google.com/maps/search/?api=1&amp;query=%E8%B1%8A%E5%B3%B6%E5%B1%8B%20%E6%9C%AC%E5%BA%97%20%E9%8E%8C%E5%80%89" target="_blank" rel="noopener">Toshimaya (boutique principale) ↗</a></div></article><article class="gift"><div class="gphoto"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Tokyo_Banana_%281%29.jpg/960px-Tokyo_Banana_%281%29.jpg?utm_source=ja.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="ok"></div><div class="gcredit">Photo : 毒島みるく · CC0 · <a href="https://commons.wikimedia.org/wiki/File:Tokyo%20Banana%20(1).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></div><div class="gh"><span class="gcat">Douceurs</span><span class="gplace">Gare de Tokyo</span></div>
@@ -133,10 +133,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=973cdcb4"></script>
-<script src="/autoreserve.js?v=973cdcb4"></script>
-<script src="/google_picks.js?v=973cdcb4"></script>
-<script src="/geo.js?v=973cdcb4"></script>
-<script src="/app.js?v=973cdcb4"></script>
+<script src="/areas.js?v=723d2521"></script>
+<script src="/autoreserve.js?v=723d2521"></script>
+<script src="/google_picks.js?v=723d2521"></script>
+<script src="/geo.js?v=723d2521"></script>
+<script src="/app.js?v=723d2521"></script>
 </body>
 </html>

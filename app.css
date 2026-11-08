@@ -681,6 +681,8 @@ body.tsub #brief{display:none}
 .ovic{margin:0 0 22px}.ovic-card{background:var(--card,#fff);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;max-width:640px}
 .ovic .icrow{display:flex;align-items:center;gap:12px}.ovic .icrow img{width:72px;height:46px;object-fit:contain;border-radius:6px;background:#fff;border:1px solid var(--line)}.ovic .icrow span{display:flex;flex-direction:column}.ovic .icrow small{font-size:13px;color:var(--ink-2)}.ovic p{margin:0;color:var(--ink-2);font-size:14px}.ovic .more{font-weight:600;font-size:14px}
 .ttlinks{margin-top:20px}
+.apmini{list-style:none;padding:0;margin:8px 0 12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px 14px}.apmini li{display:flex;gap:8px;align-items:center;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface,#fff)}.apmini b{flex:1;font-weight:600;font-size:14.5px}.apmini .aptm{color:var(--shu);font-weight:600;font-size:14px;white-space:nowrap}
+.apsec{margin-bottom:24px}
 /*TTCSS_END*/
 /*BNCSS_BEGIN*/
 .brief.ball .bnow .picks .pd{white-space:nowrap;color:var(--shu);font-weight:600;font-size:14px}
@@ -710,6 +712,10 @@ body.tsub #brief{display:none}
 .brief .mood{gap:12px}
 .brief .mood p span{font-size:15px;font-weight:700;color:var(--shu);margin-bottom:3px;padding-left:9px;border-left:3px solid var(--shu);line-height:1.3}
 /*TCCSS_END*/
+/*DDCSS_BEGIN*/
+.brief>.bgift>dt::before{content:"🎁"}
+.gifts{scroll-margin-top:150px}@media (max-width:599px){.gifts{scroll-margin-top:76px}}
+/*DDCSS_END*/
 /*BRCSS_BEGIN*/
 .brief .picks .pdx{grid-column:2/-1;color:var(--ink-2);font-size:14px;font-weight:400;line-height:1.55;margin:0 0 10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-align:left}
 body.nowx #wxnote{display:none}

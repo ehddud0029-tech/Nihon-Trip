@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=973cdcb4">
+<link rel="stylesheet" href="/app.css?v=723d2521">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/script><script src="'+B+'engine.js?v=973cdcb4"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=723d2521"><\/script><script src="'+B+'engine.js?v=723d2521"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -85,15 +85,9 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/s
 
 <main class="wrap" id="main"><div class="sechead"><div><h2>Transporte</h2><p>Cómo ir del aeropuerto a la ciudad y moverse por ella</p></div></div>
    <nav class="dtabs sbtabs"><a href="/es/shikoku/takamatsu/transport/" data-subtab="">De un vistazo</a><a href="/es/shikoku/takamatsu/transport/times/" data-subtab="times">Tiempos por trayecto</a><a href="/es/shikoku/takamatsu/transport/airport/" data-subtab="airport" class="on" aria-current="page">Del aeropuerto a la ciudad</a><a href="/es/shikoku/takamatsu/transport/ic/" data-subtab="ic">Guía de tarjetas de transporte</a></nav>
-   <section class="apsec"><h3 class="sgh"><span><a href="/es/airport/matsuyama/" data-apa="matsuyama" data-apk="">Aeropuerto de Matsuyama</a></span></h3><div class="wxgrid"><article class="wxcard"><h3>Matsuyama y Dogo Onsen</h3>
-       <p class="aprt"><span class="mode m-버스">Autobús</span> <span>Autobús lanzadera del aeropuerto</span></p><p class="aptm">Unos 25 min</p>
-       <a class="more" href="/es/airport/matsuyama/matsuyama/" data-apa="matsuyama" data-apk="matsuyama">Ver detalles<i> →</i></a></article></div></section><section class="apsec"><h3 class="sgh"><span><a href="/es/airport/takamatsu/" data-apa="takamatsu" data-apk="">Aeropuerto de Takamatsu</a></span></h3><div class="wxgrid"><article class="wxcard"><h3>Takamatsu</h3>
-       <p class="aprt"><span class="mode m-버스">Autobús</span> <span>Autobús lanzadera del aeropuerto</span></p><p class="aptm">Unos 45 min</p>
-       <a class="more" href="/es/airport/takamatsu/takamatsu/" data-apa="takamatsu" data-apk="takamatsu">Ver detalles<i> →</i></a></article><article class="wxcard"><h3>Naoshima</h3>
-       <p class="aprt"><span class="mode m-버스">Autobús</span> <span>Autobús lanzadera del aeropuerto</span> → <span>Ferri o barco rápido de Shikoku Kisen</span></p><p class="aptm">Unas 1 h 45 min</p>
-       <a class="more" href="/es/airport/takamatsu/naoshima/" data-apa="takamatsu" data-apk="naoshima">Ver detalles<i> →</i></a></article><article class="wxcard"><h3>Kotohira</h3>
-       <p class="aprt"><span class="mode m-버스">Autobús</span> <span>Autobús lanzadera del aeropuerto</span> → <span>Línea Kotoden Kotohira</span></p><p class="aptm">Unas 1 h 55 min</p>
-       <a class="more" href="/es/airport/takamatsu/kotohira/" data-apa="takamatsu" data-apk="kotohira">Ver detalles<i> →</i></a></article></div></section></main>
+   <section class="apsec"><h3 class="sgh"><span><a href="/es/airport/matsuyama/" data-apa="matsuyama" data-apk="">Aeropuerto de Matsuyama</a></span></h3><ul class="apmini"><li><b>Matsuyama y Dogo Onsen</b><span class="mode m-버스">Autobús</span><span class="aptm">Unos 25 min</span></li></ul>
+       <a class="btn ghost" href="/es/airport/matsuyama/" data-apa="matsuyama" data-apk="">Ver todos los destinos y rutas<i> →</i></a></section><section class="apsec"><h3 class="sgh"><span><a href="/es/airport/takamatsu/" data-apa="takamatsu" data-apk="">Aeropuerto de Takamatsu</a></span></h3><ul class="apmini"><li><b>Takamatsu</b><span class="mode m-버스">Autobús</span><span class="aptm">Unos 45 min</span></li><li><b>Naoshima</b><span class="mode m-버스">Autobús</span><span class="aptm">Unas 1 h 45 min</span></li><li><b>Kotohira</b><span class="mode m-버스">Autobús</span><span class="aptm">Unas 1 h 55 min</span></li></ul>
+       <a class="btn ghost" href="/es/airport/takamatsu/" data-apa="takamatsu" data-apk="">Ver todos los destinos y rutas<i> →</i></a></section></main>
 
 <footer><div class="wrap">Go Nihon Trip · Tiempo <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · Foto <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> (El autor y la licencia de cada foto aparecen en su ficha) · Los tiempos de viaje y horarios pueden cambiar; compruébalos en las webs oficiales.<div class="flinks"><a href="/es/about/" data-view="about">Acerca de</a> · <a href="/es/contact/" data-view="contact">Contáctanos</a> · <a href="/es/privacy/" data-view="privacy">Política de privacidad</a></div></div></footer>
 
@@ -114,10 +108,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=973cdcb4"></script>
-<script src="/autoreserve.js?v=973cdcb4"></script>
-<script src="/google_picks.js?v=973cdcb4"></script>
-<script src="/geo.js?v=973cdcb4"></script>
-<script src="/app.js?v=973cdcb4"></script>
+<script src="/areas.js?v=723d2521"></script>
+<script src="/autoreserve.js?v=723d2521"></script>
+<script src="/google_picks.js?v=723d2521"></script>
+<script src="/geo.js?v=723d2521"></script>
+<script src="/app.js?v=723d2521"></script>
 </body>
 </html>

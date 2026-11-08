@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=973cdcb4">
+<link rel="stylesheet" href="/app.css?v=723d2521">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/script><script src="'+B+'engine.js?v=973cdcb4"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=723d2521"><\/script><script src="'+B+'engine.js?v=723d2521"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -77,8 +77,8 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/s
   <h1 id="heroTitle">沖繩 · 宮古島，先看什麼？</h1>
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="檢視上一組地區" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="選擇地區"><button class="city" type="button" data-city="all" aria-pressed="false">全部<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">東京<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">大阪<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">福岡<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">北海道<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="true">沖繩<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">名古屋<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">廣島<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">四国<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="檢視更多地區" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="選擇區域"><button class="area" type="button" data-area="kokusai" aria-pressed="false">國際通·那霸</button><button class="area" type="button" data-area="chubu" aria-pressed="false">中部（北谷·浦添）</button><button class="area" type="button" data-area="hokubu" aria-pressed="false">北部（本部·名護）</button><button class="area" type="button" data-area="ishigaki" aria-pressed="false">石垣島</button><button class="area" type="button" data-area="miyako" aria-pressed="true">宮古島</button></div>
-  <dl class="brief" id="brief"><div class="beat"><dt>宮古島推薦美食</dt><ol class="picks"><li><span class="pick"><b>蔵之介</b><em class="pm">拉麵</em><span class="pd">拉麵</span></span></li><li><span class="pick"><b>芳野商店</b><em class="pm">寿司</em><span class="pd">江戶前壽司</span></span></li><li><span class="pick"><b>あかがーら 宮古島店</b><em class="pm">居酒屋</em><span class="pd">沖繩料理·民謠現場</span></span></li></ol>
-      <dd class="sub"><a href="https://autoreserve.com/zh-tw/jp/okinawa/miyakojima-shi" target="_blank" rel="noopener sponsored">在AutoReserve預約 ↗</a></dd></div><div class="bdish"><dt>在宮古島一定要嘗的美食</dt>
+  <dl class="brief" id="brief"><div class="beat"><dt>宮古島推薦美食</dt><ol class="picks"><li><button type="button" class="pick" data-chip="menu" data-v="washoku"><b>芳野商店</b><em class="pm">寿司</em><span class="pd">江戶前壽司</span></button></li><li><button type="button" class="pick" data-chip="menu" data-v="izakaya"><b>あかがーら 宮古島店</b><em class="pm">居酒屋</em><span class="pd">沖繩料理·民謠現場</span></button></li><li><button type="button" class="pick" data-chip="menu" data-v="meat"><b>ホルモン人 本店</b><em class="pm">肉類</em><span class="pd">內臟烤肉</span></button></li></ol>
+      <dd class="sub">點選選單，下方列表會切換到該選單</dd></div><div class="bdish"><dt>在宮古島一定要嘗的美食</dt>
         <ol class="picks"><li><span class="pick"><b>宮古面</b><span class="pd">把配料藏在面下面的沖繩面</span></span></li><li><span class="pick"><b>海鮮</b><span class="pd">海島居酒屋</span></span></li><li><span class="pick"><b>雪鹽甜點</b><span class="pd">雪鹽冰淇淋</span></span></li></ol>
         <dd class="mv"><p class="mv-etc"><span>用餐貼士</span>拉麵店用餐券機，居酒屋會收座位費（お通し）。不需要給小費。</p></dd></div></dl>
   <div class="wx" id="wx" hidden=""></div>
@@ -112,10 +112,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=973cdcb4"></script>
-<script src="/autoreserve.js?v=973cdcb4"></script>
-<script src="/google_picks.js?v=973cdcb4"></script>
-<script src="/geo.js?v=973cdcb4"></script>
-<script src="/app.js?v=973cdcb4"></script>
+<script src="/areas.js?v=723d2521"></script>
+<script src="/autoreserve.js?v=723d2521"></script>
+<script src="/google_picks.js?v=723d2521"></script>
+<script src="/geo.js?v=723d2521"></script>
+<script src="/app.js?v=723d2521"></script>
 </body>
 </html>

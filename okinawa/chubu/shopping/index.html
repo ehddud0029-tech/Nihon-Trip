@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=973cdcb4">
+<link rel="stylesheet" href="/app.css?v=723d2521">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/script><script src="'+B+'engine.js?v=973cdcb4"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=723d2521"><\/script><script src="'+B+'engine.js?v=723d2521"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -77,10 +77,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/s
   <h1 id="heroTitle">오키나와 · 중부 (차탄·우라소에), 무엇부터 볼까요?</h1>
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="이전 지역 보기" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="지역 선택"><button class="city" type="button" data-city="all" aria-pressed="false">전체<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">도쿄<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">오사카<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">후쿠오카<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">홋카이도<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="true">오키나와<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">나고야<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">히로시마<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">시코쿠<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="다음 지역 보기" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="하위 지역 선택"><button class="area" type="button" data-area="kokusai" aria-pressed="false">국제거리·마키시</button><button class="area" type="button" data-area="naha" aria-pressed="false">나하 시내</button><button class="area" type="button" data-area="chubu" aria-pressed="true">중부 (차탄·우라소에)</button><button class="area" type="button" data-area="hokubu" aria-pressed="false">북부 (모토부·나고)</button><button class="area" type="button" data-area="ishigaki" aria-pressed="false">이시가키섬</button><button class="area" type="button" data-area="miyako" aria-pressed="false">미야코섬</button></div>
-  <dl class="brief" id="brief"><div class="bshop"><dt>중부 (차탄·우라소에) 쇼핑 명소</dt><ol class="picks"><li><button type="button" class="pick" data-open="americanvillage"><b>미하마 아메리칸 빌리지</b><em class="pm">쇼핑</em><span class="pd">차</span></button></li><li><button type="button" class="pick" data-open="raikam"><b>이온몰 오키나와 라이카무</b><em class="pm">복합몰</em><span class="pd">차 · 버스</span></button></li></ol></div><div class="btax"><dt>면세·쇼핑 안내</dt><dd class="mv">
-        <p class="mv-rail"><span>면세</span>11월 1일부터 '환급 방식'으로 바뀌어요. 가게에선 세금 포함 가격으로 사고, 출국 때 공항 세관 확인 후 돌려받아요. 여권을 꼭 챙기세요.</p>
-        <p class="mv-walk"><span>기념품</span>요미탄 야치문(오키나와 도자기), 아메리칸 빌리지의 잡화, 베니이모 과자</p>
-        <p class="mv-etc"><span>쇼핑 팁</span>차탄 아메리칸 빌리지는 밤까지 열고, 요미탄 야치문 마을의 공방은 일찍 닫는 곳이 많아요.</p></dd></div></dl>
+  <dl class="brief" id="brief"><div class="bgift"><dt>중부 (차탄·우라소에) 사 갈 만한 선물</dt><ol class="picks"><li><span class="pick"><b>베니이모 타르트</b><em class="pm">국제거리</em><span class="pdx">보라색 고구마 앙금 타르트. 오키나와 대표 선물.</span></span></li><li><span class="pick"><b>친스코</b><em class="pm">국제거리</em><span class="pdx">돼지기름으로 구운 류큐 전통 쿠키. 소금·흑설탕 맛이 있어요.</span></span></li><li><span class="pick"><b>유키시오</b><em class="pm">미야코섬</em><span class="pdx">미야코섬 바닷물로 만든 고운 소금. 소금 과자와 아이스크림도 있어요.</span></span></li></ol><dd class="sub links"><a href="#gifts">특산물·선물 추천 전체 보기 ↓</a></dd></div><div class="btax"><dt>쇼핑 팁</dt><dd class="mv">
+        <p class="mv-etc"><span>쇼핑 팁</span>차탄 아메리칸 빌리지는 밤까지 열고, 요미탄 야치문 마을의 공방은 일찍 닫는 곳이 많아요.</p>
+        <p class="mv-walk"><span>영업시간</span>백화점은 보통 오전 10시~오후 8시, 돈키호테 같은 할인점은 밤늦게까지 열어요.</p>
+        <p class="mv-rail"><span>결제</span>대부분 카드와 교통카드로 낼 수 있지만, 시장과 노점은 현금이 편해요. 면세 받을 땐 여권을 챙기세요.</p></dd></div></dl>
   <div class="wx" id="wx" hidden=""></div>
   <div class="wxnote" id="wxnote">실시간 날씨를 불러오지 못해 평년값을 보여드려요.</div>
 </section>
@@ -98,7 +98,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/s
     <div class="plate"><span class="tag">복합몰</span><span class="where">중부 (차탄·우라소에)</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/AEON_Mall_Okinawa_Rycom_01.JPG/960px-AEON_Mall_Okinawa_Rycom_01.JPG?utm_source=ja.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="이온몰 오키나와 라이카무" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
     <div class="body"><h3>이온몰 오키나와 라이카무</h3><div class="jpn">イオンモール沖縄ライカム</div><p>오키나와 최대 쇼핑몰. 큰 수조가 있어요.</p>
     <div class="meta"><span>차 · 버스</span></div></div></a></div>
-   <section class="gifts"><div class="sechead"><div><h2>특산물·선물 추천</h2><p>오키나와에서 사 가기 좋은 선물과 파는 곳 3가지 · 중부 (차탄·우라소에) 것을 먼저 보여드려요</p></div></div>
+   <section class="gifts" id="gifts"><div class="sechead"><div><h2>특산물·선물 추천</h2><p>오키나와에서 사 가기 좋은 선물과 파는 곳 3가지 · 중부 (차탄·우라소에) 것을 먼저 보여드려요</p></div></div>
       <div class="giftgrid"><article class="gift"><div class="gphoto gnone" style="--c:var(--shu)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="9" width="16" height="11" rx="1.5"></rect><path d="M4 13h16M12 9v11M12 9c-1.5-3.5-5.5-4-5.5-1.5S10 9 12 9zM12 9c1.5-3.5 5.5-4 5.5-1.5S14 9 12 9z"></path></svg></div><div class="gcredit" aria-hidden="true">&nbsp;</div><div class="gh"><span class="gcat">과자</span><span class="gplace">국제거리</span></div>
         <h3>베니이모 타르트</h3><div class="gjp">紅いもタルト</div><p>보라색 고구마 앙금 타르트. 오키나와 대표 선물.</p>
         <div class="gwhere"><b>파는 곳</b><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%BE%A1%E8%8F%93%E5%AD%90%E5%BE%A1%E6%AE%BF%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A%E6%9D%BE%E5%B0%BE%E5%BA%97" target="_blank" rel="noopener">오카시고텐 국제거리 마쓰오점 ↗</a></div></article><article class="gift"><div class="gphoto"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Chinsuko.jpg/960px-Chinsuko.jpg?utm_source=ja.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="ok"></div><div class="gcredit">사진: Kkkdc · CC BY-SA 3.0 · <a href="https://commons.wikimedia.org/wiki/File:Chinsuko.jpg" target="_blank" rel="noopener">위키미디어 공용</a></div><div class="gh"><span class="gcat">과자</span><span class="gplace">국제거리</span></div>
@@ -127,10 +127,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=973cdcb4"></script>
-<script src="/autoreserve.js?v=973cdcb4"></script>
-<script src="/google_picks.js?v=973cdcb4"></script>
-<script src="/geo.js?v=973cdcb4"></script>
-<script src="/app.js?v=973cdcb4"></script>
+<script src="/areas.js?v=723d2521"></script>
+<script src="/autoreserve.js?v=723d2521"></script>
+<script src="/google_picks.js?v=723d2521"></script>
+<script src="/geo.js?v=723d2521"></script>
+<script src="/app.js?v=723d2521"></script>
 </body>
 </html>

@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=973cdcb4">
+<link rel="stylesheet" href="/app.css?v=723d2521">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/script><script src="'+B+'engine.js?v=973cdcb4"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=723d2521"><\/script><script src="'+B+'engine.js?v=723d2521"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -77,10 +77,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/s
   <h1 id="heroTitle">东京 · 富士山·河口湖，先看什么？</h1>
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="查看上一组地区" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="选择地区"><button class="city" type="button" data-city="all" aria-pressed="false">全部<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="true">东京<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">大阪<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">福冈<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">北海道<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">冲绳<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">名古屋<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">广岛<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">四国<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="查看更多地区" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="选择区域"><button class="area" type="button" data-area="shinjuku" aria-pressed="false">新宿</button><button class="area" type="button" data-area="shibuya" aria-pressed="false">涩谷·惠比寿·六本木</button><button class="area" type="button" data-area="ginza" aria-pressed="false">银座·筑地</button><button class="area" type="button" data-area="asakusa" aria-pressed="false">浅草·上野</button><button class="area" type="button" data-area="tokyoeki" aria-pressed="false">东京站·神田</button><button class="area" type="button" data-area="yokohama" aria-pressed="false">横滨</button><button class="area" type="button" data-area="kamakura" aria-pressed="false">镰仓·江之岛</button><button class="area" type="button" data-area="hakone" aria-pressed="false">箱根</button><button class="area" type="button" data-area="fuji" aria-pressed="true">富士山·河口湖</button></div>
-  <dl class="brief" id="brief"><div class="bshop"><dt>富士山·河口湖的购物地点</dt><ol class="picks"><li><button type="button" class="pick" data-open="p_qsta"><b>富士山站 Q-STA</b><em class="pm">伴手礼</em><span class="pd">富士急行线富士山站</span></button></li></ol></div><div class="btax"><dt>免税·购物指南</dt><dd class="mv">
-        <p class="mv-rail"><span>免税</span>从11月1日起改为“退税方式”。在店内按含税价格购买，出境时在机场海关确认后退还税款。请务必携带护照。</p>
-        <p class="mv-walk"><span>伴手礼</span>信玄饼、富士山造型点心·周边、山梨葡萄酒</p>
-        <p class="mv-etc"><span>购物小贴士</span>商店多集中在河口湖站和富士山站周边，湖畔的店傍晚很早关门。</p></dd></div></dl>
+  <dl class="brief" id="brief"><div class="bgift"><dt>富士山·河口湖值得买的伴手礼</dt><ol class="picks"><li><span class="pick"><b>信玄饼</b><em class="pm">富士山</em><span class="pdx">裹满黄豆粉、淋上黑糖蜜食用的山梨名点。</span></span></li><li><span class="pick"><b>东京香蕉</b><em class="pm">东京站</em><span class="pdx">夹着香蕉奶油的松软蛋糕，东京经典伴手礼。</span></span></li><li><span class="pick"><b>人形烧</b><em class="pm">浅草</em><span class="pdx">包着红豆馅的人偶造型蛋糕，浅草名物。</span></span></li></ol><dd class="sub links"><a href="#gifts">查看全部特产·伴手礼 ↓</a></dd></div><div class="btax"><dt>购物小贴士</dt><dd class="mv">
+        <p class="mv-etc"><span>购物小贴士</span>商店多集中在河口湖站和富士山站周边，湖畔的店傍晚很早关门。</p>
+        <p class="mv-walk"><span>营业时间</span>百货店一般营业时间为上午10点到晚上8点，唐吉诃德等折扣店营业到深夜。</p>
+        <p class="mv-rail"><span>付款</span>大多数店铺可以刷卡或用交通卡，但市场和小摊用现金更方便。办理免税时请带上护照。</p></dd></div></dl>
   <div class="wx" id="wx" hidden=""></div>
   <div class="wxnote" id="wxnote">无法加载实时天气，显示往年平均值。</div>
 </section>
@@ -95,7 +95,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/s
     <div class="plate"><span class="tag">伴手礼</span><span class="where">富士山·河口湖</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Q-STA.JPG/960px-Q-STA.JPG?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" alt="富士山站 Q-STA" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
     <div class="body"><h3>富士山站 Q-STA</h3><div class="jpn">Q-STA 富士山駅</div><p>与富士山站相连的车站大楼，聚集了山梨点心和富士山周边商店。</p>
     <div class="meta"><span>富士急行线富士山站</span></div></div></a></div>
-   <section class="gifts"><div class="sechead"><div><h2>特产·伴手礼推荐</h2><p>东京值得买的伴手礼和购买地点 6种 · 优先显示富士山·河口湖的商品</p></div></div>
+   <section class="gifts" id="gifts"><div class="sechead"><div><h2>特产·伴手礼推荐</h2><p>东京值得买的伴手礼和购买地点 6种 · 优先显示富士山·河口湖的商品</p></div></div>
       <div class="giftgrid"><article class="gift here"><div class="gphoto gnone" style="--c:var(--shu)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="9" width="16" height="11" rx="1.5"></rect><path d="M4 13h16M12 9v11M12 9c-1.5-3.5-5.5-4-5.5-1.5S10 9 12 9zM12 9c1.5-3.5 5.5-4 5.5-1.5S14 9 12 9z"></path></svg></div><div class="gcredit" aria-hidden="true">&nbsp;</div><div class="gh"><span class="gcat">点心</span><span class="gplace">富士山</span></div>
         <h3>信玄饼</h3><div class="gjp">信玄餅</div><p>裹满黄豆粉、淋上黑糖蜜食用的山梨名点。</p>
         <div class="gwhere"><b>购买地点</b><a href="https://www.google.com/maps/search/?api=1&amp;query=%E4%BF%A1%E7%8E%84%E9%A4%85%20%E6%B2%B3%E5%8F%A3%E6%B9%96%E9%A7%85" target="_blank" rel="noopener">河口湖站·富士山站的伴手礼店 ↗</a></div></article><article class="gift"><div class="gphoto"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Tokyo_Banana_%281%29.jpg/960px-Tokyo_Banana_%281%29.jpg?utm_source=ja.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="ok"></div><div class="gcredit">照片：毒島みるく · CC0 · <a href="https://commons.wikimedia.org/wiki/File:Tokyo%20Banana%20(1).jpg" target="_blank" rel="noopener">维基共享资源</a></div><div class="gh"><span class="gcat">点心</span><span class="gplace">东京站</span></div>
@@ -130,10 +130,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=973cdcb4"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=973cdcb4"></script>
-<script src="/autoreserve.js?v=973cdcb4"></script>
-<script src="/google_picks.js?v=973cdcb4"></script>
-<script src="/geo.js?v=973cdcb4"></script>
-<script src="/app.js?v=973cdcb4"></script>
+<script src="/areas.js?v=723d2521"></script>
+<script src="/autoreserve.js?v=723d2521"></script>
+<script src="/google_picks.js?v=723d2521"></script>
+<script src="/geo.js?v=723d2521"></script>
+<script src="/app.js?v=723d2521"></script>
 </body>
 </html>
