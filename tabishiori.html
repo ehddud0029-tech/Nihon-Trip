@@ -2265,13 +2265,17 @@ Object.assign(SOUVENIR,{"nagoya": "우이로, 새우 센베이, 히다 사루보
 IC_CARDS.find(x=>x.id==="icoca").cities.push("hiroshima"); IC_CARDS.push(...[{"id": "manaca", "name": "manaca · TOICA", "area": "나고야 (지하철·메이테쓰 / JR 도카이)", "cities": ["nagoya"], "img": "", "credit": "", "file": "", "buy": ["주부국제공항역·나고야역 발매기 (manaca는 지하철·메이테쓰, TOICA는 JR)"], "note": "Suica·ICOCA 같은 다른 지역 카드도 그대로 쓸 수 있어요."}, {"id": "shikoku", "name": "IruCa · ICい～カード", "area": "시코쿠 (다카마쓰 고토덴 / 마쓰야마 이요테쓰)", "cities": ["shikoku"], "img": "", "credit": "", "file": "", "buy": ["고토덴·이요테쓰 역 창구"], "note": "그 지역 전용 카드라 다른 지역에서는 못 쓰고, Suica 같은 카드도 이 노선에서는 대부분 못 써요. 여행자는 현금이나 1일 승차권이 편해요."}]);
 { const GR={"우지 말차": "uji"}; GIFTS.forEach(g=>{ if(GR[g.name]) g.sub=GR[g.name]; }); }
 const PAGE_LABEL = {spots:"관광지",festivals:"축제",food:"맛집",transport:"교통",shopping:"쇼핑"};
+function homeAreas(k,to){ const as=areasOf(k); if(!as.length) return as;
+  if(to==="festivals") return [{key:as[0].key, ko:CITIES[k].ko}];
+  if(to==="transport" && typeof tgOf==="function") return as.filter(a=>{const g=tgOf(a.key); return !g||g.rep===a.key;}).map(a=>{const g=tgOf(a.key); return g?{key:a.key, ko:g.name}:a;});
+  return as; }
 const V = {
  home(){
   const cnt = {spots:k=>SPOTS.filter(x=>x.sub===k).length, shopping:k=>SHOPS.filter(x=>x.sub===k).length};
   const to = st.homeTo;
   const pick = `<div class="hometo" role="group" aria-label="이동할 페이지">${Object.entries(PAGE_LABEL).map(([k,v])=>`<button type="button" class="chip" data-hometo="${k}" aria-pressed="${to===k}">${v}</button>`).join("")}</div>`;
   const boxes = Object.entries(CITIES).map(([k,c])=>`<div class="regionbox"><h3>${c.ko} <span class="rjp">${c.jp}</span></h3>
-    <div class="areas">${areasOf(k).map(a=>{const n=cnt[to]?cnt[to](a.key):0; return `<button class="area" type="button" data-goarea="${a.key}" data-region="${k}">${a.ko}${n?` <span class="acount">${n}</span>`:""}</button>`;}).join("")}</div></div>`).join("");
+    <div class="areas">${homeAreas(k,to).map(a=>{const n=to==="festivals"?FESTS.filter(f=>f.city===k).length:cnt[to]?cnt[to](a.key):0; return `<button class="area" type="button" data-goarea="${a.key}" data-region="${k}">${a.ko}${n?` <span class="acount">${n}</span>`:""}</button>`;}).join("")}</div></div>`).join("");
   return `<div class="sechead"><div><h2>지역 고르기</h2><p>보고 싶은 정보를 먼저 고르고, 궁금한 지역이나 도시를 누르면 그 페이지로 이동해요.</p></div></div>
     ${pick}<div class="regiongrid">${boxes}</div>`;
  },
