@@ -799,6 +799,14 @@ body.tsub #brief{display:none}
  .brief.ball .bnow .picks .pm{grid-column:3;margin:0;align-self:center}
  .brief.ball .bnow .picks .pd{grid-column:4;border-left:1px solid var(--line);padding-left:12px;align-self:center;margin:0}}
 /*BNCSS_END*/
+/*BCCSS_BEGIN*/
+.brief.ball .bcity .picks .pick b{grid-column:2/-1}
+.brief.ball .bcity .picks .pd{grid-column:2/-1;margin:0;white-space:normal}
+.brief .bcity .rxs{grid-column:2/-1;display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 14px}
+.brief .bcity .rx{display:inline-block;flex:none;width:auto;white-space:nowrap;font:inherit;font-size:13px;line-height:1.4;border:1px solid var(--line);border-radius:999px;padding:3px 10px;background:var(--surface,#fff);color:var(--ink);cursor:pointer}
+.brief .bcity .rx::before{content:"⛩️ ";counter-increment:none;font:inherit;font-size:11px;color:inherit;font-weight:400;grid-row:auto}.brief .bcity .rx.f::before{content:"🏮 "}
+.brief .bcity .rx:hover{border-color:var(--shu);color:var(--shu)}
+/*BCCSS_END*/
 /*BRCSS_BEGIN*/
 .brief .picks .pdx{grid-column:2/-1;color:var(--ink-2);font-size:14px;font-weight:400;line-height:1.55;margin:0 0 10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-align:left}
 body.nowx #wxnote{display:none}
@@ -2105,7 +2113,7 @@ function renderCities(){
       const inC = FESTS.filter(f=>f.city===st.city&&inSub(f));
       let items = inC.filter(f=>f.month===st.month), label = `${st.month}월`;
       if(!items.length){ const next = [...inC].sort((a,b)=>((a.month-st.month+12)%12)-((b.month-st.month+12)%12))[0]; if(next){ items = inC.filter(f=>f.month===next.month); label = `다가오는 ${next.month}월`; } }
-      topicCell = `<div class="bfest"><dt>${esc(A?A.ko:c.ko)} ${label} 축제</dt>${items.length?pickList(items.slice(0,3), x=>x.month+"월", x=>x.when).replace(/(<button type="button" class="pick" data-open="([^"]+)">[\s\S]*?)<\/button>/g,(m,a,id)=>{ const it=byId(id); return a+(it&&it.desc?`<span class="pdx">${esc(it.desc)}</span>`:"")+"</button>"; }):`<dd class="sub">등록된 축제가 없어요</dd>`}</div>`;
+      topicCell = `<div class="bfest"><dt>${esc(A?A.ko:c.ko)} ${label} 축제</dt>${items.length?pickList(items.slice(0,3), x=>(AREA[x.sub]&&AREA[x.sub].ko.split("·")[0])||placeOf(x), x=>x.when).replace(/(<button type="button" class="pick" data-open="([^"]+)">[\s\S]*?)<\/button>/g,(m,a,id)=>{ const it=byId(id); return a+(it&&it.desc?`<span class="pdx">${esc(it.desc)}</span>`:"")+"</button>"; }):`<dd class="sub">등록된 축제가 없어요</dd>`}</div>`;
     }else if(st.view==="shopping"){
       const own = A ? SHOPS.filter(it=>it.sub===A.key) : [];
       const items = (own.length ? own : inArea(SHOPS)).slice(0,3);
@@ -2176,7 +2184,8 @@ function renderCities(){
     // 전체 화면: ① 이달 기온 + 여행하기 좋은 도시  ② 이달 여행 메모 + 인기 축제
     const M = st.hm || NOW_M; const live = M===NOW_M && WX;
     $("#brief").classList.add("ball"); $("#brief").classList.remove("bthemed");
-    const rec = (MONTH_PICKS[M-1]||[]).map(([k,why],i)=>`<li><button type="button" class="pick" data-rec="${i}"><b>${CITIES[k].ko}</b><em class="pm">추천 ${i+1}</em><span class="pd">${esc(why)}</span></button></li>`).join("");
+    const recX = (k,t) => { const ids=[...((t&&t.ids)||[]), ...FESTS.filter(f=>f.city===k&&f.month===M).map(f=>f.id)]; return [...new Set(ids)].map(byId).filter(Boolean).slice(0,5); };
+    const rec = (MONTH_PICKS[M-1]||[]).map(([k,why,t],i)=>{ const xs=recX(k,t); return `<li><button type="button" class="pick" data-rec="${i}"><b>${CITIES[k].ko}</b><span class="pd">${esc(why)}</span></button>${xs.length?`<span class="rxs">${xs.map(x=>`<button type="button" data-open="${x.id}" class="rx${x.type==="fest"?" f":""}">${esc(x.name)}</button>`).join("")}</span>`:""}</li>`; }).join("");
     const fests = FESTS.filter(f=>f.month===M);
     const cityOf = x => esc((SATELLITE.includes(x.sub)&&AREA[x.sub]?.ko.split("·")[0])||CITIES[x.city]?.ko||"");
     const allOnly = [...fests.map(f=>({x:f,when:f.when,desc:f.desc,tag:"축제"})),
@@ -2236,7 +2245,7 @@ function chips(map,key,allLabel){
     Object.entries(map).map(([k,v])=>`<button class="chip" type="button" data-chip="${key}" data-v="${k}" aria-pressed="${st[key]===k}">${typeof v==="string"?v:v.ko}</button>`).join("");
 }
 const searchBox = ph => `<input class="search" id="q" type="search" placeholder="${ph}" value="${esc(st.q)}" aria-label="검색">`;
-const cityName = () => curArea() ? `${CITIES[st.city].ko} ${curArea().ko}` : (CITIES[st.city]?.ko || "일본 전국");
+const cityName = () => curArea() ? (st.view==="festivals" && curArea().vg && curArea().ko.startsWith(CITIES[st.city].ko+" ") ? curArea().ko : `${CITIES[st.city].ko} ${curArea().ko}`) : (CITIES[st.city]?.ko || "일본 전국");
 const gridOr = (items,msg) => items.length ? `<div class="grid">${items.map(card).join("")}</div>` : `<div class="empty">${msg}</div>`;
 
 /* views */

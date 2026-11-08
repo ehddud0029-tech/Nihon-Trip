@@ -27,8 +27,8 @@ R = [
  ('${pickList(items, x=>SPOT_CAT[x.cat].ko, x=>x.area||"")}',
   '${pickList(items, x=>SPOT_CAT[x.cat].ko, x=>x.area||"").replace(/<\\/button><\\/li>/g,"</button></li>").replace(/(<button type="button" class="pick" data-open="([^"]+)">[\\s\\S]*?)<\\/button>/g,(m,a,id)=>{ const it=byId(id); return a+(it&&it.desc?`<span class="pdx">${esc(it.desc)}</span>`:"")+"</button>"; })}'),
  # 축제 목록에도 짧은 설명
- ('${items.length?pickList(items.slice(0,3), x=>x.month+"월", x=>x.when):',
-  '${items.length?pickList(items.slice(0,3), x=>x.month+"월", x=>x.when).replace(/(<button type="button" class="pick" data-open="([^"]+)">[\\s\\S]*?)<\\/button>/g,(m,a,id)=>{ const it=byId(id); return a+(it&&it.desc?`<span class="pdx">${esc(it.desc)}</span>`:"")+"</button>"; }):'),
+ ('${items.length?pickList(items.slice(0,3), x=>(AREA[x.sub]&&AREA[x.sub].ko.split("·")[0])||placeOf(x), x=>x.when):',
+  '${items.length?pickList(items.slice(0,3), x=>(AREA[x.sub]&&AREA[x.sub].ko.split("·")[0])||placeOf(x), x=>x.when).replace(/(<button type="button" class="pick" data-open="([^"]+)">[\\s\\S]*?)<\\/button>/g,(m,a,id)=>{ const it=byId(id); return a+(it&&it.desc?`<span class="pdx">${esc(it.desc)}</span>`:"")+"</button>"; }):'),
  # 도시를 안 고른 화면에선 날씨 안내 줄 다시 보이게
  ('  document.body.classList.toggle("tsub",', '  document.body.classList.remove("nowx");\n  document.body.classList.toggle("tsub",'),
 ]

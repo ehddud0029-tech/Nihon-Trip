@@ -43,7 +43,8 @@ AREAS_OLD = '  if(c) $("#areas").innerHTML = areasOf(st.city).filter(a=>!tgOn()|
 AREAS_NEW = ('  if(c) $("#areas").innerHTML = (st.view==="festivals"?`<button class="area" type="button" data-area="all" aria-pressed="${st.area==="all"}">전체</button>`:"")'
              ' + areasOf(st.city).filter(a=>(!tgOn()||tgRep(a.key)===a.key)&&vgRep(a.key)===a.key&&(st.view!=="festivals"||vgFestN(st.city,a.key))).map(a=>{ const g=tgOn()&&tgOf(a.key), v=vgOf(a.key); return `<button class="area" type="button" data-area="${a.key}" aria-pressed="${st.area===a.key}">${g?g.name:v?v.name:a.ko}</button>`; }).join("");')
 R = [  # (바꿀 문자열들, 새 문자열)
- (['const cityName = () => curArea() && st.view!=="festivals" ?'], 'const cityName = () => curArea() ?'),
+ (['const cityName = () => curArea() ? (curArea().ko.startsWith(CITIES[st.city].ko) ? curArea().ko : `${CITIES[st.city].ko} ${curArea().ko}`)', 'const cityName = () => curArea() && st.view!=="festivals" ? `${CITIES[st.city].ko} ${curArea().ko}`', 'const cityName = () => curArea() ? `${CITIES[st.city].ko} ${curArea().ko}`'],
+  'const cityName = () => curArea() ? (st.view==="festivals" && curArea().vg && curArea().ko.startsWith(CITIES[st.city].ko+" ") ? curArea().ko : `${CITIES[st.city].ko} ${curArea().ko}`)'),   # '도쿄 도쿄 시내' 방지
  (['  const c = CITIES[st.city], A = st.view==="festivals" ? null : curArea();\n  $("#areas").hidden = !c || st.view==="festivals";\n'],
   '  const c = CITIES[st.city], A = curArea();\n  $("#areas").hidden = !c;\n'),
  ([AREAS_OLD], AREAS_NEW),
