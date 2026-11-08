@@ -1164,7 +1164,7 @@ function renderCities(){
         <ol class="picks">${rec}</ol>
         <dd class="sub">도시를 누르면 관련 관광지·축제로 이동해요</dd></div>
       <div class="bnow"><dt>${M}월에만 즐길 수 있는 것</dt>
-        <ol class="picks">${only.map(o=>`<li><button type="button" class="pick" data-open="${o.x.id}"><b><span class="fcity">${cityOf(o.x)}</span>${esc(o.x.name)}<span class="fdate">${esc(o.when)}</span></b><span class="pd fd">${esc(o.desc)}</span></button></li>`).join("")}</ol>
+        <ol class="picks">${only.map(o=>`<li><button type="button" class="pick" data-open="${o.x.id}"><b>${esc(o.x.name)}</b><em class="pm">${cityOf(o.x)}</em><span class="pd">${esc(o.when)}</span><span class="pdx">${esc(o.desc)}</span></button></li>`).join("")}</ol>
         <dd class="sub">이름을 누르면 자세히 볼 수 있어요</dd></div>`;
   }
   $("#wxnote").textContent = WX ? "날씨: Open-Meteo 실시간 예보 · 30분마다 갱신" : wxFailed ? "실시간 날씨를 불러오지 못해 평년값을 보여드려요." : "실시간 날씨를 불러오는 중…";
