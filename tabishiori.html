@@ -807,6 +807,18 @@ body.tsub #brief{display:none}
 .brief .bcity .rx::before{content:"⛩️ ";counter-increment:none;font:inherit;font-size:11px;color:inherit;font-weight:400;grid-row:auto}.brief .bcity .rx.f::before{content:"🏮 "}
 .brief .bcity .rx:hover{border-color:var(--shu);color:var(--shu)}
 /*BCCSS_END*/
+/*TCCSS_BEGIN*/
+.brief .tcity{display:grid;grid-template-columns:auto auto;grid-template-areas:"b b" "i t" "c c" "h h";justify-content:center;align-items:center;column-gap:4px;row-gap:0;padding:5px 4px}
+.brief .tcity b{grid-area:b;text-align:center;font-size:13.5px}
+.brief .tcity .ticon{grid-area:i;font-size:18px;line-height:1}
+.brief .tcity .tavg{grid-area:t;font-size:19px;line-height:1.2}
+.brief .tcity .tcond{grid-area:c;text-align:center;font-size:11.5px;line-height:1.35}
+.brief .tcity .thl,.brief .tcity .thum,.brief .tcity .tnow{grid-area:h;text-align:center;font-size:11.5px;line-height:1.35;margin:0}
+.brief .tcities{gap:5px}
+@media (max-width:480px){.brief .tcity .ticon{font-size:16px}.brief .tcity .tavg{font-size:17px}.brief .tcity b{font-size:12px}}
+.brief .mood{gap:12px}
+.brief .mood p span{font-size:15px;font-weight:700;color:var(--shu);margin-bottom:3px;padding-left:9px;border-left:3px solid var(--shu);line-height:1.3}
+/*TCCSS_END*/
 /*BRCSS_BEGIN*/
 .brief .picks .pdx{grid-column:2/-1;color:var(--ink-2);font-size:14px;font-weight:400;line-height:1.55;margin:0 0 10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-align:left}
 body.nowx #wxnote{display:none}
