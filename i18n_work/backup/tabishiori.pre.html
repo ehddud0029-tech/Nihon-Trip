@@ -790,6 +790,8 @@ body.tsub #brief{display:none}
 .ovic{margin:0 0 22px}.ovic-card{background:var(--card,#fff);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;max-width:640px}
 .ovic .icrow{display:flex;align-items:center;gap:12px}.ovic .icrow img{width:72px;height:46px;object-fit:contain;border-radius:6px;background:#fff;border:1px solid var(--line)}.ovic .icrow span{display:flex;flex-direction:column}.ovic .icrow small{font-size:13px;color:var(--ink-2)}.ovic p{margin:0;color:var(--ink-2);font-size:14px}.ovic .more{font-weight:600;font-size:14px}
 .ttlinks{margin-top:20px}
+.apmini{list-style:none;padding:0;margin:8px 0 12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px 14px}.apmini li{display:flex;gap:8px;align-items:center;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface,#fff)}.apmini b{flex:1;font-weight:600;font-size:14.5px}.apmini .aptm{color:var(--shu);font-weight:600;font-size:14px;white-space:nowrap}
+.apsec{margin-bottom:24px}
 /*TTCSS_END*/
 /*BNCSS_BEGIN*/
 .brief.ball .bnow .picks .pd{white-space:nowrap;color:var(--shu);font-weight:600;font-size:14px}
@@ -819,6 +821,10 @@ body.tsub #brief{display:none}
 .brief .mood{gap:12px}
 .brief .mood p span{font-size:15px;font-weight:700;color:var(--shu);margin-bottom:3px;padding-left:9px;border-left:3px solid var(--shu);line-height:1.3}
 /*TCCSS_END*/
+/*DDCSS_BEGIN*/
+.brief>.bgift>dt::before{content:"🎁"}
+.gifts{scroll-margin-top:150px}@media (max-width:599px){.gifts{scroll-margin-top:76px}}
+/*DDCSS_END*/
 /*BRCSS_BEGIN*/
 .brief .picks .pdx{grid-column:2/-1;color:var(--ink-2);font-size:14px;font-weight:400;line-height:1.55;margin:0 0 10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-align:left}
 body.nowx #wxnote{display:none}
@@ -2108,8 +2114,8 @@ function renderCities(){
       <dd class="sub links">${(ICMAP[st.city]||[]).map(([ko,q])=>`<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}" target="_blank" rel="noopener">${esc(ko)} 위치 ↗</a>`).join("")}</dd></div>`;
     // 추천 맛집: 라멘·스시·이자카야 1위 한 곳씩
     const pa = A ? A.key : areasOf(st.city)[0]?.key;
-    const picks = pa ? ["ramen","washoku","izakaya"].map(m=>{const x=arShops(pa,m,1)[0]; return x?{...x,m}:null;}).filter(Boolean) : [];
-    const eatCell = `<div class="beat"><dt>${esc(AREA[pa]?.ko||"")} 추천 맛집</dt><ol class="picks">${picks.map(x=>`<li><span class="pick"><b>${esc(x.n)}</b><em class="pm">${esc(MENU[x.m].ko.split("·")[0])}</em><span class="pd">${esc(x.dish||"")}</span></span></li>`).join("")}</ol>
+    const picks = pa ? Object.keys(MENU).filter(m=>m!==st.menu).map(m=>{const x=arShops(pa,m,1)[0]; return x?{...x,m}:null;}).filter(Boolean).slice(0,3) : [];
+    const eatCell = `<div class="beat"><dt>${esc(AREA[pa]?.ko||"")} 추천 맛집</dt><ol class="picks">${picks.map(x=>`<li><button type="button" class="pick" data-chip="menu" data-v="${x.m}"><b>${esc(x.n)}</b><em class="pm">${esc(MENU[x.m].ko.split("·")[0])}</em><span class="pd">${esc(x.dish||"")}</span></button></li>`).join("")}</ol>
       ${pa?`<dd class="sub"><a href="${esc(arUrl(pa,"all"))}" target="_blank" rel="noopener sponsored">AutoReserve에서 예약하기 ↗</a></dd>`:""}</div>`;
     // 4번째 칸: 지금 보고 있는 페이지 주제에 맞춰 바꿈
     const where = A ? A.ko : c.ko;
@@ -2127,9 +2133,9 @@ function renderCities(){
       if(!items.length){ const next = [...inC].sort((a,b)=>((a.month-st.month+12)%12)-((b.month-st.month+12)%12))[0]; if(next){ items = inC.filter(f=>f.month===next.month); label = `다가오는 ${next.month}월`; } }
       topicCell = `<div class="bfest"><dt>${esc(A?A.ko:c.ko)} ${label} 축제</dt>${items.length?pickList(items.slice(0,3), x=>(AREA[x.sub]&&AREA[x.sub].ko.split("·")[0])||placeOf(x), x=>x.when).replace(/(<button type="button" class="pick" data-open="([^"]+)">[\s\S]*?)<\/button>/g,(m,a,id)=>{ const it=byId(id); return a+(it&&it.desc?`<span class="pdx">${esc(it.desc)}</span>`:"")+"</button>"; }):`<dd class="sub">등록된 축제가 없어요</dd>`}</div>`;
     }else if(st.view==="shopping"){
-      const own = A ? SHOPS.filter(it=>it.sub===A.key) : [];
-      const items = (own.length ? own : inArea(SHOPS)).slice(0,3);
-      topicCell = `<div class="bshop"><dt>${esc(where)} 쇼핑 명소</dt>${items.length?pickList(items, x=>x.cat.split("·")[0], x=>x.station||""):`<dd class="sub">등록된 쇼핑 명소가 없어요</dd>`}</div>`;
+      const gl = GIFTS.filter(x=>x.city===st.city), inA = x => A && (A.vg||A.tg||[A.key]).includes(x.sub);
+      const gs = [...gl.filter(inA), ...gl.filter(x=>!inA(x))].slice(0,3);
+      topicCell = `<div class="bgift"><dt>${esc(where)} 사 갈 만한 선물</dt>${gs.length?`<ol class="picks">${gs.map(x=>`<li><span class="pick"><b>${esc(x.name)}</b><em class="pm">${esc((AREA[x.sub]&&AREA[x.sub].ko.split("·")[0])||CITIES[x.city].ko)}</em><span class="pdx">${esc(x.desc)}</span></span></li>`).join("")}</ol><dd class="sub links"><a href="#gifts">특산물·선물 추천 전체 보기 ↓</a></dd>`:`<dd class="sub">등록된 선물 정보가 없어요</dd>`}</div>`;
     }else if(st.view==="transport"){
       const T = TRANSPORT[st.city];
       const q = encodeURIComponent((A?A.jp.split("・")[0]:c.jp)+" 駅");
@@ -2162,10 +2168,10 @@ function renderCities(){
         <dd class="mv"><p class="mv-etc"><span>식당 팁</span>라멘집은 식권 자판기, 이자카야는 자릿값(오토시)이 붙어요. 팁은 따로 주지 않아요.</p></dd></div>`;
     }else if(st.view==="shopping"){
       const ash = A ? AREA_SHOP[A.key] : null;
-      extraCell = `<div class="btax"><dt>면세·쇼핑 안내</dt><dd class="mv">
-        <p class="mv-rail"><span>면세</span>11월 1일부터 '환급 방식'으로 바뀌어요. 가게에선 세금 포함 가격으로 사고, 출국 때 공항 세관 확인 후 돌려받아요. 여권을 꼭 챙기세요.</p>
-        <p class="mv-walk"><span>기념품</span>${esc(ash?ash[0]:SOUVENIR[st.city]||"")}</p>
-        ${ash?`<p class="mv-etc"><span>쇼핑 팁</span>${esc(ash[1])}</p>`:`<p class="mv-etc"><span>영업시간</span>백화점은 보통 오전 10시~오후 8시, 돈키호테 같은 할인점은 밤늦게까지 열어요.</p>`}</dd></div>`;
+      extraCell = `<div class="btax"><dt>쇼핑 팁</dt><dd class="mv">
+        ${ash?`<p class="mv-etc"><span>쇼핑 팁</span>${esc(ash[1])}</p>`:""}
+        <p class="mv-walk"><span>영업시간</span>백화점은 보통 오전 10시~오후 8시, 돈키호테 같은 할인점은 밤늦게까지 열어요.</p>
+        <p class="mv-rail"><span>결제</span>대부분 카드와 교통카드로 낼 수 있지만, 시장과 노점은 현금이 편해요. 면세 받을 땐 여권을 챙기세요.</p></dd></div>`;
     }else if(st.view==="saved"){
       const its = saved.map(byId).filter(Boolean);
       const by = {}; its.forEach(x=>{ const t=tagOf(x).split("·")[0]; by[t]=(by[t]||0)+1; });
@@ -2386,7 +2392,7 @@ const V = {
     if(A) g = [...g.filter(x=>x.sub===A.key), ...g.filter(x=>x.sub!==A.key)];
     if(!g.length) return "";
     const place = x => (AREA[x.sub]?.ko.split("·")[0])||CITIES[x.city].ko;
-    return `<section class="gifts"><div class="sechead"><div><h2>특산물·선물 추천</h2><p>${st.city==="all"?"일본":esc(CITIES[st.city].ko)}에서 사 가기 좋은 선물과 파는 곳 ${g.length}가지${A?` · ${esc(A.ko)} 것을 먼저 보여드려요`:""}</p></div></div>
+    return `<section class="gifts" id="gifts"><div class="sechead"><div><h2>특산물·선물 추천</h2><p>${st.city==="all"?"일본":esc(CITIES[st.city].ko)}에서 사 가기 좋은 선물과 파는 곳 ${g.length}가지${A?` · ${esc(A.ko)} 것을 먼저 보여드려요`:""}</p></div></div>
       <div class="giftgrid">${g.map(x=>`<article class="gift${A&&x.sub===A.key?" here":""}">${!PHOTO[x.id]?`<div class="gphoto gnone" style="--c:var(${GIFT_C[x.cat]||"--shu"})">${SVGI(GIFT_ICON[x.cat]||MICON.shop)}</div><div class="gcredit" aria-hidden="true">&nbsp;</div>`:""}${PHOTO[x.id]?`<div class="gphoto">${imgTag(x.id)}</div><div class="gcredit">사진: ${esc(PHOTO[x.id].artist||"")}${PHOTO[x.id].license?" · "+esc(PHOTO[x.id].license):""} · <a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(PHOTO[x.id].file)}" target="_blank" rel="noopener">위키미디어 공용</a></div>`:""}<div class="gh"><span class="gcat">${esc(x.cat)}</span><span class="gplace">${esc(place(x))}</span></div>
         <h3>${esc(x.name)}</h3><div class="gjp">${esc(x.jp)}</div><p>${esc(x.desc)}</p>
         <div class="gwhere"><b>파는 곳</b>${x.where.map(([ko,q])=>`<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}" target="_blank" rel="noopener">${esc(ko)} ↗</a>`).join("")}</div></article>`).join("")}</div>
@@ -4062,13 +4068,13 @@ V.transport = function(){
   else if(t==="ic") body = pick("#icguide") + notes;
   else if(t==="airport"){
     const aps = Object.keys(APS).filter(a=>keys.includes(apRegion(a)));
-    body = aps.map(a=>`<section class="apsec"><h3 class="sgh"><span>${apA(a,"",esc(apName(a)))}</span></h3><div class="wxgrid">${apDests(a).map(k2=>{ const o=apOpts(a,k2)[0]; return o?`<article class="wxcard"><h3>${esc(AREA[k2].ko)}</h3>
-       <p class="aprt"><span class="mode m-${o[0].mode}">${o[0].mode}</span> ${o.map(x=>`<span>${x.line}</span>`).join(" → ")}</p><p class="aptm">${apMin(apSum(o))}</p>
-       ${apA(a,k2,`자세히 보기<i> →</i>`,"more")}</article>`:""; }).join("")}</div></section>`).join("") || pick(".apsec");
+    body = aps.map(a=>`<section class="apsec"><h3 class="sgh"><span>${apA(a,"",esc(apName(a)))}</span></h3><ul class="apmini">${apDests(a).slice(0,4).map(k2=>{ const o=apOpts(a,k2)[0]; return o?`<li><b>${esc(AREA[k2].ko)}</b><span class="mode m-${o[0].mode}">${o[0].mode}</span><span class="aptm">${apMin(apSum(o))}</span></li>`:""; }).join("")}</ul>
+       ${apA(a,"",`모든 목적지와 방법 보기<i> →</i>`,"btn ghost")}</section>`).join("")   // 요약만, 자세한 내용은 공항 페이지 (2026-11 중복 정리)
+       || pick(".apsec");
   } else {
     const ic = st.city!=="all" && IC_CARDS.find(x=>x.cities.includes(st.city));
     const icOv = ic ? `<section class="ovic"><h3 class="sgh"><span>교통카드</span></h3><div class="ovic-card"><div class="icrow">${ic.img?`<img src="${ic.img}" alt="" loading="lazy" referrerpolicy="no-referrer">`:""}<span><b>${esc(ic.name)}</b><small>${esc(ic.area)}</small></span></div><p>${esc(ic.cities[0]===st.city?ic.buy[0]:(ICBUY[st.city]||ic.buy[0]))}</p><a class="more" href="${ROUTED?window.NT_BASE+LPRE+pathOf({...st,sub:"ic"}):"#"}" data-subtab="ic">교통카드 안내<i> →</i></a></div></section>` : "";
-    body = icOv + notes + `<div class="wxlinks ttlinks">${TTABS.slice(1).map(([k,l])=>`<a class="btn ghost" href="${ROUTED?window.NT_BASE+LPRE+pathOf({...st,sub:k}):"#"}" data-subtab="${k}">${esc(l)}<i> →</i></a>`).join("")}</div>`;
+    body = icOv + notes;   // 아래 탭 이동 버튼은 위 탭과 같아서 뺌 (2026-11 중복 정리)
   }
   return `<div class="sechead"><div><h2>교통</h2><p>공항에서 시내까지, 그리고 도시 안에서 이동하는 방법</p></div></div>
    ${subTabs(TTABS,t)}
