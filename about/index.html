@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=f07eea72">
+<link rel="stylesheet" href="/app.css?v=12e369ab">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=f07eea72"><\/script><script src="'+B+'engine.js?v=f07eea72"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=12e369ab"><\/script><script src="'+B+'engine.js?v=12e369ab"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -85,7 +85,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=f07eea72"><\/s
       <div class="bmemo"><dt>11월 여행 메모</dt>
         <dd class="mood"><p><span>분위기</span>단풍 절정. 교토 사찰 야간 라이트업이 열려요.</p><p><span>많이 찾는 것</span>교토 단풍, 도쿄 은행나무길, 연말 일루미네이션 시작.</p><p><span>알아두기</span>단풍 명소는 주말 오전이 가장 붐벼요. 평일 이른 시간을 노리세요.</p></dd></div>
       <div class="bcity"><dt>여행하기 좋은 도시</dt>
-        <ol class="picks"><li><button type="button" class="pick" data-rec="0"><b>오사카</b><em class="pm">추천 1</em><span class="pd">교토 단풍 절정(중순~하순). 야간 라이트업이 인기예요.</span></button></li><li><button type="button" class="pick" data-rec="1"><b>도쿄</b><em class="pm">추천 2</em><span class="pd">하순부터 은행나무길이 노랗게 물들어요.</span></button></li></ol>
+        <ol class="picks"><li><button type="button" class="pick" data-rec="0"><b>오사카</b><span class="pd">교토 단풍 절정(중순~하순). 야간 라이트업이 인기예요.</span></button><span class="rxs"><button type="button" data-open="s_tofukuji" class="rx">도후쿠지</button><button type="button" data-open="kiyomizu" class="rx">기요미즈데라</button><button type="button" data-open="s_tetsugaku" class="rx">철학의 길</button><button type="button" data-open="s_nanzenji" class="rx">난젠지</button><button type="button" data-open="momiji" class="rx f">교토 단풍 시즌</button></span></li><li><button type="button" class="pick" data-rec="1"><b>도쿄</b><span class="pd">하순부터 은행나무길이 노랗게 물들어요.</span></button><span class="rxs"><button type="button" data-open="s_gaien" class="rx">메이지 신궁 외원 은행나무길</button><button type="button" data-open="s_yoyogi" class="rx">요요기 공원</button><button type="button" data-open="s_tokyotower" class="rx">도쿄 타워</button><button type="button" data-open="torinoichi" class="rx f">도리노이치</button><button type="button" data-open="tokyojidai" class="rx f">도쿄 지다이 마쓰리</button></span></li></ol>
         <dd class="sub">도시를 누르면 관련 관광지·축제로 이동해요</dd></div>
       <div class="bnow"><dt>11월에만 즐길 수 있는 것</dt>
         <ol class="picks"><li><button type="button" class="pick" data-open="momiji"><b>교토 단풍 시즌</b><em class="pm">교토 기온</em><span class="pd">11월 중순 ~ 12월 초</span><span class="pdx">도후쿠지·에이칸도·기요미즈데라 등 사찰의 단풍 특별 공개와 야간 라이트업.</span></button></li><li><button type="button" class="pick" data-open="torinoichi"><b>도리노이치</b><em class="pm">도쿄</em><span class="pd">11월 유일(酉の日)</span><span class="pdx">복을 긁어모으는 갈퀴 장식(구마데)을 파는 시장. 아사쿠사 오토리 신사가 유명해요.</span></button></li><li><button type="button" class="pick" data-open="s_tofukuji"><b>도후쿠지</b><em class="pm">교토 후시미</em><span class="pd">11월 하순~12월 초</span><span class="pdx">단풍 명소 쓰텐쿄. 올해는 평년보다 늦을 전망이에요.</span></button></li></ol>
@@ -131,10 +131,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=f07eea72"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=f07eea72"></script>
-<script src="/autoreserve.js?v=f07eea72"></script>
-<script src="/google_picks.js?v=f07eea72"></script>
-<script src="/geo.js?v=f07eea72"></script>
-<script src="/app.js?v=f07eea72"></script>
+<script src="/areas.js?v=12e369ab"></script>
+<script src="/autoreserve.js?v=12e369ab"></script>
+<script src="/google_picks.js?v=12e369ab"></script>
+<script src="/geo.js?v=12e369ab"></script>
+<script src="/app.js?v=12e369ab"></script>
 </body>
 </html>

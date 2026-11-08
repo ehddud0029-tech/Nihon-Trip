@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=f07eea72">
+<link rel="stylesheet" href="/app.css?v=12e369ab">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=f07eea72"><\/script><script src="'+B+'engine.js?v=f07eea72"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=12e369ab"><\/script><script src="'+B+'engine.js?v=12e369ab"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -85,7 +85,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=f07eea72"><\/s
       <div class="bmemo"><dt>11月の旅行メモ</dt>
         <dd class="mood"><p><span>雰囲気</span>紅葉の見頃。京都の寺で夜間ライトアップが行われます。</p><p><span>人気のもの</span>京都の紅葉、東京のイチョウ並木、年末イルミネーションの始まり。</p><p><span>知っておきたいこと</span>紅葉の名所は週末の午前が最も混みます。平日の早い時間を狙いましょう。</p></dd></div>
       <div class="bcity"><dt>旅行におすすめの都市</dt>
-        <ol class="picks"><li><button type="button" class="pick" data-rec="0"><b>大阪</b><em class="pm">おすすめ1</em><span class="pd">京都の紅葉が見頃（中旬〜下旬）。夜間ライトアップが人気です。</span></button></li><li><button type="button" class="pick" data-rec="1"><b>東京</b><em class="pm">おすすめ2</em><span class="pd">下旬からイチョウ並木が黄色く色づきます。</span></button></li></ol>
+        <ol class="picks"><li><button type="button" class="pick" data-rec="0"><b>大阪</b><span class="pd">京都の紅葉が見頃（中旬〜下旬）。夜間ライトアップが人気です。</span></button><span class="rxs"><button type="button" data-open="s_tofukuji" class="rx">東福寺</button><button type="button" data-open="kiyomizu" class="rx">清水寺</button><button type="button" data-open="s_tetsugaku" class="rx">哲学の道</button><button type="button" data-open="s_nanzenji" class="rx">南禅寺</button><button type="button" data-open="momiji" class="rx f">京都 紅葉</button></span></li><li><button type="button" class="pick" data-rec="1"><b>東京</b><span class="pd">下旬からイチョウ並木が黄色く色づきます。</span></button><span class="rxs"><button type="button" data-open="s_gaien" class="rx">明治神宮外苑 いちょう並木</button><button type="button" data-open="s_yoyogi" class="rx">代々木公園</button><button type="button" data-open="s_tokyotower" class="rx">東京タワー</button><button type="button" data-open="torinoichi" class="rx f">酉の市</button><button type="button" data-open="tokyojidai" class="rx f">東京時代まつり</button></span></li></ol>
         <dd class="sub">都市を押すと関連する観光地・祭りに移動します</dd></div>
       <div class="bnow"><dt>11月だけの楽しみ</dt>
         <ol class="picks"><li><button type="button" class="pick" data-open="momiji"><b>京都 紅葉</b><em class="pm">京都 祇園</em><span class="pd">11月中旬〜12月上旬</span><span class="pdx">東福寺・永観堂・清水寺などの紅葉の特別公開と夜間ライトアップ。</span></button></li><li><button type="button" class="pick" data-open="torinoichi"><b>酉の市</b><em class="pm">東京</em><span class="pd">11月の酉の日</span><span class="pdx">福をかき集める縁起熊手を売る市。浅草の鷲神社が有名です。</span></button></li><li><button type="button" class="pick" data-open="s_tofukuji"><b>東福寺</b><em class="pm">京都 伏見</em><span class="pd">11月下旬〜12月初め</span><span class="pdx">紅葉の名所・通天橋。今年は平年より遅れる見込みです。</span></button></li></ol>
@@ -134,10 +134,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=f07eea72"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=f07eea72"></script>
-<script src="/autoreserve.js?v=f07eea72"></script>
-<script src="/google_picks.js?v=f07eea72"></script>
-<script src="/geo.js?v=f07eea72"></script>
-<script src="/app.js?v=f07eea72"></script>
+<script src="/areas.js?v=12e369ab"></script>
+<script src="/autoreserve.js?v=12e369ab"></script>
+<script src="/google_picks.js?v=12e369ab"></script>
+<script src="/geo.js?v=12e369ab"></script>
+<script src="/app.js?v=12e369ab"></script>
 </body>
 </html>
