@@ -43,13 +43,15 @@ for f in FILES:
     open(f, 'w', encoding='utf-8').write(s); print('place itins', f)
 
 # 메뉴를 누르면 어느 메뉴든 항상 첫 페이지(전체)로: 보고 있던 도시·동네·날씨 월·공항 선택을 넘기지 않아요 (2026-11)
-MENU_RESET = 'city:"all", area:"all", itin:null, gsec:null, ap:"", apk:"", wm:0, focus:null, sub:""'
+MENU_RESET = 'city:"all", area:"all", itin:null, gsec:null, ap:"", apk:"", wm:0, sub:""'   # 여행 추천의 '이달 추천'(focus)은 남겨 둠 (patch_focus.py)
+OLD_RESET2 = 'city:"all", area:"all", itin:null, gsec:null, ap:"", apk:"", wm:0, focus:null, sub:""'
 OLD_RESET = 'city:"all", area:"all", itin:null, gsec:null, ap:"", apk:"", wm:0, focus:null'
 B4 = 'if(ROUTED) a.setAttribute("href", window.NT_BASE + LPRE + pathOf({...st, view:a.dataset.view, ' + MENU_RESET + '}));'
 A5 = 'if(v){ e.preventDefault(); if(v.dataset.view==="itin") st.itin=""; go(v.dataset.view); return; }'
 B5 = 'if(v){ e.preventDefault(); if(!v.classList.contains("brand")) Object.assign(st, {' + MENU_RESET + '}); if(v.dataset.view==="itin") st.itin=""; go(v.dataset.view); return; }'
 for f in FILES:
     s = open(f, encoding='utf-8').read()
+    s = s.replace(B4.replace(MENU_RESET, OLD_RESET2), B4).replace(B5.replace(MENU_RESET, OLD_RESET2), B5)
     s = s.replace(B4.replace(MENU_RESET, OLD_RESET), B4).replace(B5.replace(MENU_RESET, OLD_RESET), B5)  # 예전 MENU_RESET 줄 업그레이드
     if B4 not in s:
         assert s.count(B) == 1, (f, 'B', s.count(B)); s = s.replace(B, B4)

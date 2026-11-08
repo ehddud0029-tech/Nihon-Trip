@@ -58,7 +58,7 @@ function wxMonths(c,m){ return `<div class="wxmon">${Array.from({length:12},(_,i
 function wxCities(c,m){ return `<div class="wxmon wxcit">${WX_ORDER.map(k=>wxA(k,m,esc(CITIES[k].ko),k===c?"on":"")).join("")}</div>`; }
 function wxFestLink(c,m){ return c==="all"
   ? `<a class="btn ghost" href="${ROUTED?window.NT_BASE+LPRE+`festivals/${m}/`:"#festivals"}" data-wxfest="all" data-m="${m}">${m}월 축제 보기<i> →</i></a>`
-  : `<a class="btn ghost" href="${ROUTED?window.NT_BASE+LPRE+`${c}/${areasOf(c)[0].key}/festivals/`:"#festivals"}" data-wxfest="${c}" data-m="${m}">${m}월 축제 보기<i> →</i></a>`; }
+  : `<a class="btn ghost" href="${ROUTED?window.NT_BASE+LPRE+`${c}/festivals/`:"#festivals"}" data-wxfest="${c}" data-m="${m}">${m}월 축제 보기<i> →</i></a>`; }
 const WX_SRC = `<p class="sisrc">기상청 평년값(1991~2020년) 기준이에요. 그해 날씨에 따라 다를 수 있어요.</p><p class="sisrc">홋카이도는 삿포로, 오키나와는 나하, 시코쿠는 다카마쓰 관측값이에요.</p>`;
 function wxMemo(m){ const mm=(typeof MONTH_MOOD!=="undefined"&&MONTH_MOOD[m-1])||[]; return mm.length?`<div class="gblk"><h4>${m}월 여행 메모</h4><dl class="wxmemo">${mm.map(r=>`<dt>${esc(r[0])}</dt><dd>${esc(r[1])}</dd>`).join("")}</dl></div>`:""; }
 function wxFaq(c,m){

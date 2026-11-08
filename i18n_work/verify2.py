@@ -21,7 +21,7 @@ for(const pass of [0,1]){
  for(let m=1;m<=12;m++){ st.hm=m; st.view="home"; st.city="all"; st.area="all"; for(const h of Object.keys(PAGE_LABEL)){ st.homeTo=h; await R(); } 
    for(let i=0;i<(MONTH_PICKS[m-1]||[]).length;i++){ st.view="home"; st.hm=m; render(); const b=document.querySelector(`[data-rec="${i}"]`); if(b){ b.click(); await tick(); grab(); } } }
  st.hm=null;
- for(const v of views){ for(const c of ["all",...Object.keys(CITIES)]){ const areas=c==="all"?[{key:"all"}]:areasOf(c);
+ for(const v of views){ for(const c of ["all",...Object.keys(CITIES)]){ const areas=c==="all"?[{key:"all"}]:[...(["festivals","food"].includes(v)?[{key:"all"}]:[]),...areasOf(c)];
    for(const a of areas){ st.view=v; st.city=c; st.area=a.key; st.more=false; st.focus=null;
      if(v==="festivals"){ for(let m=1;m<=12;m++){ st.month=m; await R(); } }
      else if(v==="food"){ for(const mk of Object.keys(MENU)){ st.menu=mk; await R(); } }

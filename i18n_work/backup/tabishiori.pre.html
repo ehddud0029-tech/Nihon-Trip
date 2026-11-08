@@ -1915,6 +1915,17 @@ function persist(){try{localStorage.setItem("tabishiori-saved",JSON.stringify(sa
 FESTS.push(...[{"id": "f_tokyomarathon", "type": "fest", "city": "tokyo", "month": 3, "k": "", "name": "도쿄 마라톤", "jp": "東京マラソン", "when": "3월 초 일요일", "desc": "도청 앞에서 출발해 아사쿠사·긴자를 지나 도쿄역까지 달리는 세계 6대 마라톤. 길가 응원도 축제처럼 열기가 넘쳐요.", "area": "신주쿠 도청 ~ 도쿄역", "tip": "대회 날은 도로 통제가 많아요. 이동은 지하철로 하세요.", "sub": "shinjuku"}, {"id": "f_yabusame", "type": "fest", "city": "tokyo", "month": 9, "k": "", "name": "쓰루가오카하치만구 야부사메", "jp": "鶴岡八幡宮例大祭 流鏑馬神事", "when": "9월 16일", "desc": "가마쿠라 무사 차림의 궁수가 달리는 말 위에서 과녁 세 개를 쏘는 의식. 가을 큰 제사의 하이라이트예요.", "area": "쓰루가오카하치만구 경내 말길", "tip": "오후에 시작하지만 자리는 오전부터 차요.", "sub": "kamakura"}, {"id": "f_tiff", "type": "fest", "city": "tokyo", "month": 10, "k": "", "name": "도쿄 국제영화제", "jp": "東京国際映画祭", "when": "10월 하순 ~ 11월 초", "desc": "히비야·긴자 일대 극장에서 열리는 아시아 대표 영화제. 레드카펫과 야외 상영도 있어요.", "area": "히비야·유라쿠초·긴자", "tip": "영어 자막 상영이 많아요. 표는 공식 사이트에서 미리 사세요.", "sub": "ginza"}, {"id": "f_kasuga_mantoro", "type": "fest", "city": "osaka", "month": 2, "k": "", "name": "가스가타이샤 만등롱", "jp": "春日大社 節分万燈籠", "when": "2월 3일 무렵 (세쓰분) · 8월 14~15일", "desc": "신사의 돌·금속 등롱 약 3,000개에 한꺼번에 불을 켜는 밤. 숲속 참배길이 은은한 빛으로 물들어요.", "area": "가스가타이샤 (나라 공원 동쪽)", "tip": "본전 안쪽은 유료 특별 참배예요. 밤 숲길은 어두우니 발밑을 조심하세요.", "sub": "nara"}, {"id": "f_baikasai", "type": "fest", "city": "osaka", "month": 2, "k": "", "name": "기타노텐만구 매화제", "jp": "北野天満宮 梅花祭", "when": "2월 25일", "desc": "학문의 신을 모신 신사의 매화 축제. 가미시치켄 게이코·마이코가 매화 아래에서 말차를 대접하는 야외 다회가 열려요.", "area": "기타노텐만구 (교토 북서쪽)", "tip": "다회는 유료 참가권이 필요해요. 같은 날 경내에 벼룩시장 덴진상도 서요.", "sub": "kyotoeki"}, {"id": "f_otaimatsu", "type": "fest", "city": "osaka", "month": 3, "k": "", "name": "세이료지 오타이마쓰", "jp": "清凉寺 お松明式", "when": "3월 15일 저녁", "desc": "석가모니 열반을 기리는 날, 높이 약 7m 큰 횃불 세 개를 태워요. 불길 모양으로 그해 농사를 점치는 아라시야마의 오래된 봄 행사예요.", "area": "세이료지 (사가 샤카도)", "tip": "불을 붙이는 건 밤 8시 무렵이에요. 불꽃이 크니 앞쪽은 피하세요.", "sub": "arashiyama"}, {"id": "f_chionin_bell", "type": "fest", "city": "osaka", "month": 12, "k": "", "name": "지온인 제야의 종", "jp": "知恩院 除夜の鐘", "when": "12월 31일 밤", "desc": "일본에서 손꼽히게 큰 범종을 승려 17명이 몸을 젖혀 가며 치는 섣달그믐 행사. 낮게 울리는 종소리로 한 해를 보내요.", "area": "지온인 (기온·히가시야마)", "tip": "최근에는 사전 신청제로 열리기도 해요. 공식 사이트 안내를 꼭 확인하세요.", "sub": "kyoto"}, {"id": "f_penguinwalk", "type": "fest", "city": "hokkaido", "month": 1, "k": "", "name": "아사히야마 동물원 펭귄 산책", "jp": "旭山動物園 ペンギンの散歩", "when": "12월 하순 ~ 3월 중순 (눈이 쌓이면)", "desc": "겨울에만 볼 수 있는 행사로, 킹펭귄 무리가 눈길을 줄지어 걸어요. 운동이 부족해지는 겨울에 맞춰 시작했대요.", "area": "아사히야마 동물원", "tip": "하루 1~2회예요. 시작 30분 전부터 길가에 자리를 잡으세요.", "sub": "asahikawa"}, {"id": "f_goryokaku_sakura", "type": "fest", "city": "hokkaido", "month": 4, "k": "", "name": "고료카쿠 벚꽃", "jp": "五稜郭公園の桜", "when": "4월 하순 ~ 5월 초", "desc": "별 모양 요새를 따라 벚나무 약 1,500그루가 피어요. 전망대에서 보면 분홍색 별이 떠오르는 듯해요.", "area": "고료카쿠 공원·고료카쿠 타워", "tip": "골든위크와 겹쳐 붐벼요. 타워는 아침 일찍 오르는 게 좋아요.", "sub": "hakodate"}, {"id": "f_hokudai_ginkgo", "type": "fest", "city": "hokkaido", "month": 10, "k": "", "name": "홋카이도대학 은행나무길", "jp": "北海道大学 金葉祭", "when": "10월 하순 ~ 11월 초", "desc": "캠퍼스 안 380m 은행나무길이 노랗게 물들어요. 학생들이 여는 금엽제 기간엔 밤 조명도 켜져요.", "area": "홋카이도대학 (삿포로역 북쪽)", "tip": "대학 캠퍼스라 조용히 둘러보세요. 은행 열매 냄새가 강해요.", "sub": "sapporoeki"}, {"id": "f_hakodate_xmas", "type": "fest", "city": "hokkaido", "month": 12, "k": "", "name": "하코다테 크리스마스 판타지", "jp": "はこだてクリスマスファンタジー", "when": "12월 1~25일", "desc": "항구 앞 바다 위에 자매도시 캐나다 핼리팩스에서 보낸 큰 트리를 띄우고, 매일 저녁 점등과 불꽃을 해요.", "area": "가네모리 아카렌가 창고 앞 바다", "tip": "점등은 오후 6시 무렵. 바닷바람이 차가우니 단단히 입으세요.", "sub": "hakodate"}, {"id": "f_usokae", "type": "fest", "city": "fukuoka", "month": 1, "k": "", "name": "다자이후 우소카에·오니스베", "jp": "太宰府天満宮 うそ替え・鬼すべ", "when": "1월 7일", "desc": "저녁에 나무 새 인형 '우소'를 서로 바꾸며 지난해 나쁜 일을 '거짓'으로 돌리는 행사. 밤에는 불과 연기로 귀신을 쫓는 오니스베가 이어져요.", "area": "다자이후 텐만구", "tip": "우소 인형은 경내에서 사요. 오니스베는 연기가 많으니 옷에 냄새가 배요.", "sub": "dazaifu"}, {"id": "f_beppu_hatto", "type": "fest", "city": "fukuoka", "month": 4, "k": "", "name": "벳푸 핫토 온천 축제", "jp": "別府八湯温泉まつり", "when": "4월 초 며칠", "desc": "벳푸 여덟 온천 마을이 함께 여는 봄 축제. 온천 일부가 무료로 열리고, 오이타 쪽으로 불을 든 행렬과 퍼레이드가 있어요.", "area": "벳푸 시내 각 온천", "tip": "무료 개방 온천과 시간은 해마다 바뀌어요. 수건을 챙기세요.", "sub": "beppu"}, {"id": "f_yufuin_film", "type": "fest", "city": "fukuoka", "month": 8, "k": "", "name": "유후인 영화제", "jp": "湯布院映画祭", "when": "8월 하순 며칠", "desc": "1976년 시작한 일본에서 가장 오래된 영화제 중 하나. 온천 마을 작은 공회당에서 일본 영화를 보고 감독과 이야기를 나눠요.", "area": "유후인 공민관 일대", "tip": "상영은 대부분 자막 없는 일본어예요. 영화 좋아하는 분께 추천해요.", "sub": "yufuin"}, {"id": "f_okinawa_camp", "type": "fest", "city": "okinawa", "month": 2, "k": "", "name": "오키나와 프로야구 스프링캠프", "jp": "沖縄プロ野球春季キャンプ", "when": "2월 한 달", "desc": "일본과 한국 프로야구 여러 팀이 오키나와 곳곳에서 훈련해요. 대부분 무료로 가까이서 연습을 볼 수 있어요.", "area": "기노완·차탄·우라소에 등 중부 구장", "tip": "팀별 구장과 일정은 구단 공식 사이트에서 확인하세요. 렌터카가 편해요.", "sub": "chubu"}, {"id": "f_umibiraki", "type": "fest", "city": "okinawa", "month": 3, "k": "", "name": "야에야마 바다 개장", "jp": "八重山の海開き", "when": "3월 하순 무렵", "desc": "일본에서 가장 이른 해수욕장 개장 행사. 무대 공연과 함께 이시가키섬 바다 시즌이 시작돼요.", "area": "이시가키섬 해변 (해마다 바뀜)", "tip": "3월 바다는 아직 차가워요. 물놀이는 5월 이후가 편해요.", "sub": "ishigaki"}, {"id": "f_iejima_lily", "type": "fest", "city": "okinawa", "month": 4, "k": "", "name": "이에섬 백합 축제", "jp": "伊江島ゆり祭り", "when": "4월 하순 ~ 5월 초", "desc": "바닷가 언덕에 하얀 테포 백합 수십만 송이가 피어요. 모토부항에서 배로 30분이면 가요.", "area": "이에섬 릴리필드 공원", "tip": "섬 안은 렌터카·자전거가 편해요. 배 시간을 먼저 확인하세요.", "sub": "hokubu"}, {"id": "f_itoman_hare", "type": "fest", "city": "okinawa", "month": 6, "k": "", "name": "이토만 하레", "jp": "糸満ハーレー", "when": "음력 5월 4일 (보통 6월)", "desc": "어부 마을 이토만에서 풍어와 바다 안전을 비는 배 경주. 일부러 배를 뒤집었다 다시 젓는 '뒤집기 경주'가 볼거리예요.", "area": "이토만 어항 (나하에서 차로 30분)", "tip": "장마철이라 비가 오기 쉬워요. 우산과 모자를 챙기세요.", "sub": "naha"}, {"id": "f_expo_fireworks", "type": "fest", "city": "okinawa", "month": 7, "k": "", "name": "해양박공원 여름 축제 불꽃놀이", "jp": "海洋博公園サマーフェスティバル", "when": "7월 중순 무렵", "desc": "추라우미 수족관이 있는 공원 해변에서 바다 위로 불꽃 약 1만 발이 올라가는 북부 최대의 여름 행사예요.", "area": "해양박공원 에메랄드 비치", "tip": "끝난 뒤 주차장이 매우 막혀요. 근처 숙소를 잡으면 편해요.", "sub": "hokubu"}, {"id": "f_chushu", "type": "fest", "city": "okinawa", "month": 9, "k": "", "name": "슈리성 중추의 연회", "jp": "首里城公園 中秋の宴", "when": "음력 8월 15일 무렵 (9~10월)", "desc": "류큐 왕국 시절 중국 사신을 맞던 연회를 재현해요. 보름달 아래 궁중 무용과 음악 공연이 열려요.", "area": "슈리성 공원", "tip": "성은 복원 공사 중이라 행사 장소가 바뀔 수 있어요.", "sub": "naha"}, {"id": "f_shurijo_fes", "type": "fest", "city": "okinawa", "month": 11, "k": "", "name": "슈리성 축제·류큐 왕조 행렬", "jp": "首里城祭", "when": "10월 하순 ~ 11월 초", "desc": "왕과 왕비, 신하로 분장한 수백 명이 국제거리를 걷는 행렬이 하이라이트예요. 왕국 시대 의식도 재현해요.", "area": "국제거리·슈리성 공원", "tip": "행렬 날은 국제거리 차량이 통제돼요. 길가 자리는 일찍 잡으세요.", "sub": "kokusai"}, {"id": "f_naha_marathon", "type": "fest", "city": "okinawa", "month": 12, "k": "", "name": "나하 마라톤", "jp": "NAHAマラソン", "when": "12월 첫째 일요일", "desc": "남부 마을을 한 바퀴 도는 시민 마라톤. 길가 주민들이 과일과 간식을 나눠 주는 따뜻한 응원으로 유명해요.", "area": "오노야마 육상경기장 출발", "tip": "참가 신청은 여름에 마감돼요. 대회 날은 나하 남쪽 도로가 막혀요.", "sub": "naha"}, {"id": "f_konomiya", "type": "fest", "city": "nagoya", "month": 2, "k": "", "name": "고노미야 하다카 마쓰리", "jp": "国府宮はだか祭", "when": "음력 1월 13일 (2~3월)", "desc": "훈도시 차림 남성 수천 명이 액막이 '신남(神男)'을 만지려고 몰려드는 1,250년 넘은 겨울 축제예요.", "area": "오와리 오쿠니타마 신사 (나고야역에서 전철 15분)", "tip": "메이테쓰 고노미야역에서 바로예요. 엄청 붐비니 높은 곳에서 보세요.", "sub": "meieki"}, {"id": "f_tagata", "type": "fest", "city": "nagoya", "month": 3, "k": "", "name": "다가타 신사 호넨 마쓰리", "jp": "田縣神社 豊年祭", "when": "3월 15일", "desc": "풍년과 자손 번영을 비는 봄 축제. 큰 나무 남근상을 가마에 싣고 마을을 도는 독특한 행렬로 유명해요.", "area": "다가타 신사 (고마키시, 이누야마 근처)", "tip": "메이테쓰 다가타진자마에역에서 걸어서 5분. 행렬은 오후에 출발해요.", "sub": "inuyama"}, {"id": "f_atsuta", "type": "fest", "city": "nagoya", "month": 6, "k": "", "name": "아쓰타 마쓰리", "jp": "熱田まつり", "when": "6월 5일", "desc": "아쓰타 신궁의 가장 큰 축제. 저녁엔 등불 365개를 단 '마키와라' 장식과 불꽃놀이가 신궁을 밝혀요.", "area": "아쓰타 신궁", "tip": "포장마차가 많이 서요. 지하철 진구니시역이나 JR 아쓰타역이 가까워요.", "sub": "meieki"}, {"id": "f_minato", "type": "fest", "city": "nagoya", "month": 7, "k": "", "name": "나고야 미나토 마쓰리", "jp": "名古屋みなと祭", "when": "바다의 날 (7월 셋째 월요일)", "desc": "나고야항에서 열리는 여름 축제. 행진과 춤 퍼레이드에 이어 밤에는 항구 위로 불꽃 약 3,000발이 올라가요.", "area": "나고야항 가든 부두", "tip": "지하철 나고야코역에서 바로예요. 끝난 뒤 역이 매우 붐벼요.", "sub": "meieki"}, {"id": "f_domannaka", "type": "fest", "city": "nagoya", "month": 8, "k": "", "name": "닛폰 도만나카 마쓰리", "jp": "にっぽんど真ん中祭り", "when": "8월 하순 주말", "desc": "일본 각지와 해외 팀 약 200개가 각자의 춤을 선보이는 대형 춤 축제. 사카에 거리가 무대가 돼요.", "area": "히사야오도리 공원·사카에 일대", "tip": "한낮엔 매우 더워요. 저녁 무대가 시원하고 분위기도 좋아요.", "sub": "meieki"}, {"id": "f_korankei", "type": "fest", "city": "nagoya", "month": 11, "k": "", "name": "고란케이 단풍 축제", "jp": "香嵐渓もみじまつり", "when": "11월 한 달", "desc": "계곡을 따라 단풍나무 약 4,000그루가 물드는 아이치 대표 단풍 명소. 밤에는 조명도 켜져요.", "area": "아이치현 도요타시 아스케 (나고야에서 버스 약 1시간 반)", "tip": "주말엔 차가 몹시 막혀요. 평일이나 아침 일찍 가세요.", "sub": "meieki"}, {"id": "f_nabana", "type": "fest", "city": "nagoya", "month": 12, "k": "", "name": "나바나노사토 일루미네이션", "jp": "なばなの里 イルミネーション", "when": "10월 중순 ~ 5월 하순", "desc": "일본 최대급 일루미네이션. 빛의 터널과 넓은 들판을 채운 빛의 풍경이 해마다 다른 주제로 펼쳐져요.", "area": "미에현 구와나시 (나고야에서 버스 약 30분)", "tip": "나고야역 메이테쓰 버스터미널에서 직행버스가 있어요. 입장권에 시설 내 쿠폰이 포함돼요.", "sub": "meieki"}, {"id": "fe_miyajima_oyster", "type": "fest", "city": "hiroshima", "month": 2, "k": "", "name": "미야지마 굴 축제", "jp": "宮島かき祭り", "when": "2월 둘째 주말", "desc": "제철 히로시마 굴을 숯불에 구워 싸게 맛보는 겨울 축제. 굴밥·굴 된장국도 나와요.", "area": "미야지마 선착장 앞 광장", "tip": "인기 메뉴는 금방 줄이 길어져요. 오전에 가세요.", "sub": "miyajima"}, {"id": "f_senkoji_sakura", "type": "fest", "city": "hiroshima", "month": 4, "k": "", "name": "센코지 공원 벚꽃 축제", "jp": "千光寺公園 桜まつり", "when": "3월 하순 ~ 4월 초", "desc": "오노미치 바다와 섬들이 내려다보이는 언덕에 벚나무 약 1,500그루가 피어요. 밤에는 등불이 켜져요.", "area": "센코지 공원 (오노미치)", "tip": "로프웨이로 올라가 고양이 골목을 따라 걸어 내려오면 좋아요.", "sub": "onomichi"}, {"id": "f_tokasan", "type": "fest", "city": "hiroshima", "month": 6, "k": "", "name": "도카산 축제", "jp": "とうかさん大祭", "when": "6월 첫째 금~일요일", "desc": "히로시마에서 그해 처음 유카타를 입는 날로 알려진 축제. 중심가 거리에 포장마차가 길게 늘어서요.", "area": "엔류지·주오도리 일대", "tip": "저녁이 가장 붐벼요. 혼도리 상점가 바로 옆이라 쇼핑과 함께 즐기기 좋아요.", "sub": "hirocity"}, {"id": "f_kangensai", "type": "fest", "city": "hiroshima", "month": 7, "k": "", "name": "이쓰쿠시마 신사 관현제", "jp": "厳島神社 管絃祭", "when": "음력 6월 17일 (7~8월)", "desc": "헤이안 시대 귀족의 뱃놀이를 재현한 여름밤 신사 의식. 아악을 연주하는 배가 횃불을 밝히고 바다 위 신사를 오가요.", "area": "이쓰쿠시마 신사 앞바다", "tip": "밤늦게 끝나요. 돌아오는 배 시간을 확인하거나 섬에서 묵으세요.", "sub": "miyajima"}, {"id": "f_hiro_food", "type": "fest", "city": "hiroshima", "month": 10, "k": "", "name": "히로시마 푸드 페스티벌", "jp": "ひろしまフードフェスティバル", "when": "10월 하순 주말", "desc": "히로시마성 주변에 현 전역의 먹거리 부스가 모여요. 오코노미야키, 굴, 지역 술을 한자리에서 맛봐요.", "area": "히로시마성 주변·중앙공원", "tip": "현금과 교통카드 결제가 섞여 있어요. 점심때는 줄이 길어요.", "sub": "hirocity"}, {"id": "f_momijidani", "type": "fest", "city": "hiroshima", "month": 11, "k": "", "name": "미야지마 모미지다니 단풍", "jp": "紅葉谷公園の紅葉", "when": "11월 중순 ~ 하순", "desc": "이름처럼 단풍 골짜기. 시냇물과 붉은 다리 위로 단풍이 겹쳐 미야지마 명물 모미지 만주의 고향이기도 해요.", "area": "모미지다니 공원 (로프웨이 입구 쪽)", "tip": "단풍철 주말은 배와 로프웨이 모두 붐벼요. 아침 일찍 건너가세요.", "sub": "miyajima"}, {"id": "f_dream_illumi", "type": "fest", "city": "hiroshima", "month": 12, "k": "", "name": "히로시마 드리미네이션", "jp": "ひろしまドリミネーション", "when": "11월 중순 ~ 1월 3일", "desc": "평화대로와 강변을 따라 동화를 주제로 한 빛 장식이 이어지는 겨울 일루미네이션. 무료로 걸으며 볼 수 있어요.", "area": "평화대로·하천 둔치 일대", "tip": "평화기념공원과 가까워 저녁 산책 코스로 좋아요.", "sub": "hirocity"}, {"id": "f_dogo_spring", "type": "fest", "city": "shikoku", "month": 3, "k": "", "name": "도고온천 축제", "jp": "道後温泉まつり", "when": "3월 19~21일", "desc": "일본에서 가장 오래된 온천 중 하나인 도고의 봄 축제. 온천 본관 앞에서 전통 춤과 거리 행진이 열려요.", "area": "도고온천 본관·상점가 일대", "tip": "벚꽃이 피기 시작할 무렵이에요. 축제 기간 온천은 붐비니 아침에 들어가세요.", "sub": "matsuyama"}, {"id": "f_konpira_kabuki", "type": "fest", "city": "shikoku", "month": 4, "k": "", "name": "곤피라 가부키", "jp": "四国こんぴら歌舞伎大芝居", "when": "4월 중 공연 기간 (열리는 해 확인)", "desc": "일본에서 가장 오래된 가부키 극장 가나마루자에서 하는 봄 공연. 촛불 시절 구조 그대로인 목조 극장에서 배우를 아주 가까이서 봐요.", "area": "구 곤피라 대극장 가나마루자", "tip": "표는 몇 달 전에 매진되기도 해요. 극장 수리 등으로 쉬는 해가 있으니 먼저 확인하세요.", "sub": "kotohira"}, {"id": "f_ritsurin_light", "type": "fest", "city": "shikoku", "month": 11, "k": "", "name": "리쓰린 공원 가을 라이트업", "jp": "栗林公園 秋のライトアップ", "when": "11월 하순 ~ 12월 초", "desc": "에도 시대 다이묘 정원의 단풍을 밤에 조명으로 비춰요. 연못에 비친 단풍이 특히 아름다워요.", "area": "리쓰린 공원 (다카마쓰)", "tip": "야간 입장은 따로 표가 필요한 날도 있어요. 연못 배 타기는 낮에 예약하세요.", "sub": "takamatsu"}]);
 window.GEO = Object.assign(window.GEO||{}, {"f_tokyomarathon": [35.6896, 139.6922], "f_yabusame": [35.326, 139.5563], "f_tiff": [35.6731, 139.76], "f_kasuga_mantoro": [34.6813, 135.8484], "f_baikasai": [35.0312, 135.7353], "f_otaimatsu": [35.0272, 135.6777], "f_chionin_bell": [35.0055, 135.7832], "f_penguinwalk": [43.7685, 142.4797], "f_goryokaku_sakura": [41.7969, 140.7569], "f_hokudai_ginkgo": [43.0745, 141.342], "f_hakodate_xmas": [41.7686, 140.7172], "f_usokae": [33.5215, 130.5349], "f_beppu_hatto": [33.2795, 131.501], "f_yufuin_film": [33.2655, 131.356], "f_okinawa_camp": [26.2816, 127.7553], "f_umibiraki": [24.3363, 124.1557], "f_iejima_lily": [26.7158, 127.7787], "f_itoman_hare": [26.124, 127.6654], "f_expo_fireworks": [26.6944, 127.8779], "f_chushu": [26.217, 127.7195], "f_shurijo_fes": [26.2149, 127.6867], "f_naha_marathon": [26.2125, 127.6792], "f_konomiya": [35.2386, 136.8135], "f_tagata": [35.3283, 136.96], "f_atsuta": [35.1283, 136.9087], "f_minato": [35.089, 136.8813], "f_domannaka": [35.17, 136.91], "f_korankei": [35.1306, 137.317], "f_nabana": [35.075, 136.727], "fe_miyajima_oyster": [34.2988, 132.322], "f_senkoji_sakura": [34.4114, 133.204], "f_tokasan": [34.3937, 132.4614], "f_kangensai": [34.2959, 132.3198], "f_hiro_food": [34.4026, 132.4594], "f_momijidani": [34.2934, 132.3238], "f_dream_illumi": [34.392, 132.459], "f_dogo_spring": [33.8521, 132.7863], "f_konpira_kabuki": [34.187, 133.819], "f_ritsurin_light": [34.3297, 134.0446]});
 /*FESTMORE_END*/
+/*VGROUP_BEGIN*/
+const VGROUPS = {festivals:{"tokyo":[["도쿄 시내",["shinjuku","shibuya","ginza","asakusa","tokyoeki"]],["요코하마·가마쿠라",["kamakura","yokohama"]],["하코네·후지산",["fuji","hakone"]]],"osaka":[["오사카 시내",["dotonbori","umeda","shinsekai","tenma"]],["교토",["kyoto","kyotoeki","arashiyama","nanzenji","uji"]],["나라",["nara"]],["고베",["kobe"]]],"fukuoka":[["후쿠오카 시내",["hakata","tenjin","nakasu"]],["다자이후·이토시마",["dazaifu","itoshima"]],["유후인·벳푸",["yufuin","beppu"]]],"hokkaido":[["삿포로",["susukino","sapporoeki"]],["오타루",["otaru"]],["하코다테",["hakodate"]],["아사히카와·후라노",["asahikawa","furano"]]],"okinawa":[["나하",["kokusai","naha"]],["중부·북부",["chubu","hokubu"]],["이시가키·미야코",["ishigaki","miyako"]]],"nagoya":[["나고야",["meieki"]],["이누야마",["inuyama"]],["다카야마·시라카와고",["takayama","shirakawago"]]],"hiroshima":[["히로시마 시내",["hirocity"]],["미야지마",["miyajima"]],["오노미치·구라시키",["onomichi","kurashiki"]]],"shikoku":[["마쓰야마",["matsuyama"]],["다카마쓰·나오시마",["takamatsu","naoshima"]],["고토히라",["kotohira"]]]}, food:{"osaka":[["교토",["kyoto","kyotoeki","arashiyama","nanzenji","uji"]],["우메다·덴마",["umeda","tenma"]]],"fukuoka":[["하카타·나카스",["hakata","nakasu"]]],"okinawa":[["국제거리·나하",["kokusai","naha"]]]}};
+FESTS.forEach(f=>{ if(!f.sub && VGROUPS.festivals[f.city]) f.sub = VGROUPS.festivals[f.city][0][1][0]; });   // 단지리(기시와다) 등 지역 없는 축제는 도시 첫 묶음
+const vgOf = (k, v=st.view) => { const G=VGROUPS[v]; if(!G) return null; for(const c in G) for(const [n,m] of G[c]) if(m.includes(k)) return {name:m.length>1?n:((AREA[m[0]]&&AREA[m[0]].ko)||n), members:m, rep:m[0]}; return null; };
+const vgRep = (k, v) => { const g=vgOf(k,v); return g?g.rep:k; };
+const vgSame = (a, b) => { const g=vgOf(b); return !!g && g.members.includes(a); };
+function vgAreas(c, v){ return areasOf(c).filter(a=>vgRep(a.key,v)===a.key).map(a=>{ const g=vgOf(a.key,v); return g?{...a, ko:g.name, vg:g.members}:a; }); }
+const vgFestN = (c, k) => { const g=vgOf(k,"festivals"); return FESTS.filter(f=>f.city===c&&(g?g.members.includes(f.sub):f.sub===k)).length; };
+function vgFood(k, m){ const g=vgOf(k,"food"); if(!g) return arBlock(k,m); const seen=new Set();
+  return g.members.map((x,i)=>{ const sl=(window.AR_SLUG||{})[x]; if(!sl||seen.has(sl)) return ""; seen.add(sl); if(i>0&&!arShops(x,m).length) return ""; return arBlock(x,m); }).join(""); }
+/*VGROUP_END*/
 const ALL = [...SPOTS,...RESTAURANTS,...FOODS,...SHOPS,...FESTS];
 const byId = id => ALL.find(x=>x.id===id);
 const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -1957,7 +1968,7 @@ function tagOf(it){
   return it.month+"월 축제";
 }
 const inCity = it => st.city==="all" || it.city===st.city;
-const inSub = it => st.area==="all" || it.sub===st.area;
+const inSub = it => st.area==="all" || it.sub===st.area || vgSame(it.sub, st.area);
 const curArea = () => st.area!=="all" ? tgArea(AREA[st.area]) : null;
 const matchQ = it => { if(!st.q) return true; const t=window.__tr||(x=>""); return (it.name+it.jp+it.desc+(it.area||"")+" "+t(it.name)+" "+t(it.desc||"")).toLowerCase().includes(st.q.toLowerCase()); };
 
@@ -2017,9 +2028,9 @@ function renderCities(){
   $("#cityscroll").hidden = st.view==="home";
   $("#cities").innerHTML = list.map(([k,ko,jp])=>`<button class="city" type="button" data-city="${k}" aria-pressed="${st.city===k}">${ko}<span class="jp">${jp}</span></button>`).join("");
   cityScrollInit();
-  const c = CITIES[st.city], A = st.view==="festivals" ? null : curArea();
-  $("#areas").hidden = !c || st.view==="festivals";
-  if(c) $("#areas").innerHTML = areasOf(st.city).filter(a=>!tgOn()||tgRep(a.key)===a.key).map(a=>{ const g=tgOn()&&tgOf(a.key); return `<button class="area" type="button" data-area="${a.key}" aria-pressed="${st.area===a.key}">${g?g.name:a.ko}</button>`; }).join("");
+  const c = CITIES[st.city], A = curArea();
+  $("#areas").hidden = !c;
+  if(c) $("#areas").innerHTML = (st.view==="festivals"?`<button class="area" type="button" data-area="all" aria-pressed="${st.area==="all"}">전체</button>`:"") + areasOf(st.city).filter(a=>(!tgOn()||tgRep(a.key)===a.key)&&vgRep(a.key)===a.key&&(st.view!=="festivals"||vgFestN(st.city,a.key))).map(a=>{ const g=tgOn()&&tgOf(a.key), v=vgOf(a.key); return `<button class="area" type="button" data-area="${a.key}" aria-pressed="${st.area===a.key}">${g?g.name:v?v.name:a.ko}</button>`; }).join("");
   $("#heroTitle").textContent = st.view==="home" ? "일본 여행, 어디로 갈까요?" : A ? `${c.ko} · ${A.ko}, 무엇부터 볼까요?` : c ? `${c.ko} 여행, 무엇부터 볼까요?` : "어느 지역부터 둘러볼까요?";
   const w = c && WX && (st.view==="weather" ? (WX[st.city]||WX[A?.key]) : (WX[A?A.key:st.city] || WX[st.city]));
   const wxBox = $("#wx");
@@ -2083,10 +2094,10 @@ function renderCities(){
       topicCell = `<div class="bspot"><dt>${esc(where)} 추천 관광지 TOP ${items.length}</dt>${pickList(items, x=>SPOT_CAT[x.cat].ko, x=>x.area||"").replace(/<\/button><\/li>/g,"</button></li>").replace(/(<button type="button" class="pick" data-open="([^"]+)">[\s\S]*?)<\/button>/g,(m,a,id)=>{ const it=byId(id); return a+(it&&it.desc?`<span class="pdx">${esc(it.desc)}</span>`:"")+"</button>"; })}
         <dd class="sub">이름을 누르면 자세히 볼 수 있어요</dd></div>`;
     }else if(st.view==="festivals"){
-      const inC = FESTS.filter(f=>f.city===st.city);
+      const inC = FESTS.filter(f=>f.city===st.city&&inSub(f));
       let items = inC.filter(f=>f.month===st.month), label = `${st.month}월`;
       if(!items.length){ const next = [...inC].sort((a,b)=>((a.month-st.month+12)%12)-((b.month-st.month+12)%12))[0]; if(next){ items = inC.filter(f=>f.month===next.month); label = `다가오는 ${next.month}월`; } }
-      topicCell = `<div class="bfest"><dt>${esc(c.ko)} ${label} 축제</dt>${items.length?pickList(items.slice(0,3), x=>x.month+"월", x=>x.when).replace(/(<button type="button" class="pick" data-open="([^"]+)">[\s\S]*?)<\/button>/g,(m,a,id)=>{ const it=byId(id); return a+(it&&it.desc?`<span class="pdx">${esc(it.desc)}</span>`:"")+"</button>"; }):`<dd class="sub">등록된 축제가 없어요</dd>`}</div>`;
+      topicCell = `<div class="bfest"><dt>${esc(A?A.ko:c.ko)} ${label} 축제</dt>${items.length?pickList(items.slice(0,3), x=>x.month+"월", x=>x.when).replace(/(<button type="button" class="pick" data-open="([^"]+)">[\s\S]*?)<\/button>/g,(m,a,id)=>{ const it=byId(id); return a+(it&&it.desc?`<span class="pdx">${esc(it.desc)}</span>`:"")+"</button>"; }):`<dd class="sub">등록된 축제가 없어요</dd>`}</div>`;
     }else if(st.view==="shopping"){
       const own = A ? SHOPS.filter(it=>it.sub===A.key) : [];
       const items = (own.length ? own : inArea(SHOPS)).slice(0,3);
@@ -2111,9 +2122,9 @@ function renderCities(){
     // 주제별 두 번째 칸 (공항 정보 대신)
     let extraCell = apCell;
     if(st.view==="festivals"){
-      const inC = FESTS.filter(f=>f.city===st.city);
+      const inC = FESTS.filter(f=>f.city===st.city&&inSub(f));
       const cnt = Array.from({length:12},(_,i)=>inC.filter(f=>f.month===i+1).length);
-      extraCell = `<div class="bcal"><dt>${esc(c.ko)} 축제 달력</dt>
+      extraCell = `<div class="bcal"><dt>${esc(A?A.ko:c.ko)} 축제 달력</dt>
         <dd class="fcal">${cnt.map((n,i)=>`<button type="button" data-month="${i+1}" class="${n?"has":""}${st.month===i+1?" on":""}"><b>${i+1}월</b><span>${n?n+"개":"–"}</span></button>`).join("")}</dd>
         <dd class="sub">달을 누르면 그 달 축제를 보여줘요 · 노점은 현금이 편하고, 큰 축제 날엔 숙소가 빨리 차요</dd></div>`;
     }else if(st.view==="food"){
@@ -2192,7 +2203,7 @@ function renderCities(){
 }
 function setNav(){
   document.querySelectorAll("[data-view]").forEach(a=>{
-    if(ROUTED) a.setAttribute("href", window.NT_BASE + LPRE + pathOf({...st, view:a.dataset.view, city:"all", area:"all", itin:null, gsec:null, ap:"", apk:"", wm:0, focus:null, sub:""}));
+    if(ROUTED) a.setAttribute("href", window.NT_BASE + LPRE + pathOf({...st, view:a.dataset.view, city:"all", area:"all", itin:null, gsec:null, ap:"", apk:"", wm:0, sub:""}));
     if(a.classList.contains("brand")) return;
     a.toggleAttribute("aria-current",a.dataset.view===st.view);
     if(a.dataset.view===st.view) a.setAttribute("aria-current","page");
@@ -2217,7 +2228,7 @@ function chips(map,key,allLabel){
     Object.entries(map).map(([k,v])=>`<button class="chip" type="button" data-chip="${key}" data-v="${k}" aria-pressed="${st[key]===k}">${typeof v==="string"?v:v.ko}</button>`).join("");
 }
 const searchBox = ph => `<input class="search" id="q" type="search" placeholder="${ph}" value="${esc(st.q)}" aria-label="검색">`;
-const cityName = () => curArea() && st.view!=="festivals" ? `${CITIES[st.city].ko} ${curArea().ko}` : (CITIES[st.city]?.ko || "일본 전국");
+const cityName = () => curArea() ? `${CITIES[st.city].ko} ${curArea().ko}` : (CITIES[st.city]?.ko || "일본 전국");
 const gridOr = (items,msg) => items.length ? `<div class="grid">${items.map(card).join("")}</div>` : `<div class="empty">${msg}</div>`;
 
 /* views */
@@ -2226,7 +2237,7 @@ const regionChooser = count => `<div class="regiongrid">${Object.entries(CITIES)
   <div class="areas">${areasOf(k).map(a=>{const n=count?count(a.key):null; return `<button class="area" type="button" data-area="${a.key}" data-region="${k}">${a.ko}${n?` <span class="acount">${n}</span>`:""}</button>`;}).join("")}</div></div>`).join("")}</div>`;
 /* 이달 추천에서 넘어왔을 때 맨 위에 관련 항목 모아 보기 */
 function focusBox(){
-  const f = st.focus; if(!f || f.city!==st.city) return "";
+  const f = st.focus; if(!f || (f.view && f.view!==st.view) || (st.city!=="all" && f.city!==st.city)) return "";
   const items = f.ids.map(byId).filter(Boolean); if(!items.length) return "";
   const body = items[0].type==="fest"
     ? `<div class="flist">${items.map(x=>`<a class="fest" href="${placeHref(x.id)}" data-open="${x.id}" style="--c:var(--yamabuki)"><span class="stamp">${SVGI(MICON.fest)}${imgTag(x.id)}</span><span><span class="when">${esc(x.when)} · ${esc(placeOf(x))}</span><h3>${esc(x.name)}</h3><p>${esc(x.desc)}</p></span></a>`).join("")}</div>`
@@ -2248,7 +2259,8 @@ const MOVE_LABEL = {rail:"주로 이용",bus:"버스",walk:"걸어서",car:"렌�
 const IC_CARDS = [{"id":"suica","name":"Suica","area":"도쿄 · 수도권 (JR 동일본)","cities":["tokyo"],"img":"https://commons.wikimedia.org/wiki/Special:FilePath/Welcome_Suica.jpg?width=360","credit":"Welcome Suica 카드 사진 · Ravi Dwivedi · CC BY-SA 4.0","file":"Welcome_Suica.jpg","buy":["JR 동일본 역 발매기 (무기명 카드는 2025년 3월부터 다시 판매, 보증금 500엔 포함)","여행자용 'Welcome Suica': 나리타·하네다공항 등에서 판매. 보증금이 없고 구입 후 28일 동안 사용","아이폰 지갑 앱에서 바로 만들 수 있고, 여행자용 'Welcome Suica Mobile' 앱(iOS)도 있어요"],"note":"도쿄 JR·지하철·사철·버스, 편의점 결제까지 돼요."},{"id":"pasmo","name":"PASMO","area":"도쿄 · 수도권 (지하철·사철)","cities":["tokyo"],"img":"https://commons.wikimedia.org/wiki/Special:FilePath/PASMO_Card.svg?width=360","credit":"PASMO 카드 그림 · 퍼블릭 도메인","file":"PASMO_Card.svg","buy":["도쿄메트로·도에이 지하철·사철 역 발매기 (무기명 카드 2025년 3월 판매 재개)","여행자용 'PASMO PASSPORT'는 판매가 끝났어요"],"note":"Suica와 똑같이 쓸 수 있어요. 둘 중 하나만 있으면 돼요."},{"id":"icoca","name":"ICOCA","area":"오사카 · 교토 · 고베 · 나라 (JR 서일본)","cities":["osaka"],"img":"https://commons.wikimedia.org/wiki/Special:FilePath/ICOCA_logo.svg?width=360","credit":"ICOCA 로고 · 퍼블릭 도메인","file":"ICOCA_logo.svg","buy":["간사이공항역 JR 발매기·매표소, JR 서일본 역 발매기 (보증금 500엔 포함)","아이폰 지갑 앱에서도 만들 수 있어요"],"note":"오사카 지하철·한큐·한신·긴테쓰·난카이와 교토 시내버스에서도 써요."},{"id":"fukuoka","name":"하야카켄 · SUGOCA · nimoca","area":"후쿠오카 · 규슈","cities":["fukuoka"],"img":"https://commons.wikimedia.org/wiki/Special:FilePath/Hayakaken_logo.svg?width=360","credit":"하야카켄 로고 · 퍼블릭 도메인","file":"Hayakaken_logo.svg","buy":["하야카켄: 후쿠오카 지하철 역 발매기 (공항역 포함)","SUGOCA: JR 규슈 역 발매기 (하카타역 등)","nimoca: 니시테쓰 전철 역·버스 영업소 (다자이후 가는 전철)"],"note":"셋 다 서로 호환돼요. 공항에서 바로 사려면 하야카켄이 편해요."},{"id":"kitaca","name":"Kitaca","area":"홋카이도 (JR 홋카이도)","cities":["hokkaido"],"img":"https://commons.wikimedia.org/wiki/Special:FilePath/Kitaca_logo.svg?width=360","credit":"Kitaca 로고 · 퍼블릭 도메인","file":"Kitaca_logo.svg","buy":["신치토세공항역·삿포로역 등 JR 홋카이도 역 발매기 (보증금 500엔 포함)"],"note":"삿포로 지하철·노면전차에서도 전국 교통계 IC 카드를 쓸 수 있어요. 하코다테·아사히카와 시내버스는 카드 사용 여부를 확인하세요."},{"id":"okica","name":"OKICA","area":"오키나와","cities":["okinawa"],"img":"","credit":"","file":"","buy":["유이레일 역 발매기, 오키나와 주요 버스 회사 영업소"],"note":"유이레일에서는 Suica 등 전국 교통계 IC 카드도 써요. 노선버스는 OKICA 중심이라 전국 카드가 되는지 미리 확인하세요."}];
 const PAGE_LABEL = {spots:"관광지",festivals:"축제",food:"맛집",transport:"교통",shopping:"쇼핑"};
 function homeAreas(k,to){ const as=areasOf(k); if(!as.length) return as;
-  if(to==="festivals") return [{key:as[0].key, ko:CITIES[k].ko}];
+  if(to==="festivals") return vgAreas(k,to).map(a=>({...a, n:vgFestN(k,a.key)})).filter(a=>a.n);
+  if(to==="food") return vgAreas(k,to);
   if(to==="transport" && typeof tgOf==="function") return as.filter(a=>{const g=tgOf(a.key); return !g||g.rep===a.key;}).map(a=>{const g=tgOf(a.key); return g?{key:a.key, ko:g.name}:a;});
   return as; }
 const V = {
@@ -2257,13 +2269,13 @@ const V = {
   const to = st.homeTo;
   const pick = `<div class="hometo" role="group" aria-label="이동할 페이지">${Object.entries(PAGE_LABEL).map(([k,v])=>`<button type="button" class="chip" data-hometo="${k}" aria-pressed="${to===k}">${v}</button>`).join("")}</div>`;
   const boxes = Object.entries(CITIES).map(([k,c])=>`<div class="regionbox"><h3>${c.ko} <span class="rjp">${c.jp}</span></h3>
-    <div class="areas">${homeAreas(k,to).map(a=>{const n=to==="festivals"?FESTS.filter(f=>f.city===k).length:cnt[to]?cnt[to](a.key):0; return `<button class="area" type="button" data-goarea="${a.key}" data-region="${k}">${a.ko}${n?` <span class="acount">${n}</span>`:""}</button>`;}).join("")}</div></div>`).join("");
+    <div class="areas">${homeAreas(k,to).map(a=>{const n=a.n!=null?a.n:cnt[to]?cnt[to](a.key):0; return `<button class="area" type="button" data-goarea="${a.key}" data-region="${k}">${a.ko}${n?` <span class="acount">${n}</span>`:""}</button>`;}).join("")}</div></div>`).join("");
   return `<div class="sechead"><div><h2>지역 고르기</h2><p>보고 싶은 정보를 먼저 고르고, 궁금한 지역이나 도시를 누르면 그 페이지로 이동해요.</p></div></div>
     ${pick}<div class="regiongrid">${boxes}</div>`;
  },
  spots(){
   if(st.city==="all"){
-    return `<div class="sechead"><div><h2>관광지</h2><p>지역과 하위 지역을 고르면 그 지역의 유적·사찰, 풍경, 거리 명소를 보여드려요. 숫자는 등록된 관광지 수예요.</p></div></div>${regionChooser(k=>SPOTS.filter(it=>it.sub===k).length)}`;
+    return `${focusBox()}<div class="sechead"><div><h2>관광지</h2><p>지역과 하위 지역을 고르면 그 지역의 유적·사찰, 풍경, 거리 명소를 보여드려요. 숫자는 등록된 관광지 수예요.</p></div></div>${regionChooser(k=>SPOTS.filter(it=>it.sub===k).length)}`;
   }
   const base = SPOTS.filter(it=>inCity(it)&&(st.spotCat==="all"||it.cat===st.spotCat)&&matchQ(it));
   const sub = base.filter(inSub), fallback = curArea() && !sub.length;
@@ -2273,7 +2285,7 @@ const V = {
    ${gridOr(items,"조건에 맞는 관광지가 없어요. 다른 도시나 분류를 골라보세요.")}`;
  },
  festivals(){
-  const inC = FESTS.filter(inCity);
+  const inC = FESTS.filter(it=>inCity(it)&&inSub(it));
   const counts = Array.from({length:12},(_,i)=>inC.filter(f=>f.month===i+1).length);
   const items = inC.filter(f=>f.month===st.month);
   return `${focusBox()}<div class="sechead"><div><h2>축제 · 계절 행사</h2><p>여행하는 달을 고르면 ${cityName()}에서 열리는 행사를 보여드려요.</p></div></div>
@@ -2292,10 +2304,10 @@ const V = {
   const dishes = FOODS.filter(it=>inCity(it)&&inSub(it));
   let body;
   if(curArea()){
-    body = arBlock(st.area, st.menu);
+    body = vgFood(st.area, st.menu);
   }else{
     // 지역 전체: 하위 지역마다 TOP 3 미리보기
-    body = areasOf(st.city).map(A=>{
+    body = vgAreas(st.city,"food").map(A=>{
       const list = arShops(A.key, st.menu, 3); if(!list.length) return "";
       const total = arShops(A.key, st.menu).length;
       return `<section class="rgroup"><h3 class="subh">${esc(A.ko)} <span>${menuName} TOP ${list.length}${list[0].g?" · 구글 지도 인기":""}</span></h3>${arRows(list, A.key)}
@@ -2971,7 +2983,8 @@ function pathOf(s){
   if(s.view==="itin") return (IKEYS.includes(s.itin)||ICITY_ORDER.includes(s.itin)) ? `itinerary/${s.itin}/` : "itinerary/";
   if(s.view==="guide") return `guide/${GKEYS.includes(s.gsec)?s.gsec:"entry"}/`;
   if(s.city==="all") return s.view==="festivals" ? `festivals/${s.month}/` : s.view+"/";
-  if(s.view==="festivals" && areasOf(s.city)[0]) return `${s.city}/${areasOf(s.city)[0].key}/festivals/`;
+  if(s.view==="festivals") return AREA[s.area] ? `${s.city}/${vgRep(s.area,"festivals")}/festivals/` : `${s.city}/festivals/`;
+  if(s.view==="food" && AREA[s.area]) return `${s.city}/${vgRep(s.area,"food")}/food/`;
   return `${s.city}/${s.area}/${s.view}/`;
 }
 function readPath(){
@@ -2996,6 +3009,7 @@ function readPath(){
   if(seg[0]==="guide"&&seg[1]==="stay"){ st.view="stay"; st.city="all"; return; }
   if(seg[0]==="guide"){ st.view="guide"; st.gsec=GKEYS.includes(seg[1])?seg[1]:"entry"; return; }
   if(VIEWS.includes(seg[0])){ st.view=seg[0]; if(seg[0]==="festivals"&&+seg[1]>=1&&+seg[1]<=12) st.month=+seg[1]; return; }
+  if(CITIES[seg[0]]&&seg[1]==="festivals"){ st.city=seg[0]; st.area="all"; st.view="festivals"; return; }
   if(CITIES[seg[0]]){ st.city=seg[0]; st.area=seg[1]||"all"; st.view=VIEWS.includes(seg[2])&&!["home","saved","map","guide","itin","place","about","contact","privacy"].includes(seg[2])?seg[2]:"spots"; }
 }
 const PMETA = {
@@ -3138,6 +3152,7 @@ window.addEventListener("popstate",()=>{ if(ROUTED){ readPath(); st.q=""; st.foc
 function render(){
   if(st.view==="weather" && !(WXN[st.city] && st.city!=="all")) st.city = "tokyo";
   if(st.view==="transport" && st.area!=="all"){ const r=tgRep(st.area); if(r!==st.area) st.area=r; }
+  if(VGROUPS[st.view] && AREA[st.area]){ const r=vgRep(st.area); if(r!==st.area) st.area=r; }
   document.body.classList.toggle("is-map", st.view==="map");
   document.body.classList.toggle("is-guide", st.view==="guide");
   document.body.classList.toggle("is-itin", st.view==="itin");
@@ -3149,7 +3164,7 @@ function render(){
   if(st.view==="map"){ setNav(); const mw=$("#mapwrap"); if(!mw || !mw.dataset.live){ $("#main").innerHTML = V.map(); $("#mapwrap").dataset.live="1"; mapMount(); } else mapListRender(); syncUrl(); return; }
   if(st.view==="home" || INFO_VIEWS.includes(st.view)){ st.city="all"; }
   if(st.city==="all") st.area="all";
-  if(st.city!=="all" && (st.area==="all" || !areasOf(st.city).some(a=>a.key===st.area))) st.area = areasOf(st.city)[0]?.key || "all";
+  if(st.city!=="all" && ((st.area==="all" && st.view!=="festivals") || (st.area!=="all" && !areasOf(st.city).some(a=>a.key===st.area)))) st.area = areasOf(st.city)[0]?.key || "all";
   document.body.classList.remove("nowx");
   document.body.classList.toggle("tsub", st.view==="transport" && !!subOk(st));
   renderCities(); setNav();
@@ -3401,7 +3416,7 @@ function wxMonths(c,m){ return `<div class="wxmon">${Array.from({length:12},(_,i
 function wxCities(c,m){ return `<div class="wxmon wxcit">${WX_ORDER.map(k=>wxA(k,m,esc(CITIES[k].ko),k===c?"on":"")).join("")}</div>`; }
 function wxFestLink(c,m){ return c==="all"
   ? `<a class="btn ghost" href="${ROUTED?window.NT_BASE+LPRE+`festivals/${m}/`:"#festivals"}" data-wxfest="all" data-m="${m}">${m}월 축제 보기<i> →</i></a>`
-  : `<a class="btn ghost" href="${ROUTED?window.NT_BASE+LPRE+`${c}/${areasOf(c)[0].key}/festivals/`:"#festivals"}" data-wxfest="${c}" data-m="${m}">${m}월 축제 보기<i> →</i></a>`; }
+  : `<a class="btn ghost" href="${ROUTED?window.NT_BASE+LPRE+`${c}/festivals/`:"#festivals"}" data-wxfest="${c}" data-m="${m}">${m}월 축제 보기<i> →</i></a>`; }
 const WX_SRC = `<p class="sisrc">기상청 평년값(1991~2020년) 기준이에요. 그해 날씨에 따라 다를 수 있어요.</p><p class="sisrc">홋카이도는 삿포로, 오키나와는 나하, 시코쿠는 다카마쓰 관측값이에요.</p>`;
 function wxMemo(m){ const mm=(typeof MONTH_MOOD!=="undefined"&&MONTH_MOOD[m-1])||[]; return mm.length?`<div class="gblk"><h4>${m}월 여행 메모</h4><dl class="wxmemo">${mm.map(r=>`<dt>${esc(r[0])}</dt><dd>${esc(r[1])}</dd>`).join("")}</dl></div>`:""; }
 function wxFaq(c,m){
@@ -3993,7 +4008,7 @@ const TGROUPS = {"tokyo":[["도쿄 시내",["shinjuku","shibuya","ginza","asakus
 const tgOf = k => { for(const c in TGROUPS) for(const [n,m] of TGROUPS[c]) if(m.includes(k)) return {name:n, members:m, rep:m[0]}; return null; };
 const tgOn = () => st.view==="transport";
 const tgRep = k => { const g=tgOf(k); return g?g.rep:k; };
-function tgArea(A){ if(!A||!tgOn()) return A; const g=tgOf(A.key); return g?{...A, ko:g.name, tg:g.members}:A; }
+function tgArea(A){ if(A){ const v=vgOf(A.key); if(v) return {...A, ko:v.name, vg:v.members}; } if(!A||!tgOn()) return A; const g=tgOf(A.key); return g?{...A, ko:g.name, tg:g.members}:A; }
 function tgMerge(list, keyf, max){ const seen=new Set(), out=[]; for(const x of list){ const k=keyf(x); if(seen.has(k)) continue; seen.add(k); out.push(x); if(out.length>=max) break; } return out; }
 function tgTo(A){
   const ta = A && TO_AREA[A.key]; if(!A||!A.tg||!ta) return ta;
@@ -4062,13 +4077,12 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("#drawer").hidde
 document.addEventListener("click",e=>{
   // 이달 추천 도시: 관련 하위 지역·페이지로 이동하고 추천 항목을 맨 위에 보여줌
   const rc = e.target.closest("[data-rec]");
-  if(rc){ const [k,why,t] = (MONTH_PICKS[(st.hm||NOW_M)-1]||[])[+rc.dataset.rec]||[]; if(k){ st.city=k; st.area=t.area||"all"; st.view=t.view||"spots"; if(t.month) st.month=t.month; st.focus={ids:t.ids||[],why,city:k,m:st.hm||NOW_M}; st.more=false; if(!ROUTED){ try{history.replaceState(null,"","#"+st.view)}catch(_){} } render(); window.scrollTo({top:0}); } return; }
-  if(e.target.closest("[data-city],[data-area],[data-view],[data-chip],[data-month]")) st.focus=null;
+  if(rc){ const [k,why,t] = (MONTH_PICKS[(st.hm||NOW_M)-1]||[])[+rc.dataset.rec]||[]; if(k){ st.city=k; st.area=t.area||"all"; st.view=t.view||"spots"; if(t.month) st.month=t.month; st.focus={ids:t.ids||[],why,city:k,m:st.hm||NOW_M,view:st.view}; st.more=false; if(!ROUTED){ try{history.replaceState(null,"","#"+st.view)}catch(_){} } render(); window.scrollTo({top:0}); } return; }
   const itc = e.target.closest("[data-itin]"); if(itc){ e.preventDefault(); st.itin=itc.dataset.itin; st.view="itin"; render(); window.scrollTo({top:0}); return; }
   const sbt = e.target.closest("[data-subtab]"); if(sbt){ e.preventDefault(); st.sub=sbt.dataset.subtab; render(); window.scrollTo({top:0}); return; }
   { const sl = e.target.closest("[data-wxc],[data-apa],[data-stayc],[data-drc]"); if(sl) st.sub = sl.dataset.sub||""; }
   const wxl = e.target.closest("[data-wxc]"); if(wxl){ e.preventDefault(); st.view="weather"; st.city=wxl.dataset.wxc; st.wm=+wxl.dataset.wxm||0; render(); window.scrollTo({top:0}); return; }
-  const wxf = e.target.closest("[data-wxfest]"); if(wxf){ e.preventDefault(); const c=wxf.dataset.wxfest; st.month=+wxf.dataset.m; st.city=c; if(c!=="all") st.area=areasOf(c)[0].key; st.view="festivals"; render(); window.scrollTo({top:0}); return; }
+  const wxf = e.target.closest("[data-wxfest]"); if(wxf){ e.preventDefault(); const c=wxf.dataset.wxfest; st.month=+wxf.dataset.m; st.city=c; st.area="all"; st.view="festivals"; render(); window.scrollTo({top:0}); return; }
   const apl = e.target.closest("[data-apa]"); if(apl){ e.preventDefault(); st.view="airport"; st.ap=apl.dataset.apa; st.apk=apl.dataset.apk; render(); window.scrollTo({top:0}); return; }
   const aps = e.target.closest("[data-apspots]"); if(aps){ e.preventDefault(); const k=aps.dataset.apspots; st.city=AREA[k].region; st.area=k; st.view="spots"; render(); window.scrollTo({top:0}); return; }
   const stj = e.target.closest("[data-stjump]"); if(stj){ e.preventDefault(); const t=document.getElementById("st-"+stj.dataset.stjump); if(t) t.scrollIntoView({behavior:"smooth",block:"start"}); return; }
@@ -4077,7 +4091,7 @@ document.addEventListener("click",e=>{
   const stl = e.target.closest("[data-stayc]"); if(stl){ e.preventDefault(); st.view="stay"; st.city=stl.dataset.stayc; render(); window.scrollTo({top:0}); return; }
   const gs = e.target.closest("[data-gsec]"); if(gs){ e.preventDefault(); st.gsec=gs.dataset.gsec; st.view="guide"; render(); window.scrollTo({top:0}); return; }
   const v = e.target.closest("[data-view]");
-  if(v){ e.preventDefault(); if(!v.classList.contains("brand")) Object.assign(st, {city:"all", area:"all", itin:null, gsec:null, ap:"", apk:"", wm:0, focus:null, sub:""}); if(v.dataset.view==="itin") st.itin=""; go(v.dataset.view); return; }
+  if(v){ e.preventDefault(); if(!v.classList.contains("brand")) Object.assign(st, {city:"all", area:"all", itin:null, gsec:null, ap:"", apk:"", wm:0, sub:""}); if(v.dataset.view==="itin") st.itin=""; go(v.dataset.view); return; }
   const hmb = e.target.closest("[data-hm]"); if(hmb){ st.hm=+hmb.dataset.hm; renderCities(); return; }
   const ht = e.target.closest("[data-hometo]"); if(ht){ st.homeTo=ht.dataset.hometo; render(); return; }
   const ga = e.target.closest("[data-goarea]");

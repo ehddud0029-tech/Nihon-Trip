@@ -74,8 +74,9 @@ def shoot(br, url, out, mobile, grab=None):
         pg.goto(url, wait_until='load')
     pg.wait_for_timeout(1500)
     if os.environ.get('CMP_CLICK'):   # 예: CMP_CLICK='[data-hometo=festivals]' — 찍기 전에 한 번 누르기
-        try: pg.click(os.environ['CMP_CLICK']); pg.wait_for_timeout(700)
-        except Exception as e: print('click fail', e)
+        for sel in os.environ['CMP_CLICK'].split(' >> '):   # 여러 번 누르기: 'A >> B'
+            try: pg.click(sel); pg.wait_for_timeout(700)
+            except Exception as e: print('click fail', e)
     pg.screenshot(path=out, full_page=True); pg.close()
 
 def side(a, b, out, label):

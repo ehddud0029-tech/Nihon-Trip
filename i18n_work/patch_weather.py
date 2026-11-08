@@ -124,7 +124,7 @@ R = [
  ('  document.body.classList.toggle("is-info", INFO_VIEWS.includes(st.view));\n  if(st.view==="place")', '  document.body.classList.toggle("is-info", INFO_VIEWS.includes(st.view));\n  document.body.classList.toggle("is-wx", st.view==="weather");\n  if(st.view==="place")'),
  ('  if(INFO_VIEWS.includes(st.view)) return {title:IT[st.view]', '  if(st.view==="weather") return wxMeta(L,T);\n  if(INFO_VIEWS.includes(st.view)) return {title:IT[st.view]'),
  ('  const gs = e.target.closest("[data-gsec]");', '  const wxl = e.target.closest("[data-wxc]"); if(wxl){ e.preventDefault(); st.view="weather"; st.city=wxl.dataset.wxc; st.wm=+wxl.dataset.wxm||0; render(); window.scrollTo({top:0}); return; }\n'
-  '  const wxf = e.target.closest("[data-wxfest]"); if(wxf){ e.preventDefault(); const c=wxf.dataset.wxfest; st.month=+wxf.dataset.m; st.city=c; if(c!=="all") st.area=areasOf(c)[0].key; st.view="festivals"; render(); window.scrollTo({top:0}); return; }\n'
+  '  const wxf = e.target.closest("[data-wxfest]"); if(wxf){ e.preventDefault(); const c=wxf.dataset.wxfest; st.month=+wxf.dataset.m; st.city=c; st.area="all"; st.view="festivals"; render(); window.scrollTo({top:0}); return; }\n'
   '  const gs = e.target.closest("[data-gsec]");'),
  ('<a href="#guide" data-view="guide"><svg', NAV + '<a href="#guide" data-view="guide"><svg'),
 ]
