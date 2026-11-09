@@ -44,16 +44,25 @@ def links(base, h):
 def place(item):
     k, v = item; res = {'wiki_ja': None, 'official': [], 'snips': []}
     if v.get('ar'):
-        _, h = fetch(f"https://autoreserve.com/ja/restaurants/{v['ar']}")
-        res['snips'] = snips(text_of(h), 'ar', 3); return k, res
+        fin, h = fetch(f"https://autoreserve.com/ja/restaurants/{v['ar']}", 2000000)
+        raw = h
+        try: raw = h.encode('utf-8').decode('unicode_escape').encode('latin-1').decode('utf-8')
+        except Exception: pass
+        res['snips'] = snips(text_of(h), 'ar', 3) or snips(re.sub(r'<[^>]+>', ' ', raw), 'ar-raw', 3)
+        res['len'] = len(h); return k, res
     qid = None; jt = None
     for t in v.get('en', []):
         r = api('https://en.wikipedia.org/w/api.php', {'action': 'query', 'titles': t, 'redirects': 1, 'prop': 'pageprops'}).get('query', {})
         pg = (r.get('pages') or [{}])[0]; qid = (pg.get('pageprops') or {}).get('wikibase_item')
         if qid: break
     if not qid and v.get('jp'):
-        r = api('https://ja.wikipedia.org/w/api.php', {'action': 'query', 'titles': v['jp'], 'redirects': 1, 'prop': 'pageprops'}).get('query', {})
-        pg = (r.get('pages') or [{}])[0]; qid = (pg.get('pageprops') or {}).get('wikibase_item')
+        for jpn in [v['jp']] + re.split(r'[・·（(]', v['jp'])[:1]:
+            r = api('https://ja.wikipedia.org/w/api.php', {'action': 'query', 'titles': jpn, 'redirects': 1, 'prop': 'pageprops'}).get('query', {})
+            pg = (r.get('pages') or [{}])[0]; qid = (pg.get('pageprops') or {}).get('wikibase_item')
+            if qid: break
+        if not qid:
+            r = api('https://ja.wikipedia.org/w/api.php', {'action': 'query', 'generator': 'search', 'gsrsearch': v['jp'], 'gsrlimit': 1, 'prop': 'pageprops'}).get('query', {})
+            pg = (r.get('pages') or [{}])[0]; qid = (pg.get('pageprops') or {}).get('wikibase_item'); res['wiki_guess'] = pg.get('title')
     if qid:
         w = api('https://www.wikidata.org/w/api.php', {'action': 'wbgetentities', 'ids': qid, 'props': 'claims|sitelinks'}).get('entities', {}).get(qid, {})
         res['official'] = [c['mainsnak']['datavalue']['value'] for c in w.get('claims', {}).get('P856', []) if c.get('mainsnak', {}).get('datavalue')][:2]
