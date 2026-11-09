@@ -790,7 +790,7 @@ body.tsub #brief{display:none}
 .ovic{margin:0 0 22px}.ovic-card{background:var(--card,#fff);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;max-width:640px}
 .ovic .icrow{display:flex;align-items:center;gap:12px}.ovic .icrow img{width:72px;height:46px;object-fit:contain;border-radius:6px;background:#fff;border:1px solid var(--line)}.ovic .icrow span{display:flex;flex-direction:column}.ovic .icrow small{font-size:13px;color:var(--ink-2)}.ovic p{margin:0;color:var(--ink-2);font-size:14px}.ovic .more{font-weight:600;font-size:14px}
 .ttlinks{margin-top:20px}
-.apmini{list-style:none;padding:0;margin:8px 0 12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px 14px}.apmini li{display:block}.apmini .apm{display:flex;gap:8px;align-items:center;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface,#fff);color:var(--ink);text-decoration:none}.apmini .apm:hover{border-color:var(--shu)}.apmini .apgo{font-style:normal;color:var(--ink-2);font-size:18px;line-height:1}.apmini b{flex:1;font-weight:600;font-size:14.5px}.apmini .aptm{color:var(--shu);font-weight:600;font-size:14px;white-space:nowrap}
+.apmini{list-style:none;padding:0;margin:8px 0 12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:6px 14px}.apmini li{display:block}.apmini .apm{display:grid;grid-template-columns:minmax(0,1fr) 3.2em 6.4em 10px;gap:8px;align-items:center;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface,#fff);color:var(--ink);text-decoration:none}.apmini .apm:hover{border-color:var(--shu)}.apmini .apgo{font-style:normal;color:var(--ink-2);font-size:18px;line-height:1}.apmini b{flex:1;font-weight:600;font-size:14.5px}.apmini .aptm{color:var(--shu);font-weight:600;font-size:14px;white-space:nowrap;text-align:left}.apmini .mode{justify-self:center;margin:0}
 .apsec{margin-bottom:24px}
 /*TTCSS_END*/
 /*BNCSS_BEGIN*/
@@ -4062,6 +4062,7 @@ function subMeta(){
   else if(st.view==="drink") key=`drink:i:${st.sub}`;
   else if(st.view==="weather"){ key=`weather:c:${st.sub}`; o.a=T(CITIES[st.city].ko); }
   else if(st.view==="airport"){ key=`airport:a:${st.sub}`; o.ap=T(apName(st.ap)); }
+  else if(st.view==="transport"){ const tm=(TTABM[L]||TTABM.ko)[st.sub]; if(!tm) return null; const A=curArea(); const a=st.city==="all"?T("일본"):A?T(A.ko):T(CITIES[st.city].ko); return {title:f(tm[0],{a})+" | Go Nihon Trip", desc:f(tm[1],{a})}; }
   else if(st.view==="transport"){ const tm=(TTABM[L]||TTABM.ko)[st.sub]; if(!tm) return null; const A=curArea(); const a=st.city==="all"?T("일본"):(A&&!["times","airport","ic"].includes(st.sub))?T(A.ko):T(CITIES[st.city].ko); return {title:f(tm[0],{a})+" | Go Nihon Trip", desc:f(tm[1],{a})}; }
   else if(st.view==="transport"){ const tm=(TTABM[L]||TTABM.ko)[st.sub]; if(!tm) return null; const A=curArea(); const a=st.city==="all"?T("일본"):(A&&st.sub!=="airport")?T(A.ko):T(CITIES[st.city].ko); return {title:f(tm[0],{a})+" | Go Nihon Trip", desc:f(tm[1],{a})}; }
   const m=M[key]; if(!m) return null;
