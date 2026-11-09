@@ -38,7 +38,7 @@ for(const pass of [0,1]){
  for(const g of GKEYS){ st.view="guide"; st.gsec=g; await R(); }
  for(const x of ALL.filter(x=>PLACE_TYPES.includes(x.type))){ st.view="place"; st.place=x.id; await R(); }
  for(const v of ["about","contact","privacy"]){ st.view=v; await R(); }
- for(const c of ["all",...STAY_CITIES]) for(const t of ["","hotels","booking"]){ st.view="stay"; st.city=c; st.sub=t; await R(); } st.sub="";
+ for(const c of ["all",...STAY_CITIES]) for(const t of ["","hotels","booking",...(c==="all"?[]:stayAreas(c).opts.map(o=>o.key))]){ st.view="stay"; st.city=c; st.sub=t; await R(); } st.sub="";
  for(const c of ["all",...Object.keys(CITIES)]) for(const a of (c==="all"?[{key:"all"}]:areasOf(c).filter(x=>tgRep(x.key)===x.key))) for(const t of ["times","airport","ic"]){ st.view="transport"; st.city=c; st.area=a.key; st.sub=t; await R(); } st.sub="";
  for(const t of ["types","visit","carry"]){ st.view="drink"; st.city="all"; st.sub=t; await R(); } st.sub="";
  for(const c of WX_ORDER) for(const t of ["outfit","faq"]){ st.view="weather"; st.city=c; st.wm=0; st.sub=t; await R(); } st.sub="";

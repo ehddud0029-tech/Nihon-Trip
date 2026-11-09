@@ -18,7 +18,7 @@ function itinEat(d, i, city, seen){
   if(!out.length && areas[0]){ const x = ms.map(m=>({...(arShops(areas[0],m,1)[0]||{}), m})).find(x=>x.n); if(x) out.push({...x, k:areas[0]}); }   // 그 지역 가게가 이미 다 나왔으면 다시 보여 줌
   if(!out.length) return "";
   const href = (k,m) => typeof ROUTED!=="undefined" && ROUTED ? window.NT_BASE+LPRE+pathOf({...st, view:"food", city, area:k, sub:"", menu:m}) : "#";
-  return `<div class="ieat"><span class="ieh">이날 추천 식당</span>${out.map(x=>`<a class="ieatc" href="${href(x.k,x.m)}" data-goarea="${x.k}" data-region="${city}" data-to="food" data-menu="${x.m}"><b>${esc(x.n)}</b><em class="pm">${esc(MENU[x.m].ko.split("·")[0])}</em><span>${esc(x.dish||"")}</span><i>›</i></a>`).join("")}</div>`;
+  return `<div class="ieat"><span class="ieh">이날 추천 식당</span>${out.map(x=>`<a class="ieatc" href="${esc(shopHref(x)||href(x.k,x.m))}"${shopHref(x)?' target="_blank" rel="noopener"':` data-goarea="${x.k}" data-region="${city}" data-to="food" data-menu="${x.m}"`}><b>${esc(x.n)}</b><em class="pm">${esc(MENU[x.m].ko.split("·")[0])}</em><span>${esc(x.dish||"")}</span><i>›</i></a>`).join("")}</div>`;
 }
 /*ITINEAT_END*/
 '''

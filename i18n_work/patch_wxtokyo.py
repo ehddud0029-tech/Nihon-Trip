@@ -10,8 +10,8 @@ R = [
  ('  if(seg[0]==="weather"){ st.view="weather"; st.city="all";', '  if(seg[0]==="weather"){ st.view="weather"; st.city="tokyo";'),
  ('const wxHref = (c,m) => ROUTED ? window.NT_BASE + LPRE + (c==="all" ?', 'const wxHref = (c,m) => (c==="all"&&(c="tokyo"), ROUTED ? window.NT_BASE + LPRE + (c==="all" ?'),
  ('`${c}/weather/${m}/`:`${c}/weather/`)) : "#weather";', '`${c}/weather/${m}/`:`${c}/weather/`)) : "#weather");'),
- ('  const crumb = `<nav class="wxcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">${bc(1,wxA("all",0,"일본 월별 날씨와 옷차림"))}${c!=="all"?` <i>›</i> ${bc(2,wxA(c,0,esc(CITIES[c].ko)))}`:""}</nav>`;',
-  '  const crumb = `<nav class="wxcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">${c!=="all"?bc(1,wxA(c,0,esc(CITIES[c].ko))):""}</nav>`;'),
+ ('  const crumb = `<nav class="wxcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">${bc(1,wxA("all",0,"일본 월별 날씨와 옷차림"))}${c!=="all"?` <i>›</i> ${bc(2,wxA(c,0,esc(wxNm(c))))}`:""}</nav>`;',
+  '  const crumb = `<nav class="wxcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">${c!=="all"?bc(1,wxA(c,0,esc(wxNm(c)))):""}</nav>`;'),
 ]
 for f in [f'{W}/tabishiori.html', f'{W}/i18n_work/backup/tabishiori.pre.html']:
     s = open(f, encoding='utf-8').read()

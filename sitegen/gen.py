@@ -137,7 +137,7 @@ GRAB = r'''async (url)=>{
 
 
 RSS_PREFIX = ['itinerary/', 'weather/', 'airport/', 'guide/', 'festivals/', 'stay/', 'drink/', 'tokyo/weather/', 'osaka/weather/', 'fukuoka/weather/', 'hokkaido/weather/',
-              'okinawa/weather/', 'nagoya/weather/', 'hiroshima/weather/', 'shikoku/weather/']
+              'okinawa/weather/', 'nagoya/weather/', 'hiroshima/weather/', 'shikoku/weather/', 'kyoto/weather/', 'nara/weather/', 'takayama/weather/', 'hakodate/weather/', 'ishigaki/weather/']
 
 def write_rss(meta):
     """네이버 서치어드바이저용 RSS (한국어 페이지 중 일정·날씨·공항·여행 준비·축제 달력)"""
@@ -324,7 +324,7 @@ def main():
             pg.wait_for_timeout(300)
             routes = pg.evaluate('''()=>{ const r=["","saved/","map/"]; for(const g of GKEYS) r.push(`guide/${g}/`); r.push("about/","contact/","privacy/"); r.push("itinerary/"); for(const k of IKEYS) r.push(`itinerary/${k}/`); for(const k of ICITY_ORDER) if(ITIN.some(x=>x.city===k)) r.push(`itinerary/${k}/`); for(const v of ["spots","food","transport","shopping"]) r.push(v+"/");
               for(let m=1;m<=12;m++) r.push(`festivals/${m}/`); for(const t of ["times","airport","ic"]) r.push(`transport/${t}/`);
-              { const sts=["","booking",...(stayShowHotels()?["hotels"]:[])]; for(const t of sts) r.push(`stay/${t?t+"/":""}`); for(const c of STAY_CITIES) for(const t of sts) r.push(`${c}/stay/${t?t+"/":""}`); } r.push("drink/","drink/types/","drink/visit/","drink/carry/"); for(const c of DRINK_CITIES) for(const t of DRINK_TABS) r.push(`${c}/drink/${t?t+"/":""}`); r.push("airport/"); for(const a of Object.keys(APS)){ r.push(`airport/${a}/`,`airport/${a}/all/`,`airport/${a}/faq/`); for(const k of apDests(a)) r.push(`airport/${a}/${k}/`); }  for(const c of WX_ORDER){ r.push(`${c}/weather/`,`${c}/weather/outfit/`,`${c}/weather/faq/`); for(let m=1;m<=12;m++) r.push(`${c}/weather/${m}/`); }
+              { const sts=["","booking",...(stayShowHotels()?["hotels"]:[])]; for(const t of sts) r.push(`stay/${t?t+"/":""}`); for(const c of STAY_CITIES){ for(const t of sts) r.push(`${c}/stay/${t?t+"/":""}`); for(const o of stayAreas(c).opts) r.push(`${c}/stay/${o.key}/`); } } r.push("drink/","drink/types/","drink/visit/","drink/carry/"); for(const c of DRINK_CITIES) for(const t of DRINK_TABS) r.push(`${c}/drink/${t?t+"/":""}`); r.push("airport/"); for(const a of Object.keys(APS)){ r.push(`airport/${a}/`,`airport/${a}/all/`,`airport/${a}/faq/`); for(const k of apDests(a)) r.push(`airport/${a}/${k}/`); }  for(const c of WX_ORDER){ r.push(`${c}/weather/`,`${c}/weather/outfit/`,`${c}/weather/faq/`); for(let m=1;m<=12;m++) r.push(`${c}/weather/${m}/`); }
               for(const c of Object.keys(CITIES)) for(const a of areasOf(c)) for(const v of ["spots","festivals","food","transport","shopping"]) if((v!=="transport"||tgRep(a.key)===a.key)&&(!["festivals","food"].includes(v)||vgRep(a.key,v)===a.key)){ r.push(`${c}/${a.key}/${v}/`); if(v==="transport") if(a.key===areasOf(c)[0].key) for(const t of ["times","airport","ic"]) r.push(`${c}/${a.key}/transport/${t}/`); }
               for(const x of ALL) if(PLACE_TYPES.includes(x.type)) r.push(`place/${placeSlug(x.id)}/`);
               for(const c of Object.keys(CITIES)) r.push(`${c}/festivals/`);   // 축제 도시 전체 (patch_festcity.py)

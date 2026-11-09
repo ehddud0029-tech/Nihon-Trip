@@ -9,10 +9,18 @@ const WXN = {
  shikoku:{hi:[9.7,10.5,14.1,19.8,24.8,27.5,31.7,33.0,28.8,23.2,17.5,12.1],lo:[2.1,2.2,5.0,9.9,15.1,19.8,24.1,25.1,21.2,15.1,9.1,4.3],pr:[39,46,81,75,101,153,160,106,167,120,55,47]},
  fukuoka:{hi:[10.2,11.6,15.0,19.9,24.4,27.2,31.2,32.5,28.6,23.7,18.2,12.6],lo:[3.9,4.4,7.2,11.5,16.1,20.3,24.6,25.4,21.6,16.0,10.6,5.8],pr:[74,70,104,118,134,250,299,210,175,95,91,68]},
  hokkaido:{hi:[-0.4,0.4,4.5,11.7,17.9,21.8,25.4,26.4,22.8,16.4,8.7,2.0],lo:[-6.4,-6.2,-2.4,3.4,9.0,13.4,17.9,19.1,14.8,8.0,1.6,-4.0],pr:[108,92,78,55,56,60,91,127,142,110,114,115]},
- okinawa:{hi:[19.8,20.2,21.9,24.3,27.0,29.8,31.9,31.8,30.6,28.1,25.0,21.5],lo:[14.9,15.1,16.7,19.1,22.1,25.2,27.0,26.8,25.8,23.5,20.4,16.8],pr:[102,115,143,161,245,284,188,240,275,179,119,110]}
+ okinawa:{hi:[19.8,20.2,21.9,24.3,27.0,29.8,31.9,31.8,30.6,28.1,25.0,21.5],lo:[14.9,15.1,16.7,19.1,22.1,25.2,27.0,26.8,25.8,23.5,20.4,16.8],pr:[102,115,143,161,245,284,188,240,275,179,119,110]},
+ kyoto:{hi:[9.1,10.0,14.1,20.1,25.1,28.1,32.0,33.7,29.2,23.4,17.3,11.6],lo:[1.5,1.6,4.3,9.2,14.5,19.2,23.6,24.7,20.7,14.4,8.4,3.5],pr:[53,65,106,117,151,200,224,154,179,143,74,57]},
+ nara:{hi:[8.7,9.9,13.9,19.8,24.9,28.1,31.7,33.4,28.8,22.6,17.1,11.6],lo:[0.8,1.0,3.6,8.7,13.9,18.4,23.0,24.1,20.1,13.5,7.3,3.0],pr:[52,63,105,99,139,184,174,128,159,135,71,57]},
+ takayama:{hi:[3.2,4.7,9.8,17.0,22.9,26.1,29.5,31.0,26.1,19.9,13.1,6.2],lo:[-4.8,-4.9,-1.6,3.4,9.4,14.9,19.4,20.1,15.9,9.2,2.9,-1.7],pr:[102,94,123,124,125,170,261,198,226,156,94,104]},
+ hakodate:{hi:[0.9,1.8,5.8,12.0,17.0,20.4,24.1,25.9,23.2,17.1,10.0,3.2],lo:[-6.0,-5.7,-2.2,2.8,8.0,12.6,17.3,18.9,14.6,7.8,1.8,-3.6],pr:[77,65,64,72,89,80,124,157,151,106,111,95]},
+ ishigaki:{hi:[21.5,22.0,23.7,26.0,28.7,30.9,32.2,32.0,31.0,28.8,26.2,23.0],lo:[16.7,17.2,18.6,21.3,23.9,26.6,27.7,27.3,26.0,23.9,21.5,18.4],pr:[135,124,134,147,191,208,142,250,260,211,138,155]}
 };
-const WX_ORDER = ["tokyo","osaka","nagoya","hiroshima","shikoku","fukuoka","hokkaido","okinawa"];
-const WX_RAINY = {okinawa:[5,6],hokkaido:[]}, WX_TYPH = {okinawa:[7,8,9,10],hokkaido:[]};
+const WX_ORDER = ["tokyo","osaka","kyoto","nara","nagoya","takayama","hiroshima","shikoku","fukuoka","hokkaido","hakodate","okinawa","ishigaki"];
+/* 소도시 날씨(2026-11): 교토·나라·다카야마·하코다테·이시가키 — 각 지역 기상대 관측소 평년값. 지역 키(AREA)와 같은 이름, 도시는 parent */
+const WX_SUB = {kyoto:{ko:"교토",parent:"osaka"}, nara:{ko:"나라",parent:"osaka"}, takayama:{ko:"다카야마",parent:"nagoya"}, hakodate:{ko:"하코다테",parent:"hokkaido"}, ishigaki:{ko:"이시가키",parent:"okinawa"}};
+const wxNm = k => (WX_SUB[k] ? WX_SUB[k].ko : (CITIES[k]||{}).ko) || "";
+const WX_RAINY = {okinawa:[5,6],ishigaki:[5,6],hokkaido:[],hakodate:[]}, WX_TYPH = {okinawa:[7,8,9,10],ishigaki:[7,8,9,10],hokkaido:[],hakodate:[]};
 const WX_OUT = [[30,"반팔·반바지처럼 얇고 통풍이 잘 되는 옷"],[26,"반팔 티셔츠에 얇은 셔츠나 카디건"],[22,"반팔이나 얇은 긴팔, 저녁엔 가벼운 겉옷"],[18,"긴팔 셔츠나 얇은 니트에 카디건·얇은 재킷"],
   [14,"니트에 재킷이나 트렌치코트"],[10,"코트와 니트, 쌀쌀한 날엔 경량 패딩"],[5,"두꺼운 코트나 패딩에 목도리"],[-99,"두꺼운 패딩과 모자·장갑·목도리, 기모 내의"]];
 const WX_FEEL = [[30,"무더운 한여름이에요."],[26,"덥고 습한 날씨예요."],[20,"따뜻해서 다니기 좋은 날씨예요."],[14,"선선한 날씨예요."],[5,"쌀쌀한 겨울 날씨예요."],[-99,"한겨울 추위예요."]];
@@ -55,14 +63,15 @@ function wxChart(c,m){
 }
 const wxStat = (lbl,val,cls) => `<div class="wxst${cls?" "+cls:""}"><span>${lbl}</span><b>${val}</b></div>`;
 function wxMonths(c,m){ return `<div class="wxmon">${Array.from({length:12},(_,i)=>i+1).map(k=>wxA(c,k,`${k}월`,k===m?"on":"")).join("")}</div>`; }
-function wxCities(c,m){ return `<div class="wxmon wxcit">${WX_ORDER.map(k=>wxA(k,m,esc(CITIES[k].ko),k===c?"on":"")).join("")}</div>`; }
+function wxCities(c,m){ return `<div class="wxmon wxcit">${WX_ORDER.map(k=>wxA(k,m,esc(wxNm(k)),k===c?"on":"")).join("")}</div>`; }
 function wxFestLink(c,m){ return c==="all"
   ? `<a class="btn ghost" href="${ROUTED?window.NT_BASE+LPRE+`festivals/${m}/`:"#festivals"}" data-wxfest="all" data-m="${m}">${m}월 축제 보기<i> →</i></a>`
+  : WX_SUB[c] ? `<a class="btn ghost" href="${ROUTED?window.NT_BASE+LPRE+`${WX_SUB[c].parent}/${typeof vgRep==="function"?vgRep(c,"festivals"):c}/festivals/`:"#festivals"}" data-wxfest="${WX_SUB[c].parent}" data-wxarea="${typeof vgRep==="function"?vgRep(c,"festivals"):c}" data-m="${m}">${m}월 축제 보기<i> →</i></a>`
   : `<a class="btn ghost" href="${ROUTED?window.NT_BASE+LPRE+`${c}/festivals/`:"#festivals"}" data-wxfest="${c}" data-m="${m}">${m}월 축제 보기<i> →</i></a>`; }
-const WX_SRC = `<p class="sisrc">기상청 평년값(1991~2020년) 기준이에요. 그해 날씨에 따라 다를 수 있어요.</p><p class="sisrc">홋카이도는 삿포로, 오키나와는 나하, 시코쿠는 다카마쓰 관측값이에요.</p>`;
+const WX_SRC = `<p class="sisrc">기상청 평년값(1991~2020년) 기준이에요. 그해 날씨에 따라 다를 수 있어요.</p><p class="sisrc">홋카이도는 삿포로, 오키나와는 나하, 시코쿠는 다카마쓰 관측값이에요.</p><p class="sisrc">교토·나라·다카야마·하코다테·이시가키는 그 지역 관측값이에요.</p>`;
 function wxMemo(m){ const mm=(typeof MONTH_MOOD!=="undefined"&&MONTH_MOOD[m-1])||[]; return mm.length?`<div class="gblk"><h4>${m}월 여행 메모</h4><dl class="wxmemo">${mm.map(r=>`<dt>${esc(r[0])}</dt><dd>${esc(r[1])}</dd>`).join("")}</dl></div>`:""; }
 function wxFaq(c,m){
-  const d=wxData(c,m), ex=wxExtras(c,m), n=esc(CITIES[c].ko);
+  const d=wxData(c,m), ex=wxExtras(c,m), n=esc(wxNm(c));
   const qa=(q,a)=>`<div class="faqi" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">${q}</dt><dd itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">${a}</div></dd></div>`;
   return `<section class="gblk faq" itemscope itemtype="https://schema.org/FAQPage"><h4>자주 묻는 질문</h4><dl>
    ${qa(`${n} ${m}월 날씨는 어떤가요?`, `<span>${esc(wxFeel(c,m))}</span> <span>평균 최고기온은 ${d.hi}°, 최저기온은 ${d.lo}°이고 한 달 강수량은 ${d.pr}mm예요.</span>`)}
@@ -71,19 +80,19 @@ function wxFaq(c,m){
 }
 function wxLiveBlock(c){
   const h = window.WX_LIVE_HTML || "";
-  return `<div class="gblk wxlive"${h?"":" hidden"}><h4>지금 ${esc(CITIES[c].ko)} 날씨 (실시간)</h4><div id="wxLive">${h}</div></div>`;
+  return `<div class="gblk wxlive"${h?"":" hidden"}><h4>지금 ${esc(wxNm(c))} 날씨 (실시간)</h4><div id="wxLive">${h}</div></div>`;
 }
 V.weather = function(){
   const c = WXN[st.city] ? st.city : "all", m = st.wm>=1&&st.wm<=12 ? st.wm : 0;
   const bc=(i,h)=>`<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${h.replace("<a ",'<a itemprop="item" ').replace(/>([^<]*)<\/a>$/,'><span itemprop="name">$1</span></a>')}<meta itemprop="position" content="${i}"></span>`;
-  const crumb = `<nav class="wxcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">${bc(1,wxA("all",0,"일본 월별 날씨와 옷차림"))}${c!=="all"?` <i>›</i> ${bc(2,wxA(c,0,esc(CITIES[c].ko)))}`:""}</nav>`;
+  const crumb = `<nav class="wxcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">${bc(1,wxA("all",0,"일본 월별 날씨와 옷차림"))}${c!=="all"?` <i>›</i> ${bc(2,wxA(c,0,esc(wxNm(c))))}`:""}</nav>`;
   if(c==="all" && !m){
     return `<div class="wx">
      <div class="ghead"><h2>일본 월별 날씨와 옷차림</h2><p>도시와 달을 고르면 평균 기온, 강수량, 추천 옷차림을 볼 수 있어요.</p></div>
      <div class="gblk"><h4>도시를 고르세요</h4>${wxCities("",0)}</div>
      <div class="gblk"><h4>달을 고르세요</h4>${wxMonths("all",0)}</div>
      <div class="gblk"><h4>평균 최고·최저 기온 (°C)</h4><div class="wxtblw"><table class="wxtbl"><thead><tr><th></th>${Array.from({length:12},(_,i)=>`<th>${wxA("all",i+1,`${i+1}월`)}</th>`).join("")}</tr></thead>
-      <tbody>${WX_ORDER.map(k=>`<tr><th>${wxA(k,0,esc(CITIES[k].ko))}</th>${WXN[k].hi.map((v,i)=>`<td>${wxA(k,i+1,`<b>${wxR(v)}°</b><small>${wxR(WXN[k].lo[i])}°</small>`)}</td>`).join("")}</tr>`).join("")}</tbody></table></div></div>
+      <tbody>${WX_ORDER.map(k=>`<tr><th>${wxA(k,0,esc(wxNm(k)))}</th>${WXN[k].hi.map((v,i)=>`<td>${wxA(k,i+1,`<b>${wxR(v)}°</b><small>${wxR(WXN[k].lo[i])}°</small>`)}</td>`).join("")}</tr>`).join("")}</tbody></table></div></div>
      ${WX_SRC}
     </div>`;
   }
@@ -92,7 +101,7 @@ V.weather = function(){
      <div class="ghead"><h2>일본 ${m}월 날씨와 옷차림</h2><p>도시별 평균 기온과 강수량, 추천 옷차림을 비교해 보세요.</p></div>
      ${wxMonths("all",m)}
      <h3 class="sgh"><span>도시별 ${m}월 날씨</span></h3>
-     <div class="wxgrid">${WX_ORDER.map(k=>{ const d=wxData(k,m); return `<article class="wxcard"><h3>${esc(CITIES[k].ko)}</h3>
+     <div class="wxgrid">${WX_ORDER.map(k=>{ const d=wxData(k,m); return `<article class="wxcard"><h3>${esc(wxNm(k))}</h3>
        <div class="wxsts">${wxStat("평균 최고",`${wxR(d.hi)}°`,"hi")}${wxStat("평균 최저",`${wxR(d.lo)}°`,"lo")}${wxStat("강수량",`${d.pr}mm`)}</div>
        <p class="wxfeel">${esc(wxFeel(k,m))}</p><p class="wxo"><span>추천 옷차림</span> ${esc(wxOutfit(k,m))}</p>
        ${wxA(k,m,`자세히 보기<i> →</i>`,"more")}</article>`; }).join("")}</div>
@@ -102,7 +111,7 @@ V.weather = function(){
     </div>`;
   }
   if(!m){
-    const tabs = [["","월별 기온·강수"],["outfit","월별 옷차림"],["faq","자주 묻는 질문"]], t = tabs.some(x=>x[0]===st.sub)?st.sub:"", n = esc(CITIES[c].ko);
+    const tabs = [["","월별 기온·강수"],["outfit","월별 옷차림"],["faq","자주 묻는 질문"]], t = tabs.some(x=>x[0]===st.sub)?st.sub:"", n = esc(wxNm(c));
     const M = Array.from({length:12},(_,i)=>i+1), D = M.map(k=>wxData(c,k));
     let body;
     if(t==="outfit") body = `<div class="wxgrid">${M.map(k=>{ const d=D[k-1], ex=wxExtras(c,k); return `<article class="wxcard"><h3>${k}월</h3>
@@ -133,7 +142,7 @@ V.weather = function(){
   }
   const d = wxData(c,m), ex = wxExtras(c,m);
   return `<div class="wx">${crumb}
-   <div class="ghead"><h2>${esc(CITIES[c].ko)} ${m}월 날씨와 옷차림</h2><p>${esc(wxFeel(c,m))}</p></div>
+   <div class="ghead"><h2>${esc(wxNm(c))} ${m}월 날씨와 옷차림</h2><p>${esc(wxFeel(c,m))}</p></div>
    ${m===NOW_M?wxLiveBlock(c):""}
    <div class="wxsts big">${wxStat("평균 최고",`${wxR(d.hi)}°`,"hi")}${wxStat("평균 최저",`${wxR(d.lo)}°`,"lo")}${wxStat("강수량",`${d.pr}mm`)}${d.hum?wxStat("습도",`${d.hum}%`):""}</div>
    <div class="wxtwo">

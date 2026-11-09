@@ -45,17 +45,50 @@ const STAY_CHECK = ["무료 취소 기한: 일본 시간 기준인지, 며칠 �
  "침대 크기: '세미더블'은 1인용에 가까운 크기라 둘이 쓰기엔 좁아요."];
 const STAY_TYPES = ["비즈니스호텔: 방은 작지만 역 가깝고 깔끔해요. 짧은 일정에 가장 무난해요.","료칸: 다다미방과 온천, 저녁·아침 2식이 포함된 경우가 많아요. 저녁 시간에 맞춰 도착하세요.",
  "캡슐호텔: 가장 저렴하지만 짐 둘 곳이 작고 남녀 층이 나뉘어요.","민박(민파쿠): 가족 여행에 넓은 방이 좋지만, 허가 번호가 있는 숙소인지 확인하세요."];
-const stayAreaCard = o => `<article class="gblk starea"><h4>${esc(o.name)}</h4>
-     <dl><dt>장점</dt><dd>${esc(o.pros)}</dd><dt>단점</dt><dd>${esc(o.cons)}</dd><dt>이런 분께</dt><dd>${esc(o.for)}</dd></dl></article>`;
-const stayAreaCardC = o => `<article class="gblk starea stc"><h4>${esc(o.name)}</h4><p class="stfor"><span>이런 분께</span> ${esc(o.for)}</p>
+const stayAreaCard = (o,c) => `<article class="gblk starea"><h4>${c?stayA(c,esc(o.name),"",o.key):esc(o.name)}</h4>
+     <dl><dt>장점</dt><dd>${esc(o.pros)}</dd><dt>단점</dt><dd>${esc(o.cons)}</dd><dt>이런 분께</dt><dd>${esc(o.for)}</dd></dl>${c?`<p class="stmore">${stayA(c,`${esc(o.name)} 숙소 자세히 보기<i> →</i>`,"more",o.key)}</p>`:""}</article>`;
+const stayAreaCardC = (o,i,_,c) => `<article class="gblk starea stc"><h4>${c?stayA(c,esc(o.name),"",o.key):esc(o.name)}</h4><p class="stfor"><span>이런 분께</span> ${esc(o.for)}</p>
      <dl class="stpc"><dt>장점</dt><dd>${esc(o.pros)}</dd><dt>단점</dt><dd>${esc(o.cons)}</dd></dl></article>`;
 const hotelMini = h => `<div class="hmini"><div class="hmt"><span class="harea">${esc(h.area)}</span><b>${esc(h.ko)}</b><small>${esc(h.st)}</small></div>
      <a class="btn hbtn" href="${h.url}" target="_blank" rel="sponsored noopener">마이리얼트립에서 예약하기 ↗</a></div>`;
 const stayList = (h,items) => `<div class="gblk"><h4>${h}</h4><ul class="gul">${items.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`;
+/* 동네별 숙소 페이지 <도시>/stay/<동네>/ (2026-11): 장단점·이런 분께·공항에서 가는 법·근처 관광지·맛집·추천 숙소·자주 묻는 질문 */
+const STAY_NB_AREA = {shinjuku:"shinjuku",shibuya:"shibuya",ueno:"asakusa",tokyoeki:"tokyoeki",namba:"dotonbori",umeda:"umeda",tennoji:"shinsekai",kyotoeki:"kyotoeki",kawaramachi:"kyoto",
+ hakata:"hakata",tenjin:"tenjin",nakasu:"nakasu",sapporoeki:"sapporoeki",susukino:"susukino",hakodate:"hakodate",naha:"kokusai",chubu:"chubu",hokubu:"hokubu",
+ meieki:"meieki",sakae:"meieki",takayama:"takayama",hirosta:"hirocity",hatchobori:"hirocity",miyajima:"miyajima",dogo:"matsuyama",okaido:"matsuyama",takamatsu:"takamatsu"};
+const stayNb = (c,k) => c && k ? stayAreas(c).opts.find(o=>o.key===k) : null;
+const stayNbHotels = (c,o) => HOTELS.filter(h=>h.city===c && (o.name.includes(h.area) || h.area.includes(o.name.split(/[·( ]/)[0])));
+function stayNbPage(c,o){
+  const a = stayAreas(c), ak = STAY_NB_AREA[o.key], n = esc(o.name), cn = esc(CITIES[c].ko);
+  const qa=(q,x)=>`<div class="faqi" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">${q}</dt><dd itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">${x}</div></dd></div>`;
+  const aps = typeof APS!=="undefined" && ak ? Object.keys(APS).filter(ap=>apOpts(ap,ak).length) : [];
+  const apRows = aps.map(ap=>{ const op=apOpts(ap,ak)[0]; return `<li>${apA(ap,ak,`<b>${esc(apName(ap))}</b><span class="mode m-${op[0].mode}">${op[0].mode}</span><span class="aptm">${apMin(apSum(op))}</span><i class="apgo">›</i>`,"apm")}</li>`; }).join("");
+  const spots = ak ? SPOTS.filter(x=>x.type==="spot" && x.sub===ak).slice(0,4) : [];
+  const fk = ak && typeof vgRep==="function" ? vgRep(ak,"food") : ak, shops = fk && (window.AR_SLUG||{})[fk] ? arShops(fk,"all",3) : [];
+  const hs = stayShowHotels() ? stayNbHotels(c,o) : [];
+  const near = (items) => `<ul class="stnear">${items}</ul>`;
+  return `<div class="wx stnb">
+   <nav class="wxcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${stayA("all","일본 숙소 추천과 예약 방법").replace("<a ",'<a itemprop="item" ')}<meta itemprop="position" content="1"></span> › <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${stayA(c,`${cn} 숙소 추천`).replace("<a ",'<a itemprop="item" ')}<meta itemprop="position" content="2"></span></nav>
+   <div class="ghead"><h2>${n} 숙소 추천</h2><p>${esc(o.for)}</p></div>
+   <nav class="wxmon stjump">${a.opts.map(x=>stayA(c,esc(x.name),x.key===o.key?"on":"",x.key)).join("")}</nav>
+   <article class="gblk starea"><dl><dt>장점</dt><dd>${esc(o.pros)}</dd><dt>단점</dt><dd>${esc(o.cons)}</dd><dt>이런 분께</dt><dd>${esc(o.for)}</dd></dl></article>
+   ${apRows?`<section class="stsec"><h3 class="sgh"><span>공항에서 시내 가는 법</span></h3><ul class="apmini">${apRows}</ul></section>`:""}
+   ${spots.length?`<section class="stsec"><h3 class="sgh"><span>근처 관광지</span></h3>${near(spots.map(x=>`<li><a href="${placeHref(x.id)}" data-open="${x.id}"><b>${esc(x.name)}</b><span>${esc(x.desc)}</span></a></li>`).join(""))}</section>`:""}
+   ${shops.length?`<section class="stsec"><h3 class="sgh"><span>근처 맛집</span></h3>${near(shops.map(x=>`<li><a href="${esc(shopHref(x)||"#")}" target="_blank" rel="noopener"><b>${esc(x.n)}</b><span>${esc([x.dish,x.feat].filter(Boolean).join(" · "))}</span></a></li>`).join(""))}</section>`:""}
+   ${hs.length?`<section class="stsec"><h3 class="sgh"><span>추천 숙소</span></h3><div class="hgrid">${hs.map(hotelCard).join("")}</div>${STAY_AD}</section>`:""}
+   <section class="gblk faq" itemscope itemtype="https://schema.org/FAQPage"><h4>자주 묻는 질문</h4><dl>
+    ${qa(`${n}에 묵으면 좋은 점은 무엇인가요?`, esc(o.pros))}
+    ${qa(`${n}에 묵을 때 아쉬운 점은 무엇인가요?`, esc(o.cons))}
+    ${qa(`${n}는 어떤 여행자에게 맞나요?`, esc(o.for))}
+   </dl></section>
+   <div class="wxlinks">${stayA(c,`${cn} 숙소 추천<i> →</i>`,"btn ghost")}${stayA(c,`예약 방법<i> →</i>`,"btn ghost","booking")}</div>
+  </div>`;
+}
 V.stay = function(){
   const c = STAY_CITIES.includes(st.city) ? st.city : "";
   const show = stayShowHotels();
   const tabs = stayTabList(), t = tabs.some(x=>x[0]===st.sub) ? st.sub : "";
+  const nb0 = stayNb(c, st.sub); if(nb0) return stayNbPage(c, nb0);
   const bc=(i,h)=>`<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${h.replace("<a ",'<a itemprop="item" ').replace(/>([^<]*)<\/a>$/,'><span itemprop="name">$1</span></a>')}<meta itemprop="position" content="${i}"></span>`;
   const note = `<p class="sisrc">숙소 정보와 요금은 바뀔 수 있어요. 예약 전에 숙소 페이지에서 다시 확인하세요.</p>`;
   const booking = `<section id="booking">${stayList("예약 사이트 고르기", STAY_SITES)}</section>${stayList("예약할 때 꼭 확인할 것", STAY_CHECK)}${stayList("숙소 종류", STAY_TYPES)}`;
@@ -69,7 +102,7 @@ V.stay = function(){
      ${sec?stayList(esc(sec.blocks[0].h), sec.blocks[0].items):""}
      ${STAY_CITIES.map(k=>{ const a=stayAreas(k);
        return `<section class="stsec" id="st-${k}"><h3 class="sgh"><span>${esc(a.h||CITIES[k].ko)}</span></h3>${a.sub?`<p class="stsub">${esc(a.sub)}</p>`:""}
-        <div class="stgrid">${a.opts.map(stayAreaCardC).join("")}</div>
+        <div class="stgrid">${a.opts.map((o,i)=>stayAreaCardC(o,i,0,k)).join("")}</div>
         <button type="button" class="stxbtn" data-sttog="${k}"><span class="o">장단점 펼쳐 보기</span><span class="c">장단점 접기</span></button>
         <p class="stmore">${stayA(k,`${esc(CITIES[k].ko)} 숙소 자세히 보기<i> →</i>`,"more")}</p></section>`; }).join("")}`;
     return `<div class="wx">
@@ -84,7 +117,7 @@ V.stay = function(){
   let body, faq = "";
   if(t==="hotels") body = `${hs.length?`<div class="hgrid">${hs.map(hotelCard).join("")}</div>${STAY_AD}`:`<p class="stsub">추천 숙소를 준비하고 있어요.</p>`}`;
   else if(t==="booking"){ body = booking; faq = qa(`숙소 예약할 때 무엇을 확인해야 하나요?`, STAY_CHECK.slice(0,3).map(x=>`<span>${esc(x)}</span>`).join(" ")); }
-  else { body = `<div class="stgrid">${a.opts.map(stayAreaCard).join("")}</div>`; faq = qa(`${n}에서는 어느 동네에 묵는 게 좋나요?`, a.opts.map(o=>`<span><b>${esc(o.name)}</b>: <span>${esc(o.for)}</span></span>`).join(" / ")); }
+  else { body = `<div class="stgrid">${a.opts.map(o=>stayAreaCard(o,c)).join("")}</div>`; faq = qa(`${n}에서는 어느 동네에 묵는 게 좋나요?`, a.opts.map(o=>`<span><b>${esc(o.name)}</b>: <span>${esc(o.for)}</span></span>`).join(" / ")); }
   return `<div class="wx">
    <nav class="wxcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">${bc(1,stayA("all","일본 숙소 추천과 예약 방법"))}</nav>
    <div class="ghead"><h2>${n} 숙소 추천</h2><p>${esc(a.sub)}</p></div>
