@@ -2982,6 +2982,7 @@ function subMeta(){
   else if(st.view==="drink") key=`drink:i:${st.sub}`;
   else if(st.view==="weather"){ key=`weather:c:${st.sub}`; o.a=T(CITIES[st.city].ko); }
   else if(st.view==="airport"){ key=`airport:a:${st.sub}`; o.ap=T(apName(st.ap)); }
+  else if(st.view==="transport"){ const tm=(TTABM[L]||TTABM.ko)[st.sub]; if(!tm) return null; const A=curArea(); const a=st.city==="all"?T("일본"):A?T(A.ko):T(CITIES[st.city].ko); return {title:f(tm[0],{a})+" | Go Nihon Trip", desc:f(tm[1],{a})}; }
   else if(st.view==="transport"){ const tm=(TTABM[L]||TTABM.ko)[st.sub]; if(!tm) return null; const A=curArea(); const a=st.city==="all"?T("일본"):(A&&!["times","airport","ic"].includes(st.sub))?T(A.ko):T(CITIES[st.city].ko); return {title:f(tm[0],{a})+" | Go Nihon Trip", desc:f(tm[1],{a})}; }
   else if(st.view==="transport"){ const tm=(TTABM[L]||TTABM.ko)[st.sub]; if(!tm) return null; const A=curArea(); const a=st.city==="all"?T("일본"):(A&&st.sub!=="airport")?T(A.ko):T(CITIES[st.city].ko); return {title:f(tm[0],{a})+" | Go Nihon Trip", desc:f(tm[1],{a})}; }
   const m=M[key]; if(!m) return null;
