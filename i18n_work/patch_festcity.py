@@ -63,6 +63,7 @@ R = [  # (바꿀 문자열들, 새 문자열)
  (['`${c}/${areasOf(c)[0].key}/festivals/`'], '`${c}/festivals/`'),
  (['if(c!=="all") st.area=areasOf(c)[0].key; st.view="festivals"'], 'st.area="all"; st.view="festivals"'),
  (['  if(st.city!=="all" && (st.area==="all" || !areasOf(st.city).some(a=>a.key===st.area))) st.area'], '  if(st.city!=="all" && ((st.area==="all" && st.view!=="festivals") || (st.area!=="all" && !areasOf(st.city).some(a=>a.key===st.area)))) st.area'),
+ (['  <div class="areas">${areasOf(k).map(a=>{const n=count?count(a.key):null;'], '  <div class="areas">${vgAreas(k,st.view).map(a=>{const n=count?count(a.key):null;'),   # 전체 화면 지역 고르기도 묶음대로
  (['  if(CITIES[seg[0]]){ st.city=seg[0]; st.area=seg[1]||"all";'],
   '  if(CITIES[seg[0]]&&seg[1]==="festivals"){ st.city=seg[0]; st.area="all"; st.view="festivals"; return; }\n  if(CITIES[seg[0]]){ st.city=seg[0]; st.area=seg[1]||"all";'),
 ]
