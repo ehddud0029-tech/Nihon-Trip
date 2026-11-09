@@ -164,7 +164,7 @@
 },
 {
 "url": "http://www.sapporo-christmas.com/",
-"status": 522,
+"status": 200,
 "final": "http://www.sapporo-christmas.com/",
 "title": ""
 }
@@ -450,13 +450,13 @@
 "url": "https://www.e-asakusa.jp/",
 "status": 200,
 "final": "https://www.e-asakusa.jp/",
-"title": "浅草観光連盟 - Asakusa sightseeing information."
+"title": "浅草観光連盟 - Asakusa sightseeing information.浅草観光連盟 | Asakusa sightseeing information."
 },
 {
 "url": "http://www.e-asakusa.jp/",
 "status": 200,
 "final": "http://www.e-asakusa.jp/",
-"title": "浅草観光連盟 - Asakusa sightseeing information."
+"title": "浅草観光連盟 - Asakusa sightseeing information.浅草観光連盟 | Asakusa sightseeing information."
 }
 ],
 "xmasmarket": [
@@ -818,7 +818,7 @@
 "url": "http://www.oct-net.ne.jp/yufuin-c",
 "status": 0,
 "final": "http://www.oct-net.ne.jp/yufuin-c",
-"title": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issue"
+"title": "<urlopen error [Errno 101] Network is unreachable>"
 }
 ],
 "f_umibiraki": [
