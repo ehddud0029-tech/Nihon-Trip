@@ -82,7 +82,8 @@ def place(item):
     # 같은 글 빼기
     seen = set(); res['snips'] = [s for s in res['snips'] if not (s['text'][:80] in seen or seen.add(s['text'][:80]))][:10]
     return k, res
-Q = json.load(open('park.json', encoding='utf-8'))
-with ThreadPoolExecutor(8) as ex: out = dict(ex.map(place, Q.items()))
-json.dump(out, open('park_candidates.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
-print('done', len(out), sum(1 for v in out.values() if v['snips']))
+if __name__ == '__main__':
+    Q = json.load(open('park.json', encoding='utf-8'))
+    with ThreadPoolExecutor(8) as ex: out = dict(ex.map(place, Q.items()))
+    json.dump(out, open('park_candidates.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
+    print('done', len(out), sum(1 for v in out.values() if v['snips']))
