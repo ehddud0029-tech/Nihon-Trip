@@ -3,7 +3,7 @@
 import json, re, time, random, urllib.parse
 from html import unescape as html_unescape
 from parking import fetch, text_of, snips
-SKIP = re.compile(r'tabelog|instagram|facebook|twitter|x\.com|youtube|tiktok|pinterest|wikipedia')
+SKIP = re.compile(r'tabelog|instagram|facebook|twitter|x\.com|youtube|tiktok|pinterest|wikipedia|support\.yahoo|times-info|akippa|navitime\.co\.jp/parking|parkinggod|earth-car|parking\.|toku-p|tripadvisor|ameblo|note\.com|hatena')
 def yahoo(q):
     _, h = fetch('https://search.yahoo.co.jp/search?' + urllib.parse.urlencode({'p': q, 'ei': 'UTF-8'}))
     us = []
