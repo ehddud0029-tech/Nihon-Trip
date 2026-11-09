@@ -1203,7 +1203,7 @@ const gridOr = (items,msg) => items.length ? `<div class="grid">${items.map(card
 /* views */
 /* 전체 화면: 지역별 하위 지역 고르기 (관광지·맛집 공통). count(지역키) → 숫자를 주면 칩 옆에 표시 */
 const regionChooser = count => `<div class="regiongrid">${Object.entries(CITIES).map(([k,c])=>`<div class="regionbox"><h3>${c.ko} <span class="rjp">${c.jp}</span></h3>
-  <div class="areas">${areasOf(k).map(a=>{const n=count?count(a.key):null; return `<button class="area" type="button" data-area="${a.key}" data-region="${k}">${a.ko}${n?` <span class="acount">${n}</span>`:""}</button>`;}).join("")}</div></div>`).join("")}</div>`;
+  <div class="areas">${vgAreas(k,st.view).map(a=>{const n=count?count(a.key):null; return `<button class="area" type="button" data-area="${a.key}" data-region="${k}">${a.ko}${n?` <span class="acount">${n}</span>`:""}</button>`;}).join("")}</div></div>`).join("")}</div>`;
 /* 이달 추천에서 넘어왔을 때 맨 위에 관련 항목 모아 보기 */
 function focusBox(){
   const f = st.focus; if(!f || (f.view && f.view!==st.view) || (st.city!=="all" && f.city!==st.city)) return "";
