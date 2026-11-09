@@ -892,6 +892,23 @@ const vgFestN = (c, k) => { const g=vgOf(k,"festivals"); return FESTS.filter(f=>
 function vgFood(k, m){ const g=vgOf(k,"food"); if(!g) return arBlock(k,m); const seen=new Set();
   return g.members.map((x,i)=>{ const sl=(window.AR_SLUG||{})[x]; if(!sl||seen.has(sl)) return ""; seen.add(sl); if(i>0&&!arShops(x,m).length) return ""; return arBlock(x,m); }).join(""); }
 /*VGROUP_END*/
+/*ITINEAT_BEGIN*/
+const IEAT_MENUS = ["local","ramen","washoku","izakaya","konamon","meat","cafe"];
+let ieSeen = new Set();
+function itinEat(d, i, city, seen){
+  const subs = d.s.map(byId).filter(Boolean).map(x=>x.sub).filter(Boolean); if(!subs.length) return "";
+  const cnt = {}; subs.forEach(s=>cnt[s]=(cnt[s]||0)+1);
+  const areas = [...new Set(subs.map(s=>vgRep(s,"food")))].filter(k=>(window.AR_SLUG||{})[k]).sort((a,b)=>(cnt[b]||0)-(cnt[a]||0));
+  const ms = IEAT_MENUS.slice(i % IEAT_MENUS.length).concat(IEAT_MENUS.slice(0, i % IEAT_MENUS.length)), out = [];
+  const take = k => { for(const m of ms){ const x = arShops(k,m,1)[0]; if(x && !seen.has(x.n) && !out.some(o=>o.m===m)){ seen.add(x.n); out.push({...x, m, k}); return true; } } return false; };
+  for(const k of areas){ if(out.length>=2) break; take(k); }
+  if(out.length<2 && areas[0]) take(areas[0]);
+  if(!out.length && areas[0]){ const x = ms.map(m=>({...(arShops(areas[0],m,1)[0]||{}), m})).find(x=>x.n); if(x) out.push({...x, k:areas[0]}); }   // 그 지역 가게가 이미 다 나왔으면 다시 보여 줌
+  if(!out.length) return "";
+  const href = (k,m) => typeof ROUTED!=="undefined" && ROUTED ? window.NT_BASE+LPRE+pathOf({...st, view:"food", city, area:k, sub:"", menu:m}) : "#";
+  return `<div class="ieat"><span class="ieh">이날 추천 식당</span>${out.map(x=>`<a class="ieatc" href="${href(x.k,x.m)}" data-goarea="${x.k}" data-region="${city}" data-to="food" data-menu="${x.m}"><b>${esc(x.n)}</b><em class="pm">${esc(MENU[x.m].ko.split("·")[0])}</em><span>${esc(x.dish||"")}</span><i>›</i></a>`).join("")}</div>`;
+}
+/*ITINEAT_END*/
 const ALL = [...SPOTS,...RESTAURANTS,...FOODS,...SHOPS,...FESTS];
 const byId = id => ALL.find(x=>x.id===id);
 const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -1941,7 +1958,7 @@ V.itin = function(){
   return `<div class="itin" itemscope itemtype="https://schema.org/TouristTrip">
    <a class="iback" href="${itinHref("")}" data-itin=""><i>← </i>전체 일정</a> <a class="iback" href="${itinHref(c.city)}" data-itin="${c.city}">${esc(CITIES[c.city].ko)} 일정 안내</a>
    <div class="ghead"><div class="ich"><span class="inb${c.n===0?" day":""}">${esc(nightsLabel(c.n))}</span><span class="ist">${esc(CITIES[c.city].ko)}</span></div><h2 itemprop="name">${esc(c.title)}</h2><p itemprop="description">${esc(c.sum)}</p></div>
-   <ol class="idays" itemprop="itinerary" itemscope itemtype="https://schema.org/ItemList">${c.plan.map((d,i)=>`<li class="iday" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><meta itemprop="position" content="${i+1}"><div class="idh"><span class="idn">${esc(dayLabel(i+1))}</span><h3 itemprop="name">${esc(d.t)}</h3></div><ol class="istops">${d.s.map(itinStop).join("")}</ol></li>`).join("")}</ol>
+   ${(ieSeen=new Set(),"")}<ol class="idays" itemprop="itinerary" itemscope itemtype="https://schema.org/ItemList">${c.plan.map((d,i)=>`<li class="iday" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><meta itemprop="position" content="${i+1}"><div class="idh"><span class="idn">${esc(dayLabel(i+1))}</span><h3 itemprop="name">${esc(d.t)}</h3></div><ol class="istops">${d.s.map(itinStop).join("")}</ol>${itinEat(d,i,c.city,ieSeen)}</li>`).join("")}</ol>
    ${c.tips.length?`<div class="gblk"><h4><span class="gbi">${gsvg("list")}</span>일정 팁</h4><ul class="gul">${c.tips.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></div>`:""}
    <p class="sisrc">2026년 10월 기준 · 요금과 시간은 바뀔 수 있으니 방문 전에 공식 사이트에서 확인하세요.</p>
    ${others.length?`<div class="gmore"><h4>다른 일정</h4><div>${others.map(o=>`<a href="${itinHref(o.key)}" data-itin="${o.key}"><span>${esc(o.title)}</span> →</a>`).join("")}</div></div>`:""}
@@ -3081,7 +3098,7 @@ document.addEventListener("click",e=>{
   const hmb = e.target.closest("[data-hm]"); if(hmb){ st.hm=+hmb.dataset.hm; renderCities(); return; }
   const ht = e.target.closest("[data-hometo]"); if(ht){ st.homeTo=ht.dataset.hometo; render(); return; }
   const ga = e.target.closest("[data-goarea]");
-  if(ga){ st.city=ga.dataset.region; st.area=ga.dataset.goarea; st.focus=null; st.more=false; go(ga.dataset.to||st.homeTo); return; }
+  if(ga){ st.city=ga.dataset.region; st.area=ga.dataset.goarea; st.focus=null; st.more=false; if(ga.dataset.menu) st.menu=ga.dataset.menu; go(ga.dataset.to||st.homeTo); return; }
   const hc = e.target.closest("[data-city]");
   if(hc && st.view==="home" && hc.dataset.city!=="all"){ st.city=hc.dataset.city; st.area="all"; st.focus=null; go(st.homeTo); return; }
   const c = e.target.closest("[data-city]"); if(c){ st.city=c.dataset.city; st.area="all"; st.more=false; render(); return; }
