@@ -2,18 +2,19 @@ name: photos
 on:
   push:
     branches: [photo-job]
-    paths: ['photos.py', 'titles.json', 'search.json', 'fix.json', 'drinks.py', 'drink_search.json', 'fests.py', 'fest_search.json', 'linkcheck.py', 'links.json', 'parking.py', 'park.json', 'parking2.py', 'park2.json', 'wxnorm.py', 'wx_pages.json']
+    paths: ['photos.py', 'titles.json', 'search.json', 'fix.json', 'drinks.py', 'drink_search.json', 'fests.py', 'fest_search.json', 'linkcheck.py', 'links.json', 'parking.py', 'park.json', 'parking2.py', 'park2.json']
 permissions:
   contents: write
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 340
     steps:
       - uses: actions/checkout@v4
       - run: if [ -f park2.json ]; then python3 parking2.py; elif [ -f park.json ]; then python3 parking.py; fi
-      - run: if [ -f links.json ] && [ ! -f park2.json ]; then python3 linkcheck.py; fi
-      - run: if [ -f park2.json ]; then echo skip; elif [ -f fest_search.json ]; then python3 fests.py; elif [ -f drink_search.json ]; then python3 drinks.py; else python3 photos.py; fi
+      - run: |
+          if [ -f links.json ] && [ ! -f park2.json ]; then python3 linkcheck.py; fi
+      - run: |
+          if [ -f park2.json ]; then echo skip; elif [ -f fest_search.json ]; then python3 fests.py; elif [ -f drink_search.json ]; then python3 drinks.py; else python3 photos.py; fi
       - run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
