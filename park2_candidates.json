@@ -1,0 +1,62 @@
+{
+"dotonbori": {
+"q": "道頓堀 駐車場",
+"results": [],
+"snips": []
+},
+"gion": {
+"q": "祇園・花見小路 駐車場",
+"results": [],
+"snips": []
+},
+"kushida": {
+"q": "櫛田神社 駐車場",
+"results": [],
+"snips": []
+},
+"kouri": {
+"q": "古宇利大橋 駐車場",
+"results": [],
+"snips": []
+},
+"s_omoide": {
+"q": "思い出横丁 駐車場",
+"results": [],
+"snips": []
+},
+"s_kabuki": {
+"q": "歌舞伎町 駐車場",
+"results": [],
+"snips": []
+},
+"s_shibuyasky": {
+"q": "SHIBUYA SKY 駐車場",
+"results": [],
+"snips": []
+},
+"s_uenopark": {
+"q": "上野恩賜公園 駐車場",
+"results": [],
+"snips": []
+},
+"s_ameyoko": {
+"q": "アメ横商店街 駐車場",
+"results": [],
+"snips": []
+},
+"s_tokyostation": {
+"q": "東京駅丸の内駅舎 駐車場",
+"results": [],
+"snips": []
+},
+"s_kokyo": {
+"q": "皇居東御苑 駐車場",
+"results": [],
+"snips": []
+},
+"s_tsurugaoka": {
+"q": "鶴岡八幡宮 駐車場",
+"results": [],
+"snips": []
+}
+}

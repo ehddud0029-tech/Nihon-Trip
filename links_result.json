@@ -442,7 +442,7 @@
 "url": "https://www.asakusa-torinoichi.tokyo/",
 "status": 0,
 "final": "https://www.asakusa-torinoichi.tokyo/",
-"title": "<urlopen error timed out>"
+"title": "<urlopen error [Errno -3] Temporary failure in name resolution>"
 }
 ],
 "tokyojidai": [
@@ -818,7 +818,7 @@
 "url": "http://www.oct-net.ne.jp/yufuin-c",
 "status": 0,
 "final": "http://www.oct-net.ne.jp/yufuin-c",
-"title": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issue"
+"title": "<urlopen error [Errno 101] Network is unreachable>"
 }
 ],
 "f_umibiraki": [
