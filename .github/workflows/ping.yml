@@ -1,0 +1,10 @@
+name: ping
+on:
+  push:
+    branches: [photo-job]
+    paths: [ping.txt]
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo hi
