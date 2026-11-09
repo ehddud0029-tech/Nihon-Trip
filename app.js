@@ -994,8 +994,8 @@ function renderCities(){
   $("#cityscroll").hidden = st.view==="home";
   $("#cities").innerHTML = list.map(([k,ko,jp])=>`<button class="city" type="button" data-city="${k}" aria-pressed="${st.city===k}">${ko}<span class="jp">${jp}</span></button>`).join("");
   cityScrollInit();
-  const c = CITIES[st.city], A = curArea();
-  $("#areas").hidden = !c;
+  const c = CITIES[st.city], apT = st.view==="transport" && st.sub==="airport", A = apT ? null : curArea();
+  $("#areas").hidden = !c || apT;
   if(c) $("#areas").innerHTML = (st.view==="festivals"?`<button class="area" type="button" data-area="all" aria-pressed="${st.area==="all"}">전체</button>`:"") + areasOf(st.city).filter(a=>(!tgOn()||tgRep(a.key)===a.key)&&vgRep(a.key)===a.key&&(st.view!=="festivals"||vgFestN(st.city,a.key))).map(a=>{ const g=tgOn()&&tgOf(a.key), v=vgOf(a.key); return `<button class="area" type="button" data-area="${a.key}" aria-pressed="${st.area===a.key}">${g?g.name:v?v.name:a.ko}</button>`; }).join("");
   $("#heroTitle").textContent = st.view==="home" ? "일본 여행, 어디로 갈까요?" : A ? `${c.ko} · ${A.ko}, 무엇부터 볼까요?` : c ? `${c.ko} 여행, 무엇부터 볼까요?` : "어느 지역부터 둘러볼까요?";
   const w = c && WX && (st.view==="weather" ? (WX[st.city]||WX[A?.key]) : (WX[A?A.key:st.city] || WX[st.city]));
@@ -2135,6 +2135,7 @@ function render(){
   if(st.view==="weather" && !(WXN[st.city] && st.city!=="all")) st.city = "tokyo";
   if(st.view==="transport" && st.area!=="all"){ const r=tgRep(st.area); if(r!==st.area) st.area=r; }
   if(VGROUPS[st.view] && AREA[st.area]){ const r=vgRep(st.area); if(r!==st.area) st.area=r; }
+  if(st.view==="transport" && st.sub==="airport" && areasOf(st.city)[0]) st.area = areasOf(st.city)[0].key;
   document.body.classList.toggle("is-map", st.view==="map");
   document.body.classList.toggle("is-guide", st.view==="guide");
   document.body.classList.toggle("is-itin", st.view==="itin");
@@ -2981,6 +2982,7 @@ function subMeta(){
   else if(st.view==="weather"){ key=`weather:c:${st.sub}`; o.a=T(CITIES[st.city].ko); }
   else if(st.view==="airport"){ key=`airport:a:${st.sub}`; o.ap=T(apName(st.ap)); }
   else if(st.view==="transport"){ const tm=(TTABM[L]||TTABM.ko)[st.sub]; if(!tm) return null; const A=curArea(); const a=st.city==="all"?T("일본"):A?T(A.ko):T(CITIES[st.city].ko); return {title:f(tm[0],{a})+" | Go Nihon Trip", desc:f(tm[1],{a})}; }
+  else if(st.view==="transport"){ const tm=(TTABM[L]||TTABM.ko)[st.sub]; if(!tm) return null; const A=curArea(); const a=st.city==="all"?T("일본"):(A&&st.sub!=="airport")?T(A.ko):T(CITIES[st.city].ko); return {title:f(tm[0],{a})+" | Go Nihon Trip", desc:f(tm[1],{a})}; }
   const m=M[key]; if(!m) return null;
   return {title:f(m[0],o)+" | Go Nihon Trip", desc:f(m[1],o)};
 }
@@ -3015,7 +3017,7 @@ V.transport = function(){
   else if(t==="ic") body = pick("#icguide") + notes;
   else if(t==="airport"){
     const aps = Object.keys(APS).filter(a=>keys.includes(apRegion(a)));
-    body = aps.map(a=>`<section class="apsec"><h3 class="sgh"><span>${apA(a,"",esc(apName(a)))}</span></h3><ul class="apmini">${apDests(a).slice(0,4).map(k2=>{ const o=apOpts(a,k2)[0]; return o?`<li><b>${esc(AREA[k2].ko)}</b><span class="mode m-${o[0].mode}">${o[0].mode}</span><span class="aptm">${apMin(apSum(o))}</span></li>`:""; }).join("")}</ul>
+    body = aps.map(a=>`<section class="apsec"><h3 class="sgh"><span>${apA(a,"",esc(apName(a)))}</span></h3><ul class="apmini">${apDests(a).map(k2=>{ const o=apOpts(a,k2)[0]; return o?`<li>${apA(a,k2,`<b>${esc(AREA[k2].ko)}</b><span class="mode m-${o[0].mode}">${o[0].mode}</span><span class="aptm">${apMin(apSum(o))}</span><i class="apgo">›</i>`,"apm")}</li>`:""; }).join("")}</ul>
        ${apA(a,"",`모든 목적지와 방법 보기<i> →</i>`,"btn ghost")}</section>`).join("")   // 요약만, 자세한 내용은 공항 페이지 (2026-11 중복 정리)
        || pick(".apsec");
   } else {
