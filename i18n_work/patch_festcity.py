@@ -45,11 +45,13 @@ AREAS_NEW = ('  if(c) $("#areas").innerHTML = (st.view==="festivals"?`<button cl
 R = [  # (바꿀 문자열들, 새 문자열)
  (['const cityName = () => curArea() ? (curArea().ko.startsWith(CITIES[st.city].ko) ? curArea().ko : `${CITIES[st.city].ko} ${curArea().ko}`)', 'const cityName = () => curArea() && st.view!=="festivals" ? `${CITIES[st.city].ko} ${curArea().ko}`', 'const cityName = () => curArea() ? `${CITIES[st.city].ko} ${curArea().ko}`'],
   'const cityName = () => curArea() ? (st.view==="festivals" && curArea().vg && curArea().ko.startsWith(CITIES[st.city].ko+" ") ? curArea().ko : `${CITIES[st.city].ko} ${curArea().ko}`)'),   # '도쿄 도쿄 시내' 방지
- (['  const c = CITIES[st.city], A = st.view==="festivals" ? null : curArea();\n  $("#areas").hidden = !c || st.view==="festivals";\n', '  const c = CITIES[st.city], A = curArea();\n  $("#areas").hidden = !c;\n'],
-  '  const c = CITIES[st.city], apT = st.view==="transport" && st.sub==="airport", A = apT ? null : curArea();\n  $("#areas").hidden = !c || apT;\n'),   # 교통 '공항에서 시내 가는 법' 탭은 도시 단위
+ (['  const c = CITIES[st.city], A = st.view==="festivals" ? null : curArea();\n  $("#areas").hidden = !c || st.view==="festivals";\n', '  const c = CITIES[st.city], A = curArea();\n  $("#areas").hidden = !c;\n', '  const c = CITIES[st.city], apT = st.view==="transport" && st.sub==="airport", A = apT ? null : curArea();\n  $("#areas").hidden = !c || apT;\n'],
+  '  const c = CITIES[st.city], apT = st.view==="transport" && ["times","airport","ic"].includes(st.sub), A = apT ? null : curArea();\n  $("#areas").hidden = !c || apT;\n'),   # 교통 탭(걸리는 시간·공항·교통카드)은 도시 단위   # 교통 '공항에서 시내 가는 법' 탭은 도시 단위
  (['  if(VGROUPS[st.view] && AREA[st.area]){ const r=vgRep(st.area); if(r!==st.area) st.area=r; }\n'],
-  '  if(VGROUPS[st.view] && AREA[st.area]){ const r=vgRep(st.area); if(r!==st.area) st.area=r; }\n  if(st.view==="transport" && st.sub==="airport" && areasOf(st.city)[0]) st.area = areasOf(st.city)[0].key;\n'),
- (['const a=st.city==="all"?T("일본"):A?T(A.ko):T(CITIES[st.city].ko);'], 'const a=st.city==="all"?T("일본"):(A&&st.sub!=="airport")?T(A.ko):T(CITIES[st.city].ko);'),
+  '  if(VGROUPS[st.view] && AREA[st.area]){ const r=vgRep(st.area); if(r!==st.area) st.area=r; }\n  if(st.view==="transport" && ["times","airport","ic"].includes(st.sub) && areasOf(st.city)[0]) st.area = areasOf(st.city)[0].key;\n'),
+ (['  if(st.view==="transport" && st.sub==="airport" && areasOf(st.city)[0]) st.area'], '  if(st.view==="transport" && ["times","airport","ic"].includes(st.sub) && areasOf(st.city)[0]) st.area'),
+ (['const a=st.city==="all"?T("일본"):A?T(A.ko):T(CITIES[st.city].ko);'], 'const a=st.city==="all"?T("일본"):(A&&!["times","airport","ic"].includes(st.sub))?T(A.ko):T(CITIES[st.city].ko);'),
+ (['const a=st.city==="all"?T("일본"):(A&&st.sub!=="airport")?T(A.ko)'], 'const a=st.city==="all"?T("일본"):(A&&!["times","airport","ic"].includes(st.sub))?T(A.ko)'),
  ([AREAS_OLD], AREAS_NEW),
  ([OLD_A, '  return `${s.city}/${s.area}/${s.view}/`;\n}'], None),   # 특별 처리 (아래)
  (['const inSub = it => st.area==="all" || it.sub===st.area;'], 'const inSub = it => st.area==="all" || it.sub===st.area || vgSame(it.sub, st.area);'),
@@ -100,9 +102,13 @@ mv = ("            MOVED.update(dict(pg.evaluate('''()=>Object.keys(CITIES).flat
 if mv not in s: s = s.replace(add + a, add + a + mv)
 assert mv in s
 a = 'for(const t of ["times","airport","ic"]) r.push(`${c}/${a.key}/transport/${t}/`);'
-b = 'for(const t of ["times","airport","ic"]) if(t!=="airport"||a.key===areasOf(c)[0].key) r.push(`${c}/${a.key}/transport/${t}/`);'
+b0 = 'for(const t of ["times","airport","ic"]) if(t!=="airport"||a.key===areasOf(c)[0].key) r.push(`${c}/${a.key}/transport/${t}/`);'
+b = 'if(a.key===areasOf(c)[0].key) for(const t of ["times","airport","ic"]) r.push(`${c}/${a.key}/transport/${t}/`);'
+s = s.replace(b0, b)
 if b not in s: assert s.count(a) == 1, 'gen airport'; s = s.replace(a, b)
-mv2 = ("            MOVED.update(dict(pg.evaluate('''()=>Object.keys(CITIES).flatMap(c=>areasOf(c).slice(1).filter(a=>tgRep(a.key)===a.key).map(a=>[`${c}/${a.key}/transport/airport/`,`${c}/${areasOf(c)[0].key}/transport/airport/`]))''')))   # 교통 공항 탭은 도시 단위\n")
+mv1 = ("            MOVED.update(dict(pg.evaluate('''()=>Object.keys(CITIES).flatMap(c=>areasOf(c).slice(1).filter(a=>tgRep(a.key)===a.key).map(a=>[`${c}/${a.key}/transport/airport/`,`${c}/${areasOf(c)[0].key}/transport/airport/`]))''')))   # 교통 공항 탭은 도시 단위\n")
+mv2 = ("            MOVED.update(dict(pg.evaluate('''()=>Object.keys(CITIES).flatMap(c=>areasOf(c).slice(1).filter(a=>tgRep(a.key)===a.key).flatMap(a=>[\"times\",\"airport\",\"ic\"].map(t=>[`${c}/${a.key}/transport/${t}/`,`${c}/${areasOf(c)[0].key}/transport/${t}/`])))''')))   # 교통 탭(걸리는 시간·공항·교통카드)은 도시 단위\n")
+s = s.replace(mv1, mv2)
 if mv2 not in s: assert mv in s; s = s.replace(mv, mv + mv2)
 open(G, 'w', encoding='utf-8').write(s); print('gen ok')
 V = f'{W}/i18n_work/verify2.py'; s = open(V, encoding='utf-8').read()
