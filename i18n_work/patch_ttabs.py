@@ -48,7 +48,7 @@ V.transport = function(){
   else if(t==="ic") body = pick("#icguide") + notes;
   else if(t==="airport"){
     const aps = Object.keys(APS).filter(a=>keys.includes(apRegion(a)));
-    body = aps.map(a=>`<section class="apsec"><h3 class="sgh"><span>${apA(a,"",esc(apName(a)))}</span></h3><ul class="apmini">${apDests(a).slice(0,4).map(k2=>{ const o=apOpts(a,k2)[0]; return o?`<li><b>${esc(AREA[k2].ko)}</b><span class="mode m-${o[0].mode}">${o[0].mode}</span><span class="aptm">${apMin(apSum(o))}</span></li>`:""; }).join("")}</ul>
+    body = aps.map(a=>`<section class="apsec"><h3 class="sgh"><span>${apA(a,"",esc(apName(a)))}</span></h3><ul class="apmini">${apDests(a).map(k2=>{ const o=apOpts(a,k2)[0]; return o?`<li>${apA(a,k2,`<b>${esc(AREA[k2].ko)}</b><span class="mode m-${o[0].mode}">${o[0].mode}</span><span class="aptm">${apMin(apSum(o))}</span><i class="apgo">›</i>`,"apm")}</li>`:""; }).join("")}</ul>
        ${apA(a,"",`모든 목적지와 방법 보기<i> →</i>`,"btn ghost")}</section>`).join("")   // 요약만, 자세한 내용은 공항 페이지 (2026-11 중복 정리)
        || pick(".apsec");
   } else {
@@ -67,7 +67,7 @@ body.tsub #brief{display:none}
 .ovic{margin:0 0 22px}.ovic-card{background:var(--card,#fff);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;max-width:640px}
 .ovic .icrow{display:flex;align-items:center;gap:12px}.ovic .icrow img{width:72px;height:46px;object-fit:contain;border-radius:6px;background:#fff;border:1px solid var(--line)}.ovic .icrow span{display:flex;flex-direction:column}.ovic .icrow small{font-size:13px;color:var(--ink-2)}.ovic p{margin:0;color:var(--ink-2);font-size:14px}.ovic .more{font-weight:600;font-size:14px}
 .ttlinks{margin-top:20px}
-.apmini{list-style:none;padding:0;margin:8px 0 12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px 14px}.apmini li{display:flex;gap:8px;align-items:center;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface,#fff)}.apmini b{flex:1;font-weight:600;font-size:14.5px}.apmini .aptm{color:var(--shu);font-weight:600;font-size:14px;white-space:nowrap}
+.apmini{list-style:none;padding:0;margin:8px 0 12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px 14px}.apmini li{display:block}.apmini .apm{display:flex;gap:8px;align-items:center;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface,#fff);color:var(--ink);text-decoration:none}.apmini .apm:hover{border-color:var(--shu)}.apmini .apgo{font-style:normal;color:var(--ink-2);font-size:18px;line-height:1}.apmini b{flex:1;font-weight:600;font-size:14.5px}.apmini .aptm{color:var(--shu);font-weight:600;font-size:14px;white-space:nowrap}
 .apsec{margin-bottom:24px}
 /*TTCSS_END*/
 """
