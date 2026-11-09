@@ -36,14 +36,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=b36658c1">
+<link rel="stylesheet" href="/app.css?v=458710d4">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b36658c1"><\/script><script src="'+B+'engine.js?v=b36658c1"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=458710d4"><\/script><script src="'+B+'engine.js?v=458710d4"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -76,8 +76,8 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b36658c1"><\/s
   <h1 id="heroTitle">东京 · 银座·筑地，先看什么？</h1>
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="查看上一组地区" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="选择地区"><button class="city" type="button" data-city="all" aria-pressed="false">全部<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="true">东京<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">大阪<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">福冈<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">北海道<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">冲绳<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">名古屋<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">广岛<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">四国<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="查看更多地区" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="选择区域"><button class="area" type="button" data-area="shinjuku" aria-pressed="false">新宿</button><button class="area" type="button" data-area="shibuya" aria-pressed="false">涩谷·惠比寿·六本木</button><button class="area" type="button" data-area="ginza" aria-pressed="true">银座·筑地</button><button class="area" type="button" data-area="asakusa" aria-pressed="false">浅草·上野</button><button class="area" type="button" data-area="tokyoeki" aria-pressed="false">东京站·神田</button><button class="area" type="button" data-area="yokohama" aria-pressed="false">横滨</button><button class="area" type="button" data-area="kamakura" aria-pressed="false">镰仓·江之岛</button><button class="area" type="button" data-area="hakone" aria-pressed="false">箱根</button><button class="area" type="button" data-area="fuji" aria-pressed="false">富士山·河口湖</button></div>
-  <dl class="brief" id="brief"><div class="beat"><dt>银座·筑地推荐美食</dt><ol class="picks"><li><button type="button" class="pick" data-chip="menu" data-v="washoku"><b>鮨よしかわ 勝 銀座</b><em class="pm">寿司</em><span class="pd">寿司</span></button></li><li><button type="button" class="pick" data-chip="menu" data-v="izakaya"><b>銀座 しまだ</b><em class="pm">居酒屋</em><span class="pd">居酒屋下酒菜</span></button></li><li><button type="button" class="pick" data-chip="menu" data-v="meat"><b>銀座 山科</b><em class="pm">肉类</em><span class="pd">和牛炸排三明治</span></button></li></ol>
-      <dd class="sub">点击菜单，下方列表会切换到该菜单</dd></div><div class="broute"><dt>从机场到银座·筑地的交通方式</dt><dd class=""><span class="rt"><span class="mode m-전철">电车</span> 成田机场 → 东银座站 <b class="min">约65分钟</b></span><br><small>京成Access特急（直通浅草线）</small></dd><dd class="sub"><span class="rt"><span class="mode m-전철">电车</span> 羽田机场 → 东银座站 <b class="min">约30分钟</b></span><br><small>京急线（直通浅草线）</small></dd><dd class="sub rnote">直达，无需换乘</dd></div></dl>
+  <dl class="brief" id="brief"><div class="beat"><dt>银座·筑地推荐美食</dt><ol class="picks"><li><a class="pick" href="https://autoreserve.com/zh-cn/restaurants/fBemmX2X3yQhmUKW914c" target="_blank" rel="noopener"><b>鮨よしかわ 勝 銀座</b><em class="pm">寿司</em><span class="pd">寿司</span></a></li><li><a class="pick" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%8A%80%E5%BA%A7%20%E3%81%97%E3%81%BE%E3%81%A0%20%E6%9D%B1%E4%BA%AC" target="_blank" rel="noopener"><b>銀座 しまだ</b><em class="pm">居酒屋</em><span class="pd">居酒屋下酒菜</span></a></li><li><a class="pick" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%8A%80%E5%BA%A7%20%E5%B1%B1%E7%A7%91%20%E6%9D%B1%E4%BA%AC" target="_blank" rel="noopener"><b>銀座 山科</b><em class="pm">肉类</em><span class="pd">和牛炸排三明治</span></a></li></ol>
+      </div><div class="broute"><dt>从机场到银座·筑地的交通方式</dt><dd class=""><span class="rt"><span class="mode m-전철">电车</span> 成田机场 → 东银座站 <b class="min">约65分钟</b></span><br><small>京成Access特急（直通浅草线）</small></dd><dd class="sub"><span class="rt"><span class="mode m-전철">电车</span> 羽田机场 → 东银座站 <b class="min">约30分钟</b></span><br><small>京急线（直通浅草线）</small></dd><dd class="sub rnote">直达，无需换乘</dd></div></dl>
   <div class="wx" id="wx" hidden=""></div>
   <div class="wxnote" id="wxnote">无法加载实时天气，显示往年平均值。</div>
 </section>
@@ -147,10 +147,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b36658c1"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=b36658c1"></script>
-<script src="/autoreserve.js?v=b36658c1"></script>
-<script src="/google_picks.js?v=b36658c1"></script>
-<script src="/geo.js?v=b36658c1"></script>
-<script src="/app.js?v=b36658c1"></script>
+<script src="/areas.js?v=458710d4"></script>
+<script src="/autoreserve.js?v=458710d4"></script>
+<script src="/google_picks.js?v=458710d4"></script>
+<script src="/geo.js?v=458710d4"></script>
+<script src="/app.js?v=458710d4"></script>
 </body>
 </html>

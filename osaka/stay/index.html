@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=b36658c1">
+<link rel="stylesheet" href="/app.css?v=458710d4">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b36658c1"><\/script><script src="'+B+'engine.js?v=b36658c1"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=458710d4"><\/script><script src="'+B+'engine.js?v=458710d4"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -74,11 +74,11 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b36658c1"><\/s
 
 <section class="hero wrap">
   <div class="eyebrow">日本旅行 · 여행 준비</div>
-  <h1 id="heroTitle">오사카 · 도톤보리·난바, 무엇부터 볼까요?</h1>
+  <h1 id="heroTitle">오사카 숙소 추천 – 묵기 좋은 동네·추천 호텔·예약 팁</h1>
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="이전 지역 보기" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="지역 선택"><button class="city" type="button" data-city="all" aria-pressed="false">전체<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">도쿄<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="true">오사카<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">후쿠오카<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">홋카이도<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">오키나와<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">나고야<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">히로시마<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">시코쿠<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="다음 지역 보기" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="하위 지역 선택"><button class="area" type="button" data-area="dotonbori" aria-pressed="true">도톤보리·난바</button><button class="area" type="button" data-area="umeda" aria-pressed="false">우메다</button><button class="area" type="button" data-area="shinsekai" aria-pressed="false">신세카이·덴노지·쓰루하시</button><button class="area" type="button" data-area="tenma" aria-pressed="false">덴마·덴진바시스지</button><button class="area" type="button" data-area="kyoto" aria-pressed="false">교토 기온·히가시야마</button><button class="area" type="button" data-area="kyotoeki" aria-pressed="false">교토역·니조성</button><button class="area" type="button" data-area="arashiyama" aria-pressed="false">교토 아라시야마·금각사</button><button class="area" type="button" data-area="nanzenji" aria-pressed="false">교토 난젠지·은각사</button><button class="area" type="button" data-area="uji" aria-pressed="false">교토 후시미·우지</button><button class="area" type="button" data-area="nara" aria-pressed="false">나라</button><button class="area" type="button" data-area="kobe" aria-pressed="false">고베</button></div>
-  <dl class="brief" id="brief"><div class="beat"><dt>도톤보리·난바 추천 맛집</dt><ol class="picks"><li><button type="button" class="pick" data-chip="menu" data-v="washoku"><b>스시 타쿠마</b><em class="pm">스시</em><span class="pd">에도마에 스시</span></button></li><li><button type="button" class="pick" data-chip="menu" data-v="izakaya"><b>더 뉴 월드</b><em class="pm">이자카야</em><span class="pd">오반자이·생선회</span></button></li><li><button type="button" class="pick" data-chip="menu" data-v="meat"><b>스미비야키니쿠 츠키와</b><em class="pm">고기</em><span class="pd">고베규 야키니쿠</span></button></li></ol>
-      <dd class="sub">메뉴를 누르면 아래 목록이 그 메뉴로 바뀌어요</dd></div><div class="broute"><dt>공항에서 도톤보리·난바 가는 법</dt><dd class=""><span class="rt"><span class="mode m-전철">전철</span> 간사이공항 → 난바역 <b class="min">약 40분</b></span><br><small>난카이 특급 라피트</small></dd><dd class="sub rnote">갈아타지 않고 바로 가요</dd></div></dl>
+  <dl class="brief" id="brief"><div class="beat"><dt>도톤보리·난바 추천 맛집</dt><ol class="picks"><li><a class="pick" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%AE%A8%20%E3%81%9F%E3%81%8F%E3%81%BE%20%E5%A4%A7%E9%98%AA" target="_blank" rel="noopener"><b>스시 타쿠마</b><em class="pm">스시</em><span class="pd">에도마에 스시</span></a></li><li><a class="pick" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B6%E3%83%BB%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20%E5%A4%A7%E9%98%AA" target="_blank" rel="noopener"><b>더 뉴 월드</b><em class="pm">이자카야</em><span class="pd">오반자이·생선회</span></a></li><li><a class="pick" href="https://autoreserve.com/ko/restaurants/ArHaACRVx8KDVywSQZrE" target="_blank" rel="noopener"><b>스미비야키니쿠 츠키와</b><em class="pm">고기</em><span class="pd">고베규 야키니쿠</span></a></li></ol>
+      </div><div class="broute"><dt>공항에서 도톤보리·난바 가는 법</dt><dd class=""><span class="rt"><span class="mode m-전철">전철</span> 간사이공항 → 난바역 <b class="min">약 40분</b></span><br><small>난카이 특급 라피트</small></dd><dd class="sub rnote">갈아타지 않고 바로 가요</dd></div></dl>
   <div class="wx" id="wx" hidden=""></div>
   <div class="wxnote" id="wxnote">실시간 날씨를 불러오지 못해 평년값을 보여드려요.</div>
 </section>
@@ -89,12 +89,12 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b36658c1"><\/s
    <div class="wxmon"><a href="/tokyo/stay/" data-stayc="tokyo" data-sub="">도쿄</a><a class="on" href="/osaka/stay/" data-stayc="osaka" data-sub="">오사카</a><a href="/fukuoka/stay/" data-stayc="fukuoka" data-sub="">후쿠오카</a><a href="/hokkaido/stay/" data-stayc="hokkaido" data-sub="">홋카이도</a><a href="/okinawa/stay/" data-stayc="okinawa" data-sub="">오키나와</a><a href="/nagoya/stay/" data-stayc="nagoya" data-sub="">나고야</a><a href="/hiroshima/stay/" data-stayc="hiroshima" data-sub="">히로시마</a><a href="/shikoku/stay/" data-stayc="shikoku" data-sub="">시코쿠</a></div>
    <nav class="dtabs sbtabs"><a href="/osaka/stay/" data-subtab="" class="on" aria-current="page">묵기 좋은 동네</a><a href="/osaka/stay/hotels/" data-subtab="hotels">추천 숙소</a><a href="/osaka/stay/booking/" data-subtab="booking">예약 방법</a></nav>
    <h3 class="sgh"><span>묵기 좋은 동네</span></h3>
-   <div class="stgrid"><article class="gblk starea"><h4>난바·신사이바시</h4>
-     <dl><dt>장점</dt><dd>간사이공항에서 난카이선으로 바로 오고, 도톤보리 먹거리가 코앞이에요.</dd><dt>단점</dt><dd>밤늦게까지 붐비고 시끄러워요. 교토로 갈 때는 우메다보다 조금 멀어요.</dd><dt>이런 분께</dt><dd>첫 오사카 여행, 맛집 탐방이 목적인 분</dd></dl></article><article class="gblk starea"><h4>우메다(오사카역)</h4>
-     <dl><dt>장점</dt><dd>JR·한큐·한신이 모여 교토·고베·나라 당일치기가 편해요. 백화점과 식당가도 많아요.</dd><dt>단점</dt><dd>역과 지하상가가 복잡해서 처음엔 길을 잃기 쉬워요.</dd><dt>이런 분께</dt><dd>교토·고베를 자주 오가는 분</dd></dl></article><article class="gblk starea"><h4>덴노지·신세카이</h4>
-     <dl><dt>장점</dt><dd>숙소값이 싼 편이고, 간사이공항 특급 하루카가 덴노지에 서요.</dd><dt>단점</dt><dd>밤 분위기는 호불호가 갈려요. 북쪽 관광지까지는 갈아타야 해요.</dd><dt>이런 분께</dt><dd>가성비를 따지는 분, 간사이공항을 JR로 이용하는 분</dd></dl></article><article class="gblk starea"><h4>교토역 주변</h4>
-     <dl><dt>장점</dt><dd>신칸센·공항 특급이 서고 버스터미널이 있어 짐 들고 움직이기 편해요.</dd><dt>단점</dt><dd>기요미즈데라·기온 등 주요 관광지까지는 버스나 전철을 타야 해요.</dd><dt>이런 분께</dt><dd>짐이 많은 분, 교토를 여러 날 둘러보는 분</dd></dl></article><article class="gblk starea"><h4>가와라마치·기온</h4>
-     <dl><dt>장점</dt><dd>기온·폰토초·니시키 시장을 걸어서 다닐 수 있고, 아침 일찍 한산한 거리를 볼 수 있어요.</dd><dt>단점</dt><dd>숙박비가 비싸고 성수기엔 방 구하기가 어려워요.</dd><dt>이런 분께</dt><dd>교토의 옛 거리 분위기를 오래 즐기고 싶은 분</dd></dl></article></div>
+   <div class="stgrid"><article class="gblk starea"><h4><a href="/osaka/stay/namba/" data-stayc="osaka" data-sub="namba">난바·신사이바시</a></h4>
+     <dl><dt>장점</dt><dd>간사이공항에서 난카이선으로 바로 오고, 도톤보리 먹거리가 코앞이에요.</dd><dt>단점</dt><dd>밤늦게까지 붐비고 시끄러워요. 교토로 갈 때는 우메다보다 조금 멀어요.</dd><dt>이런 분께</dt><dd>첫 오사카 여행, 맛집 탐방이 목적인 분</dd></dl><p class="stmore"><a class="more" href="/osaka/stay/namba/" data-stayc="osaka" data-sub="namba">난바·신사이바시 숙소 자세히 보기<i> →</i></a></p></article><article class="gblk starea"><h4><a href="/osaka/stay/umeda/" data-stayc="osaka" data-sub="umeda">우메다(오사카역)</a></h4>
+     <dl><dt>장점</dt><dd>JR·한큐·한신이 모여 교토·고베·나라 당일치기가 편해요. 백화점과 식당가도 많아요.</dd><dt>단점</dt><dd>역과 지하상가가 복잡해서 처음엔 길을 잃기 쉬워요.</dd><dt>이런 분께</dt><dd>교토·고베를 자주 오가는 분</dd></dl><p class="stmore"><a class="more" href="/osaka/stay/umeda/" data-stayc="osaka" data-sub="umeda">우메다(오사카역) 숙소 자세히 보기<i> →</i></a></p></article><article class="gblk starea"><h4><a href="/osaka/stay/tennoji/" data-stayc="osaka" data-sub="tennoji">덴노지·신세카이</a></h4>
+     <dl><dt>장점</dt><dd>숙소값이 싼 편이고, 간사이공항 특급 하루카가 덴노지에 서요.</dd><dt>단점</dt><dd>밤 분위기는 호불호가 갈려요. 북쪽 관광지까지는 갈아타야 해요.</dd><dt>이런 분께</dt><dd>가성비를 따지는 분, 간사이공항을 JR로 이용하는 분</dd></dl><p class="stmore"><a class="more" href="/osaka/stay/tennoji/" data-stayc="osaka" data-sub="tennoji">덴노지·신세카이 숙소 자세히 보기<i> →</i></a></p></article><article class="gblk starea"><h4><a href="/osaka/stay/kyotoeki/" data-stayc="osaka" data-sub="kyotoeki">교토역 주변</a></h4>
+     <dl><dt>장점</dt><dd>신칸센·공항 특급이 서고 버스터미널이 있어 짐 들고 움직이기 편해요.</dd><dt>단점</dt><dd>기요미즈데라·기온 등 주요 관광지까지는 버스나 전철을 타야 해요.</dd><dt>이런 분께</dt><dd>짐이 많은 분, 교토를 여러 날 둘러보는 분</dd></dl><p class="stmore"><a class="more" href="/osaka/stay/kyotoeki/" data-stayc="osaka" data-sub="kyotoeki">교토역 주변 숙소 자세히 보기<i> →</i></a></p></article><article class="gblk starea"><h4><a href="/osaka/stay/kawaramachi/" data-stayc="osaka" data-sub="kawaramachi">가와라마치·기온</a></h4>
+     <dl><dt>장점</dt><dd>기온·폰토초·니시키 시장을 걸어서 다닐 수 있고, 아침 일찍 한산한 거리를 볼 수 있어요.</dd><dt>단점</dt><dd>숙박비가 비싸고 성수기엔 방 구하기가 어려워요.</dd><dt>이런 분께</dt><dd>교토의 옛 거리 분위기를 오래 즐기고 싶은 분</dd></dl><p class="stmore"><a class="more" href="/osaka/stay/kawaramachi/" data-stayc="osaka" data-sub="kawaramachi">가와라마치·기온 숙소 자세히 보기<i> →</i></a></p></article></div>
    <section class="gblk faq" itemscope="" itemtype="https://schema.org/FAQPage"><h4>자주 묻는 질문</h4><dl><div class="faqi" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">오사카에서는 어느 동네에 묵는 게 좋나요?</dt><dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><span><b>난바·신사이바시</b>: <span>첫 오사카 여행, 맛집 탐방이 목적인 분</span></span> / <span><b>우메다(오사카역)</b>: <span>교토·고베를 자주 오가는 분</span></span> / <span><b>덴노지·신세카이</b>: <span>가성비를 따지는 분, 간사이공항을 JR로 이용하는 분</span></span> / <span><b>교토역 주변</b>: <span>짐이 많은 분, 교토를 여러 날 둘러보는 분</span></span> / <span><b>가와라마치·기온</b>: <span>교토의 옛 거리 분위기를 오래 즐기고 싶은 분</span></span></div></dd></div></dl></section>
    <section class="apsec"><div class="sechead"><div><h2>공항에서 시내 가는 법</h2><p>공항을 누르면 지역별로 가는 방법과 걸리는 시간을 볼 수 있어요.</p></div></div><div class="wxmon"><a href="/airport/kansai/" data-apa="kansai" data-apk="">간사이공항</a></div></section>
    <div class="wxlinks"><a class="btn ghost" href="/osaka/stay/hotels/" data-stayc="osaka" data-sub="hotels">추천 숙소<i> →</i></a><a class="btn ghost" href="/osaka/stay/booking/" data-stayc="osaka" data-sub="booking">예약 방법<i> →</i></a></div>
@@ -119,10 +119,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b36658c1"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=b36658c1"></script>
-<script src="/autoreserve.js?v=b36658c1"></script>
-<script src="/google_picks.js?v=b36658c1"></script>
-<script src="/geo.js?v=b36658c1"></script>
-<script src="/app.js?v=b36658c1"></script>
+<script src="/areas.js?v=458710d4"></script>
+<script src="/autoreserve.js?v=458710d4"></script>
+<script src="/google_picks.js?v=458710d4"></script>
+<script src="/geo.js?v=458710d4"></script>
+<script src="/app.js?v=458710d4"></script>
 </body>
 </html>

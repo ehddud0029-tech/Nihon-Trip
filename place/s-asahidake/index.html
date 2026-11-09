@@ -36,14 +36,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=b36658c1">
+<link rel="stylesheet" href="/app.css?v=458710d4">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b36658c1"><\/script><script src="'+B+'engine.js?v=b36658c1"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=458710d4"><\/script><script src="'+B+'engine.js?v=458710d4"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -76,8 +76,8 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b36658c1"><\/s
   <h1 id="heroTitle">홋카이도 · 아사히카와, 무엇부터 볼까요?</h1>
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="이전 지역 보기" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="지역 선택"><button class="city" type="button" data-city="all" aria-pressed="false">전체<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">도쿄<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">오사카<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">후쿠오카<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="true">홋카이도<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">오키나와<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">나고야<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">히로시마<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">시코쿠<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="다음 지역 보기" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="하위 지역 선택"><button class="area" type="button" data-area="susukino" aria-pressed="false">삿포로 스스키노·오도리</button><button class="area" type="button" data-area="sapporoeki" aria-pressed="false">삿포로역</button><button class="area" type="button" data-area="otaru" aria-pressed="false">오타루</button><button class="area" type="button" data-area="hakodate" aria-pressed="false">하코다테</button><button class="area" type="button" data-area="asahikawa" aria-pressed="true">아사히카와</button><button class="area" type="button" data-area="furano" aria-pressed="false">후라노·비에이</button></div>
-  <dl class="brief" id="brief"><div class="beat"><dt>아사히카와 추천 맛집</dt><ol class="picks"><li><button type="button" class="pick" data-chip="menu" data-v="washoku"><b>코니시즈시</b><em class="pm">스시</em><span class="pd">스시</span></button></li><li><button type="button" class="pick" data-chip="menu" data-v="izakaya"><b>홋카이도사카나이추 직영어톤야</b><em class="pm">이자카야</em><span class="pd">해산물·지역 술</span></button></li><li><button type="button" class="pick" data-chip="menu" data-v="meat"><b>야키니쿠 와지마</b><em class="pm">고기</em><span class="pd">야키니쿠</span></button></li></ol>
-      <dd class="sub">메뉴를 누르면 아래 목록이 그 메뉴로 바뀌어요</dd></div><div class="broute"><dt>공항에서 아사히카와 가는 법</dt><dd class=""><span class="rt"><span class="mode m-버스">버스</span> 아사히카와공항 → 아사히카와역 <b class="min">약 35분</b></span><br><small>공항 연락버스</small></dd><dd class="sub rnote">갈아타지 않고 바로 가요</dd></div></dl>
+  <dl class="brief" id="brief"><div class="beat"><dt>아사히카와 추천 맛집</dt><ol class="picks"><li><a class="pick" href="https://autoreserve.com/ko/restaurants/JsDDEWDCpr1eTq6y6jy5" target="_blank" rel="noopener"><b>코니시즈시</b><em class="pm">스시</em><span class="pd">스시</span></a></li><li><a class="pick" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8C%97%E6%B5%B7%E9%81%93%E3%81%95%E3%81%8B%E3%81%AA%E4%B8%80%E9%80%94%20%E7%9B%B4%E5%96%B6%E9%AD%9A%E5%95%8F%E5%B1%8B%20%E5%8C%97%E6%B5%B7%E9%81%93" target="_blank" rel="noopener"><b>홋카이도사카나이추 직영어톤야</b><em class="pm">이자카야</em><span class="pd">해산물·지역 술</span></a></li><li><a class="pick" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%84%BC%E8%82%89%20%E3%82%8F%E3%81%98%E3%81%BE%20%E5%8C%97%E6%B5%B7%E9%81%93" target="_blank" rel="noopener"><b>야키니쿠 와지마</b><em class="pm">고기</em><span class="pd">야키니쿠</span></a></li></ol>
+      </div><div class="broute"><dt>공항에서 아사히카와 가는 법</dt><dd class=""><span class="rt"><span class="mode m-버스">버스</span> 아사히카와공항 → 아사히카와역 <b class="min">약 35분</b></span><br><small>공항 연락버스</small></dd><dd class="sub rnote">갈아타지 않고 바로 가요</dd></div></dl>
   <div class="wx" id="wx" hidden=""></div>
   <div class="wxnote" id="wxnote">실시간 날씨를 불러오지 못해 평년값을 보여드려요.</div>
 </section>
@@ -147,10 +147,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b36658c1"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=b36658c1"></script>
-<script src="/autoreserve.js?v=b36658c1"></script>
-<script src="/google_picks.js?v=b36658c1"></script>
-<script src="/geo.js?v=b36658c1"></script>
-<script src="/app.js?v=b36658c1"></script>
+<script src="/areas.js?v=458710d4"></script>
+<script src="/autoreserve.js?v=458710d4"></script>
+<script src="/google_picks.js?v=458710d4"></script>
+<script src="/geo.js?v=458710d4"></script>
+<script src="/app.js?v=458710d4"></script>
 </body>
 </html>

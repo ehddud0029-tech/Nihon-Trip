@@ -36,14 +36,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=b36658c1">
+<link rel="stylesheet" href="/app.css?v=458710d4">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b36658c1"><\/script><script src="'+B+'engine.js?v=b36658c1"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=458710d4"><\/script><script src="'+B+'engine.js?v=458710d4"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -76,8 +76,8 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b36658c1"><\/s
   <h1 id="heroTitle">東京・鎌倉・江の島、何から見ましょうか？</h1>
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="前の地域を見る" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="地域を選択"><button class="city" type="button" data-city="all" aria-pressed="false">すべて<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="true">東京<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">大阪<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">福岡<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">北海道<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">沖縄<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">名古屋<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">広島<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">四国<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="次の地域を見る" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="エリアを選択"><button class="area" type="button" data-area="shinjuku" aria-pressed="false">新宿</button><button class="area" type="button" data-area="shibuya" aria-pressed="false">渋谷・恵比寿・六本木</button><button class="area" type="button" data-area="ginza" aria-pressed="false">銀座・築地</button><button class="area" type="button" data-area="asakusa" aria-pressed="false">浅草・上野</button><button class="area" type="button" data-area="tokyoeki" aria-pressed="false">東京駅・神田</button><button class="area" type="button" data-area="yokohama" aria-pressed="false">横浜</button><button class="area" type="button" data-area="kamakura" aria-pressed="true">鎌倉・江の島</button><button class="area" type="button" data-area="hakone" aria-pressed="false">箱根</button><button class="area" type="button" data-area="fuji" aria-pressed="false">富士山・河口湖</button></div>
-  <dl class="brief" id="brief"><div class="beat"><dt>鎌倉・江の島のおすすめグルメ</dt><ol class="picks"><li><button type="button" class="pick" data-chip="menu" data-v="washoku"><b>鮨ト酒 ナカニワ</b><em class="pm">寿司</em><span class="pd">寿司</span></button></li><li><button type="button" class="pick" data-chip="menu" data-v="izakaya"><b>くすくす</b><em class="pm">居酒屋</em><span class="pd">海鮮料理</span></button></li><li><button type="button" class="pick" data-chip="menu" data-v="meat"><b>焼肉ホルモンやまと 大船店</b><em class="pm">肉料理</em><span class="pd">A5和牛焼肉</span></button></li></ol>
-      <dd class="sub">メニューを押すと下のリストがそのメニューに変わります</dd></div><div class="broute"><dt>空港から鎌倉・江の島への行き方</dt><dd class=""><span class="rt"><span class="step">1</span><span class="mode m-전철">電車</span> 羽田空港 → 横浜駅 <b class="min">約25分</b></span><br><small>京急線</small></dd><dd class="sub"><span class="rt"><span class="step">2</span><span class="mode m-기차">列車</span> 横浜駅 → 鎌倉駅 <b class="min">約25分</b></span><br><small>JR横須賀線</small></dd><dd class="sub rnote">横浜駅で乗り換え · 合計約60分</dd></div></dl>
+  <dl class="brief" id="brief"><div class="beat"><dt>鎌倉・江の島のおすすめグルメ</dt><ol class="picks"><li><a class="pick" href="https://autoreserve.com/ja/restaurants/oMjd7kE6wKtXjQ9tQKqB" target="_blank" rel="noopener"><b>鮨ト酒 ナカニワ</b><em class="pm">寿司</em><span class="pd">寿司</span></a></li><li><a class="pick" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%8F%E3%81%99%E3%81%8F%E3%81%99%20%E7%A5%9E%E5%A5%88%E5%B7%9D" target="_blank" rel="noopener"><b>くすくす</b><em class="pm">居酒屋</em><span class="pd">海鮮料理</span></a></li><li><a class="pick" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%84%BC%E8%82%89%E3%83%9B%E3%83%AB%E3%83%A2%E3%83%B3%E3%82%84%E3%81%BE%E3%81%A8%20%E5%A4%A7%E8%88%B9%E5%BA%97%20%E7%A5%9E%E5%A5%88%E5%B7%9D" target="_blank" rel="noopener"><b>焼肉ホルモンやまと 大船店</b><em class="pm">肉料理</em><span class="pd">A5和牛焼肉</span></a></li></ol>
+      </div><div class="broute"><dt>空港から鎌倉・江の島への行き方</dt><dd class=""><span class="rt"><span class="step">1</span><span class="mode m-전철">電車</span> 羽田空港 → 横浜駅 <b class="min">約25分</b></span><br><small>京急線</small></dd><dd class="sub"><span class="rt"><span class="step">2</span><span class="mode m-기차">列車</span> 横浜駅 → 鎌倉駅 <b class="min">約25分</b></span><br><small>JR横須賀線</small></dd><dd class="sub rnote">横浜駅で乗り換え · 合計約60分</dd></div></dl>
   <div class="wx" id="wx" hidden=""></div>
   <div class="wxnote" id="wxnote">リアルタイムの天気を読み込めなかったため平年値を表示しています。</div>
 </section>
@@ -101,7 +101,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b36658c1"><\/s
 </div>
    <div class="credit">사진:Fg2 · Public domain · <a href="https://commons.wikimedia.org/wiki/File:TsurugaokaHachiman-M8867.jpg" target="_blank" rel="noopener">写真の元ページ ↗</a></div></div></div>
    <section class="pl-more"><h2>同じエリアのほかのスポット</h2><div class="grid"><a class="card" href="/ja/place/s-daibutsu/" data-open="s_daibutsu" style="--c:var(--shu)">
-    <div class="plate"><span class="tag">史跡・寺社</span><span class="where">鎌倉・江の島</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5c3 .8 15 .8 18 0M5 6.8 4.6 9M19 6.8l.4 2.2M3.5 9.5h17M7 9.5V21M17 9.5V21M11 9.5v3h2v-3"></path></svg></span><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Templo_K%C5%8Dtoku-in%2C_Kamakura_-_2026_-_05.jpg/960px-Templo_K%C5%8Dtoku-in%2C_Kamakura_-_2026_-_05.jpg?utm_source=en.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="鎌倉大仏 高徳院" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
+    <div class="plate"><span class="tag">史跡・寺社</span><span class="where">鎌倉・江の島</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5c3 .8 15 .8 18 0M5 6.8 4.6 9M19 6.8l.4 2.2M3.5 9.5h17M7 9.5V21M17 9.5V21M11 9.5v3h2v-3"></path></svg></span><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Templo_K%C5%8Dtoku-in%2C_Kamakura_-_2026_-_05.jpg/960px-Templo_K%C5%8Dtoku-in%2C_Kamakura_-_2026_-_05.jpg?utm_source=en.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="鎌倉大仏 高徳院" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="ok"></div>
     <div class="body"><h3>鎌倉大仏 高徳院</h3><div class="jpn">鎌倉大仏 高徳院</div><p>高さ約11mの青銅の阿弥陀如来坐像。大仏の内部にも入れます。</p>
     <div class="meta"><span>江ノ電長谷駅</span><span class="feeb paid" title="300円"><b>料金</b> 300円</span></div></div></a><a class="card" href="/ja/place/s-hasedera/" data-open="s_hasedera" style="--c:var(--shu)">
     <div class="plate"><span class="tag">史跡・寺社</span><span class="where">鎌倉・江の島</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5c3 .8 15 .8 18 0M5 6.8 4.6 9M19 6.8l.4 2.2M3.5 9.5h17M7 9.5V21M17 9.5V21M11 9.5v3h2v-3"></path></svg></span><img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/HasederaKannondo20120716.jpg?utm_source=en.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail_unscaled" alt="長谷寺" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
@@ -147,10 +147,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b36658c1"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=b36658c1"></script>
-<script src="/autoreserve.js?v=b36658c1"></script>
-<script src="/google_picks.js?v=b36658c1"></script>
-<script src="/geo.js?v=b36658c1"></script>
-<script src="/app.js?v=b36658c1"></script>
+<script src="/areas.js?v=458710d4"></script>
+<script src="/autoreserve.js?v=458710d4"></script>
+<script src="/google_picks.js?v=458710d4"></script>
+<script src="/geo.js?v=458710d4"></script>
+<script src="/app.js?v=458710d4"></script>
 </body>
 </html>

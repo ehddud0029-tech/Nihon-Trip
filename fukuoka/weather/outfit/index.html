@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=b36658c1">
+<link rel="stylesheet" href="/app.css?v=458710d4">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b36658c1"><\/script><script src="'+B+'engine.js?v=b36658c1"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=458710d4"><\/script><script src="'+B+'engine.js?v=458710d4"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -74,18 +74,18 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b36658c1"><\/s
 
 <section class="hero wrap">
   <div class="eyebrow">日本旅行 · 여행 준비</div>
-  <h1 id="heroTitle">후쿠오카 · 하카타역, 무엇부터 볼까요?</h1>
+  <h1 id="heroTitle">후쿠오카 월별 옷차림 – 1월부터 12월까지 뭘 입을까</h1>
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="이전 지역 보기" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="지역 선택"><button class="city" type="button" data-city="tokyo" aria-pressed="false">도쿄<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">오사카<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="true">후쿠오카<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">홋카이도<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">오키나와<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">나고야<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">히로시마<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">시코쿠<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="다음 지역 보기" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="하위 지역 선택"><button class="area" type="button" data-area="hakata" aria-pressed="true">하카타역</button><button class="area" type="button" data-area="tenjin" aria-pressed="false">텐진·다이묘</button><button class="area" type="button" data-area="nakasu" aria-pressed="false">나카스·하루요시</button><button class="area" type="button" data-area="dazaifu" aria-pressed="false">다자이후</button><button class="area" type="button" data-area="itoshima" aria-pressed="false">이토시마</button><button class="area" type="button" data-area="yufuin" aria-pressed="false">유후인</button><button class="area" type="button" data-area="beppu" aria-pressed="false">벳푸</button></div>
-  <dl class="brief" id="brief"><div class="beat"><dt>하카타역 추천 맛집</dt><ol class="picks"><li><button type="button" class="pick" data-chip="menu" data-v="washoku"><b>하카타 스시 코우게츠</b><em class="pm">스시</em><span class="pd">하카타 스시</span></button></li><li><button type="button" class="pick" data-chip="menu" data-v="izakaya"><b>사케도코로 아카리</b><em class="pm">이자카야</em><span class="pd">규슈 안주·지역 술</span></button></li><li><button type="button" class="pick" data-chip="menu" data-v="meat"><b>야키니쿠 얏짱</b><em class="pm">고기</em><span class="pd">야키니쿠</span></button></li></ol>
-      <dd class="sub">메뉴를 누르면 아래 목록이 그 메뉴로 바뀌어요</dd></div><div class="broute"><dt>공항에서 하카타역 가는 법</dt><dd class=""><span class="rt"><span class="mode m-버스">버스</span> 공항 국제선 → 하카타역 <b class="min">약 15분</b></span><br><small>니시테쓰 직행버스 (국제선 터미널 출발)</small></dd><dd class="sub"><span class="rt"><span class="mode m-지하철">지하철</span> 공항 국내선 → 하카타역 <b class="min">약 5분</b></span><br><small>지하철 공항선 (국제선에서는 무료 연결버스 약 10분)</small></dd><dd class="sub rnote">갈아타지 않고 바로 가요</dd></div></dl>
+  <dl class="brief" id="brief"><div class="beat"><dt>하카타역 추천 맛집</dt><ol class="picks"><li><a class="pick" href="https://autoreserve.com/ko/restaurants/eqLKnVRtqvRbd5scESgS" target="_blank" rel="noopener"><b>하카타 스시 코우게츠</b><em class="pm">스시</em><span class="pd">하카타 스시</span></a></li><li><a class="pick" href="https://autoreserve.com/ko/restaurants/1aZGQtyvpTCGUdTrM6zT" target="_blank" rel="noopener"><b>사케도코로 아카리</b><em class="pm">이자카야</em><span class="pd">규슈 안주·지역 술</span></a></li><li><a class="pick" href="https://autoreserve.com/ko/restaurants/vX6rnoUPQni5asPUeM4V" target="_blank" rel="noopener"><b>야키니쿠 얏짱</b><em class="pm">고기</em><span class="pd">야키니쿠</span></a></li></ol>
+      </div><div class="broute"><dt>공항에서 하카타역 가는 법</dt><dd class=""><span class="rt"><span class="mode m-버스">버스</span> 공항 국제선 → 하카타역 <b class="min">약 15분</b></span><br><small>니시테쓰 직행버스 (국제선 터미널 출발)</small></dd><dd class="sub"><span class="rt"><span class="mode m-지하철">지하철</span> 공항 국내선 → 하카타역 <b class="min">약 5분</b></span><br><small>지하철 공항선 (국제선에서는 무료 연결버스 약 10분)</small></dd><dd class="sub rnote">갈아타지 않고 바로 가요</dd></div></dl>
   <div class="wx" id="wx" hidden=""></div>
   <div class="wxnote" id="wxnote">실시간 날씨를 불러오지 못해 평년값을 보여드려요.</div>
 </section>
 
 <main class="wrap" id="main"><div class="wx"><nav class="wxcrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a itemprop="item" href="/fukuoka/weather/" data-wxc="fukuoka" data-wxm="0"><span itemprop="name">후쿠오카</span></a><meta itemprop="position" content="1"></span></nav>
      <div class="ghead"><h2>후쿠오카 월별 날씨와 옷차림</h2><p>달을 누르면 그달의 옷차림과 챙기면 좋은 것을 볼 수 있어요.</p></div>
-     <div class="wxmon wxcit"><a href="/tokyo/weather/" data-wxc="tokyo" data-wxm="0">도쿄</a><a href="/osaka/weather/" data-wxc="osaka" data-wxm="0">오사카</a><a href="/nagoya/weather/" data-wxc="nagoya" data-wxm="0">나고야</a><a href="/hiroshima/weather/" data-wxc="hiroshima" data-wxm="0">히로시마</a><a href="/shikoku/weather/" data-wxc="shikoku" data-wxm="0">시코쿠</a><a class="on" href="/fukuoka/weather/" data-wxc="fukuoka" data-wxm="0">후쿠오카</a><a href="/hokkaido/weather/" data-wxc="hokkaido" data-wxm="0">홋카이도</a><a href="/okinawa/weather/" data-wxc="okinawa" data-wxm="0">오키나와</a></div>
+     <div class="wxmon wxcit"><a href="/tokyo/weather/" data-wxc="tokyo" data-wxm="0">도쿄</a><a href="/osaka/weather/" data-wxc="osaka" data-wxm="0">오사카</a><a href="/kyoto/weather/" data-wxc="kyoto" data-wxm="0">교토</a><a href="/nara/weather/" data-wxc="nara" data-wxm="0">나라</a><a href="/nagoya/weather/" data-wxc="nagoya" data-wxm="0">나고야</a><a href="/takayama/weather/" data-wxc="takayama" data-wxm="0">다카야마</a><a href="/hiroshima/weather/" data-wxc="hiroshima" data-wxm="0">히로시마</a><a href="/shikoku/weather/" data-wxc="shikoku" data-wxm="0">시코쿠</a><a class="on" href="/fukuoka/weather/" data-wxc="fukuoka" data-wxm="0">후쿠오카</a><a href="/hokkaido/weather/" data-wxc="hokkaido" data-wxm="0">홋카이도</a><a href="/hakodate/weather/" data-wxc="hakodate" data-wxm="0">하코다테</a><a href="/okinawa/weather/" data-wxc="okinawa" data-wxm="0">오키나와</a><a href="/ishigaki/weather/" data-wxc="ishigaki" data-wxm="0">이시가키</a></div>
      <nav class="dtabs sbtabs"><a href="/fukuoka/weather/" data-subtab="">월별 기온·강수</a><a href="/fukuoka/weather/outfit/" data-subtab="outfit" class="on" aria-current="page">월별 옷차림</a><a href="/fukuoka/weather/faq/" data-subtab="faq">자주 묻는 질문</a></nav>
      <div class="wxgrid"><article class="wxcard"><h3>1월</h3>
        <div class="wxsts"><div class="wxst hi"><span>평균 최고</span><b>10°</b></div><div class="wxst lo"><span>평균 최저</span><b>4°</b></div></div>
@@ -124,7 +124,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b36658c1"><\/s
        <div class="wxsts"><div class="wxst hi"><span>평균 최고</span><b>13°</b></div><div class="wxst lo"><span>평균 최저</span><b>6°</b></div></div>
        <p class="wxo"><span>추천 옷차림</span> 코트와 니트, 쌀쌀한 날엔 경량 패딩</p><ul class="gul"><li>아침저녁과 낮의 기온 차가 커요. 벗고 입기 쉬운 겉옷을 챙기세요.</li><li>해가 지면 쌀쌀해요. 얇은 머플러나 스카프가 있으면 좋아요.</li></ul>
        <a class="more" href="/fukuoka/weather/12/" data-wxc="fukuoka" data-wxm="12">자세히 보기<i> →</i></a></article></div>
-     <p class="sisrc">기상청 평년값(1991~2020년) 기준이에요. 그해 날씨에 따라 다를 수 있어요.</p><p class="sisrc">홋카이도는 삿포로, 오키나와는 나하, 시코쿠는 다카마쓰 관측값이에요.</p>
+     <p class="sisrc">기상청 평년값(1991~2020년) 기준이에요. 그해 날씨에 따라 다를 수 있어요.</p><p class="sisrc">홋카이도는 삿포로, 오키나와는 나하, 시코쿠는 다카마쓰 관측값이에요.</p><p class="sisrc">교토·나라·다카야마·하코다테·이시가키는 그 지역 관측값이에요.</p>
     </div></main>
 
 <footer><div class="wrap">Go Nihon Trip · 날씨 <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · 사진 <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> (각 사진의 저작자·라이선스는 상세 화면에 표시) · 이동 시간·운영 정보는 바뀔 수 있으니 공식 사이트에서 다시 확인하세요.<div class="flinks"><a href="/about/" data-view="about">사이트 소개</a> · <a href="/contact/" data-view="contact">문의하기</a> · <a href="/privacy/" data-view="privacy">개인정보처리방침</a></div></div></footer>
@@ -146,10 +146,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b36658c1"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=b36658c1"></script>
-<script src="/autoreserve.js?v=b36658c1"></script>
-<script src="/google_picks.js?v=b36658c1"></script>
-<script src="/geo.js?v=b36658c1"></script>
-<script src="/app.js?v=b36658c1"></script>
+<script src="/areas.js?v=458710d4"></script>
+<script src="/autoreserve.js?v=458710d4"></script>
+<script src="/google_picks.js?v=458710d4"></script>
+<script src="/geo.js?v=458710d4"></script>
+<script src="/app.js?v=458710d4"></script>
 </body>
 </html>

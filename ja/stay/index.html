@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=b36658c1">
+<link rel="stylesheet" href="/app.css?v=458710d4">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b36658c1"><\/script><script src="'+B+'engine.js?v=b36658c1"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=458710d4"><\/script><script src="'+B+'engine.js?v=458710d4"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -74,7 +74,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b36658c1"><\/s
 
 <section class="hero wrap">
   <div class="eyebrow">日本旅行 · 旅の準備</div>
-  <h1 id="heroTitle">どの地域から見て回りましょうか？</h1>
+  <h1 id="heroTitle">日本の宿泊エリアガイド – 地域別のおすすめエリアと予約のコツ</h1>
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="前の地域を見る" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="地域を選択"><button class="city" type="button" data-city="all" aria-pressed="true">すべて<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">東京<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">大阪<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">福岡<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">北海道<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">沖縄<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">名古屋<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">広島<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">四国<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="次の地域を見る" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="エリアを選択" hidden=""></div>
   <dl class="brief ball" id="brief">
@@ -100,54 +100,54 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b36658c1"><\/s
      <nav class="wxmon stjump"><a href="#st-tokyo" data-stjump="tokyo">東京</a><a href="#st-osaka" data-stjump="osaka">大阪</a><a href="#st-fukuoka" data-stjump="fukuoka">福岡</a><a href="#st-hokkaido" data-stjump="hokkaido">北海道</a><a href="#st-okinawa" data-stjump="okinawa">沖縄</a><a href="#st-nagoya" data-stjump="nagoya">名古屋</a><a href="#st-hiroshima" data-stjump="hiroshima">広島</a><a href="#st-shikoku" data-stjump="shikoku">四国</a></nav>
      <div class="gblk"><h4>宿選びのポイント</h4><ul class="gul"><li>駅から徒歩5〜10分以内だと荷物があっても楽です。まず地図で最寄り駅と出口を確認しましょう。</li><li>日本のホテルの部屋は狭めです。大きなスーツケースが2つ以上なら部屋の広さ（㎡）を確認しましょう。</li><li>東京・大阪・京都・福岡などでは宿泊税が別途かかります。予約金額に含まれているか確認しましょう。</li><li>桜・紅葉の時期や大きな祭りの期間は数か月前から埋まります。日程が決まったらキャンセル可能なプランで先に押さえましょう。</li></ul></div>
      <section class="stsec" id="st-tokyo"><h3 class="sgh"><span>東京</span></h3><p class="stsub">初めてなら交通の便がいい新宿か東京駅周辺が無難です。</p>
-        <div class="stgrid"><article class="gblk starea stc"><h4>新宿</h4><p class="stfor"><span>こんな人に</span> 初めての東京旅行で、交通の便を最優先する人</p>
-     <dl class="stpc"><dt>長所</dt><dd>路線が最も多く集まり、空港バスもあります。夜遅くまで食事や遊びに困りません。</dd><dt>短所</dt><dd>駅がとても大きく複雑です。歌舞伎町周辺は夜騒がしいです。</dd></dl></article><article class="gblk starea stc"><h4>渋谷</h4><p class="stfor"><span>こんな人に</span> 買い物と夜景を楽しみたい人</p>
-     <dl class="stpc"><dt>長所</dt><dd>買い物やトレンドの店が近く、原宿・表参道まで歩けます。</dd><dt>短所</dt><dd>宿泊費は高めで、週末はとても混みます。</dd></dl></article><article class="gblk starea stc"><h4>上野・浅草</h4><p class="stfor"><span>こんな人に</span> コスパ重視の人、成田空港を使う人</p>
-     <dl class="stpc"><dt>長所</dt><dd>宿泊費が比較的安く、成田空港行きのスカイライナーが上野から出ます。</dd><dt>短所</dt><dd>渋谷・新宿など西側までは30分以上かかります。夜は早めに静かになります。</dd></dl></article><article class="gblk starea stc"><h4>東京駅・銀座</h4><p class="stfor"><span>こんな人に</span> 近郊によく出かける人、静かな宿がいい人</p>
+        <div class="stgrid"><article class="gblk starea stc"><h4><a href="/ja/tokyo/stay/shinjuku/" data-stayc="tokyo" data-sub="shinjuku">新宿</a></h4><p class="stfor"><span>こんな人に</span> 初めての東京旅行で、交通の便を最優先する人</p>
+     <dl class="stpc"><dt>長所</dt><dd>路線が最も多く集まり、空港バスもあります。夜遅くまで食事や遊びに困りません。</dd><dt>短所</dt><dd>駅がとても大きく複雑です。歌舞伎町周辺は夜騒がしいです。</dd></dl></article><article class="gblk starea stc"><h4><a href="/ja/tokyo/stay/shibuya/" data-stayc="tokyo" data-sub="shibuya">渋谷</a></h4><p class="stfor"><span>こんな人に</span> 買い物と夜景を楽しみたい人</p>
+     <dl class="stpc"><dt>長所</dt><dd>買い物やトレンドの店が近く、原宿・表参道まで歩けます。</dd><dt>短所</dt><dd>宿泊費は高めで、週末はとても混みます。</dd></dl></article><article class="gblk starea stc"><h4><a href="/ja/tokyo/stay/ueno/" data-stayc="tokyo" data-sub="ueno">上野・浅草</a></h4><p class="stfor"><span>こんな人に</span> コスパ重視の人、成田空港を使う人</p>
+     <dl class="stpc"><dt>長所</dt><dd>宿泊費が比較的安く、成田空港行きのスカイライナーが上野から出ます。</dd><dt>短所</dt><dd>渋谷・新宿など西側までは30分以上かかります。夜は早めに静かになります。</dd></dl></article><article class="gblk starea stc"><h4><a href="/ja/tokyo/stay/tokyoeki/" data-stayc="tokyo" data-sub="tokyoeki">東京駅・銀座</a></h4><p class="stfor"><span>こんな人に</span> 近郊によく出かける人、静かな宿がいい人</p>
      <dl class="stpc"><dt>長所</dt><dd>新幹線や空港へのアクセスがよく、街並みもきれいです。箱根・鎌倉への日帰りにも便利。</dd><dt>短所</dt><dd>宿泊費が高く、夜は閉まる店が多いです。</dd></dl></article></div>
         <button type="button" class="stxbtn" data-sttog="tokyo"><span class="o">長所・短所を見る</span><span class="c">長所・短所を閉じる</span></button>
         <p class="stmore"><a class="more" href="/ja/tokyo/stay/" data-stayc="tokyo" data-sub="">東京の宿泊情報をもっと見る<i> →</i></a></p></section><section class="stsec" id="st-osaka"><h3 class="sgh"><span>大阪・京都</span></h3><p class="stsub">大阪に泊まって京都・奈良へ日帰りする人が多いです。京都に長くいるなら京都泊もおすすめ。</p>
-        <div class="stgrid"><article class="gblk starea stc"><h4>難波・心斎橋</h4><p class="stfor"><span>こんな人に</span> 初めての大阪旅行、食べ歩きが目的の人</p>
-     <dl class="stpc"><dt>長所</dt><dd>関西空港から南海線で直行でき、道頓堀のグルメが目の前です。</dd><dt>短所</dt><dd>夜遅くまで混雑し騒がしいです。京都へは梅田より少し遠いです。</dd></dl></article><article class="gblk starea stc"><h4>梅田（大阪駅）</h4><p class="stfor"><span>こんな人に</span> 京都・神戸によく行き来する人</p>
-     <dl class="stpc"><dt>長所</dt><dd>JR・阪急・阪神が集まり、京都・神戸・奈良への日帰りが便利です。百貨店や飲食店街も充実。</dd><dt>短所</dt><dd>駅と地下街が複雑で、最初は迷いやすいです。</dd></dl></article><article class="gblk starea stc"><h4>天王寺・新世界</h4><p class="stfor"><span>こんな人に</span> コスパ重視の人、関西空港をJRで使う人</p>
-     <dl class="stpc"><dt>長所</dt><dd>宿泊費が安めで、関西空港特急はるかが天王寺に停まります。</dd><dt>短所</dt><dd>夜の雰囲気は好みが分かれます。北側の観光地へは乗り換えが必要です。</dd></dl></article><article class="gblk starea stc"><h4>京都駅周辺</h4><p class="stfor"><span>こんな人に</span> 荷物が多い人、京都に数日滞在する人</p>
-     <dl class="stpc"><dt>長所</dt><dd>新幹線・空港特急が停まり、バスターミナルもあるので荷物があっても移動が楽です。</dd><dt>短所</dt><dd>清水寺・祇園など主な観光地へはバスや電車が必要です。</dd></dl></article><article class="gblk starea stc"><h4>河原町・祇園</h4><p class="stfor"><span>こんな人に</span> 京都の古い街並みをゆっくり楽しみたい人</p>
+        <div class="stgrid"><article class="gblk starea stc"><h4><a href="/ja/osaka/stay/namba/" data-stayc="osaka" data-sub="namba">難波・心斎橋</a></h4><p class="stfor"><span>こんな人に</span> 初めての大阪旅行、食べ歩きが目的の人</p>
+     <dl class="stpc"><dt>長所</dt><dd>関西空港から南海線で直行でき、道頓堀のグルメが目の前です。</dd><dt>短所</dt><dd>夜遅くまで混雑し騒がしいです。京都へは梅田より少し遠いです。</dd></dl></article><article class="gblk starea stc"><h4><a href="/ja/osaka/stay/umeda/" data-stayc="osaka" data-sub="umeda">梅田（大阪駅）</a></h4><p class="stfor"><span>こんな人に</span> 京都・神戸によく行き来する人</p>
+     <dl class="stpc"><dt>長所</dt><dd>JR・阪急・阪神が集まり、京都・神戸・奈良への日帰りが便利です。百貨店や飲食店街も充実。</dd><dt>短所</dt><dd>駅と地下街が複雑で、最初は迷いやすいです。</dd></dl></article><article class="gblk starea stc"><h4><a href="/ja/osaka/stay/tennoji/" data-stayc="osaka" data-sub="tennoji">天王寺・新世界</a></h4><p class="stfor"><span>こんな人に</span> コスパ重視の人、関西空港をJRで使う人</p>
+     <dl class="stpc"><dt>長所</dt><dd>宿泊費が安めで、関西空港特急はるかが天王寺に停まります。</dd><dt>短所</dt><dd>夜の雰囲気は好みが分かれます。北側の観光地へは乗り換えが必要です。</dd></dl></article><article class="gblk starea stc"><h4><a href="/ja/osaka/stay/kyotoeki/" data-stayc="osaka" data-sub="kyotoeki">京都駅周辺</a></h4><p class="stfor"><span>こんな人に</span> 荷物が多い人、京都に数日滞在する人</p>
+     <dl class="stpc"><dt>長所</dt><dd>新幹線・空港特急が停まり、バスターミナルもあるので荷物があっても移動が楽です。</dd><dt>短所</dt><dd>清水寺・祇園など主な観光地へはバスや電車が必要です。</dd></dl></article><article class="gblk starea stc"><h4><a href="/ja/osaka/stay/kawaramachi/" data-stayc="osaka" data-sub="kawaramachi">河原町・祇園</a></h4><p class="stfor"><span>こんな人に</span> 京都の古い街並みをゆっくり楽しみたい人</p>
      <dl class="stpc"><dt>長所</dt><dd>祇園・先斗町・錦市場へ歩いて行け、朝早くの静かな街並みも楽しめます。</dd><dt>短所</dt><dd>宿泊費が高く、繁忙期は部屋が取りにくいです。</dd></dl></article></div>
         <button type="button" class="stxbtn" data-sttog="osaka"><span class="o">長所・短所を見る</span><span class="c">長所・短所を閉じる</span></button>
         <p class="stmore"><a class="more" href="/ja/osaka/stay/" data-stayc="osaka" data-sub="">大阪の宿泊情報をもっと見る<i> →</i></a></p></section><section class="stsec" id="st-fukuoka"><h3 class="sgh"><span>福岡</span></h3><p class="stsub">街がコンパクトなので、博多・天神・中洲のどこに泊まっても移動は楽です。</p>
-        <div class="stgrid"><article class="gblk starea stc"><h4>博多駅</h4><p class="stfor"><span>こんな人に</span> 短い日程、近郊への移動が多い人</p>
-     <dl class="stpc"><dt>長所</dt><dd>空港から地下鉄で約5分。新幹線や由布院・別府方面の列車・バスが出ます。</dd><dt>短所</dt><dd>夜に遊ぶ所は天神・中洲より少ないです。</dd></dl></article><article class="gblk starea stc"><h4>天神</h4><p class="stfor"><span>こんな人に</span> 買い物とグルメを楽しみたい人</p>
-     <dl class="stpc"><dt>長所</dt><dd>百貨店・地下街・グルメが集まる繁華街。太宰府行きの西鉄電車が出ます。</dd><dt>短所</dt><dd>空港や新幹線駅までは博多駅より少し時間がかかります。</dd></dl></article><article class="gblk starea stc"><h4>中洲・春吉</h4><p class="stfor"><span>こんな人に</span> 屋台と夜の散歩を楽しみたい人</p>
+        <div class="stgrid"><article class="gblk starea stc"><h4><a href="/ja/fukuoka/stay/hakata/" data-stayc="fukuoka" data-sub="hakata">博多駅</a></h4><p class="stfor"><span>こんな人に</span> 短い日程、近郊への移動が多い人</p>
+     <dl class="stpc"><dt>長所</dt><dd>空港から地下鉄で約5分。新幹線や由布院・別府方面の列車・バスが出ます。</dd><dt>短所</dt><dd>夜に遊ぶ所は天神・中洲より少ないです。</dd></dl></article><article class="gblk starea stc"><h4><a href="/ja/fukuoka/stay/tenjin/" data-stayc="fukuoka" data-sub="tenjin">天神</a></h4><p class="stfor"><span>こんな人に</span> 買い物とグルメを楽しみたい人</p>
+     <dl class="stpc"><dt>長所</dt><dd>百貨店・地下街・グルメが集まる繁華街。太宰府行きの西鉄電車が出ます。</dd><dt>短所</dt><dd>空港や新幹線駅までは博多駅より少し時間がかかります。</dd></dl></article><article class="gblk starea stc"><h4><a href="/ja/fukuoka/stay/nakasu/" data-stayc="fukuoka" data-sub="nakasu">中洲・春吉</a></h4><p class="stfor"><span>こんな人に</span> 屋台と夜の散歩を楽しみたい人</p>
      <dl class="stpc"><dt>長所</dt><dd>川沿いの屋台と夜景が目の前で、博多と天神の間なのでどこへも近いです。</dd><dt>短所</dt><dd>歓楽街が混じっているので、夜は少し雑然とした雰囲気です。</dd></dl></article></div>
         <button type="button" class="stxbtn" data-sttog="fukuoka"><span class="o">長所・短所を見る</span><span class="c">長所・短所を閉じる</span></button>
         <p class="stmore"><a class="more" href="/ja/fukuoka/stay/" data-stayc="fukuoka" data-sub="">福岡の宿泊情報をもっと見る<i> →</i></a></p></section><section class="stsec" id="st-hokkaido"><h3 class="sgh"><span>北海道</span></h3><p class="stsub">札幌を拠点に小樽は日帰り、函館・富良野は1泊以上にする人が多いです。</p>
-        <div class="stgrid"><article class="gblk starea stc"><h4>札幌駅</h4><p class="stfor"><span>こんな人に</span> 近郊への移動が多い人、冬に雪道をあまり歩きたくない人</p>
-     <dl class="stpc"><dt>長所</dt><dd>新千歳空港からJRで直行でき、小樽・旭川行きの列車が出ます。</dd><dt>短所</dt><dd>夜のグルメはすすきの方面のほうがずっと多いです。</dd></dl></article><article class="gblk starea stc"><h4>すすきの・大通</h4><p class="stfor"><span>こんな人に</span> グルメと夜を楽しみたい人</p>
-     <dl class="stpc"><dt>長所</dt><dd>ラーメン・ジンギスカン・海鮮の店が集まり、雪まつり会場の大通公園も近いです。</dd><dt>短所</dt><dd>歓楽街なので夜遅くまで騒がしい所もあります。</dd></dl></article><article class="gblk starea stc"><h4>函館駅・ベイエリア</h4><p class="stfor"><span>こんな人に</span> 函館の夜景と朝市が目的の人</p>
+        <div class="stgrid"><article class="gblk starea stc"><h4><a href="/ja/hokkaido/stay/sapporoeki/" data-stayc="hokkaido" data-sub="sapporoeki">札幌駅</a></h4><p class="stfor"><span>こんな人に</span> 近郊への移動が多い人、冬に雪道をあまり歩きたくない人</p>
+     <dl class="stpc"><dt>長所</dt><dd>新千歳空港からJRで直行でき、小樽・旭川行きの列車が出ます。</dd><dt>短所</dt><dd>夜のグルメはすすきの方面のほうがずっと多いです。</dd></dl></article><article class="gblk starea stc"><h4><a href="/ja/hokkaido/stay/susukino/" data-stayc="hokkaido" data-sub="susukino">すすきの・大通</a></h4><p class="stfor"><span>こんな人に</span> グルメと夜を楽しみたい人</p>
+     <dl class="stpc"><dt>長所</dt><dd>ラーメン・ジンギスカン・海鮮の店が集まり、雪まつり会場の大通公園も近いです。</dd><dt>短所</dt><dd>歓楽街なので夜遅くまで騒がしい所もあります。</dd></dl></article><article class="gblk starea stc"><h4><a href="/ja/hokkaido/stay/hakodate/" data-stayc="hokkaido" data-sub="hakodate">函館駅・ベイエリア</a></h4><p class="stfor"><span>こんな人に</span> 函館の夜景と朝市が目的の人</p>
      <dl class="stpc"><dt>長所</dt><dd>朝市や赤レンガ倉庫、函館山ロープウェイまで近いです。</dd><dt>短所</dt><dd>五稜郭・湯の川温泉へは路面電車で20〜30分かかります。</dd></dl></article></div>
         <button type="button" class="stxbtn" data-sttog="hokkaido"><span class="o">長所・短所を見る</span><span class="c">長所・短所を閉じる</span></button>
         <p class="stmore"><a class="more" href="/ja/hokkaido/stay/" data-stayc="hokkaido" data-sub="">北海道の宿泊情報をもっと見る<i> →</i></a></p></section><section class="stsec" id="st-okinawa"><h3 class="sgh"><span>沖縄</span></h3><p class="stsub">レンタカーなしなら那覇、ありなら中部や北部のリゾートに泊まる人が多いです。</p>
-        <div class="stgrid"><article class="gblk starea stc"><h4>那覇（国際通り周辺）</h4><p class="stfor"><span>こんな人に</span> レンタカーなしの人、短い日程</p>
-     <dl class="stpc"><dt>長所</dt><dd>空港からゆいレールで直行でき、飲食店や土産店が多く車なしでも動きやすいです。</dd><dt>短所</dt><dd>きれいな海やビーチまでは距離があります。</dd></dl></article><article class="gblk starea stc"><h4>中部（北谷・宜野湾）</h4><p class="stfor"><span>こんな人に</span> レンタカー旅行で、海も街も楽しみたい人</p>
-     <dl class="stpc"><dt>長所</dt><dd>アメリカンビレッジ前の海で夕日を眺められ、南部・北部どちらへも動きやすいです。</dd><dt>短所</dt><dd>バス移動は不便なのでレンタカーがあると便利です。</dd></dl></article><article class="gblk starea stc"><h4>北部（恩納・本部）</h4><p class="stfor"><span>こんな人に</span> リゾートでのんびりしたい人、家族旅行</p>
+        <div class="stgrid"><article class="gblk starea stc"><h4><a href="/ja/okinawa/stay/naha/" data-stayc="okinawa" data-sub="naha">那覇（国際通り周辺）</a></h4><p class="stfor"><span>こんな人に</span> レンタカーなしの人、短い日程</p>
+     <dl class="stpc"><dt>長所</dt><dd>空港からゆいレールで直行でき、飲食店や土産店が多く車なしでも動きやすいです。</dd><dt>短所</dt><dd>きれいな海やビーチまでは距離があります。</dd></dl></article><article class="gblk starea stc"><h4><a href="/ja/okinawa/stay/chubu/" data-stayc="okinawa" data-sub="chubu">中部（北谷・宜野湾）</a></h4><p class="stfor"><span>こんな人に</span> レンタカー旅行で、海も街も楽しみたい人</p>
+     <dl class="stpc"><dt>長所</dt><dd>アメリカンビレッジ前の海で夕日を眺められ、南部・北部どちらへも動きやすいです。</dd><dt>短所</dt><dd>バス移動は不便なのでレンタカーがあると便利です。</dd></dl></article><article class="gblk starea stc"><h4><a href="/ja/okinawa/stay/hokubu/" data-stayc="okinawa" data-sub="hokubu">北部（恩納・本部）</a></h4><p class="stfor"><span>こんな人に</span> リゾートでのんびりしたい人、家族旅行</p>
      <dl class="stpc"><dt>長所</dt><dd>リゾートホテルの前の澄んだ海を楽しめ、美ら海水族館や古宇利島が近いです。</dd><dt>短所</dt><dd>レンタカー必須で宿泊費も高めです。空港から1時間半以上かかります。</dd></dl></article></div>
         <button type="button" class="stxbtn" data-sttog="okinawa"><span class="o">長所・短所を見る</span><span class="c">長所・短所を閉じる</span></button>
         <p class="stmore"><a class="more" href="/ja/okinawa/stay/" data-stayc="okinawa" data-sub="">沖縄の宿泊情報をもっと見る<i> →</i></a></p></section><section class="stsec" id="st-nagoya"><h3 class="sgh"><span>名古屋・高山</span></h3><p class="stsub">名古屋は駅周辺が移動に便利。高山・白川郷へ行くなら高山で1泊がおすすめ。</p>
-        <div class="stgrid"><article class="gblk starea stc"><h4>名古屋駅周辺（名駅）</h4><p class="stfor"><span>こんな人に</span> 近郊への日帰りが多い人、短い日程</p>
-     <dl class="stpc"><dt>長所</dt><dd>空港線・新幹線・高山行き特急がすべて発着し、荷物があっても便利。</dd><dt>短所</dt><dd>夜の楽しみは栄より少なめ。</dd></dl></article><article class="gblk starea stc"><h4>栄</h4><p class="stfor"><span>こんな人に</span> 買い物や夜の食事を楽しみたい人</p>
-     <dl class="stpc"><dt>長所</dt><dd>百貨店・オアシス21・大須が近く、飲食店も多いです。</dd><dt>短所</dt><dd>名古屋駅からは地下鉄で移動が必要。</dd></dl></article><article class="gblk starea stc"><h4>高山駅周辺</h4><p class="stfor"><span>こんな人に</span> 白川郷と組み合わせる人、旅館体験</p>
+        <div class="stgrid"><article class="gblk starea stc"><h4><a href="/ja/nagoya/stay/meieki/" data-stayc="nagoya" data-sub="meieki">名古屋駅周辺（名駅）</a></h4><p class="stfor"><span>こんな人に</span> 近郊への日帰りが多い人、短い日程</p>
+     <dl class="stpc"><dt>長所</dt><dd>空港線・新幹線・高山行き特急がすべて発着し、荷物があっても便利。</dd><dt>短所</dt><dd>夜の楽しみは栄より少なめ。</dd></dl></article><article class="gblk starea stc"><h4><a href="/ja/nagoya/stay/sakae/" data-stayc="nagoya" data-sub="sakae">栄</a></h4><p class="stfor"><span>こんな人に</span> 買い物や夜の食事を楽しみたい人</p>
+     <dl class="stpc"><dt>長所</dt><dd>百貨店・オアシス21・大須が近く、飲食店も多いです。</dd><dt>短所</dt><dd>名古屋駅からは地下鉄で移動が必要。</dd></dl></article><article class="gblk starea stc"><h4><a href="/ja/nagoya/stay/takayama/" data-stayc="nagoya" data-sub="takayama">高山駅周辺</a></h4><p class="stfor"><span>こんな人に</span> 白川郷と組み合わせる人、旅館体験</p>
      <dl class="stpc"><dt>長所</dt><dd>古い町並みと朝市まで徒歩10分、白川郷行きのバスターミナルも駅のすぐ隣。</dd><dt>短所</dt><dd>店が早く閉まり夜は静か。繁忙期は宿がすぐ埋まります。</dd></dl></article></div>
         <button type="button" class="stxbtn" data-sttog="nagoya"><span class="o">長所・短所を見る</span><span class="c">長所・短所を閉じる</span></button>
         <p class="stmore"><a class="more" href="/ja/nagoya/stay/" data-stayc="nagoya" data-sub="">名古屋の宿泊情報をもっと見る<i> →</i></a></p></section><section class="stsec" id="st-hiroshima"><h3 class="sgh"><span>広島</span></h3><p class="stsub">広島駅周辺か中心街に泊まり、宮島は日帰りか旅館で1泊する人が多いです。</p>
-        <div class="stgrid"><article class="gblk starea stc"><h4>広島駅周辺</h4><p class="stfor"><span>こんな人に</span> 尾道・倉敷にも足を延ばす人</p>
-     <dl class="stpc"><dt>長所</dt><dd>空港バス・新幹線・宮島行きJRがすべて発着し移動が便利。</dd><dt>短所</dt><dd>平和公園までは路面電車で約20分。</dd></dl></article><article class="gblk starea stc"><h4>八丁堀・本通</h4><p class="stfor"><span>こんな人に</span> 市内観光と夕食を楽しみたい人</p>
-     <dl class="stpc"><dt>長所</dt><dd>平和公園まで歩いて行け、お好み焼き店や商店街も近いです。</dd><dt>短所</dt><dd>駅から荷物を持って来るには路面電車かタクシーが必要。</dd></dl></article><article class="gblk starea stc"><h4>宮島の旅館</h4><p class="stfor"><span>こんな人に</span> 特別な一夜を過ごしたい人、カップル</p>
+        <div class="stgrid"><article class="gblk starea stc"><h4><a href="/ja/hiroshima/stay/hirosta/" data-stayc="hiroshima" data-sub="hirosta">広島駅周辺</a></h4><p class="stfor"><span>こんな人に</span> 尾道・倉敷にも足を延ばす人</p>
+     <dl class="stpc"><dt>長所</dt><dd>空港バス・新幹線・宮島行きJRがすべて発着し移動が便利。</dd><dt>短所</dt><dd>平和公園までは路面電車で約20分。</dd></dl></article><article class="gblk starea stc"><h4><a href="/ja/hiroshima/stay/hatchobori/" data-stayc="hiroshima" data-sub="hatchobori">八丁堀・本通</a></h4><p class="stfor"><span>こんな人に</span> 市内観光と夕食を楽しみたい人</p>
+     <dl class="stpc"><dt>長所</dt><dd>平和公園まで歩いて行け、お好み焼き店や商店街も近いです。</dd><dt>短所</dt><dd>駅から荷物を持って来るには路面電車かタクシーが必要。</dd></dl></article><article class="gblk starea stc"><h4><a href="/ja/hiroshima/stay/miyajima/" data-stayc="hiroshima" data-sub="miyajima">宮島の旅館</a></h4><p class="stfor"><span>こんな人に</span> 特別な一夜を過ごしたい人、カップル</p>
      <dl class="stpc"><dt>長所</dt><dd>日帰り客が帰った夕方や早朝の静かな神社を楽しめます。</dd><dt>短所</dt><dd>宿泊費が高めで夜に開く店は少なめ。</dd></dl></article></div>
         <button type="button" class="stxbtn" data-sttog="hiroshima"><span class="o">長所・短所を見る</span><span class="c">長所・短所を閉じる</span></button>
         <p class="stmore"><a class="more" href="/ja/hiroshima/stay/" data-stayc="hiroshima" data-sub="">広島の宿泊情報をもっと見る<i> →</i></a></p></section><section class="stsec" id="st-shikoku"><h3 class="sgh"><span>四国</span></h3><p class="stsub">松山は道後温泉か中心街、高松は港に近い駅周辺に泊まる人が多いです。</p>
-        <div class="stgrid"><article class="gblk starea stc"><h4>道後温泉</h4><p class="stfor"><span>こんな人に</span> 温泉を楽しみたい人</p>
-     <dl class="stpc"><dt>長所</dt><dd>温泉旅館に泊まり、浴衣で本館や商店街を散策できます。</dd><dt>短所</dt><dd>空港やJR駅から路面電車で20分以上。</dd></dl></article><article class="gblk starea stc"><h4>松山 大街道</h4><p class="stfor"><span>こんな人に</span> コスパ重視の人</p>
-     <dl class="stpc"><dt>長所</dt><dd>城のロープウェイや商店街に近く、手頃なビジネスホテルが多いです。</dd><dt>短所</dt><dd>温泉の雰囲気はありません。</dd></dl></article><article class="gblk starea stc"><h4>高松駅・港周辺</h4><p class="stfor"><span>こんな人に</span> 島めぐりや琴平への日帰りをする人</p>
+        <div class="stgrid"><article class="gblk starea stc"><h4><a href="/ja/shikoku/stay/dogo/" data-stayc="shikoku" data-sub="dogo">道後温泉</a></h4><p class="stfor"><span>こんな人に</span> 温泉を楽しみたい人</p>
+     <dl class="stpc"><dt>長所</dt><dd>温泉旅館に泊まり、浴衣で本館や商店街を散策できます。</dd><dt>短所</dt><dd>空港やJR駅から路面電車で20分以上。</dd></dl></article><article class="gblk starea stc"><h4><a href="/ja/shikoku/stay/okaido/" data-stayc="shikoku" data-sub="okaido">松山 大街道</a></h4><p class="stfor"><span>こんな人に</span> コスパ重視の人</p>
+     <dl class="stpc"><dt>長所</dt><dd>城のロープウェイや商店街に近く、手頃なビジネスホテルが多いです。</dd><dt>短所</dt><dd>温泉の雰囲気はありません。</dd></dl></article><article class="gblk starea stc"><h4><a href="/ja/shikoku/stay/takamatsu/" data-stayc="shikoku" data-sub="takamatsu">高松駅・港周辺</a></h4><p class="stfor"><span>こんな人に</span> 島めぐりや琴平への日帰りをする人</p>
      <dl class="stpc"><dt>長所</dt><dd>直島行きの船、ことでん、空港バスがすべて近いです。</dd><dt>短所</dt><dd>夜の飲食街は少し離れた瓦町周辺。</dd></dl></article></div>
         <button type="button" class="stxbtn" data-sttog="shikoku"><span class="o">長所・短所を見る</span><span class="c">長所・短所を閉じる</span></button>
         <p class="stmore"><a class="more" href="/ja/shikoku/stay/" data-stayc="shikoku" data-sub="">四国の宿泊情報をもっと見る<i> →</i></a></p></section>
@@ -173,10 +173,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b36658c1"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=b36658c1"></script>
-<script src="/autoreserve.js?v=b36658c1"></script>
-<script src="/google_picks.js?v=b36658c1"></script>
-<script src="/geo.js?v=b36658c1"></script>
-<script src="/app.js?v=b36658c1"></script>
+<script src="/areas.js?v=458710d4"></script>
+<script src="/autoreserve.js?v=458710d4"></script>
+<script src="/google_picks.js?v=458710d4"></script>
+<script src="/geo.js?v=458710d4"></script>
+<script src="/app.js?v=458710d4"></script>
 </body>
 </html>
