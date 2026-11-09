@@ -7,7 +7,7 @@ ctx = ssl.create_default_context()
 def fetch(u, n=400000):
     try:
         req = urllib.request.Request(u, headers={'User-Agent': UA, 'Accept-Language': 'ja,en;q=0.8'})
-        with urllib.request.urlopen(req, timeout=25, context=ctx) as r:
+        with urllib.request.urlopen(req, timeout=15, context=ctx) as r:
             b = r.read(n); ct = r.headers.get_content_charset()
             if not ct:
                 m = re.search(rb'charset=["\']?([\w-]+)', b[:4000]); ct = m.group(1).decode() if m else 'utf-8'

@@ -31,19 +31,29 @@ def ddg(q):
         if us or h: return us[:3]
         time.sleep(5 * (k + 1))
     return []
-Q = json.load(open('park2.json', encoding='utf-8')); out = {}
-for i, (k, v) in enumerate(Q.items()):
+Q = json.load(open('park2.json', encoding='utf-8'))
+try: out = json.load(open('park2_candidates.json', encoding='utf-8'))
+except Exception: out = {}
+from concurrent.futures import ThreadPoolExecutor
+import threading
+T0 = time.time(); LIM = 290 * 60; lock = threading.Lock()
+def one(item):
+    k, v = item
+    if time.time() - T0 > LIM: return None
     us, n1 = yahoo(v['q']); eng = 'yahoo'
-    if not us: us, n2 = bing(v['q']); eng = 'bing'
-    if not us: us = ddg(v['q']); eng = 'ddg'
-    res = {'q': v['q'], 'results': us, 'snips': [], 'eng': eng, 'n1': n1}
-    for u in us:
-        fin, h = fetch(u)
+    if not us: us, n1 = bing(v['q']); eng = 'bing'
+    res = {'q': v['q'], 'results': us, 'snips': [], 'eng': eng}
+    for u in us[:3]:
+        fin, h = fetch(u, 300000)
         if h: res['snips'] += snips(text_of(h), fin, 2)
-    out[k] = res
-    if i % 20 == 0:
-        print(i, k, len(us), len(res['snips']), flush=True)
-        json.dump(out, open('park2_candidates.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
-    time.sleep(1.5 + random.random())
+    time.sleep(1 + random.random())
+    return k, res
+todo = [(k, v) for k, v in Q.items() if k not in out]
+with ThreadPoolExecutor(4) as ex:
+    for r in ex.map(one, todo):
+        if r:
+            with lock: out[r[0]] = r[1]
+rest = {k: v for k, v in Q.items() if k not in out}
 json.dump(out, open('park2_candidates.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
-print('done', len(out), sum(1 for v in out.values() if v['snips']))
+json.dump(rest, open('park2.json', 'w', encoding='utf-8'), ensure_ascii=False)
+print('done', len(out), 'left', len(rest), sum(1 for v in out.values() if v['snips']))
