@@ -1,62 +1,200 @@
 {
 "dotonbori": {
 "q": "道頓堀 駐車場",
-"results": [],
-"snips": []
+"results": [
+"https://support.yahoo-net.jp/PccSearch/s/article/H000011627",
+"https://times-info.net/P27-osaka/C128/A042/",
+"https://times-info.net/P27-osaka/C128/dotonbori-article/"
+],
+"snips": [],
+"eng": "yahoo",
+"n1": 17576
 },
 "gion": {
 "q": "祇園・花見小路 駐車場",
-"results": [],
-"snips": []
+"results": [
+"https://support.yahoo-net.jp/PccSearch/s/article/H000011627",
+"https://www.akippa.com/kinki/kyoto/216352",
+"https://www.navitime.co.jp/parking/around/?spt=02301.1700058"
+],
+"snips": [
+{
+"src": "https://www.akippa.com/kinki/kyoto/216352",
+"text": "/ / / / 花見小路周辺の駐車場を予約【徒歩6分～・最安400円】全87件 | アキッパ / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / ※ / / / / / / / / / / / / / / / / 駐車場を探す / / / / / / / / / / / / / / 現在地から探す / / / /"
+},
+{
+"src": "https://www.akippa.com/kinki/kyoto/216352",
+"text": "/ / / / / ログイン / / / / / / メニュー / / / / / / / / / / / / / / / / / / 毎回ログインしていませんか？ / / 予約確認も再予約も、アプリならすぐアクセス。 / / / / / アプリを使う / / / / / / アキッパとは？ / / / / 駐車場を貸す / / / / / / / 個人の方：自宅スペースや空き地を貸したい / 駐車場オーナー登録(完全無料) / / / / / / / / / 法人・個人事業主の方：所有する駐車場・土地を収益化 / / / / / / / / / / イベント興行主の方 / / / 提携事例 / / / / / / ヘルプ / / / よくある質問 / / お困りの方はこちら / / / / / ログイン / / 新規登録 / / / / / / / / / / / / / / /"
+}
+],
+"eng": "yahoo",
+"n1": 15307
 },
 "kushida": {
 "q": "櫛田神社 駐車場",
-"results": [],
-"snips": []
+"results": [
+"https://support.yahoo-net.jp/PccSearch/s/article/H000011627",
+"https://www.navitime.co.jp/parking/around/?spt=02301.1301593",
+"https://times-info.net/P40-fukuoka/C132/Ff55682b6d3fb89ae624a6006b48751796ad84754_4f20d833838a6e5eb70e55811ae36a2f/"
+],
+"snips": [],
+"eng": "yahoo",
+"n1": 16732
 },
 "kouri": {
 "q": "古宇利大橋 駐車場",
-"results": [],
-"snips": []
+"results": [
+"https://support.yahoo-net.jp/PccSearch/s/article/H000011627",
+"https://nagomun.or.jp/facility/2038/",
+"https://okinawa-nago.com/koriohashiminamizumetembodai/"
+],
+"snips": [
+{
+"src": "https://nagomun.or.jp/facility/2038/",
+"text": "光客にとって、沖縄の自然を感じながらの素晴らしい体験ができる場所です。 / / / / / / / 基本情報 / / / / / 観光カテゴリ / / / 自然・景観 / / / / / / 店舗住所 / / / 沖縄県国頭郡今帰仁村古宇利 / / / / / / 入場料 / / / 無料 / / / / / / 駐車場 / / / 駐車場あり（無料） / / 普通車台数40台 / / / / / / 交通アクセス / / / 車の場合：許田インターより40分～50分 / / / / / / 備考 / / / 駐車場は古宇利大橋南詰展望所の無料駐車場 / / 40台のうち2台は障がい者用 / / / / / / / / / / / / / / / / / / / / / / / / / / / / Googleマップ / / / / / / / / 掲載情報は2025年03月12日配信時の"
+},
+{
+"src": "https://okinawa-nago.com/koriohashiminamizumetembodai/",
+"text": "なりました。 / / / / / 通行料無料の橋としては県内で2番目の長さです。 / / / / / 沖縄特有の海上の橋として100年以上の高耐久性を目指した構造で、琉球石灰岩層を採用しています。 / / / / / 橋の両側にはエメラルドグリーンの海が広がります。 / / / / / 橋の上は駐停車禁止ですので、駐車料金無料の展望所に駐車して絶景を楽しみましょう。 / / / / / 古宇利大橋南詰展望所付近のおすすめドライブコース / / / / / まずは沖縄を代表する国道、58号線で北部へ向かいましょう。 / / / / / 高速道路も利用できますが、 海を見ながら車を走らせ、沖縄の風を肌で感じたいならば国道がおすすめです。 / / / / / 今帰仁村からワルミ大橋を渡り、まずは屋我地島に入ります。 / / / / / 屋我地島は サトウキビ畑やパイナップル畑が広がるのんびりとした島"
+},
+{
+"src": "https://okinawa-nago.com/koriohashiminamizumetembodai/",
+"text": "へ走ると、ついに古宇利島へと続く古宇利大橋が見えてきます。 / / / / / 晴れた日にはエメラルドグリーンの海に一本の橋が天国へと続いているかのようにかかり、得もいわれぬ美しさです。 / / / / / 一気にテンションが上がる瞬間でもあります。 / / / / / 古宇利大橋の 手前まで来ると橋の上は駐車禁止 ですので、ここで麓にある古宇利大橋南詰展望所に駐車して記念撮影を楽しみましょう。 / / / / / 橋は歩道が整備されている為歩いて渡ることもできますが、約2kmの道のりを暑い沖縄で歩くのは大変です。 / / / / / 再びドライブを続けます。橋の上からは古宇利島を一望できます。 / / / / / 古宇利大橋が開通してから、古宇利島は進化を続けており橋の上からも沖縄らしい赤瓦のコテージやホテルが点在しているのが見えます。 / / / / / 古宇利島は外周8k"
+}
+],
+"eng": "yahoo",
+"n1": 14853
 },
 "s_omoide": {
 "q": "思い出横丁 駐車場",
-"results": [],
-"snips": []
+"results": [
+"https://support.yahoo-net.jp/PccSearch/s/article/H000011627",
+"https://www.navitime.co.jp/parking/around/?spt=02048.30000142",
+"https://www.navitime.co.jp/parking/around/?spt=91001.ani00546"
+],
+"snips": [],
+"eng": "yahoo",
+"n1": 14195
 },
 "s_kabuki": {
 "q": "歌舞伎町 駐車場",
-"results": [],
-"snips": []
+"results": [
+"https://support.yahoo-net.jp/PccSearch/s/article/H000011627",
+"https://times-info.net/P13-tokyo/C104/BUK0037491/SC00000001-max_fee/",
+"https://media.toku-p.earth-car.com/article/%E6%96%B0%E5%AE%BF%E6%AD%8C%E8%88%9E%E4%BC%8E%E7%94%BA/"
+],
+"snips": [
+{
+"src": "https://media.toku-p.earth-car.com/article/%E6%96%B0%E5%AE%BF%E6%AD%8C%E8%88%9E%E4%BC%8E%E7%94%BA/",
+"text": "/ / / / / / / / / / / / / / / / / 『新宿歌舞伎町』周辺の【13時間で900円】の安い駐車場教えます！最安も！｜特P (とくぴー) / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /"
+},
+{
+"src": "https://media.toku-p.earth-car.com/article/%E6%96%B0%E5%AE%BF%E6%AD%8C%E8%88%9E%E4%BC%8E%E7%94%BA/",
+"text": "/ / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / 会員登録 / / 駐車場貸出 / / / / / / / / / / / / 特Pを使う / 駐車場を探す / / 月極を探す / / 空き駐車場を貸し出す / / / / / キャンペーン / 猪苗代スキー場 / / 特Pの会員は今シーズン中ず〜っとリフト1日券が土日祝半額！平日は無料！ / / / --> / / 会員 / ログイン / / 会員登録 / / / / / サポート / 初めてガイド / / よくある"
+}
+],
+"eng": "yahoo",
+"n1": 16777
 },
 "s_shibuyasky": {
 "q": "SHIBUYA SKY 駐車場",
-"results": [],
-"snips": []
+"results": [
+"https://support.yahoo-net.jp/PccSearch/s/article/H000011627",
+"https://times-info.net/P13-tokyo/C113/Faaea2a6edbebc9774e47bfdf98c29eec87f4d7f5_4f20d833838a6e5eb70e55811ae36a2f/SC00400000-reserve/",
+"https://www.shibuya-scramble-square.com/sky/access/"
+],
+"snips": [],
+"eng": "yahoo",
+"n1": 14977
 },
 "s_uenopark": {
 "q": "上野恩賜公園 駐車場",
-"results": [],
-"snips": []
+"results": [
+"https://support.yahoo-net.jp/PccSearch/s/article/H000011627",
+"https://www.tokyo-park.or.jp/park/ueno/index.html",
+"https://www.navitime.co.jp/parking/around/?spt=02301.1300529"
+],
+"snips": [
+{
+"src": "https://www.tokyo-park.or.jp/park/ueno/index.html",
+"text": "ービスセンターへお問い合わせ下さい。 / / 入園料 / 無料（一部有料施設あり） / / / / / / / 交通案内 / / JR山手線・JR京浜東北線・JR高崎線・JR宇都宮線・東京メトロ鉄銀座線・東京メトロ日比谷線「上野」(G16･H17)下車 徒歩2分 / 京成本線「京成上野」下車 徒歩1分 / 駐車場(有料) / / / / / / / / / / / / 駐車場 / / / / 上野恩賜公園第一・第二駐車場 バス専用（予約制） / / / / / / / / / / / / / / / / / / TEL / / TEL：03-3821-0755 FAX：03-5809-0017 / / / / / / 住所 / / / 第一駐車場 / 〒110-0007 / 台東区上野公園6 / / 第二駐車場 / 〒110-0007 / 台東区上野公園17 / / / / / / / / / 営業時間 / / 第一…8"
+},
+{
+"src": "https://www.tokyo-park.or.jp/park/ueno/index.html",
+"text": "時間 / / 第一…8:30～17:30（入庫は16：30まで） 第二…9：00～17：00（入庫は16：00まで） / / / / / / 利用料金 / / / 1時間まで1,000円 / 以後30分毎に500円 / / 福祉関連団体の利用について / / / 大型バスのご利用は、予約が必要です。 / ※第二駐車場は令和6年8月1日から一時的な再開場 / バス予約はこちらhttps://reserva.be/34 / / ※連絡なしに予約時間を30分過ぎた場合は自動的にキャンセルとなります。 / ｛If you are more than 30 minutes late and do not contact us, your will be automatically cancelled.｝ / ｛要是超过预约时间30分钟没联系时 将自动取消预约."
+}
+],
+"eng": "yahoo",
+"n1": 16794
 },
 "s_ameyoko": {
 "q": "アメ横商店街 駐車場",
-"results": [],
-"snips": []
+"results": [
+"https://support.yahoo-net.jp/PccSearch/s/article/H000011627",
+"https://www.navitime.co.jp/parking/around/?spt=02301.1300535",
+"https://parkinggod.jp/hourly/tokyo/ueno-okachimachi-asakusa/uenoeki-uenokouen/okachimachi-ameyoko/"
+],
+"snips": [
+{
+"src": "https://parkinggod.jp/hourly/tokyo/ueno-okachimachi-asakusa/uenoeki-uenokouen/okachimachi-ameyoko/",
+"text": "/ / / / / / / / / / / / / / / / --> / / / / / / / 【アメ横・御徒町】厳選16駐車場！平日・土日も安い最大料金・予約・無料割引はここ！ | 駐車場の神様 / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / キーワード 検索 / / 現在地から探す / / / /"
+},
+{
+"src": "https://parkinggod.jp/hourly/tokyo/ueno-okachimachi-asakusa/uenoeki-uenokouen/okachimachi-ameyoko/",
+"text": "スポット） / から探す / / / / / / 観光・レジャー / から探す / / / / / / イベント施設 / から探す / / / / / / 空港 / から探す / / / / / / 駐⾞場予約事業者 / から探す / / / / / / 厳選駐車場記事 / から探す / / / / / / - 駐車場予約サービスについて / / - 駐⾞場の神様とは？ / / - 監修者 / / - 駐車場の神様 総合TOP / / - 利⽤規約・免責について / / / / / / / / / 公式 SNS / / / / instagram / / twitter / / facebook / / / / / / / / / / / / / / / 【アメ横・"
+}
+],
+"eng": "yahoo",
+"n1": 15016
 },
 "s_tokyostation": {
 "q": "東京駅丸の内駅舎 駐車場",
-"results": [],
-"snips": []
+"results": [
+"https://support.yahoo-net.jp/PccSearch/s/article/H000011627",
+"https://www.akippa.com/kanto/tokyo/tokyoekimarunouchiminamiguchi",
+"https://www.marunouchi.com/information/parking/"
+],
+"snips": [
+{
+"src": "https://www.akippa.com/kanto/tokyo/tokyoekimarunouchiminamiguchi",
+"text": "/ / / / 東京駅（丸の内南口）周辺の駐車場を予約【徒歩3分～・最安330円】全164件 | アキッパ / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / ※ / / / / / / / / / / / / / / / / 駐車場を探す / / / / / / / / / / / / / / 現在地から探す / / / /"
+},
+{
+"src": "https://www.akippa.com/kanto/tokyo/tokyoekimarunouchiminamiguchi",
+"text": "/ / / / / ログイン / / / / / / メニュー / / / / / / / / / / / / / / / / / / 毎回ログインしていませんか？ / / 予約確認も再予約も、アプリならすぐアクセス。 / / / / / アプリを使う / / / / / / アキッパとは？ / / / / 駐車場を貸す / / / / / / / 個人の方：自宅スペースや空き地を貸したい / 駐車場オーナー登録(完全無料) / / / / / / / / / 法人・個人事業主の方：所有する駐車場・土地を収益化 / / / / / / / / / / イベント興行主の方 / / / 提携事例 / / / / / / ヘルプ / / / よくある質問 / / お困りの方はこちら / / / / / ログイン / / 新規登録 / / / / / / / / / / / / / / /"
+},
+{
+"src": "https://www.marunouchi.com/information/parking/",
+"text": "/ 駐車場（丸の内パークイン）｜インフォメーション｜Marunouchi.com / / / / / / / / / / / / / / / / / / / / / / 丸の内を楽しむ、今を届けるポータルサイト / / / / / / Language 日本語 / English / 简体中文 / 繁體中文 / 한국어 / / / / / / / / / / / レストラン・フード / ショップ・サービス / 地図から施設を探す / Today’sピックアッ"
+},
+{
+"src": "https://www.marunouchi.com/information/parking/",
+"text": "/ Today’sピックアップ TOP / / / / / キャンペーン / / / / / イベント / / / / / その他エリア情報 / / / / / / / インフォメーション / インフォメーション TOP / / / / / 各ビル営業時間 / / / / / アクセス / / / / / 駐車場 / / / / / 自転車・バイクで お越しの方へ / / / / / 無料巡回バス / / / / / ご案内窓口 / / / / / 小さなお子様を お連れの方へ / / / / / ご年配の方・ / お体の不自由な方へ / / / / / 丸の内フリーWi-Fi / / / / / 免税サービス / / / / / よくあるご質問 / / / / / / / アクセス / / / / / お知らせ / / / / / / 施設を探す / / 丸ビル / / 新丸ビル /"
+}
+],
+"eng": "yahoo",
+"n1": 15761
 },
 "s_kokyo": {
 "q": "皇居東御苑 駐車場",
-"results": [],
-"snips": []
+"results": [
+"https://support.yahoo-net.jp/PccSearch/s/article/H000011627",
+"https://times-info.net/P13-tokyo/C101/F0156980220a4ee329646f9291485bf7f3d22e071_4f20d833838a6e5eb70e55811ae36a2f/",
+"https://www.navitime.co.jp/parking/around/?spt=02301.1400258"
+],
+"snips": [],
+"eng": "yahoo",
+"n1": 14633
 },
 "s_tsurugaoka": {
 "q": "鶴岡八幡宮 駐車場",
-"results": [],
-"snips": []
+"results": [
+"https://support.yahoo-net.jp/PccSearch/s/article/H000011627",
+"https://www.hachimangu.or.jp/access/",
+"https://times-info.net/P14-kanagawa/C204/hachimangu-article/"
+],
+"snips": [],
+"eng": "yahoo",
+"n1": 16919
 }
 }

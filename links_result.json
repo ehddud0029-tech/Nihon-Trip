@@ -818,7 +818,7 @@
 "url": "http://www.oct-net.ne.jp/yufuin-c",
 "status": 0,
 "final": "http://www.oct-net.ne.jp/yufuin-c",
-"title": "<urlopen error [Errno 101] Network is unreachable>"
+"title": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issue"
 }
 ],
 "f_umibiraki": [
