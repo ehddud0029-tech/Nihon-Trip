@@ -2310,7 +2310,7 @@ function renderCities(){
 }
 function setNav(){
   document.querySelectorAll("[data-view]").forEach(a=>{
-    if(ROUTED) a.setAttribute("href", window.NT_BASE + LPRE + pathOf({...st, view:a.dataset.view, city:"all", area:"all", itin:null, gsec:null, ap:"", apk:"", wm:0, sub:""}));
+    if(ROUTED) a.setAttribute("href", window.NT_BASE + LPRE + pathOf({...st, view:a.dataset.view, city:a.dataset.view==="weather"?"tokyo":"all", area:"all", itin:null, gsec:null, ap:"", apk:"", wm:0, sub:""}));
     if(a.classList.contains("brand")) return;
     a.toggleAttribute("aria-current",a.dataset.view===st.view);
     if(a.dataset.view===st.view) a.setAttribute("aria-current","page");
@@ -3893,7 +3893,7 @@ function stayNbPage(c,o){
   const hs = stayShowHotels() ? stayNbHotels(c,o) : [];
   const near = (items) => `<ul class="stnear">${items}</ul>`;
   return `<div class="wx stnb">
-   <nav class="wxcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${stayA("all","일본 숙소 추천과 예약 방법").replace("<a ",'<a itemprop="item" ')}<meta itemprop="position" content="1"></span> › <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${stayA(c,`${cn} 숙소 추천`).replace("<a ",'<a itemprop="item" ')}<meta itemprop="position" content="2"></span></nav>
+   <nav class="wxcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${stayA("all",'<span itemprop="name">일본 숙소 추천과 예약 방법</span>').replace("<a ",'<a itemprop="item" ')}<meta itemprop="position" content="1"></span> › <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${stayA(c,`<span itemprop="name">${cn} 숙소 추천</span>`).replace("<a ",'<a itemprop="item" ')}<meta itemprop="position" content="2"></span></nav>
    <div class="ghead"><h2>${n} 숙소 추천</h2><p>${esc(o.for)}</p></div>
    <nav class="wxmon stjump">${a.opts.map(x=>stayA(c,esc(x.name),x.key===o.key?"on":"",x.key)).join("")}</nav>
    <article class="gblk starea"><dl><dt>장점</dt><dd>${esc(o.pros)}</dd><dt>단점</dt><dd>${esc(o.cons)}</dd><dt>이런 분께</dt><dd>${esc(o.for)}</dd></dl></article>
@@ -4216,7 +4216,7 @@ function subFromSeg(seg){
   return "";
 }
 function subTabs(list,cur){
-  return `<nav class="dtabs sbtabs">${list.map(([k,l])=>`<a href="${ROUTED?window.NT_BASE+LPRE+pathOf({...st,sub:k}):"#"}" data-subtab="${k}"${k===cur?' class="on" aria-current="page"':""}>${esc(l)}</a>`).join("")}</nav>`;
+  return `<nav class="dtabs sbtabs">${list.map(([k,l])=>`<a href="${ROUTED?window.NT_BASE+LPRE+pathOf({...st,sub:k,area:(st.view==="transport"&&k&&CITIES[st.city]&&areasOf(st.city)[0])?areasOf(st.city)[0].key:st.area}):"#"}" data-subtab="${k}"${k===cur?' class="on" aria-current="page"':""}>${esc(l)}</a>`).join("")}</nav>`;
 }
 function subMeta(){
   if(!subOk(st)) return null;
@@ -4267,7 +4267,7 @@ V.transport = function(){
        || pick(".apsec");
   } else {
     const ic = st.city!=="all" && IC_CARDS.find(x=>x.cities.includes(st.city));
-    const icOv = ic ? `<section class="ovic"><h3 class="sgh"><span>교통카드</span></h3><div class="ovic-card"><div class="icrow">${ic.img?`<img src="${ic.img}" alt="" loading="lazy" referrerpolicy="no-referrer">`:""}<span><b>${esc(ic.name)}</b><small>${esc(ic.area)}</small></span></div><p>${esc(ic.cities[0]===st.city?ic.buy[0]:(ICBUY[st.city]||ic.buy[0]))}</p><a class="more" href="${ROUTED?window.NT_BASE+LPRE+pathOf({...st,sub:"ic"}):"#"}" data-subtab="ic">교통카드 안내<i> →</i></a></div></section>` : "";
+    const icOv = ic ? `<section class="ovic"><h3 class="sgh"><span>교통카드</span></h3><div class="ovic-card"><div class="icrow">${ic.img?`<img src="${ic.img}" alt="" loading="lazy" referrerpolicy="no-referrer">`:""}<span><b>${esc(ic.name)}</b><small>${esc(ic.area)}</small></span></div><p>${esc(ic.cities[0]===st.city?ic.buy[0]:(ICBUY[st.city]||ic.buy[0]))}</p><a class="more" href="${ROUTED?window.NT_BASE+LPRE+pathOf({...st,sub:"ic",area:(CITIES[st.city]&&areasOf(st.city)[0])?areasOf(st.city)[0].key:st.area}):"#"}" data-subtab="ic">교통카드 안내<i> →</i></a></div></section>` : "";
     body = icOv + notes;   // 아래 탭 이동 버튼은 위 탭과 같아서 뺌 (2026-11 중복 정리)
   }
   return `<div class="sechead"><div><h2>교통</h2><p>공항에서 시내까지, 그리고 도시 안에서 이동하는 방법</p></div></div>
@@ -4320,7 +4320,7 @@ document.addEventListener("click",e=>{
   const stl = e.target.closest("[data-stayc]"); if(stl){ e.preventDefault(); st.view="stay"; st.city=stl.dataset.stayc; render(); window.scrollTo({top:0}); return; }
   const gs = e.target.closest("[data-gsec]"); if(gs){ e.preventDefault(); st.gsec=gs.dataset.gsec; st.view="guide"; render(); window.scrollTo({top:0}); return; }
   const v = e.target.closest("[data-view]");
-  if(v){ e.preventDefault(); if(!v.classList.contains("brand")) Object.assign(st, {city:"all", area:"all", itin:null, gsec:null, ap:"", apk:"", wm:0, sub:""}); if(v.dataset.view==="itin") st.itin=""; go(v.dataset.view); return; }
+  if(v){ e.preventDefault(); if(!v.classList.contains("brand")) Object.assign(st, {month:NOW_M, city:"all", area:"all", itin:null, gsec:null, ap:"", apk:"", wm:0, sub:""}); if(v.dataset.view==="itin") st.itin=""; go(v.dataset.view); return; }
   const hmb = e.target.closest("[data-hm]"); if(hmb){ st.hm=+hmb.dataset.hm; renderCities(); return; }
   const ht = e.target.closest("[data-hometo]"); if(ht){ st.homeTo=ht.dataset.hometo; render(); return; }
   const ga = e.target.closest("[data-goarea]");

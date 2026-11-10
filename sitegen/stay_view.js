@@ -68,7 +68,7 @@ function stayNbPage(c,o){
   const hs = stayShowHotels() ? stayNbHotels(c,o) : [];
   const near = (items) => `<ul class="stnear">${items}</ul>`;
   return `<div class="wx stnb">
-   <nav class="wxcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${stayA("all","일본 숙소 추천과 예약 방법").replace("<a ",'<a itemprop="item" ')}<meta itemprop="position" content="1"></span> › <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${stayA(c,`${cn} 숙소 추천`).replace("<a ",'<a itemprop="item" ')}<meta itemprop="position" content="2"></span></nav>
+   <nav class="wxcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${stayA("all",'<span itemprop="name">일본 숙소 추천과 예약 방법</span>').replace("<a ",'<a itemprop="item" ')}<meta itemprop="position" content="1"></span> › <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${stayA(c,`<span itemprop="name">${cn} 숙소 추천</span>`).replace("<a ",'<a itemprop="item" ')}<meta itemprop="position" content="2"></span></nav>
    <div class="ghead"><h2>${n} 숙소 추천</h2><p>${esc(o.for)}</p></div>
    <nav class="wxmon stjump">${a.opts.map(x=>stayA(c,esc(x.name),x.key===o.key?"on":"",x.key)).join("")}</nav>
    <article class="gblk starea"><dl><dt>장점</dt><dd>${esc(o.pros)}</dd><dt>단점</dt><dd>${esc(o.cons)}</dd><dt>이런 분께</dt><dd>${esc(o.for)}</dd></dl></article>
