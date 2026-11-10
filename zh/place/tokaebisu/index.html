@@ -36,14 +36,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=1f0760af">
+<link rel="stylesheet" href="/app.css?v=54b933ac">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1f0760af"><\/script><script src="'+B+'engine.js?v=1f0760af"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=54b933ac"><\/script><script src="'+B+'engine.js?v=54b933ac"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -73,7 +73,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1f0760af"><\/s
 
 <section class="hero wrap">
   <div class="eyebrow">日本旅行 · 行前准备</div>
-  <h1 id="heroTitle">大阪 · 新世界·天王寺·鹤桥，先看什么？</h1>
+  <div id="heroTitle">大阪 · 新世界·天王寺·鹤桥，先看什么？</div>
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="查看上一组地区" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="选择地区"><button class="city" type="button" data-city="all" aria-pressed="false">全部<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">东京<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="true">大阪<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">福冈<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">北海道<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">冲绳<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">名古屋<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">广岛<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">四国<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="查看更多地区" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="选择区域"><button class="area" type="button" data-area="dotonbori" aria-pressed="false">道顿堀·难波</button><button class="area" type="button" data-area="umeda" aria-pressed="false">梅田</button><button class="area" type="button" data-area="shinsekai" aria-pressed="true">新世界·天王寺·鹤桥</button><button class="area" type="button" data-area="tenma" aria-pressed="false">天满·天神桥筋</button><button class="area" type="button" data-area="kyoto" aria-pressed="false">京都 祇园·东山</button><button class="area" type="button" data-area="kyotoeki" aria-pressed="false">京都站·二条城</button><button class="area" type="button" data-area="arashiyama" aria-pressed="false">京都 岚山·金阁寺</button><button class="area" type="button" data-area="nanzenji" aria-pressed="false">京都 南禅寺·银阁寺</button><button class="area" type="button" data-area="uji" aria-pressed="false">京都 伏见·宇治</button><button class="area" type="button" data-area="nara" aria-pressed="false">奈良</button><button class="area" type="button" data-area="kobe" aria-pressed="false">神户</button></div>
   <dl class="brief" id="brief"><div class="beat"><dt>新世界·天王寺·鹤桥推荐美食</dt><ol class="picks"><li><a class="pick" href="https://autoreserve.com/zh-cn/restaurants/wLs3q4y3Btcg2vFWnQyr" target="_blank" rel="noopener"><b>浪速 鮨波留加</b><em class="pm">寿司</em><span class="pd">主厨发办寿司</span></a></li><li><a class="pick" href="https://autoreserve.com/zh-cn/restaurants/AQXvWuJaUiaz4Bq32XHe" target="_blank" rel="noopener"><b>居酒屋 まさちゃん</b><em class="pm">居酒屋</em><span class="pd">海鲜·日本酒</span></a></li><li><a class="pick" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%84%BC%E8%82%89%E3%81%8A%E3%81%8A%E4%B9%83%20%E6%96%B0%E4%B8%96%E7%95%8C%20%E5%A4%A7%E9%98%AA" target="_blank" rel="noopener"><b>焼肉おお乃 新世界</b><em class="pm">肉类</em><span class="pd">和牛烤肉</span></a></li></ol>
@@ -116,7 +116,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1f0760af"><\/s
     <div class="plate"><span class="tag">风景·自然</span><span class="where">新世界·天王寺·鹤桥</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 20 9 9l4 6.5 2.5-3.5L21.5 20z"></path><path d="M7.5 11.6 9 13l1.4-1.3"></path><circle cx="17.5" cy="6" r="2"></circle></svg></span><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Keitakuen_Garden_and_Abeno_Harukas.jpg/960px-Keitakuen_Garden_and_Abeno_Harukas.jpg?utm_source=en.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="天王寺公园 · 天芝" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
     <div class="body"><h3>天王寺公园 · 天芝</h3><div class="jpn">天王寺公園</div><p>汇集草坪广场“天芝”、动物园和美术馆的公园，与新世界直接相连。</p>
     <div class="meta"><span>天王寺站 · 动物园前站</span><span class="feeb paid" title="公园免费 · 动物园：800日元">公园免费</span></div></div></a><a class="card" href="/zh/place/s-sumiyoshi/" data-open="s_sumiyoshi" style="--c:var(--shu)">
-    <div class="plate"><span class="tag">古迹·寺社</span><span class="where">新世界·天王寺·鹤桥</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5c3 .8 15 .8 18 0M5 6.8 4.6 9M19 6.8l.4 2.2M3.5 9.5h17M7 9.5V21M17 9.5V21M11 9.5v3h2v-3"></path></svg></span><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Sumiyoshi-taisha%2C_keidai-2.jpg/960px-Sumiyoshi-taisha%2C_keidai-2.jpg?utm_source=en.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="住吉神社" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="ok"></div>
+    <div class="plate"><span class="tag">古迹·寺社</span><span class="where">新世界·天王寺·鹤桥</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5c3 .8 15 .8 18 0M5 6.8 4.6 9M19 6.8l.4 2.2M3.5 9.5h17M7 9.5V21M17 9.5V21M11 9.5v3h2v-3"></path></svg></span><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Sumiyoshi-taisha%2C_keidai-2.jpg/960px-Sumiyoshi-taisha%2C_keidai-2.jpg?utm_source=en.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="住吉神社" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
     <div class="body"><h3>住吉大社</h3><div class="jpn">住吉大社</div><p>全国住吉神社的总本社，高高拱起的朱红色“反桥”是它的象征。</p>
     <div class="meta"><span>南海住吉大社站步行3分钟</span><span class="feeb" title="免费">免费</span></div></div></a><a class="card" href="/zh/place/harukas/" data-open="harukas" style="--c:var(--ai)">
     <div class="plate"><span class="tag">百货店</span><span class="where">新世界·天王寺·鹤桥</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></span><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Abeno_Harukas_Osaka_Japan01-r.jpg/960px-Abeno_Harukas_Osaka_Japan01-r.jpg?utm_source=ja.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="阿倍野HARUKAS近铁本店" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
@@ -147,10 +147,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1f0760af"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=1f0760af"></script>
-<script src="/autoreserve.js?v=1f0760af"></script>
-<script src="/google_picks.js?v=1f0760af"></script>
-<script src="/geo.js?v=1f0760af"></script>
-<script src="/app.js?v=1f0760af"></script>
+<script src="/areas.js?v=54b933ac"></script>
+<script src="/autoreserve.js?v=54b933ac"></script>
+<script src="/google_picks.js?v=54b933ac"></script>
+<script src="/geo.js?v=54b933ac"></script>
+<script src="/app.js?v=54b933ac"></script>
 </body>
 </html>

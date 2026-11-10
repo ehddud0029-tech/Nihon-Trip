@@ -36,14 +36,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=1f0760af">
+<link rel="stylesheet" href="/app.css?v=54b933ac">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1f0760af"><\/script><script src="'+B+'engine.js?v=1f0760af"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=54b933ac"><\/script><script src="'+B+'engine.js?v=54b933ac"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -73,7 +73,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1f0760af"><\/s
 
 <section class="hero wrap">
   <div class="eyebrow">日本旅行 · 旅の準備</div>
-  <h1 id="heroTitle">広島・尾道、何から見ましょうか？</h1>
+  <div id="heroTitle">広島・尾道、何から見ましょうか？</div>
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="前の地域を見る" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="地域を選択"><button class="city" type="button" data-city="all" aria-pressed="false">すべて<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">東京<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">大阪<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="false">福岡<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">北海道<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">沖縄<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">名古屋<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="true">広島<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">四国<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="次の地域を見る" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="エリアを選択"><button class="area" type="button" data-area="hirocity" aria-pressed="false">広島市内</button><button class="area" type="button" data-area="miyajima" aria-pressed="false">宮島</button><button class="area" type="button" data-area="onomichi" aria-pressed="true">尾道</button><button class="area" type="button" data-area="kurashiki" aria-pressed="false">倉敷（岡山）</button></div>
   <dl class="brief" id="brief"><div class="beat"><dt>尾道のおすすめグルメ</dt><ol class="picks"><li><a class="pick" href="https://autoreserve.com/ja/restaurants/13HexLApxssTyFa7w4M9" target="_blank" rel="noopener"><b>鮨 やくしどう</b><em class="pm">寿司</em><span class="pd">江戸前寿司</span></a></li><li><a class="pick" href="https://autoreserve.com/ja/restaurants/LoKu7NbV15JjpdftXaFY" target="_blank" rel="noopener"><b>尾道横丁</b><em class="pm">居酒屋</em><span class="pd">郷土料理の屋台</span></a></li><li><a class="pick" href="https://autoreserve.com/ja/restaurants/Sr727Fq8QHyxynMzJFCG" target="_blank" rel="noopener"><b>やきにく孫悟空 尾道店</b><em class="pm">肉料理</em><span class="pd">黒毛和牛・韓国料理のサイド</span></a></li></ol>
@@ -119,7 +119,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1f0760af"><\/s
     <div class="plate"><span class="tag">5月の祭り</span><span class="where">広島市内</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M12 3v1.5M8.5 4.5h7M8.5 19.5h7M12 19.5V21"></path><path d="M8.5 4.5C5.5 6.5 5 9 5 12s.5 5.5 3.5 7.5h7c3-2 3.5-4.5 3.5-7.5s-.5-5.5-3.5-7.5"></path><path d="M5.3 9h13.4M5 12h14M5.3 15h13.4"></path></svg></span><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/FF2005_hana_no_to.JPG/960px-FF2005_hana_no_to.JPG?utm_source=ja.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="ひろしまフラワーフェスティバル" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="ok"></div>
     <div class="body"><h3>ひろしまフラワーフェスティバル</h3><div class="jpn">ひろしまフラワーフェスティバル</div><p>平和大通りを花で彩り、パレードやステージが繰り広げられるGWの祭り。</p>
     <div class="meta"><span>平和大通り・平和記念公園</span></div></div></a><a class="card" href="/ja/place/f-toronagashi/" data-open="f_toronagashi" style="--c:var(--yamabuki)">
-    <div class="plate"><span class="tag">8月の祭り</span><span class="where">広島市内</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M12 3v1.5M8.5 4.5h7M8.5 19.5h7M12 19.5V21"></path><path d="M8.5 4.5C5.5 6.5 5 9 5 12s.5 5.5 3.5 7.5h7c3-2 3.5-4.5 3.5-7.5s-.5-5.5-3.5-7.5"></path><path d="M5.3 9h13.4M5 12h14M5.3 15h13.4"></path></svg></span><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Genbaku_Dome04-r.JPG/960px-Genbaku_Dome04-r.JPG?utm_source=en.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="とうろう流し" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
+    <div class="plate"><span class="tag">8月の祭り</span><span class="where">広島市内</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M12 3v1.5M8.5 4.5h7M8.5 19.5h7M12 19.5V21"></path><path d="M8.5 4.5C5.5 6.5 5 9 5 12s.5 5.5 3.5 7.5h7c3-2 3.5-4.5 3.5-7.5s-.5-5.5-3.5-7.5"></path><path d="M5.3 9h13.4M5 12h14M5.3 15h13.4"></path></svg></span><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Genbaku_Dome04-r.JPG/960px-Genbaku_Dome04-r.JPG?utm_source=en.wikipedia.org&amp;utm_campaign=api&amp;utm_content=thumbnail" alt="とうろう流し" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="ok"></div>
     <div class="body"><h3>とうろう流し</h3><div class="jpn">とうろう流し</div><p>原爆の日の夕方、原爆ドーム前の川に追悼の灯籠を流します。</p>
     <div class="meta"><span>元安川（原爆ドーム前）</span></div></div></a><a class="card" href="/ja/place/fe-miyajima-oyster/" data-open="fe_miyajima_oyster" style="--c:var(--yamabuki)">
     <div class="plate"><span class="tag">2月の祭り</span><span class="where">宮島</span><span class="k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M12 3v1.5M8.5 4.5h7M8.5 19.5h7M12 19.5V21"></path><path d="M8.5 4.5C5.5 6.5 5 9 5 12s.5 5.5 3.5 7.5h7c3-2 3.5-4.5 3.5-7.5s-.5-5.5-3.5-7.5"></path><path d="M5.3 9h13.4M5 12h14M5.3 15h13.4"></path></svg></span><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/2012-04-15_Grilling_oysters_at_Miyajima.jpg/960px-2012-04-15_Grilling_oysters_at_Miyajima.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" alt="宮島かき祭り" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="ok"></div>
@@ -147,10 +147,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1f0760af"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=1f0760af"></script>
-<script src="/autoreserve.js?v=1f0760af"></script>
-<script src="/google_picks.js?v=1f0760af"></script>
-<script src="/geo.js?v=1f0760af"></script>
-<script src="/app.js?v=1f0760af"></script>
+<script src="/areas.js?v=54b933ac"></script>
+<script src="/autoreserve.js?v=54b933ac"></script>
+<script src="/google_picks.js?v=54b933ac"></script>
+<script src="/geo.js?v=54b933ac"></script>
+<script src="/app.js?v=54b933ac"></script>
 </body>
 </html>

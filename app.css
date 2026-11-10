@@ -64,7 +64,7 @@ html:lang(ja){--f-body:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","
 /* hero */
 .hero{padding-block:28px 8px}
 .eyebrow{font-size:12px;letter-spacing:.14em;color:var(--shu);font-weight:600}
-.hero h1{font-family:var(--f-display);font-size:clamp(26px,4vw,38px);line-height:1.25;margin:6px 0 16px;text-wrap:balance;font-weight:700}
+.hero h1,.hero #heroTitle{font-family:var(--f-display);font-size:clamp(26px,4vw,38px);line-height:1.25;margin:6px 0 16px;text-wrap:balance;font-weight:700}
 .cities{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
 .cityscroll{position:relative}
 .cityscroll[hidden]{display:none}

@@ -36,14 +36,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=1f0760af">
+<link rel="stylesheet" href="/app.css?v=54b933ac">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1f0760af"><\/script><script src="'+B+'engine.js?v=1f0760af"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=54b933ac"><\/script><script src="'+B+'engine.js?v=54b933ac"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -73,7 +73,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1f0760af"><\/s
 
 <section class="hero wrap">
   <div class="eyebrow">日本旅行 · 여행 준비</div>
-  <h1 id="heroTitle">후쿠오카 · 텐진·다이묘, 무엇부터 볼까요?</h1>
+  <div id="heroTitle">후쿠오카 · 텐진·다이묘, 무엇부터 볼까요?</div>
   <div class="cityscroll" id="cityscroll"><button type="button" class="cnav prev" id="cityPrev" aria-label="이전 지역 보기" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></span></button><div class="cities" id="cities" role="group" aria-label="지역 선택"><button class="city" type="button" data-city="all" aria-pressed="false">전체<span class="jp">日本</span></button><button class="city" type="button" data-city="tokyo" aria-pressed="false">도쿄<span class="jp">東京</span></button><button class="city" type="button" data-city="osaka" aria-pressed="false">오사카<span class="jp">大阪</span></button><button class="city" type="button" data-city="fukuoka" aria-pressed="true">후쿠오카<span class="jp">福岡</span></button><button class="city" type="button" data-city="hokkaido" aria-pressed="false">홋카이도<span class="jp">北海道</span></button><button class="city" type="button" data-city="okinawa" aria-pressed="false">오키나와<span class="jp">沖縄</span></button><button class="city" type="button" data-city="nagoya" aria-pressed="false">나고야<span class="jp">名古屋</span></button><button class="city" type="button" data-city="hiroshima" aria-pressed="false">히로시마<span class="jp">広島</span></button><button class="city" type="button" data-city="shikoku" aria-pressed="false">시코쿠<span class="jp">四国</span></button></div><button type="button" class="cnav next" id="cityNext" aria-label="다음 지역 보기" hidden=""><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></span></button></div>
   <div class="areas" id="areas" role="group" aria-label="하위 지역 선택"><button class="area" type="button" data-area="hakata" aria-pressed="false">하카타역</button><button class="area" type="button" data-area="tenjin" aria-pressed="true">텐진·다이묘</button><button class="area" type="button" data-area="nakasu" aria-pressed="false">나카스·하루요시</button><button class="area" type="button" data-area="dazaifu" aria-pressed="false">다자이후</button><button class="area" type="button" data-area="itoshima" aria-pressed="false">이토시마</button><button class="area" type="button" data-area="yufuin" aria-pressed="false">유후인</button><button class="area" type="button" data-area="beppu" aria-pressed="false">벳푸</button></div>
   <dl class="brief" id="brief"><div class="beat"><dt>텐진·다이묘 추천 맛집</dt><ol class="picks"><li><a class="pick" href="https://autoreserve.com/ko/restaurants/P5jzR5kVs7iNBMfYbW8v" target="_blank" rel="noopener"><b>스시타츠쇼</b><em class="pm">스시</em><span class="pd">스시</span></a></li><li><a class="pick" href="https://autoreserve.com/ko/restaurants/JN4ruUdEBVQVkg2sj9LF" target="_blank" rel="noopener"><b>햐쿠시키</b><em class="pm">이자카야</em><span class="pd">창작 일식 안주</span></a></li><li><a class="pick" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%84%BC%E8%82%89%E3%83%9B%E3%83%AB%E3%83%A2%E3%83%B3%E3%81%9F%E3%81%91%E7%94%B0%20%E5%A4%A9%E7%A5%9E%E5%A4%A7%E5%90%8D%E5%BA%97%20%E7%A6%8F%E5%B2%A1" target="_blank" rel="noopener"><b>야키니쿠 호르몬 타케다 다이묘점</b><em class="pm">고기</em><span class="pd">야키니쿠</span></a></li></ol>
@@ -147,10 +147,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1f0760af"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=1f0760af"></script>
-<script src="/autoreserve.js?v=1f0760af"></script>
-<script src="/google_picks.js?v=1f0760af"></script>
-<script src="/geo.js?v=1f0760af"></script>
-<script src="/app.js?v=1f0760af"></script>
+<script src="/areas.js?v=54b933ac"></script>
+<script src="/autoreserve.js?v=54b933ac"></script>
+<script src="/google_picks.js?v=54b933ac"></script>
+<script src="/geo.js?v=54b933ac"></script>
+<script src="/app.js?v=54b933ac"></script>
 </body>
 </html>
