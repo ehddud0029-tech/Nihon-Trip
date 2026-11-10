@@ -9,12 +9,12 @@ def dist(a, b, c, d):
     x = math.radians(d - b) * math.cos((p1 + p2) / 2); y = p2 - p1
     return round(R * math.hypot(x, y))
 def q(lat, lng, r):
-    ql = f'[out:json][timeout:25];nwr["amenity"="parking"](around:{r},{lat},{lng});out center tags;'
+    ql = f'[out:json][timeout:60];nwr["amenity"="parking"](around:{r},{lat},{lng});out center tags;'
     for i in range(6):
         ep = EPS[i % len(EPS)]
         try:
             req = urllib.request.Request(ep, data=urllib.parse.urlencode({'data': ql}).encode(), headers={'User-Agent': 'gonihontrip-parking/1.0 (travel site; contact via gonihontrip.com)'})
-            return json.load(urllib.request.urlopen(req, timeout=40))['elements']
+            return json.load(urllib.request.urlopen(req, timeout=90))['elements']
         except Exception as e:
             print('retry', ep, e, flush=True); time.sleep(5 + i * 5)
     return None
