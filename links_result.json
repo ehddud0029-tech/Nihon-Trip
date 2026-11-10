@@ -130,15 +130,15 @@
 "jidai": [
 {
 "url": "https://www.heianjingu.or.jp/festival/jidaisai.html",
-"status": 404,
+"status": 0,
 "final": "https://www.heianjingu.or.jp/festival/jidaisai.html",
-"title": ""
+"title": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issue"
 },
 {
 "url": "https://www.heianjingu.or.jp/",
-"status": 200,
+"status": 0,
 "final": "https://www.heianjingu.or.jp/",
-"title": ""
+"title": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issue"
 }
 ],
 "tsunahiki": [
@@ -442,7 +442,7 @@
 "url": "https://www.asakusa-torinoichi.tokyo/",
 "status": 0,
 "final": "https://www.asakusa-torinoichi.tokyo/",
-"title": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+"title": "<urlopen error timed out>"
 }
 ],
 "tokyojidai": [
