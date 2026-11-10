@@ -18,7 +18,7 @@ jobs:
       - run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          git add photo_cache.json photo_candidates.json; if [ -f drink_candidates.json ]; then git add drink_candidates.json; fi; if [ -f fest_candidates.json ]; then git add fest_candidates.json; fi; if [ -f links_result.json ]; then git add links_result.json; fi; if [ -f park_candidates.json ]; then git add park_candidates.json; fi; if [ -f park2_candidates.json ]; then git add park2_candidates.json park2.json; fi; if [ -f osm_park.json ]; then git add osm_park.json; fi; if [ -f wx_norm.json ]; then git add wx_norm.json; fi
+          git add photo_cache.json photo_candidates.json; if [ -f drink_candidates.json ]; then git add drink_candidates.json; fi; if [ -f fest_candidates.json ]; then git add fest_candidates.json; fi; if [ -f links_result.json ]; then git add links_result.json; fi; if [ -f park_candidates.json ]; then git add park_candidates.json; fi; if [ -f park2_candidates.json ]; then git add park2_candidates.json; fi; if [ -f osm_park.json ]; then git add osm_park.json; fi; if [ -f wx_norm.json ]; then git add wx_norm.json; fi
           git commit -m "photo job results" || true
           git pull --rebase origin photo-job || true
           git push
