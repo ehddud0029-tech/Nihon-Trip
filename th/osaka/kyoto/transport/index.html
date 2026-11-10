@@ -37,14 +37,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=e75f98d5">
+<link rel="stylesheet" href="/app.css?v=1f0760af">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=e75f98d5"><\/script><script src="'+B+'engine.js?v=e75f98d5"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=1f0760af"><\/script><script src="'+B+'engine.js?v=1f0760af"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -65,7 +65,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=e75f98d5"><\/s
       <a href="/th/food/" data-view="food"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M4.5 3v5a2.5 2.5 0 005 0V3M7 11v10"></path><path d="M17 21V3c-2.2 1.2-3.5 3.6-3.5 6.5V13H17"></path></svg><span>อาหาร</span></a>
       <a href="/th/transport/" data-view="transport" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="3"></rect><path d="M5 10h14M9 13.5h.01M15 13.5h.01M8 20l1.5-3M16 20l-1.5-3"></path></svg><span>การเดินทาง</span></a>
       <a href="/th/shopping/" data-view="shopping"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 8V6.5a3 3 0 016 0V8"></path></svg><span>ช้อปปิ้ง</span></a>
-      <a href="/th/weather/" data-view="weather"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3.2"></circle><path d="M9 2.5v1.3M3.8 4.8l.9.9M2.5 9h1.3M14.2 4.8l-.9.9"></path><path d="M8 19.5h9.5a3.5 3.5 0 0 0 .3-7 5 5 0 0 0-9.4 1.3A2.9 2.9 0 0 0 8 19.5z"></path></svg><span>สภาพอากาศ</span></a>
+      <a href="/th/tokyo/weather/" data-view="weather"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3.2"></circle><path d="M9 2.5v1.3M3.8 4.8l.9.9M2.5 9h1.3M14.2 4.8l-.9.9"></path><path d="M8 19.5h9.5a3.5 3.5 0 0 0 .3-7 5 5 0 0 0-9.4 1.3A2.9 2.9 0 0 0 8 19.5z"></path></svg><span>สภาพอากาศ</span></a>
       <a href="/th/stay/" data-view="stay"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18V7M3 14h18v4M21 14v-2.5A2.5 2.5 0 0 0 18.5 9H11v5"></path><circle cx="7" cy="11" r="1.8"></circle></svg><span>ที่พัก</span></a>
       <a href="/th/drink/" data-view="drink"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l-1.2 6.5a3.9 3.9 0 0 1-7.6 0z"></path><path d="M12 13.5V20M8.5 20.5h7"></path></svg><span>เหล้า</span></a>
       <a href="/th/guide/entry/" data-view="guide"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"></rect><path d="M9 4V2.8h6V4M8.5 10.5l1.5 1.5 3-3M8.5 16l1.5 1.5 3-3M15 11h1.5M15 16.5h1.5"></path></svg><span>เตรียมตัวเดินทาง</span></a>
@@ -84,8 +84,8 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=e75f98d5"><\/s
 </section>
 
 <main class="wrap" id="main"><div class="sechead"><div><h2>การเดินทาง</h2><p>วิธีเดินทางจากสนามบินเข้าเมือง และในเมือง</p></div></div>
-   <nav class="dtabs sbtabs"><a href="/th/osaka/kyoto/transport/" data-subtab="" class="on" aria-current="page">ดูภาพรวม</a><a href="/th/osaka/kyoto/transport/times/" data-subtab="times">เวลาเดินทางแต่ละเส้นทาง</a><a href="/th/osaka/kyoto/transport/airport/" data-subtab="airport">วิธีเดินทางจากสนามบินเข้าเมือง</a><a href="/th/osaka/kyoto/transport/ic/" data-subtab="ic">คู่มือบัตรโดยสาร</a></nav>
-   <section class="ovic"><h3 class="sgh"><span>บัตรโดยสาร</span></h3><div class="ovic-card"><div class="icrow"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/ICOCA_logo.svg?width=360" alt="" loading="lazy" referrerpolicy="no-referrer"><span><b>ICOCA</b><small>โอซาก้า · เกียวโต · โกเบ · นารา (JR West)</small></span></div><p>เครื่องขายตั๋วและเคาน์เตอร์ JR ที่สถานีสนามบินคันไซ และเครื่องขายตั๋วสถานี JR West (รวมเงินมัดจำ 500 เยน)</p><a class="more" href="/th/osaka/kyoto/transport/ic/" data-subtab="ic">คู่มือบัตรโดยสาร<i> →</i></a></div></section><div class="notes">
+   <nav class="dtabs sbtabs"><a href="/th/osaka/kyoto/transport/" data-subtab="" class="on" aria-current="page">ดูภาพรวม</a><a href="/th/osaka/dotonbori/transport/times/" data-subtab="times">เวลาเดินทางแต่ละเส้นทาง</a><a href="/th/osaka/dotonbori/transport/airport/" data-subtab="airport">วิธีเดินทางจากสนามบินเข้าเมือง</a><a href="/th/osaka/dotonbori/transport/ic/" data-subtab="ic">คู่มือบัตรโดยสาร</a></nav>
+   <section class="ovic"><h3 class="sgh"><span>บัตรโดยสาร</span></h3><div class="ovic-card"><div class="icrow"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/ICOCA_logo.svg?width=360" alt="" loading="lazy" referrerpolicy="no-referrer"><span><b>ICOCA</b><small>โอซาก้า · เกียวโต · โกเบ · นารา (JR West)</small></span></div><p>เครื่องขายตั๋วและเคาน์เตอร์ JR ที่สถานีสนามบินคันไซ และเครื่องขายตั๋วสถานี JR West (รวมเงินมัดจำ 500 เยน)</p><a class="more" href="/th/osaka/dotonbori/transport/ic/" data-subtab="ic">คู่มือบัตรโดยสาร<i> →</i></a></div></section><div class="notes">
     <div class="note"><h4>บัตรโดยสารใบเดียวใช้ได้ทั่วประเทศ</h4><p>บัตร IC หลัก ๆ เช่น Suica, PASMO และ ICOCA ใช้แทนกันได้ และสร้าง Suica ในแอป Wallet ของ iPhone ได้ด้วย</p></div>
     <div class="note"><h4>คำนวณความคุ้มของ JR Pass</h4><p>หากพักแค่หนึ่งหรือสองเมือง พาสภูมิภาคหรือบัตร IC มักถูกกว่า JR Pass ทั่วประเทศ</p></div>
     <div class="note"><h4>ตรวจสอบเวลารถไฟเที่ยวสุดท้าย</h4><p>รถไฟใต้ดินส่วนใหญ่หยุดราวเที่ยงคืน หากออกไปดึก ตรวจสอบรถไฟเที่ยวสุดท้ายใกล้ที่พักล่วงหน้า</p></div>
@@ -102,7 +102,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=e75f98d5"><\/s
   <a href="/th/food/" data-view="food"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 12h17c0 4.4-3.6 8-8 8h-1c-4.4 0-8-3.6-8-8z"></path><path d="M8 20.5h8M14 3 9.5 11M19 4l-6.5 7.5"></path></svg></i>อาหาร</a>
   <a href="/th/transport/" data-view="transport" aria-current="page"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="3.5" width="12" height="13" rx="3"></rect><path d="M6 10h12M9.5 13.5h.01M14.5 13.5h.01M9 16.5 7 20.5M15 16.5l2 4"></path></svg></i>การเดินทาง</a>
   <a href="/th/shopping/" data-view="shopping"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12.5H6z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg></i>ช้อปปิ้ง</a>
-  <a href="/th/weather/" data-view="weather"><i><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3.2"></circle><path d="M9 2.5v1.3M3.8 4.8l.9.9M2.5 9h1.3M14.2 4.8l-.9.9"></path><path d="M8 19.5h9.5a3.5 3.5 0 0 0 .3-7 5 5 0 0 0-9.4 1.3A2.9 2.9 0 0 0 8 19.5z"></path></svg></i>สภาพอากาศ</a>
+  <a href="/th/tokyo/weather/" data-view="weather"><i><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3.2"></circle><path d="M9 2.5v1.3M3.8 4.8l.9.9M2.5 9h1.3M14.2 4.8l-.9.9"></path><path d="M8 19.5h9.5a3.5 3.5 0 0 0 .3-7 5 5 0 0 0-9.4 1.3A2.9 2.9 0 0 0 8 19.5z"></path></svg></i>สภาพอากาศ</a>
 <a href="/th/stay/" data-view="stay"><i><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18V7M3 14h18v4M21 14v-2.5A2.5 2.5 0 0 0 18.5 9H11v5"></path><circle cx="7" cy="11" r="1.8"></circle></svg></i>ที่พัก</a>
 <a href="/th/drink/" data-view="drink"><i><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l-1.2 6.5a3.9 3.9 0 0 1-7.6 0z"></path><path d="M12 13.5V20M8.5 20.5h7"></path></svg></i>เหล้า</a>
   <a href="/th/guide/entry/" data-view="guide"><i><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"></rect><path d="M9 4V2.8h6V4M8.5 10.5l1.5 1.5 3-3M8.5 16l1.5 1.5 3-3M15 11h1.5M15 16.5h1.5"></path></svg></i>เตรียมตัว</a>
@@ -110,10 +110,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=e75f98d5"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=e75f98d5"></script>
-<script src="/autoreserve.js?v=e75f98d5"></script>
-<script src="/google_picks.js?v=e75f98d5"></script>
-<script src="/geo.js?v=e75f98d5"></script>
-<script src="/app.js?v=e75f98d5"></script>
+<script src="/areas.js?v=1f0760af"></script>
+<script src="/autoreserve.js?v=1f0760af"></script>
+<script src="/google_picks.js?v=1f0760af"></script>
+<script src="/geo.js?v=1f0760af"></script>
+<script src="/app.js?v=1f0760af"></script>
 </body>
 </html>
