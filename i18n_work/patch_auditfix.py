@@ -18,3 +18,19 @@ for fn in FILES:
         assert s.count(old) == 1, (fn, old[:50], s.count(old))
         s = s.replace(old, new)
     open(fn, 'w', encoding='utf-8').write(s); print('ok', fn)
+
+# 2차(2026-11-10): 지역 이름이 도시 이름으로 시작하면 제목에 도시를 두 번 쓰지 않기, 날씨 안내 줄은 여행 추천(첫 화면)에서만,
+# 다른 h1이 있는 화면(장소 상세·지도·소개 등)에서는 맨 위 제목을 h1 대신 div로
+RULES2 = [
+ ('A ? `${c.ko} · ${A.ko}, 무엇부터 볼까요?`', 'A ? (A.ko.startsWith(c.ko+" ") ? `${A.ko} 여행, 무엇부터 볼까요?` : `${c.ko} · ${A.ko}, 무엇부터 볼까요?`)'),
+ ('  document.body.classList.remove("nowx");\n', '  document.body.classList.toggle("nowx", st.view!=="home" && st.view!=="saved");\n'),
+ ('.hero h1{', '.hero h1,.hero #heroTitle{'),
+ ('function setNav(){\n', 'function fixH1(){ const h=document.getElementById("heroTitle"); if(!h) return; const others=[...document.querySelectorAll("h1")].filter(x=>x!==h).length, want=others?"DIV":"H1"; if(h.tagName===want) return; const n=document.createElement(want); for(const a of h.attributes) n.setAttribute(a.name,a.value); n.textContent=h.textContent; h.replaceWith(n); }\nfunction setNav(){\n  setTimeout(fixH1,0);\n'),
+]
+for fn in FILES:
+    s = open(fn, encoding='utf-8').read()
+    for old, new in RULES2:
+        if new in s: continue
+        assert s.count(old) == 1, (fn, old[:50], s.count(old))
+        s = s.replace(old, new)
+    open(fn, 'w', encoding='utf-8').write(s); print('ok2', fn)

@@ -173,7 +173,7 @@ html:lang(ja){--f-body:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","
 /* hero */
 .hero{padding-block:28px 8px}
 .eyebrow{font-size:12px;letter-spacing:.14em;color:var(--shu);font-weight:600}
-.hero h1{font-family:var(--f-display);font-size:clamp(26px,4vw,38px);line-height:1.25;margin:6px 0 16px;text-wrap:balance;font-weight:700}
+.hero h1,.hero #heroTitle{font-family:var(--f-display);font-size:clamp(26px,4vw,38px);line-height:1.25;margin:6px 0 16px;text-wrap:balance;font-weight:700}
 .cities{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
 .cityscroll{position:relative}
 .cityscroll[hidden]{display:none}
@@ -2135,7 +2135,7 @@ function renderCities(){
   const c = CITIES[st.city], apT = st.view==="transport" && ["times","airport","ic"].includes(st.sub), A = apT ? null : curArea();
   $("#areas").hidden = !c || apT;
   if(c) $("#areas").innerHTML = (st.view==="festivals"?`<button class="area" type="button" data-area="all" aria-pressed="${st.area==="all"}">전체</button>`:"") + areasOf(st.city).filter(a=>(!tgOn()||tgRep(a.key)===a.key)&&vgRep(a.key)===a.key&&(st.view!=="festivals"||vgFestN(st.city,a.key))).map(a=>{ const g=tgOn()&&tgOf(a.key), v=vgOf(a.key); return `<button class="area" type="button" data-area="${a.key}" aria-pressed="${st.area===a.key}">${g?g.name:v?v.name:a.ko}</button>`; }).join("");
-  $("#heroTitle").textContent = st.view==="home" ? "일본 여행, 어디로 갈까요?" : A ? `${c.ko} · ${A.ko}, 무엇부터 볼까요?` : c ? `${c.ko} 여행, 무엇부터 볼까요?` : "어느 지역부터 둘러볼까요?";
+  $("#heroTitle").textContent = st.view==="home" ? "일본 여행, 어디로 갈까요?" : A ? (A.ko.startsWith(c.ko+" ") ? `${A.ko} 여행, 무엇부터 볼까요?` : `${c.ko} · ${A.ko}, 무엇부터 볼까요?`) : c ? `${c.ko} 여행, 무엇부터 볼까요?` : "어느 지역부터 둘러볼까요?";
   const w = c && WX && (st.view==="weather" ? (WX[st.city]||WX[A?.key]) : (WX[A?A.key:st.city] || WX[st.city]));
   const wxBox = $("#wx");
   wxBox.hidden = true;   /* 시간별·주간 날씨는 날씨 페이지에서만 */
@@ -2308,7 +2308,9 @@ function renderCities(){
   }
   $("#wxnote").textContent = WX ? "날씨: Open-Meteo 실시간 예보 · 30분마다 갱신" : wxFailed ? "실시간 날씨를 불러오지 못해 평년값을 보여드려요." : "실시간 날씨를 불러오는 중…";
 }
+function fixH1(){ const h=document.getElementById("heroTitle"); if(!h) return; const others=[...document.querySelectorAll("h1")].filter(x=>x!==h).length, want=others?"DIV":"H1"; if(h.tagName===want) return; const n=document.createElement(want); for(const a of h.attributes) n.setAttribute(a.name,a.value); n.textContent=h.textContent; h.replaceWith(n); }
 function setNav(){
+  setTimeout(fixH1,0);
   document.querySelectorAll("[data-view]").forEach(a=>{
     if(ROUTED) a.setAttribute("href", window.NT_BASE + LPRE + pathOf({...st, view:a.dataset.view, city:a.dataset.view==="weather"?"tokyo":"all", area:"all", itin:null, gsec:null, ap:"", apk:"", wm:0, sub:""}));
     if(a.classList.contains("brand")) return;
@@ -3352,7 +3354,7 @@ function render(){
   if(st.view==="home" || INFO_VIEWS.includes(st.view)){ st.city="all"; }
   if(st.city==="all") st.area="all";
   if(st.city!=="all" && ((st.area==="all" && st.view!=="festivals") || (st.area!=="all" && !areasOf(st.city).some(a=>a.key===st.area)))) st.area = areasOf(st.city)[0]?.key || "all";
-  document.body.classList.remove("nowx");
+  document.body.classList.toggle("nowx", st.view!=="home" && st.view!=="saved");
   document.body.classList.toggle("tsub", st.view==="transport" && !!subOk(st));
   renderCities(); setNav();
   $("#main").innerHTML = V[st.view]();
