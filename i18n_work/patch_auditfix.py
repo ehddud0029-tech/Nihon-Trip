@@ -34,3 +34,18 @@ for fn in FILES:
         assert s.count(old) == 1, (fn, old[:50], s.count(old))
         s = s.replace(old, new)
     open(fn, 'w', encoding='utf-8').write(s); print('ok2', fn)
+
+# 3차(2026-11-11): 장소 상세 창(drawer)을 뒤로 가기로 닫기 — 창을 열 때 기록을 하나 쌓고, 뒤로 가면 창만 닫음
+RULES3 = [
+ ('  $("#closeD").onclick=closeItem;\n}\nfunction closeItem(){', '  $("#closeD").onclick=closeDrawer;\n  try{ if(!(history.state&&history.state.drawer)) history.pushState({drawer:id},"",location.href) }catch(_){}\n}\nfunction closeDrawer(){ if(history.state&&history.state.drawer){ try{ history.back(); return }catch(_){} } closeItem(); }\nfunction closeItem(){'),
+ ('$("#scrim").onclick=closeItem;', '$("#scrim").onclick=closeDrawer;'),
+ ('if(e.key==="Escape"&&!$("#drawer").hidden) closeItem()', 'if(e.key==="Escape"&&!$("#drawer").hidden) closeDrawer()'),
+ ('window.addEventListener("popstate",()=>{ if(ROUTED){', 'window.addEventListener("popstate",()=>{ const dr=document.getElementById("drawer"), ds=history.state&&history.state.drawer; if(dr&&!dr.hidden){ closeItem(); if(!ds) return; } if(ds){ try{history.replaceState(null,"",location.href)}catch(_){} } if(ROUTED){'),
+]
+for fn in FILES:
+    s = open(fn, encoding='utf-8').read()
+    for old, new in RULES3:
+        if new in s: continue
+        assert s.count(old) == 1, (fn, old[:50], s.count(old))
+        s = s.replace(old, new)
+    open(fn, 'w', encoding='utf-8').write(s); print('ok3', fn)
