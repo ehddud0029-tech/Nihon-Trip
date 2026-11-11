@@ -2232,7 +2232,7 @@ function syncUrl(){
   if(["stay","weather","airport","drink"].includes(st.view)){ const h1=document.getElementById("heroTitle"); if(h1) h1.textContent = pm.title.replace(/ \| Go Nihon Trip$/,""); }   // 숨은 h1을 검색 제목과 같게 (patch_staynb.py)
   if(pm.desc){ setMeta('meta[name="description"]',pm.desc); setMeta('meta[property="og:description"]',pm.desc); }
 }
-window.addEventListener("popstate",()=>{ if(ROUTED){ readPath(); st.q=""; st.focus=null; render(); } });
+window.addEventListener("popstate",()=>{ const dr=document.getElementById("drawer"), ds=history.state&&history.state.drawer; if(dr&&!dr.hidden){ closeItem(); if(!ds) return; } if(ds){ try{history.replaceState(null,"",location.href)}catch(_){} } if(ROUTED){ readPath(); st.q=""; st.focus=null; render(); } });
 
 function render(){
   if(st.view==="weather" && !(WXN[st.city] && st.city!=="all")) st.city = "tokyo";
@@ -3196,11 +3196,13 @@ function openItem(id){
    <div class="in">${detailHTML(it,"h2",true)}</div>`;
   $("#drawer").hidden=false; $("#scrim").hidden=false;
   $("#closeD").focus();
-  $("#closeD").onclick=closeItem;
+  $("#closeD").onclick=closeDrawer;
+  try{ if(!(history.state&&history.state.drawer)) history.pushState({drawer:id},"",location.href) }catch(_){}
 }
+function closeDrawer(){ if(history.state&&history.state.drawer){ try{ history.back(); return }catch(_){} } closeItem(); }
 function closeItem(){ $("#drawer").hidden=true; $("#scrim").hidden=true; if(lastFocus&&lastFocus.focus) lastFocus.focus(); }
-$("#scrim").onclick=closeItem;
-document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("#drawer").hidden) closeItem()});
+$("#scrim").onclick=closeDrawer;
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("#drawer").hidden) closeDrawer()});
 
 /* events */
 document.addEventListener("click",e=>{
