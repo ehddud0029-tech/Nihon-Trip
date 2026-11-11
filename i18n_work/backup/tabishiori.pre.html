@@ -772,7 +772,7 @@ body.is-wx .hero{display:none}
 .dcard .more{margin-top:auto}.dtop{display:flex;gap:6px;flex-wrap:wrap}
 .dkind{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700;color:#fff;background:var(--ink-2)}
 .dk-shochu{background:#6b5b95}.dk-umeshu{background:#b5536b}.dk-wine{background:#7a2e45}.dk-liqueur{background:#c2701a}
-.dbuyl{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0 0;font-size:14px}.dbuyl b{margin-right:4px}.dpl{display:block}.dbuyl a{color:inherit;text-decoration:none}.dbuyl a:hover span{border-color:var(--ai,#c4452c)}.dbuyl span{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+.dbuyl{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0 0;font-size:14px}.dbuyl b{margin-right:4px}.dpl{display:block}.dnote{font-size:12px;color:var(--mute,#5A6272);white-space:nowrap}.dbuyl a{color:inherit;text-decoration:none}.dbuyl a:hover span{border-color:var(--ai,#c4452c)}.dbuyl span{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
 .dph{margin:-16px -18px 4px;position:relative;background:var(--line)}.dph img{display:block;width:100%;height:190px;object-fit:cover;border-radius:var(--r) var(--r) 0 0}.dph figcaption{position:absolute;right:6px;bottom:6px;background:rgba(0,0,0,.55);color:#fff;font-size:10.5px;padding:2px 7px;border-radius:999px;max-width:90%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.dph figcaption a{color:#fff}
 .dtaste{margin:0;font-size:14px;color:var(--ink-2);font-style:italic}
 .dtabs{display:flex;gap:6px;overflow-x:auto;margin:14px 0 4px;padding-bottom:2px;border-bottom:1px solid var(--line)}.dtabs a{flex:0 0 auto;padding:9px 14px;border-radius:10px 10px 0 0;text-decoration:none;color:var(--ink-2);font-weight:600;font-size:14.5px;border-bottom:3px solid transparent}.dtabs a.on{color:var(--ink);border-bottom-color:var(--accent,#c0392b)}
@@ -4105,7 +4105,7 @@ function drinkBuyCard(v,c){
   const fig = ph ? `<figure class="dph"><img src="${esc(ph.src)}" alt="${esc((window.__tr||(x=>x))(v.n))}" decoding="async"><figcaption><a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(ph.file.replace(/ /g,"_"))}" target="_blank" rel="noopener">사진</a> <span class="notranslate">${esc(ph.artist)} · ${esc(ph.license)}</span></figcaption></figure>` : "";
   return `<article class="dcard dbuy">${fig||art}<div class="dtop"><span class="dkind dk-${v.k}">${DRINK_KIND[v.k]}</span></div>
    <h3>${esc(v.n)}</h3><p class="hja notranslate" lang="ja">${esc(v.ja)}</p><p class="dd">${esc(v.d)}</p>${v.t?`<p class="dtaste">${esc(v.t)}</p>`:""}
-   <dl>${v.p?`<dt>가격대</dt><dd>${v.p.split(" · ").map(x=>`<span class="dpl">${esc(x)}</span>`).join("")}</dd>`:""}<dt>살 수 있는 곳</dt><dd>${esc(v.w)}</dd></dl>
+   <dl>${v.p?`<dt>가격대</dt><dd>${v.p.split(" · ").map(x=>{ const m=x.match(/^(.*) (\([^()]+\))$/); return m?`<span class="dpl">${esc(m[1])}</span><span class="dpl dnote">${esc(m[2])}</span>`:`<span class="dpl">${esc(x)}</span>`; }).join("")}</dd>`:""}<dt>살 수 있는 곳</dt><dd>${esc(v.w)}</dd></dl>
    ${c&&CITIES[c]?`<a class="more dmap" href="${drinkMap(`${v.ja.split("（")[0]} ${CITIES[c].jp}`)}" target="_blank" rel="noopener">구글 지도에서 파는 곳 찾기 ↗</a>`:""}</article>`;
 }
 V.drink = function(){

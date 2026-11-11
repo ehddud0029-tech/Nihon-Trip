@@ -172,7 +172,7 @@ function drinkBuyCard(v,c){
   const fig = ph ? `<figure class="dph"><img src="${esc(ph.src)}" alt="${esc((window.__tr||(x=>x))(v.n))}" decoding="async"><figcaption><a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(ph.file.replace(/ /g,"_"))}" target="_blank" rel="noopener">사진</a> <span class="notranslate">${esc(ph.artist)} · ${esc(ph.license)}</span></figcaption></figure>` : "";
   return `<article class="dcard dbuy">${fig||art}<div class="dtop"><span class="dkind dk-${v.k}">${DRINK_KIND[v.k]}</span></div>
    <h3>${esc(v.n)}</h3><p class="hja notranslate" lang="ja">${esc(v.ja)}</p><p class="dd">${esc(v.d)}</p>${v.t?`<p class="dtaste">${esc(v.t)}</p>`:""}
-   <dl>${v.p?`<dt>가격대</dt><dd>${v.p.split(" · ").map(x=>`<span class="dpl">${esc(x)}</span>`).join("")}</dd>`:""}<dt>살 수 있는 곳</dt><dd>${esc(v.w)}</dd></dl>
+   <dl>${v.p?`<dt>가격대</dt><dd>${v.p.split(" · ").map(x=>{ const m=x.match(/^(.*) (\([^()]+\))$/); return m?`<span class="dpl">${esc(m[1])}</span><span class="dpl dnote">${esc(m[2])}</span>`:`<span class="dpl">${esc(x)}</span>`; }).join("")}</dd>`:""}<dt>살 수 있는 곳</dt><dd>${esc(v.w)}</dd></dl>
    ${c&&CITIES[c]?`<a class="more dmap" href="${drinkMap(`${v.ja.split("（")[0]} ${CITIES[c].jp}`)}" target="_blank" rel="noopener">구글 지도에서 파는 곳 찾기 ↗</a>`:""}</article>`;
 }
 V.drink = function(){
