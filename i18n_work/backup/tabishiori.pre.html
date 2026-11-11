@@ -4125,12 +4125,12 @@ V.drink = function(){
       ${qa(drinkHomeQ(), `<span>${esc(drinkCarry()[0])}</span>`)}
       ${qa("비행기에 술을 실을 수 있나요?", `<span>${esc(DRINK_CARRY[1])}</span> <span>${esc(DRINK_CARRY[2])}</span>`)}
      </dl></section>`;
-    else body = `<nav class="wxmon stjump">${DRINK_CITIES.map(k=>`<a href="#st-${k}" data-stjump="${k}">${esc(CITIES[k].ko)}</a>`).join("")}</nav>
+    else body = `<nav class="wxmon stjump">${DRINK_CITIES.map(k=>drinkA(k,esc(CITIES[k].ko))).join("")}</nav>
      ${DRINK_CITIES.map(k=>{ const vs=DRINKS.filter(v=>v.city===k);
        return `<section class="stsec" id="st-${k}"><h3 class="sgh"><span>${esc(CITIES[k].ko)}</span></h3><p class="stsub">${esc(DRINK_INTRO[k])}</p>
         <div class="dlist">${vs.map(v=>`<div class="dmini"><span class="dkind dk-${v.k}">${DRINK_KIND[v.k]}</span><b>${esc(v.n)}</b><small>${esc(v.area)}</small></div>`).join("")}</div>
         <p class="dbuyl"><b>사 가면 좋은 술</b>${(DRINK_BUY[k]||[]).map(v=>`<span>${esc(v.n)}</span>`).join("")}</p>
-        <p class="stmore">${drinkA(k,`${esc(CITIES[k].ko)} 술 여행 자세히 보기<i> →</i>`,"more")}</p></section>`; }).join("")}`;
+        <div class="wxlinks dsub" style="margin-top:12px">${DRINK_TABS.map(t2=>drinkA(k,`${esc(DRINK_TAB_LABEL[t2])}<i> →</i>`,"btn ghost",t2)).join("")}</div></section>`; }).join("")}`;
     return `<div class="wx">
      <div class="ghead"><h2>일본 술 여행 – 지역별 사케·맥주·위스키</h2><p>일본 술의 종류와 고르는 법, 지역별로 견학·시음할 수 있는 양조장과 증류소, 한국에 가져올 때의 규칙까지 정리했어요.</p></div>
      ${subTabs(tabs,t)}
