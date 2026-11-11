@@ -1,6 +1,6 @@
 # 술 페이지 '사 가면 좋은 술' 추가 24개(2026-11-11, 도시마다 3개). 직접 쓴 설명, 가격대는 일본 매장 기준 대략.
 # 실행: python3 i18n_work/drink_more.py → sitegen/drink_view.js의 DRMORE 블록 + tr_58.tsv·zh_59.tsv·th_59.tsv, 그다음 patch_drink.py
-import json, re
+import json, re, sys; sys.path.insert(0, '/home/claude/i18n_work')
 W = {
  'dept': ("백화점 주류 코너, 주류 전문점", "Department-store liquor floors, specialist liquor shops", "百貨店の酒売り場、酒専門店", "Secciones de licores de grandes almacenes, tiendas especializadas", "Rayons alcools des grands magasins, cavistes", "百货店酒类柜台、酒类专卖店", "แผนกเครื่องดื่มในห้างสรรพสินค้า ร้านเหล้าเฉพาะทาง"),
  'conv': ("편의점, 슈퍼, 공항 면세점", "Convenience stores, supermarkets, airport duty-free", "コンビニ、スーパー、空港免税店", "Konbini, supermercados, duty-free del aeropuerto", "Konbini, supermarchés, duty-free de l'aéroport", "便利店、超市、机场免税店", "ร้านสะดวกซื้อ ซูเปอร์มาร์เก็ต ร้านปลอดภาษีสนามบิน"),
@@ -16,7 +16,7 @@ D = {
   ("맛: 맥아 향이 진하고 쓴맛이 또렷해요.","Taste: rich malt aroma with a clear bitterness.","味：麦芽の香りが濃く、苦みがはっきり。","Sabor: aroma intenso a malta y amargor marcado.","Goût : arôme de malt intense et amertume nette.","口味：麦芽香浓，苦味鲜明。","รสชาติ: กลิ่นมอลต์เข้ม ขมชัด")),
  ('sake', ("다마지만","Tamajiman","多満自慢","Tamajiman","Tamajiman","多满自慢","ทามะจิมัง"), "多満自慢",
   ("도쿄 훗사의 이시카와 주조가 빚는 도쿄 사케. 양조장 안에 식당과 매장이 있어요.","A Tokyo sake brewed by Ishikawa Brewery in Fussa. The brewery has restaurants and a shop on site.","東京・福生の石川酒造が造る東京の地酒。蔵の敷地に食事処と売店があります。","Sake de Tokio elaborado por la bodega Ishikawa, en Fussa. La bodega tiene restaurantes y tienda.","Saké de Tokyo brassé par la maison Ishikawa à Fussa. Restaurants et boutique sur place.","东京福生市石川酒造酿造的东京清酒。酒厂内有餐厅和商店。","สาเกโตเกียวจากโรงสาเกอิชิกาวะในเมืองฟุสสะ ในโรงมีร้านอาหารและร้านขาย"),
-  'dept', "720ml 약 1,300~2,500엔",
+  'dept', "720ml 약 1,300~2,500엔 (상위 등급은 더 비싸요)",
   ("맛: 부드럽고 쌀의 단맛이 은은해요.","Taste: soft, with a gentle rice sweetness.","味：やわらかく、米の甘みがほんのり。","Sabor: suave, con un dulzor ligero de arroz.","Goût : souple, avec une légère douceur de riz.","口味：柔和，带淡淡的米甜。","รสชาติ: นุ่ม หวานข้าวอ่อน ๆ")),
  ('whisky', ("이치로즈 몰트 & 그레인 화이트 라벨","Ichiro's Malt & Grain White Label","イチローズモルト＆グレーン ホワイトラベル","Ichiro's Malt & Grain White Label","Ichiro's Malt & Grain White Label","Ichiro's Malt & Grain 白标","อิจิโรส์ มอลต์ แอนด์ เกรน ไวท์เลเบิล"), "イチローズモルト ホワイトラベル",
   ("도쿄 근교 사이타마 지치부의 작은 증류소가 만드는 블렌디드 위스키. 도쿄 주류 전문점에서 비교적 구하기 쉬워요.","A blended whisky from a small distillery in Chichibu, Saitama, near Tokyo. Fairly easy to find in Tokyo liquor shops.","東京近郊、埼玉・秩父の小さな蒸溜所が造るブレンデッドウイスキー。東京の酒専門店で比較的手に入りやすい一本。","Whisky blended de una pequeña destilería de Chichibu (Saitama), cerca de Tokio. Bastante fácil de encontrar en licorerías de Tokio.","Blend d'une petite distillerie de Chichibu (Saitama), près de Tokyo. Assez facile à trouver chez les cavistes de Tokyo.","东京近郊埼玉秩父的小蒸馏厂出品的调和威士忌。在东京的酒类专卖店比较容易买到。","วิสกี้เบลนด์จากโรงกลั่นเล็กในชิจิบุ ไซตามะ ใกล้โตเกียว หาซื้อได้ค่อนข้างง่ายในร้านเหล้าโตเกียว"),
@@ -34,17 +34,17 @@ D = {
   ("맛: 종류마다 다르고, 스타우트는 커피 같은 구수함이 있어요.","Taste: varies by style; the stout has a roasty, coffee-like note.","味：種類によりさまざま、スタウトはコーヒーのような香ばしさ。","Sabor: depende del estilo; la stout tiene notas tostadas, como de café.","Goût : selon le style ; la stout a des notes torréfiées, proches du café.","口味：因款式而异，世涛有咖啡般的焦香。","รสชาติ: ต่างกันตามชนิด สเตาต์หอมคั่วคล้ายกาแฟ")),
  ('sake', ("아키시카","Akishika","秋鹿","Akishika","Akishika","秋鹿","อากิชิกะ"), "秋鹿",
   ("오사카 북쪽 노세에서 쌀 농사부터 직접 짓는 양조장의 사케. 쌀로만 빚는 준마이만 만들어요.","Sake from a brewery in Nose, north of Osaka, that grows its own rice. It makes only junmai (pure-rice) sake.","大阪北部・能勢で米作りから手がける蔵の酒。純米酒だけを造ります。","Sake de una bodega de Nose, al norte de Osaka, que cultiva su propio arroz. Solo elabora junmai.","Saké d'une maison de Nose, au nord d'Osaka, qui cultive son propre riz. Uniquement du junmai.","大阪北部能势一家从种稻开始的酒厂的清酒。只酿纯米酒。","สาเกจากโรงในโนเสะ ทางเหนือของโอซาก้า ที่ปลูกข้าวเอง ทำเฉพาะจุนไม"),
-  'dept', "720ml 약 1,500~2,800엔",
+  'dept', "720ml 약 1,900~2,500엔 (상위 등급은 더 비싸요)",
   ("맛: 산미가 또렷하고 묵직해서 데워 마셔도 좋아요.","Taste: firm acidity and body; also good warmed.","味：酸がしっかりして力強く、燗にしてもおいしい。","Sabor: acidez marcada y cuerpo; también bueno templado.","Goût : acidité franche et du corps ; bon aussi tiédi.","口味：酸度鲜明、酒体厚实，温着喝也好。","รสชาติ: เปรี้ยวชัด เนื้อหนัก อุ่นดื่มก็อร่อย")),
 ],
 'fukuoka': [
  ('shochu', ("하쿠타케 시로","Hakutake Shiro","白岳しろ","Hakutake Shiro","Hakutake Shiro","白岳Shiro","ฮาคุทาเกะ ชิโระ"), "白岳しろ",
   ("구마모토 히토요시의 쌀 소주. 규슈 어디서나 볼 수 있고 향이 순해서 소주가 처음이어도 편해요.","Rice shochu from Hitoyoshi, Kumamoto. Sold all over Kyushu and mild enough for shochu beginners.","熊本・人吉の米焼酎。九州のどこでも見かけ、香りがおだやかで焼酎が初めてでも飲みやすい。","Shochu de arroz de Hitoyoshi (Kumamoto). Se vende en todo Kyushu y es suave para principiantes.","Shochu de riz de Hitoyoshi (Kumamoto). Vendu partout à Kyushu, assez doux pour les débutants.","熊本人吉的米烧酒。九州各地都有卖，香气温和，第一次喝烧酒也容易入口。","โชจูข้าวจากฮิโตโยชิ คุมาโมโตะ มีขายทั่วคิวชู กลิ่นอ่อน เหมาะกับมือใหม่"),
-  'super', "720ml 약 1,000~1,400엔",
+  'super', "720ml 약 1,200~1,400엔",
   ("맛: 깨끗하고 은은한 단맛, 얼음이나 물을 타서 마셔요.","Taste: clean with a faint sweetness; drink on the rocks or with water.","味：すっきりとほのかな甘み、ロックや水割りで。","Sabor: limpio y ligeramente dulce; con hielo o con agua.","Goût : net, légèrement sucré ; avec glaçons ou allongé d'eau.","口味：清爽微甜，加冰或兑水喝。","รสชาติ: สะอาด หวานอ่อน ดื่มกับน้ำแข็งหรือผสมน้ำ")),
  ('sake', ("다나카 로쿠주고","Tanaka Rokujugo","田中六五","Tanaka Rokujugo","Tanaka Rokujugo","田中六五","ทานากะ โรคุจูโกะ"), "田中六五",
   ("후쿠오카 이토시마의 야마다니시키 쌀로 빚는 준마이 사케. 후쿠오카 식당에서 자주 보여요.","A junmai sake made with Yamada Nishiki rice from Itoshima, Fukuoka. Often on menus in Fukuoka restaurants.","福岡・糸島産の山田錦で造る純米酒。福岡の飲食店でよく見かけます。","Sake junmai elaborado con arroz Yamada Nishiki de Itoshima (Fukuoka). Habitual en restaurantes de Fukuoka.","Saké junmai au riz Yamada Nishiki d'Itoshima (Fukuoka). Souvent à la carte des restaurants de Fukuoka.","用福冈糸岛产山田锦酿造的纯米酒。在福冈的餐馆经常见到。","สาเกจุนไมจากข้าวยามาดะนิชิกิของอิโตชิมะ ฟุกุโอกะ พบบ่อยในร้านอาหารฟุกุโอกะ"),
-  'dept', "720ml 약 1,600~2,200엔",
+  'dept', "720ml 약 2,200~3,100엔",
   ("맛: 깔끔하고 쌀 맛이 부드럽게 퍼져서 음식과 잘 맞아요.","Taste: clean with a gentle rice flavour; easy with food.","味：すっきりして米の旨みがやさしく広がり、食事に合う。","Sabor: limpio, con un suave sabor a arroz; acompaña bien la comida.","Goût : net, avec une douce saveur de riz ; facile à table.","口味：清爽，米的鲜味柔和，适合配餐。","รสชาติ: สะอาด รสข้าวนุ่ม เข้ากับอาหาร")),
  ('liqueur', ("아마오 딸기 술","Amaou strawberry liqueur","あまおう苺のお酒","Licor de fresa Amaou","Liqueur de fraise Amaou","甘王草莓酒","เหล้าสตรอว์เบอร์รีอามาโอ"), "あまおう 苺 リキュール",
   ("후쿠오카 특산 딸기 '아마오'로 만든 달콤한 술. 병이 예뻐서 선물로 많이 사 가요.","A sweet liqueur made with Fukuoka's Amaou strawberries. The pretty bottles make it a popular gift.","福岡特産のいちご「あまおう」で造る甘いお酒。瓶がかわいく、お土産に人気。","Licor dulce elaborado con fresas Amaou de Fukuoka. Sus botellas bonitas lo hacen un regalo popular.","Liqueur douce aux fraises Amaou de Fukuoka. Ses jolies bouteilles en font un cadeau apprécié.","用福冈特产草莓“甘王”做的甜酒。瓶子好看，很适合当礼物。","เหล้าหวานจากสตรอว์เบอร์รีอามาโอของฟุกุโอกะ ขวดสวย นิยมซื้อเป็นของฝาก"),
@@ -54,7 +54,7 @@ D = {
 'hokkaido': [
  ('sake', ("가미카와 다이세쓰","Kamikawa Taisetsu","上川大雪","Kamikawa Taisetsu","Kamikawa Taisetsu","上川大雪","คามิคาวะ ไทเซ็ตสึ"), "上川大雪",
   ("다이세쓰산 기슭 가미카와의 새 양조장이 홋카이도 쌀로만 빚는 사케. 조금씩 만들어서 홋카이도 안에서 주로 팔아요.","Sake from a young brewery in Kamikawa at the foot of the Daisetsuzan range, made only with Hokkaido rice. Small batches, sold mostly within Hokkaido.","大雪山のふもと・上川の新しい蔵が北海道産米だけで造る酒。少量仕込みで、主に道内で販売。","Sake de una bodega joven de Kamikawa, al pie del Daisetsuzan, solo con arroz de Hokkaido. Lotes pequeños, se vende sobre todo en Hokkaido.","Saké d'une jeune maison de Kamikawa, au pied du Daisetsuzan, uniquement au riz de Hokkaido. Petites cuvées, vendu surtout à Hokkaido.","大雪山脚下上川的新酒厂只用北海道米酿造的清酒。小批量酿造，主要在北海道内销售。","สาเกจากโรงใหม่ในคามิคาวะ เชิงเขาไดเซ็ตสึซัง ใช้ข้าวฮอกไกโดล้วน ผลิตน้อย ขายในฮอกไกโดเป็นหลัก"),
-  'gift', "720ml 약 1,700~2,800엔",
+  'gift', "720ml 약 1,900~3,200엔 (상위 등급은 더 비싸요)",
   ("맛: 맑고 부드러우며 끝맛이 짧고 깔끔해요.","Taste: clear and soft with a short, clean finish.","味：澄んでやわらかく、後味は短くきれい。","Sabor: limpio y suave, con un final corto y nítido.","Goût : pur et souple, finale courte et nette.","口味：清澈柔和，回味短而干净。","รสชาติ: ใส นุ่ม จบสั้นและสะอาด")),
  ('wine', ("도카치 와인","Tokachi Wine","十勝ワイン","Vino Tokachi","Vin de Tokachi","十胜葡萄酒","ไวน์โทคาจิ"), "十勝ワイン",
   ("도카치 이케다초가 마을에서 직접 만드는 와인. 추위에 강한 포도로 만들어 산미가 살아 있어요.","Wine made by the town of Ikeda in Tokachi itself. Cold-hardy grapes give it lively acidity.","十勝・池田町が町営で造るワイン。寒さに強いぶどうを使い、酸がいきいき。","Vino elaborado por el propio pueblo de Ikeda, en Tokachi. Uvas resistentes al frío le dan una acidez viva.","Vin produit par la commune d'Ikeda, à Tokachi. Des cépages résistants au froid lui donnent une acidité vive.","十胜池田町由町营酿造的葡萄酒。使用耐寒葡萄，酸度鲜活。","ไวน์ที่เมืองอิเคดะในโทคาจิผลิตเอง ใช้องุ่นทนหนาว จึงมีความเปรี้ยวสดชื่น"),
@@ -82,11 +82,11 @@ D = {
 'nagoya': [
  ('sake', ("가모시비토 구헤이지","Kamoshibito Kuheiji","醸し人九平次","Kamoshibito Kuheiji","Kamoshibito Kuheiji","酿人九平次","คาโมชิบิโตะ คุเฮจิ"), "醸し人九平次",
   ("나고야 시내 양조장이 빚는 사케. 와인처럼 산미와 향을 살려 프랑스 식당에서도 내놓아요.","Sake from a brewery inside Nagoya city. Made with wine-like acidity and aroma, and served in French restaurants too.","名古屋市内の蔵が造る酒。ワインのように酸と香りを生かし、フランスのレストランでも提供されます。","Sake de una bodega dentro de la ciudad de Nagoya. Con acidez y aroma al estilo del vino, se sirve también en restaurantes franceses.","Saké d'une maison située dans Nagoya même. Acidité et arômes façon vin ; servi aussi dans des restaurants en France.","名古屋市内酒厂酿造的清酒。像葡萄酒一样突出酸度和香气，法国餐厅也有供应。","สาเกจากโรงในตัวเมืองนาโกย่า เน้นความเปรี้ยวและกลิ่นแบบไวน์ มีเสิร์ฟในร้านอาหารฝรั่งเศสด้วย"),
-  'dept', "720ml 약 2,200~4,500엔",
+  'dept', "720ml 약 2,300~3,000엔 (상위 등급은 더 비싸요)",
   ("맛: 과일 향과 산미가 살아 있어 와인잔에 마시면 좋아요.","Taste: fruity with lively acidity; nice in a wine glass.","味：果実の香りと酸がいきいき、ワイングラスで。","Sabor: afrutado y de acidez viva; mejor en copa de vino.","Goût : fruité, acidité vive ; à boire dans un verre à vin.","口味：果香和酸度鲜活，用葡萄酒杯喝更好。","รสชาติ: หอมผลไม้ เปรี้ยวสดชื่น ดื่มในแก้วไวน์จะดี")),
  ('sake', ("호라이센","Houraisen","蓬莱泉","Houraisen","Houraisen","蓬莱泉","โฮไรเซ็น"), "蓬莱泉",
   ("아이치 산골 시타라의 양조장 사케. 아이치 사람들이 선물로 많이 고르는 이름이에요.","Sake from a brewery in the mountain town of Shitara, Aichi. A name Aichi locals often choose for gifts.","愛知の山あい・設楽の蔵の酒。愛知の人が贈り物によく選ぶ銘柄。","Sake de una bodega del pueblo de montaña de Shitara (Aichi). Marca que la gente de Aichi elige a menudo para regalar.","Saké d'une maison de Shitara, bourg de montagne d'Aichi. Une marque que les habitants d'Aichi offrent volontiers.","爱知山区设乐的酒厂出品的清酒。是爱知人送礼常选的品牌。","สาเกจากโรงในเมืองภูเขาชิตาระ ไอจิ เป็นยี่ห้อที่คนไอจินิยมเลือกเป็นของขวัญ"),
-  'dept', "720ml 약 1,500~3,300엔",
+  'dept', "720ml 약 2,100~3,800엔",
   ("맛: 달콤하고 부드러워 술이 약한 사람도 마시기 편해요.","Taste: sweet and smooth; easy even for light drinkers.","味：甘くなめらかで、お酒に弱い人にも飲みやすい。","Sabor: dulce y suave; fácil incluso para quien bebe poco.","Goût : doux et soyeux ; facile même pour les petits buveurs.","口味：甘甜顺滑，不太能喝酒的人也容易入口。","รสชาติ: หวาน นุ่ม ดื่มง่ายแม้คนดื่มไม่เก่ง")),
  ('beer', ("히다 다카야마 맥주","Hida Takayama Beer","飛騨高山麦酒","Cerveza Hida Takayama","Bière Hida Takayama","飞驒高山麦酒","เบียร์ฮิดะทาคายามะ"), "飛騨高山麦酒",
   ("다카야마의 작은 양조장이 만드는 크래프트 맥주. 뭉툭한 병이 귀엽고 옛 거리 가게에서 팔아요.","Craft beer from a small brewery in Takayama. Sold in stubby bottles at shops in the old town.","高山の小さな醸造所のクラフトビール。ずんぐりした瓶がかわいく、古い町並みの店で買えます。","Cerveza artesanal de una pequeña fábrica de Takayama. En botellas chatas, a la venta en el casco antiguo.","Bière artisanale d'une petite brasserie de Takayama. En bouteilles trapues, vendue dans la vieille ville.","高山小酿酒厂的精酿啤酒。矮胖的酒瓶很可爱，在古街的店里有卖。","คราฟต์เบียร์จากโรงเล็กในทาคายามะ ขวดป้อมน่ารัก มีขายในร้านย่านเมืองเก่า"),
@@ -96,7 +96,7 @@ D = {
 'hiroshima': [
  ('sake', ("우고노쓰키","Ugo no Tsuki","雨後の月","Ugo no Tsuki","Ugo no Tsuki","雨后之月","อุโกะ โนะ สึกิ"), "雨後の月",
   ("구레의 양조장이 빚는 사케. '비 갠 뒤의 달'이라는 이름처럼 맑은 맛으로 알려져 있어요.","Sake from a brewery in Kure. Known for a clarity that matches its name, 'the moon after rain'.","呉の蔵が造る酒。「雨上がりの月」という名のとおり、澄んだ味わいで知られます。","Sake de una bodega de Kure. Conocido por una limpieza a la altura de su nombre, «la luna tras la lluvia».","Saké d'une maison de Kure. Réputé pour une pureté digne de son nom, « la lune après la pluie ».","吴市酒厂酿造的清酒。正如“雨后之月”这个名字，以清澈的口味闻名。","สาเกจากโรงในคุเระ ขึ้นชื่อเรื่องรสใสสมชื่อ 'พระจันทร์หลังฝน'"),
-  'dept', "720ml 약 1,600~3,300엔",
+  'dept', "720ml 약 1,800~3,300엔",
   ("맛: 과일 향이 은은하고 맑고 깨끗해요.","Taste: gently fruity, clear and clean.","味：果実の香りがほんのり、澄んできれい。","Sabor: ligeramente afrutado, limpio y nítido.","Goût : légèrement fruité, pur et net.","口味：果香淡雅，清澈干净。","รสชาติ: หอมผลไม้อ่อน ๆ ใสและสะอาด")),
  ('sake', ("다케쓰루","Taketsuru (sake)","竹鶴","Taketsuru (sake)","Taketsuru (saké)","竹鹤（清酒）","ทาเคสึรุ (สาเก)"), "竹鶴 日本酒 竹原",
   ("다케하라의 다케쓰루 주조가 빚는 사케. 닛카 위스키를 만든 다케쓰루 마사타카의 본가예요.","Sake from Taketsuru Brewery in Takehara, the family home of Masataka Taketsuru, founder of Nikka Whisky.","竹原の竹鶴酒造の酒。ニッカウヰスキー創業者・竹鶴政孝の生家です。","Sake de la bodega Taketsuru de Takehara, casa natal de Masataka Taketsuru, fundador de Nikka Whisky.","Saké de la maison Taketsuru à Takehara, maison natale de Masataka Taketsuru, fondateur de Nikka Whisky.","竹原的竹鹤酒造酿造的清酒。这里是日果威士忌创始人竹鹤政孝的老家。","สาเกจากโรงทาเคสึรุในทาเคฮาระ บ้านเกิดของมาซาทากะ ทาเคสึรุ ผู้ก่อตั้งนิกกะวิสกี้"),
@@ -110,7 +110,7 @@ D = {
 'shikoku': [
  ('sake', ("이시즈치","Ishizuchi","石鎚","Ishizuchi","Ishizuchi","石鎚","อิชิซึจิ"), "石鎚 日本酒",
   ("에히메 사이조에서 이시즈치산 물로 빚는 사케. 음식과 함께 마시는 술로 평이 좋아요.","Sake brewed in Saijo, Ehime, with water from Mount Ishizuchi. Well regarded as a sake to drink with food.","愛媛・西条で石鎚山の水を使って造る酒。食中酒として評判です。","Sake elaborado en Saijo (Ehime) con agua del monte Ishizuchi. Muy apreciado para acompañar la comida.","Saké brassé à Saijo (Ehime) avec l'eau du mont Ishizuchi. Très apprécié à table.","在爱媛西条用石鎚山的水酿造的清酒。作为佐餐酒评价很好。","สาเกจากไซโจ เอฮิเมะ ใช้น้ำจากภูเขาอิชิซึจิ ขึ้นชื่อว่าเหมาะดื่มคู่อาหาร"),
-  'dept', "720ml 약 1,600~3,300엔",
+  'dept', "720ml 약 1,700~2,700엔 (상위 등급은 더 비싸요)",
   ("맛: 향이 차분하고 끝맛이 깔끔해 질리지 않아요.","Taste: restrained aroma and a clean finish you don't tire of.","味：香りは控えめ、後味すっきりで飲み飽きしない。","Sabor: aroma discreto y final limpio; no cansa.","Goût : nez discret, finale nette ; on ne s'en lasse pas.","口味：香气内敛，收尾干净，喝不腻。","รสชาติ: กลิ่นนุ่มนวล จบสะอาด ดื่มไม่เบื่อ")),
  ('sake', ("나루토타이","Narutotai","鳴門鯛","Narutotai","Narutotai","鸣门鲷","นารุโตะไท"), "鳴門鯛",
   ("도쿠시마 나루토의 양조장 사케. 알루미늄 캔에 담은 생원주가 유명해서 가져가기 편해요.","Sake from a brewery in Naruto, Tokushima. Famous for its undiluted fresh sake in an aluminium can, easy to carry home.","徳島・鳴門の蔵の酒。アルミ缶入りの生原酒が有名で、持ち帰りやすい。","Sake de una bodega de Naruto (Tokushima). Famoso su sake fresco sin diluir en lata de aluminio, fácil de llevar.","Saké d'une maison de Naruto (Tokushima). Célèbre pour son saké frais non dilué en canette d'aluminium, facile à emporter.","德岛鸣门酒厂的清酒。装在铝罐里的生原酒很有名，方便携带。","สาเกจากโรงในนารุโตะ โทคุชิมะ ขึ้นชื่อเรื่องสาเกสดไม่เจือจางในกระป๋องอะลูมิเนียม พกกลับสะดวก"),
@@ -143,7 +143,7 @@ for c, items in D.items():
         js[c].append({"k": k, "n": n[0], "ja": ja, "d": d[0], "w": W[w][0], "p": p, "t": t[0]})
         if any(x != n[0] for x in n[1:]): add(n[0], list(n[1:]))
         add(d[0], list(d[1:])); add(W[w][0], list(W[w][1:])); add(t[0], list(t[1:]))
-        add(p, [price(p, L) for L in range(6)])
+        add(p, [__import__('drink_price_fix').tr(p, L) for L in range(6)])
 B = '/home/claude/i18n_work/'
 open(B + 'tr_58.tsv', 'w', encoding='utf-8').write(''.join('\t'.join([ko] + v[:4]) + '\n' for ko, v in rows.items()))
 open(B + 'zh_59.tsv', 'w', encoding='utf-8').write(''.join(ko + '\t' + v[4] + '\n' for ko, v in rows.items()))
