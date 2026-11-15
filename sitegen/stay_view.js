@@ -29,6 +29,35 @@ function stayAreas(c){
 const stayHref = (c,t) => ROUTED ? window.NT_BASE + LPRE + (c && c!=="all" ? `${c}/stay/` : "stay/") + (t?t+"/":"") : "#stay";
 const stayA = (c,inner,cls,t) => `<a${cls?` class="${cls}"`:""} href="${stayHref(c,t)}" data-stayc="${c||"all"}" data-sub="${t||""}">${inner}</a>`;
 const stayTabList = () => [["", "묵기 좋은 동네"], ...(stayShowHotels()?[["hotels","추천 숙소"]]:[]), ["booking","예약 방법"]];
+/*TRIPAD_BEGIN*/
+/* Trip.com 호텔 제휴 링크 (2026-11-15, 사용자 제공). 도시 키 → [이름, 주소] */
+const TRIP_LINKS = {
+ tokyo:[["도쿄","https://www.trip.com/t/30BKzQBdAX2"]],
+ osaka:[["오사카","https://www.trip.com/t/VfjGSLDdAX2"],["교토","https://www.trip.com/t/jVdM5pDdAX2"]],
+ nagoya:[["나고야","https://www.trip.com/t/SLSPyREdAX2"]],
+ hokkaido:[["삿포로","https://www.trip.com/t/nk7WKaFdAX2"]],
+ fukuoka:[["후쿠오카","https://www.trip.com/t/frLQ2FGdAX2"]]
+};
+/* 동네 페이지: 동네 키 → 보여 줄 링크 이름 (없으면 도시 첫 링크, null이면 안 보임) */
+const TRIP_NB = {kyotoeki:"교토",kawaramachi:"교토",namba:"오사카",umeda:"오사카",tennoji:"오사카",hakodate:null,takayama:null};
+function tripBox(list){
+  if(!list || !list.length || !stayShowHotels()) return "";
+  return `<aside class="tripad"><div class="tpt"><span class="tptag">광고</span><b>Trip.com</b></div>
+   <p class="tpd">날짜를 고르면 여러 호텔 요금을 한 번에 비교할 수 있어요.</p>
+   <div class="tpbs">${list.map(([n,u])=>`<a class="btn tpbtn" href="${u}" target="_blank" rel="sponsored noopener">Trip.com에서 ${esc(n)} 호텔 보기 ↗</a>`).join("")}</div></aside>`;
+}
+const tripCity = c => TRIP_LINKS[c] || [];
+const tripNb = (c,k) => { if(k in TRIP_NB){ const n=TRIP_NB[k]; return n ? tripCity(c).filter(x=>x[0]===n) : []; } return tripCity(c).slice(0,1); };
+const tripAll = () => STAY_CITIES.flatMap(k=>tripCity(k));
+/* Trip.com 할인 예약 링크 (2026-11-15, 사용자 제공, 한국어 원화 페이지라 한국어에서만): 숙소 '예약 방법' 맨 위 */
+const TRIP_DEAL = "https://kr.trip.com/sale/w/27435/holidaydeals2025.html?locale=ko-kr&curr=krw&transparentBar=1&Allianceid=11318805&SID=335739587&trip_sub1=&trip_sub3=P21198942";
+function tripDeal(){
+  if(((window.I18N&&window.I18N.lang)||"ko")!=="ko") return "";
+  return `<aside class="tripad tpdeal"><div class="tpt"><span class="tptag">광고</span><b>Trip.com</b><span class="tpdt">할인 예약</span></div>
+   <p class="tpd">Trip.com 할인 페이지에서 숙소를 할인된 요금으로 예약할 수 있어요. 할인 조건과 기간은 페이지에서 확인하세요.</p>
+   <div class="tpbs"><a class="btn tpbtn" href="${TRIP_DEAL}" target="_blank" rel="sponsored noopener">할인 받고 예약하기 ↗</a></div></aside>${STAY_AD}`;
+}
+/*TRIPAD_END*/
 function hotelCard(h){
   return `<article class="hcard"><div class="htop"><span class="harea">${esc(h.area)}</span></div>
    <h3>${esc(h.ko)}</h3><p class="hja notranslate" lang="ja">${esc(h.ja)}</p>
@@ -75,7 +104,7 @@ function stayNbPage(c,o){
    ${apRows?`<section class="stsec"><h3 class="sgh"><span>공항에서 시내 가는 법</span></h3><ul class="apmini">${apRows}</ul></section>`:""}
    ${spots.length?`<section class="stsec"><h3 class="sgh"><span>근처 관광지</span></h3>${near(spots.map(x=>`<li><a href="${placeHref(x.id)}" data-open="${x.id}"><b>${esc(x.name)}</b><span>${esc(x.desc)}</span></a></li>`).join(""))}</section>`:""}
    ${shops.length?`<section class="stsec"><h3 class="sgh"><span>근처 맛집</span></h3>${near(shops.map(x=>`<li><a href="${esc(shopHref(x)||"#")}" target="_blank" rel="noopener"><b>${esc(x.n)}</b><span>${esc([x.dish,x.feat].filter(Boolean).join(" · "))}</span></a></li>`).join(""))}</section>`:""}
-   ${hs.length?`<section class="stsec"><h3 class="sgh"><span>추천 숙소</span></h3><div class="hgrid">${hs.map(hotelCard).join("")}</div>${STAY_AD}</section>`:""}
+   ${hs.length||tripBox(tripNb(c,o.key))?`<section class="stsec"><h3 class="sgh"><span>추천 숙소</span></h3>${hs.length?`<div class="hgrid">${hs.map(hotelCard).join("")}</div>`:""}${tripBox(tripNb(c,o.key))}${STAY_AD}</section>`:""}
    <section class="gblk faq" itemscope itemtype="https://schema.org/FAQPage"><h4>자주 묻는 질문</h4><dl>
     ${qa(`${n}에 묵으면 좋은 점은 무엇인가요?`, esc(o.pros))}
     ${qa(`${n}에 묵을 때 아쉬운 점은 무엇인가요?`, esc(o.cons))}
@@ -91,11 +120,11 @@ V.stay = function(){
   const nb0 = stayNb(c, st.sub); if(nb0) return stayNbPage(c, nb0);
   const bc=(i,h)=>`<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${h.replace("<a ",'<a itemprop="item" ').replace(/>([^<]*)<\/a>$/,'><span itemprop="name">$1</span></a>')}<meta itemprop="position" content="${i}"></span>`;
   const note = `<p class="sisrc">숙소 정보와 요금은 바뀔 수 있어요. 예약 전에 숙소 페이지에서 다시 확인하세요.</p>`;
-  const booking = `<section id="booking">${stayList("예약 사이트 고르기", STAY_SITES)}</section>${stayList("예약할 때 꼭 확인할 것", STAY_CHECK)}${stayList("숙소 종류", STAY_TYPES)}`;
+  const booking = `<section id="booking">${tripDeal()}${stayList("예약 사이트 고르기", STAY_SITES)}</section>${stayList("예약할 때 꼭 확인할 것", STAY_CHECK)}${stayList("숙소 종류", STAY_TYPES)}`;
   if(!c){
     const sec = (GUIDE.secs||[]).find(x=>x.key==="stay");
     let body;
-    if(t==="hotels") body = `${STAY_CITIES.map(k=>{ const hs=HOTELS.filter(h=>h.city===k); return hs.length?`<section class="stsec"><h3 class="sgh"><span>${esc(CITIES[k].ko)}</span></h3>
+    if(t==="hotels") body = `${tripBox(tripAll())}${STAY_CITIES.map(k=>{ const hs=HOTELS.filter(h=>h.city===k); return hs.length?`<section class="stsec"><h3 class="sgh"><span>${esc(CITIES[k].ko)}</span></h3>
         <div class="hminis">${hs.map(hotelMini).join("")}</div><p class="stmore">${stayA(k,`${esc(CITIES[k].ko)} 추천 숙소 자세히 보기<i> →</i>`,"more","hotels")}</p></section>`:""; }).join("")}${STAY_AD}`;
     else if(t==="booking") body = booking;
     else body = `<nav class="wxmon stjump">${STAY_CITIES.map(k=>`<a href="#st-${k}" data-stjump="${k}">${esc(CITIES[k].ko)}</a>`).join("")}</nav>
@@ -115,7 +144,7 @@ V.stay = function(){
   const a = stayAreas(c), hs = HOTELS.filter(h=>h.city===c), n = esc(CITIES[c].ko);
   const qa=(q,x)=>`<div class="faqi" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><dt itemprop="name">${q}</dt><dd itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">${x}</div></dd></div>`;
   let body, faq = "";
-  if(t==="hotels") body = `${hs.length?`<div class="hgrid">${hs.map(hotelCard).join("")}</div>${STAY_AD}`:`<p class="stsub">추천 숙소를 준비하고 있어요.</p>`}`;
+  if(t==="hotels") body = `${hs.length?`<div class="hgrid">${hs.map(hotelCard).join("")}</div>`:(tripCity(c).length?"":`<p class="stsub">추천 숙소를 준비하고 있어요.</p>`)}${tripBox(tripCity(c))}${hs.length||tripCity(c).length?STAY_AD:""}`;
   else if(t==="booking"){ body = booking; faq = qa(`숙소 예약할 때 무엇을 확인해야 하나요?`, STAY_CHECK.slice(0,3).map(x=>`<span>${esc(x)}</span>`).join(" ")); }
   else { body = `<div class="stgrid">${a.opts.map(o=>stayAreaCard(o,c)).join("")}</div>`; faq = qa(`${n}에서는 어느 동네에 묵는 게 좋나요?`, a.opts.map(o=>`<span><b>${esc(o.name)}</b>: <span>${esc(o.for)}</span></span>`).join(" / ")); }
   return `<div class="wx">
