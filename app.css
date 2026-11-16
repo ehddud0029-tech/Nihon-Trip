@@ -928,3 +928,4 @@ body.is-itin .hero{display:none}
 .isn small{font-size:12px;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .iar{color:var(--ink-2);font-size:18px}
 .itin .sisrc{margin:10px 0 0}
+/*ITINWHYCSS*/.iwhy p{margin:4px 0 0;line-height:1.85;font-size:15px}.isn small.iclo{display:block;white-space:normal;overflow:visible;color:#B5452B;margin-top:2px;line-height:1.4}.iclo b{font-weight:700}/*ITINWHYCSS_END*/
