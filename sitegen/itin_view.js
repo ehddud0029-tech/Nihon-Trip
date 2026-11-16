@@ -21,7 +21,7 @@ function itinCard(c){
 function itinStop(id){
   const it = byId(id); if(!it) return "";
   const si = SIV.rows(id), fee = si && si.rows.find(r=>r[0]==="fee");
-  return `<li><a class="istop" href="${PLACE_TYPES.includes(it.type)?placeHref(id):"#"}" data-open="${id}" style="--c:var(${colorOf(it)})">${mapThumb({id,cat:"spot"})}<span class="isn"><b>${esc(it.name)}</b><small>${esc((it.sub&&AREA[it.sub]?.ko)||CITIES[it.city].ko)}${fee?` · <span class="ifee">${esc(fee[1][0])}</span>`:""}</small></span><span class="iar">›</span></a></li>`;
+  return `<li><a class="istop" href="${PLACE_TYPES.includes(it.type)?placeHref(id):"#"}" data-open="${id}" style="--c:var(${colorOf(it)})">${mapThumb({id,cat:"spot"})}<span class="isn"><b>${esc(it.name)}</b><small>${esc((it.sub&&AREA[it.sub]?.ko)||CITIES[it.city].ko)}${fee?` · <span class="ifee">${esc(fee[1][0])}</span>`:""}</small>${itinClosed(id)}</span><span class="iar">›</span></a></li>`;
 }
 /*ICITY_BEGIN*/
 /* 도시별 추천 일정 페이지 (itinerary/<도시>/) — 소개·며칠·처음이라면·숙소·시기 (Go Nihon Trip이 직접 쓴 안내, 2026-11) */
@@ -114,7 +114,7 @@ V.itin = function(){
   return `<div class="itin" itemscope itemtype="https://schema.org/TouristTrip">
    <a class="iback" href="${itinHref("")}" data-itin=""><i>← </i>전체 일정</a> <a class="iback" href="${itinHref(c.city)}" data-itin="${c.city}">${esc(CITIES[c.city].ko)} 일정 안내</a>
    <div class="ghead"><div class="ich"><span class="inb${c.n===0?" day":""}">${esc(nightsLabel(c.n))}</span><span class="ist">${esc(CITIES[c.city].ko)}</span></div><h2 itemprop="name">${esc(c.title)}</h2><p itemprop="description">${esc(c.sum)}</p></div>
-   ${(ieSeen=new Set(),"")}<ol class="idays" itemprop="itinerary" itemscope itemtype="https://schema.org/ItemList">${c.plan.map((d,i)=>`<li class="iday" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><meta itemprop="position" content="${i+1}"><div class="idh"><span class="idn">${esc(dayLabel(i+1))}</span><h3 itemprop="name">${esc(d.t)}</h3></div><ol class="istops">${d.s.map(itinStop).join("")}</ol>${itinEat(d,i,c.city,ieSeen)}</li>`).join("")}</ol>
+   ${itinWhy(c)}${(ieSeen=new Set(),"")}<ol class="idays" itemprop="itinerary" itemscope itemtype="https://schema.org/ItemList">${c.plan.map((d,i)=>`<li class="iday" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><meta itemprop="position" content="${i+1}"><div class="idh"><span class="idn">${esc(dayLabel(i+1))}</span><h3 itemprop="name">${esc(d.t)}</h3></div><ol class="istops">${d.s.map(itinStop).join("")}</ol>${itinEat(d,i,c.city,ieSeen)}</li>`).join("")}</ol>
    ${c.tips.length?`<div class="gblk"><h4><span class="gbi">${gsvg("list")}</span>일정 팁</h4><ul class="gul">${c.tips.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></div>`:""}
    <p class="sisrc">2026년 10월 기준 · 요금과 시간은 바뀔 수 있으니 방문 전에 공식 사이트에서 확인하세요.</p>
    ${others.length?`<div class="gmore"><h4>다른 일정</h4><div>${others.map(o=>`<a href="${itinHref(o.key)}" data-itin="${o.key}"><span>${esc(o.title)}</span> →</a>`).join("")}</div></div>`:""}
