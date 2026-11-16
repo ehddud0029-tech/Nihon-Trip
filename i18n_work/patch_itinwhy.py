@@ -5,12 +5,13 @@
 # html·backup pre·itin_view.js에 같이 적용, 여러 번 돌려도 안전. region_inject 뒤에도 다시 돌려 주세요(ITIN 줄 바로 아래 블록).
 import json, sys
 sys.path.insert(0, '/home/claude/i18n_work')
-from itin_why_text import WHY, TIPS, UI
+from itin_why_text import TIPS, UI
+from itin_why_points import P as WHYP   # 2026-11-17: 문단 대신 점 3개(소제목::설명)
 W = '/home/claude'
 FILES = [f'{W}/tabishiori.html', f'{W}/i18n_work/backup/tabishiori.pre.html']
 VIEW = f'{W}/sitegen/itin_view.js'
 
-why_ko = {k: v[0] for k, v in WHY.items()}
+why_ko = {k: [b[0].split('::')[1] for b in v] for k, v in WHYP.items()}   # 소제목은 쓰지 않음(사용자 요청 2026-11-17)
 tips_ko = [[k, t[0]] for k, *t in TIPS]
 BLOCK = '''/*ITINWHY_BEGIN*/
 /* 추천 일정 보강: 추천 이유 글·동선 고침·새 팁 (i18n_work/patch_itinwhy.py, 2026-11-16) */
@@ -22,7 +23,7 @@ const ITIN_WHY = %s;
   for(const [k,t] of %s){ const cs = k==="*kokyo" ? ITIN.filter(c=>c.plan.some(d=>d.s.includes("s_kokyo"))) : [f(k)].filter(Boolean);
     for(const c of cs) if(!c.tips.includes(t)) c.tips.push(t); }
 })();
-function itinWhy(c){ const w=ITIN_WHY[c.key]; return w?`<div class="gblk iwhy"><h4><span class="gbi">${gsvg("torii")}</span>이 일정을 추천하는 이유</h4><p>${esc(w)}</p></div>`:""; }
+function itinWhy(c){ const w=ITIN_WHY[c.key]; return w?`<div class="gblk iwhy"><h4><span class="gbi">${gsvg("torii")}</span>이 일정을 추천하는 이유</h4><ul class="iwl">${w.map(d=>`<li>${esc(d)}</li>`).join("")}</ul></div>`:""; }
 /* 일정 장소 휴무: 요일·계절 휴무만 (연중무휴·연말연시·점검·부정기 휴무는 표시하지 않음) */
 function itinClosed(id){
   const si=SPOT_INFO[id]; if(!si||!si.c) return "";
@@ -34,7 +35,7 @@ function itinClosed(id){
 }
 /*ITINWHY_END*/''' % (json.dumps(why_ko, ensure_ascii=False), json.dumps(tips_ko, ensure_ascii=False))
 
-CSS = '/*ITINWHYCSS*/.iwhy p{margin:4px 0 0;line-height:1.85;font-size:15px}.isn small.iclo{display:block;white-space:normal;overflow:visible;color:#B5452B;margin-top:2px;line-height:1.4}.iclo b{font-weight:700}/*ITINWHYCSS_END*/'
+CSS = '/*ITINWHYCSS*/.iwl{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:10px}.iwl li{position:relative;padding-left:16px;line-height:1.7}.iwl li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--accent,#C8102E)}.iwl li{font-size:15px}.isn small.iclo{display:block;white-space:normal;overflow:visible;color:#B5452B;margin-top:2px;line-height:1.4}.iclo b{font-weight:700}/*ITINWHYCSS_END*/'
 
 R = [
  ('<p itemprop="description">${esc(c.sum)}</p></div>\n   ${(ieSeen=new Set(),"")}',
@@ -70,10 +71,10 @@ for fn in FILES:
 
 v = open(VIEW, encoding='utf-8').read(); v = rules(v, VIEW); open(VIEW, 'w', encoding='utf-8').write(v); print('ok view')
 
-rows = [(v[0], v[1], v[2], v[3], v[4], v[5], v[6]) for v in WHY.values()] + [tuple(t) for k, *t in TIPS] + list(UI)
+rows = [tuple(x.split('::')[1] for x in b) for v in WHYP.values() for b in v] + [tuple(t) for k, *t in TIPS] + list(UI)
 for r in rows: assert len(r) == 7 and all(r), r[0][:30]
 D = f'{W}/i18n_work'
 open(f'{D}/tr_64.tsv', 'w', encoding='utf-8').write(''.join('\t'.join(r[:5]) + '\n' for r in rows))
 open(f'{D}/zh_65.tsv', 'w', encoding='utf-8').write(''.join(f'{r[0]}\t{r[5]}\n' for r in rows))
 open(f'{D}/th_65.tsv', 'w', encoding='utf-8').write(''.join(f'{r[0]}\t{r[6]}\n' for r in rows))
-print('rows', len(rows), 'why', len(WHY))
+print('rows', len(rows), 'why', len(WHYP))
