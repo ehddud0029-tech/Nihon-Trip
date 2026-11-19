@@ -62,6 +62,8 @@ window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"
 if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js"><\/script><script src="'+B+'engine.js"><\/script>');})();</script>''' % json.dumps(BASE)
 
 
+from index_rules import idx_ok   # 검색에 내놓을 페이지 규칙 (2026-11-19, index_rules.py)
+
 def page_html(lang, title, desc, path, body, fonts, icon, alternates=True, index=True, home=False, ld=None):
     esc = lambda x: html.escape(x, quote=True)
     url = ORIGIN + BASE + ('' if lang == 'ko' else lang + '/') + path
@@ -77,10 +79,12 @@ def page_html(lang, title, desc, path, body, fonts, icon, alternates=True, index
     if ld:
         ld = dict(ld, url=url)
         h.append('<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False).replace('</', '<\\/') + '</script>')
-    if alternates:
+    if alternates and index:   # 검색에 내놓는 언어끼리만 연결
         for l in LANGS:
-            h.append(f'<link rel="alternate" hreflang="{HREFLANG.get(l, l)}" href="{ORIGIN}{BASE}{"" if l == "ko" else l + "/"}{path}">')
-        h.append(f'<link rel="alternate" hreflang="x-default" href="{ORIGIN}{BASE}{path}">')
+            if idx_ok(l, path):
+                h.append(f'<link rel="alternate" hreflang="{HREFLANG.get(l, l)}" href="{ORIGIN}{BASE}{"" if l == "ko" else l + "/"}{path}">')
+        if idx_ok('ko', path):
+            h.append(f'<link rel="alternate" hreflang="x-default" href="{ORIGIN}{BASE}{path}">')
     h += ['<meta property="og:type" content="website">', '<meta property="og:site_name" content="Go Nihon Trip">',
           f'<meta property="og:title" content="{esc(title)}">', f'<meta property="og:description" content="{esc(desc)}">',
           f'<meta property="og:url" content="{url}">', f'<meta property="og:locale" content="{OG_LOCALE[lang]}">',
@@ -339,9 +343,9 @@ def main():
                 home = path == ''
                 desc = HOME_DESC[lang] if home else d['desc']
                 pages.append((lang, path))
-                if lang in ('ko', 'en'): META[(lang, path)] = (d['title'], desc or '')
+                if lang in ('ko', 'en') and idx_ok(lang, path): META[(lang, path)] = (d['title'], desc or '')
                 out = page_html(lang, d['title'], desc, path, d['body'], fonts, icon,
-                                index=path != 'saved/', home=home, ld=d.get('ld'))
+                                index=path != 'saved/' and idx_ok(lang, path), home=home, ld=d.get('ld'))
                 fp = os.path.join(OUT, lp + path, 'index.html')
                 os.makedirs(os.path.dirname(fp), exist_ok=True)
                 open(fp, 'w', encoding='utf-8').write(out)
@@ -354,14 +358,17 @@ def main():
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
     paths = sorted({p for l, p in pages if p != 'saved/'}, key=lambda x: (x.count('/'), x))
+    nsm = 0
     for path in paths:
-        for lang in LANGS:
+        ls = [l for l in LANGS if idx_ok(l, path)]   # 검색 제외 페이지는 사이트맵에서도 뺌
+        for lang in ls:
+            nsm += 1
             sm.append('  <url>')
             sm.append(f'    <loc>{ORIGIN}{BASE}{"" if lang == "ko" else lang + "/"}{path}</loc>')
             sm.append(f'    <lastmod>{TODAY}</lastmod>')
-            for l2 in LANGS:
+            for l2 in ls:
                 sm.append(f'    <xhtml:link rel="alternate" hreflang="{HREFLANG.get(l2, l2)}" href="{ORIGIN}{BASE}{"" if l2 == "ko" else l2 + "/"}{path}"/>')
-            sm.append(f'    <xhtml:link rel="alternate" hreflang="x-default" href="{ORIGIN}{BASE}{path}"/>')
+            if 'ko' in ls: sm.append(f'    <xhtml:link rel="alternate" hreflang="x-default" href="{ORIGIN}{BASE}{path}"/>')
             sm.append('  </url>')
     sm.append('</urlset>')
     open(f'{OUT}/sitemap.xml', 'w', encoding='utf-8').write('\n'.join(sm) + '\n')
@@ -372,7 +379,7 @@ def main():
     open(f'{OUT}/CNAME', 'w').write(DOMAIN + '\n')
     open(f'{OUT}/ads.txt', 'w').write(f"google.com, {ADSENSE_ID.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n")
     open(f'{OUT}/robots.txt', 'w').write(f'User-agent: *\nAllow: /\n\nSitemap: {ORIGIN}/sitemap.xml\n')
-    print('total pages', len(pages), 'sitemap urls', len(paths) * len(LANGS))
+    print('total pages', len(pages), 'sitemap urls', nsm)
 
 
 if __name__ == '__main__':
