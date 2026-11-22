@@ -929,3 +929,4 @@ body.is-itin .hero{display:none}
 .iar{color:var(--ink-2);font-size:18px}
 .itin .sisrc{margin:10px 0 0}
 /*ITINWHYCSS*/.iwl{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:10px}.iwl li{position:relative;padding-left:16px;line-height:1.7}.iwl li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--accent,#C8102E)}.iwl li{font-size:15px}.isn small.iclo{display:block;white-space:normal;overflow:visible;color:#B5452B;margin-top:2px;line-height:1.4}.iclo b{font-weight:700}/*ITINWHYCSS_END*/
+/*VNCSS*/.vnote{margin:14px 0;padding:14px 16px;background:var(--surface,#fff);border:1px solid var(--line,#E3E6EC);border-left:4px solid #2E7D5B;border-radius:10px}.vnote h4{margin:0 0 6px;font-size:15px}.vnote p{margin:0 0 6px;line-height:1.8}.vnote small{color:var(--mute,#5A6272);font-size:12px}/*VNCSS_END*/
