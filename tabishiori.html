@@ -1038,6 +1038,7 @@ body.is-itin .hero{display:none}
 .iar{color:var(--ink-2);font-size:18px}
 .itin .sisrc{margin:10px 0 0}
 /*ITINWHYCSS*/.iwl{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:10px}.iwl li{position:relative;padding-left:16px;line-height:1.7}.iwl li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--accent,#C8102E)}.iwl li{font-size:15px}.isn small.iclo{display:block;white-space:normal;overflow:visible;color:#B5452B;margin-top:2px;line-height:1.4}.iclo b{font-weight:700}/*ITINWHYCSS_END*/
+/*VNCSS*/.vnote{margin:14px 0;padding:14px 16px;background:var(--surface,#fff);border:1px solid var(--line,#E3E6EC);border-left:4px solid #2E7D5B;border-radius:10px}.vnote h4{margin:0 0 6px;font-size:15px}.vnote p{margin:0 0 6px;line-height:1.8}.vnote small{color:var(--mute,#5A6272);font-size:12px}/*VNCSS_END*/
 </style>
 
 <header class="top">
@@ -2331,7 +2332,7 @@ function card(it){
   const tg = PLACE_TYPES.includes(it.type) ? ["a",` href="${placeHref(it.id)}"`] : ["button",' type="button"'];
   return `<${tg[0]} class="card"${tg[1]} data-open="${it.id}" style="--c:var(${colorOf(it)})">
     <div class="plate"><span class="tag">${esc(tagOf(it))}</span><span class="where">${esc((it.sub&&AREA[it.sub]?.ko)||city.ko)}</span><span class="k">${itemIcon(it)}</span>${imgTag(it.id)}</div>
-    <div class="body"><h3>${esc(it.name)}</h3><div class="jpn">${esc(it.jp)}</div><p>${esc(it.desc)}</p>
+    <div class="body"><h3>${esc(it.name)}</h3><div class="jpn">${esc(it.jp)}</div><p>${esc(it.desc)}</p>${typeof visitNote==="function"?visitNote(it):""}
     <div class="meta"><span>${extra}</span>${feeBadge(it)}${isSaved?'<span class="saved-mark">저장됨</span>':''}</div></div></${tg[0]}>`;
 }
 function chips(map,key,allLabel){
@@ -3485,6 +3486,11 @@ function shopFacts(it, facts){ const pa=it&&it.type==="shop"&&PLACE_PLUS[it.id];
 function shopNote(it){ const s=shopInfo(it); return s&&(s.h||s.r) ? `<p class="sisrc">2026년 11월 기준 · 매장마다 영업시간이 다를 수 있으니 방문 전에 공식 사이트에서 확인하세요.</p>` : ""; }
 function shopBtn(it){ const s=shopInfo(it); return s&&s.u ? `<a class="btn" href="${s.u}" target="_blank" rel="noopener">${s.f?"공식 사이트·층별 안내 ↗":"공식 사이트 ↗"}</a>` : ""; }
 /*SHOPINFO_END*/
+/*VISITNOTE_BEGIN*/
+const VISIT_NOTES = {"amu_hakata": ["하카타역에는 아뮤 플라자, 하카타 한큐 같은 쇼핑몰이 여러 개 붙어 있고 입점한 가게도 아주 많아요. 처음 갔을 때는 너무 복잡해서 길을 잃기도 했고, 원하는 가게를 찾아가는 것도 쉽지 않았어요. 대신 유명한 맛집이 한곳에 모여 있어서 맛집 투어를 하기에는 오히려 편했어요."], "hakatahankyu": ["하카타역에는 아뮤 플라자, 하카타 한큐 같은 쇼핑몰이 여러 개 붙어 있고 입점한 가게도 아주 많아요. 처음 갔을 때는 너무 복잡해서 길을 잃기도 했고, 원하는 가게를 찾아가는 것도 쉽지 않았어요. 대신 유명한 맛집이 한곳에 모여 있어서 맛집 투어를 하기에는 오히려 편했어요."], "s_kinrinko": ["유후인은 당일치기로 가볍게 다녀오기 좋은 동네예요. 동네가 작아서 하루면 충분히 둘러볼 수 있고, 온천이 유명해서 1박을 하며 목욕할 수 있는 료칸에 묵는 여행객도 많아요. 한국인 여행객은 버스 투어로 유후인과 벳푸를 함께 둘러보기도 해요."], "s_yufudake": ["유후인은 당일치기로 가볍게 다녀오기 좋은 동네예요. 동네가 작아서 하루면 충분히 둘러볼 수 있고, 온천이 유명해서 1박을 하며 목욕할 수 있는 료칸에 묵는 여행객도 많아요. 한국인 여행객은 버스 투어로 유후인과 벳푸를 함께 둘러보기도 해요."], "s_floral": ["유후인은 당일치기로 가볍게 다녀오기 좋은 동네예요. 동네가 작아서 하루면 충분히 둘러볼 수 있고, 온천이 유명해서 1박을 하며 목욕할 수 있는 료칸에 묵는 여행객도 많아요. 한국인 여행객은 버스 투어로 유후인과 벳푸를 함께 둘러보기도 해요."], "floral": ["유후인은 당일치기로 가볍게 다녀오기 좋은 동네예요. 동네가 작아서 하루면 충분히 둘러볼 수 있고, 온천이 유명해서 1박을 하며 목욕할 수 있는 료칸에 묵는 여행객도 많아요. 한국인 여행객은 버스 투어로 유후인과 벳푸를 함께 둘러보기도 해요."]};
+function visitNote(it){ const n=it&&VISIT_NOTES[it.id]; if(!n) return "";
+  return `<div class="vnote"><h4>직접 다녀온 이야기</h4>${n.map(x=>`<p>${esc(x)}</p>`).join("")}<small>Go Nihon Trip 운영자가 직접 다녀와서 쓴 글이에요.</small></div>`; }
+/*VISITNOTE_END*/
 /*PITIN*/function placeItins(it){ if(typeof ITIN==="undefined"||!it) return "";
   const L=ITIN.filter(c=>c.plan.some(d=>d.s.includes(it.id))); if(!L.length) return "";
   return `<div class="gblk pitin"><h4>이 장소가 들어간 추천 일정</h4><ul class="gul">${L.map(c=>`<li><a href="${itinHref(c.key)}" data-itin="${c.key}">${esc(c.title)}</a></li>`).join("")}</ul></div>`; }
@@ -3503,7 +3509,7 @@ function detailHTML(it, htag, inDrawer){
   if(it.price) facts.push(["가격대","¥".repeat(it.price)+" (3단계 중 "+it.price+")"]);
   const mq = encodeURIComponent(`${it.jp} ${it.sub?placeQ(it):c.jp}`);
   const si = it.type==="spot" ? SIV.rows(it.id) : null;
-  return `<${htag}>${esc(it.name)}</${htag}><div class="jpn">${esc(it.jp)}</div><p>${esc(it.desc)}</p>
+  return `<${htag}>${esc(it.name)}</${htag}><div class="jpn">${esc(it.jp)}</div><p>${esc(it.desc)}</p>${typeof visitNote==="function"?visitNote(it):""}
    <dl class="facts">${facts.map(([a,b])=>`<dt>${a}</dt><dd>${esc(b)}</dd>`).join("")}${si?si.rows.map(([k,v])=>`<dt>${{fee:"입장료",hours:"운영 시간",closed:"휴무",status:"현재 상태"}[k]}</dt><dd class="si${k==="status"?" warn":""}">${v.map(x=>`<span>${esc(x)}</span>`).join("")}</dd>`).join(""):""}${typeof parkRow==="function"?parkRow(it):""}</dl>
    ${si?`${si.note?`<p class="sinote">${esc(si.note)}</p>`:""}<p class="sisrc">2026년 10월 기준 · 요금과 시간은 바뀔 수 있으니 방문 전에 공식 사이트에서 확인하세요.</p>`:""}
    ${typeof shopNote==="function"?shopNote(it):""}${typeof parkSrc==="function"?parkSrc(it):""}
