@@ -42,6 +42,14 @@ NOTES = {
 "Dotonbori est l'un des lieux les plus visités par les touristes. Avec de nombreux restaurants réputés et des boutiques réunis, son grand atout est de pouvoir tout faire au même endroit. Mais il y a tellement de monde que les restaurants populaires ont de longues files, et certains n'acceptent même pas la file d'attente. Pour les adresses qui vous tiennent à cœur, je recommande de réserver.",
 "道顿堀是游客最常去的地方之一。美食店很多，也能购物，最大的优点是在一个地方就能把所有事情做完。不过人实在太多，热门餐厅要排很久，甚至有的店不接受排队。特别想去的店建议提前预约。",
 "โดทงโบริเป็นหนึ่งในที่ที่นักท่องเที่ยวไปมากที่สุด มีร้านอาหารดังรวมกันอยู่เยอะและช้อปปิ้งได้ด้วย ข้อดีที่สุดคือทำทุกอย่างได้ในที่เดียว แต่คนเยอะมาก ร้านดังจึงต้องรอคิวนาน บางร้านถึงขั้นไม่รับคิวเลย ร้านที่อยากไปจริง ๆ แนะนำให้จองล่วงหน้า")),
+"kiyomizu": (["kiyomizu", "sannenzaka", "s_ninenzaka"], (
+"기요미즈데라로 가는 길은 정말 사람이 많아요. 조금이라도 여유롭게 구경하고 싶다면 새벽 일찍 출발하는 게 가장 좋아요. 올라가고 내려오는 길에 가게가 많아서 구경하는 재미도 있어요.",
+"The road up to Kiyomizu-dera is really crowded. If you want to look around with a bit more room, setting out very early in the morning is best. There are lots of shops along the way up and down, so browsing is part of the fun.",
+"清水寺へ向かう道は本当に人が多いです。少しでもゆったり見て回りたいなら、早朝に出発するのが一番です。上り下りの道にお店がたくさんあるので、見て歩く楽しさもあります。",
+"El camino hacia Kiyomizu-dera está lleno de gente. Si quieres verlo con algo más de calma, lo mejor es salir muy temprano por la mañana. Hay muchas tiendas en la subida y la bajada, así que curiosear también es parte de la diversión.",
+"Le chemin vers le Kiyomizu-dera est vraiment bondé. Pour visiter un peu plus tranquillement, le mieux est de partir très tôt le matin. Il y a beaucoup de boutiques à la montée comme à la descente, ce qui rend la balade amusante.",
+"去清水寺的路上人真的很多。想稍微轻松一点地游览的话，一大早出发最好。上山和下山的路上有很多小店，逛起来也很有乐趣。",
+"ทางไปวัดคิโยมิสึเดระคนเยอะมากจริง ๆ ถ้าอยากเที่ยวแบบสบายขึ้นสักหน่อย ออกเดินทางตั้งแต่เช้าตรู่ดีที่สุด ระหว่างทางขึ้นและลงมีร้านค้าเยอะ เดินดูก็สนุก")),
 }
 UI = [
 ("직접 다녀온 이야기", "From our own visit", "実際に行ってみて", "Nuestra visita", "Notre visite", "亲身体验", "จากการไปเที่ยวจริง"),
