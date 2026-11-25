@@ -50,6 +50,14 @@ NOTES = {
 "Le chemin vers le Kiyomizu-dera est vraiment bondé. Pour visiter un peu plus tranquillement, le mieux est de partir très tôt le matin. Il y a beaucoup de boutiques à la montée comme à la descente, ce qui rend la balade amusante.",
 "去清水寺的路上人真的很多。想稍微轻松一点地游览的话，一大早出发最好。上山和下山的路上有很多小店，逛起来也很有乐趣。",
 "ทางไปวัดคิโยมิสึเดระคนเยอะมากจริง ๆ ถ้าอยากเที่ยวแบบสบายขึ้นสักหน่อย ออกเดินทางตั้งแต่เช้าตรู่ดีที่สุด ระหว่างทางขึ้นและลงมีร้านค้าเยอะ เดินดูก็สนุก")),
+"hakata-ramen": (["hakataramen"], (
+"후쿠오카는 돈코츠 라멘으로 유명한데, 국물이 걸쭉하고 기름진 편이라 느끼한 걸 싫어하거나 돼지 냄새에 민감한 사람은 별로라고 느낄 수 있어요. 하지만 관광객도 쉽게 먹을 수 있게 냄새를 잡거나 맛을 대중적으로 바꾼 가게가 많아서, 후쿠오카에 간다면 한 번쯤은 꼭 먹어 보는 걸 추천해요.",
+"Fukuoka is famous for tonkotsu ramen. The broth is thick and rich, so people who dislike heavy, greasy food or are sensitive to the smell of pork may not like it. But many shops tone down the smell or make the flavour more approachable for visitors, so if you're in Fukuoka, I recommend trying it at least once.",
+"福岡は豚骨ラーメンで有名ですが、スープがこってりして脂っこいので、くどい味が苦手な人や豚の匂いに敏感な人は好みが分かれるかもしれません。でも観光客でも食べやすいように匂いを抑えたり、味を食べやすくしたりしたお店も多いので、福岡に行ったら一度はぜひ食べてみてください。",
+"Fukuoka es famosa por el ramen tonkotsu. El caldo es espeso y graso, así que a quien no le gusta lo pesado o es sensible al olor a cerdo puede no agradarle. Pero muchos locales suavizan el olor o hacen el sabor más accesible para los turistas, así que si vas a Fukuoka, te recomiendo probarlo al menos una vez.",
+"Fukuoka est célèbre pour ses ramen tonkotsu. Le bouillon est épais et riche, donc ceux qui n'aiment pas le gras ou qui sont sensibles à l'odeur du porc risquent de ne pas apprécier. Mais beaucoup d'établissements atténuent l'odeur ou rendent le goût plus accessible aux visiteurs : si vous passez à Fukuoka, je vous conseille d'y goûter au moins une fois.",
+"福冈以豚骨拉面闻名，汤头浓稠油腻，不喜欢油腻口味或对猪肉味敏感的人可能会不太喜欢。不过很多店为了让游客也容易入口，会去掉腥味或把口味调得更大众化，所以去福冈的话，推荐一定要吃一次。",
+"ฟุกุโอกะขึ้นชื่อเรื่องราเมงทงคตสึ น้ำซุปข้นและมันมาก คนที่ไม่ชอบอาหารเลี่ยนหรือไวต่อกลิ่นหมูอาจไม่ชอบ แต่มีหลายร้านที่ลดกลิ่นหรือปรับรสให้นักท่องเที่ยวกินง่ายขึ้น ถ้าไปฟุกุโอกะ แนะนำให้ลองกินสักครั้ง")),
 }
 UI = [
 ("직접 다녀온 이야기", "From our own visit", "実際に行ってみて", "Nuestra visita", "Notre visite", "亲身体验", "จากการไปเที่ยวจริง"),
