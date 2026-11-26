@@ -63,3 +63,15 @@ UI = [
 ("직접 다녀온 이야기", "From our own visit", "実際に行ってみて", "Nuestra visita", "Notre visite", "亲身体验", "จากการไปเที่ยวจริง"),
 ("Go Nihon Trip 운영자가 직접 다녀와서 쓴 글이에요.", "Written by the Go Nihon Trip editor after visiting in person.", "Go Nihon Tripの運営者が実際に訪れて書いた文章です。", "Escrito por el editor de Go Nihon Trip tras visitarlo en persona.", "Écrit par l'éditeur de Go Nihon Trip après une visite sur place.", "这是Go Nihon Trip运营者亲自去过后写的内容。", "เขียนโดยผู้ดูแล Go Nihon Trip หลังจากไปเที่ยวด้วยตัวเอง"),
 ]
+
+# 숙소 페이지용 경험담: 키 → (대상 목록 '도시' 또는 '도시/동네키', 7개 언어). 도시 숙소 첫 탭과 동네 페이지에 보여요.
+STAY_NOTES = {
+"osaka-where": (["osaka", "osaka/namba", "osaka/umeda"], (
+"오사카에서 숙소를 정할 때는 보통 도톤보리(난바)나 우메다를 많이 고르게 돼요. 첫 여행이라면 개인적으로 도톤보리를 더 추천해요. 맛집과 쇼핑 거리, 볼거리가 몰려 있어서 여행하기가 훨씬 수월하거든요. 우메다는 꼭 가고 싶은 식당이나 가게가 그쪽에 있을 때, 그리고 덜 시끄러운 곳을 원할 때 추천해요.",
+"When choosing where to stay in Osaka, most people pick either Dotonbori (Namba) or Umeda. For a first trip, I personally recommend Dotonbori: restaurants, shopping streets and sights are all packed together, which makes getting around much easier. I'd suggest Umeda if there's a restaurant or shop there you really want to visit, or if you prefer somewhere a little quieter.",
+"大阪で宿を決めるときは、たいてい道頓堀（なんば）か梅田を選ぶことが多いです。初めての旅行なら個人的には道頓堀のほうがおすすめです。グルメやショッピング街、見どころが集まっているので、ずっと旅がしやすいからです。梅田は、どうしても行きたいお店がそちらにある場合や、少し静かな場所がいい方におすすめです。",
+"Al elegir alojamiento en Osaka, la mayoría opta por Dotonbori (Namba) o Umeda. Para un primer viaje, personalmente recomiendo Dotonbori: restaurantes, calles comerciales y lugares de interés están concentrados, y moverse resulta mucho más fácil. Recomiendo Umeda si allí hay un restaurante o una tienda que de verdad quieres visitar, o si prefieres un lugar algo más tranquilo.",
+"Pour choisir où dormir à Osaka, la plupart des voyageurs optent pour Dotonbori (Namba) ou Umeda. Pour un premier voyage, je recommande personnellement Dotonbori : restaurants, rues commerçantes et sites à voir sont regroupés, ce qui rend le séjour bien plus simple. Je conseille Umeda si vous y visez un restaurant ou une boutique en particulier, ou si vous préférez un endroit un peu plus calme.",
+"在大阪选住处时，大多数人会选道顿堀（难波）或梅田。如果是第一次去，我个人更推荐道顿堀，美食、购物街和景点都集中在一起，旅行起来轻松很多。如果梅田那边有特别想去的餐厅或店铺，或者想住得安静一点，就推荐梅田。",
+"เวลาเลือกที่พักในโอซาก้า ส่วนใหญ่มักเลือกโดทงโบริ (นัมบะ) หรืออุเมดะ ถ้าไปครั้งแรก ส่วนตัวแนะนำโดทงโบริมากกว่า เพราะร้านอาหาร ถนนช้อปปิ้ง และที่เที่ยวรวมอยู่ใกล้กัน เที่ยวสะดวกกว่ามาก ส่วนอุเมดะแนะนำสำหรับคนที่มีร้านอาหารหรือร้านค้าที่อยากไปแถวนั้น หรือคนที่อยากได้ที่พักที่เงียบกว่า")),
+}

@@ -100,7 +100,7 @@ function stayNbPage(c,o){
    <nav class="wxcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${stayA("all",'<span itemprop="name">일본 숙소 추천과 예약 방법</span>').replace("<a ",'<a itemprop="item" ')}<meta itemprop="position" content="1"></span> › <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${stayA(c,`<span itemprop="name">${cn} 숙소 추천</span>`).replace("<a ",'<a itemprop="item" ')}<meta itemprop="position" content="2"></span></nav>
    <div class="ghead"><h2>${n} 숙소 추천</h2><p>${esc(o.for)}</p></div>
    <nav class="wxmon stjump">${a.opts.map(x=>stayA(c,esc(x.name),x.key===o.key?"on":"",x.key)).join("")}</nav>
-   <article class="gblk starea"><dl><dt>장점</dt><dd>${esc(o.pros)}</dd><dt>단점</dt><dd>${esc(o.cons)}</dd><dt>이런 분께</dt><dd>${esc(o.for)}</dd></dl></article>
+   <article class="gblk starea"><dl><dt>장점</dt><dd>${esc(o.pros)}</dd><dt>단점</dt><dd>${esc(o.cons)}</dd><dt>이런 분께</dt><dd>${esc(o.for)}</dd></dl></article>${typeof stayNote==="function"?stayNote(c,o.key):""}
    ${apRows?`<section class="stsec"><h3 class="sgh"><span>공항에서 시내 가는 법</span></h3><ul class="apmini">${apRows}</ul></section>`:""}
    ${spots.length?`<section class="stsec"><h3 class="sgh"><span>근처 관광지</span></h3>${near(spots.map(x=>`<li><a href="${placeHref(x.id)}" data-open="${x.id}"><b>${esc(x.name)}</b><span>${esc(x.desc)}</span></a></li>`).join(""))}</section>`:""}
    ${shops.length?`<section class="stsec"><h3 class="sgh"><span>근처 맛집</span></h3>${near(shops.map(x=>`<li><a href="${esc(shopHref(x)||"#")}" target="_blank" rel="noopener"><b>${esc(x.n)}</b><span>${esc([x.dish,x.feat].filter(Boolean).join(" · "))}</span></a></li>`).join(""))}</section>`:""}
@@ -152,6 +152,7 @@ V.stay = function(){
    <div class="ghead"><h2>${n} 숙소 추천</h2><p>${esc(a.sub)}</p></div>
    ${stayChips(c,t)}
    ${subTabs(tabs,t)}
+   ${t===""&&typeof stayNote==="function"?stayNote(c,""):""}
    <h3 class="sgh"><span>${esc((tabs.find(x=>x[0]===t)||tabs[0])[1])}</span></h3>
    ${body}
    ${faq?`<section class="gblk faq" itemscope itemtype="https://schema.org/FAQPage"><h4>자주 묻는 질문</h4><dl>${faq}</dl></section>`:""}

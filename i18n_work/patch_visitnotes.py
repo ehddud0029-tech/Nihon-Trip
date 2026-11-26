@@ -3,6 +3,10 @@
 import json, sys
 sys.path.insert(0, '/home/claude/i18n_work')
 from visit_notes import NOTES, UI
+try:
+    from visit_notes import STAY_NOTES
+except ImportError:
+    STAY_NOTES = {}
 W = '/home/claude'
 FILES = [f'{W}/tabishiori.html', f'{W}/i18n_work/backup/tabishiori.pre.html']
 byid = {}
@@ -10,14 +14,30 @@ for k, (ids, t) in NOTES.items():
     for i in ids: byid.setdefault(i, []).append(t[0])
 BLOCK = '''/*VISITNOTE_BEGIN*/
 const VISIT_NOTES = %s;
+const STAY_VNOTES = __STAYVN__;
+function stayNote(c,k){ const n=STAY_VNOTES[k?c+"/"+k:c]; if(!n) return "";
+  return `<div class="vnote"><h4>직접 다녀온 이야기</h4>${n.map(x=>`<p>${esc(x)}</p>`).join("")}<small>Go Nihon Trip 운영자가 직접 다녀와서 쓴 글이에요.</small></div>`; }
 function visitNote(it){ const n=it&&VISIT_NOTES[it.id]; if(!n) return "";
   return `<div class="vnote"><h4>직접 다녀온 이야기</h4>${n.map(x=>`<p>${esc(x)}</p>`).join("")}<small>Go Nihon Trip 운영자가 직접 다녀와서 쓴 글이에요.</small></div>`; }
 /*VISITNOTE_END*/''' % json.dumps(byid, ensure_ascii=False)
+svn = {}
+for k, (tg, t) in STAY_NOTES.items():
+    for x in tg: svn.setdefault(x, []).append(t[0])
+BLOCK = BLOCK.replace('__STAYVN__', json.dumps(svn, ensure_ascii=False))
+SR = [('<dt>이런 분께</dt><dd>${esc(o.for)}</dd></dl></article>', '<dt>이런 분께</dt><dd>${esc(o.for)}</dd></dl></article>${typeof stayNote==="function"?stayNote(c,o.key):""}'),
+      ('   ${subTabs(tabs,t)}\n   <h3 class="sgh"><span>${esc((tabs.find(x=>x[0]===t)||tabs[0])[1])}</span></h3>', '   ${subTabs(tabs,t)}\n   ${t===""&&typeof stayNote==="function"?stayNote(c,""):""}\n   <h3 class="sgh"><span>${esc((tabs.find(x=>x[0]===t)||tabs[0])[1])}</span></h3>')]
+def stayfix(s, fn):
+    for a, b in SR:
+        if b in s: continue
+        assert s.count(a) == 1, (fn, a[:40]); s = s.replace(a, b)
+    return s
+v = open(f'{W}/sitegen/stay_view.js', encoding='utf-8').read(); open(f'{W}/sitegen/stay_view.js', 'w', encoding='utf-8').write(stayfix(v, 'stay_view'))
 CSS = '/*VNCSS*/.vnote{margin:14px 0;padding:14px 16px;background:var(--surface,#fff);border:1px solid var(--line,#E3E6EC);border-left:4px solid #2E7D5B;border-radius:10px}.vnote h4{margin:0 0 6px;font-size:15px}.vnote p{margin:0 0 6px;line-height:1.8}.vnote small{color:var(--mute,#5A6272);font-size:12px}/*VNCSS_END*/'
 A = '<div class="jpn">${esc(it.jp)}</div><p>${esc(it.desc)}</p>'
 B = A + '${typeof visitNote==="function"?visitNote(it):""}'
 for fn in FILES:
     s = open(fn, encoding='utf-8').read()
+    s = stayfix(s, fn)
     if B not in s:
         assert s.count(A) >= 1, fn; s = s.replace(A, B)   # 상세 화면 두 곳(창·페이지)
     for beg, end, new, anchor in (('/*VISITNOTE_BEGIN*/', '/*VISITNOTE_END*/', BLOCK, '/*PITIN*/'), ('/*VNCSS*/', '/*VNCSS_END*/', CSS, '</style>')):
@@ -26,7 +46,7 @@ for fn in FILES:
         else:
             i = s.index(anchor); s = s[:i] + new + '\n' + s[i:]
     open(fn, 'w', encoding='utf-8').write(s); print('ok', fn)
-rows = [t for ids, t in NOTES.values()] + UI
+rows = [t for ids, t in NOTES.values()] + [t for tg, t in STAY_NOTES.values()] + UI
 D = f'{W}/i18n_work'
 open(f'{D}/tr_65.tsv', 'w', encoding='utf-8').write(''.join('\t'.join(r[:5]) + '\n' for r in rows))
 open(f'{D}/zh_66.tsv', 'w', encoding='utf-8').write(''.join(f'{r[0]}\t{r[5]}\n' for r in rows))
