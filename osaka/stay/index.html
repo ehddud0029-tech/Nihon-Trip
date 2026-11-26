@@ -36,14 +36,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Shippori+Mincho+B1:wght@700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="/app.css?v=b033f396">
+<link rel="stylesheet" href="/app.css?v=b9f2239d">
 <script>window.NT_BASE="/";(function(){var B=NT_BASE,p=location.pathname,r=p.toLowerCase().indexOf(B.toLowerCase())===0?p.slice(B.length):p.replace(/^\//,"");
 var cur=(r.match(/^(en|ja|zh|tw|th|es|fr)(\/|$)/)||[])[1]||"ko",q=(location.search.match(/[?&]lang=(ko|en|ja|zh|tw|th|es|fr)\b/)||[])[1],s=null;
 try{s=localStorage.getItem("tabishiori-lang")}catch(e){} if(q){try{localStorage.setItem("tabishiori-lang",q)}catch(e){}}
 var want=q||(cur==="ko"&&/^(en|ja|zh|tw|th|es|fr)$/.test(s||"")&&!/bot|crawl|spider|slurp|yeti|daum|bing/i.test(navigator.userAgent)?s:null);
 if(want&&want!==cur){var bare=cur==="ko"?r:r.replace(/^(en|ja|zh|tw|th|es|fr)\/?/,"");location.replace(B+(want==="ko"?"":want+"/")+bare+location.hash);return;}
 window.NT_LANG=cur;document.documentElement.lang=cur==="zh"?"zh-Hans":cur==="tw"?"zh-Hant":cur;
-if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b033f396"><\/script><script src="'+B+'engine.js?v=b033f396"><\/script>');})();</script>
+if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b9f2239d"><\/script><script src="'+B+'engine.js?v=b9f2239d"><\/script>');})();</script>
 </head>
 <body>
 <header class="top">
@@ -87,6 +87,7 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b033f396"><\/s
    <div class="ghead"><h2>오사카 숙소 추천</h2><p>오사카에 묵으며 교토·나라를 당일로 다녀오는 사람이 많아요. 교토에 오래 있다면 교토 숙박도 좋아요.</p></div>
    <div class="wxmon"><a href="/tokyo/stay/" data-stayc="tokyo" data-sub="">도쿄</a><a class="on" href="/osaka/stay/" data-stayc="osaka" data-sub="">오사카</a><a href="/fukuoka/stay/" data-stayc="fukuoka" data-sub="">후쿠오카</a><a href="/hokkaido/stay/" data-stayc="hokkaido" data-sub="">홋카이도</a><a href="/okinawa/stay/" data-stayc="okinawa" data-sub="">오키나와</a><a href="/nagoya/stay/" data-stayc="nagoya" data-sub="">나고야</a><a href="/hiroshima/stay/" data-stayc="hiroshima" data-sub="">히로시마</a><a href="/shikoku/stay/" data-stayc="shikoku" data-sub="">시코쿠</a></div>
    <nav class="dtabs sbtabs"><a href="/osaka/stay/" data-subtab="" class="on" aria-current="page">묵기 좋은 동네</a><a href="/osaka/stay/hotels/" data-subtab="hotels">추천 숙소</a><a href="/osaka/stay/booking/" data-subtab="booking">예약 방법</a></nav>
+   <div class="vnote"><h4>직접 다녀온 이야기</h4><p>오사카에서 숙소를 정할 때는 보통 도톤보리(난바)나 우메다를 많이 고르게 돼요. 첫 여행이라면 개인적으로 도톤보리를 더 추천해요. 맛집과 쇼핑 거리, 볼거리가 몰려 있어서 여행하기가 훨씬 수월하거든요. 우메다는 꼭 가고 싶은 식당이나 가게가 그쪽에 있을 때, 그리고 덜 시끄러운 곳을 원할 때 추천해요.</p><small>Go Nihon Trip 운영자가 직접 다녀와서 쓴 글이에요.</small></div>
    <h3 class="sgh"><span>묵기 좋은 동네</span></h3>
    <div class="stgrid"><article class="gblk starea"><h4><a href="/osaka/stay/namba/" data-stayc="osaka" data-sub="namba">난바·신사이바시</a></h4>
      <dl><dt>장점</dt><dd>간사이공항에서 난카이선으로 바로 오고, 도톤보리 먹거리가 코앞이에요.</dd><dt>단점</dt><dd>밤늦게까지 붐비고 시끄러워요. 교토로 갈 때는 우메다보다 조금 멀어요.</dd><dt>이런 분께</dt><dd>첫 오사카 여행, 맛집 탐방이 목적인 분</dd></dl><p class="stmore"><a class="more" href="/osaka/stay/namba/" data-stayc="osaka" data-sub="namba">난바·신사이바시 숙소 자세히 보기<i> →</i></a></p></article><article class="gblk starea"><h4><a href="/osaka/stay/umeda/" data-stayc="osaka" data-sub="umeda">우메다(오사카역)</a></h4>
@@ -118,10 +119,10 @@ if(cur!=="ko")document.write('<script src="'+B+'i18n/'+cur+'.js?v=b033f396"><\/s
 
 <div class="scrim" id="scrim" hidden=""></div>
 <aside class="drawer" id="drawer" hidden="" aria-modal="true" role="dialog"></aside>
-<script src="/areas.js?v=b033f396"></script>
-<script src="/autoreserve.js?v=b033f396"></script>
-<script src="/google_picks.js?v=b033f396"></script>
-<script src="/geo.js?v=b033f396"></script>
-<script src="/app.js?v=b033f396"></script>
+<script src="/areas.js?v=b9f2239d"></script>
+<script src="/autoreserve.js?v=b9f2239d"></script>
+<script src="/google_picks.js?v=b9f2239d"></script>
+<script src="/geo.js?v=b9f2239d"></script>
+<script src="/app.js?v=b9f2239d"></script>
 </body>
 </html>
